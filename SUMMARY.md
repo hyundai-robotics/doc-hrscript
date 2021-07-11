@@ -12,4 +12,12 @@
     * [주석문](basic-syntax/statement-type/comment.md)
     * [레이블](basic-syntax/statement-type/label.md)
   * [첫 번째 프로그램 - Hello, World !](basic-syntax/hello-world.md)
+  * [자료형 \(type\)](basic-syntax/type/README.md)
+    * [문자열 자료형](basic-syntax/type/undefined-2.md)
+    * [숫자 자료형](basic-syntax/type/undefined-1.md)
+    * [bool 자료형](basic-syntax/type/bool.md)
+    * [배열과 객체형](basic-syntax/type/undefined.md)
+  * [변수](basic-syntax/undefined.md)
+  * [2진수와 16진수](basic-syntax/2-16.md)
+  * [연산자와 수식](basic-syntax/undefined-1.md)
 
