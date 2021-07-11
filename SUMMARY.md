@@ -28,5 +28,9 @@
     * [기타 함수](basic-syntax/undefined/func-etc.md)
 * [제어문과 서브프로그램](flowcontrol-subprogram/README.md)
   * [주소 \(Address\)](flowcontrol-subprogram/address.md)
-  * [test](flowcontrol-subprogram/test.md)
+  * [stop문](flowcontrol-subprogram/test.md)
+* [외부장치와 통신하기](undefined/README.md)
+  * [fb객체 : 디지털 I/O](undefined/fb-i-o/README.md)
+    * [입출력 변수](undefined/fb-i-o/undefined-1.md)
+    * [예제](undefined/fb-i-o/undefined.md)
 
