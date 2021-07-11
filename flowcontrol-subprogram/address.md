@@ -5,7 +5,7 @@ description: >-
   행번호이고, 마지막 명령문 *err_handle은 레이블입니다.
 ---
 
-# 주소 \(Address\)
+# 3.1 주소 \(Address\)
 
 ```javascript
      move P,po3,spd=80%,accu=1,tool=3 until do33
