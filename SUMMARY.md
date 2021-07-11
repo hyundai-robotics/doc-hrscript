@@ -20,4 +20,12 @@
   * [변수](basic-syntax/variable.md)
   * [2진수와 16진수](basic-syntax/binary-hex-number.md)
   * [연산자와 수식](basic-syntax/operator-expression.md)
+  * [함수](basic-syntax/undefined/README.md)
+    * [수학 함수](basic-syntax/undefined/undefined.md)
+    * [문자열 함수](basic-syntax/undefined/undefined-1.md)
+    * [날짜, 시간 함수](basic-syntax/undefined/func-datetime.md)
+    * [생성자 함수](basic-syntax/undefined/func-creator.md)
+    * [기타 함수](basic-syntax/undefined/func-etc.md)
+* [제어문과 서브프로그램](flowcontrol-subprogram/README.md)
+  * [주소 \(Address\)](flowcontrol-subprogram/address.md)
 

@@ -37,7 +37,7 @@ HRScript가 지원하는 연산자는 아래와 같습니다. 위에 있을수�
   <thead>
     <tr>
       <th style="text-align:left">&#xC5F0;&#xC0B0;&#xC790;</th>
-      <th style="text-align:left">&#xC758;</th>
+      <th style="text-align:left">&#xC758;&#xBBF8;</th>
       <th style="text-align:left">&#xC608;</th>
     </tr>
   </thead>
