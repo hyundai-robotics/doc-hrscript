@@ -2,7 +2,7 @@
 
 명령문\(statement\)이란 JOB 프로그램의 실행 단위가 되는 각각의 명령 문자열을 말합니다. hrscript는 한 행에 1개의 명령문만을 허용합니다. 아래에 4개의 명령문의 예를 보였습니다. 내용을 이해할 필요는 없습니다. 대략적인 형태만 눈여겨보세요.
 
-```text
+```javascript
      move P,po3,spd=80%,accu=1,tool=3 until do33
 10   z_pos = (base_height+offset)*1.05
      # robot has to wait sensor2 input
