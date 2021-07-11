@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Initial page](README.md)
+* [Test page](README.md)
 * [개요](intro/README.md)
   * [HRScript의 소개](intro/hrscript.md)
 * [기본 문법](undefined-1/README.md)
