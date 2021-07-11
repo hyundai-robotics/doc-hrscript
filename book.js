@@ -21,7 +21,7 @@ module.exports = {
         }
     },
 
-    "pdf": {
+    pdf: {
         "fontSize": 9
     }
 };
