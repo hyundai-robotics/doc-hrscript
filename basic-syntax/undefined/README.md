@@ -6,7 +6,7 @@ HRScript는 매개변수로 입력을 받아 어떤 처리를 한 후 결과값�
 
 함수는 아래와 같이 수식의 일부로서 사용할 수 있습니다.
 
-```javascript
+```text
 var dg=60, rd
 rd=deg2rad(dg)
 

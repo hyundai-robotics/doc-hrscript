@@ -28,4 +28,5 @@
     * [기타 함수](basic-syntax/undefined/func-etc.md)
 * [제어문과 서브프로그램](flowcontrol-subprogram/README.md)
   * [주소 \(Address\)](flowcontrol-subprogram/address.md)
+  * [test](flowcontrol-subprogram/test.md)
 

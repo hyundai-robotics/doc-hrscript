@@ -17,7 +17,7 @@
         <br />
       </td>
       <td style="text-align:left">
-        <p>&#xB85C;&#xBD07;&#xC774; &#xCDE8;&#xD558;&#xACE0; &#xC788;&#xB294; &#xD604;&#xC7AC;
+        <p>&#xBD07;&#xC774; &#xCDE8;&#xD558;&#xACE0; &#xC788;&#xB294; &#xD604;&#xC7AC;
           &#xC790;&#xC138;(current pose)&#xB97C; crd&#xC88C;&#xD45C;&#xACC4;&#xB85C;
           &#xB9AC;&#xD134;&#xD569;&#xB2C8;&#xB2E4;.
           <br />
