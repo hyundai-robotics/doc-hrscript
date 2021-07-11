@@ -30,5 +30,10 @@ print width, message
 
 이미 값이 대입된 변수에 다른 값을 대입할 수도 있습니다. 갖고 있는 값이 변할 수 있기 때문에 변수\(variable\)이라고 부르는 것입니다.
 
+```javascript
+var width=200
+width=300
+```
+
 
 
