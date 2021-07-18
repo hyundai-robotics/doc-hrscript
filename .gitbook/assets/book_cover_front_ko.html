@@ -1,0 +1,24 @@
+<!DOCTYPE html:5>
+<html>
+<head>
+    <title>book cover front</title>
+    <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+    <link href="../../../css/book.css" type=text/css rel=stylesheet >
+</head>
+<body>
+    <img class="book-cover" src="../../../view/image/cover.png">
+	
+	<div class="book-series">
+        <%= bookinfo.series %>
+    </div><br>
+	<div class="book-title">
+		<%= bookinfo.title %>
+	</div><br>
+
+	<div id="bookinfo" style="display:none">
+		<div id="info-series"><%= bookinfo.series %></div>
+		<div id="info-title"><%= bookinfo.title %></div>
+        <div id="info-publisher"><%= bookinfo.publisher %></div>
+	</div>
+</body>
+</html>
