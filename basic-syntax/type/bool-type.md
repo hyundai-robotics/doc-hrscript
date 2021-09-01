@@ -2,7 +2,7 @@
 
 아래와 같은 논리, 비교연산의 결과로서 true\(참\)와 false\(거짓\)의 2가지 값만을 갖습니다.
 
-```javascript
+```python
 var x=true
 print false and x
 print 10 > 5

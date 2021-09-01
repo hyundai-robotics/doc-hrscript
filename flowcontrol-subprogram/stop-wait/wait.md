@@ -6,7 +6,7 @@
 
 ### 문법
 
-wait &lt;조건&gt;\[,&lt;제한시간&gt;,\]
+wait &lt;조건&gt;\[,&lt;제한시간&gt;,&lt;timeout 주소&gt;\]
 
 ### 파라미터
 
@@ -48,7 +48,7 @@ wait &lt;조건&gt;\[,&lt;제한시간&gt;,\]
 
 ### 사용 예
 
-```javascript
+```python
 wait sensor_ok
 wait (sensor_ok and pos_ok),10,*timeout
 ```

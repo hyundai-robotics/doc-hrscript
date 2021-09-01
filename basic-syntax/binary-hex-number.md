@@ -2,7 +2,7 @@
 
 앞에서 예를 든 숫자형 값들은 모두 10진수로 해석됩니다. 2진수나 16진수 값도 표현할 수 있는데 아래와 같이 각각 0b와 0x접두어를 붙여주면 됩니다.
 
-```javascript
+```python
 var binary = 0b10010011
 var hexadecimal = 0xFF4A38C0
 ```

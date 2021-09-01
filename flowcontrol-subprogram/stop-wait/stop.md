@@ -10,7 +10,7 @@ stop
 
 ### 사용 예
 
-```javascript
+```python
 if di9
   stop
 endif

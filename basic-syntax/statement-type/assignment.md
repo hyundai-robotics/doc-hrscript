@@ -4,7 +4,7 @@
 
 우변\(rvalue\)은 상수, 변수, 수식이 모두 허용됩니다.
 
-```text
+```python
 height=(500+margin)/2
 ```
 

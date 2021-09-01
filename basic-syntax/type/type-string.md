@@ -2,7 +2,7 @@
 
 앞 절의 첫 프로그램에서 print 문의 파라미터로서 "Hello, World" 라는 데이터를 사용했는데 이것은 문자열 자료형입니다. 문자열 자료형의 값은 큰 따옴표로 시작하고 끝납니다. 문자열 길이의 제한은 없습니다.
 
-```javascript
+```python
 print "Welcome to the Robot World."
 ```
 
@@ -10,13 +10,14 @@ print "Welcome to the Robot World."
 
 지원되는 이스케이프 문자는 아래 표와 같습니다.
 
-| \" | 큰 따옴표 \(double quote\) |
+|  |  |
 | :--- | :--- |
+| \" | 큰 따옴표 \(double quote\) |
 | \\ | 역 슬래시 \(backslash\) |
 | \t | 탭 \(tab\) |
 | \n | 개행 문자 |
 
-```javascript
+```python
 print "Message:\nPlease, press \"OK\" button."
 
 출력결과

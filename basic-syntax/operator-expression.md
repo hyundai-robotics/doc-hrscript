@@ -2,7 +2,7 @@
 
 아래의 예를 보면 숫자 값 500에 변수 margin을 더한 후 2로 나누어 height라는 변수에 대입하고 있습니다.
 
-```javascript
+```python
 var height, margin=10
 height=(500+margin)/2
 print height
@@ -26,7 +26,7 @@ print 10+10\*2
 
 
 
-```javascript
+```python
 var name="axis1", type="rotational"
 print name + ":" + type
 ```
@@ -194,7 +194,7 @@ HRScript가 지원하는 연산자는 아래와 같습니다. 위에 있을수�
 
 bool형의 피연산자를 비교연산자 없이 그대로 쓰면, 그 값이 true와 같은지를 뜻합니다. 예를 들어 아래의 두 행은 의미가 같습니다.
 
-```javascript
+```python
 var result= timeout
 var result= (timeout==true)
 ```
@@ -205,7 +205,7 @@ var result= (timeout==true)
 
 비교연산은 문자열이 다른지 같은지를 판단합니다.
 
-```javascript
+```python
 var response="ok"
 print response=="ok"
 print response=="ng"
@@ -215,7 +215,7 @@ print response=="ng"
 
 논리연산자의 피연산자로 수치를 사용할 경우, 수치가 0이면 false, 0이 아니면 true로 간주합니다.
 
-```javascript
+```python
 var count_a=1, count_b=0, height=100
 print count_a and height>99
 print count_b and height>99
