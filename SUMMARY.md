@@ -88,5 +88,6 @@
       * [post](external-comm/http_cli/http_cli-member-proc/http_cli-post.md)
       * [delete](external-comm/http_cli/http_cli-member-proc/http_cli-delete.md)
     * [6.3.4 HTTP client 통신 예제](external-comm/http_cli/http_cli-example.md)
-  * [6.4 티치펜던트 console bar로 입력받기](external-comm/tp-console-bar-input.md)
+  * [6.4 티치펜던트 console bar로 입력받기](external-comm/tp-console-bar-input/README.md)
+    * [6.4.1 input문](external-comm/tp-console-bar-input/input.md)
 
