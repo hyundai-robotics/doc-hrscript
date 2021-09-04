@@ -1,6 +1,6 @@
 # 6.1.1 입출력 변수
 
-![](../../.gitbook/assets/image%20%281%29%20%281%29%20%281%29.png)
+![](../../.gitbook/assets/image%20%281%29%20%281%29%20%281%29%20%281%29.png)
 
 do, dob, dow, dol, dof에서 접미사 b, w, l, f는 각기 byte, word, long, float를 뜻하며 모두부호있는 값\(signed value\)입니다. 이들은 별개의 메모리 공간이 아니라 같은 960 bit의 공간을 서로 다른 데이터형으로 표현한 것입니다. 예를 들어 do\[0~15\]와 dob\[0~1\], dow\[0\]은 모두 동일한 출력신호입니다. 인덱스는 do는 bit단위, dob, dow, dol, dof는 byte단위로 매겨집니다.
 
