@@ -41,7 +41,7 @@ input &lt;변수&gt;\[,&lt;제한시간&gt;,&lt;timeout 주소&gt;\]
       <td style="text-align:left"></td>
     </tr>
     <tr>
-      <td style="text-align:left">&#xC81C;&#xD55C;&#xC2DC;&#xC0B0;</td>
+      <td style="text-align:left">&#xC81C;&#xD55C;&#xC2DC;&#xAC04;</td>
       <td style="text-align:left">&#xC785;&#xB825;&#xC744; &#xB300;&#xAE30;&#xD560; &#xCD5C;&#xB300; &#xC81C;&#xD55C;
         &#xC2DC;&#xAC04; (timeout)</td>
       <td style="text-align:left">
