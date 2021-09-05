@@ -8,7 +8,7 @@ move P,po3,spd=80%,accu=1,tool=3 until do33
 
 프로시져 매개변수는 아래와 같이 3가지 종류가 있습니다.
 
-| 종 | 문법 | 예제 |
+| 종류 | 문법 | 예제 |
 | :--- | :--- | :--- |
 | 위치\(position\) 매개변수 | &lt;value&gt; | P, po3 |
 | 키워드\(keyword\) 매개변수 | &lt;keyword&gt;=&lt;value&gt; | spd=80%, accu=1, tool=3 |

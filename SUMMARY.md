@@ -6,6 +6,7 @@
 * [2. 기본 문법](basic-syntax/README.md)
   * [2.1 명령문](basic-syntax/statements.md)
   * [2.2 식별자](basic-syntax/identifier.md)
+  * [Untitled](basic-syntax/untitled.md)
   * [2.3 명령문의 종류](basic-syntax/statement-type/README.md)
     * [2.3.1 프로시져](basic-syntax/statement-type/procedure.md)
     * [2.3.2 대입문](basic-syntax/statement-type/assignment.md)
