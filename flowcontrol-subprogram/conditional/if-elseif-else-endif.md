@@ -1,6 +1,10 @@
 # 3.4.4. 복문 if~elseif~else~endif문
 
+### 설명
+
 조건이 여러 개일 경우에는 아래와 같은 형태로 elseif문을 사용할 수 있습니다.
+
+### 문법
 
 ```python
 if <bool 표현식>
@@ -18,7 +22,7 @@ else
 endif
 ```
 
-사용 예는 아래와 같습니다.
+### 사용 예
 
 ```python
 var pressure=95, limit_h=90, limit_m=80

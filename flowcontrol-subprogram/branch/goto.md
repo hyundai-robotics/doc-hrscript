@@ -20,7 +20,7 @@ goto &lt;주소&gt;
   </thead>
   <tbody>
     <tr>
-      <td style="text-align:left">&#xC8FC;</td>
+      <td style="text-align:left">&#xC8FC;&#xC18C;</td>
       <td style="text-align:left">
         <p>&#xBD84;&#xAE30;&#xD560; &#xC8FC;&#xC18C;</p>
         <p>&#xD589; &#xBC88;&#xD638;&#xC778; &#xACBD;&#xC6B0; &#xC0B0;&#xC220;&#xC2DD;&#xB3C4;
