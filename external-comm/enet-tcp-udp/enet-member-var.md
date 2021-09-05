@@ -5,7 +5,7 @@
     <tr>
       <th style="text-align:left">&#xBCC0;&#xC218;&#xBA85;</th>
       <th style="text-align:left">&#xB370;&#xC774;&#xD130;&#xD615;</th>
-      <th style="text-align:left">&#xC124;</th>
+      <th style="text-align:left">&#xC124;&#xBA85;</th>
     </tr>
   </thead>
   <tbody>
