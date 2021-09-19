@@ -1,2 +1,2 @@
-# 6. 외부장치와 통신하기
+# 6. Communicating with External Devices
 

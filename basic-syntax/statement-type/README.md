@@ -1,13 +1,13 @@
-# 2.3 명령문의 종류
+# 2.3 Types of Statements
 
-hrscript의 명령문에는 아래와 같이 4종류가 있습니다.
+The four types of statements of HRScript are as follows:
 
 
 
-* 프로시져 \(procedure\)
-* 대입문 \(assignment\)
-* 주석문 \(comment\)
-* 레이블 \(label\)
+* procedure
+* assignment
+* comment
+* label
 
 
 

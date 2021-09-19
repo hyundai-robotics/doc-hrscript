@@ -1,8 +1,10 @@
-# 2.3.2 대입문
+# 2.3.2 Assignment Statements
 
-대입문은 좌변과 대입 연산자\(=\), 우변으로 구성됩니다. 좌변\(lvalue\)는 반드시 값을 저장할 수 있는 변수여야 합니다. 상수나 수식은 허용되지 않습니다.
+An assignment statement consists of the left side, the assignment operator \(=\), and the right side. The left side \(lvalue\) must be a variable that can store a value. No constants or expressions are allowed. 
 
-우변\(rvalue\)은 상수, 변수, 수식이 모두 허용됩니다.
+On the other hand, constants, variables, and expressions are allowed on the right side \(rvalue\).
+
+
 
 ```python
 height=(500+margin)/2

@@ -1,26 +1,28 @@
-# 2.5.1 문자열 자료형
+# 2.5.1 String Data Type
 
-앞 절의 첫 프로그램에서 print 문의 파라미터로서 "Hello, World" 라는 데이터를 사용했는데 이것은 문자열 자료형입니다. 문자열 자료형의 값은 큰 따옴표로 시작하고 끝납니다. 문자열 길이의 제한은 없습니다.
+The first program in the previous paragraph used the data “Hello, World!” as the print statement’s parameter, a string data type. The value of the string data type begins and ends with double quotes. There is no limit for the length of the string.
 
 ```python
 print "Welcome to the Robot World."
 ```
 
-문자열 내의 따옴표 혹은 특수 문자를 표현하기 위해 역슬래시\(\\)로 시작하는 시퀀스가 사용됩니다. 이러한 시퀀스를 이스케이프\(escape\) 문자라고 합니다.
+A sequence beginning with a backslash \(\\) represents double quotes or special characters in a string. This sequence is called the “escape character.”
 
-지원되는 이스케이프 문자는 아래 표와 같습니다.
+The supported escape characters are shown in the table below.
+
+
 
 |  |  |
 | :--- | :--- |
-| \" | 큰 따옴표 \(double quote\) |
-| \\ | 역 슬래시 \(backslash\) |
-| \t | 탭 \(tab\) |
-| \n | 개행 문자 |
+| \" | Double quotes |
+| \\ | Backslash |
+| \t | Tab |
+| \n | New line character |
 
 ```python
 print "Message:\nPlease, press \"OK\" button."
 
-출력결과
+# Result of print
 Message:
 Please, press "OK" button.
 ```

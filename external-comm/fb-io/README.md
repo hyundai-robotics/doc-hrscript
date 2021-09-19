@@ -1,4 +1,4 @@
-# 6.1 fb객체 : 디지털 I/O
+# 6.1 FB Object: Digital I/O
 
-HRScript에서 접근할 수 있는 총 10개의 fb객체를 통해 디지털 I/O 입출력을 할 수 있습니다. fb는 Fieldbus Block이라는 의미이며, 각 fb 객체는 로봇제어기에 장착된 I/O 하드웨어에 매핑되도록 설정되며, 출력변수와 입력변수들을 요소로서 포함하고 있습니다.
+Digital input/output \(I/O\) can be performed through 10 FB objects that can be accessed from HRScript. “FB” refers to fieldbus block, and each FB object is set to be mapped to the I/O hardware installed in the robot controller and contains input and output variables as elements.
 

@@ -1,14 +1,14 @@
 # connect
 
-### 설명
+### Description
 
-이더넷 TCP 통신을 위한 연결을 수행합니다.
+Performs a connection for Ethernet TCP communication
 
-### 문법
+### Syntax
 
-&lt;ENet객체&gt;.connect
+&lt;ENet object&gt;.connect
 
-### 사용 예
+### Example
 
 ```python
 enet_to_sensor.connect

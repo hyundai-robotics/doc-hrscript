@@ -1,37 +1,41 @@
-# 3.3.1 goto 문
+# 3.3.1 goto
 
-### 설명
+### Description
 
-지정한 주소로 분기합니다.
+Makes it possible to go to a designated address.
 
-### 문법
+### Syntax
 
-goto &lt;주소&gt;
+goto &lt;address&gt;
 
-### 파라미터
+### Parameter
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">&#xD56D;&#xBAA9;</th>
-      <th style="text-align:left">&#xC758;&#xBBF8;</th>
-      <th style="text-align:left">&#xAE30;&#xD0C0;</th>
+      <th style="text-align:left">Parameter</th>
+      <th style="text-align:left">Description</th>
+      <th style="text-align:left">Remarks</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align:left">&#xC8FC;&#xC18C;</td>
+      <td style="text-align:left">address</td>
       <td style="text-align:left">
-        <p>&#xBD84;&#xAE30;&#xD560; &#xC8FC;&#xC18C;</p>
-        <p>&#xD589; &#xBC88;&#xD638;&#xC778; &#xACBD;&#xC6B0; &#xC0B0;&#xC220;&#xC2DD;&#xB3C4;
-          &#xAC00;&#xB2A5;</p>
+        <p>Address to go to
+          <br />
+        </p>
+        <p>An arithmetic expression is possible in the case of a line number.
+          <br
+          />
+        </p>
       </td>
       <td style="text-align:left"></td>
     </tr>
   </tbody>
 </table>
 
-### 사용 예
+### Example
 
 ```python
 goto 99

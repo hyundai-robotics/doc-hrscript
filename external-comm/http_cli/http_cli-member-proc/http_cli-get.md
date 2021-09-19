@@ -1,16 +1,18 @@
 # get
 
-### 설명
+### Description
 
-HTTP GET 서비스를 요청합니다.
+Requests the HTTP get service
 
-응답 데이터는 body 속성으로 받습니다.
+The response data is to be received to the body property.
 
-### 문법
 
-&lt;HttpCli객체&gt;.get &lt;URL 문자열&gt;
 
-### 사용 예
+### Syntax
+
+&lt;HttpCli object&gt;.get &lt;URL string&gt;
+
+### Example
 
 ```python
 var domain="http://192.168.1.200:8888"

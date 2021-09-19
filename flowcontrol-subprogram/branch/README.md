@@ -1,4 +1,4 @@
-# 3.3 분기문
+# 3.3 Branch Statement
 
-조건없이 다른 주소로 분기합니다.
+Makes it possible to go to a different address, without conditions.
 

@@ -1,29 +1,24 @@
-# 2.2 식별자
+# 2.2 Identifiers
 
-앞으로 설명될 명령어, 변수, 함수, 레이블은 모두 이름을 가지고 있습니다. 이 이름들을 식별자\(identifier\)라고 통칭합니다. 식별자를 정할 때는 다음과 같은 hrscript의 식별자 규칙을 따라야만 합니다.
+Names must be given to commands, variables, functions, and labels that are described. These names are collectively referred to as “identifiers.” When deciding an identifier, it must comply with the following rules for the HRScript’s identifiers.
 
-* 영문 대소문자과 숫자, 밑줄\(underscore\)로만 구성됩니다.
-* 첫 글자로는 숫자가 허용되지 않습니다. 반드시 대소문자, 혹은 밑줄이어야 합니다.
-* 
-  공백이나 tab을 포함할 수 없습니다.
+* It must consist only of uppercase and lowercase letters, numbers, and underscores.
+* The first character must only be either a lowercase or uppercase letter or an underscore, not a number.
+* It should not contain a space or tab.
+* Identifiers already defined in the system, such as “if” and “for,” cannot be used.
+* There is no limit to the length.
 
-* 
-  if, for 등 시스템에서 이미 정의한 식별자는 사용할 수 없습니다.
-
-* 
-  길이는 제약이 없습니다.
-
-다음은 식별자의 올바른 예와 잘못된 예입니다.
+The following shows correct and incorrect examples of identifiers:
 
 ```text
 myvar (O) 
 myvar2 (O)
 _myvar (O)
-MyVar (0)
-310a (X) ; 숫자로 시작.
-move (X) ; 시스템에 이미 정의된 식별자
-v300$ ; 밑줄 이외의 기호($) 사용
-my var (X) ; 공백 포함
+MyVar (O)
+310a (X) – Started with a number
+move (X) – An identifier already defined in the system
+v300$ (X) – Used a symbol other than an underscore ($)
+my var (X) – Included a space
 ```
 
 

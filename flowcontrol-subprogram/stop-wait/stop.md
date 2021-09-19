@@ -1,14 +1,14 @@
-# 3.2.1 stop문
+# 3.2.1 stop
 
-### 설명
+### Description
 
-프로그램을 정지시킵니다. 재기동하면 다음 행부터 계속 수행합니다.
+This will stop the program. When the program is restarted, execution will continue from the next line.
 
-### 문법
+### Syntax
 
 stop
 
-### 사용 예
+### Example 
 
 ```python
 if di9

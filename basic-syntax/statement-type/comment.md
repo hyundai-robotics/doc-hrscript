@@ -1,10 +1,10 @@
-# 2.3.3 주석문
+# 2.3.3 Comment Statements
 
-job 프로그램의 내용을 이해하기 쉽도록 설명하는데 사용합니다. 주석문은 실행 되더라도 아무 동작도 수행되지 않습니다. 아래와 같이 해시 기호\(\#\) 뒤에 설명을 붙이는 형식입니다. 하나의 명령문으로서 사용할 수도 있고 다른 명령문 뒤에 붙일 수도 있습니다.
+A comment statement is used to describe the contents of the job program in a way that they can be understood easily. Even if the comment statement is executed, no operation is performed. As shown below, a description is attached after the hash sign \(\#\). It can be used as a single statement or attached after another statement.
 
 ```python
 # robot has to wait sensor2 input
-var work_w,work_h  # 작업물의 너비와 높이
+var work_w,work_h  # width and height of a workpiece
 ```
 
 

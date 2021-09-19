@@ -1,18 +1,18 @@
 # post
 
-### 설명
+### Description
 
-HTTP POST 서비스를 요청합니다.
+Requests the HTTP post service.
 
-전송할 데이터는 body 속성에 미리 대입해 두어야 합니다.
+It is required to assign the data, which is to be transmitted, to the body property in advance.
 
-응답 데이터는 body 속성으로 받습니다.
+The response data is to be received to the body property.
 
-### 문법
+### Syntax
 
-&lt;HttpCli객체&gt;.post &lt;URL 문자열&gt;
+&lt;HttpCli object&gt;.post &lt;URL string&gt;
 
-### 사용 예
+### Example
 
 ```python
 var domain="http://192.168.1.200:8888"

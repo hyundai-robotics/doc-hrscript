@@ -1,16 +1,16 @@
 # delete
 
-### 설명
+### Description
 
-HTTP DELETE 서비스를 요청합니다.
+Request the HTTP delete service. 
 
-body 속성은 사용되지 않습니다.
+The body property is not be used.
 
-### 문법
+### Syntax
 
-&lt;HttpCli객체&gt;.delete &lt;URL 문자열&gt;
+&lt;HttpCli object&gt;.delete &lt;URL string&gt;
 
-### 사용 예
+### Example
 
 ```python
 var domain="http://192.168.1.200:8888"

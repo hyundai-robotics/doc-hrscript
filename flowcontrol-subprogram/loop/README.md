@@ -1,4 +1,4 @@
-# 3.6 반복문
+# 3.6 Loop Statements
 
-같은 동작을 여러 번 반복하고자 할 때 반복문을 사용합니다.
+Loop statements can be used when the same operation needs to be repeated multiple times.
 

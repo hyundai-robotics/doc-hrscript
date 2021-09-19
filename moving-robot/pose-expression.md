@@ -1,19 +1,19 @@
-# 5.3 포즈식 \(pose expression\)
+# 5.3 Pose Expression
 
-결과값이 포즈가 되는 수식을 포즈식이라고 합니다.
+The expression in which the result value becomes a pose is called a “pose expression.” 
 
-아래와 같은 형태가 모두 포즈식으로 인식됩니다.
-
-
+All the following forms are recognized as poses.
 
 ```python
-포즈
-포즈+시프트
-포즈-시프트
-포즈+시프트+시프트+…
+Pose
+Pose+Shift
+Pose-Shift
+Pose+Shift+Shift+…
 ```
 
-포즈식의 결과를 다른 포즈 변수에 대입하는 아래의 예를 참고하십시오.
+
+
+Refer to the following example of assigning the result of a pose expression to another pose variable.
 
 ```python
 var po1 = Pose(10, 90, 0, 0, -30, 0)

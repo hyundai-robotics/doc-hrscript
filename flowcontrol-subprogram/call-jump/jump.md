@@ -1,22 +1,22 @@
-# 3.7.3 jump문
+# 3.7.3 jump
 
-### 설명
+### Description
 
-jump 문의 형식은 아래와 같습니다. 
+This format is completely identical to that of call statements, and its action is also similar to that of **call** statements.
 
-### 문법
+The only difference is that, while a **call** statement returns to the main program using an end program, a **jump** statement does not.
+
+### Syntax
 
 ```python
-jump <JOB번호 혹은 파일이름> [,매개변수1,매개변수2,…]
+jump <job number or file name> [,parameter 1,parameter 2,…]
 ```
 
-형식이 call문과 완전히 동일하며 동작도 유사합니다.
 
-유일한 차이점은 call 문은 end문에 의해서 주 프로그램으로 리턴하지만, jump문은 리턴하지 않는다는 점입니다.
 
-### 사용 예
+### Example
 
-call문 설명에서 본 예제 프로그램을 jump문으로 바꾸어 실행해 보면 결과는 아래와 같습니다. 서브프로그램\(0102\_err\)의 end를 만났을 때, 동작 사이클이 종료됩니다. 다음 동작 사이클을 수행하면, 주 프로그램\(0001\)의 처음부터 수행됩니다.
+If the jump statement of this example program is replaced with a **call** statement, the result of the replaced program will be as follows. When the **end** of the sub-program \(0102\_err\) is encountered, the action cycle will end. If the next action cycle is executed, the main program \(0001\) will be executed from the start.
 
 <table>
   <thead>
@@ -55,7 +55,7 @@ call문 설명에서 본 예제 프로그램을 jump문으로 바꾸어 실행�
       </td>
     </tr>
     <tr>
-      <td style="text-align:left">&#xACB0;&#xACFC;</td>
+      <td style="text-align:left">Result</td>
       <td style="text-align:left">
         <p>main job start
           <br />

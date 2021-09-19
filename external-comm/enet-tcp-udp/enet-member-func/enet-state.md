@@ -1,36 +1,38 @@
 # state
 
-### 설명
+### Description
 
-이더넷 객체의 상태를 리턴합니다.
+Returns the state of the Ethernet object
 
-### 문법
+### Syntax
 
-&lt;ENet객체&gt;.state\(\)
+&lt;ENet object&gt;.state\(\)
 
 
 
-### 리턴값
+### Return Value
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">&#xAC12;</th>
-      <th style="text-align:left">&#xC758;&#xBBF8;</th>
-      <th style="text-align:left">&#xAE30;&#xD0C0;</th>
+      <th style="text-align:left">Parameter</th>
+      <th style="text-align:left">Description</th>
+      <th style="text-align:left">Remarks</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="text-align:left">1</td>
       <td style="text-align:left">
-        <p>&#xC5F0;&#xACB0;&#xB428;.
+        <p>Connected
           <br />
         </p>
-        <p>(UDP&#xC77C; &#xB54C;&#xB294; open&#xB9CC; &#xD574;&#xB3C4; &#xC5F0;&#xACB0;&#xB85C;
-          &#xAC04;&#xC8FC;&#xB429;&#xB2C8;&#xB2E4;. TCP&#xC77C; &#xB54C;&#xB294;
-          open &#xD6C4; connect&#xB3C4; &#xC218;&#xD589;&#xD574;&#xC57C; &#xC5F0;&#xACB0;&#xB85C;
-          &#xAC04;&#xC8FC;&#xB429;&#xB2C8;&#xB2E4;.)
+        <p>(In the case of UDP, just opening it will be considered a connection.
+          In the case of TCP, connecting after opening will be considered a connection.)
+          <br
+          />
+        </p>
+        <p>
           <br />
         </p>
         <p>
@@ -47,25 +49,23 @@
     </tr>
     <tr>
       <td style="text-align:left">0</td>
-      <td style="text-align:left">&#xC5F0;&#xACB0; &#xC548;&#xB428;.</td>
+      <td style="text-align:left">Not connected</td>
       <td style="text-align:left"></td>
     </tr>
     <tr>
       <td style="text-align:left">-1</td>
-      <td style="text-align:left">&#xC774;&#xB354;&#xB137;&#xC18C;&#xCF13; &#xC0DD;&#xC131; &#xC2E4;&#xD328;</td>
-      <td
-      style="text-align:left"></td>
+      <td style="text-align:left">Failed to create the Ethernet socket</td>
+      <td style="text-align:left"></td>
     </tr>
     <tr>
       <td style="text-align:left">-2</td>
-      <td style="text-align:left">&#xC774;&#xB354;&#xB137;&#xC7A5;&#xCE58; BIND &#xC2E4;&#xD328;</td>
-      <td
-      style="text-align:left"></td>
+      <td style="text-align:left">Failed to bind the Ethernet device</td>
+      <td style="text-align:left"></td>
     </tr>
   </tbody>
 </table>
 
-### 사용 예
+### Example
 
 ```python
 ret = enet_to_sensor.state()

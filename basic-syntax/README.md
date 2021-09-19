@@ -1,4 +1,4 @@
-# 2. 기본 문법
+# 2. Basic Syntax
 
-먼저, hrscript의 기본 용어들을 설명합니다. 변수를 정의하는 방법, 그리고 연산자를 사용해 간단한 수식을 구성하고 그 결과값을 변수에 대입하는 방법을 따라가면서, job 프로그램의 기본적인 개념을 이해해 보도록 하겠습니다.
+Described in this section are the basic terms of HRScript. The basic concept of the job program could be understood by following the method for defining a variable, constructing a simple expression using operators, and assigning the resulting value to a variable.
 

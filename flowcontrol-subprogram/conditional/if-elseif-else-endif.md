@@ -1,37 +1,37 @@
-# 3.4.4. 복문 if~elseif~else~endif문
+# 3.4.4. if-elseif-else-endif
 
-### 설명
+### Description
 
-조건이 여러 개일 경우에는 아래와 같은 형태로 elseif문을 사용할 수 있습니다.
+In the case of multiple conditions, the elseif statement can be used in the following form.
 
-### 문법
+### Syntax
 
 ```python
-if <bool 표현식>
-	<명령문 A>
+if <bool expression>
+	<statement A>
 	…
-elseif <bool 표현식>
-	<명령문 B>
+elseif <bool expression>
+	<statement B>
 	…
-elseif <bool 표현식>
-	<명령문 C>
+elseif <bool expression>
+	<statement C>
 	…
 else
-	<명령문 N>
+	<statement N>
 	…
 endif
 ```
 
-### 사용 예
+### Example
 
 ```python
 var pressure=95, limit_h=90, limit_m=80
 if pressure > limit_h
-	print "경고: 압력이 매우 높습니다."
+	print "warning : pressure is too high."
 elseif pressure > limit_m
-	print "알림: 압력이 높습니다.."
+	print "notification: pressure is high."
 else
-	print "정상 동작 중."
+	print "in normal operation."
 endif
 end
 ```

@@ -1,2 +1,2 @@
-# 4. 배열과 객체
+# 4. Arrays and Objects
 

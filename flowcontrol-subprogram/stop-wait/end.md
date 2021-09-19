@@ -1,14 +1,14 @@
-# 3.2.2 end문
+# 3.2.2 end
 
-### 설명
+### Description
 
-프로그램을 정지시킵니다. 연속 재생모드이거나 재기동하면 주 프로그램의 처음부터 다시 수행합니다.
+This will stop the program. Execution will restart from the beginning of the main program when in continuous playback mode or in restart mode.
 
-### 문법
+### Syntax
 
 end
 
-### 사용 예
+### Example
 
 ```python
 move p,spd=70%,accu=1,tool=0

@@ -1,24 +1,26 @@
-# 5.5 사용자좌표계 \(UCS ; User Coordinate System\)
+# 5.5 User Coordinate System \(UCS\)
 
-사용자좌표계는 사용자가 위치와 방향을 설정할 수 있는 좌표계입니다.
+The user coordinate system is a coordinate system in which the user can set the position and direction.
 
-사용자좌표계는 생성자 함수 Ucs\( \)를 호출하여 생성합니다. 
+It is created by calling the constructor function Ucs\( \). 
 
 
 
-함수 매개변수는 포즈 1개 혹은 포즈 3개입니다. 포즈 1개로 호출하면, 포즈의 위치와 방향이 좌표계의 원점과 방향으로 설정됩니다. 포즈 3개로 호출하면 pose1의 위치가 좌표계 원점, pose2의 위치가 좌표계 X축, pose3 위치가 좌표계 XY평면 상에 있도록 좌표계가 생성됩니다.
+Function parameters are one pose or three poses. When calling is performed with one pose, the pose’s position and direction will be set as the origin and direction of the coordinate system. When calling is performed with three poses, the coordinate system will be created so that pose1 is positioned on the coordinate system’s origin, pose2 is on the x axis of the coordinate system, and pose3 is positioned on the XY plane of the coordinate system.
+
+
 
 ```python
-var UCS변수명 = Ucs(pose1)
-var UCS변수명 = Ucs(pose1, pose2, pose3)
+var <UCS variable name> = Ucs(pose1)
+var <UCS variable name> = Ucs(pose1, pose2, pose3)
 ```
 
-시스템에 사용자좌표계를 등록하려면 mkucs 함수를 사용합니다. 인수는 Ucs 생성자와 비슷하지만 첫 번째 인수로서 사용자좌표계 번호\(1 이상\)가 입력됩니다.
+The mkucs function should be used to register a user coordinate system in the system. The argument is similar to the Ucs constructor, but the user coordinate system number \(one or more\) will be inputted as the first argument.
 
 ```python
 var res = mkucs(num, pose1)
 var res = mkucs(num, pose1, pose2, pose3)
 ```
 
-성공하면 0, 실패하면 에러코드를 음수로 리턴합니다.
+0 will be returned if successful. An error code of a negative number will be returned if failed.
 

@@ -1,15 +1,15 @@
-# 4.1.3 배열 생성자 함수
+# 4.1.3 Array Constructor Function
 
-수 백개의 요소를 가진 배열을 생성하고자 한다면, \[ \] 표기만으로는 어렵습니다. 생성자 함수를 호출하면 원하는 개수의 배열을 생성할 수 있습니다. 각 요소는 0으로 초기화됩니다.
+It is difficult to create an array with hundreds of elements with the notation \[ \] alone. Any number of arrays may be created by calling the constructor function. Each element will be initialized to 0.
 
 ```python
-var 배열변수명 = Array(900)	# 900개의 요소를 가진 배열 생성
+var name = Array(900)	# creates an array of 900 elements
 ```
 
-인수를 2개 이상 지정하면 다차원 배열을 생성할 수 있습니다. 아래 3차원 배열의 예에서는 \[4\]가 최하위 차원\(dimension\)입니다.
+If two or more elements are designated, a multidimensional array can be created. In the following example of a 3-dimensional array, \[4\] is the lowest dimension.
 
 ```python
-var 배열변수명 = Array(3,2,4)	# [3][2][4]개의 3차원 배열 생성
+var name = Array(3,2,4)	# [3][2][4] numbers of 3-dimensional arrays are created
 # [ [[0,0,0,0], [0,0,0,0]], [[0,0,0,0], [0,0,0,0]], [[0,0,0,0], [0,0,0,0]] ]
 ```
 

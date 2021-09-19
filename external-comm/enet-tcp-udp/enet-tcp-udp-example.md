@@ -1,26 +1,27 @@
-# 6.2.5 TCP, UDP 통신 예제
+# 6.2.5 Examples of TCP and UDP Communication
 
 ```python
      import enet
      global msg
-     global enet0=enet.ENet() # TCP 통신인 경우, ENet("tcp")
+     global enet0=enet.ENet() # ENet("tcp") in case of TCP communication
 
      # port no. 49152–65535 contains dynamic or private ports
      enet0.ip_addr="192.168.1.172"
-     enet0.lport=51001 # UDP 통신에서만 필요
+     enet0.lport=51001 # necessary only in case of UDP communication
      enet0.rport=51002
 
      enet0.open
-     enet0.connect # TCP 통신에서만 필요
-     print enet0.state() # 1이면 정상
+     enet0.connect # necessary only in case of TCP communication
+     print enet0.state() # normal if it is 1
      enet0.send "hello, "+"udp", 300, "\n"
 
-     enet0.recv msg, 8000 # 8초간 대기
+     enet0.recv msg, 8000 # wait for 8 seconds
      print msg
      delay 1.5
      enet0.close
-     print enet0.state() # 0이면 정상
+     print enet0.state() # normal if it is 0
      delay 1.5
      end
+
 ```
 

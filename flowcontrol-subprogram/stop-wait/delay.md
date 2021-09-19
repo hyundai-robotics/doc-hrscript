@@ -1,36 +1,40 @@
-# 3.2.3 delay문
+# 3.2.3 delay
 
-### 설명
+### Description
 
-지정한 시간 동안 대기한 후 다음 명령문으로 진행합니다.
+Makes it possible to progress to the next command statement after waiting for a designated time.
 
-### 문법
+### Syntax
 
-delay &lt;시간&gt;
+delay &lt;time&gt;
 
-### 파라미터
+### Parameter
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">&#xD56D;&#xBAA9;</th>
-      <th style="text-align:left">&#xC758;&#xBBF8;</th>
-      <th style="text-align:left">&#xAE30;&#xD0C0;</th>
+      <th style="text-align:left">Parameter</th>
+      <th style="text-align:left">Description</th>
+      <th style="text-align:left">Remarks</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align:left">&#xC2DC;&#xAC04;</td>
-      <td style="text-align:left">&#xB300;&#xAE30;&#xD560; &#xC2DC;&#xAC04;</td>
+      <td style="text-align:left">Time</td>
+      <td style="text-align:left">Time to wait</td>
       <td style="text-align:left">
-        <p>&#xC0B0;&#xC220;&#xC2DD;</p>
-        <p>0.1~60.0 sec</p>
+        <p>Arithmetic expression
+          <br />
+        </p>
+        <p>0.1~60.0 sec
+          <br />
+        </p>
       </td>
     </tr>
   </tbody>
 </table>
 
-### 사용 예
+### Example
 
 ```python
 delay 3.5

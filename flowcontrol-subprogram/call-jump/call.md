@@ -1,20 +1,20 @@
-# 3.7.1 call문
+# 3.7.1 call
 
-### 설명
+### Description
 
-HRScript에서 메인 프로그램\(main program\)과 서브 프로그램\(sub program\) 간의 형식 상의 큰 차이는 없습니다. 기동 버튼이나 신호로 처음 실행된 JOB은 주 프로그램이고, call 명령문에 의해 호출된 JOB은 모두 서브 프로그램입니다. 
+There is no significant difference in format between the main program and the subprogram in HRScript. The first job executed by the start button or by a signal is the main program, and all other jobs called by the **call** statement are subprograms. 
 
-### 문법
+### Syntax
 
 ```python
-call <JOB번호 혹은 파일이름> [,매개변수1,매개변수2,…]
+call <job number or file name> [,parameter 1,parameter 2,…]
 ```
 
-call 뒤에 JOB 번호, 혹은 JOB파일이름\(확장자 제외\)을 지정합니다. A라는 프로그램이 수행되다가 call B를 만나면 A의 수행은 중단되고, 서브프로그램인 B 프로그램의 첫 명령문부터 수행이 계속됩니다. B 수행 중 end문이나 return 문을 만나면 호출했던 A 프로그램 call문의 다음 명령문 위치로 복귀하여 A의 수행을 계속하게 됩니다.
+Specify the job number of the job file name \(excluding the extension\) after the **call** statement. Then, while program A is being executed, if call B is encountered, A’s execution will be stopped, and the first statement of program B, a subprogram, will continue to be executed. If the **end** statement is encountered while B is being executed, program A’s execution will continue upon returning to the position of the next statement of program A’s **call** statement that was previously called.
 
-### 사용 예
+### Example
 
-아래는 call 문에 의한 서브프로그램 호출의 예와 그 결과입니다. 서브프로그램이 하는 일이 print문 1개 뿐이라 프로그램을 둘로 분리한 것이 의미없어 보이기는 하지만 뒤에서 좀 더 실제적인 예를 보이도록 하겠습니다.
+The following shows an example and the result of a subprogram called by a **call** statement. It seems meaningless to divide the program into two because the subprogram must handle only one print statement. However, a more practical example will be shown later.
 
 <table>
   <thead>
@@ -53,7 +53,7 @@ call 뒤에 JOB 번호, 혹은 JOB파일이름\(확장자 제외\)을 지정합�
       </td>
     </tr>
     <tr>
-      <td style="text-align:left">&#xACB0;&#xACFC;</td>
+      <td style="text-align:left">Result</td>
       <td style="text-align:left">
         <p>main job start
           <br />

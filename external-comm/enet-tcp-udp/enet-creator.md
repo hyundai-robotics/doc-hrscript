@@ -1,47 +1,50 @@
-# 6.2.1 생성자
+# 6.2.1 Constructor
 
-### 설명
+### Description
 
-이더넷 객체를 생성합니다. 참조를 리턴합니다.
+It creates an Ethernet object and returns the reference
 
-### 문법
+### Syntax
 
-ENet\(&lt;프로토콜&gt;\)
+ENet\(&lt;protocol&gt;\)
 
-### 파라미터
+### Parameter
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">&#xD56D;&#xBAA9;</th>
-      <th style="text-align:left">&#xC758;&#xBBF8;</th>
-      <th style="text-align:left">&#xAE30;&#xD0C0;</th>
+      <th style="text-align:left">Parameter</th>
+      <th style="text-align:left">Description</th>
+      <th style="text-align:left">Remarks</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align:left">&#xD504;&#xB85C;&#xD1A0;&#xCF5C;</td>
+      <td style="text-align:left">protocol</td>
       <td style="text-align:left">
-        <p>&quot;tcp&quot; : TCP &#xD1B5;&#xC2E0;
+        <p>&quot;tcp&quot; : TCP communication
           <br />
         </p>
-        <p>&quot;udp&quot; : UDP &#xD1B5;&#xC2E0;
+        <p>&quot;udp&quot; : UDP communication
+          <br />
+        </p>
+        <p>
           <br />
         </p>
         <p>
           <br />
         </p>
       </td>
-      <td style="text-align:left">&#xC0DD;&#xB7B5;&#xD558;&#xBA74; &quot;udp&quot;&#xB85C; &#xC778;&#xC2DD;</td>
+      <td style="text-align:left">If omitted, it will be recognized as &quot;udp.&quot;</td>
     </tr>
   </tbody>
 </table>
 
-### 리턴값
+### Return Value
 
-생성된 객체의 참조
+Reference of the created object
 
-### 사용 예
+### Example
 
 ```python
 enet0 = ENet()

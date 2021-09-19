@@ -1,25 +1,25 @@
-# 6.3 http\_cli 모듈 : HTTP 클라이언트
+# 6.3    Http\_Cli Module: HTTP Client
 
-Hi6 제어기의 범용 이더넷 포트를 통해, 원격의 웹 서비스에 접근하여 HTTP 서비스를 받을 수 있습니다.
+Using the general-purpose Ethernet port of the Hi6 Controller makes it possible to access remote web services to receive HTTP services. 
 
-이 기능을 사용하기 위해서는 아래와 같이 http\_cli 모듈을 import한 후, HttpCli 객체를 생성해야 합니다.
+To use this function, it is required to create an HttpCli object after importing the http\_cli module, as shown in the following example.
 
 ```python
 import http_cli
 var cli=http_cli.HttpCli()
 ```
 
-HttpCli 객체를 생성한 후에는 get, put, post, delete 멤버 프로시져를 호출하여 서비스 요청할 하면 됩니다.
+After the HttpCli object is created, it must request a service by calling the get, put, post, and delete member procedures.
 
-HttpCli 객체는 body라는 이름의 속성을 가지고 있습니다.
+The HttpCli object has a property named “body.”
 
-get 서비스를 요청하여 성공적으로 응답을 받으면 원격 서버가 응답으로 보내준 데이터는 body 속성이 갖고 있게 됩니다. body 속성 값의 타입은 문자열일 수도 있고, 숫자나 배열, 객체일 수도 있습니다.
+When a get service is requested and a response is received successfully, the remote server’s data will have the body property. The body property value can be a string, number, array, or object. When requesting the put service, it is required to assign the data to be transmitted to the body property in advance.
 
-put 서비스를 요청할 때는, body 속성에 미리 전송할 데이터를 대입해두어야 합니다.
+When requesting the post service, it is required to assign the data to be transmitted to the body property in advance, and the data sent as a response from the remote server is to be stored in the body property.
 
-post 서비스를 요청할 때는 body 속성에 미리 전송할 데이터를 대입해두어야 하며, 원격 서버가 응답으로 보내준 데이터는 body 속성에 보관됩니다.
+The delete service does not use the body property.
 
-delete 서비스는 body 속성을 사용하지 않습니다.
+
 
 
 

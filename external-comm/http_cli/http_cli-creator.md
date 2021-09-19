@@ -1,18 +1,18 @@
-# 6.3.1 생성자
+# 6.3.1 Constructor
 
-### 설명
+### Description
 
-HttpCli 객체를 생성합니다. 참조를 리턴합니다.
+It creates an HttpCli object and returns the reference.
 
-### 문법
+### Syntax
 
 HttpCli\(\)
 
-### 리턴값
+### Return Value
 
-생성된 객체의 참조
+Reference of the created object
 
-### 사용 예
+### Example
 
 ```python
 var cli = HttpCli()

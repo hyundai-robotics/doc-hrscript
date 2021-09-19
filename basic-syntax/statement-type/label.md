@@ -1,4 +1,4 @@
-# 2.3.4 레이블
+# 2.3.4 Labels
 
-goto 문에 의해 이동할 목표 지점을 표시합니다. 별표\(\*\)와 식별자로 구성됩니다.
+A label is used to mark the target point to move to according to the goto statement. It consists of an asterisk \(\*\) and an identifier.
 

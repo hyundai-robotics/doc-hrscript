@@ -1,25 +1,25 @@
-# 3.6.1 for~next문
+# 3.6.1 for-next
 
-### 설명
+### Description
 
-같은 동작을 반복하는 for~next문의 형식은 아래와 같습니다.
+The format of the for-next statement, which repeats the same operation, is as follows.
 
-먼저 인덱스변수에 초기값이 대입됩니다. for문 아래의 명령문들을 수행하다가 next문을 만나면 인덱스변수가 증감값을 더하고 for문 지점부터 반복합니다. 인덱스변수가 종료값을 지나가면 반복이 종료됩니다.
+First, the initial value will be assigned to the index variable. When the next statement is encountered while the statements under the for statement are executed, the index variable will add increment/decrement values and perform repetition from the point of the for statement. When the index variable passes the end value, the repetition will end.
 
-step은 지정하지 않으면 1로 적용됩니다.
+If a step is not specified, 1 will be applied.
 
-### 문법
+### Syntax
 
 ```python
-for <인덱스변수>=<초기값> to <종료값> [step <증감값>]
-	<명령문>
+for <index variable>=<initial value> to <end value> [step <increment/decrement value>]
+	<statement>
 	…
 next
 ```
 
-### 사용 예
+### Example
 
-for~next문을 이용하여 1부터 10까지를 sum에 누적하는 루틴의 예를 아래에 보였습니다. 반복이 종료되면 화면에는 11, 55가 출력될 것입니다.
+The following shows an example of a routine that accumulates 1 to 10 in the sum using the for-next statement. When the repetition is over, 11 and 55 will be printed on the screen.
 
 ```python
 var idx

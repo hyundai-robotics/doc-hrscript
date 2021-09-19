@@ -1,8 +1,10 @@
-# 3.7.2 매개변수와 param문, return문
+# 3.7.2 Parameters and param, return
 
-JOB 프로그램은 입력과 출력을 전달하는 통로\(channel\)로서 형식 매개변수를 사용합니다. 형식 매개변수는 JOB 프로그램의 가장 선두에 param 명령문으로 정의합니다.
+In a job program, formal parameters are used as channels through which input and output are passed. The **param** statement will define formal parameters at the beginning of the job program.
 
-아래 예에서 105번 JOB은 원점으로부터 좌표값\(x,y\)까지의 유클리드 거리를 구하여 len으로 리턴하는 서브 JOB으로서 dist2d라고 이름을 지었습니다.
+In the following example, job no. 105 is named as "dist2d,” as it is a subjob that acquires the Euclidean distance from the origin to the coordinate value \(x, y\) and returns it to len.
+
+
 
 <table>
   <thead>
@@ -65,17 +67,17 @@ JOB 프로그램은 입력과 출력을 전달하는 통로\(channel\)로서 형
       </td>
     </tr>
     <tr>
-      <td style="text-align:left">&#xACB0;&#xACFC;</td>
+      <td style="text-align:left">Result</td>
       <td style="text-align:left">13.742</td>
     </tr>
   </tbody>
 </table>
 
-1번 JOB에서 이 dist2d 서브 프로그램을 call 문으로 호출하고 있으며, 지역변수인 x, y를 전달하고 있습니다. dist2d  서브 프로그램 내에서 param문으로 정의한 ldX, ldY를 형식 매개변수\(formal parameter\)라고 하며, call 문에 전달한 x, y를 실 매개변수\(actual parameter\)라고 합니다.
+In job no. 1, the dist2d subprogram is called with the **call** statement, and “x, y,” which are local variables, are passed. In the dist2d subprogram, “ldX,” and “ldY” defined with the **param** statement are called “formal parameters,” and “x, y” passed to the **call** statement are called “actual parameters.” 
 
-dist2d 프로그램은 결과값을 return 문을 통해 외부로 전달하고 있습니다. 이 return값은 호출한 프로그램에서 result\(\) 함수를 호출하여 얻을 수 있습니다.
+The dist2d program transports resulting values to external destinations through **return** statements. Returned values can be obtained by calling a result\(\) function in the called program.
 
-\(return문과 end문은 프로그램을 종료하고 주 프로그램으로 리턴한다는 점에서 동작이 같습니다. 다만 return문은 결과값을 인수로 지정할 수 있다는 점에서만 end문과 다릅니다.\)
+\(A **return** statement and an **end** statement have the same action as they end a called program and return to the main program. However, a **return** statement is different from an **end** statement as the former can designate a resulting value as an element\).
 
 
 

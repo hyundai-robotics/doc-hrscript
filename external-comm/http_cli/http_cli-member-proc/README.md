@@ -1,2 +1,2 @@
-# 6.3.3 멤버 프로시져
+# 6.3.3 Member Procedure
 

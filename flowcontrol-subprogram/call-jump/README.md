@@ -1,8 +1,10 @@
-# 3.7 call문, jump문과 서브프로그램
+# 3.7 Call, Jump Statement and Subprograms
 
-규모가 큰 로봇 작업 전체를 하나의 JOB 프로그램으로 작성하면, 프로그램이 크고 복잡해져서 기능을 추가하거나 문제점을 찾아 해결하기 어려워집니다.
+If an entire large-scale robot operation is created as one job program, the program becomes large and complex, making it difficult to add functions or find and solve problems.
 
-프로그램의 유지보수성을 위해, 전체 프로그램을 구성하는 단위 작업들을 각기 서브프로그램으로 분리하는 것이 바람직합니다. 예를 들어, 센서와의 통신을 수행하는 루틴, 수신된 데이터로 툴 끝의 목표위치를 계산하는 루틴, 에러가 발생했을 때 적절한 메시지를 만들어 보고하는 루틴 등을 각각의 서브 프로그램으로 만들어 주 프로그램이 호출하게 하면, 프로그램의 전체 구조를 파악하기도 쉽고, 분리한 서브 프로그램을 다른 프로젝트에서 재활용하기에도 좋습니다.
+For the program’s maintainability, it is preferable to divide the unit operations that make up the entire program into subprograms. For example, when routines, such as a routine performs communication with a sensor, a routine that calculates the target position of the tool tip with the received data, and a routine that generates an appropriate message when an error occurs, are turned into individual subprograms and allow the main program to call them, it will be easier to grasp the overall structure of the program. It will also be useful to reuse divided subprograms in other projects.
+
+
 
 
 

@@ -1,14 +1,12 @@
-# 4.1.2 다차원 배열
+# 4.1.2 Multidimensional Arrays
 
-배열의 요소로서 배열이 내포될 수도 있습니다.
+An array can also be nested as an element of an array. When accessing the elements of a multidimensional array, you can use the \[ \] operator consecutively. In the following example, “arr\_y” is a two-dimensional array. \(1\)
 
-다차원 배열의 요소에 접근할 때는 \[ \] 연산자를 연속적으로 사용하면 됩니다.
+arr\_y\[1\] is an array of elements of index 1, namely \["abc", "jqk", "xyz"\], and it is assigned to the new variable “arr\_x.” \(2\)
 
-아래의 예에서 arr\_y는 2차원 배열입니다. \(1\)
+So, arr\_x\[1\] is "jqk", and arr\_y\[1\]\[2\] is "xyz" because it points to \[2\] of arr\_y\[1\].
 
-arr\_y\[1\]는 이 중 인덱스 1의 요소, 즉 \["abc", "jqk", "xyz"\] 배열인데, 이를 새로운 변수 arr\_x에 대입했습니다. \(2\)
 
-따라서, arr\_x\[1\]은 "jqk"이고, arr\_y\[1\]\[2\]는 arr\_y\[1\]의 \[2\]를 가리키므로 "xyz"입니다.
 
 <table>
   <thead>
@@ -37,7 +35,7 @@ arr\_y\[1\]는 이 중 인덱스 1의 요소, 즉 \["abc", "jqk", "xyz"\] 배열
       </td>
     </tr>
     <tr>
-      <td style="text-align:left">&#xACB0;&#xACFC;</td>
+      <td style="text-align:left">Result</td>
       <td style="text-align:left">
         <p>jqk
           <br />

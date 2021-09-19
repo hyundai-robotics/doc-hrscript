@@ -1,6 +1,6 @@
-# 4.3 배열과 객체의 복사 대입\(assignment\)
+# 4.3 Copied assignment of arrays and objects
 
-대입문 우변이 배열이나 객체 변수인 경우, 변수의 값 전체가 좌변의 변수로 복사됩니다. 배열이나 객체가 요소값으로서 서브 배열과 서브 객체들을 복잡하게 포함하고 있을 때에도, 이러한 포함 구조들이 모두 복사되는데 이를 깊은 복사\(deep copy\)라고 합니다.
+If the right side of an assignment statement has object variables, the entire values of the variables will be copied to the variables of the left side. When an array or an object includes sub-arrays and sub-objects in a complex manner as element values, such inclusion structures will be copied, which is called a deep copy.
 
 <table>
   <thead>
@@ -31,7 +31,7 @@
       </td>
     </tr>
     <tr>
-      <td style="text-align:left">&#xACB0;&#xACFC;</td>
+      <td style="text-align:left">Result</td>
       <td style="text-align:left">[10, 20]</td>
     </tr>
   </tbody>

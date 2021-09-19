@@ -1,10 +1,10 @@
-# 2.9 함수
+# 2.9 Functions
 
-각도 60° 를 radian값으로 변환하려면 어떻게 해야 할까요? 혹은, 변수 mystr이 담고 있는 문자열의 길이를 알아내려면 어떻게 해야 할까요?
+What is the process of converting the angle 60 to a radian value or finding the length of the string that the variable mystr contains? 
 
-HRScript는 매개변수로 입력을 받아 어떤 처리를 한 후 결과값을 리턴해주는 여러가지 함수\(function\)를 제공합니다.
+HRScript provides various functions that receive inputs through parameters, perform some processing, and return the result values. 
 
-함수는 아래와 같이 수식의 일부로서 사용할 수 있습니다.
+Functions can be used as part of an expression, as shown below.
 
 ```python
 var dg=60, rd
@@ -14,5 +14,5 @@ var limit=40, message="Input your code number"
 var validity= len(message) < limit
 ```
 
-HRScript에서 제공되는 함수의 목록은 아래와 같습니다. \(각 표는 이름 정렬순입니다.\)
+The list of functions provided in HRScript is as follows. \(The tables are sorted in the ascending order of names.\)
 

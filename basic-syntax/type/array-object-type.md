@@ -1,4 +1,4 @@
-# 2.5.4 배열과 객체형
+# 2.5.4 Array Type and Object Type
 
-이외에도 배열\(array\)과 객체\(object\)형이 있습니다. 이 후, 4.1절과 4.2절에서 자세히 알아보겠습니다. 
+In addition, there are array types and object types. These will be discussed in further detail in Sections 4.1 and 4.2.
 

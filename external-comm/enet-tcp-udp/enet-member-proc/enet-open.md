@@ -1,14 +1,14 @@
 # open
 
-### 설명
+### Description
 
-이더넷 TCP 혹은 UDP 통신을 위한 연결을 엽니다.
+ns a connection for Ethernet TCP or UDP communication
 
-### 문법
+### Syntax
 
-&lt;ENet객체&gt;.open
+&lt;ENet object&gt;.open
 
-### 사용 예
+### Example
 
 ```python
 enet_to_sensor.open

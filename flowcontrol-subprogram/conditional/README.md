@@ -1,4 +1,4 @@
-# 3.4 조건문
+# 3.4 Conditional Statements
 
-조건에 따라 특정한 동작을 수행하거나 수행하지 않을 수 있습니다.
+These statements allow a certain operation to be or not to be executed depending on certain conditions.
 

@@ -1,52 +1,48 @@
-# 3.2.4 wait문
+# 3.2.4 wait
 
-### 설명
+### Description
 
-지정한 조건이 참이 될 때까지 대기한 후 다음 명령문으로 진행합니다.
+Makes it possible to move to the next command statement after waiting until a designated condition becomes true.
 
-### 문법
+### Syntax
 
-wait &lt;조건&gt;\[,&lt;제한시간&gt;,&lt;timeout 주소&gt;\]
+wait &lt;condition&gt;\[,&lt;timeout&gt;,&lt;timeout address&gt;\]
 
-### 파라미터
+### Parameter
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">&#xD56D;&#xBAA9;</th>
-      <th style="text-align:left">&#xC758;&#xBBF8;</th>
-      <th style="text-align:left">&#xAE30;&#xD0C0;</th>
+      <th style="text-align:left">Parameter</th>
+      <th style="text-align:left">Description</th>
+      <th style="text-align:left">Remarks</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align:left">&#xC870;&#xAC74;</td>
-      <td style="text-align:left">&#xB300;&#xAE30;&#xD560; &#xC870;&#xAC74;</td>
-      <td style="text-align:left">&#xC870;&#xAC74;&#xC2DD;</td>
+      <td style="text-align:left">Condition</td>
+      <td style="text-align:left">Conditions in which waiting is required</td>
+      <td style="text-align:left">Conditional expr</td>
     </tr>
     <tr>
-      <td style="text-align:left">&#xC81C;&#xD55C;&#xC2DC;&#xAC04;</td>
-      <td style="text-align:left">&#xC870;&#xAC74;&#xC774; &#xAC70;&#xC9D3;&#xC77C; &#xACBD;&#xC6B0; &#xB300;&#xAE30;&#xD560;
-        &#xCD5C;&#xB300; &#xC81C;&#xD55C; &#xC2DC;&#xAC04; (timeout)</td>
+      <td style="text-align:left">Timeout</td>
+      <td style="text-align:left">Maximum time limit during which waiting will occur when the condition
+        is false (timeout)</td>
       <td style="text-align:left">
-        <p>&#xC0B0;&#xC220;&#xC2DD;
-          <br />
-        </p>
-        <p>0.1~60.0 sec
-          <br />
-        </p>
+        <p>Arithmetic expression</p>
+        <p>0.1~60.0 sec</p>
       </td>
     </tr>
     <tr>
-      <td style="text-align:left">timeout &#xC8FC;&#xC18C;</td>
-      <td style="text-align:left">&#xC81C;&#xD55C;&#xC2DC;&#xAC04; &#xCD08;&#xACFC; &#xC2DC;, &#xBD84;&#xAE30;&#xD560;
-        &#xC8FC;&#xC18C;</td>
-      <td style="text-align:left">&#xC8FC;&#xC18C;</td>
+      <td style="text-align:left">timeout address</td>
+      <td style="text-align:left">Address to which branching will be made when the timeout is exceeded.</td>
+      <td
+      style="text-align:left">address</td>
     </tr>
   </tbody>
 </table>
 
-### 사용 예
+### Example
 
 ```python
 wait sensor_ok

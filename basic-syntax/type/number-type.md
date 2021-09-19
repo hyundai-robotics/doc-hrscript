@@ -1,6 +1,6 @@
-# 2.5.2 숫자 자료형
+# 2.5.2 Number Data Type
 
-숫자 자료형은 정수나 실수를 보관합니다.숫자 자료형도 있습니다. print 문으로 출력해봅시다. 아래 예와 같이 print 문에 여러 개의 값을 쉼표\(,\)로 구분하여 나열하면, 각각의 값이 공백으로 구분되어 출력됩니다.
+The number data type stores an integer or real number. Let us print using the print statement. If you list multiple values separated by commas \(,\) in the print statement, as shown in the example below, each value will be displayed separated by a space.
 
 ```python
 280
@@ -9,10 +9,12 @@
 print 280, -99
 ```
 
-시스템 내부적으로는 정수와 실수를 따로 구분해서 처리합니다. 각각의 데이터 크기는 아래와 같습니다.
+Inside the system, integers and real numbers are processed separately. Each data size is as follows:
 
-| 데이터 형 | 데이터 크기 \(바이트\) |
+| Data type | Data size \(byte\) |
 | :--- | :--- |
-| 정수 \(integer\) | 4 |
-| 실수 \(real\) | 8 |
+| Integer | 4 |
+| Real number | 8 |
+
+
 

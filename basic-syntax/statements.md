@@ -1,6 +1,6 @@
-# 2.1 명령문
+# 2.1 Statements
 
-명령문\(statement\)이란 JOB 프로그램의 실행 단위가 되는 각각의 명령 문자열을 말합니다. hrscript는 한 행에 1개의 명령문만을 허용합니다. 아래에 4개의 명령문의 예를 보였습니다. 내용을 이해할 필요는 없습니다. 대략적인 형태만 눈여겨보세요.
+The statement refers to each command string that becomes the execution unit of the job program. HRScript allows only one statement per line. Take note of how the four examples of statements are written below, particularly their appearances.
 
 ```python
      move P,po3,spd=80%,accu=1,tool=3 until do33
@@ -9,11 +9,13 @@
      *err_handle
 ```
 
-로봇을 이동시키는 스텝 명령문\(move문 등\) 이외의 명령문에 대해서는 선택적으로 행의 선두에 행 번호\(1~9999\)를 붙일 수 있습니다. 두 번째 행에 있는 10이 행번호의 예입니다. 
+For statements other than a step statement \(move statements, etc.\) that moves the robot, you can optionally add a line number \(1 to 9999\) at the beginning of the line. The number 10 in the second line is an example of a line number.
 
-명령문의 앞과 뒤에는 임의 개수의 공백이나 tab이 있어도 상관없습니다.
+It does not matter if there are any number of spaces or tabs before and after the statement.
 
-가독성을 위해 명령문의 적절한 들여쓰기\(indentation\)가 권장됩니다. 들여쓰기는 공백과 tab이 모두 허용되며 실행 시 동작에 영향을 주지 않습니다.
+Proper indentation in statements is recommended for readability. Both spaces and tabs are allowed for indentation and do not affect the operation during execution.
+
+
 
 
 

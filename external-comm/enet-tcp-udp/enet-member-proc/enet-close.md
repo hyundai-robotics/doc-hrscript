@@ -1,14 +1,14 @@
 # close
 
-### 설명
+### Description
 
-이더넷 UDP 통신을 위한 연결을 닫습니다.
+Close the connection for Ethernet UDP communication
 
-### 문법
+### Syntax
 
-&lt;ENet객체&gt;.close
+&lt;ENet object&gt;.close
 
-### 사용 예
+### Example
 
 ```python
 enet_to_sensor.close
