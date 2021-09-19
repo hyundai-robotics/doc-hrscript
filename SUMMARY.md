@@ -1,6 +1,6 @@
 # Table of contents
 
-* [문서정보](README.md)
+* [Hi6 로봇제어기 기능설명서 - 로봇언어 HRScript](README.md)
 * [1. 개요](intro/README.md)
   * [1.1 HRScript의 소개](intro/hrscript.md)
 * [2. 기본 문법](basic-syntax/README.md)
