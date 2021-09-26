@@ -4,6 +4,10 @@ Pose is an object type embedded in the Hi6 Controller and represents each axis o
 
 Poses are created by calling the constructor function Pose\( \). All function parameters are position parameters. Meanwhile, crd and cfg are string types, and the rest are number types.
 
+{% hint style="info" %}
+The cfg element specifies the robot configuration. For more information, refer to "[2.3.2.2 Base and Robot Recording Coordinates](https://hyundai-robotics.gitbook.io/hi6-operation-manual/v/english/2-operation/2-3-step/step-pose-modify/base-robot-crd-sys)" in the Hi6 Robot Controller Operation Manual.
+{% endhint %}
+
 
 
 ```python
@@ -36,7 +40,7 @@ var po4 = Pose(str)
 
 Elements of the pose object can be accessed with the following keys.
 
-![](../.gitbook/assets/image%20%281%29.png)
+![](../.gitbook/assets/image%20%289%29.png)
 
 1. For V60.06-06 or older versions, fl is non-fl.
 
