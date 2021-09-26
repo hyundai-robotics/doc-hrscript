@@ -66,7 +66,7 @@
           <br
           />
         </p>
-        <p>&quot;<a href="../../moving-robot/pose.md">5.1 &#xD3EC;&#xC988; (pose)</a>&quot;&#xB97C;&#xC744;
+        <p>&quot;<a href="../../moving-robot/pose.md">5.1 &#xD3EC;&#xC988; (pose)</a>&quot;&#xB97C;
           &#xCC38;&#xC870;&#xD558;&#xC2ED;&#xC2DC;&#xC624;.
           <br />
         </p>
