@@ -34,9 +34,9 @@
           <br
           />
         </p>
-        <p>&quot;<a href="../../array-object/array/">4.1 &#xBC30;&#xC5F4;</a>&quot;&#xC744;
-          &#xCC38;&#xC870;&#xD558;&#xC2ED;&#xC2DC;&#xC624;.
-          <br />
+        <p>4.1&#xC808;&#xC744; &#xCC38;&#xC870;&#xD558;&#xC2ED;&#xC2DC;&#xC624;.
+          <br
+          />
         </p>
         <p>
           <br />
@@ -66,9 +66,9 @@
           <br
           />
         </p>
-        <p>&quot;<a href="../../moving-robot/pose.md">5.1 &#xD3EC;&#xC988; (pose)</a>&quot;&#xB97C;
-          &#xCC38;&#xC870;&#xD558;&#xC2ED;&#xC2DC;&#xC624;.
-          <br />
+        <p>5.1&#xC808;&#xC744; &#xCC38;&#xC870;&#xD558;&#xC2ED;&#xC2DC;&#xC624;.
+          <br
+          />
         </p>
       </td>
       <td style="text-align:left"></td>
@@ -81,9 +81,9 @@
           &#xB9AC;&#xD134;&#xD569;&#xB2C8;&#xB2E4;.
           <br />
         </p>
-        <p>&quot;<a href="../../moving-robot/shift.md">5.2 &#xC2DC;&#xD504;&#xD2B8; (shift)</a>&quot;&#xB97C;
-          &#xCC38;&#xC870;&#xD558;&#xC2ED;&#xC2DC;&#xC624;.
-          <br />
+        <p>5.2&#xC808;&#xC744; &#xCC38;&#xC870;&#xD558;&#xC2ED;&#xC2DC;&#xC624;.
+          <br
+          />
         </p>
       </td>
       <td style="text-align:left"></td>
