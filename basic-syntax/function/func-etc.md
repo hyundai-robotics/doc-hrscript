@@ -23,9 +23,9 @@
           <br />
         </p>
         <p>crd &#xC778;&#xC218;&#xB85C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xB294;
-          &#xAC12;&#xB294; 5.1&#xC808;&#xC758; &#xD45C;&#xB97C; &#xCC38;&#xC870;&#xD558;&#xC2ED;&#xC2DC;&#xC624;.
-          <br
-          />
+          &#xAC12;&#xC740; &quot;<a href="../../moving-robot/pose.md">5.1 &#xD3EC;&#xC988; (pose)</a>&quot;&#xC758;
+          &#xD45C;&#xB97C; &#xCC38;&#xC870;&#xD558;&#xC2ED;&#xC2DC;&#xC624;.
+          <br />
         </p>
         <p>mode&#xAC00; &quot;cmd&quot;&#xC774;&#xBA74; &#xC9C0;&#xB839;&#xAC12;,
           &quot;cur&quot;&#xC774;&#xBA74; &#xD604;&#xC7AC;&#xAC12;&#xC785;&#xB2C8;&#xB2E4;.
@@ -68,9 +68,9 @@
           <br
           />
         </p>
-        <p>5.5&#xC808;&#xC744; &#xCC38;&#xC870;&#xD558;&#xC2ED;&#xC2DC;&#xC624;.
-          <br
-          />
+        <p>&quot;<a href="../../moving-robot/ucs.md">5.5 &#xC0AC;&#xC6A9;&#xC790;&#xC88C;&#xD45C;&#xACC4; (UCS ; User Coordinate System)</a>&quot;&#xB97C;
+          &#xCC38;&#xC870;&#xD558;&#xC2ED;&#xC2DC;&#xC624;.
+          <br />
         </p>
       </td>
       <td style="text-align:left"></td>
@@ -97,5 +97,5 @@
   </tbody>
 </table>
 
-\* 포즈\(pose\)는 로봇의 자세 혹은 툴 끝의 위치를 나타내는 데이터형입니다. 이후의 5.1절에서 자세히 설명합니다.
+\* 포즈\(pose\)는 로봇의 자세 혹은 툴 끝의 위치를 나타내는 데이터형입니다. 이후의 "[5.1 포즈 \(pose\)](../../moving-robot/pose.md)"에서 자세히 설명합니다.
 

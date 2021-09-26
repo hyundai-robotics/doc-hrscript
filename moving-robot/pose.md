@@ -4,6 +4,10 @@
 
 포즈는 생성자 함수 Pose\( \)를 호출하여 생성합니다. 함수 매개변수들은 모두 위치 매개변수입니다. crd와 cfg는 문자열형이고, 나머지는 모두 숫자형입니다.
 
+{% hint style="info" %}
+cfg요소는 로봇 자세 \(configuration\)를 지정합니다. 자세한 내용은 Hi6 로봇제어기 조작설명서의 "[2.3.2.2 베이스 및 로봇 기록 좌표](https://hyundai-robotics.gitbook.io/hi6-operation-manual/2-operation/2-3-step/step-pose-modify/base-robot-crd-sys)"를 참조하십시오.
+{% endhint %}
+
 ```python
 var 포즈변수명 = Pose(j1, j2, j3, …)					# 축 좌표
 var 포즈변수명 = Pose(x, y, z, rx, ry, rz, j7, j8,…, crd, cfg)		# base 좌표
