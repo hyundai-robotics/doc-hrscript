@@ -1,7 +1,5 @@
 # Hi6 로봇제어기 기능설명서 - 로봇언어 HRScript
 
-
-
 {% hint style="warning" %}
 본 제품 설명서에서 제공되는 정보는 현대로보틱스의 자산입니다.
 
@@ -10,7 +8,8 @@
 
 
 본 설명서는 사전 예고 없이 변경될 수 있습니다.
+
+
+
+**Copyright ⓒ 2020 by Hyundai Robotics Co., Ltd**
 {% endhint %}
-
-
-
