@@ -7,11 +7,11 @@
 {% hint style="info" %}
 cfg요소는 로봇 자세 \(configuration\)를 지정합니다. 자세한 내용은 Hi6 로봇제어기 조작설명서의 "[2.3.2.2 베이스 및 로봇 기록 좌표](https://hyundai-robotics.gitbook.io/hi6-operation-manual/2-operation/2-3-step/step-pose-modify/base-robot-crd-sys)"를 참조하십시오.
 
-2) Hi6 로봇제어기 조작설명서의 "[2.3.2.2 베이스 및 로봇 기록 좌표](https://raw.githubusercontent.com/hyundai-robotics/doc-hi6-operation/master/2-operation/2-3-step/step-pose-modify/base-robot-crd-sys.md)"를 참조하십시오.
+2) Hi6 로봇제어기 조작설명서의 "[2.3.2.2 베이스 및 로봇 기록 좌표](../../../doc-hi6-operation/master/2-operation/2-3-step/step-pose-modify/base-robot-crd-sys)"를 참조하십시오.
 
 {% endhint %}
 
-3) Hi6 로봇제어기 조작설명서의 "[2.3.2.2 베이스 및 로봇 기록 좌표](https://raw.githubusercontent.com/hyundai-robotics/doc-hi6-operation/master/2-operation/2-3-step/step-pose-modify/base-robot-crd-sys.md)"를 참조하십시오.
+3) Hi6 로봇제어기 조작설명서의 "[2.3.2.2 베이스 및 로봇 기록 좌표](../../../doc-hi6-operation/master/2-operation/2-3-step/step-pose-modify/base-robot-crd-sys)"를 참조하십시오.
 
 ```python
 var 포즈변수명 = Pose(j1, j2, j3, …)					# 축 좌표
