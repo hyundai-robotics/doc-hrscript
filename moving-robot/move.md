@@ -17,24 +17,24 @@ move &lt;보간&gt;, \[tg=&lt;포즈/시프트&gt;\], spd=&lt;속도&gt;, accu=&
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">&#xD56D;&#xBAA9;</th>
-      <th style="text-align:left">&#xC758;&#xBBF8;</th>
-      <th style="text-align:left">&#xAE30;&#xD0C0;</th>
+      <th style="text-align:left">항목</th>
+      <th style="text-align:left">의미</th>
+      <th style="text-align:left">기타</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align:left">&#xBCF4;&#xAC04;</td>
+      <td style="text-align:left">보간</td>
       <td style="text-align:left">
-        <p>P : &#xCD95;&#xBCF4;&#xAC04;, L : &#xC9C1;&#xC120;&#xBCF4;&#xAC04;, C
-          : &#xC6D0;&#xD638;&#xBCF4;&#xAC04;
+        <p>P : 축보간, L : 직선보간, C
+          : 원호보간
           <br />
         </p>
-        <p>SP: &#xC815;&#xCE58;&#xD234; &#xCD95;&#xBCF4;&#xAC04;, SL: &#xC815;&#xCE58;&#xD234;
-          &#xC9C1;&#xC120;&#xBCF4;&#xAC04;,
+        <p>SP: 정치툴 축보간, SL: 정치툴
+          직선보간,
           <br />
         </p>
-        <p>SC: &#xC815;&#xCE58;&#xD234; &#xC6D0;&#xD638;&#xBCF4;&#xAC04;
+        <p>SC: 정치툴 원호보간
           <br />
         </p>
       </td>
@@ -42,78 +42,78 @@ move &lt;보간&gt;, \[tg=&lt;포즈/시프트&gt;\], spd=&lt;속도&gt;, accu=&
     </tr>
     <tr>
       <td style="text-align:left">
-        <p>&#xD3EC;&#xC988;/</p>
-        <p>&#xC2DC;&#xD504;&#xD2B8;</p>
+        <p>포즈/</p>
+        <p>시프트</p>
       </td>
       <td style="text-align:left">
-        <p>&#xC774;&#xB3D9;&#xD560; &#xBAA9;&#xD45C;(target) &#xC790;&#xC138; (&#xD3EC;&#xC988;).
+        <p>이동할 목표(target) 자세 (포즈).
           <br
           />
         </p>
-        <p>&#xC228;&#xC740; &#xD3EC;&#xC988;&#xAC00; &#xC788;&#xC73C;&#xBA74; &#xC0DD;&#xB7B5;&#xB429;&#xB2C8;&#xB2E4;.
+        <p>숨은 포즈가 있으면 생략됩니다.
           <br
           />
         </p>
-        <p>+&#xB098; &#x2013; &#xBD80;&#xD638;&#xB97C; &#xBD99;&#xC778; &#xC2DC;&#xD504;&#xD2B8;&#xC2DD;&#xC744;
-          &#xC9C0;&#xC815;&#xD558;&#xBA74; (&#xC228;&#xC740;&#xD3EC;&#xC988;+&#xC2DC;&#xD504;&#xD2B8;&#xC2DD;)&#xC774;
-          &#xBAA9;&#xD45C; &#xC790;&#xC138;&#xB85C; &#xC801;&#xC6A9;&#xB429;&#xB2C8;&#xB2E4;.
+        <p>+나 – 부호를 붙인 시프트식을
+          지정하면 (숨은포즈+시프트식)이
+          목표 자세로 적용됩니다.
           <br
           />
         </p>
       </td>
       <td style="text-align:left">
-        <p>&#xD3EC;&#xC988;&#xC2DD;</p>
-        <p>&#xD639;&#xC740;</p>
-        <p>&#xBD80;&#xD638; &#xC2DC;&#xD504;&#xD2B8;&#xC2DD;
+        <p>포즈식</p>
+        <p>혹은</p>
+        <p>부호 시프트식
           <br />
         </p>
       </td>
     </tr>
     <tr>
-      <td style="text-align:left">&#xC18D;&#xB3C4;</td>
+      <td style="text-align:left">속도</td>
       <td style="text-align:left">
-        <p>&#xD234; &#xB05D;&#xC758; &#xC774;&#xB3D9;&#xC18D;&#xB3C4;.
+        <p>툴 끝의 이동속도.
           <br />
         </p>
-        <p>&#xB2E8;&#xC704;(mm/sec, cm/min, sec, %)&#xB97C; &#xBD99;&#xC5EC;&#xC57C;
-          &#xD569;&#xB2C8;&#xB2E4;.
+        <p>단위(mm/sec, cm/min, sec, %)를 붙여야
+          합니다.
           <br />
         </p>
       </td>
-      <td style="text-align:left">&#xC0B0;&#xC220;&#xC2DD;.</td>
+      <td style="text-align:left">산술식.</td>
     </tr>
     <tr>
-      <td style="text-align:left">&#xC815;&#xBC00;</td>
-      <td style="text-align:left">&#xC0B0;&#xC220;&#xC2DD;. &#xB0AE;&#xC744;&#xC218;&#xB85D; &#xC815;&#xBC00;&#xD568;.
-        0&#xC774;&#xBA74; &#xBD88;&#xC5F0;&#xC18D;&#xC73C;&#xB85C; &#xB3D9;&#xC791;</td>
+      <td style="text-align:left">정밀</td>
+      <td style="text-align:left">산술식. 낮을수록 정밀함.
+        0이면 불연속으로 동작</td>
       <td
       style="text-align:left">0~7</td>
     </tr>
     <tr>
-      <td style="text-align:left">&#xD234; &#xBC88;&#xD638;</td>
-      <td style="text-align:left">&#xB85C;&#xBD07; &#xB3D9;&#xC791; &#xC2DC; &#xC0AC;&#xC6A9;&#xD560; &#xD234;&#xC758;
-        &#xBC88;&#xD638;.</td>
+      <td style="text-align:left">툴 번호</td>
+      <td style="text-align:left">로봇 동작 시 사용할 툴의
+        번호.</td>
       <td style="text-align:left">0~31</td>
     </tr>
     <tr>
-      <td style="text-align:left">&#xC870;&#xAC74;&#xC2DD;</td>
+      <td style="text-align:left">조건식</td>
       <td style="text-align:left">
-        <p>&#xC870;&#xAC74;&#xC2DD;&#xC774; &#xCC38;&#xC778; &#xC21C;&#xAC04; &#xB85C;&#xBD07;&#xB3D9;&#xC791;&#xC774;
-          &#xC885;&#xB8CC;&#xB418;&#xACE0; &#xC9C0;&#xC815;&#xD55C; &#xD3EC;&#xC988;&#xC5D0;
-          &#xB3C4;&#xB2EC;&#xD55C; &#xAC83;&#xC73C;&#xB85C; &#xAC04;&#xC8FC;&#xD569;&#xB2C8;&#xB2E4;.
+        <p>조건식이 참인 순간 로봇동작이
+          종료되고 지정한 포즈에
+          도달한 것으로 간주합니다.
           <br
           />
         </p>
-        <p>&#xC870;&#xAC74;&#xC2DD;&#xC758; &#xACB0;&#xACFC;&#xB294; result( ) &#xD568;&#xC218;&#xB85C;
-          &#xC5BB;&#xC744; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+        <p>조건식의 결과는 result( ) 함수로
+          얻을 수 있습니다.
           <br />
         </p>
       </td>
       <td style="text-align:left">
-        <p>0&#xC774; &#xC544;&#xB2C8;&#xBA74; &#xCC38;
+        <p>0이 아니면 참
           <br />
         </p>
-        <p>0&#xC774;&#xBA74; &#xAC70;&#xC9D3;
+        <p>0이면 거짓
           <br />
         </p>
       </td>

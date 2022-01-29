@@ -41,7 +41,7 @@
       </td>
     </tr>
     <tr>
-      <td style="text-align:left">&#xACB0;&#xACFC;</td>
+      <td style="text-align:left">결과</td>
       <td style="text-align:left">
         <p>10
           <br />
@@ -63,19 +63,19 @@
       <th style="text-align:left"></th>
       <th style="text-align:left"></th>
       <th style="text-align:left"></th>
-      <th style="text-align:left">&#xACB0;&#xACFC;</th>
+      <th style="text-align:left">결과</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="text-align:left">len(a)</td>
       <td style="text-align:left">
-        <p>a&#xAC00; &#xBB38;&#xC790;&#xC5F4;&#xC774;&#xBA74; &#xBB38;&#xC790;&#xC5F4;&#xC758;
-          &#xAE38;&#xC774;&#xB97C; &#xB9AC;&#xD134;&#xD569;&#xB2C8;&#xB2E4;.
+        <p>a가 문자열이면 문자열의
+          길이를 리턴합니다.
           <br />
         </p>
-        <p>a&#xAC00; &#xBC30;&#xC5F4;&#xC774;&#xBA74; &#xBC30;&#xC5F4;&#xC758; &#xC694;&#xC18C;
-          &#xAC1C;&#xC218;&#xB97C; &#xB9AC;&#xD134;&#xD569;&#xB2C8;&#xB2E4;.
+        <p>a가 배열이면 배열의 요소
+          개수를 리턴합니다.
           <br />
         </p>
       </td>
@@ -126,7 +126,7 @@
       </td>
     </tr>
     <tr>
-      <td style="text-align:left">&#xACB0;&#xACFC;</td>
+      <td style="text-align:left">결과</td>
       <td style="text-align:left">
         <p>20
           <br />
@@ -176,7 +176,7 @@
       </td>
     </tr>
     <tr>
-      <td style="text-align:left">&#xACB0;&#xACFC;</td>
+      <td style="text-align:left">결과</td>
       <td style="text-align:left">
         <p>10
           <br />

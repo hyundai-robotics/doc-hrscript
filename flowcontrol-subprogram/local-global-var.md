@@ -38,7 +38,7 @@ main\_v는 0001.job 내에서만 접근 가능한 지역변수이고, sub\_v는 
         <p>print sub_v # error
           <br />
         </p>
-        <p>print x # 3&#xC774; &#xCD9C;&#xB825;&#xB428;.
+        <p>print x # 3이 출력됨.
           <br />
         </p>
         <p>end
@@ -143,7 +143,7 @@ global x가 처음 수행되면 변수 x가 생성되면서 default값 0으로 �
   </thead>
   <tbody>
     <tr>
-      <td style="text-align:left">&#xD2C0;&#xB9B0; &#xAD50;&#xC2DC;</td>
+      <td style="text-align:left">틀린 교시</td>
       <td style="text-align:left">
         <p>global count=0
           <br />
@@ -151,7 +151,7 @@ global x가 처음 수행되면 변수 x가 생성되면서 default값 0으로 �
         <p>count=count+1
           <br />
         </p>
-        <p>&#x2026;
+        <p>…
           <br />
         </p>
         <p>end
@@ -160,7 +160,7 @@ global x가 처음 수행되면 변수 x가 생성되면서 default값 0으로 �
       </td>
     </tr>
     <tr>
-      <td style="text-align:left">&#xC62C;&#xBC14;&#xB978; &#xAD50;&#xC2DC;</td>
+      <td style="text-align:left">올바른 교시</td>
       <td style="text-align:left">
         <p>global count
           <br />
@@ -168,7 +168,7 @@ global x가 처음 수행되면 변수 x가 생성되면서 default값 0으로 �
         <p>count=count+1
           <br />
         </p>
-        <p>&#x2026;
+        <p>…
           <br />
         </p>
         <p>end

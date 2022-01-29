@@ -53,7 +53,7 @@ call 뒤에 JOB 번호, 혹은 JOB파일이름\(확장자 제외\)을 지정합�
       </td>
     </tr>
     <tr>
-      <td style="text-align:left">&#xACB0;&#xACFC;</td>
+      <td style="text-align:left">결과</td>
       <td style="text-align:left">
         <p>main job start
           <br />

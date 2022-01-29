@@ -3,21 +3,21 @@
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">&#xD568;&#xC218;</th>
-      <th style="text-align:left">&#xC124;&#xBA85;</th>
-      <th style="text-align:left">&#xC0AC;&#xC6A9; &#xC608;</th>
-      <th style="text-align:left">&#xACB0;&#xACFC;</th>
+      <th style="text-align:left">함수</th>
+      <th style="text-align:left">설명</th>
+      <th style="text-align:left">사용 예</th>
+      <th style="text-align:left">결과</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="text-align:left">date( )</td>
       <td style="text-align:left">
-        <p>&#xD604;&#xC7AC;&#xC758; &#xB0A0;&#xC9DC;&#xB97C; &#xBB38;&#xC790;&#xC5F4;
-          &#xD615;&#xC73C;&#xB85C; &#xB9AC;&#xD134;&#xD569;&#xB2C8;&#xB2E4;.
+        <p>현재의 날짜를 문자열
+          형으로 리턴합니다.
           <br />
         </p>
-        <p>(YYYY-MM-DD&#xD615;&#xC2DD;)
+        <p>(YYYY-MM-DD형식)
           <br />
         </p>
       </td>
@@ -27,11 +27,11 @@
     <tr>
       <td style="text-align:left">time( )</td>
       <td style="text-align:left">
-        <p>&#xD604;&#xC7AC;&#xC758; &#xC2DC;&#xAC04;&#xC744; &#xBB38;&#xC790;&#xC5F4;
-          &#xD615;&#xC73C;&#xB85C; &#xB9AC;&#xD134;&#xD569;&#xB2C8;&#xB2E4;.
+        <p>현재의 시간을 문자열
+          형으로 리턴합니다.
           <br />
         </p>
-        <p>(HH:MM:SS&#xD615;&#xC2DD;)
+        <p>(HH:MM:SS형식)
           <br />
         </p>
       </td>
@@ -40,8 +40,8 @@
     </tr>
     <tr>
       <td style="text-align:left">timer( )</td>
-      <td style="text-align:left">&#xC804;&#xC6D0;&#xD22C;&#xC785; &#xC2DC;&#xB85C;&#xBD80;&#xD130; &#xACBD;&#xACFC;&#xD55C;
-        &#xC2DC;&#xAC04;&#xC744; &#xCD08;(sec) &#xB2E8;&#xC704;&#xB85C; &#xB9AC;&#xD134;&#xD569;&#xB2C8;&#xB2E4;.</td>
+      <td style="text-align:left">전원투입 시로부터 경과한
+        시간을 초(sec) 단위로 리턴합니다.</td>
       <td
       style="text-align:left">timer( )</td>
         <td style="text-align:left">2796.37</td>

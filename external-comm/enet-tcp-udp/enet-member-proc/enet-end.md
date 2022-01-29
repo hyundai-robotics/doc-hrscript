@@ -15,20 +15,20 @@
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">&#xD56D;&#xBAA9;</th>
-      <th style="text-align:left">&#xC758;&#xBBF8;</th>
-      <th style="text-align:left">&#xAE30;&#xD0C0;</th>
+      <th style="text-align:left">항목</th>
+      <th style="text-align:left">의미</th>
+      <th style="text-align:left">기타</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align:left">&#xAC12;</td>
+      <td style="text-align:left">값</td>
       <td style="text-align:left">
-        <p>&#xCD9C;&#xB825;&#xD560; &#xB370;&#xC774;&#xD130; &#xAC12;.
+        <p>출력할 데이터 값.
           <br />
         </p>
-        <p>&#xC27C;&#xD45C;&#xB85C; &#xBD84;&#xB9AC;&#xB41C; &#xC778;&#xC218;&#xB4E4;&#xC740;
-          &#xACF5;&#xBC31;&#xC73C;&#xB85C; &#xB098;&#xB258;&#xC5B4; &#xCD9C;&#xB825;.
+        <p>쉼표로 분리된 인수들은
+          공백으로 나뉘어 출력.
           <br
           />
         </p>
@@ -39,7 +39,7 @@
           <br />
         </p>
       </td>
-      <td style="text-align:left">&#xBAA8;&#xB4E0; &#xB370;&#xC774;&#xD130;&#xD615;</td>
+      <td style="text-align:left">모든 데이터형</td>
     </tr>
   </tbody>
 </table>

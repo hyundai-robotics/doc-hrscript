@@ -36,41 +36,41 @@ HRScript가 지원하는 연산자는 아래와 같습니다. 위에 있을수�
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">&#xC5F0;&#xC0B0;&#xC790;</th>
-      <th style="text-align:left">&#xC758;&#xBBF8;</th>
-      <th style="text-align:left">&#xC608;</th>
+      <th style="text-align:left">연산자</th>
+      <th style="text-align:left">의미</th>
+      <th style="text-align:left">예</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="text-align:left">( )</td>
-      <td style="text-align:left">&#xAD04;&#xD638; (grouping)</td>
+      <td style="text-align:left">괄호 (grouping)</td>
       <td style="text-align:left">(10+10)*2 ; 40</td>
     </tr>
     <tr>
       <td style="text-align:left">[ ]</td>
-      <td style="text-align:left">&#xBC30;&#xC5F4; &#xC694;&#xC18C; &#xC811;&#xADFC;</td>
+      <td style="text-align:left">배열 요소 접근</td>
       <td style="text-align:left">arr[3]</td>
     </tr>
     <tr>
       <td style="text-align:left">**</td>
-      <td style="text-align:left">&#xC2B9; (exponentiation)</td>
+      <td style="text-align:left">승 (exponentiation)</td>
       <td style="text-align:left">10**3 ; 1000</td>
     </tr>
     <tr>
       <td style="text-align:left">+x, -x</td>
-      <td style="text-align:left">&#xBD80;&#xD638; (sign)</td>
+      <td style="text-align:left">부호 (sign)</td>
       <td style="text-align:left">-300</td>
     </tr>
     <tr>
       <td style="text-align:left">*, /, mod</td>
-      <td style="text-align:left">&#xACF1;&#xC148;, &#xB098;&#xB217;&#xC148;, &#xB098;&#xBA38;&#xC9C0;</td>
+      <td style="text-align:left">곱셈, 나눗셈, 나머지</td>
       <td
       style="text-align:left">300/3 ; 100, 8 mod 3 ; 2</td>
     </tr>
     <tr>
       <td style="text-align:left">+, -</td>
-      <td style="text-align:left">&#xB367;&#xC148;, &#xBE84;&#xC148;</td>
+      <td style="text-align:left">덧셈, 뺄셈</td>
       <td style="text-align:left">300-100 ; 200</td>
     </tr>
     <tr>
@@ -106,7 +106,7 @@ HRScript가 지원하는 연산자는 아래와 같습니다. 위에 있을수�
         <p>shift left
           <br />
         </p>
-        <p>shift right (&#xBD80;&#xD638;&#xC720;&#xC9C0;)
+        <p>shift right (부호유지)
           <br />
         </p>
       </td>
@@ -138,10 +138,10 @@ HRScript가 지원하는 연산자는 아래와 같습니다. 위에 있을수�
         </p>
       </td>
       <td style="text-align:left">
-        <p>&#xBE44;&#xAD50;&#xC5F0;&#xC0B0;
+        <p>비교연산
           <br />
         </p>
-        <p>!=&#xB294; &#xB2E4;&#xB974;&#xB2E4;. ==&#xB294; &#xAC19;&#xB2E4;.
+        <p>!=는 다르다. ==는 같다.
           <br />
         </p>
       </td>
@@ -156,7 +156,7 @@ HRScript가 지원하는 연산자는 아래와 같습니다. 위에 있을수�
     </tr>
     <tr>
       <td style="text-align:left">not x</td>
-      <td style="text-align:left">&#xB17C;&#xB9AC;&#xC5F0;&#xC0B0; NOT</td>
+      <td style="text-align:left">논리연산 NOT</td>
       <td style="text-align:left">not error_state</td>
     </tr>
     <tr>
@@ -169,10 +169,10 @@ HRScript가 지원하는 연산자는 아래와 같습니다. 위에 있을수�
         </p>
       </td>
       <td style="text-align:left">
-        <p>&#xB17C;&#xB9AC;&#xC5F0;&#xC0B0; AND
+        <p>논리연산 AND
           <br />
         </p>
-        <p>&#xB17C;&#xB9AC;&#xC5F0;&#xC0B0; OR
+        <p>논리연산 OR
           <br />
         </p>
       </td>

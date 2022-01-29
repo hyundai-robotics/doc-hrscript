@@ -5,36 +5,36 @@ var str="hello, world"가 실행된 상태에서의 예
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">&#xD568;&#xC218;</th>
-      <th style="text-align:left">&#xC124;&#xBA85;</th>
-      <th style="text-align:left">&#xC0AC;&#xC6A9; &#xC608;</th>
-      <th style="text-align:left">&#xACB0;&#xACFC;</th>
+      <th style="text-align:left">함수</th>
+      <th style="text-align:left">설명</th>
+      <th style="text-align:left">사용 예</th>
+      <th style="text-align:left">결과</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="text-align:left">bin(a)</td>
-      <td style="text-align:left">&#xC218;&#xCE58; a&#xC758; 2&#xC9C4; &#xD45C;&#xD604; &#xBB38;&#xC790;&#xC5F4;&#xC744;
-        &#xB9AC;&#xD134;&#xD569;&#xB2C8;&#xB2E4;</td>
+      <td style="text-align:left">수치 a의 2진 표현 문자열을
+        리턴합니다</td>
       <td style="text-align:left">bin(0b0010)</td>
       <td style="text-align:left">&quot;10&quot;</td>
     </tr>
     <tr>
       <td style="text-align:left">chr(a)</td>
-      <td style="text-align:left">ASCII&#xCF54;&#xB4DC; a&#xC778; &#xBB38;&#xC790;&#xB97C; &#xBB38;&#xC790;&#xC5F4;&#xD615;&#xC73C;&#xB85C;
-        &#xB9AC;&#xD134;&#xD569;&#xB2C8;&#xB2E4;.</td>
+      <td style="text-align:left">ASCII코드 a인 문자를 문자열형으로
+        리턴합니다.</td>
       <td style="text-align:left">chr(65)</td>
       <td style="text-align:left">&quot;A&quot;</td>
     </tr>
     <tr>
       <td style="text-align:left">double(s)</td>
       <td style="text-align:left">
-        <p>&#xC2E4;&#xC218; &#xBB38;&#xC790;&#xC5F4;s&#xC758; &#xC2E4;&#xC218;&#xD615;&#xAC12;&#xC744;
-          &#xB9AC;&#xD134;&#xD569;&#xB2C8;&#xB2E4;.
+        <p>실수 문자열s의 실수형값을
+          리턴합니다.
           <br />
         </p>
-        <p>(&#xD574;&#xC11D;&#xB418;&#xB294; &#xC704;&#xCE58;&#xAE4C;&#xC9C0;&#xB9CC;
-          &#xD574;&#xC11D;&#xD558;&#xACE0; &#xB098;&#xBA38;&#xC9C0;&#xB294; &#xBC84;&#xB9BC;)
+        <p>(해석되는 위치까지만
+          해석하고 나머지는 버림)
           <br
           />
         </p>
@@ -44,20 +44,20 @@ var str="hello, world"가 실행된 상태에서의 예
     </tr>
     <tr>
       <td style="text-align:left">hex(a)</td>
-      <td style="text-align:left">&#xC218;&#xCE58; a&#xC758; 16&#xC9C4; &#xD45C;&#xD604; &#xBB38;&#xC790;&#xC5F4;&#xC744;
-        &#xB9AC;&#xD134; &#xD569;&#xB2C8;&#xB2E4;.</td>
+      <td style="text-align:left">수치 a의 16진 표현 문자열을
+        리턴 합니다.</td>
       <td style="text-align:left">hex(0x7A2F)</td>
       <td style="text-align:left">&quot;7A2F&quot;</td>
     </tr>
     <tr>
       <td style="text-align:left">int(s)</td>
       <td style="text-align:left">
-        <p>&#xC815;&#xC218; &#xBB38;&#xC790;&#xC5F4;s&#xC758; &#xC815;&#xC218;&#xD615;&#xAC12;&#xC744;
-          &#xB9AC;&#xD134;&#xD569;&#xB2C8;&#xB2E4;.
+        <p>정수 문자열s의 정수형값을
+          리턴합니다.
           <br />
         </p>
-        <p>(&#xD574;&#xC11D;&#xB418;&#xB294; &#xC704;&#xCE58;&#xAE4C;&#xC9C0;&#xB9CC;
-          &#xD574;&#xC11D;&#xD558;&#xACE0; &#xB098;&#xBA38;&#xC9C0;&#xB294; &#xBC84;&#xB9BC;)
+        <p>(해석되는 위치까지만
+          해석하고 나머지는 버림)
           <br
           />
         </p>
@@ -81,8 +81,8 @@ var str="hello, world"가 실행된 상태에서의 예
     </tr>
     <tr>
       <td style="text-align:left">left(s, n)</td>
-      <td style="text-align:left">&#xBB38;&#xC790;&#xC5F4; s&#xC758; &#xC55E;&#xBD80;&#xBD84; n&#xAC1C;&#xC758;
-        &#xBB38;&#xC790;&#xB85C; &#xB41C; &#xBB38;&#xC790;&#xC5F4;&#xC744; &#xB9AC;&#xD134;&#xD569;&#xB2C8;&#xB2E4;.</td>
+      <td style="text-align:left">문자열 s의 앞부분 n개의
+        문자로 된 문자열을 리턴합니다.</td>
       <td
       style="text-align:left">left(str, 3)</td>
         <td style="text-align:left">&quot;hel&quot;</td>
@@ -90,12 +90,12 @@ var str="hello, world"가 실행된 상태에서의 예
     <tr>
       <td style="text-align:left">len(s)</td>
       <td style="text-align:left">
-        <p>s&#xAC00; &#xBB38;&#xC790;&#xC5F4;&#xC774;&#xBA74; &#xBB38;&#xC790;&#xC5F4;&#xC758;
-          &#xAE38;&#xC774;&#xB97C; &#xB9AC;&#xD134;&#xD569;&#xB2C8;&#xB2E4;.
+        <p>s가 문자열이면 문자열의
+          길이를 리턴합니다.
           <br />
         </p>
-        <p>s&#xAC00; &#xBC30;&#xC5F4;&#xC774;&#xBA74; &#xBC30;&#xC5F4;&#xC758; &#xC694;&#xC18C;
-          &#xAC1C;&#xC218;&#xB97C; &#xB9AC;&#xD134;&#xD569;&#xB2C8;&#xB2E4;.
+        <p>s가 배열이면 배열의 요소
+          개수를 리턴합니다.
           <br />
         </p>
       </td>
@@ -118,41 +118,41 @@ var str="hello, world"가 실행된 상태에서의 예
     </tr>
     <tr>
       <td style="text-align:left">mid(s, i, n)</td>
-      <td style="text-align:left">&#xBB38;&#xC790;&#xC5F4; s&#xC758; i&#xBC88;&#xC9F8; &#xBB38;&#xC790;&#xBD80;&#xD130;
-        n&#xAC1C;&#xC758; &#xBB38;&#xC790;&#xB85C; &#xB41C; &#xBB38;&#xC790;&#xC5F4;&#xC744;
-        &#xB9AC;&#xD134;&#xD569;&#xB2C8;&#xB2E4;. (&#xCCAB; &#xBB38;&#xC790; &#xC704;&#xCE58;&#xB294;
+      <td style="text-align:left">문자열 s의 i번째 문자부터
+        n개의 문자로 된 문자열을
+        리턴합니다. (첫 문자 위치는
         0.)</td>
       <td style="text-align:left">mid(str, 3, 5)</td>
       <td style="text-align:left">&quot;lo, w&quot;</td>
     </tr>
     <tr>
       <td style="text-align:left">mirror(s)</td>
-      <td style="text-align:left">&#xBB38;&#xC790;&#xC5F4; s&#xB97C; &#xC5ED;&#xC804;&#xD55C; &#xBB38;&#xC790;&#xC5F4;&#xC744;
-        &#xB9AC;&#xD134;&#xD569;&#xB2C8;&#xB2E4;.</td>
+      <td style="text-align:left">문자열 s를 역전한 문자열을
+        리턴합니다.</td>
       <td style="text-align:left">mirror(&quot;HELLO&quot;)</td>
       <td style="text-align:left">&quot;OLLEH&quot;</td>
     </tr>
     <tr>
       <td style="text-align:left">right(s, n)</td>
-      <td style="text-align:left">&#xBB38;&#xC790;&#xC5F4; s&#xC758; &#xB4B7;&#xBD80;&#xBD84; n&#xAC1C;&#xC758;
-        &#xBB38;&#xC790;&#xB85C; &#xB41C; &#xBB38;&#xC790;&#xC5F4;&#xC744; &#xB9AC;&#xD134;&#xD569;&#xB2C8;&#xB2E4;.</td>
+      <td style="text-align:left">문자열 s의 뒷부분 n개의
+        문자로 된 문자열을 리턴합니다.</td>
       <td
       style="text-align:left">right(str, 3)</td>
         <td style="text-align:left">&quot;rld&quot;</td>
     </tr>
     <tr>
       <td style="text-align:left">str(a)</td>
-      <td style="text-align:left">&#xC218;&#xCE58; a&#xC758; 10&#xC9C4; &#xD45C;&#xD604; &#xBB38;&#xC790;&#xC5F4;&#xC744;
-        &#xB9AC;&#xD134;&#xD569;&#xB2C8;&#xB2E4;.</td>
+      <td style="text-align:left">수치 a의 10진 표현 문자열을
+        리턴합니다.</td>
       <td style="text-align:left">str(13.25)</td>
       <td style="text-align:left">13.250000</td>
     </tr>
     <tr>
       <td style="text-align:left">strops(s, p)</td>
-      <td style="text-align:left">s&#xBB38;&#xC790;&#xC5F4; &#xB0B4;&#xC5D0; p&#xBB38;&#xC790;&#xC5F4;&#xACFC;
-        &#xC77C;&#xCE58;&#xD558;&#xB294; &#xCD5C;&#xCD08;&#xC758; &#xC704;&#xCE58;&#xB97C;
-        &#xB9AC;&#xD134;&#xD569;&#xB2C8;&#xB2E4;.(&#xCCAB; &#xBB38;&#xC790; &#xC704;&#xCE58;&#xB294;
-        0. &#xC5C6;&#xC73C;&#xBA74; -1.)</td>
+      <td style="text-align:left">s문자열 내에 p문자열과
+        일치하는 최초의 위치를
+        리턴합니다.(첫 문자 위치는
+        0. 없으면 -1.)</td>
       <td style="text-align:left">
         <p>strpos(str, &quot;llo&quot;)
           <br />

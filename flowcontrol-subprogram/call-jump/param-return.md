@@ -65,7 +65,7 @@ JOB 프로그램은 입력과 출력을 전달하는 통로\(channel\)로서 형
       </td>
     </tr>
     <tr>
-      <td style="text-align:left">&#xACB0;&#xACFC;</td>
+      <td style="text-align:left">결과</td>
       <td style="text-align:left">13.742</td>
     </tr>
   </tbody>

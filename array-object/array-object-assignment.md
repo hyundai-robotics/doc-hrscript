@@ -31,7 +31,7 @@
       </td>
     </tr>
     <tr>
-      <td style="text-align:left">&#xACB0;&#xACFC;</td>
+      <td style="text-align:left">결과</td>
       <td style="text-align:left">[10, 20]</td>
     </tr>
   </tbody>

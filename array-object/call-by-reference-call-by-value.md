@@ -47,7 +47,7 @@
       </td>
     </tr>
     <tr>
-      <td style="text-align:left">&#xACB0;&#xACFC;</td>
+      <td style="text-align:left">결과</td>
       <td style="text-align:left">2</td>
     </tr>
   </tbody>
@@ -103,7 +103,7 @@
       </td>
     </tr>
     <tr>
-      <td style="text-align:left">&#xACB0;&#xACFC;</td>
+      <td style="text-align:left">결과</td>
       <td style="text-align:left">8</td>
     </tr>
   </tbody>
@@ -167,7 +167,7 @@
       </td>
     </tr>
     <tr>
-      <td style="text-align:left">&#xACB0;&#xACFC;</td>
+      <td style="text-align:left">결과</td>
       <td style="text-align:left">[27, 8, 64]</td>
     </tr>
   </tbody>

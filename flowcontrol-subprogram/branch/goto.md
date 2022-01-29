@@ -13,18 +13,18 @@ goto &lt;주소&gt;
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">&#xD56D;&#xBAA9;</th>
-      <th style="text-align:left">&#xC758;&#xBBF8;</th>
-      <th style="text-align:left">&#xAE30;&#xD0C0;</th>
+      <th style="text-align:left">항목</th>
+      <th style="text-align:left">의미</th>
+      <th style="text-align:left">기타</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align:left">&#xC8FC;&#xC18C;</td>
+      <td style="text-align:left">주소</td>
       <td style="text-align:left">
-        <p>&#xBD84;&#xAE30;&#xD560; &#xC8FC;&#xC18C;</p>
-        <p>&#xD589; &#xBC88;&#xD638;&#xC778; &#xACBD;&#xC6B0; &#xC0B0;&#xC220;&#xC2DD;&#xB3C4;
-          &#xAC00;&#xB2A5;</p>
+        <p>분기할 주소</p>
+        <p>행 번호인 경우 산술식도
+          가능</p>
       </td>
       <td style="text-align:left"></td>
     </tr>

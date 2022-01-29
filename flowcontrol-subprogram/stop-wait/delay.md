@@ -13,17 +13,17 @@ delay &lt;시간&gt;
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">&#xD56D;&#xBAA9;</th>
-      <th style="text-align:left">&#xC758;&#xBBF8;</th>
-      <th style="text-align:left">&#xAE30;&#xD0C0;</th>
+      <th style="text-align:left">항목</th>
+      <th style="text-align:left">의미</th>
+      <th style="text-align:left">기타</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align:left">&#xC2DC;&#xAC04;</td>
-      <td style="text-align:left">&#xB300;&#xAE30;&#xD560; &#xC2DC;&#xAC04;</td>
+      <td style="text-align:left">시간</td>
+      <td style="text-align:left">대기할 시간</td>
       <td style="text-align:left">
-        <p>&#xC0B0;&#xC220;&#xC2DD;</p>
+        <p>산술식</p>
         <p>0.1~60.0 sec</p>
       </td>
     </tr>

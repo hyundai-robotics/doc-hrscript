@@ -7,10 +7,10 @@
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">&#xD568;&#xC218;</th>
-      <th style="text-align:left">&#xC124;&#xBA85;</th>
-      <th style="text-align:left">&#xC0AC;&#xC6A9; &#xC608;</th>
-      <th style="text-align:left">&#xACB0;&#xACFC;</th>
+      <th style="text-align:left">함수</th>
+      <th style="text-align:left">설명</th>
+      <th style="text-align:left">사용 예</th>
+      <th style="text-align:left">결과</th>
     </tr>
   </thead>
   <tbody>
@@ -24,18 +24,18 @@
         </p>
       </td>
       <td style="text-align:left">
-        <p>&#xC694;&#xC18C; n&#xAC1C;&#xC758; &#xBC30;&#xC5F4;&#xC744; &#xC0DD;&#xC131;&#xD574;
-          &#xB9AC;&#xD134;&#xD569;&#xB2C8;&#xB2E4;. &#xC694;&#xC18C;&#xC758; &#xCD08;&#xAE30;&#xAC12;&#xC740;
-          0&#xC785;&#xB2C8;&#xB2E4;.
+        <p>요소 n개의 배열을 생성해
+          리턴합니다. 요소의 초기값은
+          0입니다.
           <br />
         </p>
-        <p>&#xC778;&#xC218;&#xB97C; 2&#xAC1C; &#xC774;&#xC0C1; &#xC9C0;&#xC815;&#xD558;&#xBA74;
-          &#xB2E4;&#xCC28;&#xC6D0; &#xBC30;&#xC5F4;&#xC774; &#xC0DD;&#xC131;&#xB429;&#xB2C8;&#xB2E4;.
+        <p>인수를 2개 이상 지정하면
+          다차원 배열이 생성됩니다.
           <br
           />
         </p>
-        <p>&quot;<a href="../../array-object/array/">4.1 &#xBC30;&#xC5F4;</a>&quot;&#xC744;
-          &#xCC38;&#xC870;&#xD558;&#xC2ED;&#xC2DC;&#xC624;.
+        <p>&quot;<a href="../../array-object/array/">4.1 배열</a>&quot;을
+          참조하십시오.
           <br />
         </p>
         <p>
@@ -51,43 +51,43 @@
         </p>
       </td>
       <td style="text-align:left">
-        <p>&#xBC30;&#xC5F4;[900]
+        <p>배열[900]
           <br />
         </p>
-        <p>&#xBC30;&#xC5F4;[3][4]
+        <p>배열[3][4]
           <br />
         </p>
       </td>
     </tr>
     <tr>
-      <td style="text-align:left">Pose(&#xC694;&#xC18C;)</td>
+      <td style="text-align:left">Pose(요소)</td>
       <td style="text-align:left">
-        <p>&#xD3EC;&#xC988; &#xAC1D;&#xCCB4;&#xB97C; &#xC0DD;&#xC131;&#xD574; &#xB9AC;&#xD134;&#xD569;&#xB2C8;&#xB2E4;.
+        <p>포즈 객체를 생성해 리턴합니다.
           <br
           />
         </p>
-        <p>&quot;<a href="../../moving-robot/pose.md">5.1 &#xD3EC;&#xC988; (pose)</a>&quot;&#xB97C;
-          &#xCC38;&#xC870;&#xD558;&#xC2ED;&#xC2DC;&#xC624;.
+        <p>&quot;<a href="../../moving-robot/pose.md">5.1 포즈 (pose)</a>&quot;를
+          참조하십시오.
           <br />
         </p>
       </td>
       <td style="text-align:left"></td>
-      <td style="text-align:left">&#xD3EC;&#xC988; &#xAC1D;&#xCCB4;</td>
+      <td style="text-align:left">포즈 객체</td>
     </tr>
     <tr>
-      <td style="text-align:left">Shift(&#xC694;&#xC18C;)</td>
+      <td style="text-align:left">Shift(요소)</td>
       <td style="text-align:left">
-        <p>&#xC2DC;&#xD504;&#xD2B8; &#xAC1D;&#xCCB4;&#xB97C; &#xC0DD;&#xC131;&#xD574;
-          &#xB9AC;&#xD134;&#xD569;&#xB2C8;&#xB2E4;.
+        <p>시프트 객체를 생성해
+          리턴합니다.
           <br />
         </p>
-        <p>&quot;<a href="../../moving-robot/shift.md">5.2 &#xC2DC;&#xD504;&#xD2B8; (shift)</a>&quot;&#xB97C;
-          &#xCC38;&#xC870;&#xD558;&#xC2ED;&#xC2DC;&#xC624;.
+        <p>&quot;<a href="../../moving-robot/shift.md">5.2 시프트 (shift)</a>&quot;를
+          참조하십시오.
           <br />
         </p>
       </td>
       <td style="text-align:left"></td>
-      <td style="text-align:left">&#xC2DC;&#xD504;&#xD2B8; &#xAC1D;&#xCCB4;</td>
+      <td style="text-align:left">시프트 객체</td>
     </tr>
   </tbody>
 </table>

@@ -13,26 +13,26 @@ ENet\(&lt;프로토콜&gt;\)
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">&#xD56D;&#xBAA9;</th>
-      <th style="text-align:left">&#xC758;&#xBBF8;</th>
-      <th style="text-align:left">&#xAE30;&#xD0C0;</th>
+      <th style="text-align:left">항목</th>
+      <th style="text-align:left">의미</th>
+      <th style="text-align:left">기타</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align:left">&#xD504;&#xB85C;&#xD1A0;&#xCF5C;</td>
+      <td style="text-align:left">프로토콜</td>
       <td style="text-align:left">
-        <p>&quot;tcp&quot; : TCP &#xD1B5;&#xC2E0;
+        <p>&quot;tcp&quot; : TCP 통신
           <br />
         </p>
-        <p>&quot;udp&quot; : UDP &#xD1B5;&#xC2E0;
+        <p>&quot;udp&quot; : UDP 통신
           <br />
         </p>
         <p>
           <br />
         </p>
       </td>
-      <td style="text-align:left">&#xC0DD;&#xB7B5;&#xD558;&#xBA74; &quot;udp&quot;&#xB85C; &#xC778;&#xC2DD;</td>
+      <td style="text-align:left">생략하면 &quot;udp&quot;로 인식</td>
     </tr>
   </tbody>
 </table>

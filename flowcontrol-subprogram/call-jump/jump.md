@@ -55,7 +55,7 @@ call문 설명에서 본 예제 프로그램을 jump문으로 바꾸어 실행�
       </td>
     </tr>
     <tr>
-      <td style="text-align:left">&#xACB0;&#xACFC;</td>
+      <td style="text-align:left">결과</td>
       <td style="text-align:left">
         <p>main job start
           <br />

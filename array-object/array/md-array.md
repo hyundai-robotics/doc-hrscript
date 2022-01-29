@@ -37,7 +37,7 @@ arr\_y\[1\]는 이 중 인덱스 1의 요소, 즉 \["abc", "jqk", "xyz"\] 배열
       </td>
     </tr>
     <tr>
-      <td style="text-align:left">&#xACB0;&#xACFC;</td>
+      <td style="text-align:left">결과</td>
       <td style="text-align:left">
         <p>jqk
           <br />

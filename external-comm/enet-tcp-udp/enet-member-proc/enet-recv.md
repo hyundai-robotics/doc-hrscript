@@ -15,28 +15,28 @@
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">&#xD56D;&#xBAA9;</th>
-      <th style="text-align:left">&#xC758;&#xBBF8;</th>
-      <th style="text-align:left">&#xAE30;&#xD0C0;</th>
+      <th style="text-align:left">항목</th>
+      <th style="text-align:left">의미</th>
+      <th style="text-align:left">기타</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align:left">&#xBCC0;&#xC218;</td>
-      <td style="text-align:left">&#xC218;&#xC2E0;&#xB41C; &#xBB38;&#xC790;&#xC5F4;&#xC744; &#xC804;&#xB2EC;&#xBC1B;&#xC744;
-        &#xBCC0;&#xC218;</td>
+      <td style="text-align:left">변수</td>
+      <td style="text-align:left">수신된 문자열을 전달받을
+        변수</td>
       <td style="text-align:left"></td>
     </tr>
     <tr>
-      <td style="text-align:left">&#xB300;&#xAE30;&#xC2DC;&#xAC04;</td>
+      <td style="text-align:left">대기시간</td>
       <td style="text-align:left">
-        <p>timeout &#xC2DC;&#xAC04;. &#xACBD;&#xACFC;&#xD558;&#xBA74; &#xB2E4;&#xC74C;
-          &#xBA85;&#xB839;&#xBB38;&#xC73C;&#xB85C; &#xC9C4;&#xD589;&#xD55C;&#xB2E4;.
+        <p>timeout 시간. 경과하면 다음
+          명령문으로 진행한다.
           <br
           />
         </p>
-        <p>&#xC9C0;&#xC815;&#xD558;&#xC9C0; &#xC54A;&#xC73C;&#xBA74; &#xBB34;&#xD55C;
-          &#xB300;&#xAE30;&#xD55C;&#xB2E4;.
+        <p>지정하지 않으면 무한
+          대기한다.
           <br />
         </p>
         <p>

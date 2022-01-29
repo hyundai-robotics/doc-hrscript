@@ -15,19 +15,19 @@ input &lt;변수&gt;\[,&lt;제한시간&gt;,&lt;timeout 주소&gt;\]
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">&#xD56D;&#xBAA9;</th>
-      <th style="text-align:left">&#xC758;&#xBBF8;</th>
-      <th style="text-align:left">&#xAE30;&#xD0C0;</th>
+      <th style="text-align:left">항목</th>
+      <th style="text-align:left">의미</th>
+      <th style="text-align:left">기타</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align:left">&#xBCC0;&#xC218;</td>
+      <td style="text-align:left">변수</td>
       <td style="text-align:left">
-        <p>&#xC785;&#xB825;&#xC744; &#xBC1B;&#xC744; &#xBCC0;&#xC218;. &#xC22B;&#xC790;&#xB3C4;
-          &#xBB38;&#xC790;&#xC5F4; &#xD0C0;&#xC785;&#xC73C;&#xB85C; &#xC785;&#xB825;&#xBC1B;&#xC2B5;&#xB2C8;&#xB2E4;.
-          &#xC218;&#xCE58;&#xAC12;&#xC774; &#xD544;&#xC694;&#xD558;&#xBA74; int(
-          )&#xB098; double( ) &#xD568;&#xC218;&#xB85C; &#xBCC0;&#xD658;&#xD558;&#xC2ED;&#xC2DC;&#xC624;.
+        <p>입력을 받을 변수. 숫자도
+          문자열 타입으로 입력받습니다.
+          수치값이 필요하면 int(
+          )나 double( ) 함수로 변환하십시오.
           <br
           />
         </p>
@@ -41,11 +41,11 @@ input &lt;변수&gt;\[,&lt;제한시간&gt;,&lt;timeout 주소&gt;\]
       <td style="text-align:left"></td>
     </tr>
     <tr>
-      <td style="text-align:left">&#xC81C;&#xD55C;&#xC2DC;&#xAC04;</td>
-      <td style="text-align:left">&#xC785;&#xB825;&#xC744; &#xB300;&#xAE30;&#xD560; &#xCD5C;&#xB300; &#xC81C;&#xD55C;
-        &#xC2DC;&#xAC04; (timeout)</td>
+      <td style="text-align:left">제한시간</td>
+      <td style="text-align:left">입력을 대기할 최대 제한
+        시간 (timeout)</td>
       <td style="text-align:left">
-        <p>&#xC0B0;&#xC220;&#xC2DD;
+        <p>산술식
           <br />
         </p>
         <p>0.1~60.0 sec
@@ -54,10 +54,10 @@ input &lt;변수&gt;\[,&lt;제한시간&gt;,&lt;timeout 주소&gt;\]
       </td>
     </tr>
     <tr>
-      <td style="text-align:left">timeout &#xC8FC;&#xC18C;</td>
-      <td style="text-align:left">&#xC81C;&#xD55C;&#xC2DC;&#xAC04; &#xCD08;&#xACFC; &#xC2DC;, &#xBD84;&#xAE30;&#xD560;
-        &#xC8FC;&#xC18C;</td>
-      <td style="text-align:left">&#xC8FC;&#xC18C;</td>
+      <td style="text-align:left">timeout 주소</td>
+      <td style="text-align:left">제한시간 초과 시, 분기할
+        주소</td>
+      <td style="text-align:left">주소</td>
     </tr>
   </tbody>
 </table>

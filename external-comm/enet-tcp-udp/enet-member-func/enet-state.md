@@ -15,22 +15,22 @@
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">&#xAC12;</th>
-      <th style="text-align:left">&#xC758;&#xBBF8;</th>
-      <th style="text-align:left">&#xAE30;&#xD0C0;</th>
+      <th style="text-align:left">값</th>
+      <th style="text-align:left">의미</th>
+      <th style="text-align:left">기타</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="text-align:left">1</td>
       <td style="text-align:left">
-        <p>&#xC5F0;&#xACB0;&#xB428;.
+        <p>연결됨.
           <br />
         </p>
-        <p>(UDP&#xC77C; &#xB54C;&#xB294; open&#xB9CC; &#xD574;&#xB3C4; &#xC5F0;&#xACB0;&#xB85C;
-          &#xAC04;&#xC8FC;&#xB429;&#xB2C8;&#xB2E4;. TCP&#xC77C; &#xB54C;&#xB294;
-          open &#xD6C4; connect&#xB3C4; &#xC218;&#xD589;&#xD574;&#xC57C; &#xC5F0;&#xACB0;&#xB85C;
-          &#xAC04;&#xC8FC;&#xB429;&#xB2C8;&#xB2E4;.)
+        <p>(UDP일 때는 open만 해도 연결로
+          간주됩니다. TCP일 때는
+          open 후 connect도 수행해야 연결로
+          간주됩니다.)
           <br />
         </p>
         <p>
@@ -47,18 +47,18 @@
     </tr>
     <tr>
       <td style="text-align:left">0</td>
-      <td style="text-align:left">&#xC5F0;&#xACB0; &#xC548;&#xB428;.</td>
+      <td style="text-align:left">연결 안됨.</td>
       <td style="text-align:left"></td>
     </tr>
     <tr>
       <td style="text-align:left">-1</td>
-      <td style="text-align:left">&#xC774;&#xB354;&#xB137;&#xC18C;&#xCF13; &#xC0DD;&#xC131; &#xC2E4;&#xD328;</td>
+      <td style="text-align:left">이더넷소켓 생성 실패</td>
       <td
       style="text-align:left"></td>
     </tr>
     <tr>
       <td style="text-align:left">-2</td>
-      <td style="text-align:left">&#xC774;&#xB354;&#xB137;&#xC7A5;&#xCE58; BIND &#xC2E4;&#xD328;</td>
+      <td style="text-align:left">이더넷장치 BIND 실패</td>
       <td
       style="text-align:left"></td>
     </tr>
