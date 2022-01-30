@@ -5,7 +5,7 @@ Pose is an object type embedded in the Hi6 Controller and represents each axis o
 Poses are created by calling the constructor function Pose\( \). All function parameters are position parameters. Meanwhile, crd and cfg are string types, and the rest are number types.
 
 {% hint style="info" %}
-The cfg element specifies the robot configuration. For more information, refer to "[2.3.2.2 Base and Robot Recording Coordinates](https://hrbook-asoe72.web.app/#/view/doc-hi6-operation/english/2-operation/2-3-step/step-pose-modify/base-robot-crd-sys)" in the Hi6 Robot Controller Operation Manual.
+The cfg element specifies the robot configuration. For more information, refer to "[2.3.2.2 Base and Robot Recording Coordinates](https://hrbook-asoe72.web.app/#/view/doc-hi6-operation/english/operation/step/step-pose-modify/base-robot-crd-sys)" in the Hi6 Robot Controller Operation Manual.
 {% endhint %}
 
 
