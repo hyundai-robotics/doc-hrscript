@@ -85,7 +85,7 @@ move &lt;interpolation&gt;, \[tg=&lt;pose/shift&gt;\], spd=&lt;speed&gt;, accu=&
 
 ```python
 move L,tg=po[0]+sft[1],spd=800mm/sec,accu=0,tool=1
-move P,tg=+Shift(0,0,0,0,-10,0),spd=80%,accu=1,tool=3 until di2  (숨은 포즈)
+move P,tg=+Shift(0,0,0,0,-10,0),spd=80%,accu=1,tool=3 until di2  (hidden pose)
 if result() then *sensor_on
 ```
 
