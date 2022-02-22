@@ -13,7 +13,7 @@ If the right side of an assignment statement has object variables, the entire va
     <tr>
       <td style="text-align:left">0001.job</td>
       <td style="text-align:left">
-        <p>var my_obj = [ x:5, y:0, z:0 ]
+        <p>var my_obj = { x:5, y:0, z:0 }
           <br />
         </p>
         <p>my_obj.y=[ [10, 20], [&quot;abc&quot;, true] ]
