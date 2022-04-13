@@ -37,7 +37,7 @@
   </tbody>
 </table>
 
-![](../.gitbook/assets/image.png)
+![](../_assets/image.png)
 
 
 
