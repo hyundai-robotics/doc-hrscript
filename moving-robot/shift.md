@@ -36,5 +36,5 @@ var sft4 = Shift(str)
 
 Elements of the shift object can be accessed with the following keys.
 
-![](../.gitbook/assets/image%20%287%29.png)
+![](../_assets/image%20%287%29.png)
 

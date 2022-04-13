@@ -37,7 +37,7 @@ If the right side of an assignment statement has object variables, the entire va
   </tbody>
 </table>
 
-![](../.gitbook/assets/image.png)
+![](../_assets/image.png)
 
 
 
