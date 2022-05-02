@@ -184,7 +184,7 @@ When a sub-program is called, if the copied version of the value of an actual pa
 | call-by-value | Boolean, numeric, and string types |
 | call-by-reference | Array and object types |
 
-![](../_assets/image%20%283%29%20%281%29.png)
+![](../_assets/image_3.png)
 
 
 

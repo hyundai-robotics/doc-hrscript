@@ -40,7 +40,7 @@ var po4 = Pose(str)
 
 Elements of the pose object can be accessed with the following keys.
 
-![](../_assets/image%20%289%29.png)
+![](../_assets/image_9.png)
 
 1. For V60.06-06 or older versions, fl is non-fl.
 
