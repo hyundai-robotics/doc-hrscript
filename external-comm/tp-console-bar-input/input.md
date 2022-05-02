@@ -70,7 +70,7 @@ input work_no,10
 input work_no,10,*timeout
 ```
 
-![](../../_assets/image%20%286%29.png)
+![](../../_assets/image_6.png)
 
 
 

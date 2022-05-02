@@ -38,7 +38,7 @@ var po4 = Pose(str)
 
 Pose 객체의 요소들은 다음의 키들로 접근 가능합니다.
 
-![](../_assets/image%20%285%29.png)
+![](../_assets/image_5.png)
 
 아래의 예와 같이 포즈 요소값에 접근할 수 있습니다.
 

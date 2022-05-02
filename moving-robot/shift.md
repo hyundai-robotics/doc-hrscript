@@ -34,5 +34,5 @@ var sft4 = Shift(str)
 
 Shift 객체의 요소들은 다음의 키들로 접근 가능합니다.
 
-![](../_assets/image%20%284%29.png)
+![](../_assets/image_4.png)
 
