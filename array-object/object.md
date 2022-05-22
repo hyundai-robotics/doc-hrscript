@@ -1,4 +1,4 @@
-# 4.2 객체 \(object\)
+﻿# 4.2 객체 \(object\)
 
 앞서, 배열은 여러 개의 요소값을 보관할 수 있고, 인덱스로 접근한다는 것을 배웠습니다.
 
@@ -75,6 +75,7 @@
     </tr>
     <tr>
       <td style="text-align:left">결과</td>
+
       <td style="text-align:left">false, 80, 87.600000</td>
     </tr>
   </tbody>
