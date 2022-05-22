@@ -93,4 +93,4 @@
     * [6.3.4 HTTP client 통신 예제](6-external-comm/3-http_cli/4-http_cli-example.md)
   * [6.4 티치펜던트 console bar로 입력받기](6-external-comm/4-tp-console-bar-input/README.md)
     * [6.4.1 input문](6-external-comm/4-tp-console-bar-input/1-input.md)
-* [7. alias](7-alias.md)
+* [7. 앨리어스 (alias)](7-alias.md)
