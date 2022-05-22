@@ -93,3 +93,4 @@
     * [6.3.4 Examples of HTTP Client Communication](6-external-comm/3-http_cli/4-http_cli-example.md)
   * [6.4 Getting input from console bar](6-external-comm/4-tp-console-bar-input/README.md)
     * [6.4.1 input](6-external-comm/4-tp-console-bar-input/1-input.md)
+* [7. Alias](7-alias.md)
