@@ -3,9 +3,7 @@
 {% hint style="warning" %}
 The information presented in this manual is the property of Hyundai Robotics.
 
-The manual may neither be copied, in part or in full, nor redistributed without prior&#x20;
-
-written consent from Hyundai Robotics.
+The manual may neither be copied, in part or in full, nor redistributed without prior written consent from Hyundai Robotics.
 
 It may neither be provided to any third party nor used for any other purposes.
 
@@ -15,5 +13,5 @@ Hyundai Robotics reserves the right to modify this document without prior notifi
 
 
 
-**Copyright ⓒ 2020 by Hyundai Robotics Co., Ltd**
+**Copyright ⓒ 2020 by Hyundai Robotics**
 {% endhint %}
