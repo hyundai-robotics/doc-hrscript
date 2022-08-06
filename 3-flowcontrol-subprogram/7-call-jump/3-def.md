@@ -1,4 +1,4 @@
-# 3.7.3 def문 (사용자함수 정의)
+﻿# 3.7.3 def문 (사용자함수 정의)
 
 V60.XX.XX부터.
 
@@ -38,11 +38,11 @@ y=12.8
 
 call euclid_dist,x,y
 var res=result()
-print 'euclid=',res
+print "euclid=",res # 13.7419
 
 call manhattan_dist,x,y
 var res=result()
-print 'manhattan=',res
+print "manhattan=",res # 17.8
 end
 ```
 
