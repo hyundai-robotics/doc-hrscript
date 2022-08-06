@@ -1568,68 +1568,37 @@ HRScript에서 메인 프로그램\(main program\)과 서브 프로그램\(sub p
 ### 문법
 
 ```python
-call <JOB번호 혹은 파일이름> [,매개변수1,매개변수2,…]
+call <JOB번호 혹은 파일이름, 사용자함수명> [,매개변수1,매개변수2,…]
 ```
 
-call 뒤에 JOB 번호, 혹은 JOB파일이름\(확장자 제외\)을 지정합니다. A라는 프로그램이 수행되다가 call B를 만나면 A의 수행은 중단되고, 서브프로그램인 B 프로그램의 첫 명령문부터 수행이 계속됩니다. B 수행 중 end문이나 return 문을 만나면 호출했던 A 프로그램 call문의 다음 명령문 위치로 복귀하여 A의 수행을 계속하게 됩니다.
+call 뒤에 JOB 번호, 혹은 JOB파일이름\(확장자 제외\)이나 사용자함수명을 지정합니다. A라는 프로그램이 수행되다가 call B를 만나면 A의 수행은 중단되고, 서브프로그램인 B 프로그램(혹은 사용자함수)의 첫 명령문부터 수행이 계속됩니다. B 수행 중 end문이나 return 문을 만나면 호출했던 A 프로그램 call문의 다음 명령문 위치로 복귀하여 A의 수행을 계속하게 됩니다.
 
 ### 사용 예
 
 아래는 call 문에 의한 서브프로그램 호출의 예와 그 결과입니다. 서브프로그램이 하는 일이 print문 1개 뿐이라 프로그램을 둘로 분리한 것이 의미없어 보이기는 하지만 뒤에서 좀 더 실제적인 예를 보이도록 하겠습니다.
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left"></th>
-      <th style="text-align:left"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left">0001.job</td>
-      <td style="text-align:left">
-        <p>print &quot;main job start&quot;
-          <br />
-        </p>
-        <p>call 102_err
-          <br />
-        </p>
-        <p>print &quot;main job end&quot;
-          <br />
-        </p>
-        <p>end
-          <br />
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left">0102_err.job</td>
-      <td style="text-align:left">
-        <p>print &quot;sub-program&quot;
-          <br />
-        </p>
-        <p>end
-          <br />
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left">결과</td>
-      <td style="text-align:left">
-        <p>main job start
-          <br />
-        </p>
-        <p>sub-program
-          <br />
-        </p>
-        <p>main job end
-          <br />
-        </p>
-      </td>
-    </tr>
-  </tbody>
-</table>
+* 사용자 함수를 호출하는 예는 [3.7.3 def](./3-def.md)를 참조하십시오.
 
+```python
+# 0001_main.job
+print "main job start"
+call 102_err
+print "main job end"
+end
+```
+
+```python
+# 0102_err.job
+print "sub-program"
+end
+```
+
+```python
+결과
+main job start
+sub-program
+main job end
+```
 # 3.7.2 매개변수와 param문, return문
 
 JOB 프로그램은 입력과 출력을 전달하는 통로\(channel\)로서 형식 매개변수를 사용합니다. 형식 매개변수는 JOB 프로그램의 가장 선두에 param 명령문으로 정의합니다.
@@ -1711,6 +1680,69 @@ dist2d 프로그램은 결과값을 return 문을 통해 외부로 전달하고 
 
 
 
+# 3.7.3 def문 (사용자함수 정의)
+
+V60.05-06부터
+
+### 설명
+
+def문으로 job 내에 사용자 함수를 정의하여 이를 call문으로 호출할 수 있습니다. def문은 param문과 유사하게 형식매개변수들의 리스트를 지정할 수 있습니다. call문이 전달한 실매개변수 값은 형식매개변수로 전달됩니다.
+def문으로 정의한 함수의 실행은 return문이나 end문을 실행할 때 call문 다음 위치로 리턴합니다.
+
+사용자 함수는 번호가 아닌 이름으로 호출하므로 서브프로그램보다 가독성이 좋으며, 관련된 여러 함수들을 하나의 서브프로그램에 그룹핑할 수 있어서 더 나은 프로젝트 구조를 만들어 줍니다. 
+
+
+### 문법
+
+```python
+def <사용자 함수명> [,매개변수1[=디폴트값],매개변수2[=디폴트값],…]
+```
+
+def 뒤에 사용자 함수명을 지정합니다. 함수명은 [2.2 식별자](../../2-basic-syntax/2-identifier.md) 절에서 정의한 규칙을 따라야 합니다. 또한, 프로젝트 전역적으로 유일한 명칭이어야 합니다. 다른 함수명 혹은 다른 변수명과 중복되지 않도록 유의하십시오.
+그 뒤에는 형식매개변수들을 지정합니다. 매개변수에는 디폴트값을 지정할 수도 있습니다. call 문에서 실매개변수를 생략하면, 해당 형식매개변수는 디폴트값으로 초기화됩니다. 특정 형식매개변수에 디폴트값을 지정하기 시작하면 반드시 마지막 매개변수까지 지정해줘야 합니다.
+
+```python
+# 형식매개변수 디폴트값 예
+def set_work,mass,cx=0,cy=0,cz=0 # 적법한 예
+def set_work,mass,cx=0,cy,cz     # 적법하지 않은 예
+```
+
+### 사용 예
+
+아래는 call 문에 의한 사용자함수 호출의 예와 그 결과입니다. 이전 절에서 서브프로그램 설명을 위해 제시한 유클리드 거리 예제를 확장하여 이번에는 유클리드 거리와 맨해튼 거리를 각각 사용자함수로 정의해서 호출해봅시다.
+
+
+```python
+# 0001_main.job
+var x,y
+x=5
+y=12.8
+
+call euclid_dist,x,y
+var res=result()
+print "euclid=",res # 13.7419
+
+call manhattan_dist,x,y
+var res=result()
+print "manhattan=",res # 17.8
+end
+```
+
+```python
+# 0008_dist.job
+
+# Calc. Euclide distance 2D
+def euclid_dist,x,y
+var tmp
+tmp=x*x+y*y
+var len=sqr(tmp) # distance from origin
+return len
+
+# Calc. Manhattan distance 2D
+def manhattan_dist,x,y
+var len=x+y
+return len
+```
 # 3.7.3 jump문
 
 ### 설명
