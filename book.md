@@ -1579,6 +1579,8 @@ call 뒤에 JOB 번호, 혹은 JOB파일이름\(확장자 제외\)이나 사용�
 
 * 사용자 함수를 호출하는 예는 [3.7.3 def](./3-def.md)를 참조하십시오.
 
+<br>
+
 ```python
 # 0001_main.job
 print "main job start"
@@ -1593,8 +1595,10 @@ print "sub-program"
 end
 ```
 
-```python
+<br>
 결과
+
+```python
 main job start
 sub-program
 main job end
@@ -1605,81 +1609,42 @@ JOB 프로그램은 입력과 출력을 전달하는 통로\(channel\)로서 형
 
 아래 예에서 105번 JOB은 원점으로부터 좌표값\(x,y\)까지의 유클리드 거리를 구하여 len으로 리턴하는 서브 JOB으로서 dist2d라고 이름을 지었습니다.
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left"></th>
-      <th style="text-align:left"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left">0001.job</td>
-      <td style="text-align:left">
-        <p>var x,y
-          <br />
-        </p>
-        <p>x=5
-          <br />
-        </p>
-        <p>y=12.8
-          <br />
-        </p>
-        <p>call 105_dist2d,x,y
-          <br />
-        </p>
-        <p>var res=result()
-          <br />
-        </p>
-        <p>print res
-          <br />
-        </p>
-        <p>end
-          <br />
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left">0105_dist2d.job</td>
-      <td style="text-align:left">
-        <p># Calc. Euclide distance 2D
-          <br />
-        </p>
-        <p>param x,y
-          <br />
-        </p>
-        <p>var tmp
-          <br />
-        </p>
-        <p>
-          <br />
-        </p>
-        <p>tmp=x*x+y*y
-          <br />
-        </p>
-        <p>var len=sqr(tmp) # distance from origin
-          <br />
-        </p>
-        <p>return len
-          <br />
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left">결과</td>
-      <td style="text-align:left">13.742</td>
-    </tr>
-  </tbody>
-</table>
+<br>
+
+```python
+# 0001_main.job
+var x,y
+x=5
+y=12.8
+call 105_dist2d,x,y
+var res=result()
+print res
+end
+``` 
+
+```python
+# 0105_dist2d.job
+# Calc. Euclide distance 2D
+param x,y
+var tmp
+
+tmp=x*x+y*y
+var len=sqr(tmp) # distance from origin
+return len
+```
+<br>
+
+결과
+```python
+13.742
+```
+<br>
 
 1번 JOB에서 이 dist2d 서브 프로그램을 call 문으로 호출하고 있으며, 지역변수인 x, y를 전달하고 있습니다. dist2d  서브 프로그램 내에서 param문으로 정의한 ldX, ldY를 형식 매개변수\(formal parameter\)라고 하며, call 문에 전달한 x, y를 실 매개변수\(actual parameter\)라고 합니다.
 
 dist2d 프로그램은 결과값을 return 문을 통해 외부로 전달하고 있습니다. 이 return값은 호출한 프로그램에서 result\(\) 함수를 호출하여 얻을 수 있습니다.
 
 \(return문과 end문은 프로그램을 종료하고 주 프로그램으로 리턴한다는 점에서 동작이 같습니다. 다만 return문은 결과값을 인수로 지정할 수 있다는 점에서만 end문과 다릅니다.\)
-
-
-
 # 3.7.3 def문 (사용자함수 정의)
 
 V60.05-06부터
@@ -1743,7 +1708,14 @@ def manhattan_dist,x,y
 var len=x+y
 return len
 ```
-# 3.7.3 jump문
+
+결과
+```python
+euclid= 13.7419
+manhattan= 17.8
+end
+```
+<br># 3.7.3 jump문
 
 ### 설명
 
@@ -1763,58 +1735,26 @@ jump <JOB번호 혹은 파일이름> [,매개변수1,매개변수2,…]
 
 call문 설명에서 본 예제 프로그램을 jump문으로 바꾸어 실행해 보면 결과는 아래와 같습니다. 서브프로그램\(0102\_err\)의 end를 만났을 때, 동작 사이클이 종료됩니다. 다음 동작 사이클을 수행하면, 주 프로그램\(0001\)의 처음부터 수행됩니다.
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left"></th>
-      <th style="text-align:left"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left">0001.job</td>
-      <td style="text-align:left">
-        <p>print &quot;main job start&quot;
-          <br />
-        </p>
-        <p>jump 102_err
-          <br />
-        </p>
-        <p>print &quot;main job end&quot;
-          <br />
-        </p>
-        <p>end
-          <br />
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left">0102_err.job</td>
-      <td style="text-align:left">
-        <p>print &quot;sub-program&quot;
-          <br />
-        </p>
-        <p>end
-          <br />
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left">결과</td>
-      <td style="text-align:left">
-        <p>main job start
-          <br />
-        </p>
-        <p>sub-program
-          <br />
-        </p>
-      </td>
-    </tr>
-  </tbody>
-</table>
 
+```python
+# 0001_main.job
+print "main job start"
+jump 102_err
+print "main job end"
+end
+```
 
+```python
+# 0102_err.job
+print "sub-program"
+end
+```
 
+결과
+```python
+main job start
+sub-program
+```
 # 3.8 지역변수와 전역변수
 # 3.8.1 지역변수
 

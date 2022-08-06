@@ -18,6 +18,8 @@ call 뒤에 JOB 번호, 혹은 JOB파일이름\(확장자 제외\)이나 사용�
 
 * 사용자 함수를 호출하는 예는 [3.7.3 def](./3-def.md)를 참조하십시오.
 
+<br>
+
 ```python
 # 0001_main.job
 print "main job start"
@@ -32,8 +34,10 @@ print "sub-program"
 end
 ```
 
-```python
+<br>
 결과
+
+```python
 main job start
 sub-program
 main job end
