@@ -32,8 +32,10 @@ print "sub-program"
 end
 ```
 
-```python
+<br>
+
 RESULT
+```python
 main job start
 sub-program
 main job end

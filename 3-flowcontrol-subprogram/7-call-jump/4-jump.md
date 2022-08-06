@@ -9,7 +9,7 @@ The only difference is that, while a **call** statement returns to the main prog
 ### Syntax
 
 ```python
-jump <job number or file name> [,parameter 1,parameter 2,…]
+jump <job number or file name> [,parameter 1,parameter 2,???]
 ```
 
 
@@ -18,55 +18,26 @@ jump <job number or file name> [,parameter 1,parameter 2,…]
 
 If the jump statement of this example program is replaced with a **call** statement, the result of the replaced program will be as follows. When the **end** of the sub-program \(0102\_err\) is encountered, the action cycle will end. If the next action cycle is executed, the main program \(0001\) will be executed from the start.
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left"></th>
-      <th style="text-align:left"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left">0001.job</td>
-      <td style="text-align:left">
-        <p>print &quot;main job start&quot;
-          <br />
-        </p>
-        <p>jump 102_err
-          <br />
-        </p>
-        <p>print &quot;main job end&quot;
-          <br />
-        </p>
-        <p>end
-          <br />
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left">0102_err.job</td>
-      <td style="text-align:left">
-        <p>print &quot;sub-program&quot;
-          <br />
-        </p>
-        <p>end
-          <br />
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left">Result</td>
-      <td style="text-align:left">
-        <p>main job start
-          <br />
-        </p>
-        <p>sub-program
-          <br />
-        </p>
-      </td>
-    </tr>
-  </tbody>
-</table>
+
+```python
+# 0001_main.job
+print "main job start"
+jump 102_err
+print "main job end"
+end
+```
+
+```python
+# 0102_err.job
+print "sub-program"
+end
+```
 
 
+<br>
 
+RESULT
+```python
+main job start
+sub-program
+```

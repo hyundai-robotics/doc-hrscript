@@ -1415,8 +1415,10 @@ print "sub-program"
 end
 ```
 
-```python
+<br>
+
 RESULT
+```python
 main job start
 sub-program
 main job end
@@ -1425,85 +1427,42 @@ main job end
 
 In a job program, formal parameters are used as channels through which input and output are passed. The **param** statement will define formal parameters at the beginning of the job program.
 
-In the following example, job no. 105 is named as "dist2d,” as it is a subjob that acquires the Euclidean distance from the origin to the coordinate value \(x, y\) and returns it to len.
+In the following example, job no. 105 is named as "dist2d" as it is a subjob that acquires the Euclidean distance from the origin to the coordinate value \(x, y\) and returns it to len.
 
+```python
+# 0001_main.job
+var x,y
+x=5
+y=12.8
+call 105_dist2d,x,y
+var res=result()
+print res
+end
+```
 
+```python
+# 0105_dist2d.job
+# Calc. Euclide distance 2D
+param x,y
+var tmp
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left"></th>
-      <th style="text-align:left"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left">0001.job</td>
-      <td style="text-align:left">
-        <p>var x,y
-          <br />
-        </p>
-        <p>x=5
-          <br />
-        </p>
-        <p>y=12.8
-          <br />
-        </p>
-        <p>call 105_dist2d,x,y
-          <br />
-        </p>
-        <p>var res=result()
-          <br />
-        </p>
-        <p>print res
-          <br />
-        </p>
-        <p>end
-          <br />
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left">0105_dist2d.job</td>
-      <td style="text-align:left">
-        <p># Calc. Euclide distance 2D
-          <br />
-        </p>
-        <p>param x,y
-          <br />
-        </p>
-        <p>var tmp
-          <br />
-        </p>
-        <p>
-          <br />
-        </p>
-        <p>tmp=x*x+y*y
-          <br />
-        </p>
-        <p>var len=sqr(tmp) # distance from origin
-          <br />
-        </p>
-        <p>return len
-          <br />
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left">Result</td>
-      <td style="text-align:left">13.742</td>
-    </tr>
-  </tbody>
-</table>
+tmp=x*x+y*y
+var len=sqr(tmp) # distance from origin
+return len
+```
 
-In job no. 1, the dist2d subprogram is called with the **call** statement, and “x, y,” which are local variables, are passed. In the dist2d subprogram, “ldX,” and “ldY” defined with the **param** statement are called “formal parameters,” and “x, y” passed to the **call** statement are called “actual parameters.” 
+<br>
+
+RESULT
+```python
+13.742
+```
+
+In job no. 1, the dist2d subprogram is called with the **call** statement, and "x, y," which are local variables, are passed. In the dist2d subprogram, "ldX", and "ldY" defined with the **param** statement are called "formal parameters", and "x, y" passed to the **call** statement are called "actual parameters."
 
 The dist2d program transports resulting values to external destinations through **return** statements. Returned values can be obtained by calling a result\(\) function in the called program.
 
-\(A **return** statement and an **end** statement have the same action as they end a called program and return to the main program. However, a **return** statement is different from an **end** statement as the former can designate a resulting value as an element\).
-
-
-
+(A **return** statement and an **end** statement have the same action as they end a called program and return to the main program. However, a **return** statement is different from **end** statement as the former can designate a resulting value as an element).
 # 3.7.3 def (defining user function)
 
 since V60.05-06
@@ -1568,6 +1527,17 @@ def manhattan_dist,x,y
 var len=x+y
 return len
 ```
+
+<br>
+
+RESULT
+```python
+euclid= 13.7419
+manhattan= 17.8
+end
+```
+
+
 # 3.7.3 jump
 
 ### Description
@@ -1579,7 +1549,7 @@ The only difference is that, while a **call** statement returns to the main prog
 ### Syntax
 
 ```python
-jump <job number or file name> [,parameter 1,parameter 2,…]
+jump <job number or file name> [,parameter 1,parameter 2,???]
 ```
 
 
@@ -1588,58 +1558,29 @@ jump <job number or file name> [,parameter 1,parameter 2,…]
 
 If the jump statement of this example program is replaced with a **call** statement, the result of the replaced program will be as follows. When the **end** of the sub-program \(0102\_err\) is encountered, the action cycle will end. If the next action cycle is executed, the main program \(0001\) will be executed from the start.
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left"></th>
-      <th style="text-align:left"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left">0001.job</td>
-      <td style="text-align:left">
-        <p>print &quot;main job start&quot;
-          <br />
-        </p>
-        <p>jump 102_err
-          <br />
-        </p>
-        <p>print &quot;main job end&quot;
-          <br />
-        </p>
-        <p>end
-          <br />
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left">0102_err.job</td>
-      <td style="text-align:left">
-        <p>print &quot;sub-program&quot;
-          <br />
-        </p>
-        <p>end
-          <br />
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left">Result</td>
-      <td style="text-align:left">
-        <p>main job start
-          <br />
-        </p>
-        <p>sub-program
-          <br />
-        </p>
-      </td>
-    </tr>
-  </tbody>
-</table>
+
+```python
+# 0001_main.job
+print "main job start"
+jump 102_err
+print "main job end"
+end
+```
+
+```python
+# 0102_err.job
+print "sub-program"
+end
+```
 
 
+<br>
 
+RESULT
+```python
+main job start
+sub-program
+```
 # 3.8 Local Variables and Global Variables
 
 ## 

@@ -62,3 +62,14 @@ def manhattan_dist,x,y
 var len=x+y
 return len
 ```
+
+<br>
+
+RESULT
+```python
+euclid= 13.7419
+manhattan= 17.8
+end
+```
+
+
