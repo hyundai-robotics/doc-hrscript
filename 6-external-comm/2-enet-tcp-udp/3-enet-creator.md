@@ -1,4 +1,4 @@
-﻿# 6.2.1 생성자
+﻿# 6.2.1 ENet 생성자
 
 ### 설명
 
@@ -20,19 +20,11 @@ ENet\(&lt;프로토콜&gt;\)
   </thead>
   <tbody>
     <tr>
-      <td style="text-align:left">프로토콜</td>
-      <td style="text-align:left">
-        <p>&quot;tcp&quot; : TCP 통신
-          <br />
-        </p>
-        <p>&quot;udp&quot; : UDP 통신
-          <br />
-        </p>
-        <p>
-          <br />
-        </p>
-      </td>
-      <td style="text-align:left">생략하면 &quot;udp&quot;로 인식</td>
+      <td>프로토콜</td>
+      <td>
+        "tcp" : TCP 통신<br>
+        "udp" : UDP 통신<br>
+        생략하면 "udp"로 인식</td>
     </tr>
   </tbody>
 </table>
@@ -47,6 +39,3 @@ ENet\(&lt;프로토콜&gt;\)
 enet0 = ENet()
 var tcp = ENet("tcp")
 ```
-
-
-
