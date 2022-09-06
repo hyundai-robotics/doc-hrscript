@@ -7,7 +7,7 @@ UDP peer-to-peer 통신에서는 사용되지 않습니다.
 
 ### 문법
 
-&lt;ENet객체&gt;.connect
+{ENet객체}.connect
 
 ### 사용 예
 

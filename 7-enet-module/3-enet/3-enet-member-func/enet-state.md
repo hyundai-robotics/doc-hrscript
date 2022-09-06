@@ -6,7 +6,7 @@
 
 ### 문법
 
-&lt;ENet객체&gt;.state\(\)
+{ENet객체}.state
 
 
 

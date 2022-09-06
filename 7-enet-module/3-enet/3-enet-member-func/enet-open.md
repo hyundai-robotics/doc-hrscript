@@ -6,7 +6,7 @@
 
 ### 문법
 
-&lt;ENet객체&gt;.open
+{ENet객체}.open
 
 ### 사용 예
 

@@ -2,11 +2,11 @@
 
 ### 설명
 
-설정된 이더넷 객체로 문자열을 송신합니다.
+이더넷 객체로 문자열을 송신합니다.
 
 ### 문법
 
-&lt;ENet객체&gt;.send &lt;msg&gt;
+{ENet객체}.send {msg}
 
 
 
@@ -24,7 +24,7 @@
     <tr>
       <td style="text-align:left">msg</td>
       <td style="text-align:left">
-        출력할 문자열.
+        송신할 문자열.
       </td>
       <td style="text-align:left">문자열형</td>
     </tr>

@@ -1,12 +1,12 @@
-﻿# recv
+﻿# recv_bbuf
 
 ### 설명
 
-설정된 이더넷 객체로 값들을 수신합니다.
+이더넷 객체로부터 바이너리 데이터를 수신하여 [BBuf](../../4-bbuf/README.md) 객체에 저장합니다.
 
 ### 문법
 
-&lt;ENet객체&gt;.recv \[, &lt;대기시간&gt;\]\[, &lt;퇴피주소&gt;\]
+{ENet객체}.recv_bbuf {BBuf객체}\[,{대기시간}\]\[, {퇴피주소}\]
 
 
 
@@ -21,6 +21,13 @@
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td>BBuf객체</td>
+      <td>
+        수신한 바이너리 데이터를 전달받을 BBuf객체
+      </td>
+      <td></td>
+    </tr>
     <tr>
       <td>대기시간</td>
       <td>
@@ -40,11 +47,21 @@
   </tbody>
 </table>
 
+### 리턴값
+
+수신한 데이터 개수
+
 ### 사용 예
 
 ```python
-enet_to_sensor.recv
-enet_to_sensor.recv 5000
-enet_to_sensor.recv 5000,*TimeOut
+var bbuf=enet_to_sensor.BBuf()
+enet_to_sensor.recv bbuf
+enet_to_sensor.recv bbuf, 5000
+var nitem=enet_to_sensor.recv(bbuf,5000,*TimeOut)
+end
+
+*TimeOut
+print "Time out! No response from sensor"
+end
 ```
 

@@ -2,11 +2,11 @@
 
 ### 설명
 
-설정된 이더넷 객체로 값들을 수신합니다.
+설정된 이더넷 객체로 문자열을 수신합니다. 수신된 문자열은 리턴값으로 얻을 수 있습니다.
 
 ### 문법
 
-&lt;ENet객체&gt;.recv \[, &lt;대기시간&gt;\]\[, &lt;퇴피주소&gt;\]
+{ENet객체}.recv \[{대기시간}\] \[, {퇴피주소}\]
 
 
 
@@ -40,11 +40,20 @@
   </tbody>
 </table>
 
+### 리턴값
+
+수신한 문자열
+
 ### 사용 예
 
 ```python
-enet_to_sensor.recv
-enet_to_sensor.recv 5000
-enet_to_sensor.recv 5000,*TimeOut
-```
+var msg
+msg=enet_to_sensor.recv
+msg=enet_to_sensor.recv(5000)
+msg=enet_to_sensor.recv(5000,*TimeOut)
+end
 
+*TimeOut
+print "Time out! No response from sensor"
+end
+```
