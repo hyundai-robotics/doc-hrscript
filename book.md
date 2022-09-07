@@ -2895,40 +2895,284 @@ next
 fb2.do3=fb2.do7=fb2.do11=1   # fb2의 3번, 7번, 11번 출력신호를 한꺼번에 켠다.
 ```
 
-# 6.2 enet 모듈 : 이더넷 TCP/UDP 통신
+# 7 enet 모듈 : 이더넷 TCP/UDP 통신
 
-Hi6 제어기의 범용 이더넷 포트를 통해, 외부 장치와 이더넷 TCP 혹은 UDP 통신으로 문자열 송수신을 할 수 있습니다.
+Hi6 제어기의 범용 이더넷 포트를 통해, 외부 장치와 이더넷 TCP 혹은 UDP 통신으로 문자열, 혹은 바이너리 데이터의 송수신을 할 수 있습니다.
 
-이 기능을 사용하기 위해서는 아래와 같이 enet 모듈을 import한 후, ENet 객체를 생성해야 합니다.
+enet 모듈은 ENet과 BBuf의 2개의 객체를 생성할 수 있습니다. ENet은 이더넷 socket 인터페이스를 제공하고, BBuf는 바이너리 데이터 통신을 할 때 사용됩니다.  
+
+client 예제와 server 예제를 따라가면서 사용법을 이해해 봅시다. 각 객체의 멤버 변수와 함수들의 참조설명서(reference guide)는 그 뒤에 이어집니다.
+# 7.1 peer-to-peer, client 예제
+
+UDP peer-to-peer (1:1통신), 혹은 TCP client 예제 프로그램을 문자열과 바이너리 송수신 방식으로 나누어 설명합니다.
+# 7.1.1 peer-to-peer, client 예제 - 문자열 송수신
+
+다음과 같은 순서로 수행합니다.
+
+1. enet 모듈 import 후, 생성자로 ENet 객체 생성.
+2. 멤버변수로 IP주소와 port번호를 설정.
+3. open 멤버 프로시져로 ethernet socket 열고, state\(\) 멤버변수로 상태 확인.  
+\(TCP통신인 경우에는 open 후 connect 프로시져도 수행해야 함.\)
+4. send, recv 멤버 프로시져로 송수신 수행.
+5. close 멤버 프로시져로 통신 연결 닫기.
+
 
 ```python
-import enet
-var udp=enet.ENet("udp")
-```
+     # 1. enet 모듈 import 후, 생성자로 ENet 객체 생성
+     import enet
+     var cli=enet.ENet() # TCP 통신인 경우, ENet("tcp")
 
-ENet 생성자의 파라미터로서 아래와 같이 "udp" 혹은 "tcp"를 전달하여 프로토콜을 선택해야 합니다. default는 "udp"이므로, UDP 통신을 할 때는 아래와 같이 생략해도 됩니다.
+     # 2. IP주소와 port번호 설정
+     cli.ip_addr="192.168.1.172" # remote (상대방) IP address
+     cli.lport=51001 # local (자신) port : UDP peer-to-peer 통신에서만 필요
+     cli.rport=51002 # remote (상대방) port 
+     # (port no. 49152–65535 contains dynamic or private ports)
+
+     # 3. ethernet socket 열기
+     cli.open
+     cli.connect # 서버에 접속. (TCP client 통신에서만 필요)
+     print cli.state() # 1이면 정상
+
+     # --------------------------------
+     # 4-1. string 송신
+     cli.send "hello, peer.\n"
+
+     # 4-2. string 수신
+     #     (5초간 수신 없으면 *TimeOut 레이블로 jump)
+     var msg
+     cli.recv 5000, *TimeOut
+     var msg=result() # 수신된 문자열
+     print msg
+     delay 1.0
+     # --------------------------------
+
+     # 5. ethernet socket 닫기
+     cli.close
+     print cli.state() # 0이면 정상
+     delay 1.5
+     end
+
+     *TimeOut
+     print "time out!"
+     cli.close
+     end
+```
+# 7.1.2 peer-to-peer, client 예제 - 바이너리 송수신
+
+바이너리 송수신은 BBuf (Binary Buffer) 객체를 통해 수행합니다.  
+(송수신 부분만 다르고, 나머지는 문자열 송수신과 동일합니다.)
+
+송신
+
+1. enet.BBuf 객체 생성.
+2. 원하는 바이너리 데이터를 BBuf.append( ) 함수로 BBuf 객체에 추가.
+3. ENet.send_bbuf( ) 함수로 BBuf 객체를 송신.
+
+
+수신
+
+1. enet.BBuf 객체 생성.
+2. ENet.recv_bbuf( ) 함수로 BBuf 객체에 바이너리 데이터를 수신
+3. 원하는 바이너리 데이터를 BBuf.read_nums( ) 함수로 BBuf 객체로부터 읽기.
+
 
 ```python
-var udp=enet.ENet()
+     # 1. enet 모듈 import 후, 생성자로 ENet 객체 생성
+     import enet
+     var cli=enet.ENet() # TCP 통신인 경우, ENet("tcp")
+
+     # 2. IP주소와 port번호 설정
+     cli.ip_addr="192.168.1.172" # remote (상대방) IP address
+     cli.lport=51001 # local (자신) port : UDP 통신에서만 필요
+     cli.rport=51002 # remote (상대방) port 
+     # (port no. 49152–65535 contains dynamic or private ports)
+
+     # 3. ethernet socket 열기
+     cli.open
+     cli.connect # 서버에 접속. (TCP client 통신에서만 필요)
+     print cli.state() # 1이면 정상
+
+     # 송신 --------------------------------
+     # 4-1. BBuf 객체 생성
+     var bbuf=enet.BBuf()
+
+     # (sample binary data)
+     var arr=[ -3, 0, 1 ]
+     
+     # 4-2. binary data를 BBuf 객체에 추가.
+     bbuf.clear()
+     bbuf.append("s4", arr) # little endian signed-4byte data 추가
+
+     # 4-3. BBuf 객체를 송신
+     ret=cli.send_bbuf(bbuf)
+
+     # 수신 --------------------------------
+     # 4-1. BBuf 객체 생성
+     var bbuf2=enet.BBuf()
+     
+     # 4-2. BBuf 객체에 binary data를 수신
+     #     (3초간 수신 없으면 *TimeOut 레이블로 jump)
+     cli.recv_bbuf bbuf2,3000,*TimeOut
+
+     # 4-3. binary data를 BBuf 객체로부터 읽기.
+     var nums=bbuf2.read_nums("U2", 0, 3) # big-endian unsigned-2byte data 3개 읽기
+     print nums
+     # --------------------------------
+
+     # 5. ethernet socket 닫기
+     cli.close
+     print cli.state() # 0이면 정상
+     delay 1.5
+     end
+
+     *TimeOut
+     print "time out!"
+     cli.close
+     end
 ```
 
-다음과 같은 순서로 통신을 수행합니다.
+* "s4"나 "U2" 같은 문자열 인수가 endian 방식, signed/unsigned, byte수 같은 binary data 형식을 결정합니다. 자세한 내용은 [7.4.2 지원 형식 (format)](../4-bbuf/2-format.md)을 참조하십시오.# 7.2 TCP server 예제
 
-1. 생성자로 ENet 객체 생성
-2. 멤버변수로 IP주소와 포트번호를 설정
-3. open 멤버 프로시져로 통신 연결 열고, state\(\) 멤버변수로 상태 확인 \(TCP통신인 경우에는 open 후 connect 프로시져도 수행해야 함.\)
-4. send, recv 멤버 프로시져로 송수신 수행
-5. close 멤버 프로시져로 통신 연결 닫기
+TCP server 예제 프로그램을 문자열과 바이너리 송수신 방식으로 나누어 설명합니다.
+
+TCP client가 connect() 함수로 server에 접속하는 반면, TCP server는 listen() 함수를 수행한 후, accept() 함수로 client의 connect를 기다립니다.  
+
+* 동시에 1개의 client 접속만 허용합니다.
+* remote port는 지정할 필요 없습니다.
+
+나머지 동작들은 client와 동일합니다.
+# 7.2.1 ethernet TCP server - 문자열 송수신
+
+다음과 같은 순서로 수행합니다.
+
+1. enet 모듈 import 후, 생성자로 ENet 객체 생성.
+2. 멤버변수로 IP주소와 port번호를 설정. (remote port 설정은 필요없음.)
+3. open 멤버 프로시져로 ethernet socket 열고, listen(), accept() 함수를 수행함. state\(\) 멤버변수로 상태 확인.
+4. send, recv 멤버 프로시져로 송수신 수행.
+5. close 멤버 프로시져로 통신 연결 닫기.
 
 
+```python
+     # 1. enet 모듈 import 후, 생성자로 ENet 객체 생성
+     import enet
+     var svr=enet.ENet("tcp")
+     
+     # 2. IP주소와 port번호 설정
+     svr.ip_addr="192.168.1.172" # remote (상대방) IP address
+     svr.lport=51001 # local (자신) port
+     # (port no. 49152–65535 contains dynamic or private ports)
+     
+     # 3. ethernet socket 열기
+     svr.open
+     var ret
+     ret=svr.listen()
+     ret=svr.accept() # client로부터의 connect 대기
+     print svr.state() # 1이면 정상
+     
+     # --------------------------------
+     # 4-1. string 송신
+     svr.send "Welcome, I am a TCP server.\n"
+     
+     # 4-2. string 수신
+     #     (5초간 수신 없으면 *TimeOut 레이블로 jump)
+     svr.recv 5000,*TimeOut
+     var msg=result() # 수신된 문자열
+     print msg
+     delay 1.0
+     # --------------------------------
+     
+     # 5. ethernet socket 닫기
+     svr.close
+     print svr.state() # 0이면 정상
+     delay 1.5
+     end
+
+     *TimeOut
+     print "time out!"
+     svr.close
+     end
+```
+# 7.2.2 ethernet TCP server - 바이너리 송수신
+
+바이너리 송수신은 BBuf (Binary Buffer) 객체를 통해 수행합니다.  
+(송수신 부분만 다르고, 나머지는 문자열 송수신과 동일합니다.)
+
+송신
+
+1. enet.BBuf 객체 생성.
+2. 원하는 바이너리 데이터를 BBuf.append( ) 함수로 BBuf 객체에 추가.
+3. ENet.send_bbuf( ) 함수로 BBuf 객체를 송신.
 
 
+수신
+
+1. enet.BBuf 객체 생성.
+2. ENet.recv_bbuf( ) 함수로 BBuf 객체에 바이너리 데이터를 수신
+3. 원하는 바이너리 데이터를 BBuf.read_nums( ) 함수로 BBuf 객체로부터 읽기.
 
 
+```python
+     # 1. enet 모듈 import 후, 생성자로 ENet 객체 생성
+     import enet
+     var svr=enet.ENet("tcp")
+     
+     # 2. IP주소와 port번호 설정
+     svr.ip_addr="192.168.1.172" # remote (상대방) IP address
+     svr.lport=51001 # local (자신) port
+     # (port no. 49152–65535 contains dynamic or private ports)
+     
+     # 3. ethernet socket 열기
+     svr.open
+     var ret
+     ret=svr.listen()
+     ret=svr.accept() # client로부터의 connect 대기
+     print svr.state() # 1이면 정상
 
+     # 송신 --------------------------------
+     # 4-1. BBuf 객체 생성
+     var bbuf=enet.BBuf()
 
+     # (sample binary data)
+     var arr=[ -3, 0, 1 ]
+     
+     # 4-2. binary data를 BBuf 객체에 추가.
+     bbuf.clear()
+     bbuf.append("s4", arr) # little endian signed-4byte data 추가
 
-# 6.2.1 생성자
+     # 4-3. BBuf 객체를 송신
+     ret=svr.send_bbuf(bbuf)
+
+     # 수신 --------------------------------
+     # 4-1. BBuf 객체 생성
+     var bbuf2=enet.BBuf()
+     
+     # 4-2. BBuf 객체에 binary data를 수신
+     #     (3초간 수신 없으면 *TimeOut 레이블로 jump)
+     svr.recv_bbuf bbuf2,3000,*TimeOut
+
+     # 4-3. binary data를 BBuf 객체로부터 읽기.
+     var nums=bbuf2.read_nums("U2", 0, 3) # big-endian unsigned-2byte data 3개 읽기
+     print nums
+     # --------------------------------
+
+     # 5. ethernet socket 닫기
+     svr.close
+     print svr.state() # 0이면 정상
+     delay 1.5
+     end
+
+     *TimeOut
+     print "time out!"
+     svr.close
+     end
+```
+
+* "s4"나 "U2" 같은 문자열 인수가 endian 방식, signed/unsigned, byte수 같은 binary data 형식을 결정합니다. 자세한 내용은 [7.4.2 지원 형식 (format)](../4-bbuf/2-format.md)을 참조하십시오.
+# 7.3 ENet 객체
+
+ENet 객체는 이더넷 통신을 위한 socket 인터페이스를 제공합니다.  
+사용법은 앞 절의 예제를 참고하십시오.
+# 7.3.1 ENet 생성자
 
 ### 설명
 
@@ -2936,7 +3180,7 @@ var udp=enet.ENet()
 
 ### 문법
 
-ENet\(&lt;프로토콜&gt;\)
+ENet\({프로토콜}\)
 
 ### 파라미터
 
@@ -2950,19 +3194,11 @@ ENet\(&lt;프로토콜&gt;\)
   </thead>
   <tbody>
     <tr>
-      <td style="text-align:left">프로토콜</td>
-      <td style="text-align:left">
-        <p>&quot;tcp&quot; : TCP 통신
-          <br />
-        </p>
-        <p>&quot;udp&quot; : UDP 통신
-          <br />
-        </p>
-        <p>
-          <br />
-        </p>
-      </td>
-      <td style="text-align:left">생략하면 &quot;udp&quot;로 인식</td>
+      <td>프로토콜</td>
+      <td>
+        "tcp" : TCP 통신<br>
+        "udp" : UDP 통신<br>
+        생략하면 "udp"로 인식</td>
     </tr>
   </tbody>
 </table>
@@ -2977,10 +3213,7 @@ ENet\(&lt;프로토콜&gt;\)
 enet0 = ENet()
 var tcp = ENet("tcp")
 ```
-
-
-
-# 6.2.2 멤버변수
+# 7.3.2 ENet 멤버변수
 
 <table>
   <thead>
@@ -3058,154 +3291,36 @@ var tcp = ENet("tcp")
   </tbody>
 </table>
 
-# 6.2.3 멤버 프로시져
+# 7.3.3 ENet 멤버 함수
 
-# open
+* 멤버 함수는 리턴값을 받을 때는 반드시 인수를 괄호로 묶어주십시오.  
+  
+  ```python
+  var nitem=obj.func(param1,param2) # (O) ; 괄호 필수
+  var nitem=enet.recv bbuf,5000,*TimeOut # (X) ; 문법 오류
+  ```
+
+* 리턴값을 받지 않을 때는 괄호를 생략할 수 있습니다.  
+
+  ```python
+  obj.func(param1,param2) # (O)
+  obj.func param1,param2 # (O) ; 괄호 생략
+  ```# accept
 
 ### 설명
 
-이더넷 TCP 혹은 UDP 통신을 위한 연결을 엽니다.
+이더넷 TCP 통신에서 server로서 client측의 연결 요청이 올 때까지 기다립니다. 요청이 발생하면 연결을 만듭니다.  
+UDP peer-to-peer 통신에서는 사용되지 않습니다.
 
 ### 문법
 
-&lt;ENet객체&gt;.open
+{ENet객체}.accept
 
 ### 사용 예
 
 ```python
-enet_to_sensor.open
-```
-
-# connect
-
-### 설명
-
-이더넷 TCP 통신을 위한 연결을 수행합니다.
-
-### 문법
-
-&lt;ENet객체&gt;.connect
-
-### 사용 예
-
-```python
-enet_to_sensor.connect
-```
-
-# send
-
-### 설명
-
-설정된 이더넷 객체로 값들을 송신합니다.
-
-### 문법
-
-&lt;ENet객체&gt;.send &lt;값&gt;, &lt;값&gt;, …
-
-
-
-### 파라미터
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">항목</th>
-      <th style="text-align:left">의미</th>
-      <th style="text-align:left">기타</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left">값</td>
-      <td style="text-align:left">
-        <p>출력할 데이터 값.
-          <br />
-        </p>
-        <p>쉼표로 분리된 인수들은
-          공백으로 나뉘어 출력.
-          <br
-          />
-        </p>
-        <p>
-          <br />
-        </p>
-        <p>
-          <br />
-        </p>
-      </td>
-      <td style="text-align:left">모든 데이터형</td>
-    </tr>
-  </tbody>
-</table>
-
-### 사용 예
-
-```python
-enet_to_sensor.send "rob:", 10, ", command:"+cmd, "\n"
-```
-
-
-
-# recv
-
-### 설명
-
-설정된 이더넷 객체로 값들을 수신합니다.
-
-### 문법
-
-&lt;ENet객체&gt;.recv &lt;변수&gt;\[, &lt;대기시간&gt;\]
-
-
-
-### 파라미터
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">항목</th>
-      <th style="text-align:left">의미</th>
-      <th style="text-align:left">기타</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left">변수</td>
-      <td style="text-align:left">수신된 문자열을 전달받을
-        변수</td>
-      <td style="text-align:left"></td>
-    </tr>
-    <tr>
-      <td style="text-align:left">대기시간</td>
-      <td style="text-align:left">
-        <p>timeout 시간. 경과하면 다음
-          명령문으로 진행한다.
-          <br
-          />
-        </p>
-        <p>지정하지 않으면 무한
-          대기한다.
-          <br />
-        </p>
-        <p>
-          <br />
-        </p>
-        <p>
-          <br />
-        </p>
-        <p>
-          <br />
-        </p>
-      </td>
-      <td style="text-align:left">msec</td>
-    </tr>
-  </tbody>
-</table>
-
-### 사용 예
-
-```python
-enet_to_sensor.recv  msg, 5000
+enet_to_sensor.listen
+enet_to_sensor.accept
 ```
 
 # close
@@ -3216,7 +3331,7 @@ enet_to_sensor.recv  msg, 5000
 
 ### 문법
 
-&lt;ENet객체&gt;.close
+{ENet객체}.close
 
 ### 사용 예
 
@@ -3224,8 +3339,281 @@ enet_to_sensor.recv  msg, 5000
 enet_to_sensor.close
 ```
 
-# 6.2.4 멤버 함수
+# connect
 
+### 설명
+
+이더넷 TCP 통신에서 client로서 server에 연결을 시도합니다.  
+UDP peer-to-peer 통신에서는 사용되지 않습니다.
+
+### 문법
+
+{ENet객체}.connect
+
+### 사용 예
+
+```python
+enet_to_sensor.connect
+```
+
+# listen
+
+### 설명
+
+이더넷 TCP 통신에서 server로서 client의 연결을 준비합니다.  
+UDP peer-to-peer 통신에서는 사용되지 않습니다.
+
+### 문법
+
+{ENet객체}.listen
+
+### 사용 예
+
+```python
+enet_to_sensor.listen
+enet_to_sensor.accept
+```
+
+# recv
+
+### 설명
+
+설정된 이더넷 객체로 문자열을 수신합니다. 수신된 문자열은 리턴값으로 얻을 수 있습니다.
+
+### 문법
+
+{ENet객체}.recv \[{대기시간}\] \[, {퇴피주소}\]
+
+
+
+### 파라미터
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">항목</th>
+      <th style="text-align:left">의미</th>
+      <th style="text-align:left">기타</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>대기시간</td>
+      <td>
+        timeout 시간. 경과하면 다음 명령문, 혹은 퇴피스텝으로 진행한다.<br>
+        지정하지 않으면 무한 대기한다.
+      </td>
+      <td>msec</td>
+    </tr>
+    <tr>
+      <td>퇴피주소</td>
+      <td>
+        timeout 일 때 분기할 주소.<br>
+        지정하지 않으면 다음 주소로 진행한다.
+      </td>
+      <td>주소</td>
+    </tr>
+  </tbody>
+</table>
+
+### 리턴값
+
+수신한 문자열
+
+### 사용 예
+
+```python
+var msg
+msg=enet_to_sensor.recv
+msg=enet_to_sensor.recv(5000)
+msg=enet_to_sensor.recv(5000,*TimeOut)
+end
+
+*TimeOut
+print "Time out! No response from sensor"
+end
+```
+# recv_bbuf
+
+### 설명
+
+이더넷 객체로부터 바이너리 데이터를 수신하여 [BBuf](../../4-bbuf/README.md) 객체에 저장합니다.
+
+### 문법
+
+{ENet객체}.recv_bbuf {BBuf객체}\[,{대기시간}\]\[, {퇴피주소}\]
+
+
+
+### 파라미터
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">항목</th>
+      <th style="text-align:left">의미</th>
+      <th style="text-align:left">기타</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>BBuf객체</td>
+      <td>
+        수신한 바이너리 데이터를 전달받을 BBuf객체
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>대기시간</td>
+      <td>
+        timeout 시간. 경과하면 다음 명령문, 혹은 퇴피스텝으로 진행한다.<br>
+        지정하지 않으면 무한 대기한다.
+      </td>
+      <td>msec</td>
+    </tr>
+    <tr>
+      <td>퇴피주소</td>
+      <td>
+        timeout 일 때 분기할 주소.<br>
+        지정하지 않으면 다음 주소로 진행한다.
+      </td>
+      <td>주소</td>
+    </tr>
+  </tbody>
+</table>
+
+### 리턴값
+
+수신한 데이터 개수
+
+### 사용 예
+
+```python
+var bbuf=enet_to_sensor.BBuf()
+enet_to_sensor.recv bbuf
+enet_to_sensor.recv bbuf, 5000
+var nitem=enet_to_sensor.recv(bbuf,5000,*TimeOut)
+end
+
+*TimeOut
+print "Time out! No response from sensor"
+end
+```
+
+# send
+
+### 설명
+
+이더넷 객체로 문자열을 송신합니다.
+
+### 문법
+
+{ENet객체}.send {msg}
+
+
+
+### 파라미터
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">항목</th>
+      <th style="text-align:left">의미</th>
+      <th style="text-align:left">기타</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">msg</td>
+      <td style="text-align:left">
+        송신할 문자열.
+      </td>
+      <td style="text-align:left">문자열형</td>
+    </tr>
+  </tbody>
+</table>
+
+### 사용 예
+
+```python
+enet_to_sensor.send "rob:" + 10 + ", command:"+cmd, "\n"
+```
+
+
+
+# send_bbuf
+
+### 설명
+
+이더넷 객체로 [BBuf](../../4-bbuf/README.md) 객체를 송신합니다.
+
+### 문법
+
+{ENet객체}.send_bbuf {BBuf객체}
+
+
+
+### 파라미터
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">항목</th>
+      <th style="text-align:left">의미</th>
+      <th style="text-align:left">기타</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">BBuf객체</td>
+      <td style="text-align:left">
+        송신할 Binary Buffer 객체.
+      </td>
+      <td style="text-align:left"></td>
+    </tr>
+  </tbody>
+</table>
+
+
+### 리턴값
+
+송신한 데이터 개수
+
+
+### 사용 예
+
+```python
+var bbuf=enet.BBuf()
+var arr=[ -3, 0, 1 ]
+bbuf.append("s4", arr)
+var nitem=cli.send_bbuf(bbuf)
+```
+
+
+
+# set_send_trail_null
+
+### 설명
+
+ENet.send() 함수로 문자열을 송신할 때, 종료 null문자(terminating-null)를 붙여서 송신할 지 여부를 설정합니다. (default는 false)
+
+### 문법
+
+{ENet객체}.set_send_trail_null\(true|false\)
+
+
+### 리턴값
+
+없음.
+
+
+### 사용 예
+
+```python
+enet_to_sensor.set_send_trail_null(true)
+enet_to_sensor.send "ACK"
+enet_to_sensor.set_send_trail_null(false)
+```
 # state
 
 ### 설명
@@ -3234,7 +3622,7 @@ enet_to_sensor.close
 
 ### 문법
 
-&lt;ENet객체&gt;.state\(\)
+{ENet객체}.state
 
 
 
@@ -3250,45 +3638,43 @@ enet_to_sensor.close
   </thead>
   <tbody>
     <tr>
-      <td style="text-align:left">1</td>
-      <td style="text-align:left">
-        <p>연결됨.
-          <br />
-        </p>
-        <p>(UDP일 때는 open만 해도 연결로
-          간주됩니다. TCP일 때는
-          open 후 connect도 수행해야 연결로
-          간주됩니다.)
-          <br />
-        </p>
-        <p>
-          <br />
-        </p>
-        <p>
-          <br />
-        </p>
-        <p>
-          <br />
-        </p>
+      <td>1</td>
+      <td>
+        연결됨. <br>
+        (UDP일 때는 open만 해도 연결로 간주됩니다.<br>
+        TCP일 때는 open 후 listen, connect, accept도 수행되어야 연결로 간주됩니다.)
       </td>
-      <td style="text-align:left"></td>
+      <td></td>
     </tr>
     <tr>
-      <td style="text-align:left">0</td>
-      <td style="text-align:left">연결 안됨.</td>
-      <td style="text-align:left"></td>
+      <td>0</td>
+      <td>연결 안됨.</td>
+      <td></td>
     </tr>
     <tr>
-      <td style="text-align:left">-1</td>
-      <td style="text-align:left">이더넷소켓 생성 실패</td>
-      <td
-      style="text-align:left"></td>
+      <td>-1</td>
+      <td>이더넷소켓 생성 실패</td>
+      <td></td>
     </tr>
     <tr>
-      <td style="text-align:left">-2</td>
-      <td style="text-align:left">이더넷장치 BIND 실패</td>
-      <td
-      style="text-align:left"></td>
+      <td>-2</td>
+      <td>이더넷장치 BIND 실패</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>-3</td>
+      <td>connect 실패</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>-4</td>
+      <td>listen 실패</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>-5</td>
+      <td>accept 실패</td>
+      <td></td>
     </tr>
   </tbody>
 </table>
@@ -3296,69 +3682,27 @@ enet_to_sensor.close
 ### 사용 예
 
 ```python
-ret = enet_to_sensor.state()
+var ret = enet_to_sensor.state()
 ```
 
-# 6.2.5 TCP, UDP 통신 예제
+# 7.4 BBuf 객체
 
-```python
-     import enet
-     global msg
-     global enet0=enet.ENet() # TCP 통신인 경우, ENet("tcp")
+BBuf (Binary Buffer) 객체는 이더넷 통신으로 송수신할 바이너리 데이터를 캡슐화합니다. 
+사용법은 바이너리 통신 예제를 참고하십시오.
 
-     # port no. 49152–65535 contains dynamic or private ports
-     enet0.ip_addr="192.168.1.172"
-     enet0.lport=51001 # UDP 통신에서만 필요
-     enet0.rport=51002
+[7.1.2 peer-to-peer, client 예제 - 바이너리 송수신](../1-exam-client/2-enet-client-bin.md)
 
-     enet0.open
-     enet0.connect # TCP 통신에서만 필요
-     print enet0.state() # 1이면 정상
-     enet0.send "hello, "+"udp", 300, "\n"
-
-     enet0.recv msg, 8000 # 8초간 대기
-     print msg
-     delay 1.5
-     enet0.close
-     print enet0.state() # 0이면 정상
-     delay 1.5
-     end
-```
-
-# 6.3 http\_cli 모듈 : HTTP 클라이언트
-
-Hi6 제어기의 범용 이더넷 포트를 통해, 원격의 웹 서비스에 접근하여 HTTP 서비스를 받을 수 있습니다.
-
-이 기능을 사용하기 위해서는 아래와 같이 http\_cli 모듈을 import한 후, HttpCli 객체를 생성해야 합니다.
-
-```python
-import http_cli
-var cli=http_cli.HttpCli()
-```
-
-HttpCli 객체를 생성한 후에는 get, put, post, delete 멤버 프로시져를 호출하여 서비스 요청할 하면 됩니다.
-
-HttpCli 객체는 body라는 이름의 속성을 가지고 있습니다.
-
-get 서비스를 요청하여 성공적으로 응답을 받으면 원격 서버가 응답으로 보내준 데이터는 body 속성이 갖고 있게 됩니다. body 속성 값의 타입은 문자열일 수도 있고, 숫자나 배열, 객체일 수도 있습니다.
-
-put 서비스를 요청할 때는, body 속성에 미리 전송할 데이터를 대입해두어야 합니다.
-
-post 서비스를 요청할 때는 body 속성에 미리 전송할 데이터를 대입해두어야 하며, 원격 서버가 응답으로 보내준 데이터는 body 속성에 보관됩니다.
-
-delete 서비스는 body 속성을 사용하지 않습니다.
-
-
-
-# 6.3.1 생성자
+[7.2.2 ethernet TCP server - 바이너리 송수신](../2-exam-server/2-enet-server-bin.md)
+# 7.4.1 BBuf 생성자
 
 ### 설명
 
-HttpCli 객체를 생성합니다. 참조를 리턴합니다.
+바이너리 버퍼(Binary Buffer) 객체를 생성합니다. 참조를 리턴합니다.
 
 ### 문법
 
-HttpCli\(\)
+BBuf\(\)
+
 
 ### 리턴값
 
@@ -3367,164 +3711,140 @@ HttpCli\(\)
 ### 사용 예
 
 ```python
-var cli = HttpCli()
+var bbuf = BBuf()
 ```
 
 
+# 7.4.2 지원 형식 (format)
 
-# 6.3.2 멤버변수
+멤버함수인 append()나 read_num()는 인수로 형식을 지정해야 합니다.  
+
+형식은 Signed/Unsigned/Floating-point 를 의미하는 영문자 1개와 byte 수를 의미하는 숫자 1개로 구성됩니다.<br>
+영문자가 대문자이면 big endian, 소문자이면 little endian입니다.			
+
+
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">변수명</th>
-      <th style="text-align:left">데이터형</th>
-      <th style="text-align:left">설명</th>
+      <th>형식</th>
+      <th>endian</th>
+      <th>타입</th>
+      <th>바이트수</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align:left">body</td>
-      <td style="text-align:left">모든 형 가능</td>
-      <td style="text-align:left">
-        <p>put과 post 요청에 실어보낼
-          데이터를 미리 넣어두어야
-          합니다.
-          <br />
-        </p>
-        <p>get과 post 요청의 응답이 보관됩니다.
-          <br
-          />
-        </p>
-      </td>
+      <td>"S1"</td>
+      <td>big endian<br>
+      <td>부호있는 정수 (signed integer)<br>
+      <td>1byte<br>
     </tr>
+    <tr>
+      <td>"S2"</td>
+      <td>big endian<br>
+      <td>부호있는 정수 (signed integer)<br>
+      <td>2byte<br>
+    </tr>
+    <tr>
+      <td>"S4"</td>
+      <td>big endian<br>
+      <td>부호있는 정수 (signed integer)<br>
+      <td>4byte<br>
+    </tr>
+    <tr>
+      <td>"U1"</td>
+      <td>big endian<br>
+      <td>부호없는 정수 (unsigned integer)<br>
+      <td>1byte<br>
+    </tr>
+    <tr>
+      <td>"U2"</td>
+      <td>big endian<br>
+      <td>부호없는 정수 (unsigned integer)<br>
+      <td>2byte<br>
+    </tr>
+    <tr>
+      <td>"U4"</td>
+      <td>big endian<br>
+      <td>부호없는 정수 (unsigned integer)<br>
+      <td>4byte<br>
+    </tr>
+    <tr>
+      <td>"F4"</td>
+      <td>big endian<br>
+      <td>단정도 실수 (single-precision real)<br>
+      <td>4byte<br>
+    </tr>
+    <tr>
+      <td>"F8"</td>
+      <td>big endian<br>
+      <td>배정도 실수 (double-precision real)<br>
+      <td>8byte<br>
+    </tr>
+    <tr>
+      <td>"s1"</td>
+      <td>little endian<br>
+      <td>부호있는 정수 (signed integer)<br>
+      <td>1byte<br>
+    </tr>
+    <tr>
+      <td>"s2"</td>
+      <td>little endian<br>
+      <td>부호있는 정수 (signed integer)<br>
+      <td>2byte<br>
+    </tr>
+    <tr>
+      <td>"s4"</td>
+      <td>little endian<br>
+      <td>부호있는 정수 (signed integer)<br>
+      <td>4byte<br>
+    </tr>
+    <tr>
+      <td>"u1"</td>
+      <td>little endian<br>
+      <td>부호없는 정수 (unsigned integer)<br>
+      <td>1byte<br>
+    </tr>
+    <tr>
+      <td>"u2"</td>
+      <td>little endian<br>
+      <td>부호없는 정수 (unsigned integer)<br>
+      <td>2byte<br>
+    </tr>
+    <tr>
+      <td>"u4"</td>
+      <td>little endian<br>
+      <td>부호없는 정수 (unsigned integer)<br>
+      <td>4byte<br>
+    </tr>
+    <tr>
+      <td>"f4"</td>
+      <td>little endian<br>
+      <td>단정도 실수 (single-precision real)<br>
+      <td>4byte<br>
+    </tr>
+    <tr>
+      <td>"f8"</td>
+      <td>little endian<br>
+      <td>배정도 실수 (double-precision real)<br>
+      <td>8byte<br>
+    </tr>
+	 <tr>
+
   </tbody>
-</table>
+</table># 7.4.2 BBuf 멤버 함수
 
-# 6.3.3 멤버 프로시져
-
-# get
+# append
 
 ### 설명
 
-HTTP GET 서비스를 요청합니다.
+바이너리 버퍼에 지정된 형식(format)으로 데이터를 추가합니다.
 
-응답 데이터는 body 속성으로 받습니다.
 
 ### 문법
 
-&lt;HttpCli객체&gt;.get &lt;URL 문자열&gt;
-
-### 사용 예
-
-```python
-var domain="http://192.168.1.200:8888"
-cli.get domain+"/setting/max_torque"
-```
-
-
-
-# put
-
-### 설명
-
-HTTP PUT 서비스를 요청합니다.
-
-전송할 데이터는 body 속성에 미리 대입해 두어야 합니다.
-
-### 문법
-
-&lt;HttpCli객체&gt;.put &lt;URL 문자열&gt;
-
-### 사용 예
-
-```python
-var domain="http://192.168.1.200:8888"
-cli.body=500
-cli.put domain+"/setting/max_torque"
-```
-
-
-
-# post
-
-### 설명
-
-HTTP POST 서비스를 요청합니다.
-
-전송할 데이터는 body 속성에 미리 대입해 두어야 합니다.
-
-응답 데이터는 body 속성으로 받습니다.
-
-### 문법
-
-&lt;HttpCli객체&gt;.post &lt;URL 문자열&gt;
-
-### 사용 예
-
-```python
-var domain="http://192.168.1.200:8888"
-cli.body={ name: "WORK #32", color: "green", state: "OK" }
-cli.post domain+"/display/update"
-```
-
-# delete
-
-### 설명
-
-HTTP DELETE 서비스를 요청합니다.
-
-body 속성은 사용되지 않습니다.
-
-### 문법
-
-&lt;HttpCli객체&gt;.delete &lt;URL 문자열&gt;
-
-### 사용 예
-
-```python
-var domain="http://192.168.1.200:8888"
-cli.delete domain+"/items/3"
-```
-
-# 6.3.4 HTTP client 통신 예제
-
-```python
-import http_client
-var cli=http_client.HttpClient()
-
-var domain="http://192.168.1.200:8888"
-
-# get
-cli.get domain+"/device/direction"
-print cli.body.ry
-     
-# put
-cli.body.ry=90
-cli.put domain+"/device/direction"
-     
-# post
-cli.body=={ name: "WORK #32", color: "green", state: "OK" }
-cli.post domain+"/display/update"
-
-# delete
-cli.delete domain+"/items/3"
-
-end
-```
-
-# 6.4 티치펜던트 console bar로 입력받기
-
-# 6.4.1 input문
-
-### 설명
-
-input문을 통해 티치펜던트의 키입력으로 문자열을 입력받아 변수에 저장합니다. 제한시간까지 입력되지 않으면 다음 명령문으로 진행하거나 timeout 주소로 분기합니다.
-
-### 문법
-
-input &lt;변수&gt;\[,&lt;제한시간&gt;,&lt;timeout 주소&gt;\]
-
+{BBuf객체}.append {format}, {data}
 
 
 ### 파라미터
@@ -3539,96 +3859,222 @@ input &lt;변수&gt;\[,&lt;제한시간&gt;,&lt;timeout 주소&gt;\]
   </thead>
   <tbody>
     <tr>
-      <td style="text-align:left">변수</td>
+      <td style="text-align:left">format</td>
       <td style="text-align:left">
-        <p>입력을 받을 변수. 숫자도
-          문자열 타입으로 입력받습니다.
-          수치값이 필요하면 int(
-          )나 double( ) 함수로 변환하십시오.
-          <br
-          />
-        </p>
-        <p>
-          <br />
-        </p>
-        <p>
-          <br />
-        </p>
+			바이너리 데이터 형식(format)*<br>
+      e.g. "U4", "s2"
       </td>
-      <td style="text-align:left"></td>
+      <td style="text-align:left">문자열형</td>
     </tr>
-    <tr>
-      <td style="text-align:left">제한시간</td>
-      <td style="text-align:left">입력을 대기할 최대 제한
-        시간 (timeout)</td>
+	 <tr>
+      <td style="text-align:left">data</td>
       <td style="text-align:left">
-        <p>산술식
-          <br />
-        </p>
-        <p>0.1~60.0 sec
-          <br />
-        </p>
+        바이너리 버퍼에 추가할 데이터
       </td>
-    </tr>
-    <tr>
-      <td style="text-align:left">timeout 주소</td>
-      <td style="text-align:left">제한시간 초과 시, 분기할
-        주소</td>
-      <td style="text-align:left">주소</td>
+      <td style="text-align:left">기본형(primitive) 데이터,<br>혹은 기본형 데이터의 1차원 배열</td>
     </tr>
   </tbody>
 </table>
 
+<br>
+
+
+\* [7.4.2 지원 형식 (format)](../2-format.md)을 참조하십시오.
+<br>
+<br>
+
+
+### 리턴값
+
+추가된 데이터의 개수
+
+
 ### 사용 예
 
 ```python
-input work_no
-input work_no,10
-input work_no,10,*timeout
+var bbuf=enet.BBuf()
+bbuf.append("F8", 9.80665)
+bbuf.append("U4", [2, 3, 5, 7, 11, 13])
 ```
+# clear
 
-![](../../_assets/image_6.png)
+### 설명
+
+바이너리 버퍼에 저장된 데이터를 전부 삭제합니다.
 
 
+### 문법
 
-# 7. 앨리어스(alias)
+{BBuf객체}.clear\(\)
 
-앨리어스\(alias\)란 변수나 객체의 속성의 표기를 대체할 수 있는 이름입니다. 반복해 사용하기에 너무 긴 속성 표기를 간결한 이름으로 대체하거나, 특정한 인덱스의 IO 변수를 가독성이 좋은 이름으로 대체해 사용할 수 있습니다.
 
-앨리어스는 alias 명령문으로 정의하며, 문법은 var이나 global과 거의 같습니다.
-앨리어스의 scope는 global과 동일합니다. 즉, alias 문이 실행된 후에는 이후 수행되는 어느 job에서나 사용할 수 있으며, 메인 프로그램의 end문이나 R0 \[ENTER\] 조작에 의해 프로그램 사이클이 리셋되어도 소멸되지 않습니다.
+### 리턴값
+
+없음
+
+
+### 사용 예
 
 ```python
-global myval=3, yourname="Jane"
-val i=0,msg="hello"
-val profile = { name: "Paul", age: 43, role: [ "CTO", "engineer" ] }
-
-alias grip=fb3.do4, work_no=fb1.diw2 # (1)
-alias role=profile.role # (2)
-alias tool0=project.robot.tools.t_0 # (3)
-
-# 활용
-grip=1
-print work_no
-print role[1]
-tool0.mass=12
+var bbuf=enet.BBuf()
+bbuf.append("s4", 20)
+bbuf.append("s4", -10)
+bbuf.clear()
 ```
+# nbyte
 
-위 예제의 (1)에서 fb3.do4 출력변수를 grip이라는 앨리어스로 정의했고, fb1.diw2라는 입력변수를 work_no라는 앨리어스로 정의했습니다.  
-(2)에서는 profile의 속성인 role 배열을 role이란 앨리어스로 정의했습니다.  
-(3)에서는 내장 객체인 project.robot.tools.t_0를 tool0라는 앨리어스로 정의했는데, 이것은 0번 툴 데이터를 가리키게 됩니다.
+### 문법
 
-배열을 가리키는 앨리어스는 role[1]과 같이 [] 연산자로 인덱스를 지정할 수 있습니다.  
-객체를 가리키는 앨리어스는 tool0.mass와 같이 . 연산자로 속성을 지정할 수 있습니다.
+{BBuf객체}.nbyte
 
-상수는 alias로 정의할 수 없습니다. global이나 var을 사용해 정의하십시오.  
-수식도 alias로 정의할 수 없습니다. 오동작이 발생할 수 있으므로 주의하십시오.
+
+### 리턴값
+
+바이터리 데이터의 크기 (byte수)
+
+
+### 사용 예
 
 ```python
-#alias pie=3.141592 # (X)
-#alias unit="mm/s" # (X)
-global pie=3.141592 # (O)
-global unit="mm/s" # (O)
+var bbuf=enet.BBuf()
+bbuf.append("s4", 20)
+bbuf.append("s4", -10)
+print bbuf.nbyte() # "8"
+```
 
-#alias pie_2 = pie*pie # (X)
+# read_num
+
+### 설명
+
+바이너리 버퍼의 지정 위치로부터 숫자형 값을 읽어 리턴합니다.
+
+
+### 문법
+
+{BBuf객체}.read_num {format}, {offset}
+
+
+### 파라미터
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">항목</th>
+      <th style="text-align:left">의미</th>
+      <th style="text-align:left">기타</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">format</td>
+      <td style="text-align:left">
+			바이너리 데이터 형식(format)*<br>
+      e.g. "U4", "s2"<br>
+      </td>
+      <td style="text-align:left">문자열형</td>
+    </tr>
+	 <tr>
+      <td style="text-align:left">offset</td>
+      <td style="text-align:left">
+        데이터를 읽을 위치 (0-based byte offset)
+      </td>
+      <td style="text-align:left">정수형</td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+\* [7.4.2 지원 형식 (format)](../2-format.md)을 참조하십시오.
+<br>
+<br>
+
+### 리턴값
+
+* 읽은 숫자형 값
+* 만일 데이터 형식을 읽을 때 오류가 발생하면 0을 리턴합니다.
+
+
+### 사용 예
+
+```python
+var bbuf=enet.BBuf()
+bbuf.append("F8", 9.80665)
+bbuf.append("U4", [2, 3, 5, 7, 11, 13])
+print bbuf.read_num("F8", 0) # "9.80665"
+print bbuf.read_num("U4", 12) # "3"
+print bbuf.read_num("U4", 16) # "5"
+```
+# read_nums
+
+### 설명
+
+바이너리 버퍼의 지정 위치로부터 지정한 개수의 숫자형 값을 읽어 배열 형식으로 리턴합니다.
+
+
+### 문법
+
+{BBuf객체}.read_num  {format}, {offset}, {n.item}
+
+
+### 파라미터
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">항목</th>
+      <th style="text-align:left">의미</th>
+      <th style="text-align:left">기타</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">format</td>
+      <td style="text-align:left">
+			바이너리 데이터 형식(format)<br>
+      e.g. "U4", "s2"<br>
+			아래 지원 형식을 참조하십시오.
+      </td>
+      <td style="text-align:left">문자열형</td>
+    </tr>
+	  <tr>
+      <td style="text-align:left">offset</td>
+      <td style="text-align:left">
+        데이터를 읽을 위치 (0-based byte offset)
+      </td>
+      <td style="text-align:left">정수형</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">n.item</td>
+      <td style="text-align:left">
+        읽을 데이터 개수
+      </td>
+      <td style="text-align:left">정수형</td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+
+\* [7.4.2 지원 형식 (format)](../2-format.md)을 참조하십시오.
+<br>
+<br>
+
+
+### 리턴값
+
+* 읽은 숫자형 값들의 배열.  
+* 만일 버퍼에 있는 데이터의 개수가 지정한 개수보다 적으면, 있는 만큼만 읽습니다.
+* 만일 데이터 형식을 읽을 때 오류가 발생하면 빈 배열을 리턴합니다.
+
+
+### 사용 예
+
+```python
+var bbuf=enet.BBuf()
+bbuf.append("F8", 9.80665)
+bbuf.append("U4", [2, 3, 5, 7, 11, 13])
+print bbuf.read_nums("U4", 12, 3) # "[3, 5, 7]"
+print bbuf.read_num("U4", 12, 6) # "[3, 5, 7, 11, 13]"
 ```

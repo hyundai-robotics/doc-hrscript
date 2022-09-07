@@ -355,123 +355,153 @@
 		"byte_ofs": 84809
 	},
 	{
-		"link": "6-external-comm/2-enet-tcp-udp/README.md",
+		"link": "7-enet-module/README.md",
 		"char_ofs": 60076,
 		"byte_ofs": 85477
 	},
 	{
-		"link": "6-external-comm/2-enet-tcp-udp/1-enet-creator.md",
-		"char_ofs": 60666,
-		"byte_ofs": 86583
+		"link": "7-enet-module/1-exam-client/README.md",
+		"char_ofs": 60391,
+		"byte_ofs": 86114
 	},
 	{
-		"link": "6-external-comm/2-enet-tcp-udp/2-enet-member-var.md",
-		"char_ofs": 61392,
-		"byte_ofs": 87502
+		"link": "7-enet-module/1-exam-client/1-enet-client-str.md",
+		"char_ofs": 60501,
+		"byte_ofs": 86302
 	},
 	{
-		"link": "6-external-comm/2-enet-tcp-udp/3-enet-member-proc/README.md",
-		"char_ofs": 62921,
-		"byte_ofs": 89474
+		"link": "7-enet-module/1-exam-client/2-enet-client-bin.md",
+		"char_ofs": 61773,
+		"byte_ofs": 88009
 	},
 	{
-		"link": "6-external-comm/2-enet-tcp-udp/3-enet-member-proc/1-enet-open.md",
-		"char_ofs": 62938,
-		"byte_ofs": 89508
+		"link": "7-enet-module/2-exam-server/README.md",
+		"char_ofs": 63674,
+		"byte_ofs": 90553
 	},
 	{
-		"link": "6-external-comm/2-enet-tcp-udp/3-enet-member-proc/2-enet-connect.md",
-		"char_ofs": 63060,
-		"byte_ofs": 89699
+		"link": "7-enet-module/2-exam-server/1-enet-server-str.md",
+		"char_ofs": 63942,
+		"byte_ofs": 91028
 	},
 	{
-		"link": "6-external-comm/2-enet-tcp-udp/3-enet-member-proc/3-enet-send.md",
-		"char_ofs": 63186,
-		"byte_ofs": 89894
+		"link": "7-enet-module/2-exam-server/2-enet-server-bin.md",
+		"char_ofs": 65182,
+		"byte_ofs": 92646
 	},
 	{
-		"link": "6-external-comm/2-enet-tcp-udp/3-enet-member-proc/4-enet-recv.md",
-		"char_ofs": 63955,
-		"byte_ofs": 90864
+		"link": "7-enet-module/3-enet/README.md",
+		"char_ofs": 67044,
+		"byte_ofs": 95107
 	},
 	{
-		"link": "6-external-comm/2-enet-tcp-udp/3-enet-member-proc/5-enet-close.md",
-		"char_ofs": 64933,
-		"byte_ofs": 92089
+		"link": "7-enet-module/3-enet/1-enet-creator.md",
+		"char_ofs": 67124,
+		"byte_ofs": 95274
 	},
 	{
-		"link": "6-external-comm/2-enet-tcp-udp/4-enet-member-func/README.md",
-		"char_ofs": 65052,
-		"byte_ofs": 92275
+		"link": "7-enet-module/3-enet/2-enet-member-var.md",
+		"char_ofs": 67630,
+		"byte_ofs": 95962
 	},
 	{
-		"link": "6-external-comm/2-enet-tcp-udp/4-enet-member-func/1-enet-state.md",
-		"char_ofs": 65067,
-		"byte_ofs": 92303
+		"link": "7-enet-module/3-enet/3-enet-member-func/README.md",
+		"char_ofs": 69164,
+		"byte_ofs": 97939
 	},
 	{
-		"link": "6-external-comm/2-enet-tcp-udp/5-enet-tcp-udp-example.md",
-		"char_ofs": 66331,
-		"byte_ofs": 93813
+		"link": "7-enet-module/3-enet/3-enet-member-func/enet-accept.md",
+		"char_ofs": 69476,
+		"byte_ofs": 98398
 	},
 	{
-		"link": "6-external-comm/3-http_cli/README.md",
-		"char_ofs": 66887,
-		"byte_ofs": 94470
+		"link": "7-enet-module/3-enet/3-enet-member-func/enet-close.md",
+		"char_ofs": 69695,
+		"byte_ofs": 98760
 	},
 	{
-		"link": "6-external-comm/3-http_cli/1-http_cli-creator.md",
-		"char_ofs": 67514,
-		"byte_ofs": 95719
+		"link": "7-enet-module/3-enet/3-enet-member-func/enet-connect.md",
+		"char_ofs": 69808,
+		"byte_ofs": 98940
 	},
 	{
-		"link": "6-external-comm/3-http_cli/2-http_cli-member-var.md",
-		"char_ofs": 67655,
-		"byte_ofs": 95959
+		"link": "7-enet-module/3-enet/3-enet-member-func/enet-listen.md",
+		"char_ofs": 69979,
+		"byte_ofs": 99211
 	},
 	{
-		"link": "6-external-comm/3-http_cli/3-http_cli-member-proc/README.md",
-		"char_ofs": 68209,
-		"byte_ofs": 96649
+		"link": "7-enet-module/3-enet/3-enet-member-func/enet-recv.md",
+		"char_ofs": 70169,
+		"byte_ofs": 99502
 	},
 	{
-		"link": "6-external-comm/3-http_cli/3-http_cli-member-proc/1-http_cli-get.md",
-		"char_ofs": 68226,
-		"byte_ofs": 96683
+		"link": "7-enet-module/3-enet/3-enet-member-func/enet-recv_bbuf.md",
+		"char_ofs": 71006,
+		"byte_ofs": 100685
 	},
 	{
-		"link": "6-external-comm/3-http_cli/3-http_cli-member-proc/2-http_cli-put.md",
-		"char_ofs": 68438,
-		"byte_ofs": 96989
+		"link": "7-enet-module/3-enet/3-enet-member-func/enet-send.md",
+		"char_ofs": 72032,
+		"byte_ofs": 102093
 	},
 	{
-		"link": "6-external-comm/3-http_cli/3-http_cli-member-proc/3-http_cli-post.md",
-		"char_ofs": 68673,
-		"byte_ofs": 97333
+		"link": "7-enet-module/3-enet/3-enet-member-func/enet-send_bbuf.md",
+		"char_ofs": 72569,
+		"byte_ofs": 102762
 	},
 	{
-		"link": "6-external-comm/3-http_cli/3-http_cli-member-proc/4-http_cli-delete.md",
-		"char_ofs": 68977,
-		"byte_ofs": 97774
+		"link": "7-enet-module/3-enet/3-enet-member-func/enet-set_send_trail_null.md",
+		"char_ofs": 73222,
+		"byte_ofs": 103574
 	},
 	{
-		"link": "6-external-comm/3-http_cli/4-http_cli-example.md",
-		"char_ofs": 69184,
-		"byte_ofs": 98067
+		"link": "7-enet-module/3-enet/3-enet-member-func/enet-state.md",
+		"char_ofs": 73550,
+		"byte_ofs": 104020
 	},
 	{
-		"link": "6-external-comm/4-tp-console-bar-input/README.md",
-		"char_ofs": 69591,
-		"byte_ofs": 98511
+		"link": "7-enet-module/4-bbuf/README.md",
+		"char_ofs": 74555,
+		"byte_ofs": 105283
 	},
 	{
-		"link": "6-external-comm/4-tp-console-bar-input/1-input.md",
-		"char_ofs": 69622,
-		"byte_ofs": 98567
+		"link": "7-enet-module/4-bbuf/1-bbuf-creator.md",
+		"char_ofs": 74815,
+		"byte_ofs": 105684
 	},
 	{
-		"link": "7-alias.md",
-		"char_ofs": 70981,
-		"byte_ofs": 100341
+		"link": "7-enet-module/4-bbuf/2-format.md",
+		"char_ofs": 74971,
+		"byte_ofs": 105951
+	},
+	{
+		"link": "7-enet-module/4-bbuf/3-bbuf-member-func/README.md",
+		"char_ofs": 77369,
+		"byte_ofs": 108808
+	},
+	{
+		"link": "7-enet-module/4-bbuf/3-bbuf-member-func/bbuf-append.md",
+		"char_ofs": 77389,
+		"byte_ofs": 108841
+	},
+	{
+		"link": "7-enet-module/4-bbuf/3-bbuf-member-func/bbuf-clear.md",
+		"char_ofs": 78330,
+		"byte_ofs": 110066
+	},
+	{
+		"link": "7-enet-module/4-bbuf/3-bbuf-member-func/bbuf-nbyte.md",
+		"char_ofs": 78523,
+		"byte_ofs": 110357
+	},
+	{
+		"link": "7-enet-module/4-bbuf/3-bbuf-member-func/bbuf-read_num.md",
+		"char_ofs": 78705,
+		"byte_ofs": 110605
+	},
+	{
+		"link": "7-enet-module/4-bbuf/3-bbuf-member-func/bbuf-read_nums.md",
+		"char_ofs": 79780,
+		"byte_ofs": 111972
 	}
 ]
