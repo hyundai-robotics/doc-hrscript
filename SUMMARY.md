@@ -112,4 +112,4 @@
       * [nbyte](7-enet-module/4-bbuf/3-bbuf-member-func/bbuf-nbyte.md)
       * [read_num](7-enet-module/4-bbuf/3-bbuf-member-func/bbuf-read_num.md)
       * [read_nums](7-enet-module/4-bbuf/3-bbuf-member-func/bbuf-read_nums.md)
-* [8. 앨리어스 (alias)](7-alias.md)
+* [8. 앨리어스 (alias)](8-alias.md)
