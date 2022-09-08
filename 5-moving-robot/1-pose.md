@@ -40,7 +40,106 @@ var po4 = Pose(str)
 
 Elements of the pose object can be accessed with the following keys.
 
-![](../_assets/image_9.png)
+
+
+<!--![](../_assets/image_5.png)-->
+
+<table>
+  <tr>
+    <th>Key</th>
+    <th>Type</th>
+    <th>Value range</th>
+    <th>Description</th>
+    <th>Unit, Remarks</th>
+  </tr>
+    <tr>
+    <td>nj</td>
+    <td>integer type</td>
+    <td>1~32</td>
+    <td>Axis count</td>
+    <td> </td>
+  </tr>
+   </tr>
+    <tr>
+    <td>j1~j32</td>
+    <td>Real number</td>
+    <td>8-byte real mumber</td>
+    <td>Axis value</td>
+    <td>mm, deg</td>
+  </tr>
+   </tr>
+    <tr>
+    <td>x, y, z</td>
+    <td>Real number</td>
+    <td>8-byte real mumber</td>
+    <td>Tool position in Cartesian coordinate</td>
+    <td>mm</td>
+  </tr>
+   </tr>
+    <tr>
+    <td>rx, ry, rz</td>
+    <td>Real number</td>
+    <td>8-byte real mumber</td>
+    <td>Euler angle of tool orientaion</td>
+    <td>deg</td>
+  </tr>
+  <tr>
+    <td rowspan="4">crd</td>
+    <td rowspan="4">String type</td>
+    <td>joint</td>
+    <td>Joint coordinate (default)</td>
+    <td rowspan="4"></td>
+  </tr>
+  <tr>
+    <td>base</td>
+    <td>Base coordinate</td>
+  </tr>
+  <tr>
+    <td>robot</td>
+    <td>Robot coordinate</td>
+  </tr>
+  <tr>
+    <td>u1 ~ u10</td>
+    <td>User coordinate</td>
+  </tr>
+  <tr>
+    <td rowspan="8">cfg</td>
+    <td rowspan="8">String type</td>
+    <td>s</td>
+    <td>|S|>=180</td>
+    <td rowspan="7">Possible to perform<br>combination by <br>dividing with ";"<br><br>The default is all flags turned off.</td>
+  </tr>
+  <tr>
+    <td>r1</td>
+    <td>|R1|>=180</td>
+  </tr>
+  <tr>
+    <td>r2</td>
+    <td>|R2|>=180</td>
+  </tr>
+  <tr>
+    <td>b</td>
+    <td>|B|>=180</td>
+  </tr>
+  <tr>
+    <td>re</td>
+    <td>rear</td>
+  </tr>
+  <tr>
+    <td>dn</td>
+    <td>down</td>
+  </tr>
+  <tr>
+    <td>nf</td>
+    <td>non-flip</td>
+  </tr>
+  <tr>
+    <td>auto</td>
+    <td>auto (automatic desision)</td>
+    <td></td>
+  </tr>
+</table>
+
 
 1. For V60.06-06 or older versions, fl is non-fl.
 
