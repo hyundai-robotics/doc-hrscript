@@ -1,8 +1,8 @@
 ﻿# 6.2.4 HTTP client 통신 예제
 
 ```python
-     import http_client
-     var cli=http_client.HttpClient()
+     import http_cli
+     var cli=http_cli.HttpClient()
      var url, body, query, status_code
      var domain="http://192.168.1.200:8888"
 

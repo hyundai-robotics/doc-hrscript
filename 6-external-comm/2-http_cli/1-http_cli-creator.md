@@ -15,7 +15,7 @@ HttpCli\(\)
 ### 사용 예
 
 ```python
-var cli = HttpCli()
+var cli = http_cli.HttpCli()
 ```
 
 
