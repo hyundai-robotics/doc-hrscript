@@ -11,7 +11,7 @@
   </thead>
   <tbody>
     <tr>
-      <td rowspan="2">Informational<br/>임시응답</td>
+      <td rowspan="2">Informational</td>
       <td>
         100
       </td>

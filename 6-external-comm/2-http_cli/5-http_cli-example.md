@@ -17,7 +17,8 @@
 
      # put
      url = domain+"/device/direction"
-     cli.body.ry=90
+     body.ry=90
+     cli.body=body
      cli.put(url, 3000, *Timeout)
 
      # post
