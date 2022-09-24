@@ -54,5 +54,5 @@
   </tbody>
 </table>
 
-\* Pose is a data type that represents the posture of the robot or the position of the tool tip. Details will be described later in "[5.1 Pose](../../moving-robot/pose.md)".
+\* Pose is a data type that represents the posture of the robot or the position of the tool tip. Details will be described later in "[5.1 Pose](../../5-moving-robot/1-pose.md)".
 
