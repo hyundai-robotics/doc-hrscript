@@ -6,6 +6,9 @@
 
 {% hint style="info" %}
 cfg요소는 로봇 자세 \(configuration\)를 지정합니다. 자세한 내용은 Hi6 로봇제어기 조작설명서의 "[2.3.2.2 베이스 및 로봇 기록 좌표](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean/2-operation/3-step/2-step-pose-modify/2-base-robot-crd-sys)"를 참조하십시오.
+
+[2.3.2.2 베이스 및 로봇 기록 좌표](http://localhost:5000/#/view/doc-hrscript/korean/5-moving-robot/1-pose)
+
 {% endhint %}
 
 ```python
