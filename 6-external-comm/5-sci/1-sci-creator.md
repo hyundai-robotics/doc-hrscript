@@ -15,7 +15,7 @@ Sci(port number)
 ### 사용 예
 
 ```python
-var sci2 = Sci(2)
+var sci2 = sci.Sci(2)
 ```
 
 
