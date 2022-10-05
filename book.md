@@ -1083,7 +1083,7 @@ var str="hello, world"가 실행된 상태에서의 예
   </tbody>
 </table>
 
-\* 포즈\(pose\)는 로봇의 자세 혹은 툴 끝의 위치를 나타내는 데이터형입니다. 이후의 "[5.1 포즈 \(pose\)](../../moving-robot/pose.md)"에서 자세히 설명합니다.
+\* 포즈\(pose\)는 로봇의 자세 혹은 툴 끝의 위치를 나타내는 데이터형입니다. 이후의 "[5.1 포즈 \(pose\)](../../5-moving-robot/1-pose.md)"에서 자세히 설명합니다.
 
 # 3. 제어문과 서브프로그램
 
@@ -2573,7 +2573,8 @@ var 배열변수명 = Array(3,2,4)	# [3][2][4]개의 3차원 배열 생성
 포즈는 생성자 함수 Pose\( \)를 호출하여 생성합니다. 함수 매개변수들은 모두 위치 매개변수입니다. crd와 cfg는 문자열형이고, 나머지는 모두 숫자형입니다.
 
 {% hint style="info" %}
-cfg요소는 로봇 자세 \(configuration\)를 지정합니다. 자세한 내용은 Hi6 로봇제어기 조작설명서의 "[2.3.2.2 베이스 및 로봇 기록 좌표](https://hrbook-asoe72.web.app/#/view/doc-hi6-operation/korean/operation/step/step-pose-modify/base-robot-crd-sys)"를 참조하십시오.
+cfg요소는 로봇 자세 \(configuration\)를 지정합니다. 자세한 내용은 Hi6 로봇제어기 조작설명서의 "[2.3.2.2 베이스 및 로봇 기록 좌표](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean/2-operation/3-step/2-step-pose-modify/2-base-robot-crd-sys)"를 참조하십시오.
+
 {% endhint %}
 
 ```python
@@ -2606,7 +2607,104 @@ var po4 = Pose(str)
 
 Pose 객체의 요소들은 다음의 키들로 접근 가능합니다.
 
-![](../_assets/image_5.png)
+<!--![](../_assets/image_5.png)-->
+
+<table>
+  <tr>
+    <th>키</th>
+    <th>타입</th>
+    <th>값 범위</th>
+    <th>설명</th>
+    <th>단위, 비고</th>
+  </tr>
+    <tr>
+    <td>nj</td>
+    <td>정수형</td>
+    <td>1~32</td>
+    <td>축 개수</td>
+    <td> </td>
+  </tr>
+   </tr>
+    <tr>
+    <td>j1~j32</td>
+    <td>실수형</td>
+    <td>8 바이트 실수 범위</td>
+    <td>축 값</td>
+    <td>mm, deg</td>
+  </tr>
+   </tr>
+    <tr>
+    <td>x, y, z</td>
+    <td>실수형</td>
+    <td>8 바이트 실수 범위</td>
+    <td>직교좌표 값</td>
+    <td>mm</td>
+  </tr>
+   </tr>
+    <tr>
+    <td>rx, ry, rz</td>
+    <td>실수형</td>
+    <td>8 바이트 실수 범위</td>
+    <td>좌표계 방향 오일러 각도</td>
+    <td>deg</td>
+  </tr>
+  <tr>
+    <td rowspan="4">crd</td>
+    <td rowspan="4">문자열형</td>
+    <td>joint</td>
+    <td>축 좌표계 (default)</td>
+    <td rowspan="4"></td>
+  </tr>
+  <tr>
+    <td>base</td>
+    <td>베이스 좌표계</td>
+  </tr>
+  <tr>
+    <td>robot</td>
+    <td>로봇 좌표계</td>
+  </tr>
+  <tr>
+    <td>u1 ~ u10</td>
+    <td>사용자 좌표계</td>
+  </tr>
+  <tr>
+    <td rowspan="8">cfg</td>
+    <td rowspan="8">문자열형</td>
+    <td>s</td>
+    <td>|S|>=180</td>
+    <td rowspan="7">; 으로 구분하여,<br> 조합가능 <br> default 는 모든 flag 꺼짐.</td>
+  </tr>
+  <tr>
+    <td>r1</td>
+    <td>|R1|>=180</td>
+  </tr>
+  <tr>
+    <td>r2</td>
+    <td>|R2|>=180</td>
+  </tr>
+  <tr>
+    <td>b</td>
+    <td>|B|>=180</td>
+  </tr>
+  <tr>
+    <td>re</td>
+    <td>rear</td>
+  </tr>
+  <tr>
+    <td>dn</td>
+    <td>down</td>
+  </tr>
+  <tr>
+    <td>nf</td>
+    <td>non-flip</td>
+  </tr>
+  <tr>
+    <td>auto</td>
+    <td>auto (자동 결정)</td>
+    <td></td>
+  </tr>
+</table>
+
 
 아래의 예와 같이 포즈 요소값에 접근할 수 있습니다.
 
@@ -2894,6 +2992,1004 @@ for idx=21 to 29
 next
 fb2.do3=fb2.do7=fb2.do11=1   # fb2의 3번, 7번, 11번 출력신호를 한꺼번에 켠다.
 ```
+
+# 6.2 http\_cli 모듈 : HTTP 클라이언트
+
+Hi6 제어기의 범용 이더넷 포트를 통해, 원격의 웹 서비스에 접근하여 HTTP 서비스를 받을 수 있습니다.
+
+이 기능을 사용하기 위해서는 아래와 같이 http\_cli 모듈을 import한 후, HttpCli 객체를 생성해야 합니다.
+
+```python
+import http_cli
+var cli=http_cli.HttpCli()
+```
+
+HttpCli 객체를 생성한 후에는 get, put, post, delete 멤버 프로시져를 호출하여 서비스 요청할 하면 됩니다.
+
+HttpCli 객체는 body라는 이름의 속성을 가지고 있습니다.
+
+get 서비스를 요청하여 성공적으로 응답을 받으면 원격 서버가 응답으로 보내준 데이터는 body 속성이 갖고 있게 됩니다. body 속성 값의 타입은 문자열일 수도 있고, 숫자나 배열, 객체일 수도 있습니다.
+
+put 서비스를 요청할 때는, body 속성에 미리 전송할 데이터를 대입해두어야 합니다.
+
+post 서비스를 요청할 때는 body 속성에 미리 전송할 데이터를 대입해두어야 하며, 원격 서버가 응답으로 보내준 데이터는 body 속성에 보관됩니다.
+
+delete 서비스는 body 속성을 사용하지 않습니다.
+
+제공되는 Http 클라이언트 통신은 동기 통신으로 진행됩니다.
+
+
+# 6.2.1 생성자
+
+### 설명
+
+HttpCli 객체를 생성합니다. 참조를 리턴합니다.
+
+### 문법
+
+HttpCli\(\)
+
+### 리턴값
+
+생성된 객체의 참조
+
+### 사용 예
+
+```python
+var cli = http_cli.HttpCli()
+```
+
+
+
+# 6.2.2 멤버변수
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">변수명</th>
+      <th style="text-align:left">데이터형</th>
+      <th style="text-align:left">설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">body</td>
+      <td style="text-align:left">모든 형 가능</td>
+      <td style="text-align:left">
+        <p>put과 post 요청에 실어보낼
+          데이터를 미리 넣어두어야
+          합니다.
+        </p>
+        <p>
+          body에 object가 아닌 다른 형을 대입시에는 URL의 마지막 경로값을 Key로 처리하여 수행합니다.
+        </p>
+        <p>get과 post 요청의 응답이 보관됩니다.
+          <br/>
+        </p>
+        <p>HRScript 에서는 직접적으로 body의 멤버변수에 접근을 할 수 없으므로, 해당 내용의 수정, 사용을 위해서는 다른 변수로 대입을 하여 사용 바랍니다.
+          <br/>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left">query</td>
+      <td style="text-align:left">object</td>
+      <td style="text-align:left">
+        <p>
+          query를 요구하는 get service에 사용됩니다.
+          <br/>
+          get 요청에 실어보낼 데이터를 미리 넣어 두어야합니다
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left">status</td>
+      <td style="text-align:left">int</td>
+      <td style="text-align:left">
+        <p>
+          http 통신 응답 코드와 에러 코드를 반환합니다. (6.2.4 HTTP 통신 코드)
+          <br/>
+        </p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<br/>
+
+body와 query는 object형이 사용됩니다.
+
+object 형은 {key:value}의 형식으로 지원됩니다.
+
+```python
+cli.body = { name: "WORK #32", color: "green", state: "OK" }
+cli.query = { axis: 3 }
+```
+
+# 6.2.3 멤버 프로시져
+
+# get
+
+### 설명
+
+HTTP GET 서비스를 요청합니다.
+
+서버는 요청받은 URL의 정보를 검색하여 응답합니다.
+
+응답 데이터는 body 속성으로 받습니다.
+
+### 문법
+
+&lt;HttpCli객체&gt;.get &lt;URL 문자열, 대기시간, 퇴피주소&gt;
+
+
+### 파라미터
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">항목</th>
+      <th style="text-align:left">의미</th>
+      <th style="text-align:left">기타</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>URL 문자열</td>
+      <td>
+        요청 URL
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>대기시간</td>
+      <td>
+        (Optional) timeout 시간. 경과하면 다음 명령문, 혹은 퇴피스텝으로 진행한다.<br>
+        지정하지 않으면 무한 대기한다.
+      </td>
+      <td>msec</td>
+    </tr>
+    <tr>
+      <td>퇴피주소</td>
+      <td>
+        (Optional) timeout 일 때 분기할 주소.<br>
+        지정하지 않으면 다음 주소로 진행한다.
+      </td>
+      <td>주소</td>
+    </tr>
+  </tbody>
+</table>
+
+
+### 사용 예
+
+```python
+#case 1
+var domain="http://192.168.1.200:8888"
+cli.get domain+"/setting/max_torque"
+
+#case 2
+var url = domain+"/joints/max_speed"
+cli.query = {axis: 3}
+cli.get(url)
+```
+
+
+
+# put
+
+### 설명
+
+HTTP PUT 서비스를 요청합니다.
+
+요철된 자원을 수정(update)합니다. 
+
+전송할 데이터는 body 속성에 미리 대입해 두어야 합니다.
+
+### 문법
+
+&lt;HttpCli객체&gt;.put &lt;URL 문자열, 대기시간, 퇴피주소&gt;
+
+
+### 파라미터
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">항목</th>
+      <th style="text-align:left">의미</th>
+      <th style="text-align:left">기타</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>URL 문자열</td>
+      <td>
+        요청 URL
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>대기시간</td>
+      <td>
+        (Optional) timeout 시간. 경과하면 다음 명령문, 혹은 퇴피스텝으로 진행한다.<br>
+        지정하지 않으면 무한 대기한다.
+      </td>
+      <td>msec</td>
+    </tr>
+    <tr>
+      <td>퇴피주소</td>
+      <td>
+        (Optional) timeout 일 때 분기할 주소.<br>
+        지정하지 않으면 다음 주소로 진행한다.
+      </td>
+      <td>주소</td>
+    </tr>
+  </tbody>
+</table>
+
+### 사용 예
+
+```python
+#case 1
+var domain="http://192.168.1.200:8888"
+cli.body=500
+cli.put domain+"/setting/max_torque"
+
+#case 2
+var url = domain + "/setting"
+cli.body = {max_torque: 500}
+cli.put (url, 5000, S1)
+```
+
+
+
+# post
+
+### 설명
+
+HTTP POST 서비스를 요청합니다.
+
+요청된 자원을 생성(create)합니다.
+
+전송할 데이터는 body 속성에 미리 대입해 두어야 합니다.
+
+응답 데이터는 body 속성으로 받습니다.
+
+### 문법
+
+&lt;HttpCli객체&gt;.post &lt;URL 문자열, 대기시간, 퇴피주소&gt;
+
+
+### 파라미터
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">항목</th>
+      <th style="text-align:left">의미</th>
+      <th style="text-align:left">기타</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>URL 문자열</td>
+      <td>
+        요청 URL
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>대기시간</td>
+      <td>
+        (Optional) timeout 시간. 경과하면 다음 명령문, 혹은 퇴피스텝으로 진행한다.<br>
+        지정하지 않으면 무한 대기한다.
+      </td>
+      <td>msec</td>
+    </tr>
+    <tr>
+      <td>퇴피주소</td>
+      <td>
+        (Optional) timeout 일 때 분기할 주소.<br>
+        지정하지 않으면 다음 주소로 진행한다.
+      </td>
+      <td>주소</td>
+    </tr>
+  </tbody>
+</table>
+
+### 사용 예
+
+```python
+#case 1
+var domain="http://192.168.1.200:8888"
+cli.body={ name: "WORK #32", color: "green", state: "OK" }
+cli.post domain+"/display/update"
+
+#case 2
+var url = domain+"/display/update"
+cli.post url, 1000, *TimeOut
+```
+
+# delete
+
+### 설명
+
+HTTP DELETE 서비스를 요청합니다.
+
+요청한 자원을 삭제합니다.
+
+body 속성은 사용되지 않습니다.
+
+### 문법
+
+&lt;HttpCli객체&gt;.post &lt;URL 문자열, 대기시간, 퇴피주소&gt;
+
+
+### 파라미터
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">항목</th>
+      <th style="text-align:left">의미</th>
+      <th style="text-align:left">기타</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>URL 문자열</td>
+      <td>
+        요청 URL
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>대기시간</td>
+      <td>
+        (Optional) timeout 시간. 경과하면 다음 명령문, 혹은 퇴피스텝으로 진행한다.<br>
+        지정하지 않으면 무한 대기한다.
+      </td>
+      <td>msec</td>
+    </tr>
+    <tr>
+      <td>퇴피주소</td>
+      <td>
+        (Optional) timeout 일 때 분기할 주소.<br>
+        지정하지 않으면 다음 주소로 진행한다.
+      </td>
+      <td>주소</td>
+    </tr>
+  </tbody>
+</table>
+
+### 사용 예
+
+```python
+var domain="http://192.168.1.200:8888"
+cli.delete domain+"/items"
+```
+
+# 6.2.4 HTTP 통신 코드
+
+* HTTP 주요 응답 코드 
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">응답대역</th>
+      <th style="text-align:left">응답코드</th>
+      <th style="text-align:left">설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="2">Informational</td>
+      <td>
+        100
+      </td>
+      <td>
+      continue
+      </td>
+    </tr>
+    <tr>
+      <td>
+        101
+      </td>
+      <td>
+      Switching protocols
+      </td>
+    </tr>
+    <tr>
+    <tr>
+      <td rowspan="5">Success</td>
+      <td>
+        200
+      </td>
+      <td>
+      OK
+      </td>
+    </tr>
+    <tr>
+      <td>
+        201
+      </td>
+      <td>
+      Created
+      </td>
+    </tr>
+    <tr>
+      <td>
+        202
+      </td>
+      <td>
+      Accepted
+      </td>
+    </tr>
+    <tr>
+      <td>
+        203
+      </td>
+      <td>
+      Non-authoritative information
+      </td>
+    </tr>
+    <tr>
+      <td>
+        204
+      </td>
+      <td>
+      No content
+      </td>
+    </tr>
+    <tr>
+    <tr>
+      <td rowspan="3">Redirection</td>
+      <td>
+        301
+      </td>
+      <td>
+      Moved permanently
+      </td>
+    </tr>
+    <tr>
+      <td>
+        302
+      </td>
+      <td>
+      Not temporarily
+      </td>
+    </tr>
+    <tr>
+      <td>
+        303
+      </td>
+      <td>
+      Not modified
+      </td>
+    </tr>
+    <tr>
+      <td rowspan="11">Client error</td>
+      <td>
+        400
+      </td>
+      <td>
+      Bad Request
+      </td>
+    </tr>
+    <tr>
+      <td>
+        401
+      </td>
+      <td>
+      Unauthorized 
+      </td>
+    </tr>
+    <tr>
+      <td>
+        402
+      </td>
+      <td>
+      Payment required
+      </td>
+    </tr>
+    <tr>
+      <td>
+        403
+      </td>
+      <td>
+      Forbidden 
+      </td>
+    </tr>
+    <tr>
+      <td>
+        404
+      </td>
+      <td>
+      Not found 
+      </td>
+    </tr>
+    <tr>
+      <td>
+        405
+      </td>
+      <td>
+      Method not allowed
+      </td>
+    </tr>
+    <tr>
+      <td>
+        407
+      </td>
+      <td>
+      Proxy authentication required 
+      </td>
+    </tr>
+    <tr>
+      <td>
+        408
+      </td>
+      <td>
+      Request timeout
+      </td>
+    </tr>
+    <tr>
+      <td>
+        410
+      </td>
+      <td>
+      Gone  
+      </td>
+    </tr>
+    <tr>
+      <td>
+        412
+      </td>
+      <td>
+      Precondition failed
+      </td>
+    </tr>
+    <tr>
+      <td>
+        414
+      </td>
+      <td>
+      Request-URI too long
+      </td>
+    </tr>
+    <tr>
+      <td rowspan="5">Server error</td>
+      <td>
+        500
+      </td>
+      <td>
+       Internal server error 
+      </td>
+    </tr>
+    <tr>
+      <td>
+        501
+      </td>
+      <td>
+      Not implemented
+      </td>
+    </tr>
+    <tr>
+      <td>
+        503
+      </td>
+      <td>
+      Service unnailable
+      </td>
+    </tr>
+    <tr>
+      <td>
+        504
+      </td>
+      <td>
+      Gateway timeout
+      </td>
+    </tr>
+    <tr>
+      <td>
+        505
+      </td>
+      <td>
+      HTTP version not supported
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+* 에러 코드(Exception)
+
+<table>
+  <thead>
+    <tr>
+    <th style="text-align:left">에러명</th>
+      <th style="text-align:left">에러코드</th>
+      <th style="text-align:left">설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>RequestException</td>      
+      <td>
+        -1
+      </td>
+      <td>
+      There was an ambiguous exception that occurred while handling your request.
+      </td>
+    </tr>
+    <tr>
+      <td> ConnectionErr</td>
+      <td>
+        -2
+      </td>
+      <td>
+      In the event of a network problem (e.g. DNS failure, refused connection, etc)
+      </td>
+    </tr>
+    <tr>
+    <td> HTTPError
+      <td>
+        -3
+      </td>
+      <td>
+      It will occur if the HTTP request returned an unsuccessful status code.
+      </td>
+    </tr>
+    <tr>
+    <td>URLRequired</td>
+      <td>
+        -4
+      </td>
+      <td>
+      A valid URL is required to make a request.
+      </td>
+    </tr>
+    <tr>
+    <td>TooManyRedirects</td>
+      <td>-5</td>
+      <td>
+      If a request exceeds the configured number of maximum redirections, a TooManyRedirects exception is raised.
+      </td>
+    </tr>
+    <tr>
+    <td>Timeout</td>
+      <td>
+        -6
+      </td>
+      <td>
+      If a request times out, a Timeout exception is raised.
+      </td>
+    </tr>
+  </tbody>
+</table>
+    
+  # 6.2.4 HTTP client 통신 예제
+
+```python
+     import http_cli
+     var cli=http_cli.HttpClient()
+     var url, body, query, status_code
+     var domain="http://192.168.1.200:8888"
+
+     # get
+     cli.get domain+"/device/direction"
+     body = cli.body
+
+     status_code = cli.status #check the communication status
+     if status_code>=400 or status_code<0
+        goto 99 		#http communication error
+     endif
+
+     # put
+     url = domain+"/device/direction"
+     body.ry=90
+     cli.body=body
+     cli.put(url, 3000, *Timeout)
+
+     # post
+     cli.body={ name: "WORK #32", color: "green", state: "OK" }
+     cli.post domain+"/display/update", 5000, *Timeout
+
+     # delete
+     cli.delete(domain+"/items")
+
+     end
+     
+  99 print "error status"
+     
+     *Timeout
+     print "timeout"
+```
+
+# 6.3 티치펜던트 console bar로 입력받기
+
+# 6.3.1 input문
+
+### 설명
+
+input문을 통해 티치펜던트의 키입력으로 문자열을 입력받아 변수에 저장합니다. 제한시간까지 입력되지 않으면 다음 명령문으로 진행하거나 timeout 주소로 분기합니다.
+
+### 문법
+
+input &lt;변수&gt;\[,&lt;제한시간&gt;,&lt;timeout 주소&gt;\]
+
+
+
+### 파라미터
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">항목</th>
+      <th style="text-align:left">의미</th>
+      <th style="text-align:left">기타</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">변수</td>
+      <td style="text-align:left">
+        <p>입력을 받을 변수. 숫자도
+          문자열 타입으로 입력받습니다.
+          수치값이 필요하면 int(
+          )나 double( ) 함수로 변환하십시오.
+          <br
+          />
+        </p>
+        <p>
+          <br />
+        </p>
+        <p>
+          <br />
+        </p>
+      </td>
+      <td style="text-align:left"></td>
+    </tr>
+    <tr>
+      <td style="text-align:left">제한시간</td>
+      <td style="text-align:left">입력을 대기할 최대 제한
+        시간 (timeout)</td>
+      <td style="text-align:left">
+        <p>산술식
+          <br />
+        </p>
+        <p>0.1~60.0 sec
+          <br />
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left">timeout 주소</td>
+      <td style="text-align:left">제한시간 초과 시, 분기할
+        주소</td>
+      <td style="text-align:left">주소</td>
+    </tr>
+  </tbody>
+</table>
+
+### 사용 예
+
+```python
+input work_no
+input work_no,10
+input work_no,10,*timeout
+```
+
+![](../../_assets/image_6.png)
+
+
+
+# 6.4 modbus 모듈 : 모드버스 마스터
+
+HRScript에서 모드버스 마스터 동작을 수행할 수 있습니다. 모드버스 통신 기능에 대한 자세한 내용은 별도의 "Hi6 제어기 모드버스 기능 설명서"를 참조하십시오.  
+# 6.5 sci 모듈 : 시리얼 통신
+
+Hi6 제어기의 COM 포트를 통해, 시리얼 통신을 수행할 수 있습니다.
+
+이 기능을 사용하기 위해서는 아래와 같이 sci 모듈을 import한 후, Sci 객체를 생성해야 합니다.
+
+또한 사용하기 전에 반드시 [시스템 > 2. 제어파라미터 > 3. 시리얼 포트] 의 설정 사양을 확인하세요.
+
+```python
+import sci
+var sci2=sci.Sci(2)
+```
+
+Sci 객체를 생성한 후에는 send, recv, open, close 멤버 프로시져를 호출하면 됩니다.
+
+send를 호출할 때는, 미리 전송할 문자열을 대입해두어야합니다.
+
+recv를 호출할 때는, 성공적으로 수신하면 응답 문자열을 반환합니다. 
+
+open를 호출하여 port를 open 하게 됩니다. 
+
+close를 호출하여 port를 close 하게 됩니다.
+
+
+
+# 6.5.1 생성자
+
+### 설명
+
+Sci 객체를 생성합니다. 참조를 리턴합니다.
+
+### 문법
+
+Sci(port number)
+
+### 리턴값
+
+생성된 객체의 참조
+
+### 사용 예
+
+```python
+var sci2 = sci.Sci(2)
+```
+
+
+
+# 6.5.2 멤버 프로시져# send
+
+### 설명
+
+Sci의 send 를 호출하여 문자열을 송신합니다.
+
+### 문법
+
+&lt;Sci객체&gt;.send(송신 문자열)
+
+### 리턴값
+
+송신 문자열의 길이
+
+### 사용 예
+
+```python
+sci2.send("test")
+or
+sci2.send "test"
+```
+
+
+
+# recv
+
+### 설명
+
+Sci의 recv 를 호출하여 문자열을 수신합니다.
+
+
+### 문법
+
+&lt;Sci객체&gt;.recv \[{대기시간}\] \[, {퇴피주소}\]
+
+
+### 파라미터
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">항목</th>
+      <th style="text-align:left">의미</th>
+      <th style="text-align:left">기타</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>대기시간</td>
+      <td>
+        timeout 시간. 경과하면 다음 명령문, 혹은 퇴피스텝으로 진행한다.<br>
+        지정하지 않으면 무한 대기한다.
+      </td>
+      <td>msec</td>
+    </tr>
+    <tr>
+      <td>퇴피주소</td>
+      <td>
+        timeout 일 때 분기할 주소.<br>
+        지정하지 않으면 다음 주소로 진행한다.
+      </td>
+      <td>주소</td>
+    </tr>
+  </tbody>
+</table>
+
+### 리턴값
+
+수신한 문자열
+
+### 사용 예
+
+```python
+   var msg = sci2.recv(5000, 99)
+99 print "error"
+```
+
+
+
+# open
+
+### 설명
+
+Sci의 open 를 호출하여 시리얼 포트를 오픈합니다.
+
+제어기 설정을 통해 기 설정된 내용으로 시리얼 포트를 오픈하게 되며, 이전에 해당 포트를 close한 경우 외 에는 open을 별도로 수행 할 필요가 없습니다.(기본값: open)
+
+
+### 문법
+
+&lt;Sci객체&gt;.open
+
+### 리턴값
+- 0: 오픈 성공
+- <0: 오픈 실패
+
+
+### 사용 예
+
+```python
+sci2.open
+```
+
+
+
+# close
+
+### 설명
+
+Sci의 close 를 호출하여 시리얼 포트를 닫습니다.
+
+
+### 문법
+
+&lt;Sci객체&gt;.close
+
+### 리턴값
+- 0: 닫기 성공
+- -1: 이미 닫혔음.
+
+### 사용 예
+
+```python
+sci2.close
+```
+
+
+
+# 6.5.3 시리얼 통신 예제
+
+``` python
+Hyundai Robot Job File; { version: 1.6, mech_type: "388(HS220-02)", total_axis: 6, aux_axis: 0 }
+     
+     # sci 모듈 import 후, 생성자로 Sci 객체 생성 
+     import sci
+     var sci2=sci.Sci(2)   #port no. (com2)
+     
+     # default open
+     # send
+     sci2.send "test"
+
+     # receive (선택옵션: 3000msec 타임 아웃시, 99행으로 분기)
+     var msg=sci2.recv(3000,99)
+     print msg
+
+     # close 
+     sci2.close
+     
+     # re-open
+     sci2.open
+
+     end
+
+  99 print "error"
+
+```
+
 
 # 7 enet 모듈 : 이더넷 TCP/UDP 통신
 
@@ -4077,4 +5173,45 @@ bbuf.append("F8", 9.80665)
 bbuf.append("U4", [2, 3, 5, 7, 11, 13])
 print bbuf.read_nums("U4", 12, 3) # "[3, 5, 7]"
 print bbuf.read_num("U4", 12, 6) # "[3, 5, 7, 11, 13]"
+```
+# 8. 앨리어스(alias)
+
+앨리어스\(alias\)란 변수나 객체의 속성의 표기를 대체할 수 있는 이름입니다. 반복해 사용하기에 너무 긴 속성 표기를 간결한 이름으로 대체하거나, 특정한 인덱스의 IO 변수를 가독성이 좋은 이름으로 대체해 사용할 수 있습니다.
+
+앨리어스는 alias 명령문으로 정의하며, 문법은 var이나 global과 거의 같습니다.
+앨리어스의 scope는 global과 동일합니다. 즉, alias 문이 실행된 후에는 이후 수행되는 어느 job에서나 사용할 수 있으며, 메인 프로그램의 end문이나 R0 \[ENTER\] 조작에 의해 프로그램 사이클이 리셋되어도 소멸되지 않습니다.
+
+```python
+global myval=3, yourname="Jane"
+val i=0,msg="hello"
+val profile = { name: "Paul", age: 43, role: [ "CTO", "engineer" ] }
+
+alias grip=fb3.do4, work_no=fb1.diw2 # (1)
+alias role=profile.role # (2)
+alias tool0=project.robot.tools.t_0 # (3)
+
+# 활용
+grip=1
+print work_no
+print role[1]
+tool0.mass=12
+```
+
+위 예제의 (1)에서 fb3.do4 출력변수를 grip이라는 앨리어스로 정의했고, fb1.diw2라는 입력변수를 work_no라는 앨리어스로 정의했습니다.  
+(2)에서는 profile의 속성인 role 배열을 role이란 앨리어스로 정의했습니다.  
+(3)에서는 내장 객체인 project.robot.tools.t_0를 tool0라는 앨리어스로 정의했는데, 이것은 0번 툴 데이터를 가리키게 됩니다.
+
+배열을 가리키는 앨리어스는 role[1]과 같이 [] 연산자로 인덱스를 지정할 수 있습니다.  
+객체를 가리키는 앨리어스는 tool0.mass와 같이 . 연산자로 속성을 지정할 수 있습니다.
+
+상수는 alias로 정의할 수 없습니다. global이나 var을 사용해 정의하십시오.  
+수식도 alias로 정의할 수 없습니다. 오동작이 발생할 수 있으므로 주의하십시오.
+
+```python
+#alias pie=3.141592 # (X)
+#alias unit="mm/s" # (X)
+global pie=3.141592 # (O)
+global unit="mm/s" # (O)
+
+#alias pie_2 = pie*pie # (X)
 ```
