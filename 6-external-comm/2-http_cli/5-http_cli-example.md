@@ -10,8 +10,8 @@
      cli.get domain+"/device/direction"
      body = cli.body
 
-     status_code = cli.status #check the communication status
-     if status_code>=400 or status_code<0
+     #check the communication status
+     if cli.status>=400 or cli.status<0
         goto 99 		#http communication error
      endif
 
