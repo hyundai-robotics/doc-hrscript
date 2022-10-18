@@ -35,6 +35,7 @@
     * [3.2.4 wait문](3-flowcontrol-subprogram/2-stop-wait/4-wait.md)
   * [3.3 분기문](3-flowcontrol-subprogram/3-branch/README.md)
     * [3.3.1 goto 문](3-flowcontrol-subprogram/3-branch/1-goto.md)
+    * [3.3.2 gosub 문](3-flowcontrol-subprogram/3-branch/2-gosub.md)
   * [3.4 조건문](3-flowcontrol-subprogram/4-conditional/README.md)
     * [3.4.1 단문 if문](3-flowcontrol-subprogram/4-conditional/1-simple-if.md)
     * [3.4.2 복문 if\~endif 문](3-flowcontrol-subprogram/4-conditional/2-if-endif.md)
