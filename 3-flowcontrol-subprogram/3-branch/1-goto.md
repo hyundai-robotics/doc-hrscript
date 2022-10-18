@@ -22,13 +22,8 @@ goto &lt;address&gt;
     <tr>
       <td style="text-align:left">address</td>
       <td style="text-align:left">
-        <p>Address to go to
-          <br />
-        </p>
-        <p>An arithmetic expression is possible in the case of a line number.
-          <br
-          />
-        </p>
+        Address to branch<br/>
+        An arithmetic expression is possible in the case of a line number.
       </td>
       <td style="text-align:left"></td>
     </tr>
