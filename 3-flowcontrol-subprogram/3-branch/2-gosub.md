@@ -2,12 +2,20 @@
 
 ### 설명
 
-지정한 주소로 분기합니다. retsub문을 만나면 gosub 다음 위치로 복귀합니다.
+gosub문을 만나면 지정한 주소로 분기합니다. retsub문을 만나면 gosub문 다음 위치로 복귀합니다.  
 gosub를 여러 단계로 내포할 수도 있으며 내포 횟수의 제약은 없습니다.
 
 ### 문법
 
-gosub &lt;주소&gt;
+```python
+gosub <주소>
+...
+end
+  
+<address>
+...  
+retsub
+```
 
 ### 파라미터
 
