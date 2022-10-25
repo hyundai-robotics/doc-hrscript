@@ -47,6 +47,18 @@
         <td style="text-align:left">1.1071</td>
     </tr>
     <tr>
+      <td style="text-align:left">ceil(x)</td>
+      <td style="text-align:left">x의 올림 값을 리턴합니다.</td>
+      <td style="text-align:left">
+        ceil(3.1415)<br>
+        ceil(-3.1415)
+      </td>
+        <td style="text-align:left">
+        4<br>
+        -3
+        </td>
+    </tr>
+    <tr>
       <td style="text-align:left">cos(r)</td>
       <td style="text-align:left">radian 형식의 a의 cosine 값을 리턴합니다.</td>
       <td
@@ -67,6 +79,18 @@
       <td
       style="text-align:left">dist(3.5,10)</td>
         <td style="text-align:left">10.59481</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">floor(x)</td>
+      <td style="text-align:left">x의 내림 값을 리턴합니다.</td>
+      <td style="text-align:left">
+        floor(3.1415)<br>
+        floor(-3.1415)
+      </td>
+        <td style="text-align:left">
+        3<br>
+        -4
+        </td>
     </tr>
     <tr>
       <td style="text-align:left">max(a, b)</td>
@@ -113,6 +137,22 @@
         <td style="text-align:left">90</td>
     </tr>
     <tr>
+      <td style="text-align:left">round(x)</td>
+      <td style="text-align:left">x의 반올림 값을 리턴합니다.</td>
+      <td style="text-align:left">
+        round(3.1415)<br>
+        round(3.7415)<br>
+        round(-3.1415)<br>
+        round(-3.7415)
+      </td>
+        <td style="text-align:left">
+        3<br>
+        4<br>
+        -3<br>
+        -4
+        </td>
+    </tr>
+    <tr>
       <td style="text-align:left">sin(r)</td>
       <td style="text-align:left">radian 형식의 r의 sine 값을 리턴합니다.</td>
       <td
@@ -146,6 +186,18 @@
       <td
       style="text-align:left">tan(3.141592/4)</td>
         <td style="text-align:left">0.9999</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">trunc(x)</td>
+      <td style="text-align:left">x의 소수점 이하를 버린 정수값을 리턴합니다.</td>
+      <td style="text-align:left">
+        floor(3.1415)<br>
+        floor(-3.1415)
+      </td>
+        <td style="text-align:left">
+        3<br>
+        -3
+        </td>
     </tr>
   </tbody>
 </table>
