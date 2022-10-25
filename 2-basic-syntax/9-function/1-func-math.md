@@ -42,6 +42,18 @@
       <td>atan2(2,1)</td>
       <td>1.1071</td>
     </tr>
+		<tr>
+			<td>ceil(x)</td>
+			<td>Returns the rounded up value of <b>x</b>.</td>
+			<td>
+				ceil(3.1415)<br>
+				ceil(-3.1415)
+			</td>
+				<td>
+				4<br>
+				-3
+				</td>
+		</tr>
     <tr>
       <td>cos(<b>r</b>)</td>
       <td>Returns the cosine value of <b>r</b> in radian format</td>
@@ -61,6 +73,18 @@
       <td>dist(3.5,10)</td>
       <td>10.59481</td>
     </tr>
+		<tr>
+			<td>floor(x)</td>
+			<td>Returns the rounded down value of <b>x</b>.</td>
+			<td>
+				floor(3.1415)<br>
+				floor(-3.1415)
+			</td>
+			<td>
+				3<br>
+				-4
+			</td>
+		</tr>
     <tr>
       <td>max(<b>a</b>, <b>b</b>)</td>
       <td>Returns the greater value between <b>a</b> and <b>b</b>
@@ -98,6 +122,22 @@
       <td>rad2deg(1.570796)</td>
       <td>90</td>
     </tr>
+		<tr>
+			<td>round(x)</td>
+			<td>Returns the rounded off value of <b>x</b>.</td>
+			<td>
+				round(3.1415)<br>
+				round(3.7415)<br>
+				round(-3.1415)<br>
+				round(-3.7415)
+			</td>
+				<td>
+				3<br>
+				4<br>
+				-3<br>
+				-4
+				</td>
+		</tr>
     <tr>
       <td>sin(<b>r</b>)</td>
       <td>Returns the sine value of <b>r</b> in radian format</td>
@@ -123,6 +163,18 @@
       <td>tan(3.141592/4)</td>
       <td>0.9999</td>
     </tr>
+		<tr>
+			<td>trunc(x)</td>
+			<td>Returns the the truncated integer part of <b>x</b>.</td>
+			<td>
+				trunc(3.1415)<br>
+				trunc(-3.1415)
+			</td>
+			<td>
+				3<br>
+				-3
+			</td>
+		</tr>
   </tbody>
 </table>
 
