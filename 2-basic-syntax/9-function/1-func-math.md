@@ -158,8 +158,8 @@
 			<td>trunc(x)</td>
 			<td>x의 소수점 이하를 버린 정수값을 리턴합니다.</td>
 			<td>
-				floor(3.1415)<br>
-				floor(-3.1415)
+				trunc(3.1415)<br>
+				trunc(-3.1415)
 			</td>
 			<td>
 				3<br>
