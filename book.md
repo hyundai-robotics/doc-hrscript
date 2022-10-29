@@ -510,158 +510,174 @@ HRScript에서 제공되는 함수의 목록은 아래와 같습니다. \(각 �
 
 # 2.9.1 수학 함수
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">함수</th>
-      <th style="text-align:left">설명</th>
-      <th style="text-align:left">사용 예</th>
-      <th style="text-align:left">결과</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left">abs(a)</td>
-      <td style="text-align:left">a의 절대값 (absolute) 을 리턴합니다.</td>
-      <td
-      style="text-align:left">abs(-300)</td>
-        <td style="text-align:left">300</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">acos(a)</td>
-      <td style="text-align:left">a의 arc cosine값을 radian 형식으로
-        리턴합니다.</td>
-      <td style="text-align:left">acos(0.5)</td>
-      <td style="text-align:left">1.0472</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">asin(a)</td>
-      <td style="text-align:left">a의 arc sige 값을 radian 형식으로
-        리턴합니다.</td>
-      <td style="text-align:left">asin(0.5)</td>
-      <td style="text-align:left">0.5236</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">atan(a)</td>
-      <td style="text-align:left">a의 arctangent 값을 radian 형식으로
-        리턴합니다.</td>
-      <td style="text-align:left">atan(0.5)</td>
-      <td style="text-align:left">0.4636</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">atan2(a, b)</td>
-      <td style="text-align:left">y길이가 a, x길이가 b인 삼각형의
-        arctangent 값을 radian 형식으로 리턴합니다.</td>
-      <td
-      style="text-align:left">atan2(2,1)</td>
-        <td style="text-align:left">1.1071</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">cos(r)</td>
-      <td style="text-align:left">radian 형식의 a의 cosine 값을 리턴합니다.</td>
-      <td
-      style="text-align:left">cos(3.1415)</td>
-        <td style="text-align:left">-1</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">deg2rad(d)</td>
-      <td style="text-align:left">degree 형식의 d의 radian 값을 리턴합니다.</td>
-      <td
-      style="text-align:left">deg2rad(-90)</td>
-        <td style="text-align:left">-1.570796</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">dist(x, y)</td>
-      <td style="text-align:left">원점에서 (x, y) 좌표까지의
-        유클리드 거리를 리턴합니다.</td>
-      <td
-      style="text-align:left">dist(3.5,10)</td>
-        <td style="text-align:left">10.59481</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">max(a, b)</td>
-      <td style="text-align:left">a와 b중 큰 값을 리턴합니다.</td>
-      <td
-      style="text-align:left">max(-1.23, -3)</td>
-        <td style="text-align:left">-1.23</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">min(a, b)</td>
-      <td style="text-align:left">a와 b중 작은 값을 리턴합니다.</td>
-      <td
-      style="text-align:left">max(-1.23, -3)</td>
-        <td style="text-align:left">-3</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">near(a, b[,e])</td>
-      <td style="text-align:left">실수값 a와 b의 차이가
-        e보다 작거나 같으면 1,
-        크면 0을 리턴합니다.</td>
-      <td
-      style="text-align:left">
-        <p>near(0.005, 0.0058)
-          <br />
-        </p>
-        <p>near(0.005, 0.006)
-          <br />
-        </p>
-        <p>near(0.005, 0.006, 0.1)
-          <br />
-        </p>
-        </td>
-        <td style="text-align:left">
-          <p>1</p>
-          <p>0</p>
-          <p>1</p>
-        </td>
-    </tr>
-    <tr>
-      <td style="text-align:left">rad2deg(r)</td>
-      <td style="text-align:left">radian 형식의 r의 degree값을 리턴합니다.</td>
-      <td
-      style="text-align:left">rad2deg(1.570796)</td>
-        <td style="text-align:left">90</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">sin(r)</td>
-      <td style="text-align:left">radian 형식의 r의 sine 값을 리턴합니다.</td>
-      <td
-      style="text-align:left">sin(1.5*3.1415)</td>
-        <td style="text-align:left">-1</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">sqr(a)</td>
-      <td style="text-align:left">a의 제곱근(square root)을 리턴합니다.</td>
-      <td
-      style="text-align:left">
-        <p>sqr(16)
-          <br />
-        </p>
-        <p>sqr(0)
-          <br />
-        </p>
-        </td>
-        <td style="text-align:left">
-          <p>4
-            <br />
-          </p>
-          <p>0
-            <br />
-          </p>
-        </td>
-    </tr>
-    <tr>
-      <td style="text-align:left">tan(r)</td>
-      <td style="text-align:left">radian 형식의 r의 tangent 값을 리턴합니다.</td>
-      <td
-      style="text-align:left">tan(3.141592/4)</td>
-        <td style="text-align:left">0.9999</td>
-    </tr>
-  </tbody>
+<table style="text-align:left">
+	<thead>
+		<tr>
+			<th>함수</th>
+			<th>설명</th>
+			<th>사용 예</th>
+			<th>결과</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>abs(a)</td>
+			<td>a의 절대값 (absolute) 을 리턴합니다.</td>
+			<td>abs(-300)</td>
+				<td>300</td>
+		</tr>
+		<tr>
+			<td>acos(a)</td>
+			<td>a의 arc cosine값을 radian 형식으로 리턴합니다.</td>
+			<td>acos(0.5)</td>
+			<td>1.0472</td>
+		</tr>
+		<tr>
+			<td>asin(a)</td>
+			<td>a의 arc sige 값을 radian 형식으로 리턴합니다.</td>
+			<td>asin(0.5)</td>
+			<td>0.5236</td>
+		</tr>
+		<tr>
+			<td>atan(a)</td>
+			<td>a의 arctangent 값을 radian 형식으로 리턴합니다.</td>
+			<td>atan(0.5)</td>
+			<td>0.4636</td>
+		</tr>
+		<tr>
+			<td>atan2(a, b)</td>
+			<td>y길이가 a, x길이가 b인 삼각형의 arctangent 값을 radian 형식으로 리턴합니다.</td>
+			<td>atan2(2,1)</td>
+				<td>1.1071</td>
+		</tr>
+		<tr>
+			<td>ceil(x)</td>
+			<td>x의 올림 값을 리턴합니다.</td>
+			<td>
+				ceil(3.1415)<br>
+				ceil(-3.1415)
+			</td>
+				<td>
+				4<br>
+				-3
+				</td>
+		</tr>
+		<tr>
+			<td>cos(r)</td>
+			<td>radian 형식의 a의 cosine 값을 리턴합니다.</td>
+			<td>cos(3.1415)</td>
+			<td>-1</td>
+		</tr>
+		<tr>
+			<td>deg2rad(d)</td>
+			<td>degree 형식의 d의 radian 값을 리턴합니다.</td>
+			<td>deg2rad(-90)</td>
+			<td>-1.570796</td>
+		</tr>
+		<tr>
+			<td>dist(x, y)</td>
+			<td>원점에서 (x, y) 좌표까지의 유클리드 거리를 리턴합니다.</td>
+			<td>dist(3.5,10)</td>
+			<td>10.59481</td>
+		</tr>
+		<tr>
+			<td>floor(x)</td>
+			<td>x의 내림 값을 리턴합니다.</td>
+			<td>
+				floor(3.1415)<br>
+				floor(-3.1415)
+			</td>
+			<td>
+				3<br>
+				-4
+			</td>
+		</tr>
+		<tr>
+			<td>max(a, b)</td>
+			<td>a와 b중 큰 값을 리턴합니다.</td>
+			<td>max(-1.23, -3)</td>
+			<td>-1.23</td>
+		</tr>
+		<tr>
+			<td>min(a, b)</td>
+			<td>a와 b중 작은 값을 리턴합니다.</td>
+			<td>max(-1.23, -3)</td>
+			<td>-3</td>
+		</tr>
+		<tr>
+			<td>near(a, b[,e])</td>
+			<td>실수값 a와 b의 차이가 e보다 작거나 같으면 1, 크면 0을 리턴합니다.</td>
+			<td>
+				near(0.005, 0.0058)<br>
+				near(0.005, 0.006)<br>
+				near(0.005, 0.006, 0.1)
+			</td>
+			<td>
+				1<br>
+				0<br>
+				1<br>
+			</td>
+		</tr>
+		<tr>
+			<td>rad2deg(r)</td>
+			<td>radian 형식의 r의 degree값을 리턴합니다.</td>
+			<td>rad2deg(1.570796)</td>
+			<td>90</td>
+		</tr>
+		<tr>
+			<td>round(x)</td>
+			<td>x의 반올림 값을 리턴합니다.</td>
+			<td>
+				round(3.1415)<br>
+				round(3.7415)<br>
+				round(-3.1415)<br>
+				round(-3.7415)
+			</td>
+				<td>
+				3<br>
+				4<br>
+				-3<br>
+				-4
+				</td>
+		</tr>
+		<tr>
+			<td>sin(r)</td>
+			<td>radian 형식의 r의 sine 값을 리턴합니다.</td>
+			<td>sin(1.5*3.1415)</td>
+			<td>-1</td>
+		</tr>
+		<tr>
+			<td>sqr(a)</td>
+			<td>a의 제곱근(square root)을 리턴합니다.</td>
+			<td>
+				sqr(16)<br>
+				sqr(0)
+			</td>
+			<td>
+				4<br>
+				0
+			</td>
+		</tr>
+		<tr>
+			<td>tan(r)</td>
+			<td>radian 형식의 r의 tangent 값을 리턴합니다.</td>
+			<td>tan(3.141592/4)</td>
+			<td>0.9999</td>
+		</tr>
+		<tr>
+			<td>trunc(x)</td>
+			<td>x의 소수점 이하를 버린 정수값을 리턴합니다.</td>
+			<td>
+				trunc(3.1415)<br>
+				trunc(-3.1415)
+			</td>
+			<td>
+				3<br>
+				-3
+			</td>
+		</tr>
+	</tbody>
 </table>
-
-
-
 # 2.9.2 문자열 함수
 
 var str="hello, world"가 실행된 상태에서의 예
@@ -1284,6 +1300,80 @@ goto *err_hdl
 
 
 
+# 3.3.2 gosub~retsub 문
+
+### 설명
+
+gosub문을 만나면 지정한 주소로 분기합니다. retsub문을 만나면 gosub문 다음 위치로 복귀합니다.  
+gosub를 여러 단계로 내포할 수도 있으며 내포 횟수의 제약은 없습니다.
+
+### 문법
+
+```python
+gosub <주소>
+...
+end
+  
+<address>
+...  
+retsub
+```
+
+### 파라미터
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">항목</th>
+      <th style="text-align:left">의미</th>
+      <th style="text-align:left">기타</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">주소</td>
+      <td style="text-align:left">
+        <p>분기할 주소</p>
+        <p>행 번호인 경우 산술식도 가능</p>
+      </td>
+      <td style="text-align:left"></td>
+    </tr>
+  </tbody>
+</table>
+
+### 사용 예
+
+```python
+var x=5
+var y=6
+var res
+var sum=0
+gosub *calc_dist1
+gosub *calc_dist2
+var total=sum
+if near(total,18.8102)
+  print "OK"
+else
+  print "NG"
+endif
+end
+     
+*calc_dist1
+res=x*x+y*y
+res=sqr(res)
+gosub *calc_sum
+retsub
+     
+*calc_dist2
+res=x+y
+gosub *calc_sum
+retsub
+     
+*calc_sum
+sum=sum+res
+retsub
+end
+```
 # 3.4 조건문
 
 조건에 따라 특정한 동작을 수행하거나 수행하지 않을 수 있습니다.
@@ -3679,8 +3769,8 @@ cli.delete domain+"/items"
      cli.get domain+"/device/direction"
      body = cli.body
 
-     status_code = cli.status #check the communication status
-     if status_code>=400 or status_code<0
+     #check the communication status
+     if cli.status>=400 or cli.status<0
         goto 99 		#http communication error
      endif
 
