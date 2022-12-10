@@ -45,6 +45,7 @@
      bbuf.append("s4", arr) # little endian signed-4byte data 추가
 
      # 4-3. BBuf 객체를 송신
+     var ret
      ret=cli.send_bbuf(bbuf)
 
      # 수신 --------------------------------

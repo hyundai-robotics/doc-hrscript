@@ -108,6 +108,7 @@
       * [close](7-enet-module/3-enet/3-enet-member-func/enet-close.md)
       * [connect](7-enet-module/3-enet/3-enet-member-func/enet-connect.md)
       * [listen](7-enet-module/3-enet/3-enet-member-func/enet-listen.md)
+      * [open](7-enet-module/3-enet/3-enet-member-func/enet-open.md)      
       * [recv](7-enet-module/3-enet/3-enet-member-func/enet-recv.md)
       * [recv_bbuf](7-enet-module/3-enet/3-enet-member-func/enet-recv_bbuf.md)
       * [send](7-enet-module/3-enet/3-enet-member-func/enet-send.md)
