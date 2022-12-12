@@ -7,7 +7,7 @@
 
 ### 문법
 
-{BBuf객체}.append {format}, {data}
+`{BBuf객체}.append {format},{data}`
 
 
 ### 파라미터
@@ -24,7 +24,7 @@
     <tr>
       <td style="text-align:left">format</td>
       <td style="text-align:left">
-			바이너리 데이터 형식(format)*<br>
+			바이너리 데이터 형식(format)<sup>*</sup><br>
       e.g. "U4", "s2"
       </td>
       <td style="text-align:left">문자열형</td>
@@ -42,7 +42,8 @@
 <br>
 
 
-* [7.4.2 지원 형식 (format)](../2-format.md)을 참조하십시오.  
+\* [7.4.2 지원 형식 (format)](../2-format.md)을 참조하십시오.  
+
 * format과 다른 type의 data를 지정하면 암시적으로 자동 형변환이 수행됩니다. 가령, format이 "s2"(2byte 정수)인데, data가 3.7이라는 float 값이었다면, buffer에는 정수값 3(0x0003)이 append 됩니다.
 반대로, format이 "f4"(4byte 실수)인데, data가 -3이라는 정수값이면, buffer에는 실수값 -3.0(0xC0400000)이 저장됩니다.  
 * format이 unsigned인데 data가 음수이면 에러가 발생하므로 주의하십시오.

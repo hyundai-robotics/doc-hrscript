@@ -1,20 +1,20 @@
-﻿# 7.2.2 ethernet TCP server - 바이너리 송수신
+﻿# 7.2.2 ethernet TCP server 예제 - 바이너리 송수신
 
 바이너리 송수신은 BBuf (Binary Buffer) 객체를 통해 수행합니다.  
 (송수신 부분만 다르고, 나머지는 문자열 송수신과 동일합니다.)
 
 송신
 
-1. enet.BBuf 객체 생성.
-2. 원하는 바이너리 데이터를 BBuf.append( ) 함수로 BBuf 객체에 추가.
-3. ENet.send_bbuf( ) 함수로 BBuf 객체를 송신.
+1. `enet.BBuf` 객체 생성.
+2. 원하는 바이너리 데이터를 `BBuf.append()` 함수로 `BBuf` 객체에 추가.
+3. `ENet.send_bbuf()` 함수로 BBuf 객체를 송신.
 
 
 수신
 
-1. enet.BBuf 객체 생성.
-2. ENet.recv_bbuf( ) 함수로 BBuf 객체에 바이너리 데이터를 수신
-3. 원하는 바이너리 데이터를 BBuf.read_nums( ) 함수로 BBuf 객체로부터 읽기.
+1. `enet.BBuf` 객체 생성.
+2. `ENet.recv_bbuf()` 함수로 `BBuf` 객체에 바이너리 데이터를 수신
+3. 원하는 바이너리 데이터를 `BBuf.read_nums()` 함수로 `BBuf` 객체로부터 읽기.
 
 
 ```python

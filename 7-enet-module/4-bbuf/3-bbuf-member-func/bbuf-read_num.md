@@ -7,7 +7,7 @@
 
 ### 문법
 
-{BBuf객체}.read_num {format}, {offset}
+`{BBuf객체}.read_num {format},{offset}`
 
 
 ### 파라미터
@@ -24,7 +24,7 @@
     <tr>
       <td style="text-align:left">format</td>
       <td style="text-align:left">
-			바이너리 데이터 형식(format)*<br>
+			바이너리 데이터 형식(format)<sup>*</sup><br>
       e.g. "U4", "s2"<br>
       </td>
       <td style="text-align:left">문자열형</td>

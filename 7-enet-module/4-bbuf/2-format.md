@@ -1,6 +1,6 @@
 ﻿# 7.4.2 지원 형식 (format)
 
-멤버함수인 append()나 read_num()는 인수로 형식을 지정해야 합니다.  
+멤버함수인 `append()`나 `read_num()`는 인수로 형식을 지정해야 합니다.  
 
 형식은 Signed/Unsigned/Floating-point 를 의미하는 영문자 1개와 byte 수를 의미하는 숫자 1개로 구성됩니다.<br>
 영문자가 대문자이면 big endian, 소문자이면 little endian입니다.			

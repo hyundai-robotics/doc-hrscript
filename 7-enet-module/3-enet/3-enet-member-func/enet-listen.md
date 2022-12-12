@@ -7,7 +7,7 @@ UDP peer-to-peer 통신에서는 사용되지 않습니다.
 
 ### 문법
 
-{ENet객체}.listen \[{backlog}\]
+`{ENet객체}.listen [{backlog}]`
 
 ### 파라미터
 

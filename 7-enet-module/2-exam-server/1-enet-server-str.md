@@ -1,12 +1,12 @@
-﻿# 7.2.1 ethernet TCP server - 문자열 송수신
+﻿# 7.2.1 ethernet TCP server 예제 - 문자열 송수신
 
 다음과 같은 순서로 수행합니다.
 
-1. enet 모듈 import 후, 생성자로 ENet 객체 생성.
+1. `enet` 모듈 import 후, 생성자로 ENet 객체 생성.
 2. 멤버변수로 IP주소와 port번호를 설정. (remote port 설정은 필요없음.)
-3. open 멤버 프로시져로 ethernet socket 열고, listen(), accept() 함수를 수행함. state\(\) 멤버변수로 상태 확인.
-4. send, recv 멤버 프로시져로 송수신 수행.
-5. close 멤버 프로시져로 통신 연결 닫기.
+3. `open` 멤버 프로시져로 ethernet socket 열고, `listen()`, `accept()` 함수를 수행함. `state()` 멤버변수로 상태 확인.
+4. `send`, `recv` 멤버 프로시져로 송수신 수행.
+5. `close` 멤버 프로시져로 통신 연결 닫기.
 
 
 ```python

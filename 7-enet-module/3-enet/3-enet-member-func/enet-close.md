@@ -6,7 +6,7 @@
 
 ### 문법
 
-{ENet객체}.close
+`{ENet객체}.close`
 
 ### 사용 예
 

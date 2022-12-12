@@ -6,7 +6,7 @@
 
 ### 문법
 
-{ENet객체}.send {msg}
+`{ENet객체}.send {msg}`
 
 
 

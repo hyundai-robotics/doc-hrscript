@@ -6,7 +6,7 @@
 
 ### 문법
 
-{ENet객체}.state
+`{ENet객체}.state`
 
 
 
@@ -25,8 +25,8 @@
       <td>1</td>
       <td>
         연결됨. <br>
-        (UDP일 때는 open만 해도 연결로 간주됩니다.<br>
-        TCP일 때는 open 후 listen, connect, accept도 수행되어야 연결로 간주됩니다.)
+        (UDP일 때는 `open`만 해도 연결로 간주됩니다.<br>
+        TCP일 때는 `open` 후 `listen`, `connect`, `accept`도 수행되어야 연결로 간주됩니다.)
       </td>
       <td></td>
     </tr>

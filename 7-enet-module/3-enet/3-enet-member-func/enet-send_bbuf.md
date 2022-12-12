@@ -6,7 +6,7 @@
 
 ### 문법
 
-{ENet객체}.send_bbuf {BBuf객체}
+`{ENet객체}.send_bbuf {BBuf객체}`
 
 
 

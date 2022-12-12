@@ -1050,7 +1050,7 @@ var str="hello, world"가 실행된 상태에서의 예
         <br />
       </td>
       <td style="text-align:left">로봇의 지령값을 축좌표계로
-        보관하는 포즈*</td>
+        보관하는 포즈<sup>*</sup></td>
     </tr>
     <tr>
       <td style="text-align:left">

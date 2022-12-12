@@ -7,7 +7,7 @@
 
 ### 문법
 
-{BBuf객체}.read_num  {format}, {offset}, {n.item}
+`{BBuf객체}.read_num  {format},{offset},{n.item}`
 
 
 ### 파라미터
@@ -24,9 +24,8 @@
     <tr>
       <td style="text-align:left">format</td>
       <td style="text-align:left">
-			바이너리 데이터 형식(format)<br>
-      e.g. "U4", "s2"<br>
-			아래 지원 형식을 참조하십시오.
+			바이너리 데이터 형식(format)<sup>*</sup><br>
+      e.g. "U4", "s2"
       </td>
       <td style="text-align:left">문자열형</td>
     </tr>
