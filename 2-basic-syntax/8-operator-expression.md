@@ -1,4 +1,4 @@
-# 2.8 Operators and Expressions
+﻿# 2.8 Operators and Expressions
 
 In the following example, the variable margin is added to the number value 500, and the resulting value is divided by 2. Thus, the calculated value is assigned to a variable called “height.”
 
