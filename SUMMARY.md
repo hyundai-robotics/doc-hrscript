@@ -61,7 +61,7 @@
     * [4.1.3 배열 생성자 함수](4-array-object/1-array/3-array-creator.md)
   * [4.2 객체 (object)](4-array-object/2-object.md)
   * [4.3 배열과 객체의 복사 대입(assignment)](4-array-object/3-array-object-assignment.md)
-  * [4.4 참조 전달(call-by-reference)와 값 전달(call-by-value)](4-array-object/4-call-by-reference-call-by-value.md)
+  * [4.4 참조 전달(call-by-reference)과 값 전달(call-by-value)](4-array-object/4-call-by-reference-call-by-value.md)
 * [5. 로봇언어로 로봇 움직이기](5-moving-robot/README.md)
   * [5.1 포즈 (pose)](5-moving-robot/1-pose.md)
   * [5.2 시프트 (shift)](5-moving-robot/2-shift.md)
