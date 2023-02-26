@@ -631,32 +631,32 @@
 	},
 	{
 		"link": "9-file/1-file-system/README.md",
-		"char_ofs": 104039,
-		"byte_ofs": 144660
+		"char_ofs": 104040,
+		"byte_ofs": 144661
 	},
 	{
 		"link": "9-file/1-file-system/1-mkdir.md",
-		"char_ofs": 104118,
-		"byte_ofs": 144839
+		"char_ofs": 104119,
+		"byte_ofs": 144840
 	},
 	{
 		"link": "9-file/1-file-system/2-copyfile.md",
-		"char_ofs": 104793,
-		"byte_ofs": 145826
+		"char_ofs": 104794,
+		"byte_ofs": 145827
 	},
 	{
 		"link": "9-file/1-file-system/3-delfile.md",
-		"char_ofs": 106809,
-		"byte_ofs": 149051
+		"char_ofs": 106849,
+		"byte_ofs": 149118
 	},
 	{
 		"link": "9-file/2-load-save/README.md",
-		"char_ofs": 108217,
-		"byte_ofs": 151227
+		"char_ofs": 108257,
+		"byte_ofs": 151294
 	},
 	{
 		"link": "9-file/2-load-save/1-load_job.md",
-		"char_ofs": 108285,
-		"byte_ofs": 151365
+		"char_ofs": 108325,
+		"byte_ofs": 151432
 	}
 ]
