@@ -478,129 +478,181 @@ The list of functions provided in HRScript is as follows. \(The tables are sorte
 
 # 2.9.1 Math Functions
 
-<table>
+<table style="text-align:left">
   <thead>
     <tr>
-      <th style="text-align:left">Function</th>
-      <th style="text-align:left">Description</th>
-      <th style="text-align:left">Example of usage</th>
-      <th style="text-align:left">Result</th>
+      <th>Function</th>
+      <th>Description</th>
+      <th>Example of usage</th>
+      <th>Result</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align:left">abs(<b>a</b>)</td>
-      <td style="text-align:left">Returns the absolute value of <b>a</b>
+      <td>abs(<b>a</b>)</td>
+      <td>Returns the absolute value of <b>a</b>
       </td>
-      <td style="text-align:left">abs(-300)</td>
-      <td style="text-align:left">300</td>
+      <td>abs(-300)</td>
+      <td>300</td>
     </tr>
     <tr>
-      <td style="text-align:left">acos(<b>a</b>)</td>
-      <td style="text-align:left">Returns the arc cosine value of <b>a</b> in radian format</td>
-      <td style="text-align:left">acos(0.5)</td>
-      <td style="text-align:left">1.0472</td>
+      <td>acos(<b>a</b>)</td>
+      <td>Returns the arc cosine value of <b>a</b> in radian format</td>
+      <td>acos(0.5)</td>
+      <td>1.0472</td>
     </tr>
     <tr>
-      <td style="text-align:left">asin(<b>a</b>)</td>
-      <td style="text-align:left">Returns the arc sine value of <b>a</b> in radian format</td>
-      <td style="text-align:left">asin(0.5)</td>
-      <td style="text-align:left">0.5236</td>
+      <td>asin(<b>a</b>)</td>
+      <td>Returns the arc sine value of <b>a</b> in radian format</td>
+      <td>asin(0.5)</td>
+      <td>0.5236</td>
     </tr>
     <tr>
-      <td style="text-align:left">atan(<b>a</b>)</td>
-      <td style="text-align:left">Returns the arctangent value of <b>a</b> in radian format</td>
-      <td style="text-align:left">atan(0.5)</td>
-      <td style="text-align:left">0.4636</td>
+      <td>atan(<b>a</b>)</td>
+      <td>Returns the arctangent value of <b>a</b> in radian format</td>
+      <td>atan(0.5)</td>
+      <td>0.4636</td>
     </tr>
     <tr>
-      <td style="text-align:left">atan2(<b>a</b>, <b>b</b>)</td>
-      <td style="text-align:left">Returns the arctangent value of a triangle with <b>a</b> for the y length
+      <td>atan2(<b>a</b>, <b>b</b>)</td>
+      <td>Returns the arctangent value of a triangle with <b>a</b> for the y length
         and <b>b</b> for the x length in radian format</td>
-      <td style="text-align:left">atan2(2,1)</td>
-      <td style="text-align:left">1.1071</td>
+      <td>atan2(2,1)</td>
+      <td>1.1071</td>
+    </tr>
+		<tr>
+			<td>ceil(x)</td>
+			<td>Returns the rounded up value of <b>x</b>.</td>
+			<td>
+				ceil(3.1415)<br>
+				ceil(-3.1415)
+			</td>
+				<td>
+				4<br>
+				-3
+				</td>
+		</tr>
+    <tr>
+      <td>cos(<b>r</b>)</td>
+      <td>Returns the cosine value of <b>r</b> in radian format</td>
+      <td>cos(3.1415)</td>
+      <td>-1</td>
     </tr>
     <tr>
-      <td style="text-align:left">cos(<b>r</b>)</td>
-      <td style="text-align:left">Returns the cosine value of <b>r</b> in radian format</td>
-      <td style="text-align:left">cos(3.1415)</td>
-      <td style="text-align:left">-1</td>
+      <td>deg2rad(<b>d</b>)</td>
+      <td>Returns the radian value of <b>d</b> in degree format</td>
+      <td>deg2rad(-90)</td>
+      <td>-1.570796</td>
     </tr>
     <tr>
-      <td style="text-align:left">deg2rad(<b>d</b>)</td>
-      <td style="text-align:left">Returns the radian value of <b>d</b> in degree format</td>
-      <td style="text-align:left">deg2rad(-90)</td>
-      <td style="text-align:left">-1.570796</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">dist(<b>x</b>, <b>y</b>)</td>
-      <td style="text-align:left">Returns the Euclidean distance from the origin to the (<b>x</b>, <b>y</b>)
+      <td>dist(<b>x</b>, <b>y</b>)</td>
+      <td>Returns the Euclidean distance from the origin to the (<b>x</b>, <b>y</b>)
         coordinate</td>
-      <td style="text-align:left">dist(3.5,10)</td>
-      <td style="text-align:left">10.59481</td>
+      <td>dist(3.5,10)</td>
+      <td>10.59481</td>
     </tr>
+		<tr>
+			<td>floor(x)</td>
+			<td>Returns the rounded down value of <b>x</b>.</td>
+			<td>
+				floor(3.1415)<br>
+				floor(-3.1415)
+			</td>
+			<td>
+				3<br>
+				-4
+			</td>
+		</tr>
     <tr>
-      <td style="text-align:left">max(<b>a</b>, <b>b</b>)</td>
-      <td style="text-align:left">Returns the greater value between <b>a</b> and <b>b</b>
+      <td>max(<b>a</b>, <b>b</b>)</td>
+      <td>Returns the greater value between <b>a</b> and <b>b</b>
       </td>
-      <td style="text-align:left">max(-1.23, -3)</td>
-      <td style="text-align:left">-1.23</td>
+      <td>max(-1.23, -3)</td>
+      <td>-1.23</td>
     </tr>
     <tr>
-      <td style="text-align:left">min(<b>a</b>, <b>b</b>)</td>
-      <td style="text-align:left">Returns the lesser value between <b>a</b> and <b>b</b>
+      <td>min(<b>a</b>, <b>b</b>)</td>
+      <td>Returns the lesser value between <b>a</b> and <b>b</b>
       </td>
-      <td style="text-align:left">max(-1.23, -3)</td>
-      <td style="text-align:left">-3</td>
+      <td>max(-1.23, -3)</td>
+      <td>-3</td>
     </tr>
     <tr>
-      <td style="text-align:left">near(<b>a</b>, <b>b</b> [,<b>e</b>])</td>
-      <td style="text-align:left">Returns 1 if the difference between the real number values &#x200B;&#x200B;<b> a</b> and <b>b</b> is
+      <td>near(<b>a</b>, <b>b</b> [,<b>e</b>])</td>
+      <td>Returns 1 if the difference between the real number values &#x200B;&#x200B;<b> a</b> and <b>b</b> is
         less than or equal to <b>e</b> and returns 0 if the difference is larger
         than <b>e</b>
       </td>
-      <td style="text-align:left">
+      <td>
         <p>near(0.005, 0.0058)</p>
         <p>near(0.005, 0.006)</p>
         <p>near(0.005, 0.006, 0.1)</p>
       </td>
-      <td style="text-align:left">
+      <td>
         <p>1</p>
         <p>0</p>
         <p>1</p>
       </td>
     </tr>
     <tr>
-      <td style="text-align:left">rad2deg(<b>r</b>)</td>
-      <td style="text-align:left">Returns the degree value of <b>r</b> in radian format</td>
-      <td style="text-align:left">rad2deg(1.570796)</td>
-      <td style="text-align:left">90</td>
+      <td>rad2deg(<b>r</b>)</td>
+      <td>Returns the degree value of <b>r</b> in radian format</td>
+      <td>rad2deg(1.570796)</td>
+      <td>90</td>
+    </tr>
+		<tr>
+			<td>round(x)</td>
+			<td>Returns the rounded off value of <b>x</b>.</td>
+			<td>
+				round(3.1415)<br>
+				round(3.7415)<br>
+				round(-3.1415)<br>
+				round(-3.7415)
+			</td>
+				<td>
+				3<br>
+				4<br>
+				-3<br>
+				-4
+				</td>
+		</tr>
+    <tr>
+      <td>sin(<b>r</b>)</td>
+      <td>Returns the sine value of <b>r</b> in radian format</td>
+      <td>sin(1.5*3.1415)</td>
+      <td>-1</td>
     </tr>
     <tr>
-      <td style="text-align:left">sin(<b>r</b>)</td>
-      <td style="text-align:left">Returns the sine value of <b>r</b> in radian format</td>
-      <td style="text-align:left">sin(1.5*3.1415)</td>
-      <td style="text-align:left">-1</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">sqr(<b>a</b>)</td>
-      <td style="text-align:left">Returns the square root of <b>a</b>
+      <td>sqr(<b>a</b>)</td>
+      <td>Returns the square root of <b>a</b>
       </td>
-      <td style="text-align:left">
+      <td>
         <p>sqr(16)</p>
         <p>sqr(0)</p>
       </td>
-      <td style="text-align:left">
+      <td>
         <p>4</p>
         <p>0</p>
       </td>
     </tr>
     <tr>
-      <td style="text-align:left">tan(<b>r</b>)</td>
-      <td style="text-align:left">Returns the tangent value of <b>r</b> in radian format</td>
-      <td style="text-align:left">tan(3.141592/4)</td>
-      <td style="text-align:left">0.9999</td>
+      <td>tan(<b>r</b>)</td>
+      <td>Returns the tangent value of <b>r</b> in radian format</td>
+      <td>tan(3.141592/4)</td>
+      <td>0.9999</td>
     </tr>
+		<tr>
+			<td>trunc(x)</td>
+			<td>Returns the the truncated integer part of <b>x</b>.</td>
+			<td>
+				trunc(3.1415)<br>
+				trunc(-3.1415)
+			</td>
+			<td>
+				3<br>
+				-3
+			</td>
+		</tr>
   </tbody>
 </table>
 
@@ -1077,13 +1129,8 @@ goto &lt;address&gt;
     <tr>
       <td style="text-align:left">address</td>
       <td style="text-align:left">
-        <p>Address to go to
-          <br />
-        </p>
-        <p>An arithmetic expression is possible in the case of a line number.
-          <br
-          />
-        </p>
+        Address to branch<br/>
+        An arithmetic expression is possible in the case of a line number.
       </td>
       <td style="text-align:left"></td>
     </tr>
@@ -1100,6 +1147,80 @@ goto *err_hdl
 
 
 
+# 3.3.2 gosub~retsub
+
+### Description
+
+When the gosub statement is encountered, it branches to the specified address.
+When the retsub statement is encountered, it returns to the next position after the gosub statement.
+Gosub can be nested into several level, and there is no limit on the number of nesting.
+
+### Syntax
+```python
+gosub <address>
+...
+end
+  
+<address>
+...  
+retsub
+```
+
+### Parameter
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Parameter</th>
+      <th style="text-align:left">Description</th>
+      <th style="text-align:left">Remarks</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">address</td>
+      <td style="text-align:left">
+        <p>Address to branch</p>
+        <p>An arithmetic expression is possible in the case of a line number.</p>
+      </td>
+      <td style="text-align:left"></td>
+    </tr>
+  </tbody>
+</table>
+
+### Example
+
+```python
+var x=5
+var y=6
+var res
+var sum=0
+gosub *calc_dist1
+gosub *calc_dist2
+var total=sum
+if near(total,18.8102)
+  print "OK"
+else
+  print "NG"
+endif
+end
+     
+*calc_dist1
+res=x*x+y*y
+res=sqr(res)
+gosub *calc_sum
+retsub
+     
+*calc_dist2
+res=x+y
+gosub *calc_sum
+retsub
+     
+*calc_sum
+sum=sum+res
+retsub
+end
+```
 # 3.4 Conditional Statements
 
 These statements allow a certain operation to be or not to be executed depending on certain conditions.
@@ -2751,404 +2872,7 @@ next
 fb2.do3=fb2.do7=fb2.do11=1   # Turns on 3rd, 7th, and 11th output signals of fb2 at once
 ```
 
-# 6.2    ENet Module: Ethernet TCP/UDP Communication
-
-Using the general-purpose Ethernet port of the Hi6 Controller makes it possible to transmit or receive a string with an external device through Ethernet TCP or UDP communication. It is required to create an ENet object after importing the ENet module to use this function, as shown below.
-
-```python
-import enet
-var udp=enet.ENet("udp")
-```
-
-In the following example, the selection of protocol is needed by passing "udp" or "tcp" as a parameter of the ENet constructor. The default is "udp," so like in the example, it can be omitted when UDP communication is performed.
-
-```python
-var udp=enet.ENet()
-```
-
-Communication must be performed in the following order:
-
-1. Create an ENet object with the constructor.
-2. Set an IP address and port number with the member variable.
-3. Open the communication connection with the open member procedure, and check the state with the state\(\) member variable.
-
-   \(In the case of TCP communication, the connect procedure should also be performed after opening\).
-
-4. Perform transmission/reception with the send and receive member procedures.
-5. Close the communication connection with the close member procedure.
-
-
-
-
-
-
-
-
-
-# 6.2.1 Constructor
-
-### Description
-
-It creates an Ethernet object and returns the reference
-
-### Syntax
-
-ENet\(&lt;protocol&gt;\)
-
-### Parameter
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">Parameter</th>
-      <th style="text-align:left">Description</th>
-      <th style="text-align:left">Remarks</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left">protocol</td>
-      <td style="text-align:left">
-        <p>&quot;tcp&quot; : TCP communication
-          <br />
-        </p>
-        <p>&quot;udp&quot; : UDP communication
-          <br />
-        </p>
-        <p>
-          <br />
-        </p>
-        <p>
-          <br />
-        </p>
-      </td>
-      <td style="text-align:left">If omitted, it will be recognized as &quot;udp.&quot;</td>
-    </tr>
-  </tbody>
-</table>
-
-### Return Value
-
-Reference of the created object
-
-### Example
-
-```python
-enet0 = ENet()
-var tcp = ENet("tcp")
-```
-
-
-
-# 6.2.2 Member Variables
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">Variable name</th>
-      <th style="text-align:left">Data type</th>
-      <th style="text-align:left">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left">ip_addr</td>
-      <td style="text-align:left">String</td>
-      <td style="text-align:left">
-        <p>Allows reading/writing</p>
-        <p>Designates or acquires the IP address of the communication counterpart</p>
-        <p>Applicable only when calling the open statement</p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left">rport</td>
-      <td style="text-align:left">Number</td>
-      <td style="text-align:left">
-        <p>Allows reading/writing</p>
-        <p>Designates or acquires the port number of the communication counterpart
-          (Remote)</p>
-        <p>Applicable only when calling the open statement</p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left">lport</td>
-      <td style="text-align:left">Number</td>
-      <td style="text-align:left">
-        <p>Allows reading/writing</p>
-        <p>Used in UDP communication and ignored in TCP communication</p>
-        <p>Designates or acquires the port number of the controller itself (Local)</p>
-        <p>The default value is 0 (if not designated), in which case the controller&#x2019;s
-          port number will be automatically created.</p>
-        <p>Applicable only when calling the open statement</p>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-# 6.2.3 Member Procedures
-
-# open
-
-### Description
-
-ns a connection for Ethernet TCP or UDP communication
-
-### Syntax
-
-&lt;ENet object&gt;.open
-
-### Example
-
-```python
-enet_to_sensor.open
-```
-
-# connect
-
-### Description
-
-Performs a connection for Ethernet TCP communication
-
-### Syntax
-
-&lt;ENet object&gt;.connect
-
-### Example
-
-```python
-enet_to_sensor.connect
-```
-
-# send
-
-### Description
-
-Transmits the values to the set Ethernet object
-
-### Syntax
-
-&lt;ENet object&gt;.send &lt;value&gt;, &lt;value&gt;, …
-
-
-
-### Parameter
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">Parameter</th>
-      <th style="text-align:left">Description</th>
-      <th style="text-align:left">Remarks</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left">Value</td>
-      <td style="text-align:left">
-        <p>Data value to be output.
-          <br />
-        </p>
-        <p>Arguments separated by commas will be printed separated by spaces.
-          <br
-          />
-        </p>
-        <p>
-          <br />
-        </p>
-        <p>
-          <br />
-        </p>
-        <p>
-          <br />
-        </p>
-      </td>
-      <td style="text-align:left">All data types</td>
-    </tr>
-  </tbody>
-</table>
-
-### Example
-
-```python
-enet_to_sensor.send "rob:", 10, ", command:"+cmd, "\n"
-```
-
-
-
-# recv
-
-### Description
-
-Receives the values to the set Ethernet object
-
-### Syntax
-
-&lt;ENet object&gt;.recv &lt;variable&gt;\[, &lt;waiting time&gt;\]
-
-
-
-### Parameter
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">Parameter</th>
-      <th style="text-align:left">Description</th>
-      <th style="text-align:left">Remarks</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left">Variable</td>
-      <td style="text-align:left">A variable to which the received string is to be passed</td>
-      <td style="text-align:left"></td>
-    </tr>
-    <tr>
-      <td style="text-align:left">Waiting time</td>
-      <td style="text-align:left">
-        <p>Time of time-out
-          <br />
-        </p>
-        <p>
-          <br />
-        </p>
-        <p>
-          <br />
-        </p>
-        <p>
-          <br />
-        </p>
-      </td>
-      <td style="text-align:left">msec</td>
-    </tr>
-  </tbody>
-</table>
-
-### Example
-
-```python
-enet_to_sensor.recv  msg, 5000
-```
-
-# close
-
-### Description
-
-Close the connection for Ethernet UDP communication
-
-### Syntax
-
-&lt;ENet object&gt;.close
-
-### Example
-
-```python
-enet_to_sensor.close
-```
-
-# 6.2.4 Member Function
-
-# state
-
-### Description
-
-Returns the state of the Ethernet object
-
-### Syntax
-
-&lt;ENet object&gt;.state\(\)
-
-
-
-### Return Value
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">Parameter</th>
-      <th style="text-align:left">Description</th>
-      <th style="text-align:left">Remarks</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left">1</td>
-      <td style="text-align:left">
-        <p>Connected
-          <br />
-        </p>
-        <p>(In the case of UDP, just opening it will be considered a connection.
-          In the case of TCP, connecting after opening will be considered a connection.)
-          <br
-          />
-        </p>
-        <p>
-          <br />
-        </p>
-        <p>
-          <br />
-        </p>
-        <p>
-          <br />
-        </p>
-        <p>
-          <br />
-        </p>
-      </td>
-      <td style="text-align:left"></td>
-    </tr>
-    <tr>
-      <td style="text-align:left">0</td>
-      <td style="text-align:left">Not connected</td>
-      <td style="text-align:left"></td>
-    </tr>
-    <tr>
-      <td style="text-align:left">-1</td>
-      <td style="text-align:left">Failed to create the Ethernet socket</td>
-      <td style="text-align:left"></td>
-    </tr>
-    <tr>
-      <td style="text-align:left">-2</td>
-      <td style="text-align:left">Failed to bind the Ethernet device</td>
-      <td style="text-align:left"></td>
-    </tr>
-  </tbody>
-</table>
-
-### Example
-
-```python
-ret = enet_to_sensor.state()
-```
-
-# 6.2.5 Examples of TCP and UDP Communication
-
-```python
-     import enet
-     global msg
-     global enet0=enet.ENet() # ENet("tcp") in case of TCP communication
-
-     # port no. 49152–65535 contains dynamic or private ports
-     enet0.ip_addr="192.168.1.172"
-     enet0.lport=51001 # necessary only in case of UDP communication
-     enet0.rport=51002
-
-     enet0.open
-     enet0.connect # necessary only in case of TCP communication
-     print enet0.state() # normal if it is 1
-     enet0.send "hello, "+"udp", 300, "\n"
-
-     enet0.recv msg, 8000 # wait for 8 seconds
-     print msg
-     delay 1.5
-     enet0.close
-     print enet0.state() # normal if it is 0
-     delay 1.5
-     end
-
-```
-
-# 6.3    Http\_Cli Module: HTTP Client
+# 6.2    Http\_Cli Module: HTTP Client
 
 Using the general-purpose Ethernet port of the Hi6 Controller makes it possible to access remote web services to receive HTTP services. 
 
@@ -3161,9 +2885,9 @@ var cli=http_cli.HttpCli()
 
 After the HttpCli object is created, it must request a service by calling the get, put, post, and delete member procedures.
 
-The HttpCli object has a property named “body.”
+The HttpCli object has a property named ??�body.???
 
-When a get service is requested and a response is received successfully, the remote server’s data will have the body property. The body property value can be a string, number, array, or object. When requesting the put service, it is required to assign the data to be transmitted to the body property in advance.
+When a get service is requested and a response is received successfully, the remote server??�s data will have the body property. The body property value can be a string, number, array, or object. When requesting the put service, it is required to assign the data to be transmitted to the body property in advance.
 
 When requesting the post service, it is required to assign the data to be transmitted to the body property in advance, and the data sent as a response from the remote server is to be stored in the body property.
 
@@ -3173,7 +2897,7 @@ The delete service does not use the body property.
 
 
 
-# 6.3.1 Constructor
+# 6.2.1 Constructor
 
 ### Description
 
@@ -3195,7 +2919,7 @@ var cli = HttpCli()
 
 
 
-# 6.3.2 Member Variables
+# 6.2.2 Member Variables
 
 <table>
   <thead>
@@ -3225,7 +2949,7 @@ var cli = HttpCli()
   </tbody>
 </table>
 
-# 6.3.3 Member Procedure
+# 6.2.3 Member Procedure
 
 # get
 
@@ -3313,7 +3037,7 @@ var domain="http://192.168.1.200:8888"
 cli.delete domain+"/items/3"
 ```
 
-# 6.3.4 Examples of HTTP Client Communication
+# 6.2.4 Examples of HTTP Client Communication
 
 ```python
 import http_client
@@ -3339,9 +3063,9 @@ cli.delete domain+"/items/3"
 end
 ```
 
-# 6.4 Getting input from console bar
+# 6.3 Getting input from console bar
 
-# 6.4.1 input
+# 6.3.1 input
 
 ### Description
 
@@ -3408,7 +3132,1485 @@ input work_no,10,*timeout
 
 
 
-# 7. Alias
+# 7 enet module : Ethernet TCP/UDP communication
+
+Using the Hi6 controller's user ethernet port, You can send and receive strings or binary data over Ethernet TCP or UDP communication with an external devices.
+
+The enet module can create two objects, ENet and BBuf. ENet provides an Ethernet socket interface, and BBuf is used to communicate binary data.
+
+Let's follow the client example and the server example to understand how to use it. A reference guide for each object's member variables and functions follows it.
+# 7.1 peer-to-peer, client example
+
+The UDP peer-to-peer (1:1 communication), or TCP client example program is explained for string and binary transmission.
+# 7.1.1 peer-to-peer, client Example - Transceiving string data
+
+Follow these steps:
+
+1. After importing the `enet` module, create an `ENet` object with the constructor.
+2. Set the IP address and port number with the member variables.
+3. Open the ethernet socket with the `open` member procedure, and check the status with the `state()` member variable.
+\(For TCP communication, the `connect` procedure must also be called after opening.\)
+4. Transceiving with `send` and `recv` member procedure.
+5. Close the communication connection with the `close` member procedure.
+
+<br>
+
+### UDP peer-to-peer
+```python
+     # 1. After importing the enet module, create an ENet object with the constructor
+     import enet
+     var cli=enet.ENet() # for TCP communication, ENet("tcp")
+
+     # 2. Set the IP address and port number
+     cli.ip_addr="192.168.1.172" # remote (opponent) IP address
+     cli.lport=51001 # local (self) port
+     cli.rport=51002 # remote (opponent) port
+     # (port no. 49152–65535 contains dynamic or private ports)
+
+     # 3. Open ethernet socket
+     cli.open
+     
+     print cli.state() # If 1, it's OK.
+
+     # --------------------------------
+     # 4-1. string trasmitting
+     cli.send "hello, peer.\n"
+
+     # 4-2. string receiving
+     #     (if not received for 5 seconds, jump to *TimeOut label)
+     var msg
+     cli.recv 5000, *TimeOut
+     var msg=result() # received string
+     print msg
+     delay 1.0
+     # --------------------------------
+
+     # 5. Close ethernet socket
+     cli.close
+     print cli.state() # If 0, it's OK.
+     delay 1.5
+     end
+
+     *TimeOut
+     print "time out!"
+     cli.close
+     end
+```
+<br>
+
+### TCP client
+(Only `lport` and `connect` parts are different from peer-to-peer.)
+```python
+     # 1. After importing the enet module, create an ENet object with the constructor
+     import enet
+     var cli=enet.ENet() # for TCP communication, ENet("tcp")
+
+     # 2. Set the IP address and port number
+     cli.ip_addr="192.168.1.172" # remote (opponent) IP address
+     cli.lport=0 # local (self) port; random
+     cli.rport=51002 # remote (opponent) port
+     # (port no. 49152–65535 contains dynamic or private ports)
+
+     # 3. Open ethernet socket
+     cli.open
+     cli.connect # connect to the server.
+     print cli.state() # If 1, it's OK.
+
+     # --------------------------------
+     # 4-1. string trasmitting
+     cli.send "hello, peer.\n"
+
+     # 4-2. string receiving
+     #     (if not received for 5 seconds, jump to *TimeOut label)
+     var msg
+     cli.recv 5000, *TimeOut
+     var msg=result() # received string
+     print msg
+     delay 1.0
+     # --------------------------------
+
+     # 5. Close ethernet socket
+     cli.close
+     print cli.state() # If 0, it's OK.
+     delay 1.5
+     end
+
+     *TimeOut
+     print "time out!"
+     cli.close
+     end
+```
+# 7.1.2 peer-to-peer, client Example - Transceiving binary data
+
+Binary transceiving are performed using `BBuf` (binary buffer) object.  
+(Only the transceiving parts are different, and the rest are the same as the transceiving string data.)
+
+Sending
+
+1. Create `enet.BBuf` object.
+2. Append the desired binary data to the `BBuf` object with the `BBuf.append()` function.
+3. Send the BBuf object as a function of `ENET.send_bbuf()`
+
+
+Receiving
+
+1. Create `enet.BBuf` object.
+2. Receive binary data into BBuf objects with the `ENET.recv_bbuf()` function.
+3. Read the desired binary data from the `BBuf` object with the `BBuf.read_nums()` function.
+
+
+<br>
+
+### UDP peer-to-peer
+```python
+     # 1. After importing the enet module, create an ENet object with the constructor
+     import enet
+     var cli=enet.ENet() # For TCP communications, ENet("tcp")
+
+     # 2. Set the IP address and port number
+     cli.ip_addr="192.168.1.172" # remote (opponent) IP address
+     cli.lport=51001 # local (self) port
+     cli.rport=51002 # remote (opponent) port
+     # (port no. 49152–65535 contains dynamic or private ports)
+
+     # 3. Open ethernet socket
+     cli.open
+     
+     print cli.state() # If 1, it's OK.
+
+     # Sending --------------------------------
+     # 4-1. Create BBuf object
+     var bbuf=enet.BBuf()
+
+     # (sample binary data)
+     var arr=[ -3, 0, 1 ]
+     
+     # 4-2. Append binary data to BBuf object
+     bbuf.clear()
+     bbuf.append("s4", arr) # append little endian signed-4byte data
+
+     # 4-3. Send BBuf object
+     var ret
+     ret=cli.send_bbuf(bbuf)
+
+     # Receiving --------------------------------
+     # 4-1. Create BBuf object
+     var bbuf2=enet.BBuf()
+     
+     # 4-2. Receive binary data into BBuf object
+     #     (If no response for 3 seconds, jump to *TimeOut label)
+     cli.recv_bbuf bbuf2,3000,*TimeOut
+
+     # 4-3. Read binary data from BBuf object.
+     var nums=bbuf2.read_nums("U2", 0, 3) # read 3 big-endian unsigned-2byte data
+     print nums
+     # --------------------------------
+
+     # 5. Close ethernet socket
+     cli.close
+     print cli.state() # If 0, it's OK.
+     delay 1.5
+     end
+
+     *TimeOut
+     print "time out!"
+     cli.close
+     end
+```
+
+
+### TCP client
+(Only `lport` and `connect` parts are different from peer-to-peer.)
+```python
+     # 1. After importing the enet module, create an ENet object with the constructor
+     import enet
+     var cli=enet.ENet() # For TCP communications, ENet("tcp")
+
+     # 2. Set the IP address and port number
+     cli.ip_addr="192.168.1.172" # remote (opponent) IP address
+     cli.lport=0 # local (self) port; random
+     cli.rport=51002 # remote (opponent) port
+     # (port no. 49152–65535 contains dynamic or private ports)
+
+     # 3. Open ethernet socket
+     cli.open
+     cli.connect # connect to the server.
+     print cli.state() # If 1, it's OK.
+
+     # Sending --------------------------------
+     # 4-1. Create BBuf object
+     var bbuf=enet.BBuf()
+
+     # (sample binary data)
+     var arr=[ -3, 0, 1 ]
+     
+     # 4-2. Append binary data to BBuf object
+     bbuf.clear()
+     bbuf.append("s4", arr) # append little endian signed-4byte data
+
+     # 4-3. Send BBuf object
+     var ret
+     ret=cli.send_bbuf(bbuf)
+
+     # Receiving --------------------------------
+     # 4-1. Create BBuf object
+     var bbuf2=enet.BBuf()
+     
+     # 4-2. Receive binary data into BBuf object
+     #     (If no response for 3 seconds, jump to *TimeOut label)
+     cli.recv_bbuf bbuf2,3000,*TimeOut
+
+     # 4-3. Read binary data from BBuf object.
+     var nums=bbuf2.read_nums("U2", 0, 3) # read 3 big-endian unsigned-2byte data
+     print nums
+     # --------------------------------
+
+     # 5. Close ethernet socket
+     cli.close
+     print cli.state() # If 0, it's OK.
+     delay 1.5
+     end
+
+     *TimeOut
+     print "time out!"
+     cli.close
+     end
+```
+
+* String arguments such as "s4" and "U2" determine the binary data format such as endian type, signed/unsigned, and the number of bytes. For more information, see [7.4.2 Supported format](../4-bbuf/2-format.md).# 7.2 TCP server example
+
+The TCP server example program is explained for the case of tranceiving string data and binary data.
+
+While the TCP client connects to the server with the `connect()` function, the TCP server calls the `listen()` function and waits for the client's connection with the `accept()` function.  
+
+* Allow only one client connection at the same time.
+* You do not need to specify a remote port.
+
+The rest of the action is the same as the client.# 7.2.1 ethernet TCP server - Transceiving string data
+
+Follow these steps:
+
+1. After importing the `enet` module, create an `ENet` object with the constructor.
+2. Set the IP address and port number with the member variables. (remote port setting is not needed.)
+3. Open the ethernet socket with the `open` member procedure, and calls `listen()`, `accept()` function. Check the status with the `state()` member variable.
+4. Transceiving with `send` and `recv` member procedure.
+5. Close the communication connection with the `close` member procedure.
+
+
+```python
+     # 1. After importing the enet module, create an ENet object with the constructor
+     import enet
+     var svr=enet.ENet("tcp")
+     
+     # 2. Set the IP address and port number
+     svr.ip_addr="192.168.1.172" # remote (opponent) IP address
+     svr.lport=51001 # local (self) port
+     # (port no. 49152–65535 contains dynamic or private ports)
+     
+     # 3. Open ethernet socket
+     svr.open
+     var ret
+     ret=svr.listen()
+     ret=svr.accept() # wait for connect from client
+     print svr.state() # If 1, it's OK.
+     
+     # --------------------------------
+     # 4-1. string trasmitting
+     svr.send "Welcome, I am a TCP server.\n"
+     
+     # 4-2. string receiving
+     #     (if not received for 5 seconds, jump to *TimeOut label)
+     svr.recv 5000,*TimeOut
+     var msg=result() # received string
+     print msg
+     delay 1.0
+     # --------------------------------
+     
+     # 5. Close ethernet socket
+     svr.close
+     print svr.state() # If 0, it's OK.
+     delay 1.5
+     end
+
+     *TimeOut
+     print "time out!"
+     svr.close
+     end
+```
+# 7.2.2 ethernet TCP server Example - Transceiving binary data
+
+Binary transceiving are performed using BBuf (binary buffer) object.  
+(Only the transceiving parts are different, and the rest are the same as the transceiving string data.)
+
+Sending
+
+1. Create `enet.BBuf` object.
+2. Append the desired binary data to the `BBuf` object with the `BBuf.append()` function.
+3. Send the BBuf object as a function of `ENET.send_bbuf()`
+
+
+Receiving
+
+1. Create `enet.BBuf` object.
+2. Receive binary data into BBuf objects with the `ENET.recv_bbuf()` function.
+3. Read the desired binary data from the `BBuf` object with the `BBuf.read_nums()` function.
+
+
+```python
+     # 1. After importing the enet module, create an ENet object with the constructor
+     import enet
+     var svr=enet.ENet("tcp")
+     
+     # 2. Set the IP address and port number
+     svr.ip_addr="192.168.1.172" # remote (opponent) IP address
+     svr.lport=51001 # local (self) port
+     # (port no. 49152–65535 contains dynamic or private ports)
+     
+     # 3. Open ethernet socket
+     svr.open
+     var ret
+     ret=svr.listen()
+     ret=svr.accept() # wait for connect from client
+     print svr.state() # If 1, it's OK.
+
+     # Sending --------------------------------
+     # 4-1. Create BBuf object
+     var bbuf=enet.BBuf()
+
+     # (sample binary data)
+     var arr=[ -3, 0, 1 ]
+     
+     # 4-2. Append binary data to BBuf object
+     bbuf.clear()
+     bbuf.append("s4", arr) # append little endian signed-4byte data
+
+     # 4-3. Send BBuf object
+     ret=svr.send_bbuf(bbuf)
+
+     # Receiving --------------------------------
+     # 4-1. Create BBuf object
+     var bbuf2=enet.BBuf()
+     
+     # 4-2. Receive binary data into BBuf object
+     #     (If no response for 3 seconds, jump to *TimeOut label)
+     svr.recv_bbuf bbuf2,3000,*TimeOut
+
+     # 4-3. Read binary data from BBuf object.
+     var nums=bbuf2.read_nums("U2", 0, 3) # read 3 big-endian unsigned-2byte data
+     print nums
+     # --------------------------------
+
+     # 5. Close ethernet socket
+     svr.close
+     print svr.state() # If 0, it's OK.
+     delay 1.5
+     end
+
+     *TimeOut
+     print "time out!"
+     svr.close
+     end
+```
+
+* String arguments such as "s4" and "U2" determine the binary data format such as endian type, signed/unsigned, and the number of bytes. For more information, see [7.4.2 supported format](../4-bbuf/2-format.md).
+# 7.3 ENet object
+
+The `ENet` object provides a socket interface for Ethernet communication.  
+See the examples in the previous section for instructions on how to use them.
+# 7.3.1 ENet creator
+
+### Description
+
+Create an Ethernet object. Returns the reference of the created object.
+
+### Syntax
+
+`ENet({protocol})`
+
+### Parameters
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Name</th>
+      <th style="text-align:left">Meaning</th>
+      <th style="text-align:left">Misc.</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>protocol</td>
+      <td>
+        "tcp" : TCP comm.<br>
+        "udp" : UDP comm.<br>
+        If omitted, recognized as "udp".</td>
+    </tr>
+  </tbody>
+</table>
+
+### Return value
+
+Reference of the created object.
+
+### Example
+
+```python
+enet0 = ENet()
+var tcp = ENet("tcp")
+```
+# 7.3.2 ENet member variable
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Variable name</th>
+      <th style="text-align:left">Data type</th>
+      <th style="text-align:left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">ip_addr</td>
+      <td style="text-align:left">string</td>
+      <td style="text-align:left">
+        readable/writable<br>
+        Set or get the IP address of the communication opponent(remote).<br>
+        Applied only when calling the open statement.
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left">rport</td>
+      <td style="text-align:left">number</td>
+      <td style="text-align:left">
+        readable/writable<br>
+        Set or get the port number of the communication opponent(remote).<br>
+        Applied only when calling the open statement.
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left">lport</td>
+      <td style="text-align:left">number</td>
+      <td style="text-align:left">
+        readable/writable<br>
+        Only used in UDP peer-to-peer and TCP server, ignored in TCP client.<br>
+        Set or get the controller's own (local) port number.<br>
+        The default value is 0 (if not specified), in which case this port number is automatically generated.<br>
+        Applied only when calling the open statement.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+# 7.3.3 ENet member function
+
+* When getting the return value from a member function, be sure to enclose the argument in parentheses.
+  
+  ```python
+  var nitem=obj.func(param1,param2) # (O) ; parentheses is necessary
+  var nitem=obj.func param1,param2 # (X) ; syntax error
+  ```
+
+* Parentheses can be omitted, not getting the return value.
+
+  ```python
+  obj.func(param1,param2) # (O)
+  obj.func param1,param2 # (O) ; parentheses omitted
+  ```# accept
+
+### Description
+
+As a server in Ethernet TCP communication, it waits for a connection request from the client side. Creates a connection when a request occurs.
+Not used in UDP peer-to-peer communication.
+
+
+### Syntax
+
+`{ENet object}.accept [{waiting time}] [, {address on timeout}]`
+
+
+### Parameters
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Name</th>
+      <th style="text-align:left">Meaning</th>
+      <th style="text-align:left">Misc.</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>waiting time</td>
+      <td>
+        timeout. If elapsed, proceed to the next command or jump to the address on timeout.<br>
+        If not specified, wait ininfinitely.
+      </td>
+      <td>msec</td>
+    </tr>
+    <tr>
+      <td>address on timeout</td>
+      <td>
+        address to which jump on timeout.<br>
+        If not specified, proceed to next command.
+      </td>
+      <td>address</td>
+    </tr>
+  </tbody>
+</table>
+
+
+### Return value
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Name</th>
+      <th style="text-align:left">Meaning</th>
+      <th style="text-align:left">Misc.</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>
+        OK (completed)
+      </td>
+      <td></td>
+    </tr>  
+    <tr>
+      <td>0</td>
+      <td>
+        waiting
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>-1</td>
+      <td>timeout</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>-2</td>
+      <td>error</td>
+      <td></td>
+    </tr>    
+  </tbody>
+</table>
+
+
+### Example
+
+```python
+enet_to_sensor.listen
+var ret=enet_to_sensor.accept(5000)
+```
+
+```python
+enet_to_sensor.listen
+enet_to_sensor.accept 5000,*TimeOut
+```
+
+# close
+
+### Description
+
+Closes the connection for Ethernet TCP or UDP communication.
+
+### Syntax
+
+`{ENet object}.close`
+
+### Example
+
+```python
+enet_to_sensor.close
+```
+# connect
+
+### Description
+
+
+As a client in Ethernet TCP communication, it tries to connect to the server.
+Not used in UDP peer-to-peer communication.
+
+### Syntax
+
+`{ENet object}.connect [{waiting time}] [, {address on timeout}]`
+
+
+### Parameters
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Name</th>
+      <th style="text-align:left">Meaning</th>
+      <th style="text-align:left">Misc.</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>waiting time</td>
+      <td>
+        timeout. If elapsed, proceed to the next command or jump to the address on timeout.<br>
+        If not specified, wait ininfinitely.
+      </td>
+      <td>msec</td>
+    </tr>
+    <tr>
+      <td>address on timeout</td>
+      <td>
+        address to which jump on timeout.<br>
+        If not specified, proceed to next command.
+      </td>
+      <td>address</td>
+    </tr>
+  </tbody>
+</table>
+
+
+### Return value
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Value</th>
+      <th style="text-align:left">Meaning</th>
+      <th style="text-align:left">Misc.</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>
+        OK (completed)
+      </td>
+      <td></td>
+    </tr>  
+    <tr>
+      <td>0</td>
+      <td>
+        waiting
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>-1</td>
+      <td>timeout</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>-2</td>
+      <td>error</td>
+      <td></td>
+    </tr>  
+  </tbody>
+</table>
+
+
+### Example
+
+```python
+var ret=enet_to_sensor.connect(5000)
+```
+
+```python
+enet_to_sensor.connect 5000,*TimeOut
+```# listen
+
+### Description
+
+As a server in Ethernet TCP communication, it prepares for a connection request from the client side. 
+Not used in UDP peer-to-peer communication.
+
+
+### Syntax
+
+`{ENet object}.listen [{backlog}]`
+
+
+### Parameters
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Name</th>
+      <th style="text-align:left">Meaning</th>
+      <th style="text-align:left">Misc.</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>backlog</td>
+      <td>
+        The permitted connection of the pending connection which is not acceptted.<br>
+        If not specified, wait ininfinitely.
+      </td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+
+### Return value
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Value</th>
+      <th style="text-align:left">Meaning</th>
+      <th style="text-align:left">Misc.</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>
+        OK
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>-1</td>
+      <td>error</td>
+      <td></td>
+    </tr>	 
+  </tbody>
+</table>
+
+
+### Example
+
+```python
+enet_to_sensor.listen
+enet_to_sensor.accept 5000,*TimeOut
+```
+# open
+
+### Description
+
+Opens a connection for Ethernet TCP or UDP communication.
+
+### Syntax
+
+`{ENet object}.open`
+
+### Example
+
+```python
+enet_to_sensor.open
+```
+# recv
+
+### Description
+
+Receives string data from the Ethernet object. The received string can be get from return value or `result()` function.
+
+
+### Syntax
+
+`{ENet object}.recv [{waiting time}][,{address on timeout}]`
+
+
+### Parameters
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Name</th>
+      <th style="text-align:left">Meaning</th>
+      <th style="text-align:left">Misc.</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>waiting time</td>
+      <td>
+        timeout. If elapsed, proceed to the next command or jump to the address on timeout.<br>
+        If not specified, wait ininfinitely.
+      </td>
+      <td>msec</td>
+    </tr>
+    <tr>
+      <td>address on timeout</td>
+      <td>
+        address to which jump on timeout.<br>
+        If not specified, proceed to next command.
+      </td>
+      <td>address</td>
+    </tr>
+  </tbody>
+</table>
+
+
+### Return value
+
+The received string.
+
+
+### Example
+
+```python
+var msg
+msg=enet_to_sensor.recv
+msg=enet_to_sensor.recv(5000)
+msg=enet_to_sensor.recv(5000,*TimeOut)
+end
+
+*TimeOut
+print "Time out! No response from sensor"
+end
+```
+# recv_bbuf
+
+### Description
+
+Receives binary data from the Ethernet object and stores it in the [BBuf](../../4-bbuf/README.md) object.
+
+
+### Syntax
+
+`{ENet object}.recv_bbuf {BBuf onject}[,{waiting time}][,{address on timeout}]`
+
+
+### Parameters
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Name</th>
+      <th style="text-align:left">Meaning</th>
+      <th style="text-align:left">Misc.</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>BBuf object</td>
+      <td>
+        BBuf object to store the received binary data
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>waiting time</td>
+      <td>
+        timeout. If elapsed, proceed to the next command or jump to the address on timeout.<br>
+        If not specified, wait ininfinitely.
+      </td>
+      <td>msec</td>
+    </tr>
+    <tr>
+      <td>address on timeout</td>
+      <td>
+        address to which jump on timeout.<br>
+        If not specified, proceed to next command.
+      </td>
+      <td>address</td>
+    </tr>
+  </tbody>
+</table>
+
+
+### Return value
+
+The number of received data.
+
+
+### Example
+
+```python
+var bbuf=enet_to_sensor.BBuf()
+enet_to_sensor.recv bbuf
+enet_to_sensor.recv bbuf, 5000
+var nitem=enet_to_sensor.recv(bbuf,5000,*TimeOut)
+end
+
+*TimeOut
+print "Time out! No response from sensor"
+end
+```
+
+# send
+
+### Description
+
+Send string data to ethernet object.
+
+
+### Syntax
+
+`{ENet object}.send {msg}`
+
+
+
+### Parameters
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Name</th>
+      <th style="text-align:left">Meaning</th>
+      <th style="text-align:left">Misc.</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">msg</td>
+      <td style="text-align:left">
+        string to send
+      </td>
+      <td style="text-align:left">string</td>
+    </tr>
+  </tbody>
+</table>
+
+
+### Return value
+
+The number of bytes sent.
+
+
+### Example
+
+```python
+enet_to_sensor.send "rob:" + 10 + ", command:"+cmd, "\n"
+```
+
+
+
+# send_bbuf
+
+### Description
+
+Send [BBuf](../../4-bbuf/README.md) object to ethernet object.
+
+
+### Syntax
+
+`{ENet object}.send_bbuf {BBuf object}`
+
+
+### Parameters
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Name</th>
+      <th style="text-align:left">Meaning</th>
+      <th style="text-align:left">Misc.</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">BBuf object</td>
+      <td style="text-align:left">
+        binary buffer object to send.
+      </td>
+      <td style="text-align:left"></td>
+    </tr>
+  </tbody>
+</table>
+
+
+### Return value
+
+The number of bytes sent.
+
+
+### Example
+
+```python
+var bbuf=enet.BBuf()
+var arr=[ -3, 0, 1 ]
+bbuf.append("s4", arr)
+var nitem=cli.send_bbuf(bbuf)
+```
+# set_send_trail_null
+
+
+### Description
+
+When sending a string with the `ENet.send()` function, it sets whether to send it with a terminating-null character attached. (default is false)
+
+
+### Syntax
+
+`{ENet object}.set_send_trail_null(true|false)`
+
+
+### Return value
+
+None.
+
+
+### Example
+
+```python
+enet_to_sensor.set_send_trail_null(true)
+enet_to_sensor.send "ACK"
+enet_to_sensor.set_send_trail_null(false)
+```
+# state
+
+### Description
+
+Returns the state of the ethernet object.
+
+
+### Syntax
+
+`{ENet object}.state`
+
+
+### Return value
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Name</th>
+      <th style="text-align:left">Meaning</th>
+      <th style="text-align:left">Misc.</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>
+        Connected. <br>
+        (In case of UDP, even just an `open` is considered connected.<br>
+         In the case of TCP, it is considered connected only when `listen`, `connect`, and `accept` are performed after `open`.
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>Disconnected.</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>-1</td>
+      <td>Failed in creating ethernet socket.</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>-2</td>
+      <td>Failed in binding ethernet socket.</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>-3</td>
+      <td>Failed to connect.</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>-4</td>
+      <td>Failed to listen.</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>-5</td>
+      <td>Failed to accept.</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+
+### Example
+
+```python
+var ret = enet_to_sensor.state()
+```
+
+# 7.4 BBuf object
+
+A BBuf (Binary Buffer) object encapsulates binary data to be sent and received over Ethernet communication.
+For usage, see the binary communication examples.
+
+[7.1.2 peer-to-peer, client example - binary transmission](7-enet-module/1-exam-client/2-enet-client-bin.md)
+
+[7.2.2 ethernet TCP server - binary transmission](7-enet-module/2-exam-server/2-enet-server-bin.md)
+# 7.4.1 BBuf creator
+
+### Description
+
+Create binary buffer object. Returns the reference of the created object.
+
+### Syntax
+
+`BBuf()`
+
+
+### Return value
+
+Reference of the created object.
+
+### Example
+
+```python
+var bbuf = BBuf()
+```
+# 7.4.2 Supported format
+
+The member function `append()` or `read_num()` requires a type to be specified as an argument.
+
+The format consists of 1 alphabet meaning Signed/Unsigned/Floating-point and 1 digit meaning the number of bytes.<br>
+If the alphabet is uppercase it is big endian, and lowercase it is little endian.
+
+<table>
+  <thead>
+    <tr>
+      <th>Format</th>
+      <th>Endian</th>
+      <th>Type</th>
+      <th>The number of bytes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>"S1"</td>
+      <td>big endian<br>
+      <td>signed integer<br>
+      <td>1byte<br>
+    </tr>
+    <tr>
+      <td>"S2"</td>
+      <td>big endian<br>
+      <td>signed integer<br>
+      <td>2byte<br>
+    </tr>
+    <tr>
+      <td>"S4"</td>
+      <td>big endian<br>
+      <td>signed integer<br>
+      <td>4byte<br>
+    </tr>
+    <tr>
+      <td>"U1"</td>
+      <td>big endian<br>
+      <td>unsigned integer<br>
+      <td>1byte<br>
+    </tr>
+    <tr>
+      <td>"U2"</td>
+      <td>big endian<br>
+      <td>unsigned integer<br>
+      <td>2byte<br>
+    </tr>
+    <tr>
+      <td>"U4"</td>
+      <td>big endian<br>
+      <td>unsigned integer<br>
+      <td>4byte<br>
+    </tr>
+    <tr>
+      <td>"F4"</td>
+      <td>big endian<br>
+      <td>single-precision real<br>
+      <td>4byte<br>
+    </tr>
+    <tr>
+      <td>"F8"</td>
+      <td>big endian<br>
+      <td>double-precision real<br>
+      <td>8byte<br>
+    </tr>
+    <tr>
+      <td>"s1"</td>
+      <td>little endian<br>
+      <td>signed integer<br>
+      <td>1byte<br>
+    </tr>
+    <tr>
+      <td>"s2"</td>
+      <td>little endian<br>
+      <td>signed integer<br>
+      <td>2byte<br>
+    </tr>
+    <tr>
+      <td>"s4"</td>
+      <td>little endian<br>
+      <td>signed integer<br>
+      <td>4byte<br>
+    </tr>
+    <tr>
+      <td>"u1"</td>
+      <td>little endian<br>
+      <td>unsigned integer<br>
+      <td>1byte<br>
+    </tr>
+    <tr>
+      <td>"u2"</td>
+      <td>little endian<br>
+      <td>unsigned integer<br>
+      <td>2byte<br>
+    </tr>
+    <tr>
+      <td>"u4"</td>
+      <td>little endian<br>
+      <td>unsigned integer<br>
+      <td>4byte<br>
+    </tr>
+    <tr>
+      <td>"f4"</td>
+      <td>little endian<br>
+      <td>single-precision real<br>
+      <td>4byte<br>
+    </tr>
+    <tr>
+      <td>"f8"</td>
+      <td>little endian<br>
+      <td>double-precision real<br>
+      <td>8byte<br>
+    </tr>
+	 <tr>
+
+  </tbody>
+</table># 7.4.2 BBuf member function
+
+# append
+
+### Description
+
+Appends data in the specified format to a binary buffer.
+
+
+### Syntax
+
+`{BBuf object}.append {format},{data}`
+
+
+### Parameters
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Name</th>
+      <th style="text-align:left">Meaning</th>
+      <th style="text-align:left">Misc.</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">format</td>
+      <td style="text-align:left">binary format<sup>*</sup><br>
+      e.g. "U4", "s2"
+      </td>
+      <td style="text-align:left">string</td>
+    </tr>
+	 <tr>
+      <td style="text-align:left">data</td>
+      <td style="text-align:left">
+        data to append in binary buffer
+      </td>
+      <td style="text-align:left">primitive data,<br>or 1-D array of primitive data</td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+
+* See [7.4.2 Supported format](../2-format.md).
+* If data of a different type from the specified format, automatic type casting is performed implicitly. For example, if the format is "s2" (2-byte integer) and the data is a float value of 3.7, the integer value 3(0x0003) is appended to the buffer.
+Conversely, if format is "f4" (4-byte real number) and data is an integer value of -3, the real value -3.0(0xC0400000) is stored in the buffer.
+* If the format is unsigned and the data is a negative number, an error occurs, so be careful.
+
+<br>
+
+
+### Return value
+
+The number of data appended.
+
+
+### Example
+
+```python
+var bbuf=enet.BBuf()
+bbuf.append("F8", 9.80665)
+bbuf.append("U4", [2, 3, 5, 7, 11, 13])
+```
+# clear
+
+### Description
+
+Delete all data stored in the binary buffer.
+
+
+### Syntax
+
+`{BBuf object}.clear()`
+
+
+### Parameters
+
+None
+
+
+### Example
+
+```python
+var bbuf=enet.BBuf()
+bbuf.append("s4", 20)
+bbuf.append("s4", -10)
+bbuf.clear()
+```
+# nbyte
+
+### Syntax
+
+`{BBuf object}.nbyte`
+
+
+### Return value
+
+The number of bytes of binary data
+
+
+### Example
+
+```python
+var bbuf=enet.BBuf()
+bbuf.append("s4", 20)
+bbuf.append("s4", -10)
+print bbuf.nbyte() # "8"
+```
+# read_num
+
+### Description
+
+Reads a numeric value from a specified position in the binary buffer, and returns it.
+
+
+### Syntax
+
+`{BBuf object}.read_num {format},{offset}`
+
+
+### Parameters
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Name</th>
+      <th style="text-align:left">Meaning</th>
+      <th style="text-align:left">Misc.</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">format</td>
+      <td style="text-align:left">binary data format<sup>*</sup><br>
+      e.g. "U4", "s2"<br>
+      </td>
+      <td style="text-align:left">string</td>
+    </tr>
+	 <tr>
+      <td style="text-align:left">offset</td>
+      <td style="text-align:left">
+        position at which to read the data (0-based byte offset)
+      </td>
+      <td style="text-align:left">integer</td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+\* Refer to [7.4.2 Supported format](../2-format.md).
+<br>
+<br>
+
+### Return value
+
+* Numeric value read
+* If an error occurs when reading the data type, it returns 0.
+
+
+### Example
+
+```python
+var bbuf=enet.BBuf()
+bbuf.append("F8", 9.80665)
+bbuf.append("U4", [2, 3, 5, 7, 11, 13])
+print bbuf.read_num("F8", 0) # "9.80665"
+print bbuf.read_num("U4", 12) # "3"
+print bbuf.read_num("U4", 16) # "5"
+```
+# read_nums
+
+### Description
+
+Reads a specified number of numeric values from a specified position in the binary buffer and returns them in array format.
+
+
+### Syntax
+
+`{BBuf object}.read_num  {format},{offset},{n.item}`
+
+
+### Parameters
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Name</th>
+      <th style="text-align:left">Meaning</th>
+      <th style="text-align:left">Misc.</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">format</td>
+      <td style="text-align:left">
+			binary data format<sup>*</sup><br>
+      e.g. "U4", "s2"
+      </td>
+      <td style="text-align:left">string</td>
+    </tr>
+	  <tr>
+      <td style="text-align:left">offset</td>
+      <td style="text-align:left">
+        position at which to read the data (0-based byte offset)
+      </td>
+      <td style="text-align:left">integer</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">n.item</td>
+      <td style="text-align:left">
+        the number of data to read
+      </td>
+      <td style="text-align:left">integer</td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+
+\* Refer to [7.4.2 Supported format](../2-format.md).
+<br>
+<br>
+
+
+### Return value
+
+* Array of numeric values read.
+* If the number of data in the buffer is less than the specified number, only reads as many as there are.
+* Returns an empty array if an error occurs when reading the data type.
+
+
+### Example
+
+```python
+var bbuf=enet.BBuf()
+bbuf.append("F8", 9.80665)
+bbuf.append("U4", [2, 3, 5, 7, 11, 13])
+print bbuf.read_nums("U4", 12, 3) # "[3, 5, 7]"
+print bbuf.read_num("U4", 12, 6) # "[3, 5, 7, 11, 13]"
+```
+# 8. Alias
 
 Alias is a name that can be used as an alternative to the notation of a variable or a property of an object.
 
@@ -3452,4 +4654,282 @@ global pie=3.141592 # (O)
 global unit="mm/s" # (O)
 
 #alias pie_2 = pie*pie # (X)
+```
+# 9. File
+
+# 9.1 File System
+
+In the MAIN module's file system of the Hi6 controller, instructions for creating, copying, and deleting directories and files are described.# 9.1.1 mkdir
+
+mkdir is the procedure making directory.
+
+### Description
+
+Creates a directory for the specified path in the MAIN module.
+
+- You cannot create a directory on Teach Pendant or USB memory.
+- If a directory with an intermediate path does not exist, it creates the intermediate path.
+
+### Syntax
+
+mkdir &lt;path&gt;
+
+### Parameters
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Parameter</th>
+      <th style="text-align:left">Description</th>
+      <th style="text-align:left">Remarks</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">path</td>
+      <td style="text-align:left">
+        The directory path to create.<br>
+        Do not put / at the beginning.
+      </td>
+      <td style="text-align:left">string expression</td>
+    </tr>
+  </tbody>
+</table>
+
+### Sample
+
+```python
+mkdir "work/data1"
+```
+
+![](../../_assets/mkdir.png)
+# 9.1.2 copyfile
+
+A copyfile is a procedure that requests to copy a directory or file.
+
+### Description
+
+Copies a directory or file of specified source path to the specified destination pathname.
+
+- Can only be performed within the MAIN module, not Teach Pendant or USB memory.
+- If a directory of the intermediate path of the destination pathname does not exist, it creates the intermediate path.
+- Overwrite the destination directory or file if it already exists.
+- All subdirectories in the directory are also copied.
+- wildcard is not supported.
+
+- Because large files or entire directories may be copied, it is asynchronously performed in the background to avoid loss of tact time due to waiting during copying. In other words, when the copyfile statement is performed, starting the copy in the background task, immediately proceed with the next statement. For example, you can request a copy and execute the move statements. The successful completion of the copy can be determined by reading the values of the result-variable.
+
+- You cannot request another copy or deletion until one copy or deletion is complete.
+
+
+### Syntax
+
+copyfile &lt;result-variable&gt;,&lt;source pathname&gt;,&lt;destination pathname&gt;
+
+### Parameters
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Parameter</th>
+      <th style="text-align:left">Description</th>
+      <th style="text-align:left">Remarks</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+      <td style="text-align:left">result-variable</td>
+      <td style="text-align:left">
+        result of background execution<br>
+        <ul>
+        <li>1: Successfully completed.</li>
+        <li>0: Copy in progress.</li>
+        <li>-1: Source pathname is invalid.</li>
+        <li>-2: Failed to clear temporary path while copying directory.</li>
+        <li>-3: Failed to clear existing destination path while copying directory.</li>
+        <li>-4: Failed to move from temporary path to destination path while copying directory.</li>
+        <li>-11: Failed to copy file.</li>
+        </ul>
+      </td>
+      <td style="text-align:left">variable</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">source pathname</td>
+      <td style="text-align:left">
+        directory's path to copy,<br>
+        or file's pathname to copy
+      </td>
+      <td style="text-align:left">string expression</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">string expression</td>
+      <td style="text-align:left">
+        directory's path to be created,<br>
+        or the file's pathname to be created by copying.
+      </td>
+      <td style="text-align:left">string expression</td>
+    </tr>
+  </tbody>
+</table>
+
+### Sample
+
+```python
+   var res
+   copyfile res,"project/vars","work/vars_1"
+   wait res==1,8,*timeout
+   copyfile res,"work/sub5.job","project/jobs/0005_sub.job"
+   wait res==1,4,*timeout
+   call 5
+   end
+   *timeout
+   print "copyfile failed"
+   end
+```
+
+![](../../_assets/copyfile.png)
+
+# 9.1.3 delfile
+
+A delfile is a procedure that requests to delete a directory or file.
+
+### Description
+
+Deletes a directory or file in the specified path.
+
+- Can only be performed within the MAIN module, not Teach Pendant or USB memory.
+- All subdirectories in the directory are also deleted.
+- If the specified pathname does not exist, it ends with success.
+- wildcard is not supported.
+
+- Because large files or entire directories may be deleted, it is asynchronously performed in the background to avoid loss of tact time due to waiting during deletion. The successful completion of the deletion can be determined by reading the values of the result-variable.
+
+- You cannot request another copy or deletion until one copy or deletion is complete.
+
+
+### Syntax
+
+delfile &lt;result-variable&gt;,&lt;pathname&gt;
+
+### Parameters
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Parameter</th>
+      <th style="text-align:left">Description</th>
+      <th style="text-align:left">Remarks</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+      <td style="text-align:left">result-variable</td>
+      <td style="text-align:left">
+        result of background execution<br>
+        <ul>
+        <li>1: Successfully completed.</li>
+        <li>0: Deletion in progress.</li>
+        <li>-1: Failed to delete directory.</li>
+        <li>-11: Failed to delete file.</li>
+        </ul>
+      </td>
+      <td style="text-align:left">variable</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">pathname</td>
+      <td style="text-align:left">
+        directory's path to delete,<br>
+        or file's pathname to delete
+      </td>
+      <td style="text-align:left">string expression</td>
+    </tr>
+  </tbody>
+</table>
+
+### Sample
+
+```python
+   var res
+   delfile res,"work/vars_1"
+   wait res==1,8,*timeout
+   copyfile res,"project/jobs/0005_sub.job"
+   wait res==1,4,*timeout
+   end
+   *timeout
+   print "delfile failed"
+   end
+```
+# 9.2 Load/Save
+
+Explains the statements that load/save files into/from the memory of the Hi6 controller's MAIN module.# 9.2.1 load_job
+
+Statement that reads changes of the MAIN module's project/jobs/ folder to update the memory.
+
+
+### Description
+
+Load the jobs in the project/jobs/ folder of the MAIN module into new memory.
+
+If you copy or overwrite .job files into the jobs/ folder with FTP or copyfile commands, you must perform this statement to reflect the memory to be able to select or call the job.
+
+- CAUTION: Jobs in memory that do not exist in the jobs/ folder will be deleted.
+- If the file has different modified time, it is loaded.
+- Files that do not exist in memory are loaded.
+
+- Since large capacity .jobs can be loaded, it is performed asynchronously in the background to avoid loss of tact time due to load. The successful completion of the load can be determined by reading the values of the resulting variables.
+- You cannot request another load until the load is finished.
+
+
+
+### Syntax
+
+load_job &lt;result-variable&gt;,"*"
+
+### Parameters
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Parameter</th>
+      <th style="text-align:left">Description</th>
+      <th style="text-align:left">Remarks</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+      <td style="text-align:left">result-variable</td>
+      <td style="text-align:left">
+        result of background execution<br>
+        <ul>
+        <li>1: Successfully completed.</li>
+        <li>0: Load in progress.</li>
+        </ul>
+      </td>
+      <td style="text-align:left">variable</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">job filename</td>
+      <td style="text-align:left">
+        You can only use the "*" argument, which means all files.
+      </td>
+      <td style="text-align:left">string expression</td>
+    </tr>
+  </tbody>
+</table>
+
+### Sample
+
+```python
+     var res
+     copyfile res,"project/vars","work/vars_1"
+     wait res==1,8,*timeout
+     copyfile res,"work/sub5.job","project/jobs/0005_sub.job"
+     wait res==1,4,*timeout
+     load_job res,"*"
+     wait res==1,4,*timeout
+     call 5
+     end
+     *timeout
+     print "copyfile failed"
+     end
 ```
