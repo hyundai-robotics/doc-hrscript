@@ -1050,7 +1050,7 @@ var str="hello, world"가 실행된 상태에서의 예
         <br />
       </td>
       <td style="text-align:left">로봇의 지령값을 축좌표계로
-        보관하는 포즈<sup>*</sup></td>
+        보관하는 포즈*</td>
     </tr>
     <tr>
       <td style="text-align:left">
@@ -2466,7 +2466,7 @@ var 배열변수명 = Array(3,2,4)	# [3][2][4]개의 3차원 배열 생성
 
 
 
-# 4.4 참조 전달\(call-by-reference\)와 값 전달\(call-by-value\)
+# 4.4 참조 전달\(call-by-reference\)과 값 전달\(call-by-value\)
 
 3.4절의 call문과 jump문 설명에서 형식 매개변수와 실 매개변수의 개념을 배운 바 있습니다. 실 매개변수를 서브 프로그램으로 전달했는데, 서브 프로그램이 이 변수의 값을 변경한 후 종료했다면 변경된 내용이 메인 프로그램에 반영되어 있을까요?
 
@@ -2663,7 +2663,7 @@ var 배열변수명 = Array(3,2,4)	# [3][2][4]개의 3차원 배열 생성
 포즈는 생성자 함수 Pose\( \)를 호출하여 생성합니다. 함수 매개변수들은 모두 위치 매개변수입니다. crd와 cfg는 문자열형이고, 나머지는 모두 숫자형입니다.
 
 {% hint style="info" %}
-cfg요소는 로봇 자세 \(configuration\)를 지정합니다. 자세한 내용은 Hi6 로봇제어기 조작설명서의 "[2.3.2.2 베이스 및 로봇 기록 좌표](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean/2-operation/3-step/2-step-pose-modify/2-base-robot-crd-sys)"를 참조하십시오.
+cfg요소는 로봇 자세 \(configuration\)를 지정합니다. 자세한 내용은 Hi6 로봇제어기 조작설명서의 "[2.3.2.2 베이스 및 로봇 기록 좌표](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-tp630/2-operation/3-step/2-step-pose-modify/2-base-robot-crd-sys)"를 참조하십시오.
 
 {% endhint %}
 
@@ -4095,14 +4095,16 @@ UDP peer-to-peer (1:1통신), 혹은 TCP client 예제 프로그램을 문자열
 
 다음과 같은 순서로 수행합니다.
 
-1. enet 모듈 import 후, 생성자로 ENet 객체 생성.
+1. `enet` 모듈 import 후, 생성자로 `ENet` 객체 생성.
 2. 멤버변수로 IP주소와 port번호를 설정.
-3. open 멤버 프로시져로 ethernet socket 열고, state\(\) 멤버변수로 상태 확인.  
-\(TCP통신인 경우에는 open 후 connect 프로시져도 수행해야 함.\)
-4. send, recv 멤버 프로시져로 송수신 수행.
-5. close 멤버 프로시져로 통신 연결 닫기.
+3. `open` 멤버 프로시져로 ethernet socket 열고, `state()` 멤버변수로 상태 확인.  
+\(TCP통신인 경우에는 `open` 후 `connect` 프로시져도 수행해야 함.\)
+4. `send`, `recv` 멤버 프로시져로 송수신 수행.
+5. `close` 멤버 프로시져로 통신 연결 닫기.
 
+<br>
 
+### UDP peer-to-peer
 ```python
      # 1. enet 모듈 import 후, 생성자로 ENet 객체 생성
      import enet
@@ -4110,13 +4112,13 @@ UDP peer-to-peer (1:1통신), 혹은 TCP client 예제 프로그램을 문자열
 
      # 2. IP주소와 port번호 설정
      cli.ip_addr="192.168.1.172" # remote (상대방) IP address
-     cli.lport=51001 # local (자신) port : UDP peer-to-peer 통신에서만 필요
+     cli.lport=51001 # local (자신) port
      cli.rport=51002 # remote (상대방) port 
      # (port no. 49152–65535 contains dynamic or private ports)
 
      # 3. ethernet socket 열기
      cli.open
-     cli.connect # 서버에 접속. (TCP client 통신에서만 필요)
+
      print cli.state() # 1이면 정상
 
      # --------------------------------
@@ -4143,25 +4145,10 @@ UDP peer-to-peer (1:1통신), 혹은 TCP client 예제 프로그램을 문자열
      cli.close
      end
 ```
-# 7.1.2 peer-to-peer, client 예제 - 바이너리 송수신
+<br>
 
-바이너리 송수신은 BBuf (Binary Buffer) 객체를 통해 수행합니다.  
-(송수신 부분만 다르고, 나머지는 문자열 송수신과 동일합니다.)
-
-송신
-
-1. enet.BBuf 객체 생성.
-2. 원하는 바이너리 데이터를 BBuf.append( ) 함수로 BBuf 객체에 추가.
-3. ENet.send_bbuf( ) 함수로 BBuf 객체를 송신.
-
-
-수신
-
-1. enet.BBuf 객체 생성.
-2. ENet.recv_bbuf( ) 함수로 BBuf 객체에 바이너리 데이터를 수신
-3. 원하는 바이너리 데이터를 BBuf.read_nums( ) 함수로 BBuf 객체로부터 읽기.
-
-
+### TCP client
+(peer-to-peer와는 `lport`와 `connect` 부분만 다름.)
 ```python
      # 1. enet 모듈 import 후, 생성자로 ENet 객체 생성
      import enet
@@ -4169,13 +4156,74 @@ UDP peer-to-peer (1:1통신), 혹은 TCP client 예제 프로그램을 문자열
 
      # 2. IP주소와 port번호 설정
      cli.ip_addr="192.168.1.172" # remote (상대방) IP address
-     cli.lport=51001 # local (자신) port : UDP 통신에서만 필요
+     cli.lport=0 # local (자신) port; 무작위
      cli.rport=51002 # remote (상대방) port 
      # (port no. 49152–65535 contains dynamic or private ports)
 
      # 3. ethernet socket 열기
      cli.open
-     cli.connect # 서버에 접속. (TCP client 통신에서만 필요)
+     cli.connect # 서버에 접속.
+     print cli.state() # 1이면 정상
+
+     # --------------------------------
+     # 4-1. string 송신
+     cli.send "hello, peer.\n"
+
+     # 4-2. string 수신
+     #     (5초간 수신 없으면 *TimeOut 레이블로 jump)
+     var msg
+     cli.recv 5000, *TimeOut
+     var msg=result() # 수신된 문자열
+     print msg
+     delay 1.0
+     # --------------------------------
+
+     # 5. ethernet socket 닫기
+     cli.close
+     print cli.state() # 0이면 정상
+     delay 1.5
+     end
+
+     *TimeOut
+     print "time out!"
+     cli.close
+     end
+```# 7.1.2 peer-to-peer, client 예제 - 바이너리 송수신
+
+바이너리 송수신은 `BBuf` (Binary Buffer) 객체를 통해 수행합니다.  
+(송수신 부분만 다르고, 나머지는 문자열 송수신과 동일합니다.)
+
+송신
+
+1. `enet.BBuf` 객체 생성.
+2. 원하는 바이너리 데이터를 `BBuf.append()` 함수로 `BBuf` 객체에 추가.
+3. `ENet.send_bbuf()` 함수로 BBuf 객체를 송신.
+
+
+수신
+
+1. `enet.BBuf` 객체 생성.
+2. `ENet.recv_bbuf()` 함수로 BBuf 객체에 바이너리 데이터를 수신
+3. 원하는 바이너리 데이터를 `BBuf.read_nums()` 함수로 `BBuf` 객체로부터 읽기.
+
+
+<br>
+
+### UDP peer-to-peer
+```python
+     # 1. enet 모듈 import 후, 생성자로 ENet 객체 생성
+     import enet
+     var cli=enet.ENet() # TCP 통신인 경우, ENet("tcp")
+
+     # 2. IP주소와 port번호 설정
+     cli.ip_addr="192.168.1.172" # remote (상대방) IP address
+     cli.lport=51001 # local (자신) port
+     cli.rport=51002 # remote (상대방) port 
+     # (port no. 49152–65535 contains dynamic or private ports)
+
+     # 3. ethernet socket 열기
+     cli.open
+     
      print cli.state() # 1이면 정상
 
      # 송신 --------------------------------
@@ -4190,6 +4238,7 @@ UDP peer-to-peer (1:1통신), 혹은 TCP client 예제 프로그램을 문자열
      bbuf.append("s4", arr) # little endian signed-4byte data 추가
 
      # 4-3. BBuf 객체를 송신
+     var ret
      ret=cli.send_bbuf(bbuf)
 
      # 수신 --------------------------------
@@ -4217,25 +4266,84 @@ UDP peer-to-peer (1:1통신), 혹은 TCP client 예제 프로그램을 문자열
      end
 ```
 
+### TCP client
+(peer-to-peer와는 `lport`와 `connect` 부분만 다름.)
+```python
+     # 1. enet 모듈 import 후, 생성자로 ENet 객체 생성
+     import enet
+     var cli=enet.ENet() # TCP 통신인 경우, ENet("tcp")
+
+     # 2. IP주소와 port번호 설정
+     cli.ip_addr="192.168.1.172" # remote (상대방) IP address
+     cli.lport=0 # local (자신) port; 무작위
+     cli.rport=51002 # remote (상대방) port 
+     # (port no. 49152–65535 contains dynamic or private ports)
+
+     # 3. ethernet socket 열기
+     cli.open
+     cli.connect # 서버에 접속.
+     print cli.state() # 1이면 정상
+
+     # 송신 --------------------------------
+     # 4-1. BBuf 객체 생성
+     var bbuf=enet.BBuf()
+
+     # (sample binary data)
+     var arr=[ -3, 0, 1 ]
+     
+     # 4-2. binary data를 BBuf 객체에 추가.
+     bbuf.clear()
+     bbuf.append("s4", arr) # little endian signed-4byte data 추가
+
+     # 4-3. BBuf 객체를 송신
+     var ret
+     ret=cli.send_bbuf(bbuf)
+
+     # 수신 --------------------------------
+     # 4-1. BBuf 객체 생성
+     var bbuf2=enet.BBuf()
+     
+     # 4-2. BBuf 객체에 binary data를 수신
+     #     (3초간 수신 없으면 *TimeOut 레이블로 jump)
+     cli.recv_bbuf bbuf2,3000,*TimeOut
+
+     # 4-3. binary data를 BBuf 객체로부터 읽기.
+     var nums=bbuf2.read_nums("U2", 0, 3) # big-endian unsigned-2byte data 3개 읽기
+     print nums
+     # --------------------------------
+
+     # 5. ethernet socket 닫기
+     cli.close
+     print cli.state() # 0이면 정상
+     delay 1.5
+     end
+
+     *TimeOut
+     print "time out!"
+     cli.close
+     end
+```
+
+
 * "s4"나 "U2" 같은 문자열 인수가 endian 방식, signed/unsigned, byte수 같은 binary data 형식을 결정합니다. 자세한 내용은 [7.4.2 지원 형식 (format)](../4-bbuf/2-format.md)을 참조하십시오.# 7.2 TCP server 예제
 
 TCP server 예제 프로그램을 문자열과 바이너리 송수신 방식으로 나누어 설명합니다.
 
-TCP client가 connect() 함수로 server에 접속하는 반면, TCP server는 listen() 함수를 수행한 후, accept() 함수로 client의 connect를 기다립니다.  
+TCP client가 `connect()` 함수로 server에 접속하는 반면, TCP server는 `listen()` 함수를 수행한 후, `accept()` 함수로 client의 connect를 기다립니다.  
 
 * 동시에 1개의 client 접속만 허용합니다.
 * remote port는 지정할 필요 없습니다.
 
 나머지 동작들은 client와 동일합니다.
-# 7.2.1 ethernet TCP server - 문자열 송수신
+# 7.2.1 ethernet TCP server 예제 - 문자열 송수신
 
 다음과 같은 순서로 수행합니다.
 
-1. enet 모듈 import 후, 생성자로 ENet 객체 생성.
+1. `enet` 모듈 import 후, 생성자로 ENet 객체 생성.
 2. 멤버변수로 IP주소와 port번호를 설정. (remote port 설정은 필요없음.)
-3. open 멤버 프로시져로 ethernet socket 열고, listen(), accept() 함수를 수행함. state\(\) 멤버변수로 상태 확인.
-4. send, recv 멤버 프로시져로 송수신 수행.
-5. close 멤버 프로시져로 통신 연결 닫기.
+3. `open` 멤버 프로시져로 ethernet socket 열고, `listen()`, `accept()` 함수를 수행함. `state()` 멤버변수로 상태 확인.
+4. `send`, `recv` 멤버 프로시져로 송수신 수행.
+5. `close` 멤버 프로시져로 통신 연결 닫기.
 
 
 ```python
@@ -4278,23 +4386,23 @@ TCP client가 connect() 함수로 server에 접속하는 반면, TCP server는 l
      svr.close
      end
 ```
-# 7.2.2 ethernet TCP server - 바이너리 송수신
+# 7.2.2 ethernet TCP server 예제 - 바이너리 송수신
 
 바이너리 송수신은 BBuf (Binary Buffer) 객체를 통해 수행합니다.  
 (송수신 부분만 다르고, 나머지는 문자열 송수신과 동일합니다.)
 
 송신
 
-1. enet.BBuf 객체 생성.
-2. 원하는 바이너리 데이터를 BBuf.append( ) 함수로 BBuf 객체에 추가.
-3. ENet.send_bbuf( ) 함수로 BBuf 객체를 송신.
+1. `enet.BBuf` 객체 생성.
+2. 원하는 바이너리 데이터를 `BBuf.append()` 함수로 `BBuf` 객체에 추가.
+3. `ENet.send_bbuf()` 함수로 BBuf 객체를 송신.
 
 
 수신
 
-1. enet.BBuf 객체 생성.
-2. ENet.recv_bbuf( ) 함수로 BBuf 객체에 바이너리 데이터를 수신
-3. 원하는 바이너리 데이터를 BBuf.read_nums( ) 함수로 BBuf 객체로부터 읽기.
+1. `enet.BBuf` 객체 생성.
+2. `ENet.recv_bbuf()` 함수로 `BBuf` 객체에 바이너리 데이터를 수신
+3. 원하는 바이너리 데이터를 `BBuf.read_nums()` 함수로 `BBuf` 객체로부터 읽기.
 
 
 ```python
@@ -4356,17 +4464,17 @@ TCP client가 connect() 함수로 server에 접속하는 반면, TCP server는 l
 * "s4"나 "U2" 같은 문자열 인수가 endian 방식, signed/unsigned, byte수 같은 binary data 형식을 결정합니다. 자세한 내용은 [7.4.2 지원 형식 (format)](../4-bbuf/2-format.md)을 참조하십시오.
 # 7.3 ENet 객체
 
-ENet 객체는 이더넷 통신을 위한 socket 인터페이스를 제공합니다.  
+`ENet` 객체는 이더넷 통신을 위한 socket 인터페이스를 제공합니다.  
 사용법은 앞 절의 예제를 참고하십시오.
 # 7.3.1 ENet 생성자
 
 ### 설명
 
-이더넷 객체를 생성합니다. 참조를 리턴합니다.
+이더넷 객체를 생성합니다. 생성된 객체의 참조를 리턴합니다.
 
 ### 문법
 
-ENet\({프로토콜}\)
+`ENet({프로토콜})`
 
 ### 파라미터
 
@@ -4414,64 +4522,29 @@ var tcp = ENet("tcp")
       <td style="text-align:left">ip_addr</td>
       <td style="text-align:left">문자열</td>
       <td style="text-align:left">
-        <p>읽기/쓰기 가능.
-          <br />
-        </p>
-        <p>통신상대의 IP 주소를 지정하거나
-          얻습니다.
-          <br />
-        </p>
-        <p>open문 호출 시에만 적용됩니다.
-          <br
-          />
-        </p>
+        읽기/쓰기 가능.<br>
+        통신상대의 IP 주소를 지정하거나 얻습니다.<br>
+        open문 호출 시에만 적용됩니다.
       </td>
     </tr>
     <tr>
       <td style="text-align:left">rport</td>
       <td style="text-align:left">숫자</td>
       <td style="text-align:left">
-        <p>읽기/쓰기 가능.
-          <br />
-        </p>
-        <p>통신상대(Remote)의 포트번호를
-          지정하거나 얻습니다.
-          <br
-          />
-        </p>
-        <p>open문 호출 시에만 적용됩니다.
-          <br
-          />
-        </p>
+        읽기/쓰기 가능.<br>
+        통신상대(Remote)의 포트번호를 지정하거나 얻습니다.<br>
+        open문 호출 시에만 적용됩니다.
       </td>
     </tr>
     <tr>
       <td style="text-align:left">lport</td>
       <td style="text-align:left">숫자</td>
       <td style="text-align:left">
-        <p>읽기/쓰기 가능.
-          <br />
-        </p>
-        <p>UDP 통신에서 사용되며,
-          TCP 통신에서는 무시됩니다.
-          <br
-          />
-        </p>
-        <p>제어기 자신의(Local)의 포트번호를
-          지정하거나 얻습니다.
-          <br
-          />
-        </p>
-        <p>디폴트 값은 0이며(지정하지
-          않은 경우), 이 경우에는
-          자신의 포트번호는 자동
-          생성됩니다.
-          <br />
-        </p>
-        <p>open문 호출 시에만 적용됩니다.
-          <br
-          />
-        </p>
+        읽기/쓰기 가능.<br>
+        UDP peer-to-peer 통신과 TCP server에서만 사용되며, TCP client에서는 무시됩니다.<br>
+        제어기 자신의(Local)의 포트번호를 지정하거나 얻습니다.<br>
+        디폴트 값은 0이며(지정하지 않은 경우), 이 경우에는 자신의 포트번호는 자동 생성됩니다.<br>
+        open문 호출 시에만 적용됩니다.
       </td>
     </tr>
   </tbody>
@@ -4483,7 +4556,7 @@ var tcp = ENet("tcp")
   
   ```python
   var nitem=obj.func(param1,param2) # (O) ; 괄호 필수
-  var nitem=enet.recv bbuf,5000,*TimeOut # (X) ; 문법 오류
+  var nitem=obj.func param1,param2 # (X) ; 문법 오류
   ```
 
 * 리턴값을 받지 않을 때는 괄호를 생략할 수 있습니다.  
@@ -4500,24 +4573,99 @@ UDP peer-to-peer 통신에서는 사용되지 않습니다.
 
 ### 문법
 
-{ENet객체}.accept
+`{ENet객체}.accept [{대기시간}][,{퇴피주소}]`
+
+### 파라미터
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">항목</th>
+      <th style="text-align:left">의미</th>
+      <th style="text-align:left">기타</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>대기시간</td>
+      <td>
+        timeout 시간. 경과하면 다음 명령문, 혹은 퇴피스텝으로 진행.<br>
+        지정하지 않으면 무한 대기.
+      </td>
+      <td>msec</td>
+    </tr>
+    <tr>
+      <td>퇴피주소</td>
+      <td>
+        timeout 일 때 분기할 주소.<br>
+        지정하지 않으면 다음 주소로 진행.
+      </td>
+      <td>주소</td>
+    </tr>
+  </tbody>
+</table>
+
+
+### 리턴값
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">값</th>
+      <th style="text-align:left">의미</th>
+      <th style="text-align:left">기타</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>
+        성공 (완료)
+      </td>
+      <td></td>
+    </tr>  
+    <tr>
+      <td>0</td>
+      <td>
+        대기 중
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>-1</td>
+      <td>timeout</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>-2</td>
+      <td>error</td>
+      <td></td>
+    </tr>    
+  </tbody>
+</table>
+
 
 ### 사용 예
 
 ```python
 enet_to_sensor.listen
-enet_to_sensor.accept
+var ret=enet_to_sensor.accept(5000)
+```
+
+```python
+enet_to_sensor.listen
+enet_to_sensor.accept 5000,*TimeOut
 ```
 
 # close
 
 ### 설명
 
-이더넷 UDP 통신을 위한 연결을 닫습니다.
+이더넷 TCP 혹은 UDP 통신을 위한 연결을 닫습니다.
 
 ### 문법
 
-{ENet객체}.close
+`{ENet객체}.close`
 
 ### 사용 예
 
@@ -4534,15 +4682,88 @@ UDP peer-to-peer 통신에서는 사용되지 않습니다.
 
 ### 문법
 
-{ENet객체}.connect
+`{ENet객체}.connect [{대기시간}] [, {퇴피주소}]`
+
+
+### 파라미터
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">항목</th>
+      <th style="text-align:left">의미</th>
+      <th style="text-align:left">기타</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>대기시간</td>
+      <td>
+        timeout 시간. 경과하면 다음 명령문, 혹은 퇴피스텝으로 진행.<br>
+        지정하지 않으면 무한 대기.
+      </td>
+      <td>msec</td>
+    </tr>
+    <tr>
+      <td>퇴피주소</td>
+      <td>
+        timeout 일 때 분기할 주소.<br>
+        지정하지 않으면 다음 주소로 진행.
+      </td>
+      <td>주소</td>
+    </tr>
+  </tbody>
+</table>
+
+
+### 리턴값
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">값</th>
+      <th style="text-align:left">의미</th>
+      <th style="text-align:left">기타</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>
+        성공
+      </td>
+      <td></td>
+    </tr>  
+    <tr>
+      <td>0</td>
+      <td>
+        대기 중
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>-1</td>
+      <td>timeout</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>-2</td>
+      <td>error</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
 
 ### 사용 예
 
 ```python
-enet_to_sensor.connect
+var ret=enet_to_sensor.connect(5000)
 ```
 
-# listen
+```python
+enet_to_sensor.connect 5000,*TimeOut
+```# listen
 
 ### 설명
 
@@ -4551,24 +4772,89 @@ UDP peer-to-peer 통신에서는 사용되지 않습니다.
 
 ### 문법
 
-{ENet객체}.listen
+`{ENet객체}.listen [{backlog}]`
+
+### 파라미터
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">항목</th>
+      <th style="text-align:left">의미</th>
+      <th style="text-align:left">기타</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>backlog</td>
+      <td>
+        accept 되지 않은 연결의 허용 개수<br>
+        지정하지 않으면 적절한 값이 선택됩니다.
+      </td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+
+### 리턴값
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">값</th>
+      <th style="text-align:left">의미</th>
+      <th style="text-align:left">기타</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>
+        성공
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>-1</td>
+      <td>에러</td>
+      <td></td>
+    </tr>	 
+  </tbody>
+</table>
+
 
 ### 사용 예
 
 ```python
 enet_to_sensor.listen
-enet_to_sensor.accept
+enet_to_sensor.accept 5000,*TimeOut
+```
+# open
+
+### 설명
+
+이더넷 TCP 혹은 UDP 통신을 위한 연결을 엽니다.
+
+### 문법
+
+`{ENet객체}.open`
+
+### 사용 예
+
+```python
+enet_to_sensor.open
 ```
 
 # recv
 
 ### 설명
 
-설정된 이더넷 객체로 문자열을 수신합니다. 수신된 문자열은 리턴값으로 얻을 수 있습니다.
+이더넷 객체로 문자열을 수신합니다. 수신된 문자열은 리턴값이나 `result()` 함수로 얻을 수 있습니다.
 
 ### 문법
 
-{ENet객체}.recv \[{대기시간}\] \[, {퇴피주소}\]
+`{ENet객체}.recv [{대기시간}][,{퇴피주소}]`
 
 
 
@@ -4586,8 +4872,8 @@ enet_to_sensor.accept
     <tr>
       <td>대기시간</td>
       <td>
-        timeout 시간. 경과하면 다음 명령문, 혹은 퇴피스텝으로 진행한다.<br>
-        지정하지 않으면 무한 대기한다.
+        timeout 시간. 경과하면 다음 명령문, 혹은 퇴피스텝으로 진행.<br>
+        지정하지 않으면 무한 대기.
       </td>
       <td>msec</td>
     </tr>
@@ -4595,7 +4881,7 @@ enet_to_sensor.accept
       <td>퇴피주소</td>
       <td>
         timeout 일 때 분기할 주소.<br>
-        지정하지 않으면 다음 주소로 진행한다.
+        지정하지 않으면 다음 주소로 진행.
       </td>
       <td>주소</td>
     </tr>
@@ -4627,7 +4913,7 @@ end
 
 ### 문법
 
-{ENet객체}.recv_bbuf {BBuf객체}\[,{대기시간}\]\[, {퇴피주소}\]
+`{ENet객체}.recv_bbuf {BBuf객체}[,{대기시간}][,{퇴피주소}]`
 
 
 
@@ -4645,7 +4931,7 @@ end
     <tr>
       <td>BBuf객체</td>
       <td>
-        수신한 바이너리 데이터를 전달받을 BBuf객체
+        수신한 바이너리 데이터를 저장 할 BBuf객체
       </td>
       <td></td>
     </tr>
@@ -4694,7 +4980,7 @@ end
 
 ### 문법
 
-{ENet객체}.send {msg}
+`{ENet객체}.send {msg}`
 
 
 
@@ -4719,6 +5005,12 @@ end
   </tbody>
 </table>
 
+
+### 리턴값
+
+송신한 바이트 수
+
+
 ### 사용 예
 
 ```python
@@ -4735,7 +5027,7 @@ enet_to_sensor.send "rob:" + 10 + ", command:"+cmd, "\n"
 
 ### 문법
 
-{ENet객체}.send_bbuf {BBuf객체}
+`{ENet객체}.send_bbuf {BBuf객체}`
 
 
 
@@ -4763,7 +5055,7 @@ enet_to_sensor.send "rob:" + 10 + ", command:"+cmd, "\n"
 
 ### 리턴값
 
-송신한 데이터 개수
+송신한 바이트 수
 
 
 ### 사용 예
@@ -4781,11 +5073,11 @@ var nitem=cli.send_bbuf(bbuf)
 
 ### 설명
 
-ENet.send() 함수로 문자열을 송신할 때, 종료 null문자(terminating-null)를 붙여서 송신할 지 여부를 설정합니다. (default는 false)
+`ENet.send()` 함수로 문자열을 송신할 때, 종료 null문자(terminating-null)를 붙여서 송신할 지 여부를 설정합니다. (default는 false)
 
 ### 문법
 
-{ENet객체}.set_send_trail_null\(true|false\)
+`{ENet객체}.set_send_trail_null(true|false)`
 
 
 ### 리턴값
@@ -4808,7 +5100,7 @@ enet_to_sensor.set_send_trail_null(false)
 
 ### 문법
 
-{ENet객체}.state
+`{ENet객체}.state`
 
 
 
@@ -4827,8 +5119,8 @@ enet_to_sensor.set_send_trail_null(false)
       <td>1</td>
       <td>
         연결됨. <br>
-        (UDP일 때는 open만 해도 연결로 간주됩니다.<br>
-        TCP일 때는 open 후 listen, connect, accept도 수행되어야 연결로 간주됩니다.)
+        (UDP일 때는 `open`만 해도 연결로 간주됩니다.<br>
+        TCP일 때는 `open` 후 `listen`, `connect`, `accept`도 수행되어야 연결로 간주됩니다.)
       </td>
       <td></td>
     </tr>
@@ -4883,11 +5175,11 @@ BBuf (Binary Buffer) 객체는 이더넷 통신으로 송수신할 바이너리 
 
 ### 설명
 
-바이너리 버퍼(Binary Buffer) 객체를 생성합니다. 참조를 리턴합니다.
+바이너리 버퍼(Binary Buffer) 객체를 생성합니다. 생성된 객체의 참조를 리턴합니다.
 
 ### 문법
 
-BBuf\(\)
+`BBuf()`
 
 
 ### 리턴값
@@ -4903,7 +5195,7 @@ var bbuf = BBuf()
 
 # 7.4.2 지원 형식 (format)
 
-멤버함수인 append()나 read_num()는 인수로 형식을 지정해야 합니다.  
+멤버함수인 `append()`나 `read_num()`는 인수로 형식을 지정해야 합니다.  
 
 형식은 Signed/Unsigned/Floating-point 를 의미하는 영문자 1개와 byte 수를 의미하는 숫자 1개로 구성됩니다.<br>
 영문자가 대문자이면 big endian, 소문자이면 little endian입니다.			
@@ -5030,7 +5322,7 @@ var bbuf = BBuf()
 
 ### 문법
 
-{BBuf객체}.append {format}, {data}
+`{BBuf객체}.append {format},{data}`
 
 
 ### 파라미터
@@ -5047,7 +5339,7 @@ var bbuf = BBuf()
     <tr>
       <td style="text-align:left">format</td>
       <td style="text-align:left">
-			바이너리 데이터 형식(format)*<br>
+			바이너리 데이터 형식(format)<sup>*</sup><br>
       e.g. "U4", "s2"
       </td>
       <td style="text-align:left">문자열형</td>
@@ -5065,7 +5357,11 @@ var bbuf = BBuf()
 <br>
 
 
-\* [7.4.2 지원 형식 (format)](../2-format.md)을 참조하십시오.
+\* [7.4.2 지원 형식 (format)](../2-format.md)을 참조하십시오.  
+
+* format과 다른 type의 data를 지정하면 암시적으로 자동 형변환이 수행됩니다. 가령, format이 "s2"(2byte 정수)인데, data가 3.7이라는 float 값이었다면, buffer에는 정수값 3(0x0003)이 append 됩니다.
+반대로, format이 "f4"(4byte 실수)인데, data가 -3이라는 정수값이면, buffer에는 실수값 -3.0(0xC0400000)이 저장됩니다.  
+* format이 unsigned인데 data가 음수이면 에러가 발생하므로 주의하십시오.
 <br>
 <br>
 
@@ -5091,7 +5387,7 @@ bbuf.append("U4", [2, 3, 5, 7, 11, 13])
 
 ### 문법
 
-{BBuf객체}.clear\(\)
+`{BBuf객체}.clear()`
 
 
 ### 리턴값
@@ -5111,12 +5407,12 @@ bbuf.clear()
 
 ### 문법
 
-{BBuf객체}.nbyte
+`{BBuf객체}.nbyte`
 
 
 ### 리턴값
 
-바이터리 데이터의 크기 (byte수)
+바이너리 데이터의 크기 (byte수)
 
 
 ### 사용 예
@@ -5137,7 +5433,7 @@ print bbuf.nbyte() # "8"
 
 ### 문법
 
-{BBuf객체}.read_num {format}, {offset}
+`{BBuf객체}.read_num {format},{offset}`
 
 
 ### 파라미터
@@ -5154,7 +5450,7 @@ print bbuf.nbyte() # "8"
     <tr>
       <td style="text-align:left">format</td>
       <td style="text-align:left">
-			바이너리 데이터 형식(format)*<br>
+			바이너리 데이터 형식(format)<sup>*</sup><br>
       e.g. "U4", "s2"<br>
       </td>
       <td style="text-align:left">문자열형</td>
@@ -5200,7 +5496,7 @@ print bbuf.read_num("U4", 16) # "5"
 
 ### 문법
 
-{BBuf객체}.read_num  {format}, {offset}, {n.item}
+`{BBuf객체}.read_num  {format},{offset},{n.item}`
 
 
 ### 파라미터
@@ -5217,9 +5513,8 @@ print bbuf.read_num("U4", 16) # "5"
     <tr>
       <td style="text-align:left">format</td>
       <td style="text-align:left">
-			바이너리 데이터 형식(format)<br>
-      e.g. "U4", "s2"<br>
-			아래 지원 형식을 참조하십시오.
+			바이너리 데이터 형식(format)<sup>*</sup><br>
+      e.g. "U4", "s2"
       </td>
       <td style="text-align:left">문자열형</td>
     </tr>
@@ -5304,4 +5599,280 @@ global pie=3.141592 # (O)
 global unit="mm/s" # (O)
 
 #alias pie_2 = pie*pie # (X)
+```
+# 9 파일
+
+# 9.1 파일시스템
+
+Hi6 제어기의 MAIN 모듈 파일시스템에서, 디렉토리와 파일의 생성, 복사, 삭제를 수행하는 명령문들을 설명합니다.
+# 9.1.1 mkdir문
+
+mkdir문은 디렉토리를 생성하는 프로시져입니다.
+
+### 설명
+
+MAIN 모듈에 지정한 경로의 디렉토리를 생성합니다.
+
+- 티치펜던트나 USB메모리에는 생성할 수 없습니다.
+- 중간 경로의 디렉토리가 존재하지 않으면, 중간 경로까지 만들어줍니다.
+
+### 문법
+
+mkdir &lt;경로&gt;
+
+### 파라미터
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">항목</th>
+      <th style="text-align:left">의미</th>
+      <th style="text-align:left">기타</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">경로</td>
+      <td style="text-align:left">
+        생성할 디렉토리 경로.<br>
+        맨 앞에는 /를 붙이지 마십시오.
+      </td>
+      <td style="text-align:left">문자열식</td>
+    </tr>
+  </tbody>
+</table>
+
+### 사용 예
+
+```python
+mkdir "work/data1"
+```
+
+![](../../_assets/mkdir.png)
+
+# 9.1.2 copyfile문
+
+copyfile문은 디렉토리나 파일의 복사를 요청하는 프로시져입니다.
+
+### 설명
+
+지정한 원본 경로의 디렉토리, 혹은 파일을 지정한 대상 경로파일명으로 복사합니다.   
+
+- 티치펜던트나 USB 메모리가 아닌 MAIN 모듈 내에서만 수행할 수 있습니다.
+- 대상 경로파일명의 중간 경로의 디렉토리가 존재하지 않으면, 중간 경로까지 만들어줍니다.
+- 대상 디렉토리나 파일이 이미 존재하면 overwrite 합니다.
+- 디렉토리의 서브 디렉토리들도 모두 복사됩니다.
+- wildcard는 지원하지 않습니다.
+
+- 용량이 큰 파일이나 디렉토리 전체가 복사될 수도 있기 때문에, 복사 중 대기에 의한 택트 타임 손실이 없도록 백그라운드에서 비동기적으로 수행됩니다. 즉, copyfile 명령문이 수행되면 백그라운드 작업에서 복사를 시작하면서 즉각 다음 명령문의 수행을 진행합니다. 가령, 복사를 요청해놓고 move문들을 실행할 수 있습니다. 복사가 성공적으로 완료 되었는지는 결과변수의 값을 읽어 확인 할 수 있습니다.
+- 하나의 복사나 삭제가 끝나기 전에는 다른 복사나 삭제를 요청할 수 없습니다.
+
+
+### 문법
+
+copyfile &lt;결과변수&gt;,&lt;원본 경로파일명&gt;,&lt;대상 경로파일명&gt;
+
+### 파라미터
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">항목</th>
+      <th style="text-align:left">의미</th>
+      <th style="text-align:left">기타</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+      <td style="text-align:left">결과변수</td>
+      <td style="text-align:left">
+        백그라운드 수행 결과<br>
+        <ul>
+        <li>1: 성공적으로 완료됨.</li>
+        <li>0: 복사 진행 중.</li>
+        <li>-1: 디렉토리 복사 중 임시경로 클리어 실패.</li>
+        <li>-2: 디렉토리 복사 중 기존 대상경로 클리어 실패.</li>
+        <li>-3: 디렉토리 복사 중 임시경로에서 대상경로로의 이동 실패.</li>
+        <li>-11: 파일 복사 실패.</li>
+        </ul>
+      </td>
+      <td style="text-align:left">변수</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">원본 경로파일명</td>
+      <td style="text-align:left">
+        복사할 디렉토리 경로,<br>
+        혹은 복사할 파일의 경로파일명
+      </td>
+      <td style="text-align:left">문자열식</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">대상 경로파일명</td>
+      <td style="text-align:left">
+        복사에 의해 만들어질 디렉토리 경로,<br>
+        혹은 복사에 의해 만들어질 파일의 경로파일명
+      </td>
+      <td style="text-align:left">문자열식</td>
+    </tr>
+  </tbody>
+</table>
+
+### 사용 예
+
+```python
+   var res
+   copyfile res,"project/vars","work/vars_1"
+   wait res==1,8,*timeout
+   copyfile res,"work/sub5.job","project/jobs/0005_sub.job"
+   wait res==1,4,*timeout
+   call 5
+   end
+   *timeout
+   print "copyfile failed"
+   end
+```
+
+![](../../_assets/copyfile.png)
+
+# 9.1.3 delfile문
+
+delfile문은 디렉토리나 파일의 삭제를 요청하는 프로시져입니다.
+
+### 설명
+
+지정한 경로의 디렉토리, 혹은 파일을 삭제합니다.   
+
+- 티치펜던트나 USB 메모리가 아닌 MAIN 모듈 내에서만 수행할 수 있습니다.
+- 디렉토리의 서브 디렉토리들도 모두 삭제됩니다.
+- 지정한 경로파일명이 존재하지 않으면, 성공으로 종료합니다.
+- wildcard는 지원하지 않습니다.
+
+- 용량이 큰 파일이나 디렉토리 전체가 삭제될 수도 있기 때문에, 삭제 중 대기에 의한 택트 타임 손실이 없도록 백그라운드에서 비동기적으로 수행됩니다. 삭제가 성공적으로 완료 되었는지는 결과변수의 값을 읽어 확인 할 수 있습니다.
+- 하나의 복사나 삭제가 끝나기 전에는 다른 복사나 삭제를 요청할 수 없습니다.
+
+
+### 문법
+
+delfile &lt;결과변수&gt;,&lt;경로파일명&gt;
+
+### 파라미터
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">항목</th>
+      <th style="text-align:left">의미</th>
+      <th style="text-align:left">기타</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+      <td style="text-align:left">결과변수</td>
+      <td style="text-align:left">
+        백그라운드 수행 결과<br>
+        <ul>
+        <li>1: 성공적으로 완료됨.</li>
+        <li>0: 삭제 진행 중.</li>
+        <li>-1: 디렉토리 삭제 실패.</li>
+        <li>-11: 파일 삭제 실패.</li>
+        </ul>
+      </td>
+      <td style="text-align:left">변수</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">경로파일명</td>
+      <td style="text-align:left">
+        삭제할 디렉토리 경로,<br>
+        혹은 삭제할 파일의 경로파일명
+      </td>
+      <td style="text-align:left">문자열식</td>
+    </tr>
+  </tbody>
+</table>
+
+### 사용 예
+
+```python
+   var res
+   delfile res,"work/vars_1"
+   wait res==1,8,*timeout
+   copyfile res,"project/jobs/0005_sub.job"
+   wait res==1,4,*timeout
+   end
+   *timeout
+   print "delfile failed"
+   end
+```
+# 9.2 load/save
+
+Hi6 제어기 MAIN 모듈의 메모리로 파일을 불러오거나 저장하는 명령문들을 설명합니다. 
+# 9.2.1 load_job문
+
+MAIN 모듈의 project/jobs/ 폴더의 변경사항을 새로 메모리로 읽어들이는 명령문입니다.
+
+### 설명
+
+MAIN 모듈의 project/jobs/ 폴더의 job들을 새로 메모리로 로드합니다.
+
+FTP나 copyfile 명령으로 .job파일들을 jobs/ 폴더 내에 복사 혹은 overwrite한 경우, 이 명령문을 수행해주어야만 메모리로 반영되어 선택이나 call을 할 수 있습니다.
+
+- 주의: jobs/ 폴더에 존재하지 않는 메모리 내의 job은 삭제됩니다.
+- 수정된 시각이 달라진 파일이면 로드됩니다.
+- 메모리에 존재하지 않는 파일이면 로드됩니다.
+
+- 용량이 큰 .job들이 로드될 수 있기 때문에, 로드에 의한 택트 타임 손실이 없도록 백그라운드에서 비동기적으로 수행됩니다. 로드가 성공적으로 완료 되었는지는 결과변수의 값을 읽어 확인 할 수 있습니다.
+- 로드가 끝나기 전에는 또 다른 로드를 요청할 수 없습니다.
+
+
+### 문법
+
+load_job &lt;결과변수&gt;,"*"
+
+### 파라미터
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">항목</th>
+      <th style="text-align:left">의미</th>
+      <th style="text-align:left">기타</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+      <td style="text-align:left">결과변수</td>
+      <td style="text-align:left">
+        백그라운드 수행 결과<br>
+        <ul>
+        <li>1: 성공적으로 완료됨.</li>
+        <li>0: 로드 진행 중.</li>
+        </ul>
+      </td>
+      <td style="text-align:left">변수</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">job 파일명</td>
+      <td style="text-align:left">
+        모든 파일을 뜻하는 "*" 인수만을 사용할 수 있습니다.
+      </td>
+      <td style="text-align:left">문자열식</td>
+    </tr>
+  </tbody>
+</table>
+
+### 사용 예
+
+```python
+     var res
+     copyfile res,"project/vars","work/vars_1"
+     wait res==1,8,*timeout
+     copyfile res,"work/sub5.job","project/jobs/0005_sub.job"
+     wait res==1,4,*timeout
+     load_job res,"*"
+     wait res==1,4,*timeout
+     call 5
+     end
+     *timeout
+     print "copyfile failed"
+     end
 ```
