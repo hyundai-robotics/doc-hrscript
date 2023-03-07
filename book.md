@@ -1105,17 +1105,55 @@ var str="hello, world"가 실행된 상태에서의 예
 
 # 3.1 주소 \(Address\)
 
-순서대로 다음 행을 수행하지 않고 프로그램의 다른 위치로 이동하는 것을 분기\(branch\)라고 합니다. 주소란 분기의 목적지\(destination\) 입니다.주소를 정의하는 방법은 행번호와 레이블의 2가지입니다. 아래의 예에서 두 번째 명령문의10은 행번호이고, 마지막 명령문 \*err\_handle은 레이블입니다.
+순서대로 다음 행을 수행하지 않고 프로그램의 다른 위치로 이동하는 것을 분기\(branch\)라고 합니다. 주소란 분기의 목적지\(destination\) 입니다.주소를 정의하는 방법은 아래와 같이 3가지 형식이 있습니다.
+
+
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">종류</th>
+      <th style="text-align:left">형식</th>
+      <th style="text-align:left">예</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+      <td style="text-align:left">행번호 (line-number)</td>
+      <td style="text-align:left">
+        1~9999 의 정수입니다. 스텝(move)이 아닌 명령문의 왼쪽에 지정할 수 있습니다.
+      </td>
+      <td style="text-align:left">99</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">레이블 (label)</td>
+      <td style="text-align:left">
+        레이블은 명령문에 지정하는 것이 아니라 그 자체로 명령문입니다.<br>
+        \* 뒤에 [식별자](2-identifier.md)를 붙인 형식입니다. 단 식별자의 길이는 128자 이하여야 합니다.
+      </td>
+      <td style="text-align:left">*timeout</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">스텝 번호 (step number)</td>
+      <td style="text-align:left">
+        스텝(move) 명령문에 자동으로 1씩 증가하며 매겨집니다.<br>
+        S뒤에 스텝의 번호를 붙인 형식입니다. S1~S999까지 지정 가능합니다.
+      </td>
+      <td style="text-align:left">S15</td>
+    </tr>
+  </tbody>
+</table>
+
+
+아래의 예에서 두 번째 명령문의 10은 행번호이고, \*err_handle은 레이블, S12는 스텝 번호입니다.
 
 ```python
      move P,po3,spd=80%,accu=1,tool=3 until do33
-10   z_pos = (base_height+offset)*1.05
+  10 z_pos = (base_height+offset)*1.05
      # robot has to wait sensor2 input
      *err_handle
+S12  move P,spd=80%,accu=1,tool=3
 ```
-
-
-
 # 3.2 정지, 대기문
 
 # 3.2.1 stop문
@@ -5618,7 +5656,9 @@ MAIN 모듈에 지정한 경로의 디렉토리를 생성합니다.
 
 ### 문법
 
-mkdir &lt;경로&gt;
+```python
+mkdir <경로>
+```
 
 ### 파라미터
 
@@ -5670,7 +5710,9 @@ copyfile문은 디렉토리나 파일의 복사를 요청하는 프로시져입�
 
 ### 문법
 
-copyfile &lt;결과변수&gt;,&lt;원본 경로파일명&gt;,&lt;대상 경로파일명&gt;
+```python
+copyfile <결과변수>,<원본 경로파일명>,<대상 경로파일명>
+```
 
 ### 파라미터
 
@@ -5754,7 +5796,9 @@ delfile문은 디렉토리나 파일의 삭제를 요청하는 프로시져입�
 
 ### 문법
 
-delfile &lt;결과변수&gt;,&lt;경로파일명&gt;
+```python
+delfile <결과변수>,<경로파일명>
+```
 
 ### 파라미터
 
@@ -5827,7 +5871,9 @@ FTP나 copyfile 명령으로 .job파일들을 jobs/ 폴더 내에 복사 혹은 
 
 ### 문법
 
-load_job &lt;결과변수&gt;,"*"
+```python
+load_job <결과변수>,"*"
+```
 
 ### 파라미터
 

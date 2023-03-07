@@ -18,7 +18,9 @@ FTP나 copyfile 명령으로 .job파일들을 jobs/ 폴더 내에 복사 혹은 
 
 ### 문법
 
-load_job &lt;결과변수&gt;,"*"
+```python
+load_job <결과변수>,"*"
+```
 
 ### 파라미터
 
