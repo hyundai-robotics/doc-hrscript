@@ -20,7 +20,9 @@ If you copy or overwrite .job files into the jobs/ folder with FTP or copyfile c
 
 ### Syntax
 
-load_job &lt;result-variable&gt;,"*"
+```python
+load_job <result-variable>,"*"
+```
 
 ### Parameters
 

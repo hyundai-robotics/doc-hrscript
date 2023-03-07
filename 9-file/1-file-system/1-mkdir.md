@@ -11,7 +11,9 @@ Creates a directory for the specified path in the MAIN module.
 
 ### Syntax
 
-mkdir &lt;path&gt;
+```python
+mkdir <path>
+```
 
 ### Parameters
 

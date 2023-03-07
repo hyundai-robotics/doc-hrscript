@@ -18,7 +18,9 @@ Deletes a directory or file in the specified path.
 
 ### Syntax
 
-delfile &lt;result-variable&gt;,&lt;pathname&gt;
+```python
+delfile <result-variable>,<pathname>
+```
 
 ### Parameters
 

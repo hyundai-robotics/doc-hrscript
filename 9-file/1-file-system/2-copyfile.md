@@ -19,7 +19,9 @@ Copies a directory or file of specified source path to the specified destination
 
 ### Syntax
 
-copyfile &lt;result-variable&gt;,&lt;source pathname&gt;,&lt;destination pathname&gt;
+```python
+copyfile <result-variable>,<source pathname>,<destination pathname>
+```
 
 ### Parameters
 
