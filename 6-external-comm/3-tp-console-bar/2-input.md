@@ -1,4 +1,4 @@
-# 6.3.1 input
+# 6.3.2 input
 
 ### Description
 
@@ -6,8 +6,9 @@ Use the **input** statement to enter a string as a keystroke of the Teach Pendan
 
 ### Syntax
 
-input &lt;variable&gt;\[,&lt;timeout&gt;,&lt;timeout address&gt;\]
-
+```python
+input <variable>;[,<timeout>,<timeout address>]
+```
 
 
 ### Parameter
@@ -26,15 +27,6 @@ input &lt;variable&gt;\[,&lt;timeout&gt;,&lt;timeout address&gt;\]
       <td style="text-align:left">
         <p>Variable to receive input. Numbers are also entered as string types. If
           numerical values are required, convert to int( ) or double( ) functions.
-          <br
-          />
-        </p>
-        <p>
-          <br />
-        </p>
-        <p>
-          <br />
-        </p>
       </td>
       <td style="text-align:left"></td>
     </tr>
