@@ -25,16 +25,7 @@ print <표현식>[,<표현식>,<표현식>...]
     <tr>
       <td style="text-align:left">표현식 (expression)</td>
       <td style="text-align:left">
-        <p>출력할 표현식. 논리, 숫자, 문자열, 배열, 객체의 모든 타입을 지원합니다.
-          <br
-          />
-        </p>
-        <p>
-          <br />
-        </p>
-        <p>
-          <br />
-        </p>
+        출력할 표현식. 논리, 숫자, 문자열, 배열, 객체의 모든 타입을 지원합니다.
       </td>
       <td style="text-align:left"></td>
     </tr>

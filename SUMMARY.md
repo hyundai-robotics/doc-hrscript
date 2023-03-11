@@ -68,6 +68,7 @@
   * [5.3 포즈식 (pose expression)](5-moving-robot/3-pose-expression.md)
   * [5.4 move문](5-moving-robot/4-move.md)
   * [5.5 사용자좌표계 (UCS ; User Coordinate System)](5-moving-robot/5-ucs.md)
+  * [5.6 contpath문](5-moving-robot/6-contpath.md)
 * [6. 외부장치와 통신하기](6-external-comm/README.md)
   * [6.1 fb객체 : 디지털 I/O](6-external-comm/1-fb-io/README.md)
     * [6.1.1 입출력 변수](6-external-comm/1-fb-io/1-io-val.md)
