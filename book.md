@@ -3100,8 +3100,8 @@ contpath <모드 번호>
       <td style="text-align:left">모드 번호</td>
       <td style="text-align:left">
         0: 불연속<br>
-        1: 연속모션. 입력신호는 불연속 (default)<br>
-        2: 연속모션. 입력신호도 연속
+        1: 연속. 단, 입력신호는 불연속 (default)<br>
+        2: 연속. 입력신호도 연속
       </td>
       <td style="text-align:left"></td>
     </tr>
@@ -3112,6 +3112,8 @@ contpath <모드 번호>
 
 ```python
 contpath 0
+contpath 1
+contpath 2
 ```
 
 
