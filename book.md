@@ -3044,31 +3044,169 @@ if result() then *sensor_on
 
 
 
-# 5.5 사용자좌표계 \(UCS ; User Coordinate System\)
+# 5.5 mkucs함수 - 사용자좌표계
 
-사용자좌표계는 사용자가 위치와 방향을 설정할 수 있는 좌표계입니다.
+### 설명
 
-사용자좌표계는 생성자 함수 Ucs\( \)를 호출하여 생성합니다. 
+세 개의 포즈 혹은 한 개의 포즈로 사용자좌표계를 생성하는 명령어입니다.   
+
+- 세 개의 포즈로 생성시 원점포즈, X축포즈, XY평면포즈로 사용자 좌표계를 생성합니다.
+- 한 개의 포즈로 생성시 원점포즈로 사용자 좌표계를 생성하며 위치/방향은 해당 포즈 값을 기준으로 생성합니다.
+- 계산할 수 없는 경우, 에러가 발생하면서 job 실행이 중단됩니다.
 
 
-
-함수 매개변수는 포즈 1개 혹은 포즈 3개입니다. 포즈 1개로 호출하면, 포즈의 위치와 방향이 좌표계의 원점과 방향으로 설정됩니다. 포즈 3개로 호출하면 pose1의 위치가 좌표계 원점, pose2의 위치가 좌표계 X축, pose3 위치가 좌표계 XY평면 상에 있도록 좌표계가 생성됩니다.
-
-```python
-var UCS변수명 = Ucs(pose1)
-var UCS변수명 = Ucs(pose1, pose2, pose3)
-```
-
-시스템에 사용자좌표계를 등록하려면 mkucs 함수를 사용합니다. 인수는 Ucs 생성자와 비슷하지만 첫 번째 인수로서 사용자좌표계 번호\(1 이상\)가 입력됩니다.
+### 문법
 
 ```python
-var res = mkucs(num, pose1)
-var res = mkucs(num, pose1, pose2, pose3)
+<결과변수> = mkucs(<사용자좌표계 번호>,<원점포즈>,<X방향포즈>,<XY평면포즈>)
+또는
+<결과변수> = mkucs(<사용자좌표계 번호>,<원점포즈>)
 ```
 
-성공하면 0, 실패하면 에러코드를 음수로 리턴합니다.
+### 파라미터
 
-# 5.6 contpath문
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">항목</th>
+      <th style="text-align:left">의미</th>
+      <th style="text-align:left">기타</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+      <td style="text-align:left">결과변수</td>
+      <td style="text-align:left">
+        백그라운드 수행 결과<br>
+        <ul>
+        <li>0: 성공적으로 완료됨.</li>
+        <li>-1: 사용자 좌표계 생성 실패함.</li>
+        </ul>
+      </td>
+      <td style="text-align:left">변수</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">사용자좌표계 번호</td>
+      <td style="text-align:left">
+        생성할 사용자좌표계의 번호
+      </td>
+      <td style="text-align:left">[1~20]</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">원점포즈</td>
+      <td style="text-align:left">
+        원점에 위치한 포즈
+      </td>
+      <td style="text-align:left">포즈변수</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">X방향포즈</td>
+      <td style="text-align:left">
+        X축에 위치한 포즈
+      </td>
+      <td style="text-align:left">포즈변수</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">XY평면포즈</td>
+      <td style="text-align:left">
+        XY 평면에 위치한 포즈
+      </td>
+      <td style="text-align:left">포즈변수</td>
+    </tr>
+  </tbody>
+</table>
+
+### 리턴값
+
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">값</th>
+      <th style="text-align:left">의미</th>
+      <th style="text-align:left">기타</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>
+        성공
+      </td>
+      <td></td>
+    </tr>  
+  </tbody>
+</table>
+
+
+### 에러 가이드
+
+- E14613 : 티칭 된 포즈의 개수가 부족할때 발생합니다. 1개 혹은 3개의 포즈를 입력하여 주십시오.
+- E14614 : 사용자좌표번호가 숫자가 아닐때 발생합니다. 사용자좌표번호를 다시 지정하십시오.
+- E14615 : 사용자좌표번호가 1~20 사이의 숫자가 아닐 때 발생합니다. 사용자좌표번호를 변경하십시오.
+- E1011 : 티칭 된 포즈간 거리가 너무 가까울때 발생합니다. 각 점간 거리가 1mm이하일 때 발생합니다. 포즈간 거리값을 수정하여 주십시오.
+- E1012 : 티칭 된 세 개의 포즈가 일직선상에 있을때 발생합니다. 
+
+
+### 사용 예
+
+```python
+   var p_origin=Pose(0,0,0,0,0,0,"base")
+   var p_xaxis=Pose(100,0,0,0,0,0,"base")
+   var p_xyplane_=Pose(100,100,0,0,0,0,"base")
+   var uc1 = mkucs(1,p_origin,p_xaxis,p_xyplane)
+   var uc2 = mkucs(2,p_origin)
+   end
+```
+
+![](../../_assets/mkucs.png)
+
+# 5.6 selucrd문
+
+selucrd문은 조건설정의 사용자 좌표계로 지정되어 있는 사용자 좌표계 번호를 변경하기 위한 프로시져입니다.
+
+### 설명
+
+조건설정의 사용자(User) 좌표계 지정에 해당하는 기능입니다.
+
+
+### 문법
+
+```python
+selucrd <좌표계번호>
+```
+
+### 파라미터
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">항목</th>
+      <th style="text-align:left">의미</th>
+      <th style="text-align:left">기타</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+      <td style="text-align:left">좌표계 번호</td>
+      <td style="text-align:left">
+        선택할 사용자 좌표계 번호<br>
+        <ul>
+        <li>0: 사용자 좌표계 지정 해제</li>
+        <li>1~20: 사용자 좌표계 지정</li>
+        </ul>
+      </td>
+      <td style="text-align:left">변수</td>
+    </tr>
+  </tbody>
+</table>
+
+### 사용 예
+
+```python
+   selucrd 1
+   end
+```# 5.6 contpath문
 
 ### 설명
 
@@ -3176,7 +3314,80 @@ next
 fb2.do3=fb2.do7=fb2.do11=1   # fb2의 3번, 7번, 11번 출력신호를 한꺼번에 켠다.
 ```
 
-# 6.2 http\_cli 모듈 : HTTP 클라이언트
+# 6.1.3 pulse문
+
+pulse문은 펄스 형태의 신호 출력을 위해 사용하는 프로시져 입니다.
+
+### 설명
+
+tlag 시간 후에, ton 시간 동안 On(High), toff 시간 동안 Off(Low) 형태의 펄스가 cnt 횟수만큼 출력됩니다.
+
+
+### 문법
+
+```python
+pulse <신호>,tlag=<지연 시간>,ton=<On 시간>,toff=<Off 시간>,cnt=<출력 횟수>
+```
+
+### 파라미터
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">항목</th>
+      <th style="text-align:left">의미</th>
+      <th style="text-align:left">기타</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+      <td style="text-align:left">신호</td>
+      <td style="text-align:left">
+        펄스 형태로 출력할 출력신호명<br>
+      </td>
+      <td style="text-align:left">문자열</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">지연 시간</td>
+      <td style="text-align:left">
+        프로시져 수행 후 펄스 신호가 시작될 때까지 대기할 시간<br>
+        (0.0 ~ 100.0[sec])
+      </td>
+      <td style="text-align:left">변수</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">On 시간</td>
+      <td style="text-align:left">
+        신호를 On(High) 상태로 출력할 시간<br>
+        (0.0 ~ 100.0[sec])
+      </td>
+      <td style="text-align:left">변수</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">Off 시간</td>
+      <td style="text-align:left">
+        신호를 Off(Low) 상태로 출력할 시간<br>
+        (0.0 ~ 100.0[sec])
+      </td>
+      <td style="text-align:left">변수</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">출력 횟수</td>
+      <td style="text-align:left">
+        펄스 주기를 반복할 횟수
+        (0 ~ 1000)
+      </td>
+      <td style="text-align:left">변수</td>
+    </tr>
+  </tbody>
+</table>
+
+### 사용 예
+
+```python
+   pulse do10,tlag=0.0,ton=1.5,toff=0.5,cnt=5
+   end
+```# 6.2 http\_cli 모듈 : HTTP 클라이언트
 
 Hi6 제어기의 범용 이더넷 포트를 통해, 원격의 웹 서비스에 접근하여 HTTP 서비스를 받을 수 있습니다.
 
@@ -4010,7 +4221,7 @@ input work_no,10,*timeout
 
 # 6.4 modbus 모듈 : 모드버스 마스터
 
-HRScript에서 모드버스 마스터 동작을 수행할 수 있습니다. 모드버스 통신 기능에 대한 자세한 내용은 별도의 "Hi6 제어기 모드버스 기능 설명서"를 참조하십시오.  
+HRScript에서 모드버스 마스터 동작을 수행할 수 있습니다. 모드버스 통신 기능에 대한 자세한 내용은 별도의 [Hi6 로봇제어기 기능설명서 - 모드버스](https://hrbook-hrc.web.app/#/view/doc-modbus/korean/README)를 참조하십시오.  
 # 6.5 sci 모듈 : 시리얼 통신
 
 Hi6 제어기의 COM 포트를 통해, 시리얼 통신을 수행할 수 있습니다.
@@ -6018,5 +6229,252 @@ load_job <결과변수>,"*"
      end
      *timeout
      print "copyfile failed"
+     end
+```
+# 10. 기타
+
+# 10.1 기타 프로시져
+
+# 10.1.1 gather문
+
+gather문은 데이터 수집 기능을 사용할 때 데이터 수집 시작과 종료 위치를 지정하는 프로시져입니다.
+
+### 설명
+
+gather를 통해 데이터를 수집 시작과 종료를 지정합니다. 수집 결과 파일은 아래와 같이 저장됩니다.
+- 저장 경로: MAIN/project
+- 파일명: 0001.GDT ~ 0030.GDT
+
+수집 결과 파일은  최대 30개까지 저장되며, 개수 초과 시 이전 수집 결과 파일을 덮어써서 저장됩니다.
+
+
+### 문법
+
+```python
+gather <시작/종료>
+```
+
+### 파라미터
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">항목</th>
+      <th style="text-align:left">의미</th>
+      <th style="text-align:left">기타</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+      <td style="text-align:left">시작/종료</td>
+      <td style="text-align:left">
+        선택할 사용자 좌표계 번호<br>
+        <ul>
+        <li>1: 데이터 수집 시작</li>
+        <li>0: 데이터 수집 종료</li>
+        </ul>
+      </td>
+      <td style="text-align:left">변수</td>
+    </tr>
+  </tbody>
+</table>
+
+### 사용 예
+
+```python
+S1   move L,spd=100%,accu=0,tool=0
+     gather 1
+S2   move L,spd=100%,accu=0,tool=0
+     delay 1.5
+S3   move L,spd=100%,accu=0,tool=0
+     gather 0
+     end
+```# 10.2 기타 함수
+
+# 10.2.1 segment 함수
+
+segment 함수는 시작위치와 종료위치간의 거리를 균등 분할하는 함수입니다.
+
+### 설명
+
+함수 인자의 시작위치와 종료위치간의 거리를 균등 분할하여 지정한 카운터에 해당하는 위치, 자세를 고려한 포즈 값을 포즈변수에 저장합니다.
+![](../../_assets/image_segment_1.png)
+
+예를 들어 P3=segment(P1,P2,3,2) 인 경우, 
+P1시작위치에서 P2목표위치간의 거리를 3등분하여 지정한 2번째 포즈의 위치와 자세를 고려한 포즈 값을 P3 포즈변수에 저장합니다.
+
+함수의 인자에 경유위치를 추가하면, 시작위치와 경유점, 목표위치로 이루어진 원호상의 거리를 균등 분할하여 지정한 카운터에 위치, 자세를 고려한 포즈 값을 포즈변수에 저장합니다.
+
+![](../../_assets/image_segment_2.png)
+
+예를 들어 P10=segment(P1,P2,P3,4,2) 인 경우,
+P1시작포즈, P2 경유포즈 P3목표포즈로 이루어진 원호상의 거리를 4등분하여 지정한 2번째 포즈의 위치와 자세를 고려한 포즈 값을 P10 포즈변수에 저장합니다.
+<br><br>
+
+### 문법
+
+```python
+result=segment(<시작포즈>,<종료포즈>,<분할 수>,<카운터>)
+```
+
+```python
+result=segment(<시작포즈>,<경유포즈>,<종료포즈>,<분할 수>,<카운터>)
+```
+
+### 파라미터
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">항목</th>
+      <th style="text-align:left">의미</th>
+      <th style="text-align:left">기타</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">시작포즈</td>
+      <td style="text-align:left">
+        시작 위치
+      </td>
+      <td style="text-align:left">포즈변수</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">경유포즈</td>
+      <td style="text-align:left">
+        경유 위치
+      <td style="text-align:left">포즈변수</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">종료포즈</td>
+      <td style="text-align:left">
+        종료 위치
+      </td>
+      <td style="text-align:left">포즈변수</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">분할 수</td>
+      <td style="text-align:left">
+        분할 수<br>
+        (1 ~ 30000)
+      </td>
+      <td style="text-align:left">변수</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">카운터</td>
+      <td style="text-align:left">
+        저장할 포즈의 카운터 번호<br>
+        (0 ~ 300000, 0: 시작포즈)
+      </td>
+      <td style="text-align:left">변수</td>
+    </tr>
+  </tbody>
+</table>
+
+### 사용 예
+
+```python
+     var po1,po2,po3
+     po1=Pose(1000.000,0.000,1938.000,0.000,0.000,0.000) # 시작포즈
+     po2=Pose(2000.000,0.000,1938.000,0.000,0.000,0.000) # 종료포즈
+     po3=segment(po1,po2,4,2)
+     end
+```
+
+```python
+     var po1,po2,po3,po10
+     po1=Pose(1000.000,0.000,1938.000,0.000,0.000,0.000) # 시작포즈
+     po2=Pose(1500.000,500.000,1938.000,0.000,0.000,0.000) # 경유포즈
+     po3=Pose(2000.000,0.000,1938.000,0.000,0.000,0.000) # 종료포즈
+     po10=segment(po1,po2,po3,5,3)
+     end
+```# 10.2.2 intersection 함수
+
+intersection 함수를 사용하면 직선과 한 점의 최단거리로 만나는 점을 구하거나, 두 직선을 지나는 최단거리 직선과의 교점을 구할 수 있습니다.
+
+### 설명
+
+함수 인자에 직선을 이루는 두 점과 그 외의 한 점을 지정하면, 직선과 한 점을 최단거리로 연결하는 직선의 교차포즈를 구합니다.
+
+![](../../_assets/image_intersection_1.png)
+
+함수 인자에 직선을 이루는 두 점과 다른 직선을 이루는 두 점을 지정하면, 두 직선을 최단거리로 만나는 직선과의 교점을 구할 수 있습니다. 교점은 첫번째로 지정한 직선과의 만나는 점입니다.
+
+![](../../_assets/image_intersection_2.png)
+
+### 문법
+
+```python
+result=intersection(<직선참조포즈 1>,<직선참조포즈 2>,<위치참조포즈>)
+```
+
+```python
+result=intersection(<직선참조포즈 1>,<직선참조포즈 2>,<직선참조포즈 3>,<직선참조포즈 4>)
+```
+
+### 파라미터
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">항목</th>
+      <th style="text-align:left">의미</th>
+      <th style="text-align:left">기타</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">직선참조포즈 1</td>
+      <td style="text-align:left">
+        첫번째 직선을 얻기 위한 첫번째 참조포즈
+      </td>
+      <td style="text-align:left">포즈변수</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">직선참조포즈 2</td>
+      <td style="text-align:left">
+        첫번째 직선을 얻기 위한 두번째 참조포즈
+      <td style="text-align:left">포즈변수</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">위치참조포즈</td>
+      <td style="text-align:left">
+        직선과 최단거리 위치를 구하기 위해 참조하는 포즈
+      </td>
+      <td style="text-align:left">포즈변수</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">직선참조포즈 3</td>
+      <td style="text-align:left">
+        두번째 직선을 얻기 위한 첫번째 참조포즈
+      </td>
+      <td style="text-align:left">포즈변수</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">직선참조포즈 4</td>
+      <td style="text-align:left">
+        두번째 직선을 얻기 위한 두번째 참조포즈
+      </td>
+      <td style="text-align:left">포즈변수</td>
+    </tr>
+  </tbody>
+</table>
+
+### 사용 예
+
+```python
+     var po1,po2,po3,result
+     po1=Pose(1000.000,0.000,1938.000,0.000,0.000,0.000)
+     po2=Pose(2000.000,0.000,1938.000,0.000,0.000,0.000)
+     po3=Pose(2500.000,500.000,1938.000,0.000,0.000,0.000)
+     result=segment(po1,po2,po3)
+     end
+```
+
+```python
+     var po1,po2,po3,po4,result
+     po1=Pose(1000.000,0.000,1938.000,0.000,0.000,0.000)
+     po2=Pose(1500.000,500.000,1938.000,0.000,0.000,0.000)
+     po3=Pose(2000.000,0.000,2000.000,0.000,0.000,0.000)
+     po3=Pose(2000.000,0.000,2000.000,0.000,0.000,0.000)
+     result=segment(po1,po2,po3,po4)
      end
 ```
