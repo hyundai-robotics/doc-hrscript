@@ -606,17 +606,17 @@
 	},
 	{
 		"link": "9-file/1-file-system/3-delfile.md",
-		"char_ofs": 129047,
-		"byte_ofs": 134260
+		"char_ofs": 129651,
+		"byte_ofs": 134874
 	},
 	{
 		"link": "9-file/2-load-save/README.md",
-		"char_ofs": 130985,
-		"byte_ofs": 136273
+		"char_ofs": 131752,
+		"byte_ofs": 137052
 	},
 	{
 		"link": "9-file/2-load-save/1-load_job.md",
-		"char_ofs": 131104,
-		"byte_ofs": 136397
+		"char_ofs": 131871,
+		"byte_ofs": 137176
 	}
 ]
