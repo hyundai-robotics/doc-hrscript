@@ -9,9 +9,9 @@ Deletes a directory or file in the specified path.
 - Can only be performed within the MAIN module, not Teach Pendant or USB memory.
 - All subdirectories in the directory are also deleted.
 - If the specified pathname does not exist, it ends with success.
-- wildcard is not supported.
+- The pathname also supports wildcard ('*', '?').
 
-- Because large files or entire directories may be deleted, it is asynchronously performed in the background to avoid loss of tact time due to waiting during deletion. The successful completion of the deletion can be determined by reading the values of the result-variable.
+- Because large files or entire directories may be deleted, it is asynchronously performed in the background to avoid loss of tact time due to waiting during deletion. The successful completion of the deletion can be determined by reading the values of the result-variable. (That is, no errors or warnings are generated when the deletion fails.)
 
 - You cannot request another copy or deletion until one copy or deletion is complete.
 
@@ -40,8 +40,8 @@ delfile <result-variable>,<pathname>
         <ul>
         <li>1: Successfully completed.</li>
         <li>0: Deletion in progress.</li>
-        <li>-1: Failed to delete directory.</li>
-        <li>-11: Failed to delete file.</li>
+        <li>-41: Failed to delete directory.</li>
+        <li>-42: Failed to delete file.</li>
         </ul>
       </td>
       <td style="text-align:left">variable</td>
@@ -62,6 +62,8 @@ delfile <result-variable>,<pathname>
 ```python
    var res
    delfile res,"work/vars_1"
+   wait res==1,8,*timeout
+   delfile res,"work2/10??.job" # wildcard
    wait res==1,8,*timeout
    copyfile res,"project/jobs/0005_sub.job"
    wait res==1,4,*timeout
