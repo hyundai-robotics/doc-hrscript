@@ -6623,18 +6623,18 @@ int_def <on/off>,no=<인터럽트 번호>,var=<인터럽트 조건>,val=<조건 
 ```
 
 
-# 10.1.6 typeof��
+# 10.1.6 typeof문
 
-typeof���� ������ Ÿ���� Ȯ���ϴ� ���ν����Դϴ�. ����� result() �Լ��� ���Ϲ޽��ϴ�.
+typeof문은 변수의 타입을 확인하는 프로시져입니다. 결과는 result() 함수로 리턴받습니다.
 
-### ����
+### 문법
 
 ```python
-typeof <����>
+typeof <변수>
 ```
 
 
-### ��� ��
+### 사용 예
 
 ```python
      global done=true,msg="Timeout Error"
