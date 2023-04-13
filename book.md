@@ -6369,7 +6369,73 @@ tonl <시작/종료>,<쉬프트량>
 
 ![](../../_assets/tonl.png)
 
-# 10.1.3 triggout문
+# 10.1.3 seltool문
+
+seltool문은 툴번호를 변경하는 프로시져입니다.
+
+### 설명
+
+툴은 로봇 플랜지에 부착되어 있는 로봇툴과 로봇과는 별도로 설치되어 있는 정치툴로 구분되며 이에 대한 각각의 툴번호를 변경합니다.   
+
+
+### 문법
+
+```python
+seltool <툴번호>,<툴타입>
+```
+
+### 파라미터
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">항목</th>
+      <th style="text-align:left">의미</th>
+      <th style="text-align:left">기타</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+      <td style="text-align:left">툴번호</td>
+      <td style="text-align:left">
+        변경을 원하는 툴번호<br>
+        <ul>
+        <li>로봇툴: 0 ~ 31</li>
+        <li>정치툴: 0 ~ 3</li>
+        </ul>
+      </td>
+      <td style="text-align:left">산술식</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">툴타입</td>
+      <td style="text-align:left">
+        변경을 원하는 툴타입<br>
+        <ul>
+        <li>로봇툴: robot</li>
+        <li>정치툴: station</li>
+        </ul>
+      </td>
+      <td style="text-align:left">문자열식 (robot/station)</td>
+    </tr>
+  </tbody>
+</table>
+
+### 사용 예
+
+```python
+   move P,spd=30%,accu=0,tool=1
+   seltool 0,station
+   move SP,spd=30%,accu=0,tool=1
+   move SL,spd=30mm/s,accu=0,tool=1
+   move SL,spd=30mm/s,accu=0,tool=1
+   delay 0.5
+   move P,spd=30%,accu=0,tool=1
+   end
+```
+
+![](../../_assets/seltool.png)
+
+# 10.1.4 triggout문
 
 triggout문은 신호출력 시점을 선출(-) 혹은 후출(+)할 수 있게 조정할 수 있는 프로시져입니다.
 
@@ -6445,7 +6511,7 @@ triggout <출력변수>,val=<출력값>,time=<선출/후출 거리>,j=<축방향
    move L,spd=30%,accu=2,tool=1
    end
 ```
-# 10.1.4 int_def문
+# 10.1.5 int_def문
 
 int_def문은 인터럽트 조건과 감시 구간, 그리고 인터럽트 발생시 실행할 프로그램을 지정하는 프로시져입니다.
 
@@ -6557,6 +6623,42 @@ int_def <on/off>,no=<인터럽트 번호>,var=<인터럽트 조건>,val=<조건 
 ```
 
 
+# 10.1.6 typeof��
+
+typeof���� ������ Ÿ���� Ȯ���ϴ� ���ν����Դϴ�. ����� result() �Լ��� ���Ϲ޽��ϴ�.
+
+### ����
+
+```python
+typeof <����>
+```
+
+
+### ��� ��
+
+```python
+     global done=true,msg="Timeout Error"
+     var a=-2000, b=3.14
+     var myarr=[1,2,3]
+     var myobj={x:30, y:"off"}
+     var po=Pose(0,90,0,0,0,0)
+
+     typeof done
+     print result() # "bool" 
+     typeof msg
+     print result() # "string"
+     typeof a
+     print result() # "int"
+     typeof b
+     print result() # "double"
+     typeof myarr
+     print result() # "array"
+     typeof myobj
+     print result() # "object"
+     typeof po
+     print result() # "object"
+     end
+```
 # 10.2 기타 함수
 
 # 10.2.1 rducs함수 - 사용자좌표계

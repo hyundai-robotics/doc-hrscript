@@ -700,53 +700,63 @@
 		"byte_ofs": 165296
 	},
 	{
-		"link": "10-etc/1-proc/3-triggout.md",
+		"link": "10-etc/1-proc/3-seltool.md",
 		"char_ofs": 119600,
 		"byte_ofs": 166951
 	},
 	{
-		"link": "10-etc/1-proc/4-int_def.md",
-		"char_ofs": 121423,
-		"byte_ofs": 169509
+		"link": "10-etc/1-proc/4-triggout.md",
+		"char_ofs": 120796,
+		"byte_ofs": 168494
+	},
+	{
+		"link": "10-etc/1-proc/5-int_def.md",
+		"char_ofs": 122619,
+		"byte_ofs": 171052
+	},
+	{
+		"link": "10-etc/1-proc/6-typeof.md",
+		"char_ofs": 125134,
+		"byte_ofs": 174936
 	},
 	{
 		"link": "10-etc/2-func/README.md",
-		"char_ofs": 123938,
-		"byte_ofs": 173393
+		"char_ofs": 125782,
+		"byte_ofs": 175632
 	},
 	{
 		"link": "10-etc/2-func/1-rducs.md",
-		"char_ofs": 123952,
-		"byte_ofs": 173420
+		"char_ofs": 125796,
+		"byte_ofs": 175659
 	},
 	{
 		"link": "10-etc/2-func/2-segment.md",
-		"char_ofs": 125650,
-		"byte_ofs": 175902
+		"char_ofs": 127494,
+		"byte_ofs": 178141
 	},
 	{
 		"link": "10-etc/2-func/3-intersection.md",
-		"char_ofs": 127954,
-		"byte_ofs": 179141
+		"char_ofs": 129798,
+		"byte_ofs": 181380
 	},
 	{
 		"link": "10-etc/3-sysvar/README.md",
-		"char_ofs": 130238,
-		"byte_ofs": 182276
+		"char_ofs": 132082,
+		"byte_ofs": 184515
 	},
 	{
 		"link": "10-etc/3-sysvar/1-_int_no.md",
-		"char_ofs": 130252,
-		"byte_ofs": 182304
+		"char_ofs": 132096,
+		"byte_ofs": 184543
 	},
 	{
 		"link": "10-etc/3-sysvar/2-_int_target.md",
-		"char_ofs": 130676,
-		"byte_ofs": 183075
+		"char_ofs": 132520,
+		"byte_ofs": 185314
 	},
 	{
 		"link": "10-etc/3-sysvar/3-_tool.md",
-		"char_ofs": 131039,
-		"byte_ofs": 183668
+		"char_ofs": 132883,
+		"byte_ofs": 185907
 	}
 ]
