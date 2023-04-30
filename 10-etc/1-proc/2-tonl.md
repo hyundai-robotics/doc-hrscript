@@ -15,7 +15,7 @@ R=[x,y,z,rx,ry,rz]
 ### 문법
 
 ```python
-tonl <시작/종료>,<쉬프트량>
+tonl <시작/종료>,<시프트량>
 ```
 
 ### 파라미터
@@ -38,15 +38,14 @@ tonl <시작/종료>,<쉬프트량>
         <li>off: 종료</li>
         </ul>
       </td>
-      <td style="text-align:left">문자열식</td>
+      <td style="text-align:left">on/off</td>
     </tr>
     <tr>
-      <td style="text-align:left">쉬프트량</td>
+      <td style="text-align:left">시프트량</td>
       <td style="text-align:left">
-        복사할 디렉토리 경로,<br>
-        혹은 복사할 파일의 경로파일명
+        시프트할 양
       </td>
-      <td style="text-align:left">쉬프트변수</td>
+      <td style="text-align:left">시프트변수</td>
     </tr>
   </tbody>
 </table>
@@ -55,7 +54,7 @@ tonl <시작/종료>,<쉬프트량>
 
 ```python
    global sft
-   enet1.recv msg #이더넷 통신으로 쉬프트량 수신
+   enet1.recv msg # 이더넷 통신으로 시프트량 수신
    sft=Shift(msg)
    tonl on,sft
    move L,spd=50mm/s,accu=0,tool=1

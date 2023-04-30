@@ -51,7 +51,7 @@ triggout <출력변수>,val=<출력값>,time=<선출/후출 거리>,j=<축방향
       <td style="text-align:left">선출/후출 시간</td>
       <td style="text-align:left">
         -10.00 ~ 2.00 [s]<br>
-        (-)인 경우 목표위치 도달전 신호가 출력되며 (+)인 경우 도달후 출력됩니다.
+        (-)인 경우 목표위치 도달 전 신호가 출력되며 (+)인 경우 도달 후 출력됩니다.
       </td>
       <td style="text-align:left">산술식</td>
     </tr>
@@ -59,7 +59,7 @@ triggout <출력변수>,val=<출력값>,time=<선출/후출 거리>,j=<축방향
       <td style="text-align:left">선출/후출 거리</td>
       <td style="text-align:left">
         -3000 ~ 3000 [mm]<br>
-        목표위치 도달시 신호가 출력됩니다.
+        (-)인 경우 목표위치 도달 전 신호가 출력되며 (+)인 경우 도달 후 출력됩니다.
       </td>
       <td style="text-align:left">산술식</td>
     </tr>

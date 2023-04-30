@@ -56,19 +56,19 @@ int_def <on/off>,no=<인터럽트 번호>,var=<인터럽트 조건>,val=<조건 
       <td style="text-align:left">
         정의 또는 삭제할 인터럽트 번호를 지정<br>
       </td>
-      <td style="text-align:left">산술식</td>
+      <td style="text-align:left">산술식(1~8)</td>
     </tr>
     <tr>
       <td style="text-align:left">인터럽트 조건</td>
       <td style="text-align:left">
         인터럽트를 발생시킬 조건식을 정의<br>
       </td>
-      <td style="text-align:left">산술식</td>
+      <td style="text-align:left">변수</td>
     </tr>
     <tr>
       <td style="text-align:left">조건 일치값</td>
       <td style="text-align:left">
-        인터럽트 발생을 위한 인터럽트를 조건식의 값<br>
+        인터럽트 발생을 위한 인터럽트의 조건식의 값<br>
       </td>
       <td style="text-align:left">산술식</td>
     </tr>
@@ -80,7 +80,7 @@ int_def <on/off>,no=<인터럽트 번호>,var=<인터럽트 조건>,val=<조건 
       <td style="text-align:left">산술식</td>
     </tr>
     <tr>
-      <td style="text-align:left">[once]]</td>
+      <td style="text-align:left">[once]</td>
       <td style="text-align:left">
         옵션 파라미터로 인터럽트 감시 구간내에서 인터럽트가 수회 발생하더라도 모두 처리하지 않고 처음 발생한 인터럽트 1회만 처리하고자 할때 사용<br>
       </td>

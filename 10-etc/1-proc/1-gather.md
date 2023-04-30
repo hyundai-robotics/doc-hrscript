@@ -31,13 +31,12 @@ gather <시작/종료>
   <tr>
       <td style="text-align:left">시작/종료</td>
       <td style="text-align:left">
-        선택할 사용자 좌표계 번호<br>
         <ul>
         <li>1: 데이터 수집 시작</li>
         <li>0: 데이터 수집 종료</li>
         </ul>
       </td>
-      <td style="text-align:left">변수</td>
+      <td style="text-align:left">산술식</td>
     </tr>
   </tbody>
 </table>

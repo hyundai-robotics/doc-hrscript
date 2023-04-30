@@ -61,6 +61,3 @@ seltool <툴번호>,<툴타입>
    move P,spd=30%,accu=0,tool=1
    end
 ```
-
-![](../../_assets/seltool.png)
-
