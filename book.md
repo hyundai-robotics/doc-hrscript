@@ -4202,7 +4202,7 @@ The number of bytes sent.
 ### Example
 
 ```python
-enet_to_sensor.send "rob:" + 10 + ", command:"+cmd, "\n"
+enet_to_sensor.send "rob:"+10+", command:"+cmd+"\n"
 ```
 
 
