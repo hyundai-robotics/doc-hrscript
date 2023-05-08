@@ -1,6 +1,83 @@
 ﻿# 6.1.1 입출력 변수
 
-![](../../_assets/image_1_1.png)
+<style type="text/css">
+table  {border-collapse:collapse;}
+td {border-color:gray;border-style:solid;border-width:1px;}
+.tg-kftd{background-color:#efefef;}
+</style>
+
+<table>
+<thead>
+  <tr>
+    <td colspan="3"></td>
+    <td>타입</td>
+    <td>값의 범위</td>
+  </tr>
+</thead>
+<tbody> 
+  <tr>
+    <td rowspan="10">fb0 ~ fb9</td>
+    <td rowspan="5">디지털 출력</td>
+    <td>do[0~959] <br>
+    dob[0~119].x[0~7] <br>
+    dow[0~118].x[0~15] <br>
+    dol[0~116].x[0~31] </td>
+    <td>bit</td>
+    <td>0, 1</td>
+  </tr>
+  <tr>
+    <td>dob[0~119]</td>
+    <td>signed 1byte 정수</td>
+    <td>-128 ~ +127</td>
+  </tr>
+  <tr>
+    <td>dow[0~118]</td>
+    <td>signed 2byte 정수</td>
+    <td>-32768 ~ +32767</td>
+  </tr>
+  <tr>
+    <td>dol[0~116]</td>
+    <td>signed 4byte 정수</td>
+    <td>-2147483648 ~ +2147483647</td>
+  </tr>
+  <tr>
+    <td>dof[0~116]</td>
+    <td>signed 4byte 실수</td>
+    <td>3.4E+/-38 (유효숫자 7개)</td>
+  </tr>
+  <tr>
+    <td rowspan="5">디지털 입력</td>
+    <td>di[0~959] <br>
+    dob[0~119].x[0~7] <br>
+    dow[0~118].x[0~15] <br>
+    dol[0~116].x[0~31] </td>
+    <td>bit</td>
+    <td>0, 1</td>
+  </tr>
+  <tr>
+    <td>dib[0~119]</td>
+    <td>signed 1byte 정수</td>
+    <td>-128 ~ +127</td>
+  </tr>
+  <tr>
+    <td>diw[0~118]</td>
+    <td>signed 2byte 정수</td>
+    <td>-32768 ~ +32767</td>
+  </tr>
+  <tr>
+    <td>dil[0~116]</td>
+    <td>signed 4byte 정수</td>
+    <td>-2147483648 ~ +2147483647</td>
+  </tr>
+  <tr>
+    <td>dif[0~116]</td>
+    <td>signed 4byte 실수</td>
+    <td>3.4E+/-38 (유효숫자 7개)</td>
+  </tr>
+</tbody>
+</table>
+
+<br><br>
 
 do, dob, dow, dol, dof에서 접미사 b, w, l, f는 각기 byte, word, long, float를 뜻하며 모두 부호있는 값\(signed value\)입니다. 이들은 별개의 메모리 공간이 아니라 같은 960 bit의 공간을 서로 다른 데이터형으로 표현한 것입니다. 예를 들어 do\[0~15\]와 dob\[0~1\], dow\[0\]은 모두 동일한 출력신호입니다. 인덱스는 do는 bit단위, dob, dow, dol, dof는 byte단위로 매겨집니다.
 
