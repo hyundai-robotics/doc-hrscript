@@ -7,7 +7,7 @@ If the Hi6 controller is a fieldbus master, and there are multiple fieldbus slav
 
 See the link below for instructions on how to set up the fn region.
 
-[Operation manual: fn block allocation](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-tp630/7-setting/3-control-parameter/2-io-signal-setting/12-fn-block)
+[Operation manual: fn block allocation](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-tp630/7-system/3-control-parameter/2-io-signal-setting/12-fn-block)
   
 &nbsp;
 
