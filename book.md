@@ -3269,7 +3269,84 @@ HRScript에서 접근할 수 있는 총 10개의 fb객체를 통해 디지털 I/
 
 # 6.1.1 입출력 변수
 
-![](../../_assets/image_1_1.png)
+<style type="text/css">
+table  {border-collapse:collapse;}
+td {border-color:gray;border-style:solid;border-width:1px;}
+.tg-kftd{background-color:#efefef;}
+</style>
+
+<table>
+<thead>
+  <tr>
+    <td colspan="3"></td>
+    <td>타입</td>
+    <td>값의 범위</td>
+  </tr>
+</thead>
+<tbody> 
+  <tr>
+    <td rowspan="10">fb0 ~ fb9</td>
+    <td rowspan="5">디지털 출력</td>
+    <td>do[0~959] <br>
+    dob[0~119].x[0~7] <br>
+    dow[0~118].x[0~15] <br>
+    dol[0~116].x[0~31] </td>
+    <td>bit</td>
+    <td>0, 1</td>
+  </tr>
+  <tr>
+    <td>dob[0~119]</td>
+    <td>signed 1byte 정수</td>
+    <td>-128 ~ +127</td>
+  </tr>
+  <tr>
+    <td>dow[0~118]</td>
+    <td>signed 2byte 정수</td>
+    <td>-32768 ~ +32767</td>
+  </tr>
+  <tr>
+    <td>dol[0~116]</td>
+    <td>signed 4byte 정수</td>
+    <td>-2147483648 ~ +2147483647</td>
+  </tr>
+  <tr>
+    <td>dof[0~116]</td>
+    <td>signed 4byte 실수</td>
+    <td>3.4E+/-38 (유효숫자 7개)</td>
+  </tr>
+  <tr>
+    <td rowspan="5">디지털 입력</td>
+    <td>di[0~959] <br>
+    dob[0~119].x[0~7] <br>
+    dow[0~118].x[0~15] <br>
+    dol[0~116].x[0~31] </td>
+    <td>bit</td>
+    <td>0, 1</td>
+  </tr>
+  <tr>
+    <td>dib[0~119]</td>
+    <td>signed 1byte 정수</td>
+    <td>-128 ~ +127</td>
+  </tr>
+  <tr>
+    <td>diw[0~118]</td>
+    <td>signed 2byte 정수</td>
+    <td>-32768 ~ +32767</td>
+  </tr>
+  <tr>
+    <td>dil[0~116]</td>
+    <td>signed 4byte 정수</td>
+    <td>-2147483648 ~ +2147483647</td>
+  </tr>
+  <tr>
+    <td>dif[0~116]</td>
+    <td>signed 4byte 실수</td>
+    <td>3.4E+/-38 (유효숫자 7개)</td>
+  </tr>
+</tbody>
+</table>
+
+<br><br>
 
 do, dob, dow, dol, dof에서 접미사 b, w, l, f는 각기 byte, word, long, float를 뜻하며 모두 부호있는 값\(signed value\)입니다. 이들은 별개의 메모리 공간이 아니라 같은 960 bit의 공간을 서로 다른 데이터형으로 표현한 것입니다. 예를 들어 do\[0~15\]와 dob\[0~1\], dow\[0\]은 모두 동일한 출력신호입니다. 인덱스는 do는 bit단위, dob, dow, dol, dof는 byte단위로 매겨집니다.
 
@@ -3314,7 +3391,38 @@ next
 fb2.do3=fb2.do7=fb2.do11=1   # fb2의 3번, 7번, 11번 출력신호를 한꺼번에 켠다.
 ```
 
-# 6.1.3 pulse문
+# 6.1.3 fn객체
+
+fb객체의 특정 영역을 지정하여 fn객체를 정의할 수 있습니다.
+Hi6 제어기가 필드버스 master이고, 여러 개의 필드버스 slave장치들이 있을 경우, 각 slave장치의 영역들을 하나씩의 fn객체로 설정해두면, 이 slave들을 직관적으로 다룰 수 있습니다.
+
+![](../../_assets/io/io_fn.png)
+
+fn영역을 설정하는 방법은 아래 링크를 참조하십시오.
+
+[조작설명서: 7.3.2.12 fn 블럭 할당](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-tp630/7-setting/3-control-parameter/2-io-signal-setting/12-fn-block)
+  
+&nbsp;
+
+fn의 문법은 fb와 동일한 형식입니다.
+fn 인덱스는 0~63이며, bit 인덱스는 fb와 동일하게 0~959입니다.
+즉, 최대 설정 가능한 인덱스는 fn0.do0 ~ fn63.do959 입니다.
+
+미설정된 존재하지 않는 fn객체에 접근하거나, fn의 설정 범위를 초과하는 do/di에 접근 시, 에러가 발생합니다.
+
+아래의 사용 예를 참고하십시오.
+
+```python
+fn2.dob3=0b00001111  	# fn2의 3번 바이트출력값을 2진 bit열로 지정
+fn[4].dob1=0x0F  	# fn4의 1번 바이트출력값 하위 4비트를 켜고, 상위 4비트를 끈다.
+var work_no=fn63.dib3    # fn63의 3번 바이트입력값을 work_no 변수에 대입
+if fn5.di43 then *err  	# fn5.di42가 켜지면 *err 레이블로 분기
+for idx=21 to 29
+  fn3.do[idx]=1  	# fn3의 출력신호 do21 ~ do29를 모두 켠다. 
+next
+fn2.do3=fn2.do7=fn2.do11=1   # fn2의 3번, 7번, 11번 출력신호를 한꺼번에 켠다.
+```
+# 6.1.4 pulse문
 
 pulse문은 펄스 형태의 신호 출력을 위해 사용하는 프로시져 입니다.
 
