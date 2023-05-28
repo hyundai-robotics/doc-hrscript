@@ -746,22 +746,22 @@
 	},
 	{
 		"link": "10-etc/3-sysvar/README.md",
-		"char_ofs": 134458,
-		"byte_ofs": 187739
+		"char_ofs": 134475,
+		"byte_ofs": 187775
 	},
 	{
 		"link": "10-etc/3-sysvar/1-_int_no.md",
-		"char_ofs": 134472,
-		"byte_ofs": 187767
+		"char_ofs": 134489,
+		"byte_ofs": 187803
 	},
 	{
 		"link": "10-etc/3-sysvar/2-_int_target.md",
-		"char_ofs": 134896,
-		"byte_ofs": 188538
+		"char_ofs": 134913,
+		"byte_ofs": 188574
 	},
 	{
 		"link": "10-etc/3-sysvar/3-_tool.md",
-		"char_ofs": 135259,
-		"byte_ofs": 189131
+		"char_ofs": 135276,
+		"byte_ofs": 189167
 	}
 ]
