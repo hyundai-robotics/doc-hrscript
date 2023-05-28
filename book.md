@@ -2922,7 +2922,84 @@ Digital input/output \(I/O\) can be performed through 10 FB objects that can be 
 
 # 6.1.1 Input/Output Variables
 
-![](../../_assets/image_8.png)
+<style type="text/css">
+table  {border-collapse:collapse;}
+td {border-color:gray;border-style:solid;border-width:1px;}
+.tg-kftd{background-color:#efefef;}
+</style>
+
+<table>
+<thead>
+  <tr>
+    <td colspan="3"></td>
+    <td>Type</td>
+    <td>Value range</td>
+  </tr>
+</thead>
+<tbody> 
+  <tr>
+    <td rowspan="10">fb0 ~ fb9</td>
+    <td rowspan="5">Digital output</td>
+    <td>do[0~959] <br>
+    dob[0~119].x[0~7] <br>
+    dow[0~118].x[0~15] <br>
+    dol[0~116].x[0~31] </td>
+    <td>bit</td>
+    <td>0, 1</td>
+  </tr>
+  <tr>
+    <td>dob[0~119]</td>
+    <td>signed 1byte integer</td>
+    <td>-128 ~ +127</td>
+  </tr>
+  <tr>
+    <td>dow[0~118]</td>
+    <td>signed 2byte integer</td>
+    <td>-32768 ~ +32767</td>
+  </tr>
+  <tr>
+    <td>dol[0~116]</td>
+    <td>signed 4byte integer</td>
+    <td>-2147483648 ~ +2147483647</td>
+  </tr>
+  <tr>
+    <td>dof[0~116]</td>
+    <td>signed 4byte real number</td>
+    <td>3.4E+/-38 (7 significant figures)</td>
+  </tr>
+  <tr>
+    <td rowspan="5">Digital input</td>
+    <td>di[0~959] <br>
+    dob[0~119].x[0~7] <br>
+    dow[0~118].x[0~15] <br>
+    dol[0~116].x[0~31] </td>
+    <td>bit</td>
+    <td>0, 1</td>
+  </tr>
+  <tr>
+    <td>dib[0~119]</td>
+    <td>signed 1byte integer</td>
+    <td>-128 ~ +127</td>
+  </tr>
+  <tr>
+    <td>diw[0~118]</td>
+    <td>signed 2byte integer</td>
+    <td>-32768 ~ +32767</td>
+  </tr>
+  <tr>
+    <td>dil[0~116]</td>
+    <td>signed 4byte integer</td>
+    <td>-2147483648 ~ +2147483647</td>
+  </tr>
+  <tr>
+    <td>dif[0~116]</td>
+    <td>signed 4byte real number</td>
+    <td>3.4E+/-38 (7 significant figures)</td>
+  </tr>
+</tbody>
+</table>
+
+<br><br>
 
 In do, dob, dow, dol, and dof, the suffixes b, w, l, and f mean “byte,” “word,” “long,” and “float,” respectively, and all are signed values. These are not separate memory spaces and represent the same 960-byte space just with different data types. For example, do\[1~16\], dob\[1~2\], and dow\[1\] are all the same output signals.
 
@@ -5081,4 +5158,817 @@ load_job <result-variable>,"*"
      *timeout
      print "copyfile failed"
      end
+```
+# 10. Etc.
+
+# 10.1 Etc. procedures
+
+# 10.1.1 gather
+
+`gather` is the procedure that specifies the start and end of the gathering when you use the data gathering function.
+
+### Description
+
+Specifies the start and end of gathering with `gather`. The gathering result file is saved as follows;
+- Storage path: MAIN/project
+- File name: 0001.GDT to 0030.GDT
+
+Up to 30 gathering result files are stored, and if the number is exceeded, the previous collection result file is overwritten.
+
+
+### Syntax
+
+```python
+gather <start/end>
+```
+
+### Parameters
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Parameter</th>
+      <th style="text-align:left">Description</th>
+      <th style="text-align:left">Remarks</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+      <td style="text-align:left">start/end</td>
+      <td style="text-align:left">
+        <ul>
+        <li>1: data gathering start</li>
+        <li>0: data gathering end</li>
+        </ul>
+      </td>
+      <td style="text-align:left">arithmetic expression</td>
+    </tr>
+  </tbody>
+</table>
+
+### Sample
+
+```python
+S1   move L,spd=100%,accu=0,tool=0
+     gather 1
+S2   move L,spd=100%,accu=0,tool=0
+     delay 1.5
+S3   move L,spd=100%,accu=0,tool=0
+     gather 0
+     end
+```# 10.1.2 tonl
+
+`tonl` statement is the procedure for performing position correction for steps between start and end.
+
+### Description
+
+If you know the coordinate transformation relationship, this procedure is applied when you enter the transformation relationship without calculating a separate coordinate transformation relationship.
+
+```python
+R=[x,y,z,rx,ry,rz]
+```
+
+![](../../_assets/tonl2.png)
+
+For the rotation matrix, it is applied in the order of Rot_z.Rot_y.Rot_x.
+
+### Syntax
+
+```python
+tonl <start/end>,<shift>
+```
+
+### Parameters
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Parameter</th>
+      <th style="text-align:left">Description</th>
+      <th style="text-align:left">Remarks</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+      <td style="text-align:left">start/end</td>
+      <td style="text-align:left">
+        online transformation start/end<br>
+        <ul>
+        <li>on: start</li>
+        <li>off: end</li>
+        </ul>
+      </td>
+      <td style="text-align:left">on/off</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">shift</td>
+      <td style="text-align:left">
+        Amount to shift
+      </td>
+      <td style="text-align:left">shift expression</td>
+    </tr>
+  </tbody>
+</table>
+
+### Sample
+
+```python
+   global sft
+   enet1.recv msg # Receive shift amount via Ethernet
+   sft=Shift(msg)
+   tonl on,sft
+   move L,spd=50mm/s,accu=0,tool=1
+   move L,spd=10mm/s,accu=0,tool=1
+   move L,spd=50mm/s,accu=0,tool=1
+   tonl off
+```
+
+![](../../_assets/tonl.png)
+
+# 10.1.3 seltool
+
+`seltool` is a procedure to change the tool number.
+
+### Description
+
+The tool is divided into a robot tool attached to the robot flange and a station tool installed separately from the robot, and `seltool` changes the tool number of each type.
+
+
+### Syntax
+
+```python
+seltool <tool number>,<tool type>
+```
+
+### Parameters
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Parameter</th>
+      <th style="text-align:left">Description</th>
+      <th style="text-align:left">Remarks</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+      <td style="text-align:left">tool number</td>
+      <td style="text-align:left">
+        tool number<br>
+        <ul>
+        <li>robot tool: 0 ~ 31</li>
+        <li>station tool: 0 ~ 3</li>
+        </ul>
+      </td>
+      <td style="text-align:left">arithmetic expression</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">tool type</td>
+      <td style="text-align:left">
+        tool type to change tool number<br>
+        <ul>
+        <li>robot tool: robot</li>
+        <li>station tool: station</li>
+        </ul>
+      </td>
+      <td style="text-align:left">robot/station</td>
+    </tr>
+  </tbody>
+</table>
+
+### Sample
+
+```python
+   move P,spd=30%,accu=0,tool=1
+   seltool 0,station
+   move SP,spd=30%,accu=0,tool=1
+   move SL,spd=30mm/s,accu=0,tool=1
+   move SL,spd=30mm/s,accu=0,tool=1
+   delay 0.5
+   move P,spd=30%,accu=0,tool=1
+   end
+```
+# 10.1.4 triggout
+
+`triggout` is a procedure that allows you to adjust the signal output time-point to be output-ahead (-) or output-behind (+).
+
+### Description
+
+In the interval of contpath 1, or 2 for continuous processing of commands, you can adjust the signal output time-point when the command position arrives at the target position (Accuracy OK) to be output-ahead (-) or output-behind (+).
+
+
+### Syntax
+
+```python
+triggout <output variable>,val=<output value>,time=<ahead/behind time>
+triggout <output variable>,val=<output value>,dist=<ahead/behind distance>,x=<X-direction absolute position>
+triggout <output variable>,val=<output value>,dist=<ahead/behind distance>,y=<Y-direction absolute position>
+triggout <output variable>,val=<output value>,dist=<ahead/behind distance>,z=<Z-direction absolute position>
+triggout <output variable>,val=<output value>,time=<ahead/behind distance>,j=<axis-direction absolute position>
+```
+
+### Parameters
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Parameter</th>
+      <th style="text-align:left">Description</th>
+      <th style="text-align:left">Remarks</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+      <td style="text-align:left">output variable</td>
+      <td style="text-align:left">
+        Variable corresponding to output signal<br>
+        <ul>
+        <li>user output variable; do, dob, dow, dol, dof</li>
+        <li>system output variable; so, sob, sow, sol, sof</li>
+        </ul>
+      </td>
+      <td style="text-align:left">output variable</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">output value</td>
+      <td style="text-align:left">
+        arithmetic expression,<br>
+        When it is bit output(do, so), 0 is off, not 0 is on
+      </td>
+      <td style="text-align:left">arithmetic expression</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">ahead/behind time</td>
+      <td style="text-align:left">
+        -10.00 ~ 2.00 [s]<br>
+        If it is (-), the signal is output before the target position is reached; if it is (+), it is output after it is reached.
+      </td>
+      <td style="text-align:left">arithmetic expression</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">ahead/behind distance</td>
+      <td style="text-align:left">
+        -3000 ~ 3000 [mm]<br>
+        AIf it is (-), the signal is output before the target position is reached; if it is (+), it is output after it is reached.
+      </td>
+      <td style="text-align:left">arithmetic expression</td>
+    </tr>
+  </tbody>
+</table>
+
+### Sample
+
+```python
+   move L,spd=300mm/s,accu=3,tool=1
+   triggout do1,val=1,time=-0.5
+   move L,spd=30%,accu=2,tool=1
+   end
+```
+# 10.1.5 int_def
+
+`int_def` is a procedure that specifies interrupt condition, watch-interval, and program to run when an interrupt occurs.
+
+### Syntax
+
+An interrupt function is a type of program call. When the robot works in an interrupt watch-interval, it calls a specified job when it meets the predefined interrupt conditions. When the called-program finishes running, it returns to the previous running program's location and continues to run.
+
+
+![](../../_assets/int_def_1.png)
+
+
+### Brief
+
+- Operates only in interrupt watch intervals.
+- Arithmetic expressions are supported as interrupt conditional expressions.
+- Allow another interrupt handling (multiple interrupt) while performing an interrupt program.
+
+
+### Timepoint when the interrupt is cleared
+
+All defined interrupts are automatically cleared if the following actions occur.
+
+- When performing 'R0: Task Reset'
+- The first time the program runs
+- When starting after changing the program counter (step/func #)
+
+
+### Sample
+
+```python
+int_def <on/off>,no=<interrupt number>,var=<interrupt condition>,val=<condition matching value>,job=<call program number>,[once]
+```
+
+### Parameters
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Parameter</th>
+      <th style="text-align:left">Description</th>
+      <th style="text-align:left">Remarks</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+      <td style="text-align:left">on/off</td>
+      <td style="text-align:left">
+        Define interrupts or delete defined interrupts<br>
+        <ul>
+        <li>on: Defines a new interrupt.</li>
+        <li>off: Deletes defined interrupt. (3rd and later parameters are ignored.)</li>
+        </ul>
+      </td>
+      <td style="text-align:left">on/off</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">interrupt number</td>
+      <td style="text-align:left">
+        The interrupt number to define or delete.<br>
+      </td>
+      <td style="text-align:left">arithmetic expression</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">interrupt condition</td>
+      <td style="text-align:left">
+        The conditional expression that will cause an interrupt.
+      </td>
+      <td style="text-align:left">variable</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">condition matching value</td>
+      <td style="text-align:left">
+        The value of the conditional expression to generate interrupt.
+      </td>
+      <td style="text-align:left">arithmetic expression</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">call program number</td>
+      <td style="text-align:left">
+        Program number to call when an interrupt occurs.
+      </td>
+      <td style="text-align:left">arithmetic expression</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">[once]</td>
+      <td style="text-align:left">
+        handles only one interrupt in the interrupt watch interval without processing additional interrupts.
+      </td>
+      <td style="text-align:left">once</td>
+    </tr>
+  </tbody>
+</table>
+
+
+### Errors
+
+- E1351 : Occurs when redefine an already-defined interrupt number without deletion. Please check the program that was created.
+
+
+### Sample
+
+```python
+   int_def on,no=1,var=di5,val=1,job=24,once # Defines interrupt
+   move P,spd=30%,accu=3,tool=1
+   move L,spd=30mm/s,accu=3,tool=1
+   ...
+   move L,spd=30mm/s,accu=3,tool=1
+   move P,spd=30%,accu=3,tool=1
+   int_def off,no=1 # Deletes interrupt
+   move P,spd=30%,accu=3,tool=1
+   end
+```
+# 10.1.6 typeof
+
+`typeof` is the procedure for getting the type of a variable or an expression. The result is returned from the `result()` function.
+
+
+### Syntax
+
+```python
+typeof <expression>
+```
+
+
+### Sample
+
+```python
+     global done=true,msg="Timeout Error"
+     var a=-2000, b=3.14
+     var myarr=[1,2,3]
+     var myobj={x:30, y:"off"}
+     var po=Pose(0,90,0,0,0,0)
+
+     typeof done
+     print result() # "bool" 
+     typeof msg
+     print result() # "string"
+     typeof a
+     print result() # "int"
+     typeof b
+     print result() # "double"
+     typeof myarr
+     print result() # "array"
+     typeof myobj
+     print result() # "object"
+     typeof po
+     print result() # "object"
+     end
+```
+# 10.2 Etc. functions
+
+# 10.2.1 rducs - user coordinate system
+
+### Description
+
+Function to read the generated user coordinate system as a pose.
+
+- Copies the location/direction of the created user coordinate system to its pose value.
+- If it is not created or the parameter is not valid, the job execution is interrupted with an error.
+
+
+### Syntax
+
+```python
+<result variable> = rducs(<user coord. system number>,<pose variable>)
+```
+
+### Parameters
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Parameter</th>
+      <th style="text-align:left">Description</th>
+      <th style="text-align:left">Remarks</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+      <td style="text-align:left">result variable</td>
+      <td style="text-align:left">
+        백그라운드 수행 결과<br>
+        <ul>
+        <li>0: Successfully completed.</li>
+        </ul>
+      </td>
+      <td style="text-align:left">Variable</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">user coord. system number</td>
+      <td style="text-align:left">
+        Number of the user coordinate system to read
+      </td>
+      <td style="text-align:left">[1~20]</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">pose variable</td>
+      <td style="text-align:left">
+        Variable to get position/direction
+      </td>
+      <td style="text-align:left">pose variable</td>
+    </tr>
+  </tbody>
+</table>
+
+### Return value
+
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Value</th>
+      <th style="text-align:left">Meaning</th>
+      <th style="text-align:left">Etc.</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>
+        OK
+      </td>
+      <td></td>
+    </tr>  
+  </tbody>
+</table>
+
+
+### Errors
+
+- E14613 : Occurs when the actual parameter does not match the formal parameter. Check the actual parameters.
+- E14614 : Occurs when the user coordinate number is not a number. Please specify the user coordinate number again.
+- E14615 : Occurs when the user coordinate number is not a number between 1 and 20. Please change the user coordinate number.
+- E1336 : Occurs if it is an unregistered user coordinate number. Please change the user coordinate number.
+
+
+### Sample
+
+```python
+   var p_uc2=Pose(0,0,0,0,0,0,"base")
+   var res=rducs(2,p_uc2)
+   end
+```
+
+![](../../_assets/rducs.png)
+
+# 10.2.2 segment
+
+`segment` is the function that divides the distance between the start and end positions evenly.
+
+
+### Description
+
+Divides the distance between the start and end positions of the function factors evenly and stores the pose value considering the position and posture corresponding to the specified counter in the pose variable.
+![](../../_assets/image_segment_1.png)
+
+For example, if P3=segment(P1,P2,3,2), divide the distance between the P2 target positions from the P1 start position into 3 equal parts and store the pose value of the position and rotation of the 2nd pose in the P3 pose variable.
+
+When you add the via position as a paramter of the function, the distance on the arc consisting of the start position, the via point, and the target position is evenly divided and the pose value of the position and rotation is stored in the pose variable.
+
+![](../../_assets/image_segment_2.png)
+
+For example, if P10=segment (P1,P2,P3,4,2),
+The distance on the arc consisting of the P1 starting pose and P2 via pose P3 target pose is divided into 4 equal parts, and the pose value of the position and rotation of the specified 2nd pose is stored in the P10 pose variable.
+
+<br>
+
+### Syntax
+
+```python
+result=segment(<start pose>,<end pose>,<division number>,<counter>)
+```
+
+```python
+result=segment(<start pose>,<via pose>,<end pose>,<division number>,<counter>)
+```
+
+### Return value
+
+The result pose.
+
+### Parameters
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Parameter</th>
+      <th style="text-align:left">Description</th>
+      <th style="text-align:left">Remarks</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">start pose</td>
+      <td style="text-align:left">
+        start pose
+      </td>
+      <td style="text-align:left">pose expression</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">via pose</td>
+      <td style="text-align:left">
+        via pose
+      <td style="text-align:left">pose expression</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">end pose</td>
+      <td style="text-align:left">
+        end pose
+      </td>
+      <td style="text-align:left">pose expression</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">division number</td>
+      <td style="text-align:left">
+        division number<br>
+        (1 ~ 30000)
+      </td>
+      <td style="text-align:left">arithmetic expression</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">counter</td>
+      <td style="text-align:left">
+        counter number of the pose to store<br>
+        (0 ~ 300000, 0: start pose)
+      </td>
+      <td style="text-align:left">arithmetic expression</td>
+    </tr>
+  </tbody>
+</table>
+
+### Sample
+
+```python
+     var po1,po2,po3
+     po1=Pose(1000.000,0.000,1938.000,0.000,0.000,0.000) # start pose
+     po2=Pose(2000.000,0.000,1938.000,0.000,0.000,0.000) # end pose
+     po3=segment(po1,po2,4,2)
+     end
+```
+
+```python
+     var po1,po2,po3,po10
+     po1=Pose(1000.000,0.000,1938.000,0.000,0.000,0.000) # start pose
+     po2=Pose(1500.000,500.000,1938.000,0.000,0.000,0.000) # via pose
+     po3=Pose(2000.000,0.000,1938.000,0.000,0.000,0.000) # end pose
+     po10=segment(po1,po2,po3,5,3)
+     end
+```# 10.2.3 intersection
+
+You can use the `intersection` function to find a point that meets a straight line at the shortest distance of one point, or to find an intersection with a straight line at the shortest distance that passes.
+
+### Description
+
+If you specify two points that form a straight line and another point as the parameters, you obtain a cross-pose of a straight line that connects the straight line and one point at the shortest distance.
+
+![](../../_assets/image_intersection_1.png)
+
+If you specify two points that form a straight line and two points that form another straight line as the parameters, you can find the intersection of the two straight lines at the shortest distance. The intersection point is the intersection with the first straight line you specify.
+
+![](../../_assets/image_intersection_2.png)
+
+
+### Syntax
+
+```python
+result=intersection(<straight-line ref.pose 1>,<straight-line ref.pose 2>,<position ref.pose>)
+```
+
+```python
+result=intersection(<straight-line ref.pose 1>,<straight-line ref.pose 2>,<straight-line ref.pose 3>,<straight-line ref.pose 4>)
+```
+
+### Return value
+
+The result pose.
+
+
+### Parameters
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Parameter</th>
+      <th style="text-align:left">Description</th>
+      <th style="text-align:left">Remarks</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">straight-line ref.pose 1</td>
+      <td style="text-align:left">
+        1st reference pose of 1st straight-line
+      </td>
+      <td style="text-align:left">pose expression</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">straight-line ref.pose 2</td>
+      <td style="text-align:left">
+        2nd reference pose of 1st straight-line
+      <td style="text-align:left">pose expression</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">position ref.pose</td>
+      <td style="text-align:left">
+        Pose referenced to find a straight line and shortest distance position
+      </td>
+      <td style="text-align:left">pose expression</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">straight-line ref.pose 3</td>
+      <td style="text-align:left">
+        1st reference pose of 2nd straight-line
+      </td>
+      <td style="text-align:left">pose expression</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">straight-line ref.pose 4</td>
+      <td style="text-align:left">
+        2st reference pose of 2nd straight-line
+      </td>
+      <td style="text-align:left">pose expression</td>
+    </tr>
+  </tbody>
+</table>
+
+### Sample
+
+```python
+     var po1,po2,po3,result
+     po1=Pose(1000.000,0.000,1938.000,0.000,0.000,0.000)
+     po2=Pose(2000.000,0.000,1938.000,0.000,0.000,0.000)
+     po3=Pose(2500.000,500.000,1938.000,0.000,0.000,0.000)
+     result=segment(po1,po2,po3)
+     end
+```
+
+```python
+     var po1,po2,po3,po4,result
+     po1=Pose(1000.000,0.000,1938.000,0.000,0.000,0.000)
+     po2=Pose(1500.000,500.000,1938.000,0.000,0.000,0.000)
+     po3=Pose(2000.000,0.000,2000.000,0.000,0.000,0.000)
+     po3=Pose(2000.000,0.000,2000.000,0.000,0.000,0.000)
+     result=segment(po1,po2,po3,po4)
+     end
+```# 10.3 System variables
+# 10.3.1 _int.no
+
+`_int.no` system variable is the occured interrupt number.
+
+### Description
+
+When an interrupt occurs because the conditional expression in the `int_def` procedure is satisfied, you can use `_int.no` to determine by which interrupt number the program is called.
+
+
+### Syntax
+
+```python
+var res
+res = _int.no
+```
+
+
+### Sample
+
+```python
+   ...
+   if _int.no==1  # If interrupt number 1 occures
+   print "By sensor 1 activation, interrupt occures."
+   else if _int.no==2 # If interrupt number 2 occures
+   print "By sensor 2 activation, interrupt occures."
+   stop # robot stops
+   endif
+   ...
+   end
+```
+
+
+# 9.1.2 _int.target
+
+`_int.target` system variable adjusts the robot's target position reach state.
+
+
+### Description
+
+In the move statement, this is used to adjust the position when the an interrupt occurs while moving and returns to the position of the previous program after the execution of the call program ends.
+
+
+### Syntax
+
+```python
+_int_target=1
+```
+
+### Sample
+
+```python
+- _int.target=-1
+```
+
+![](../../_assets/int_target_1.png)
+
+
+```python
+- _int.target=1 or 0
+```
+![](../../_assets/int_target_2.png)
+
+# 10.3.3 _tool
+
+`_tool` is a system variable for reading or changing tool data.
+
+
+### Description
+
+- Read the registered tool data (weight/center of mass/inertia) or change the tool data.
+- If the tool data is not registered or if the member is not valid, an error occurs and the job execution is interrupted.
+
+
+### Syntax
+
+```python
+<shift variable> = _tool3
+_tool3 = <shift>
+_tool[3] = <shift>
+_tool[5].mass = <arithmetic expression>
+_tool[5].cx = <arithmetic expression>
+_tool[5].cy = <arithmetic expression>
+_tool[5].cz = <arithmetic expression>
+_tool[5].ixx = <arithmetic expression>
+_tool[5].iyy = <arithmetic expression>
+_tool[5].izz = <arithmetic expression>
+```
+
+
+### Errors
+
+- E14550 : Occurs when the member of the tool data is not valid. Make sure that the members of the set tool data are mass, cx, cy, cz, ixx, iyy, izz.
+- E14286 : Occurs when the right side of the assignment statement is not a shift type or when the member of the tool variable is not valid. Please specify the right side correctly.
+
+
+### Sample
+
+```python
+   var sft=Shift(100,20,30,0,0,0,"tool")
+   _tool3=sft
+   move L,spd=30%,accu=1,tool=3
+   end
 ```
