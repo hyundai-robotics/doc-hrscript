@@ -14,7 +14,7 @@ triggout <출력변수>,val=<출력값>,time=<선출/후출 시간>
 triggout <출력변수>,val=<출력값>,dist=<선출/후출 거리>,x=<X방향 절대위치>
 triggout <출력변수>,val=<출력값>,dist=<선출/후출 거리>,y=<Y방향 절대위치>
 triggout <출력변수>,val=<출력값>,dist=<선출/후출 거리>,z=<Z방향 절대위치>
-triggout <출력변수>,val=<출력값>,time=<선출/후출 거리>,j=<축방향 절대위치>
+triggout <출력변수>,val=<출력값>,dist=<선출/후출 거리>,j=<tcp 또는 축방향 상대거리>
 ```
 
 ### 파라미터
@@ -63,14 +63,38 @@ triggout <출력변수>,val=<출력값>,time=<선출/후출 거리>,j=<축방향
       </td>
       <td style="text-align:left">산술식</td>
     </tr>
+    <tr>
+      <td style="text-align:left">x, y, z방향 절대위치</td>
+      <td style="text-align:left">
+        -3000 ~ 3000 [mm]<br>
+        (-)인 경우 목표위치 도달 전 신호가 출력되며 (+)인 경우 도달 후 출력됩니다.
+      </td>
+      <td style="text-align:left">산술식</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">tcp 또는 축방향 상대거리<br>
+      tcp : j=0인 경우,<br>
+      축방향 : j=1 이상인 경우
+      </td>
+      <td style="text-align:left">
+        tcp : -3000 ~ 3000 [mm], 축방향 : -3000 ~ 3000 [mm] or [deg]<br>
+        (-)인 경우 상대거리 도달 전 신호가 출력되며 (+)인 경우 도달 후 출력됩니다.
+      </td>
+      <td style="text-align:left">산술식</td>
+    </tr>
   </tbody>
 </table>
 
+<br>
 ### 사용 예
 
 ```python
    move L,spd=300mm/s,accu=3,tool=1
-   triggout do1,val=1,time=-0.5
+   triggout do1,val=1,time=-0.5  #스텝도달 0.5초전에 do1을 on
+   triggout do1,val=1,dist=-100.0,j=0  #tcp가 스텝위치와 상대거리 -100mm 도달시 do1을 on
+   triggout do1,val=1,dist=-3.0,j=1  #1축이 스텝위치와 상대거리 -3.0deg 도달시 do1을 on
+   triggout do1,val=1,x=-100.0  #X좌표값이 -100mm 도달시 do1을 on
+   triggout do1,val=1,x=-100.0,y=-100.0  #X, Y의 좌표값이 -100mm 도달시 do1을 on
    move L,spd=30%,accu=2,tool=1
    end
 ```
