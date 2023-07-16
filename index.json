@@ -716,52 +716,52 @@
 	},
 	{
 		"link": "10-etc/1-proc/5-int_def.md",
-		"char_ofs": 124997,
-		"byte_ofs": 174184
+		"char_ofs": 125905,
+		"byte_ofs": 175410
 	},
 	{
 		"link": "10-etc/1-proc/6-typeof.md",
-		"char_ofs": 127515,
-		"byte_ofs": 178069
+		"char_ofs": 128423,
+		"byte_ofs": 179295
 	},
 	{
 		"link": "10-etc/2-func/README.md",
-		"char_ofs": 128138,
-		"byte_ofs": 178811
+		"char_ofs": 129046,
+		"byte_ofs": 180037
 	},
 	{
 		"link": "10-etc/2-func/1-rducs.md",
-		"char_ofs": 128152,
-		"byte_ofs": 178838
+		"char_ofs": 129060,
+		"byte_ofs": 180064
 	},
 	{
 		"link": "10-etc/2-func/2-segment.md",
-		"char_ofs": 129854,
-		"byte_ofs": 181332
+		"char_ofs": 130762,
+		"byte_ofs": 182558
 	},
 	{
 		"link": "10-etc/2-func/3-intersection.md",
-		"char_ofs": 132174,
-		"byte_ofs": 184604
+		"char_ofs": 133082,
+		"byte_ofs": 185830
 	},
 	{
 		"link": "10-etc/3-sysvar/README.md",
-		"char_ofs": 134475,
-		"byte_ofs": 187775
+		"char_ofs": 135383,
+		"byte_ofs": 189001
 	},
 	{
 		"link": "10-etc/3-sysvar/1-_int_no.md",
-		"char_ofs": 134489,
-		"byte_ofs": 187803
+		"char_ofs": 135397,
+		"byte_ofs": 189029
 	},
 	{
 		"link": "10-etc/3-sysvar/2-_int_target.md",
-		"char_ofs": 134913,
-		"byte_ofs": 188574
+		"char_ofs": 135821,
+		"byte_ofs": 189800
 	},
 	{
 		"link": "10-etc/3-sysvar/3-_tool.md",
-		"char_ofs": 135276,
-		"byte_ofs": 189167
+		"char_ofs": 136184,
+		"byte_ofs": 190393
 	}
 ]
