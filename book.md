@@ -3261,7 +3261,473 @@ contpath 2
 
 - 변경된 상태는 제목표시줄의 `CP0` / `CP1` / `CP2` 플래그로 확인할 수 있습니다.
 
-{% endhint %}# 6. 외부장치와 통신하기
+{% endhint %}# 5.8 coldet 문
+
+충돌검지(축별) 기능이 유효로 설정되어 있는 상태에서 로봇의 충돌검지(축별) 레벨을 설정합니다. 
+
+충돌검지(축별) 기능의 유/무효 설정과 레벨에 따른 충돌검지 값은 \[3: 로봇 파라미터 &gt; 14: 충돌 검지 &gt; 2: 충돌검지(축별) 설정 \] 
+
+메뉴에서 설정합니다. (이 메뉴는 충돌검지 기능을 사용할 수 있는 로봇이 선택된 경우에만 나타납니다.)
+
+
+충돌검지 기능이 유효로 설정되면, coldet 명령이 없으면 레벨 1로 검지하고, coldet 명령이 있으면 다음 coldet 명령을 만날 때까지 해당 레벨로 충돌검지를 실행 합니다.<br>
+ 단, coldet LV=0 으로 설정하면 충돌검지 기능을 무효로 합니다.  
+
+수동 조작 모드에서는 기본적으로 레벨 1이 적용 됩니다. 
+
+--- 
+
+## 설명 
+* 충돌검지 레벨을 설정합니다. 
+
+
+## 문법 
+```python
+coldet LV=<레벨> 
+```
+
+## 파라미터 
+* 레벨값은 0~16까지 설정 가능(0: 무효)
+
+
+## 사용 예 
+* 충돌검지(축별) 기능이 유효로 설정되어 있고, 작업 프로그램이 아래와 같을 때  
+
+```python
+S1   move P,spd=60%,accu=0,tool=0
+S2   move P,spd=60%,accu=0,tool=0
+     coldet LV=2
+S3   move P,spd=60%,accu=0,tool=0
+     coldet LV=3
+S4   move P,spd=60%,accu=0,tool=0
+S5   move P,spd=60%,accu=0,tool=0
+     coldet LV=0
+S6   move P,spd=60%,accu=0,tool=0
+S7   move P,spd=60%,accu=0,tool=0
+     end 
+```
+* S1과 S2는 레벨1로 검지 한다. 
+* S3는 레벨2로, S4와S5는 레벨3으로 검지 한다.  
+* S6와S7은 충돌검지를 실행하지 않는다.   
+
+--- 
+# 5.9 colsense 문
+
+모델기반 충돌검지 기능이 유효로 설정되어 있는 상태에서 로봇의 충돌검지 민감도를 설정합니다. 
+
+모델기반 충돌검지 기능의 유/무효 설정과 기본 및 축별 민감도는 \[3: 로봇 파라미터 &gt; 14: 충돌 검지 &gt; 1: 모델기반충돌검지 \] 
+
+메뉴에서 설정합니다. (이 메뉴는 충돌검지 기능을 사용할 수 있는 로봇이 선택된 경우에만 나타납니다.)
+
+--- 
+
+## 설명 
+* 모델기반 충돌검지 기능 중 기본 민감도(general, sensitivity)를 조절 할 수 있습니다.
+* 모델기반 충돌검지 기능 중 축별 민감도(axis, criteria)를 조절 할 수 있습니다. 
+
+
+## 문법 
+```python
+colsense general,sensitivity=<기본 민감도>  
+colsense axis,id=<축 번호>,criteria=<축별 민감도> 
+```
+
+## 파라미터 
+* 기본 민감도(sensitivity)는 0~200까지 설정 가능하며, 값이 높을수록 충돌에 예민하게 반응.(기본 민감도=0, 충돌검지 기능 무효)
+* 축 번호(id)는 로봇의 축 번호를 의미 S축 부터 R1축 까지 순서 대로 1~6으로 대입 한다.   
+* 축별 민감도(criteria)는 0~100까지 설정 가능하며, 값이 낮을수록 충돌에 예민하게 반응.(축별 민감도=0, 해당 축만 충돌검지 기능 무효)
+
+
+## 사용 예 
+* 모델 기반 충돌검지 기능이 유효로 설정되어 있고, 작업 프로그램이 아래와 같으면 
+
+```python
+S1   move P,spd=60%,accu=0,tool=0
+S2   move P,spd=60%,accu=0,tool=0
+     colsense general,sensitivity=150
+S3   move P,spd=60%,accu=0,tool=0
+     colsense general,sensitivity=200
+S4   move P,spd=60%,accu=0,tool=0
+S5   move P,spd=60%,accu=0,tool=0
+     colsense axis,id=1,criteria=0
+     colsense axis,id=2,criteria=0
+S6   move P,spd=60%,accu=0,tool=0
+S7   move P,spd=60%,accu=0,tool=0
+     end 
+```
+* S1과 S2는 \[3: 로봇 파라미터 &gt; 14: 충돌 검지 &gt; 1: 모델기반충돌검지 \] 메뉴에서 설정된 기본/축별 민감도로 충돌을 검지 한다. 
+* S3의 기본 민감도는 150으로 설정되어 충돌을 검지하고, S4와 S5는 기본 민감도가 200으로 설정되어 충돌을 검지한다. 
+* S6와S7에서는 S축과 H축에 대한 충돌을 검지 하지 않고, 나머지 축은 기본 민감도가 200으로 설정되어 충돌을 검지 한다. 
+
+--- 
+{% hint style="info" %}
+
+축 별 최종 민감도값은 축별 민감도 값에 비례하고, 축 전체 기본 민감도와 반비례 합니다.    
+{% endhint %}
+
+
+# 5.10 softxyz 문
+
+센서리스 힘제어 기능으로 사용자가 설정한 환경에서 로봇이 외력에 대해 직교좌표로 유연하게 움직이는 기능입니다. <br>
+
+정확한 기능 사용을 위해 로봇에 부착된 툴 or 부가 중량 정보를 올바르고 정확하게 설정해야 합니다.
+
+
+--- 
+
+## 설명 
+* 센서를 사용하지 않고 외력에 대해 직교좌표 기준으로 로봇이 밀리는 기능 
+
+
+## 문법 
+```python
+softxyz on, crd=<기준좌표계>
+softxyz off  
+```
+
+## 파라미터 
+* on : 기능 시작, off : 기능 종료 
+* crd : 로봇이 밀리는 기준 좌표계 (베이스, 로봇, 툴, 사용자 좌표계)
+```python
+softxyz on, crd="base"   #베이스 좌표계
+softxyz on, crd="robot"  #로봇 좌표계
+softxyz on, crd="tool"   #툴 좌표계
+softxyz on, crd="user_1" #1번 사용자 좌표계 
+softxyz off  
+```
+
+
+## 사용 예 
+> 예제1) Z방향으로 조립하기 위해 X, Y, Ry 방향으로 밀릴 수 있도록 한 경우  
+> * 좌표계 : 로봇좌표계 기준 (crd="robot") <br>
+> * 이동 위치(xnr) 제한 설정 : X, Y방향으로 [-50,+50] 범위(mm), Ry방향 [-3,+3] 범위(deg) <br>
+> * 속도(vel) 제한 설정 : X, Y방향으로 최대 5mm/sec, Ry방향으로 3deg/sec 밀리도록 설정 <br>
+> * 문턱값(thr) 제한 설정 : X방향 3N, Y방향 3N 그리고 Ry방향 1Nm 
+
+```python
+S1   move P,spd=100mm/sec,accu=0,tool=0
+     delay 2.0 # softxyz on 하기 전에 delay 설정 필수  
+     limit xnr, x=50, y=50, ry=3
+     limit vel, x=5, y=5, ry=3
+     limit thr, x=3, y=3, ry=1
+     softxyz on, crd="robot"
+S2   move P,spd=250mm/sec,accu=0,tool=0
+     softxyz off 
+     end 
+```
+
+> 예제2) 사출물 핸들링 
+> * 좌표계 : 로봇좌표계 기준 (crd="robot") <br>
+> * 위치(pos) 제한 설정 : +Y방향으로 최대 300mm까지, -Y방향으로 최대 200mm 까지 이동 <br>
+> * 속도(vel) 제한 설정 : Y방향으로 최대 150mm/sec 속도로 밀리도록 설정 <br>
+
+```python
+S1   move P,spd=100mm/sec,accu=0,tool=0
+     delay 2.0 # softxyz on 하기 전에 delay 설정 필수  
+     limit pos, _y=300, y_=200
+     limit vel, y=150
+     softxyz on, crd="robot"
+S2   wait ... 
+     softxyz off 
+     end 
+```
+
+--- 
+{% hint style="info" %}
+
+* softxyz on으로 기능을 사용하기 전에 limit 명령문을 사용하여 pos, xnr, vel, thr 명령어로 최대 밀림거리, 속도 및 직교좌표 문턱값 등을 설정 해야 합니다. 
+
+* 외력에 대한 로봇 민감도를 향상시키기 위해 softxyz on 명령어 전에 반드시 delay 명령어로 로봇을 1~2초 가량 정지시켜 놓는 것이 좋습니다. 
+
+{% endhint %}
+# 5.11 softxyz_limit 문
+
+softxyz_lim 명령어는 softxyz on 기능 사용 전 파라미터 값을 미리 설정 해야 한다. <br>
+
+사용자는 활성화 되는 로봇의 직교좌표 거리 제한, 위치, 속도 및 문턱값등을 설정 할 수 있다.    
+
+--- 
+
+## 설명 
+* softxyz 파라미터 설정 명령어  
+
+
+## 문법 
+```pythonghlt
+softxyz_lim pos,_x=<+X거리>,x_=<-X거리>,_y=<+Y거리>,y_=<-Y거리>,_z=<+Z거리>,z_=<-Z거리> 
+softxyz_lim vel,x=<X속도>,y=<Y속도>,z=<Z속도>,rx=<Rx속도>,ry=<Ry속도>,rz=<Rz속도> 
+softxyz_lim xnr,x=<X거리>,y=<Y거리>,z=<Z거리>,rx=<Rx거리>,ry=<Ry거리>,rz=<Rz거리> 
+softxyz_lim thr,x=<X문턱값>,y=<Y문턱값>,z=<Z문턱값>,rx=<Rx문턱값>,ry=<Ry문턱값>,rz=<Rz문턱값> 
+```
+
+## 파라미터 
+* softxyz_lim pos : 로봇이 이동할 수 있는 직교좌표 최대 거리를 설정 (X,Y,Z방향) [mm] 
+* softxyz_lim vel : 로봇이 동작하는 직교좌표 최대 속도를 설정 (X,Y,Z,Rx,Ry,Rz방향) [mm/sec] or [deg/sec] 
+* softxyz_lim xnr : 로봇이 이동할 수 있는 직교좌표 최대 거리와 각도를 제한 (X,Y,Z,Rx,Ry,Rz방향) [mm] or [deg] <br> 
+  (로봇의 최대 동작영역은 pos와 xnr의 합집합으로 결정됨)  
+* softxyz_lim thr : 로봇이 이동하기 위한 직교좌표 힘 문턱값을 설정 (X,Y,Z,Rx,Ry,Rz방향) [N] or [Nm]
+
+
+## 사용 예 
+> * +X방향200[mm], -Y방향100[mm], +Z방향300[mm]로 이동하는 최대 거리를 설정  
+```python
+softxyz_lim pos, _x=200, y_=100, _z=300
+```
+> * Z방향 최대 이동 속도를 40mm/sec로 설정 
+```python
+softxyz_lim vel, z=40
+```
+> * X방향으로 이동하는 최대 거리를 -200[mm]에서 200[mm]로 설정 
+```python
+softxyz_lim xnr, x=200
+```
+> * 직교좌표 Y방향의 힘 문턱값을 10[N]으로 설정 
+```python
+softxyz_lim thr, y=10
+```
+
+
+# 5.12 softjoint
+
+센서리스 힘제어 기능으로 사용자가 설정한 환경에서 로봇이 외력에 대해 축 좌표로 유연하게 움직이는 기능입니다. <br>
+
+정확한 기능 사용을 위해 로봇에 부착된 툴 or 부가 중량 정보를 올바르고 정확하게 설정해야 합니다.
+
+
+--- 
+
+## 설명 
+* 센서를 사용하지 않고 외력에 대해 축 좌표 기준으로 로봇이 밀리는 기능 
+
+
+## 문법 
+```python
+softjoint on
+softjoint off  
+```
+
+## 파라미터 
+* on : 기능 시작
+* off : 기능 종료
+
+
+
+--- 
+{% hint style="info" %}
+
+* softjoint on 기능을 사용하기 전에 softjoint_lim 명령문을 사용하여 유연하게 움직이려고 하는 축 번호(j), 유연함 정도(sft), 제한 각도(ang) 및 문턱값(thr)등을 미리 설정해야 합니다. 
+
+* 외력에 대한 로봇 민감도를 향상시키기 위해 softjoint on 명령어 전에 반드시 delay 명령어로 로봇을 1~2초 가량 정지시켜 놓는 것이 좋습니다. 
+
+{% endhint %}
+# 5.13 softjoint_lim
+
+softjoint_lim 명령어는 softjoint on 기능 사용 전 파라미터 값을 미리 설정 해야 한다. <br>
+
+사용자는 활성화 되는 축 번호, 부드러움, 각도 제한 값 그리고 문턱값 등을 설정 해야 한다. 
+
+--- 
+
+## 설명 
+* softjoint 파라미터 설정 명령어  
+
+
+## 문법 
+```python
+softjoint_lim, j=<축번호>, sft=<부드러움 정도>, ang=<각도 범위>, thr=<문턱값> 
+```
+
+## 파라미터 
+* j : 축 번호 [1~6]
+* sft : 값이 클 수록 더 유연하게 움직임[0:off,0~100]
+* ang : 각도 제한 범위 [deg]
+* thr : 문턱 값[Nm]
+
+
+## 사용 예 
+> 예제1) 3번 축 방향 파라미터 설정 
+> * 3번 축 활성화, 부드러움(50), 각도 제한 -30~30(deg) 그리고 문턱값10(Nm)   
+```python
+softjoint_lim, j=3, sft=50, ang=30, thr=10
+```
+
+> 예제) 2번과 3번 축 방향으로 밀릴 수 있도록 한 경우
+> * 부드러움(sft) 설정 : 2번 축 sft(30), 3번 축 sft(80)  
+> * 각도(ang) 제한 설정 : 2번 축 [-50,+50] 범위(deg), 3번 축 제한 없음<br>
+> * 문턱값(thr) 제한 설정 : 2번 축 3(Nm), 3번 축 5(Nm) 
+
+
+```python
+S1   move P,spd=100mm/sec,accu=0,tool=0
+     delay 2.0 # softjoint on 하기 전에 delay 설정 필수  
+     softjoint_lim j=2,sft=30,ang=50,thr=3
+     softjoint_lim j=3,sft=80,thr=5
+     softjoint on
+S2   move P,spd=250mm/sec,accu=0,tool=0
+     softjoint off 
+     end 
+```
+
+
+--- 
+{% hint style="info" %}
+
+* softjoint_lim 파라미터는 축 번호와 부드러움 정도는 필수적으로 설정해야 하지만, 각도 범위와 문턱값은 설정을 하지 않으면 각도를 제한하지 않고 문턱값은 0.0[Nm]로 자동 설정 된다. 
+
+{% endhint %}
+# 5.14 online.Track
+
+
+## 설명 
+* UDP에 의해 이더넷으로 위치 증분이 입력될 때, 이를 반영하여 로봇을 제어 
+
+
+## 문법 
+```python
+     global onl_track
+     var desired_pose 
+
+     onl_track=online.Track()
+     onl_track.time_from_start=-1.0
+     onl_track.look_ahead_time=1.0
+     onl_track.exe_interval=0.1
+     onl_track.init
+     onl_track.exe desired_pose
+ 
+```
+
+## 파라미터 
+* init : 초기 설정값 확정 
+* exe <포즈데이터> : <포즈> 데이터는 로봇의 축 각도로 설정  
+
+
+
+## 사용 예 
+> enet 명령어를 통해 외부에서 로봇 각축 데이터 msg 명령을 전달 받는다. 
+
+```python
+     import enet
+     global enet0
+     global onl_track
+     var desired_pose
+     var msg
+     enet0=enet.ENet("udp")
+     enet0.ip_addr="192.168.0.7"
+     enet0.lport=7000
+     enet0.rport=7000
+     enet0.open
+     
+     onl_track=online.Track()
+     onl_track.time_from_start=-1.0
+     onl_track.look_ahead_time=1.0
+     onl_track.exe_interval=0.1
+     onl_track.init
+
+10   enet0.recv msg
+     desired_pose=Pose(msg)
+     onl_track.exe desired_pose
+     goto 10
+     end 
+```
+
+
+--- 
+{% hint style="info" %}
+
+* online 명령어는 enet 명령어를 통해 외부로 부터 UDP 통신을 이용하여 전달 받은 외부 지령으로, 로봇을 움직이게 합니다.    
+
+{% endhint %}
+# 5.15 pose_trans 문
+
+
+## 설명 
+* pose_trans 명령어는 2개의 pose 변수를 곱하여 결과 포즈값을 얻는 함수 명령어 입니다. 
+
+
+## 문법 
+>* 포즈변수(poseC)는 포즈변수(poseA)와 포즈변수(poseB)를 곱하여 얻은 결과값이다.   
+>* 포즈 변수(poseA)는 4x4 transformation 행렬로 변환 가능하고, 포즈변수(poseB)도 4x4 transformation 행렬로 변환이 가능하다. 
+>* 변환 된 두 4x4 transformation 행렬을 곱한 결과 값을 다시 포즈 변수로 도출 한 값이 poseC가 된다. 
+```python
+poseC = pose_trans(poseA,poseB)
+```
+
+## 사용 예  
+```python
+     var pose_A, pose_B, pose_C
+     var pose_inv_B
+     var pose_shift
+     
+     pose_shift=Shift(10.0, 10.0, 10.0, 0.000, 0.000, 0.000, "base")
+
+     # pose_A는 축각도 (0,60,0,0,-30,0)의 자세 
+     pose_A=Pose(0.00,60.00,0.00,0.00,-30.00,0.00)
+     pose_A=pose_A.convcrd("base")
+
+     # pose_B는 pose_A자세에서 base좌표계 기준 XYZ 방향으로 10mm씩 이동 
+     pose_B=pose_A+pose_shift
+     
+     # pose_B의 inverse matrix를 뜻하는 pose_inv_B 구하기 
+     pose_inv_B=pose_B
+     pose_inv_B=pose_B.convcrd("base")
+     pose_inv_B=pose_inv(pose_B)
+
+     # pose_C는 pose_A*pose_B*pose_inv_B의 결과 값으로, 결국 pose_A와 동일해야 한다. 
+     pose_C=pose_trans(pose_A,pose_B)
+     pose_C=pose_trans(pose_C,pose_inv_B)
+          
+     # pose_C를 목표 지점으로 설정하면, pose_A에서 설정한 축각도 (0,60,0,0,-30,0)의 자세로 이동한다. 
+S1   move P,tg=pose_C,spd=10%,accu=0,tool=0
+     
+     end
+```
+
+# 5.16 pose_inv 문
+
+
+## 설명 
+* pose_inv 명령어는 해당 포즈 변수의 역행렬에 해당하는 포즈 변수로 변환하는 함수 명령어 이다.  
+
+
+## 문법 
+>* 포즈변수(poseB)는 포즈변수(poseA)의 역행렬에 해당하는 포즈 변수이다.    
+>* 포즈 변수(poseA)를 4x4 transformation 행렬로 변환하고, 이 행렬값의 역행렬을 계산한 뒤 다시 포즈 변수(PoseB)로 변환 하는 방식이다.  
+```python
+poseB = pose_inv(poseA)
+```
+
+## 사용 예  
+```python
+     var pose_A, pose_B, pose_C
+     var pose_inv_B
+     var pose_shift
+     
+     pose_shift=Shift(10.0, 10.0, 10.0, 0.000, 0.000, 0.000, "base")
+
+     # pose_A는 축각도 (0,60,0,0,-30,0)의 자세 
+     pose_A=Pose(0.00,60.00,0.00,0.00,-30.00,0.00)
+     pose_A=pose_A.convcrd("base")
+
+     # pose_B는 pose_A자세에서 base좌표계 기준 XYZ 방향으로 10mm씩 이동 
+     pose_B=pose_A+pose_shift
+     
+     # pose_B의 inverse matrix를 뜻하는 pose_inv_B 구하기 
+     pose_inv_B=pose_B
+     pose_inv_B=pose_B.convcrd("base")
+     pose_inv_B=pose_inv(pose_B)
+
+     # pose_C는 pose_A*pose_B*pose_inv_B의 결과 값으로, 결국 pose_A와 동일해야 한다. 
+     pose_C=pose_trans(pose_A,pose_B)
+     pose_C=pose_trans(pose_C,pose_inv_B)
+          
+     # pose_C를 목표 지점으로 설정하면, pose_A에서 설정한 축각도 (0,60,0,0,-30,0)의 자세로 이동한다. 
+S1   move P,tg=pose_C,spd=10%,accu=0,tool=0
+     
+     end
+```
+
+
+# 6. 외부장치와 통신하기
 
 # 6.1 fb객체 : 디지털 I/O
 
