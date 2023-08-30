@@ -2,12 +2,6 @@
 
 ### Description
 
-세 개의 포즈 혹은 한 개의 포즈로 사용자좌표계를 생성하는 명령어입니다.   
-
-- 세 개의 포즈로 생성시 원점포즈, X축포즈, XY평면포즈로 사용자 좌표계를 생성합니다.
-- 한 개의 포즈로 생성시 원점포즈로 사용자 좌표계를 생성하며 위치/방향은 해당 포즈 값을 기준으로 생성합니다.
-- 계산할 수 없는 경우, 에러가 발생하면서 job 실행이 중단됩니다.
-
 A command that creates a user coordinate system with three poses or one pose.   
 
 - When you create with three poses, it is created with an origin pose, an X-axis pose, and an XY-plane pose.
