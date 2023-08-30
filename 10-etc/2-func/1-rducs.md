@@ -28,7 +28,7 @@ Function to read the generated user coordinate system as a pose.
   <tr>
       <td style="text-align:left">result variable</td>
       <td style="text-align:left">
-        백그라운드 수행 결과<br>
+        result of background execution<br>
         <ul>
         <li>0: Successfully completed.</li>
         </ul>

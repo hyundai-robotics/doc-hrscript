@@ -16,7 +16,7 @@
         <p>Returns the current pose of the robot to the &#x201C;crd&#x201D; coordinate
           system</p>
         <p>For values that can be used as &#x201C;crd&#x201D; elements, see the table
-          under &quot;<a href="../../moving-robot/pose.md">5.1 Pose</a>&quot;.</p>
+          under &quot;<a href="../../5-moving-robot/1-pose.md">5.1 Pose</a>&quot;.</p>
         <p>If the mode is &#x201C;cmd,&#x201D; it is the command value, and if the
           mode is &#x201C;cur,&#x201D; it is the current value.</p>
         <p>The &#x201C;crd&#x201D; and &#x201C;mode&#x201D; parameters may be omitted,
@@ -35,7 +35,7 @@
       </td>
       <td style="text-align:left">
         <p>Creates and registers the nth user coordinate system object</p>
-        <p>Refer to &quot;<a href="../../moving-robot/ucs.md">5.5 User Coordinate System (UCS)</a>&quot;.</p>
+        <p>Refer to &quot;<a href="../../5-moving-robot/5-ucs.md">5.5 User Coordinate System (UCS)</a>&quot;.</p>
       </td>
       <td style="text-align:left"></td>
       <td style="text-align:left">

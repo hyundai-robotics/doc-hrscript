@@ -847,7 +847,7 @@ These functions receive an input of a parameter and then create and return an ob
         <p>Creates and returns an array of &#x201C;n&#x201D; elements</p>
         <p>The initial value of the element is 0.</p>
         <p>A multidimensional array is created if two or more elements are designated.</p>
-        <p>Refer to &quot;<a href="../../array-object/array/">4.1 Arrays</a>&quot;.</p>
+        <p>Refer to &quot;<a href="../../4-array-object/1-array/">4.1 Arrays</a>&quot;.</p>
       </td>
       <td style="text-align:left">
         <p>Array(900)</p>
@@ -862,7 +862,7 @@ These functions receive an input of a parameter and then create and return an ob
       <td style="text-align:left">Pose(element)</td>
       <td style="text-align:left">
         <p>Creates and returns a pose object</p>
-        <p>Refer to &quot;<a href="../../moving-robot/pose.md">5.1 Pose</a>&quot;.</p>
+        <p>Refer to &quot;<a href="../../5-moving-robot/1-pose.md">5.1 Pose</a>&quot;.</p>
       </td>
       <td style="text-align:left"></td>
       <td style="text-align:left">Pose object</td>
@@ -871,7 +871,7 @@ These functions receive an input of a parameter and then create and return an ob
       <td style="text-align:left">Shift(element)</td>
       <td style="text-align:left">
         <p>Creates and returns a shift object</p>
-        <p>Refer to &quot;<a href="../../moving-robot/shift.md">5.2 Shift</a>&quot;.</p>
+        <p>Refer to &quot;<a href="../../5-moving-robot/2-shift.md">5.2 Shift</a>&quot;.</p>
       </td>
       <td style="text-align:left"></td>
       <td style="text-align:left">Shift object</td>
@@ -899,7 +899,7 @@ These functions receive an input of a parameter and then create and return an ob
         <p>Returns the current pose of the robot to the &#x201C;crd&#x201D; coordinate
           system</p>
         <p>For values that can be used as &#x201C;crd&#x201D; elements, see the table
-          under &quot;<a href="../../moving-robot/pose.md">5.1 Pose</a>&quot;.</p>
+          under &quot;<a href="../../5-moving-robot/1-pose.md">5.1 Pose</a>&quot;.</p>
         <p>If the mode is &#x201C;cmd,&#x201D; it is the command value, and if the
           mode is &#x201C;cur,&#x201D; it is the current value.</p>
         <p>The &#x201C;crd&#x201D; and &#x201C;mode&#x201D; parameters may be omitted,
@@ -918,7 +918,7 @@ These functions receive an input of a parameter and then create and return an ob
       </td>
       <td style="text-align:left">
         <p>Creates and registers the nth user coordinate system object</p>
-        <p>Refer to &quot;<a href="../../moving-robot/ucs.md">5.5 User Coordinate System (UCS)</a>&quot;.</p>
+        <p>Refer to &quot;<a href="../../5-moving-robot/5-ucs.md">5.5 User Coordinate System (UCS)</a>&quot;.</p>
       </td>
       <td style="text-align:left"></td>
       <td style="text-align:left">
@@ -2831,33 +2831,174 @@ When the \[Command\] button is pressed and the \[Motion\] group is opened, selec
 
 
 
-# 5.5 User Coordinate System \(UCS\)
+# 5.5 mkucs - make user coordinate system
 
-The user coordinate system is a coordinate system in which the user can set the position and direction.
+### Description
 
-It is created by calling the constructor function Ucs\( \). 
+세 개의 포즈 혹은 한 개의 포즈로 사용자좌표계를 생성하는 명령어입니다.   
+
+- 세 개의 포즈로 생성시 원점포즈, X축포즈, XY평면포즈로 사용자 좌표계를 생성합니다.
+- 한 개의 포즈로 생성시 원점포즈로 사용자 좌표계를 생성하며 위치/방향은 해당 포즈 값을 기준으로 생성합니다.
+- 계산할 수 없는 경우, 에러가 발생하면서 job 실행이 중단됩니다.
+
+A command that creates a user coordinate system with three poses or one pose.   
+
+- When you create with three poses, it is created with an origin pose, an X-axis pose, and an XY-plane pose.
+- When you create with one pose, it is created with the origin pose and the position/direction is based on the pose value.
+- If the calculation is not possible, the job execution is interrupted with an error.
 
 
-
-Function parameters are one pose or three poses. When calling is performed with one pose, the pose’s position and direction will be set as the origin and direction of the coordinate system. When calling is performed with three poses, the coordinate system will be created so that pose1 is positioned on the coordinate system’s origin, pose2 is on the x axis of the coordinate system, and pose3 is positioned on the XY plane of the coordinate system.
-
-
+### Syntax
 
 ```python
-var <UCS variable name> = Ucs(pose1)
-var <UCS variable name> = Ucs(pose1, pose2, pose3)
+<result variable> = mkucs(<user coord. system number>,<origin pose>,<X-axis pose>,<XY-plane pose>)
+or
+<result variable> = mkucs(<user coord. system number>,<origin pose>)
 ```
 
-The mkucs function should be used to register a user coordinate system in the system. The argument is similar to the Ucs constructor, but the user coordinate system number \(one or more\) will be inputted as the first argument.
+### Parameters
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Parameter</th>
+      <th style="text-align:left">Description</th>
+      <th style="text-align:left">Remarks</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+      <td style="text-align:left">result variable</td>
+      <td style="text-align:left">
+        result of background execution<br>
+        <ul>
+        <li>0: Successfully completed.</li>
+        <li>-1: Failed to create user coord. system.</li>
+        </ul>
+      </td>
+      <td style="text-align:left">Variable</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">user coord. system number</td>
+      <td style="text-align:left">
+        umber of the user coordinate system to create
+      </td>
+      <td style="text-align:left">[1~20]</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">origin pose</td>
+      <td style="text-align:left">
+        pose at the origin
+      </td>
+      <td style="text-align:left">pose variale</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">X-axis pose</td>
+      <td style="text-align:left">
+        pose located on the X-axis
+      </td>
+      <td style="text-align:left">pose variale</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">XY-plane pose</td>
+      <td style="text-align:left">
+        Pose located on the XY-plane
+      </td>
+      <td style="text-align:left">pose variale</td>
+    </tr>
+  </tbody>
+</table>
+
+### Return value
+
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Value</th>
+      <th style="text-align:left">Meaning</th>
+      <th style="text-align:left">Etc.</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>
+        OK
+      </td>
+      <td></td>
+    </tr>  
+  </tbody>
+</table>
+
+
+### Errors
+
+- E14613 : Occurs when the actual parameter does not match the formal parameter. Check the actual parameters.
+- E14614 : Occurs when the user coordinate number is not a number. Please specify the user coordinate number again.
+- E14615 : Occurs when the user coordinate number is not a number between 1 and 20. Please change the user coordinate number.
+- E1011 : Occurs when the distance between the taught poses is too close. Occurs when the distance between each point is less than 1mm. Please correct the distance value between poses.
+- E1012 : Occurs when three called poses are in a straight line.
+
+
+### Example
 
 ```python
-var res = mkucs(num, pose1)
-var res = mkucs(num, pose1, pose2, pose3)
+   var p_origin=Pose(0,0,0,0,0,0,"base")
+   var p_xaxis=Pose(100,0,0,0,0,0,"base")
+   var p_xyplane_=Pose(100,100,0,0,0,0,"base")
+   var uc1 = mkucs(1,p_origin,p_xaxis,p_xyplane)
+   var uc2 = mkucs(2,p_origin)
+   end
 ```
 
-0 will be returned if successful. An error code of a negative number will be returned if failed.
+![](../../_assets/mkucs.png)
 
-# 5.6 contpath
+# 5.6 selucrd - select user coordinate system
+
+The selucrd statement is a procedure for changing the user coordinate system number specified as the user coordinate system in the condition setting.
+
+### Description
+
+Function corresponding to specifying the User coordinate system in the condition setting.
+
+### Syntax
+
+```python
+selucrd <coord. system number>
+```
+
+### Parameters
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Parameter</th>
+      <th style="text-align:left">Description</th>
+      <th style="text-align:left">Remarks</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+      <td style="text-align:left">coord. system number</td>
+      <td style="text-align:left">
+        coord. system number to select<br>
+        <ul>
+        <li>0: Unspecifying user coordinate system</li>
+        <li>1~20: Specifying a User Coordinate system</li>
+        </ul>
+      </td>
+      <td style="text-align:left">expression</td>
+    </tr>
+  </tbody>
+</table>
+
+### Example
+
+```python
+   selucrd 1
+   end
+```# 5.7 contpath
 
 ### Description
 
@@ -5397,7 +5538,7 @@ triggout <output variable>,val=<output value>,time=<ahead/behind time>
 triggout <output variable>,val=<output value>,dist=<ahead/behind distance>,x=<X-direction absolute position>
 triggout <output variable>,val=<output value>,dist=<ahead/behind distance>,y=<Y-direction absolute position>
 triggout <output variable>,val=<output value>,dist=<ahead/behind distance>,z=<Z-direction absolute position>
-triggout <output variable>,val=<output value>,time=<ahead/behind distance>,j=<axis-direction absolute position>
+triggout <output variable>,val=<output value>,dist=<ahead/behind distance>,j=<tcp or axis-direction relative distance>
 ```
 
 ### Parameters
@@ -5442,7 +5583,26 @@ triggout <output variable>,val=<output value>,time=<ahead/behind distance>,j=<ax
       <td style="text-align:left">ahead/behind distance</td>
       <td style="text-align:left">
         -3000 ~ 3000 [mm]<br>
-        AIf it is (-), the signal is output before the target position is reached; if it is (+), it is output after it is reached.
+        If it is (-), the signal is output before the target position is reached; if it is (+), it is output after it is reached.
+      </td>
+      <td style="text-align:left">arithmetic expression</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">Absolute position in x, y, z direction</td>
+      <td style="text-align:left">
+        -3000 ~ 3000 [mm]<br>
+        If it is (-), the signal is output before the target position is reached; if it is (+), it is output after it is reached.
+      </td>
+      <td style="text-align:left">arithmetic expression</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">tcp or axial relative distance<br>
+      tcp : if j=0 then<br>
+      axis-direction : if j=1 over then<br>
+      </td>
+      <td style="text-align:left">
+        tcp : -3000 ~ 3000 [mm], axis-direction : -3000 ~ 3000 [mm] or [deg]<br>
+        If it is (-), the signal is output before the relative distance is reached; if it is (+), it is output after it is reached.
       </td>
       <td style="text-align:left">arithmetic expression</td>
     </tr>
@@ -5453,7 +5613,11 @@ triggout <output variable>,val=<output value>,time=<ahead/behind distance>,j=<ax
 
 ```python
    move L,spd=300mm/s,accu=3,tool=1
-   triggout do1,val=1,time=-0.5
+   triggout do1,val=1,time=-0.5 #turn on do1 0.5 seconds before reaching the step
+   triggout do1,val=1,dist=-100.0,j=0 #do1 turns on when tcp reaches step position and relative distance -100mm
+   triggout do1,val=1,dist=-3.0,j=1 #do1 turns on when axis 1 reaches step position and relative distance -100mm
+   triggout do1,val=1,x=-100.0 #do1 turns on when the X coordinate value reaches -100mm
+   triggout do1,val=1,x=-100.0,y=-100.0 #do1 turns on when the X, Y coordinate value reaches -100mm
    move L,spd=30%,accu=2,tool=1
    end
 ```
@@ -5639,7 +5803,7 @@ Function to read the generated user coordinate system as a pose.
   <tr>
       <td style="text-align:left">result variable</td>
       <td style="text-align:left">
-        백그라운드 수행 결과<br>
+        result of background execution<br>
         <ul>
         <li>0: Successfully completed.</li>
         </ul>

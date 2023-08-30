@@ -21,7 +21,7 @@ These functions receive an input of a parameter and then create and return an ob
         <p>Creates and returns an array of &#x201C;n&#x201D; elements</p>
         <p>The initial value of the element is 0.</p>
         <p>A multidimensional array is created if two or more elements are designated.</p>
-        <p>Refer to &quot;<a href="../../array-object/array/">4.1 Arrays</a>&quot;.</p>
+        <p>Refer to &quot;<a href="../../4-array-object/1-array/">4.1 Arrays</a>&quot;.</p>
       </td>
       <td style="text-align:left">
         <p>Array(900)</p>
@@ -36,7 +36,7 @@ These functions receive an input of a parameter and then create and return an ob
       <td style="text-align:left">Pose(element)</td>
       <td style="text-align:left">
         <p>Creates and returns a pose object</p>
-        <p>Refer to &quot;<a href="../../moving-robot/pose.md">5.1 Pose</a>&quot;.</p>
+        <p>Refer to &quot;<a href="../../5-moving-robot/1-pose.md">5.1 Pose</a>&quot;.</p>
       </td>
       <td style="text-align:left"></td>
       <td style="text-align:left">Pose object</td>
@@ -45,7 +45,7 @@ These functions receive an input of a parameter and then create and return an ob
       <td style="text-align:left">Shift(element)</td>
       <td style="text-align:left">
         <p>Creates and returns a shift object</p>
-        <p>Refer to &quot;<a href="../../moving-robot/shift.md">5.2 Shift</a>&quot;.</p>
+        <p>Refer to &quot;<a href="../../5-moving-robot/2-shift.md">5.2 Shift</a>&quot;.</p>
       </td>
       <td style="text-align:left"></td>
       <td style="text-align:left">Shift object</td>
