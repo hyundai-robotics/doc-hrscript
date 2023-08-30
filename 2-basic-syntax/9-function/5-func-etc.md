@@ -23,7 +23,7 @@
           <br />
         </p>
         <p>crd 인수로 사용할 수 있는
-          값은 &quot;<a href="../../moving-robot/pose.md">5.1 포즈 (pose)</a>&quot;의
+          값은 &quot;<a href="../../5-moving-robot/1-pose.md">5.1 포즈 (pose)</a>&quot;의
           표를 참조하십시오.
           <br />
         </p>
@@ -68,7 +68,7 @@
           <br
           />
         </p>
-        <p>&quot;<a href="../../moving-robot/ucs.md">5.5 사용자좌표계 (UCS ; User Coordinate System)</a>&quot;를
+        <p>&quot;<a href="../../5-moving-robot/5-mkucs.md">5.5 사용자좌표계 (UCS ; User Coordinate System)</a>&quot;를
           참조하십시오.
           <br />
         </p>

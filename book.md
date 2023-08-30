@@ -942,7 +942,7 @@ var str="hello, world"가 실행된 상태에서의 예
           <br
           />
         </p>
-        <p>&quot;<a href="../../array-object/array/">4.1 배열</a>&quot;을
+        <p>&quot;<a href="../../4-array-object/1-array">4.1 배열</a>&quot;을
           참조하십시오.
           <br />
         </p>
@@ -974,7 +974,7 @@ var str="hello, world"가 실행된 상태에서의 예
           <br
           />
         </p>
-        <p>&quot;<a href="../../moving-robot/pose.md">5.1 포즈 (pose)</a>&quot;를
+        <p>&quot;<a href="../../5-moving-robot/1-pose.md">5.1 포즈 (pose)</a>&quot;를
           참조하십시오.
           <br />
         </p>
@@ -989,7 +989,7 @@ var str="hello, world"가 실행된 상태에서의 예
           리턴합니다.
           <br />
         </p>
-        <p>&quot;<a href="../../moving-robot/shift.md">5.2 시프트 (shift)</a>&quot;를
+        <p>&quot;<a href="../../5-moving-robot/2-shift.md">5.2 시프트 (shift)</a>&quot;를
           참조하십시오.
           <br />
         </p>
@@ -1025,7 +1025,7 @@ var str="hello, world"가 실행된 상태에서의 예
           <br />
         </p>
         <p>crd 인수로 사용할 수 있는
-          값은 &quot;<a href="../../moving-robot/pose.md">5.1 포즈 (pose)</a>&quot;의
+          값은 &quot;<a href="../../5-moving-robot/1-pose.md">5.1 포즈 (pose)</a>&quot;의
           표를 참조하십시오.
           <br />
         </p>
@@ -1070,7 +1070,7 @@ var str="hello, world"가 실행된 상태에서의 예
           <br
           />
         </p>
-        <p>&quot;<a href="../../moving-robot/ucs.md">5.5 사용자좌표계 (UCS ; User Coordinate System)</a>&quot;를
+        <p>&quot;<a href="../../5-moving-robot/5-mkucs.md">5.5 사용자좌표계 (UCS ; User Coordinate System)</a>&quot;를
           참조하십시오.
           <br />
         </p>

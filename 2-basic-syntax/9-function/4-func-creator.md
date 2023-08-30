@@ -34,7 +34,7 @@
           <br
           />
         </p>
-        <p>&quot;<a href="../../array-object/array/">4.1 배열</a>&quot;을
+        <p>&quot;<a href="../../4-array-object/1-array">4.1 배열</a>&quot;을
           참조하십시오.
           <br />
         </p>
@@ -66,7 +66,7 @@
           <br
           />
         </p>
-        <p>&quot;<a href="../../moving-robot/pose.md">5.1 포즈 (pose)</a>&quot;를
+        <p>&quot;<a href="../../5-moving-robot/1-pose.md">5.1 포즈 (pose)</a>&quot;를
           참조하십시오.
           <br />
         </p>
@@ -81,7 +81,7 @@
           리턴합니다.
           <br />
         </p>
-        <p>&quot;<a href="../../moving-robot/shift.md">5.2 시프트 (shift)</a>&quot;를
+        <p>&quot;<a href="../../5-moving-robot/2-shift.md">5.2 시프트 (shift)</a>&quot;를
           참조하십시오.
           <br />
         </p>
