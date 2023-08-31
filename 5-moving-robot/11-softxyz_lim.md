@@ -1,4 +1,4 @@
-﻿# 5.11 softxyz_limit 문
+﻿# 5.11 softxyz_lim 문
 
 softxyz_lim 명령어는 softxyz on 기능 사용 전 파라미터 값을 미리 설정 해야 한다. <br>
 

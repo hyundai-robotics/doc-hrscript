@@ -39,9 +39,9 @@ softxyz off
 ```python
 S1   move P,spd=100mm/sec,accu=0,tool=0
      delay 2.0 # softxyz on 하기 전에 delay 설정 필수  
-     limit xnr, x=50, y=50, ry=3
-     limit vel, x=5, y=5, ry=3
-     limit thr, x=3, y=3, ry=1
+     softxyz_lim xnr, x=50, y=50, ry=3
+     softxyz_lim vel, x=5, y=5, ry=3
+     softxyz_lim thr, x=3, y=3, ry=1
      softxyz on, crd="robot"
 S2   move P,spd=250mm/sec,accu=0,tool=0
      softxyz off 
@@ -56,8 +56,8 @@ S2   move P,spd=250mm/sec,accu=0,tool=0
 ```python
 S1   move P,spd=100mm/sec,accu=0,tool=0
      delay 2.0 # softxyz on 하기 전에 delay 설정 필수  
-     limit pos, _y=300, y_=200
-     limit vel, y=150
+     softxyz_lim pos, _y=300, y_=200
+     softxyz_lim vel, y=150
      softxyz on, crd="robot"
 S2   wait ... 
      softxyz off 
