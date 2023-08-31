@@ -3049,6 +3049,448 @@ contpath 2
 - The changed status can be checked by the `CP0` / `CP1` / `CP2` flags on the title bar.
 
 {% endhint %}
+# 5.8 coldet 
+
+Robot language "coldet" is used for setting collision detection(of each axis) level in case of the function activated on. 
+
+Users should set the function activation on/off and collision level in the TP menu. \[3: robot parameter &gt; 14: impact detection &gt; 2: set the collision detection(of each axis) \] 
+
+The menu can be shown in that robot is set for detecting collision.  
+
+If the function is activated on, default detecting level is 1. 
+
+Also in manual mode, the default level is same. 
+
+--- 
+
+### Description
+* Set the collision detection level 
+
+
+### Syntax 
+```python
+coldet LV=<level> 
+```
+
+### Parameter 
+* The value of level can be set from 0 to 16 (0: off)
+
+### Example 
+
+```python
+S1   move P,spd=60%,accu=0,tool=0
+S2   move P,spd=60%,accu=0,tool=0
+     coldet LV=2
+S3   move P,spd=60%,accu=0,tool=0
+     coldet LV=3
+S4   move P,spd=60%,accu=0,tool=0
+S5   move P,spd=60%,accu=0,tool=0
+     coldet LV=0
+S6   move P,spd=60%,accu=0,tool=0
+S7   move P,spd=60%,accu=0,tool=0
+     end 
+```
+* The value of detecting level in step1 and step2 is 1. 
+* The value of detecting level in step3 is 2, and that of level in step 4 and step5 is 3.
+* In case of step6 and step7, the function of collision detection is deactivated. 
+--- 
+# 5.9 colsense 
+
+Robot language "colsense" is used for setting detection sensitivity in case of the function activated on. 
+
+Users should set the function activation on/off and detection sensitivity in the TP menu. \[3: robot parameter &gt; 14: impact detection &gt; 1: Model-based collision detection \] 
+
+--- 
+
+### Description
+* General collision detection sensitivity can be set
+* Each axis collision detection sensitivity can be set 
+
+### Syntax 
+```python
+colsense general,sensitivity=<general sensitivity>  
+colsense axis,id=<joint number>,criteria=<each axis sensitivity> 
+```
+
+### Parameter 
+* General threshold value can be set from 0 to 200, and larger value is more sensitive.(0:0ff,1~200)
+* The parameter "id" is set as joint number.(1~6)  
+* Axis threshold value can be set from 0 to 100, and lower value is more sensitive.(0:0ff,1~100)"
+
+### Example 
+
+```python
+S1   move P,spd=60%,accu=0,tool=0
+S2   move P,spd=60%,accu=0,tool=0
+     colsense general,sensitivity=150
+S3   move P,spd=60%,accu=0,tool=0
+     colsense general,sensitivity=200
+S4   move P,spd=60%,accu=0,tool=0
+S5   move P,spd=60%,accu=0,tool=0
+     colsense axis,id=1,criteria=0
+     colsense axis,id=2,criteria=0
+S6   move P,spd=60%,accu=0,tool=0
+S7   move P,spd=60%,accu=0,tool=0
+     end 
+```
+* The detection sensitivity value in step1 and step2 is used from setting based on the menu \[3: robot parameter &gt; 14: impact detection &gt; 1: Model-based collision detection \] 
+* The General sensitivity in step3 is 150, and the value is changed as 200 in step4 and step5 
+* Sensing collision on joint1 and joint2 is deactivated, and other joints collision are detected by general sensitivity as 200.  
+
+--- 
+{% hint style="info" %}
+
+The final sensitivity value per axis is proportional to the sensitivity value of each axis, and inversely proportional to the general sensitivity value. 
+{% endhint %}
+
+
+# 5.10 softxyz 
+
+softxyz instruction is sensorless force control, that allows the robot to move compliantly in cartesian space with respect to external forces in the environment set by the user. <br>
+
+User should check the validity of robot tool and additional axis information for increasing function accuracy. <br>
+
+--- 
+
+### Description 
+* Without using sensor, move compliantly in cartesian space with respect to external forces in the environment set by the user. 
+
+
+### Syntax
+```python
+softxyz on, crd=<coordinate>
+softxyz off  
+```
+
+### Parameter 
+* on : function start, off : function end  
+* crd : coordinates (base, robot, tool, user)
+```python
+softxyz on, crd="base"   
+softxyz on, crd="robot"  
+softxyz on, crd="tool"   
+softxyz on, crd="user_1"  
+softxyz off  
+```
+
+
+### Example 
+> Example 1) In case that robot move toward X, Y, Ry for assembling Z direction 
+> * Coordinate : robot coordinate (crd="robot") <br>
+> * Position (xnr) limit : the range of X and Y direction [-50,+50](mm), the range of Ry direction [-3,+3] (deg) <br>
+> * Velocity (vel) limit : the maximum speed of X and Y direction 5(mm/sec), the maximum speed of Ry 3(deg/sec)  <br>
+> * Torque (thr) limit : the threshold of X direction 3N, that of Y direction 3N and that of Ry direction 1Nm 
+
+```python
+S1   move P,spd=100mm/sec,accu=0,tool=0
+     delay 2.0 # before softxyz on  
+     softxyz_lim xnr, x=50, y=50, ry=3
+     softxyz_lim vel, x=5, y=5, ry=3
+     softxyz_lim thr, x=3, y=3, ry=1
+     softxyz on, crd="robot"
+S2   move P,spd=250mm/sec,accu=0,tool=0
+     softxyz off 
+     end 
+```
+
+> Example 2) Injection materials handling 
+> * Coordinate : robot coordinate (crd="robot") <br>
+> * Position (pos) limit : the range of +Y direction [0,3]  
+(mm) , the range of -Y direction [-200,0] (mm) <br>
+> * Velocity (vel) limit : the maximum speed of Y direction 150(mm/sec)<br>
+
+
+```python
+S1   move P,spd=100mm/sec,accu=0,tool=0
+     delay 2.0 # before softxyz on  
+     softxyz_lim pos, _y=300, y_=200
+     softxyz_lim vel, y=150
+     softxyz on, crd="robot"
+S2   wait ... 
+     softxyz off 
+     end 
+```
+
+--- 
+{% hint style="info" %}
+
+* Before using "softxyz on", user should set softxyz_lim parameters such as pos, xnr, vel and thr. 
+
+* For upgrading sensorless force control performance, user should set "delay" command as "delay 1.0" befor "softxyz on". 
+
+{% endhint %}
+# 5.11 softxyz_lim
+
+Before using instruction "softxyz on", user should set softxyz_lim parameters such as position limit(pos), workspace limit(xnr), velocity limit(vel) and force threshold limit(thr). <br>
+
+
+--- 
+
+### Description 
+* softxyz_lim parameter setting   
+
+
+### Syntax 
+```pythonghlt
+softxyz_lim pos,_x=<+X>,x_=<-X>,_y=<+Y>,y_=<-Y>,_z=<+Z>,z_=<-Z> 
+softxyz_lim vel,x=<X>,y=<Y>,z=<Z>,rx=<Rx>,ry=<Ry>,rz=<Rz>  
+softxyz_lim xnr,x=<X>,y=<Y>,z=<Z>,rx=<Rx>,ry=<Ry>,rz=<Rz> 
+softxyz_lim thr,x=<X>,y=<Y>,z=<Z>,rx=<Rx>,ry=<Ry>,rz=<Rz> 
+```
+
+### Parameter 
+* softxyz_lim pos : Position limit based on cartesian space [mm] <br>
+* softxyz_lim vel : Maximum translation and rotation velocity limit based on cartesian space [mm/sec] or [deg/sec] 
+<br>
+* softxyz_lim xnr : Workspace (position/rotation) limit based on cartesian space [mm] or [deg] <br>
+* softxyz_lim thr : force threshold limit based on cartesian space [N] or [Nm] <br>
+
+
+### Example
+> * setting position limit : +X direction is 200[mm], -Y direction is 100[mm], +Z direction is 300[mm]
+```python
+softxyz_lim pos, _x=200, y_=100, _z=300
+```
+> * setting velocity limit : maximum speed of Z direction is 40[mm/sec] 
+```python
+softxyz_lim vel, z=40
+```
+> * setting workspace limit : maximum position of X direction is [-200,200][mm]
+```python
+softxyz_lim xnr, x=200
+```
+> * setting torque limit : torque threshold is set to 10[N]
+```python
+softxyz_lim thr, y=10
+```
+
+
+# 5.12 softjoint
+
+softjoint instruction is sensorless force control, that allows the robot to move compliantly in joint space with respect to external forces in the environment set by the user. <br>
+
+User should check the validity of robot tool and additional axis information for increasing function accuracy. <br>
+
+
+
+--- 
+
+### Description 
+* Without using sensor, move compliantly in joint space with respect to external forces in the environment set by the user. 
+
+
+### Syntax 
+```python
+softjoint on
+softjoint off  
+```
+
+### Parameter
+* on : function start
+* off : function end 
+
+
+
+--- 
+{% hint style="info" %}
+
+* Before using "softjoint on", user should set softjoint_lim parameters such as joint number(j), softness(sft), joint angle limit(ang) and torque threshold(thr).
+
+* For upgrading sensorless force control performance, user should set "delay" command as "delay 1.0" befor "softjoint on".  
+
+{% endhint %}
+# 5.13 softjoint_lim
+
+Before using instruction "softjoint on", user should set softjoint_lim  parameters such as joint number(j), compliance(sft), joint angle limit(ang) and torque threshold(thr). <br>
+
+--- 
+
+### Syntax 
+```python
+softjoint_lim, j=<joint number>, sft=<softness>, ang=<joint angle limit>, thr=<torque threshold> 
+```
+
+### Parameter
+* j : joint number [1~6]
+* sft : larger value is more soft to move [0:off,0~100]
+* ang : joint angle limit [deg]
+* thr : torque threshold [Nm]
+
+
+### Example 
+> Example1) setting parameters on joint number 3(J3) 
+> * Activation on J3, softness(50), joint angle limit [-30~30] (deg) and torque threshold 10(Nm)   
+```python
+softjoint_lim, j=3, sft=50, ang=30, thr=10
+```
+
+> Example2) setting parameters on joint number 2 and 3(J2, J3)
+> * Setting softness : J2-sft(30), J3-sft(80)  
+> * Setting joint angle limit : J2[-50,+50] (deg), J3[min joint angle limit, max joint angle limit] (deg) <br>
+> * Setting torque threshold : J2-thr(3)(Nm), J3-thr(5)(Nm) 
+
+
+```python
+S1   move P,spd=100mm/sec,accu=0,tool=0
+     delay 2.0 
+     softjoint_lim j=2,sft=30,ang=50,thr=3
+     softjoint_lim j=3,sft=80,thr=5
+     softjoint on
+S2   move P,spd=250mm/sec,accu=0,tool=0
+     softjoint off 
+     end 
+```
+
+
+--- 
+{% hint style="info" %}
+
+* For using the function of softjoint, parameters on "j" and "sft" on softjoint_lim should be set. Also, if you do not set "ang" parameter, robot moves in workspace on defined softlimit. And, default parameter value on torque threshold "thr" is 0 [Nm]. 
+
+{% endhint %}
+# 5.14 online.Track
+
+
+### Description  
+* As position increments are input to Ethernet through UDP communication, robot move toward the command. 
+
+### Syntax 
+```python
+     global onl_track
+     var desired_pose 
+
+     onl_track=online.Track()
+     onl_track.time_from_start=-1.0
+     onl_track.look_ahead_time=1.0
+     onl_track.exe_interval=0.1
+     onl_track.init
+     onl_track.exe desired_pose
+ 
+```
+
+### Parameter 
+* init : initial setting  
+* exe  : user should set the pose data in joint space coordinate  
+
+
+
+### Example
+> joint angle data is obtained from "msg" command through "enet" command. 
+
+```python
+     import enet
+     global enet0
+     global onl_track
+     var desired_pose
+     var msg
+     enet0=enet.ENet("udp")
+     enet0.ip_addr="192.168.0.7"
+     enet0.lport=7000
+     enet0.rport=7000
+     enet0.open
+     
+     onl_track=online.Track()
+     onl_track.time_from_start=-1.0
+     onl_track.look_ahead_time=1.0
+     onl_track.exe_interval=0.1
+     onl_track.init
+
+10   enet0.recv msg
+     desired_pose=Pose(msg)
+     onl_track.exe desired_pose
+     goto 10
+     end 
+```
+
+
+--- 
+{% hint style="info" %}
+
+* The role of robot language "online" is that robot move toward desired joint angle command from "enet" through UDP communication.   
+
+{% endhint %}
+# 5.15 pose_trans 
+
+
+### Description 
+* pose_trans command is a function instruction that multiplies two pose variables to obtain the resulting pose value. 
+
+### Syntax 
+
+```python
+poseC = pose_trans(poseA,poseB)
+```
+
+### Example 
+```python
+     var pose_A, pose_B, pose_C
+     var pose_inv_B
+     var pose_shift
+     
+     pose_shift=Shift(10.0, 10.0, 10.0, 0.000, 0.000, 0.000, "base")
+
+     # pose_A : (0,60,0,0,-30,0) 
+     pose_A=Pose(0.00,60.00,0.00,0.00,-30.00,0.00)
+     pose_A=pose_A.convcrd("base")
+ 
+     pose_B=pose_A+pose_shift
+     
+     # pose_inv_B is inverse matrix oof pose_B
+     pose_inv_B=pose_B
+     pose_inv_B=pose_B.convcrd("base")
+     pose_inv_B=pose_inv(pose_B)
+
+     # pose_C is same to pose_A
+     pose_C=pose_trans(pose_A,pose_B)
+     pose_C=pose_trans(pose_C,pose_inv_B)
+          
+S1   move P,tg=pose_C,spd=10%,accu=0,tool=0
+     
+     end
+```
+
+# 5.16 pose_inv 
+
+
+### Description
+* pose_inv instruction is a function that converts to a pose variable corresponding to the inverse matrix of the pose variable.  
+
+
+### Syntax 
+
+```python
+poseB = pose_inv(poseA)
+```
+
+### Example  
+```python
+     var pose_A, pose_B, pose_C
+     var pose_inv_B
+     var pose_shift
+     
+     pose_shift=Shift(10.0, 10.0, 10.0, 0.000, 0.000, 0.000, "base")
+
+     # pose_A : (0,60,0,0,-30,0) 
+     pose_A=Pose(0.00,60.00,0.00,0.00,-30.00,0.00)
+     pose_A=pose_A.convcrd("base")
+ 
+     pose_B=pose_A+pose_shift
+     
+     # pose_inv_B is inverse matrix oof pose_B
+     pose_inv_B=pose_B
+     pose_inv_B=pose_B.convcrd("base")
+     pose_inv_B=pose_inv(pose_B)
+
+     # pose_C is same to pose_A
+     pose_C=pose_trans(pose_A,pose_B)
+     pose_C=pose_trans(pose_C,pose_inv_B)
+
+S1   move P,tg=pose_C,spd=10%,accu=0,tool=0
+     
+     end
+```
+
+
 # 6. Communicating with External Devices
 
 # 6.1 FB Object: Digital I/O
