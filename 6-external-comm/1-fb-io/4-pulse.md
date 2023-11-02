@@ -28,6 +28,7 @@ pulse <신호>,tlag=<지연 시간>,ton=<On 시간>,toff=<Off 시간>,cnt=<출�
       <td style="text-align:left">신호</td>
       <td style="text-align:left">
         펄스 형태로 출력할 출력신호명<br>
+        (fb.do 신호만을 지원합니다.)
       </td>
       <td style="text-align:left">문자열</td>
     </tr>
