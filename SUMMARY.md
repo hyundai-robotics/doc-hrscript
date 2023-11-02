@@ -84,6 +84,7 @@
     * [6.1.1 Input/Output Variables](6-external-comm/1-fb-io/1-io-val.md)
     * [6.1.2 Examples](6-external-comm/1-fb-io/2-io-example.md)
     * [6.1.3 fn object](6-external-comm/1-fb-io/3-fn-io.md)
+    * [6.1.4 pulse](6-external-comm/1-fb-io/4-pulse.md)
   * [6.2 Http\_Cli Module: HTTP Client](6-external-comm/2-http_cli/README.md)
     * [6.2.1 Constructor](6-external-comm/2-http_cli/1-http_cli-creator.md)
     * [6.2.2 Member Variables](6-external-comm/2-http_cli/2-http_cli-member-var.md)
