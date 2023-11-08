@@ -24,18 +24,14 @@
         </p>
       </td>
       <td style="text-align:left">
-        <p>요소 n개의 배열을 생성해
-          리턴합니다. 요소의 초기값은
-          0입니다.
+        <p>요소 n개의 배열을 생성해 리턴합니다. 요소의 초기값은 0입니다.
           <br />
         </p>
-        <p>인수를 2개 이상 지정하면
-          다차원 배열이 생성됩니다.
+        <p>인수를 2개 이상 지정하면 다차원 배열이 생성됩니다.
           <br
           />
         </p>
-        <p>&quot;<a href="../../4-array-object/1-array">4.1 배열</a>&quot;을
-          참조하십시오.
+        <p>&quot;<a href="../../4-array-object/1-array/3-array-creator">4.1.3 배열 생성자 함수 - Array()</a>&quot;를 참조하십시오.
           <br />
         </p>
         <p>

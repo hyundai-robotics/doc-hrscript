@@ -694,27 +694,23 @@ var str="hello, world"가 실행된 상태에서의 예
   <tbody>
     <tr>
       <td style="text-align:left">bin(a)</td>
-      <td style="text-align:left">수치 a의 2진 표현 문자열을
-        리턴합니다</td>
+      <td style="text-align:left">수치 a의 2진 표현 문자열을 리턴합니다</td>
       <td style="text-align:left">bin(0b0010)</td>
       <td style="text-align:left">&quot;10&quot;</td>
     </tr>
     <tr>
       <td style="text-align:left">chr(a)</td>
-      <td style="text-align:left">ASCII코드 a인 문자를 문자열형으로
-        리턴합니다.</td>
+      <td style="text-align:left">ASCII코드 a인 문자를 문자열형으로 리턴합니다.</td>
       <td style="text-align:left">chr(65)</td>
       <td style="text-align:left">&quot;A&quot;</td>
     </tr>
     <tr>
       <td style="text-align:left">double(s)</td>
       <td style="text-align:left">
-        <p>실수 문자열s의 실수형값을
-          리턴합니다.
+        <p>실수 문자열s의 실수형값을 리턴합니다.
           <br />
         </p>
-        <p>(해석되는 위치까지만
-          해석하고 나머지는 버림)
+        <p>(해석되는 위치까지만 해석하고 나머지는 버림)
           <br
           />
         </p>
@@ -724,20 +720,17 @@ var str="hello, world"가 실행된 상태에서의 예
     </tr>
     <tr>
       <td style="text-align:left">hex(a)</td>
-      <td style="text-align:left">수치 a의 16진 표현 문자열을
-        리턴 합니다.</td>
+      <td style="text-align:left">수치 a의 16진 표현 문자열을 리턴 합니다.</td>
       <td style="text-align:left">hex(0x7A2F)</td>
       <td style="text-align:left">&quot;7A2F&quot;</td>
     </tr>
     <tr>
       <td style="text-align:left">int(s)</td>
       <td style="text-align:left">
-        <p>정수 문자열s의 정수형값을
-          리턴합니다.
+        <p>정수 문자열s의 정수형값을 리턴합니다.
           <br />
         </p>
-        <p>(해석되는 위치까지만
-          해석하고 나머지는 버림)
+        <p>(해석되는 위치까지만 해석하고 나머지는 버림)
           <br
           />
         </p>
@@ -761,8 +754,7 @@ var str="hello, world"가 실행된 상태에서의 예
     </tr>
     <tr>
       <td style="text-align:left">left(s, n)</td>
-      <td style="text-align:left">문자열 s의 앞부분 n개의
-        문자로 된 문자열을 리턴합니다.</td>
+      <td style="text-align:left">문자열 s의 앞부분 n개의 문자로 된 문자열을 리턴합니다.</td>
       <td
       style="text-align:left">left(str, 3)</td>
         <td style="text-align:left">&quot;hel&quot;</td>
@@ -770,12 +762,10 @@ var str="hello, world"가 실행된 상태에서의 예
     <tr>
       <td style="text-align:left">len(s)</td>
       <td style="text-align:left">
-        <p>s가 문자열이면 문자열의
-          길이를 리턴합니다.
+        <p>s가 문자열이면 문자열의 길이를 리턴합니다.
           <br />
         </p>
-        <p>s가 배열이면 배열의 요소
-          개수를 리턴합니다.
+        <p>s가 배열이면 배열의 요소 개수를 리턴합니다.
           <br />
         </p>
       </td>
@@ -798,41 +788,32 @@ var str="hello, world"가 실행된 상태에서의 예
     </tr>
     <tr>
       <td style="text-align:left">mid(s, i, n)</td>
-      <td style="text-align:left">문자열 s의 i번째 문자부터
-        n개의 문자로 된 문자열을
-        리턴합니다. (첫 문자 위치는
-        0.)</td>
+      <td style="text-align:left">문자열 s의 i번째 문자부터 n개의 문자로 된 문자열을 리턴합니다. (첫 문자 위치는 0.)</td>
       <td style="text-align:left">mid(str, 3, 5)</td>
       <td style="text-align:left">&quot;lo, w&quot;</td>
     </tr>
     <tr>
       <td style="text-align:left">mirror(s)</td>
-      <td style="text-align:left">문자열 s를 역전한 문자열을
-        리턴합니다.</td>
+      <td style="text-align:left">문자열 s를 역전한 문자열을 리턴합니다.</td>
       <td style="text-align:left">mirror(&quot;HELLO&quot;)</td>
       <td style="text-align:left">&quot;OLLEH&quot;</td>
     </tr>
     <tr>
       <td style="text-align:left">right(s, n)</td>
-      <td style="text-align:left">문자열 s의 뒷부분 n개의
-        문자로 된 문자열을 리턴합니다.</td>
+      <td style="text-align:left">문자열 s의 뒷부분 n개의 문자로 된 문자열을 리턴합니다.</td>
       <td
       style="text-align:left">right(str, 3)</td>
         <td style="text-align:left">&quot;rld&quot;</td>
     </tr>
     <tr>
       <td style="text-align:left">str(a)</td>
-      <td style="text-align:left">수치 a의 10진 표현 문자열을
-        리턴합니다.</td>
+      <td style="text-align:left">수치 a의 10진 표현 문자열을 리턴합니다.</td>
       <td style="text-align:left">str(13.25)</td>
       <td style="text-align:left">13.250000</td>
     </tr>
     <tr>
-      <td style="text-align:left">strops(s, p)</td>
-      <td style="text-align:left">s문자열 내에 p문자열과
-        일치하는 최초의 위치를
-        리턴합니다.(첫 문자 위치는
-        0. 없으면 -1.)</td>
+      <td style="text-align:left">strpos(s, p)</td>
+      <td style="text-align:left">s문자열 내에 p문자열과 일치하는 최초의 위치를 리턴합니다.(첫 문자 위치는 0. 없으면 -1.)</td>
       <td style="text-align:left">
         <p>strpos(str, &quot;llo&quot;)
           <br />
@@ -932,18 +913,14 @@ var str="hello, world"가 실행된 상태에서의 예
         </p>
       </td>
       <td style="text-align:left">
-        <p>요소 n개의 배열을 생성해
-          리턴합니다. 요소의 초기값은
-          0입니다.
+        <p>요소 n개의 배열을 생성해 리턴합니다. 요소의 초기값은 0입니다.
           <br />
         </p>
-        <p>인수를 2개 이상 지정하면
-          다차원 배열이 생성됩니다.
+        <p>인수를 2개 이상 지정하면 다차원 배열이 생성됩니다.
           <br
           />
         </p>
-        <p>&quot;<a href="../../4-array-object/1-array">4.1 배열</a>&quot;을
-          참조하십시오.
+        <p>&quot;<a href="../../4-array-object/1-array/3-array-creator">4.1.3 배열 생성자 함수 - Array()</a>&quot;를 참조하십시오.
           <br />
         </p>
         <p>
@@ -1679,6 +1656,65 @@ print idx, sum
 end
 ```
 
+# 3.6.2 break문, continue문
+
+### 설명
+
+이 전 절에서 설명한 `for`~`next`문 사이에서 사용합니다.
+
+- `for`~`next` 블록 내에서 `break`문을 만나면, 반복을 중단하고 `next` 다음 명령문으로 분기합니다.
+- `for`~`next` 블록 내에서 `continue`문을 만나면, 다음 명령문으로 진행하지 않고 인덱스변수의 증감을 수행한 후 `for`문으로 분기합니다.
+
+### 문법
+
+```python
+for <인덱스변수>=<초기값> to <종료값> [step <증감값>]
+	<명령문>
+	…
+	break
+	<명령문>
+	…
+next
+```
+
+```python
+for <인덱스변수>=<초기값> to <종료값> [step <증감값>]
+	<명령문>
+	…
+	continue
+	<명령문>
+	…
+next
+```
+
+### 사용 예
+
+for~next문을 이용하여 배열의 모든 이름을 출력하되, 5자를 초과하는 이름은 제외하고, 공문자열을 만나면 중단하는 예입니다.
+
+```python
+var i
+var names=["Anna", "James", "George", "Brenda", "Tom", "", "Kate"]
+var n_name = len(names)
+for i=0 to n_name-1
+   var name=names[i]
+	if name==""
+	   break
+	endif
+   if len(name)>5
+	   continue
+	endif
+	print name
+next
+end
+```
+
+실행결과
+
+```python
+Anna
+James
+Tom
+```
 # 3.7 call문, jump문과 서브프로그램
 
 규모가 큰 로봇 작업 전체를 하나의 JOB 프로그램으로 작성하면, 프로그램이 크고 복잡해져서 기능을 추가하거나 문제점을 찾아 해결하기 어려워집니다.
@@ -2361,7 +2397,7 @@ arr\_y\[1\]는 이 중 인덱스 1의 요소, 즉 \["abc", "jqk", "xyz"\] 배열
   </tbody>
 </table>
 
-# 4.1.3 배열 생성자 함수
+# 4.1.3 배열 생성자 함수 - Array()
 
 수 백개의 요소를 가진 배열을 생성하고자 한다면, \[ \] 표기만으로는 어렵습니다. 생성자 함수를 호출하면 원하는 개수의 배열을 생성할 수 있습니다. 각 요소는 0으로 초기화됩니다.
 
@@ -3918,6 +3954,7 @@ pulse <신호>,tlag=<지연 시간>,ton=<On 시간>,toff=<Off 시간>,cnt=<출�
       <td style="text-align:left">신호</td>
       <td style="text-align:left">
         펄스 형태로 출력할 출력신호명<br>
+        (fb.do 신호만을 지원합니다.)
       </td>
       <td style="text-align:left">문자열</td>
     </tr>
