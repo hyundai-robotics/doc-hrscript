@@ -103,7 +103,7 @@ Examples with var str="hello, world" executed;
       <td style="text-align:left">13.250000</td>
     </tr>
     <tr>
-      <td style="text-align:left">strops(<b>s</b>, <b>p</b>)</td>
+      <td style="text-align:left">strpos(<b>s</b>, <b>p</b>)</td>
       <td style="text-align:left">Returns the first position in the string <b>s</b> that matches the string <b>p</b> (The
         first character position will be 0 or -1 if there is none.)</td>
       <td style="text-align:left">

@@ -1,4 +1,4 @@
-# 3.4.3 if-else-endif Statement
+﻿# 3.4.3 if-else-endif Statement
 
 ### Description
 
@@ -11,10 +11,10 @@ If the expression is true, statement A will be executed. If false, statement B w
 ```python
 if <bool expression>
 	<statement A>
-	…
+	...
 else
 	<statement B>
-	…
+	...
 endif
 ```
 

@@ -765,7 +765,7 @@ Examples with var str="hello, world" executed;
       <td style="text-align:left">13.250000</td>
     </tr>
     <tr>
-      <td style="text-align:left">strops(<b>s</b>, <b>p</b>)</td>
+      <td style="text-align:left">strpos(<b>s</b>, <b>p</b>)</td>
       <td style="text-align:left">Returns the first position in the string <b>s</b> that matches the string <b>p</b> (The
         first character position will be 0 or -1 if there is none.)</td>
       <td style="text-align:left">
@@ -847,7 +847,7 @@ These functions receive an input of a parameter and then create and return an ob
         <p>Creates and returns an array of &#x201C;n&#x201D; elements</p>
         <p>The initial value of the element is 0.</p>
         <p>A multidimensional array is created if two or more elements are designated.</p>
-        <p>Refer to &quot;<a href="../../4-array-object/1-array/">4.1 Arrays</a>&quot;.</p>
+        <p>Refer to &quot;<a href="../../4-array-object/1-array/3-array-creator">4.1.3 Array Constructor Function - Array()</a>&quot;.</p>
       </td>
       <td style="text-align:left">
         <p>Array(900)</p>
@@ -1331,10 +1331,10 @@ If the expression is true, statement A will be executed. If false, statement B w
 ```python
 if <bool expression>
 	<statement A>
-	…
+	...
 else
 	<statement B>
-	…
+	...
 endif
 ```
 
@@ -1499,9 +1499,9 @@ Loop statements can be used when the same operation needs to be repeated multipl
 
 ### Description
 
-The format of the for-next statement, which repeats the same operation, is as follows.
+The format of the `for`~`next` statement, which repeats the same operation, is as follows.
 
-First, the initial value will be assigned to the index variable. When the next statement is encountered while the statements under the for statement are executed, the index variable will add increment/decrement values and perform repetition from the point of the for statement. When the index variable passes the end value, the repetition will end.
+First, the initial value will be assigned to the index variable. When the `next` statement is encountered while the statements under the for statement are executed, the index variable will add increment/decrement values and perform repetition from the point of the for statement. When the index variable passes the end value, the repetition will end.
 
 If a step is not specified, 1 will be applied.
 
@@ -1510,7 +1510,7 @@ If a step is not specified, 1 will be applied.
 ```python
 for <index variable>=<initial value> to <end value> [step <increment/decrement value>]
 	<statement>
-	…
+	...
 next
 ```
 
@@ -1527,7 +1527,65 @@ next
 print idx, sum
 end
 ```
+# 3.6.2 break, continue
 
+### Description
+
+The `break` and `continue` are used between `for`~`next` statements explained in this previous section.
+
+- When run into `break` in the `for`~`next` block, the loop stops its repetition and branch to the `next` statement.
+- When run into `continue` in the `for`~`next` block, it doesn't proceed to the next statement, but does an increment/decrement of the index variable, and branch to the `for` statement.
+
+### Syntax
+
+```python
+for <index variable>=<initial value> to <end value> [step <increment/decrement value>]
+	<statement>
+	...
+	break
+	<statement>
+	...
+next
+```
+
+```python
+for <index variable>=<initial value> to <end value> [step <increment/decrement value>]
+	<statement>
+	...
+	continue
+	<statement>
+	...
+next
+```
+
+### Example
+
+This is an example of outputting all the names in the array using the `for`~`next` statement, except for names with more than 5 characters, but stopping when an empty string is encountered.
+
+```python
+var i
+var names=["Anna", "James", "George", "Brenda", "Tom", "", "Kate"]
+var n_name = len(names)
+for i=0 to n_name-1
+   var name=names[i]
+	if name==""
+	   break
+	endif
+   if len(name)>5
+	   continue
+	endif
+	print name
+next
+end
+```
+
+Result
+
+```python
+Anna
+James
+Tom
+```
 # 3.7 Call, Jump Statement and Subprograms
 
 If an entire large-scale robot operation is created as one job program, the program becomes large and complex, making it difficult to add functions or find and solve problems.
@@ -2186,7 +2244,7 @@ So, arr\_x\[1\] is "jqk", and arr\_y\[1\]\[2\] is "xyz" because it points to \[2
   </tbody>
 </table>
 
-# 4.1.3 Array Constructor Function
+# 4.1.3 Array Constructor Function - Array()
 
 It is difficult to create an array with hundreds of elements with the notation \[ \] alone. Any number of arrays may be created by calling the constructor function. Each element will be initialized to 0.
 
@@ -3652,7 +3710,81 @@ for idx=21 to 29
 next
 fn2.do3=fn2.do7=fn2.do11=1   # Turn on the fn2's output signals 3, 7, and 11 at once.
 ```
-# 6.2    Http\_Cli Module: HTTP Client
+# 6.1.4 pulse
+
+`pulse` statement is the procedure for signal output of pulse type.
+
+### Description
+
+After tlag time has elapsed, it is output as many times as cnt in the form of On(High) for ton time and Off(Low) for toff time.
+
+
+### Syntax
+
+```python
+pulse <Signal>,tlag=<Lag time>,ton=<On time>,toff=<Off time>,cnt=<output count>
+```
+
+### Parameters
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Parameter</th>
+      <th style="text-align:left">Description</th>
+      <th style="text-align:left">Remarks</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+      <td style="text-align:left">Signal</td>
+      <td style="text-align:left">
+        Output signal name to be output in pulse form<br>
+        (Only supports fb.do signals.)
+      </td>
+      <td style="text-align:left">output signal</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">Lag time</td>
+      <td style="text-align:left">
+        Time to wait until the pulse signal starts after performing the procedure<br>
+        (0.0 ~ 100.0[sec])
+      </td>
+      <td style="text-align:left">arithmetic expression</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">On time</td>
+      <td style="text-align:left">
+        Time to output signal in On(High) state<br>
+        (0.0 ~ 100.0[sec])
+      </td>
+      <td style="text-align:left">arithmetic expression</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">Off time</td>
+      <td style="text-align:left">
+        Time to output signal in Off (Low) state<br>
+        (0.0 ~ 100.0[sec])
+      </td>
+      <td style="text-align:left">arithmetic expression</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">Number of outputs</td>
+      <td style="text-align:left">
+        Number of times to repeat pulse cycle
+        (0 ~ 1000)
+      </td>
+      <td style="text-align:left">arithmetic expression</td>
+    </tr>
+  </tbody>
+</table>
+
+### Sample
+
+```python
+   pulse do10,tlag=0.0,ton=1.5,toff=0.5,cnt=5
+   end
+```# 6.2    Http\_Cli Module: HTTP Client
 
 Using the general-purpose Ethernet port of the Hi6 Controller makes it possible to access remote web services to receive HTTP services. 
 

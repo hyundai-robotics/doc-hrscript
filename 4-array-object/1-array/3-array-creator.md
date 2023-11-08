@@ -1,4 +1,4 @@
-# 4.1.3 Array Constructor Function
+# 4.1.3 Array Constructor Function - Array()
 
 It is difficult to create an array with hundreds of elements with the notation \[ \] alone. Any number of arrays may be created by calling the constructor function. Each element will be initialized to 0.
 

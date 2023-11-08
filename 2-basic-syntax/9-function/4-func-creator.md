@@ -21,7 +21,7 @@ These functions receive an input of a parameter and then create and return an ob
         <p>Creates and returns an array of &#x201C;n&#x201D; elements</p>
         <p>The initial value of the element is 0.</p>
         <p>A multidimensional array is created if two or more elements are designated.</p>
-        <p>Refer to &quot;<a href="../../4-array-object/1-array/">4.1 Arrays</a>&quot;.</p>
+        <p>Refer to &quot;<a href="../../4-array-object/1-array/3-array-creator">4.1.3 Array Constructor Function - Array()</a>&quot;.</p>
       </td>
       <td style="text-align:left">
         <p>Array(900)</p>
