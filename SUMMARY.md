@@ -150,6 +150,6 @@
     * [10.2.2 segment](10-etc/2-func/2-segment.md)
     * [10.2.3 intersection](10-etc/2-func/3-intersection.md)
   * [10.3 System variables](10-etc/3-sysvar/README.md)
-    * [10.3.1 _int.no](10-etc/3-sysvar/1-_int_no.md)    
-    * [10.3.2 _int.target](10-etc/3-sysvar/2-_int_target.md)    
+    * [10.3.1 _intr.no](10-etc/3-sysvar/1-_intr_no.md)    
+    * [10.3.2 _intr.target](10-etc/3-sysvar/2-_intr_target.md)    
     * [10.3.3 _tool](10-etc/3-sysvar/3-_tool.md)    
