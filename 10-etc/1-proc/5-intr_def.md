@@ -1,13 +1,13 @@
-﻿# 10.1.5 int_def
+﻿# 10.1.5 intr_def
 
-`int_def` is a procedure that specifies interrupt condition, watch-interval, and program to run when an interrupt occurs.
+`intr_def` is a procedure that specifies interrupt condition, watch-interval, and program to run when an interrupt occurs.
 
 ### Syntax
 
 An interrupt function is a type of program call. When the robot works in an interrupt watch-interval, it calls a specified job when it meets the predefined interrupt conditions. When the called-program finishes running, it returns to the previous running program's location and continues to run.
 
 
-![](../../_assets/int_def_1.png)
+![](../../_assets/intr_def_1.png)
 
 
 ### Brief
@@ -29,7 +29,7 @@ All defined interrupts are automatically cleared if the following actions occur.
 ### Sample
 
 ```python
-int_def <on/off>,no=<interrupt number>,var=<interrupt condition>,val=<condition matching value>,job=<call program number>,[once]
+intr_def <on/off>,no=<interrupt number>,var=<interrupt condition>,val=<condition matching value>,job=<call program number>,[once]
 ```
 
 ### Parameters
@@ -101,13 +101,13 @@ int_def <on/off>,no=<interrupt number>,var=<interrupt condition>,val=<condition 
 ### Sample
 
 ```python
-   int_def on,no=1,var=di5,val=1,job=24,once # Defines interrupt
+   intr_def on,no=1,var=di5,val=1,job=24,once # Defines interrupt
    move P,spd=30%,accu=3,tool=1
    move L,spd=30mm/s,accu=3,tool=1
    ...
    move L,spd=30mm/s,accu=3,tool=1
    move P,spd=30%,accu=3,tool=1
-   int_def off,no=1 # Deletes interrupt
+   intr_def off,no=1 # Deletes interrupt
    move P,spd=30%,accu=3,tool=1
    end
 ```
