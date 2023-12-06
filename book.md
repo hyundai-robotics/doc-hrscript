@@ -3756,7 +3756,7 @@ S2   move P,spd=250mm/sec,accu=0,tool=0
 * online 명령어는 enet 명령어를 통해 외부로 부터 UDP 통신을 이용하여 전달 받은 외부 지령으로, 로봇을 움직이게 합니다.    
 
 {% endhint %}
-# 5.17 convcrd 문
+# 5.15 convcrd 문
 
 
 ## 설명 
@@ -3780,7 +3780,9 @@ poseB = poseA.convcrd("u1")        #1번 사용자 좌표계
      # pose_A는 축각도 (0,60,0,0,-30,0)의 자세 
      pose_A=Pose(0.00,60.00,0.00,0.00,-30.00,0.00)
      pose_B=pose_A.convcrd("base")
-```# 5.16 pose_trans 문
+```
+
+# 5.16 pose_trans 문
 
 
 ## 설명 

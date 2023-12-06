@@ -1,4 +1,4 @@
-﻿# 5.17 convcrd 문
+﻿# 5.15 convcrd 문
 
 
 ## 설명 
@@ -23,3 +23,4 @@ poseB = poseA.convcrd("u1")        #1번 사용자 좌표계
      pose_A=Pose(0.00,60.00,0.00,0.00,-30.00,0.00)
      pose_B=pose_A.convcrd("base")
 ```
+
