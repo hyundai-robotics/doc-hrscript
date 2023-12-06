@@ -1,15 +1,16 @@
-﻿# 5.16 pose_inv 문
+﻿# 5.16 pose_trans 문
 
 
 ## 설명 
-* pose_inv 명령어는 해당 포즈 변수의 역행렬에 해당하는 포즈 변수로 변환하는 함수 명령어 이다.  
+* pose_trans 명령어는 2개의 pose 변수를 곱하여 결과 포즈값을 얻는 함수 명령어 입니다. 
 
 
 ## 문법 
->* 포즈변수(poseB)는 포즈변수(poseA)의 역행렬에 해당하는 포즈 변수이다.    
->* 포즈 변수(poseA)를 4x4 transformation 행렬로 변환하고, 이 행렬값의 역행렬을 계산한 뒤 다시 포즈 변수(PoseB)로 변환 하는 방식이다.  
+>* 포즈변수(poseC)는 포즈변수(poseA)와 포즈변수(poseB)를 곱하여 얻은 결과값이다.   
+>* 포즈 변수(poseA)는 4x4 transformation 행렬로 변환 가능하고, 포즈변수(poseB)도 4x4 transformation 행렬로 변환이 가능하다. 
+>* 변환 된 두 4x4 transformation 행렬을 곱한 결과 값을 다시 포즈 변수로 도출 한 값이 poseC가 된다. 
 ```python
-poseB = pose_inv(poseA)
+poseC = pose_trans(poseA,poseB)
 ```
 
 ## 사용 예  
@@ -41,5 +42,4 @@ S1   move P,tg=pose_C,spd=10%,accu=0,tool=0
      
      end
 ```
-
 
