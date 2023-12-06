@@ -1,4 +1,4 @@
-﻿# Table of contents
+# Table of contents
 
 * [Hi6 Robot Controller Function Manual - Robot Language HRScript](README.md)
 * [1. Overview](1-intro/README.md)
@@ -151,6 +151,9 @@
     * [10.2.2 segment](10-etc/2-func/2-segment.md)
     * [10.2.3 intersection](10-etc/2-func/3-intersection.md)
   * [10.3 System variables](10-etc/3-sysvar/README.md)
-    * [10.3.1 _intr.no](10-etc/3-sysvar/1-_intr_no.md)    
-    * [10.3.2 _intr.target](10-etc/3-sysvar/2-_intr_target.md)    
-    * [10.3.3 _tool](10-etc/3-sysvar/3-_tool.md)    
+    * [_acc_rate](10-etc/3-sysvar/_acc_rate.md)
+    * [_dec_rate](10-etc/3-sysvar/_dec_rate.md)
+    * [_intr.no](10-etc/3-sysvar/_intr_no.md)
+    * [_intr.target](10-etc/3-sysvar/_intr_target.md)
+    * [_spd_rate](10-etc/3-sysvar/_spd_rate.md)
+    * [_tool](10-etc/3-sysvar/_tool.md)

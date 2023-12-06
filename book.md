@@ -6761,6 +6761,60 @@ The result pose.
      result=segment(po1,po2,po3,po4)
      end
 ```# 10.3 System variables
+# _acc_rate
+
+Get or set the rate of acceleration in the speed-profile.
+
+### Description
+
+- unit : %
+- range : 1 to 100
+- default value : 100
+
+### Syntax
+
+```python
+var res
+res = _acc_rate
+```
+
+### Sample
+
+```python
+   ...
+   # Print current accel-rate, and set to 70%.
+   print _acc_rate
+   _acc_rate=70
+   ...
+   end
+```
+# _dec_rate
+
+Get or set the rate of deceleration in the speed-profile.
+
+### Description
+
+- unit : %
+- range : 1 to 100
+- default value : 100
+
+### Syntax
+
+```python
+var res
+res = _dec_rate
+```
+
+### Sample
+
+```python
+   ...
+   # Print current decel-rate, and set to 70%.
+   print _dec_rate
+   _dec_rate=70
+   ...
+   end
+```
 # 10.3.1 _intr.no
 
 `_intr.no` system variable is the occured interrupt number.
@@ -6823,6 +6877,35 @@ _intr_target=1
 ```
 ![](../../_assets/intr_target_2.png)
 
+# _spd_rate
+
+Get or set the playback speed-rate.
+
+### Description
+
+Same setting as cond.set - Playback speed rate.
+
+- unit : %
+- range : 1 to 100
+- default value : 100
+
+### Syntax
+
+```python
+var res
+res = _spd_rate
+```
+
+### Sample
+
+```python
+   ...
+   # If playback speed is less than 50%, raise it to 100%.
+   if _spd_rate<50
+     _spd_rate=100
+   ...
+   end
+```
 # 10.3.3 _tool
 
 `_tool` is a system variable for reading or changing tool data.
