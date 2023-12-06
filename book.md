@@ -6256,16 +6256,16 @@ triggout <output variable>,val=<output value>,dist=<ahead/behind distance>,j=<tc
    move L,spd=30%,accu=2,tool=1
    end
 ```
-# 10.1.5 int_def
+# 10.1.5 intr_def
 
-`int_def` is a procedure that specifies interrupt condition, watch-interval, and program to run when an interrupt occurs.
+`intr_def` is a procedure that specifies interrupt condition, watch-interval, and program to run when an interrupt occurs.
 
 ### Syntax
 
 An interrupt function is a type of program call. When the robot works in an interrupt watch-interval, it calls a specified job when it meets the predefined interrupt conditions. When the called-program finishes running, it returns to the previous running program's location and continues to run.
 
 
-![](../../_assets/int_def_1.png)
+![](../../_assets/intr_def_1.png)
 
 
 ### Brief
@@ -6287,7 +6287,7 @@ All defined interrupts are automatically cleared if the following actions occur.
 ### Sample
 
 ```python
-int_def <on/off>,no=<interrupt number>,var=<interrupt condition>,val=<condition matching value>,job=<call program number>,[once]
+intr_def <on/off>,no=<interrupt number>,var=<interrupt condition>,val=<condition matching value>,job=<call program number>,[once]
 ```
 
 ### Parameters
@@ -6359,13 +6359,13 @@ int_def <on/off>,no=<interrupt number>,var=<interrupt condition>,val=<condition 
 ### Sample
 
 ```python
-   int_def on,no=1,var=di5,val=1,job=24,once # Defines interrupt
+   intr_def on,no=1,var=di5,val=1,job=24,once # Defines interrupt
    move P,spd=30%,accu=3,tool=1
    move L,spd=30mm/s,accu=3,tool=1
    ...
    move L,spd=30mm/s,accu=3,tool=1
    move P,spd=30%,accu=3,tool=1
-   int_def off,no=1 # Deletes interrupt
+   intr_def off,no=1 # Deletes interrupt
    move P,spd=30%,accu=3,tool=1
    end
 ```
@@ -6701,20 +6701,20 @@ The result pose.
      result=segment(po1,po2,po3,po4)
      end
 ```# 10.3 System variables
-# 10.3.1 _int.no
+# 10.3.1 _intr.no
 
-`_int.no` system variable is the occured interrupt number.
+`_intr.no` system variable is the occured interrupt number.
 
 ### Description
 
-When an interrupt occurs because the conditional expression in the `int_def` procedure is satisfied, you can use `_int.no` to determine by which interrupt number the program is called.
+When an interrupt occurs because the conditional expression in the `intr_def` procedure is satisfied, you can use `_intr.no` to determine by which interrupt number the program is called.
 
 
 ### Syntax
 
 ```python
 var res
-res = _int.no
+res = _intr.no
 ```
 
 
@@ -6722,9 +6722,9 @@ res = _int.no
 
 ```python
    ...
-   if _int.no==1  # If interrupt number 1 occures
+   if _intr.no==1  # If interrupt number 1 occures
    print "By sensor 1 activation, interrupt occures."
-   else if _int.no==2 # If interrupt number 2 occures
+   else if _intr.no==2 # If interrupt number 2 occures
    print "By sensor 2 activation, interrupt occures."
    stop # robot stops
    endif
@@ -6733,9 +6733,9 @@ res = _int.no
 ```
 
 
-# 9.1.2 _int.target
+# 9.1.2 _intr.target
 
-`_int.target` system variable adjusts the robot's target position reach state.
+`_intr.target` system variable adjusts the robot's target position reach state.
 
 
 ### Description
@@ -6746,22 +6746,22 @@ In the move statement, this is used to adjust the position when the an interrupt
 ### Syntax
 
 ```python
-_int_target=1
+_intr_target=1
 ```
 
 ### Sample
 
 ```python
-- _int.target=-1
+- _intr.target=-1
 ```
 
-![](../../_assets/int_target_1.png)
+![](../../_assets/intr_target_1.png)
 
 
 ```python
-- _int.target=1 or 0
+- _intr.target=1 or 0
 ```
-![](../../_assets/int_target_2.png)
+![](../../_assets/intr_target_2.png)
 
 # 10.3.3 _tool
 

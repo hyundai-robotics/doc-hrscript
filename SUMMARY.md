@@ -1,4 +1,4 @@
-# Table of contents
+﻿# Table of contents
 
 * [Hi6 Robot Controller Function Manual - Robot Language HRScript](README.md)
 * [1. Overview](1-intro/README.md)
@@ -144,13 +144,13 @@
     * [10.1.2 tonl](10-etc/1-proc/2-tonl.md)
     * [10.1.3 seltool](10-etc/1-proc/3-seltool.md)
     * [10.1.4 triggout](10-etc/1-proc/4-triggout.md)
-    * [10.1.5 int_def](10-etc/1-proc/5-int_def.md)
+    * [10.1.5 intr_def](10-etc/1-proc/5-intr_def.md)
     * [10.1.6 typeof](10-etc/1-proc/6-typeof.md)
   * [10.2 Etc. functions](10-etc/2-func/README.md)
     * [10.2.1 rducs](10-etc/2-func/1-rducs.md)
     * [10.2.2 segment](10-etc/2-func/2-segment.md)
     * [10.2.3 intersection](10-etc/2-func/3-intersection.md)
   * [10.3 System variables](10-etc/3-sysvar/README.md)
-    * [10.3.1 _int.no](10-etc/3-sysvar/1-_int_no.md)    
-    * [10.3.2 _int.target](10-etc/3-sysvar/2-_int_target.md)    
+    * [10.3.1 _intr.no](10-etc/3-sysvar/1-_intr_no.md)    
+    * [10.3.2 _intr.target](10-etc/3-sysvar/2-_intr_target.md)    
     * [10.3.3 _tool](10-etc/3-sysvar/3-_tool.md)    

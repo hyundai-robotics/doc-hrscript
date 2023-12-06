@@ -1,6 +1,6 @@
-﻿# 9.1.2 _int.target
+﻿# 9.1.2 _intr.target
 
-`_int.target` system variable adjusts the robot's target position reach state.
+`_intr.target` system variable adjusts the robot's target position reach state.
 
 
 ### Description
@@ -11,20 +11,20 @@ In the move statement, this is used to adjust the position when the an interrupt
 ### Syntax
 
 ```python
-_int_target=1
+_intr_target=1
 ```
 
 ### Sample
 
 ```python
-- _int.target=-1
+- _intr.target=-1
 ```
 
-![](../../_assets/int_target_1.png)
+![](../../_assets/intr_target_1.png)
 
 
 ```python
-- _int.target=1 or 0
+- _intr.target=1 or 0
 ```
-![](../../_assets/int_target_2.png)
+![](../../_assets/intr_target_2.png)
 
