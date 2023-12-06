@@ -515,12 +515,14 @@ HRScript에서 제공되는 함수의 목록은 아래와 같습니다. \(각 �
 		<tr>
 			<th>함수</th>
 			<th>설명</th>
+			<th>사용 예</th>
+			<th>결과</th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr>
-			<td>ㅕ1abs(a)</td>
-			<td>abs(a<td>a의 절대값 (absolute) 을 리턴합니다.</td>
+			<td>abs(a)</td>
+			<td>a의 절대값 (absolute) 을 리턴합니다.</td>
 			<td>abs(-300)</td>
 				<td>300</td>
 		</tr>
@@ -1124,7 +1126,7 @@ var str="hello, world"가 실행된 상태에서의 예
     </tr>
     <tr>
       <td style="text-align:left">gather_state()</td>
-      <td style="text-align:left"><a href="../10-etc/1-proc/1-gather.md">gather문</a> 수행에 의한 데이터 수집 동작의 현재 상태를 리턴 받을 수 있습니다.</td>
+      <td style="text-align:left"><a href="../../../10-etc/1-proc/1-gather.md">gather문</a> 수행에 의한 데이터 수집 동작의 현재 상태를 리턴 받을 수 있습니다.</td>
       <td style="text-align:left">var state=gather_state()</td>
       <td style="text-align:left">
         0 : 미수행 중.<br>

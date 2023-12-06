@@ -96,7 +96,7 @@
     </tr>
     <tr>
       <td style="text-align:left">gather_state()</td>
-      <td style="text-align:left"><a href="../10-etc/1-proc/1-gather.md">gather문</a> 수행에 의한 데이터 수집 동작의 현재 상태를 리턴 받을 수 있습니다.</td>
+      <td style="text-align:left"><a href="../../../10-etc/1-proc/1-gather.md">gather문</a> 수행에 의한 데이터 수집 동작의 현재 상태를 리턴 받을 수 있습니다.</td>
       <td style="text-align:left">var state=gather_state()</td>
       <td style="text-align:left">
         0 : 미수행 중.<br>

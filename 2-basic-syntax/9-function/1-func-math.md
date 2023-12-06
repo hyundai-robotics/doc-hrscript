@@ -5,12 +5,14 @@
 		<tr>
 			<th>함수</th>
 			<th>설명</th>
+			<th>사용 예</th>
+			<th>결과</th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr>
-			<td>ㅕ1abs(a)</td>
-			<td>abs(a<td>a의 절대값 (absolute) 을 리턴합니다.</td>
+			<td>abs(a)</td>
+			<td>a의 절대값 (absolute) 을 리턴합니다.</td>
 			<td>abs(-300)</td>
 				<td>300</td>
 		</tr>
