@@ -1044,95 +1044,48 @@ var str="hello, world"가 실행된 상태에서의 예
   <tbody>
     <tr>
       <td style="text-align:left">cpo(crd, mode)
-        <br />
       </td>
       <td style="text-align:left">
-        <p>로봇이 취하고 있는 현재
-          자세(current pose)를 crd좌표계로
-          리턴합니다.
-          <br />
-        </p>
-        <p>crd 인수로 사용할 수 있는
-          값은 &quot;<a href="../../5-moving-robot/1-pose.md">5.1 포즈 (pose)</a>&quot;의
-          표를 참조하십시오.
-          <br />
-        </p>
-        <p>mode가 &quot;cmd&quot;이면 지령값,
-          &quot;cur&quot;이면 현재값입니다.
-          <br
-          />
-        </p>
-        <p>crd, mode 파라미터를 생략 가능하며
-          디폴트값은 각각 “base”,
-          ”cur” 입니다.
-          <br />
-        </p>
-        <p>
-          <br />
-        </p>
-        <p>
-          <br />
-        </p>
+        로봇이 취하고 있는 현재 자세(current pose)를 crd좌표계로 리턴합니다.
+        crd 인수로 사용할 수 있는 값은 &quot;<a href="../../5-moving-robot/1-pose.md">5.1 포즈 (pose)</a>&quot;의 표를 참조하십시오.
+        mode가 "cmd"이면 지령값, "cur"이면 현재값입니다.
+        crd, mode 파라미터를 생략 가능하며 디폴트값은 각각 "base", "cur" 입니다.
       </td>
       <td style="text-align:left">cpo(&quot;joint&quot;, &quot;cmd&quot;)
-        <br />
       </td>
-      <td style="text-align:left">로봇의 지령값을 축좌표계로
-        보관하는 포즈*</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">
-        <p>mkucs(n,po)
-          <br />
-        </p>
-        <p>mkucs(n,po1,po2
-          <br />
-        </p>
-        <p>,po3)
-          <br />
-        </p>
-      </td>
-      <td style="text-align:left">
-        <p>n번 사용자좌표계 객체를
-          생성하여 등록합니다.
-          <br
-          />
-        </p>
-        <p>&quot;<a href="../../5-moving-robot/5-mkucs.md">5.5 사용자좌표계 (UCS ; User Coordinate System)</a>&quot;를
-          참조하십시오.
-          <br />
-        </p>
-      </td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left">
-        <p>0 : OK
-          <br />
-        </p>
-        <p>&lt;0 : 에러코드
-          <br />
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left">result()</td>
-      <td style="text-align:left">일부 프로시져는 수행
-        결과를 확인해야 할 경우가
-        있습니다. 프로시져 수행
-        직후 result( ) 함수를 호출하면,
-        수행 결과를 리턴 받을
-        수 있습니다.</td>
-      <td style="text-align:left">result()</td>
-      <td style="text-align:left"></td>
+      <td style="text-align:left">로봇의 지령값을 축좌표계로 보관하는 포즈*</td>
     </tr>
     <tr>
       <td style="text-align:left">gather_state()</td>
       <td style="text-align:left"><a href="../../../10-etc/1-proc/1-gather.md">gather문</a> 수행에 의한 데이터 수집 동작의 현재 상태를 리턴 받을 수 있습니다.</td>
-      <td style="text-align:left">var state=gather_state()</td>
+      <td style="text-align:left">gather_state()</td>
       <td style="text-align:left">
         0 : 미수행 중.<br>
         1 : 수행 중.<br>
         2 : 결과를 file로 저장 중.
       </td>
+    </tr>
+    <tr>
+      <td style="text-align:left">
+        mkucs(n,po)<br>
+        mkucs(n,po1,po2,po3)
+      </td>
+      <td style="text-align:left">
+        n번 사용자좌표계 객체를 생성하여 등록합니다.<br>
+        &quot;<a href="../../5-moving-robot/5-mkucs.md">5.5 사용자좌표계 (UCS ; User Coordinate System)</a>&quot;를 참조하십시오.
+      </td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left">
+        0 : OK<br>
+        &lt;0 : 에러코드
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left">result()</td>
+      <td style="text-align:left">일부 프로시져는 수행
+        결과를 확인해야 할 경우가 있습니다. 프로시져 수행 직후 result( ) 함수를 호출하면, 수행 결과를 리턴 받을 수 있습니다.</td>
+      <td style="text-align:left">result()</td>
+      <td style="text-align:left"></td>
     </tr>
   </tbody>
 </table>
