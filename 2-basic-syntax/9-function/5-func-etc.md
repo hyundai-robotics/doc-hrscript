@@ -13,19 +13,28 @@
     <tr>
       <td style="text-align:left">cpo(crd, mode)</td>
       <td style="text-align:left">
-        <p>Returns the current pose of the robot to the &#x201C;crd&#x201D; coordinate
+        <p>Returns the current pose of the robot to the "crd" coordinate
           system</p>
-        <p>For values that can be used as &#x201C;crd&#x201D; elements, see the table
-          under &quot;<a href="../../5-moving-robot/1-pose.md">5.1 Pose</a>&quot;.</p>
-        <p>If the mode is &#x201C;cmd,&#x201D; it is the command value, and if the
-          mode is &#x201C;cur,&#x201D; it is the current value.</p>
-        <p>The &#x201C;crd&#x201D; and &#x201C;mode&#x201D; parameters may be omitted,
-          and their default values are &#x201C;base&#x201D; and &#x201C;cur,&#x201D;
+        <p>For values that can be used as "crd" elements, see the table
+          under "<a href="../../5-moving-robot/1-pose.md">5.1 Pose</a>".</p>
+        <p>If the mode is "cmd," it is the command value, and if the mode is "cur," it is the current value.</p>
+        <p>The "crd" and "mode" parameters may be omitted,
+          and their default values are "base" and "cur,"
           respectively.</p>
       </td>
-      <td style="text-align:left">cpo(&quot;joint&quot;, &quot;cmd&quot;)</td>
+      <td style="text-align:left">cpo("joint", "cmd")</td>
       <td style="text-align:left">Pose* that stores the command value of the robot to the axis coordinate
         system</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">gather_state()</td>
+      <td style="text-align:left">Returns the current state of data gathering by executing <a href="../../../10-etc/1-proc/1-gather.md">gather</a> statement</td>
+      <td style="text-align:left">var state=gather_state()</td>
+      <td style="text-align:left">
+        0 : not in gathering.<br>
+        1 : in gathering.<br>
+        2 : saving the gathering result as a file.
+      </td>
     </tr>
     <tr>
       <td style="text-align:left">
@@ -35,7 +44,7 @@
       </td>
       <td style="text-align:left">
         <p>Creates and registers the nth user coordinate system object</p>
-        <p>Refer to &quot;<a href="../../5-moving-robot/5-ucs.md">5.5 User Coordinate System (UCS)</a>&quot;.</p>
+        <p>Refer to "<a href="../../5-moving-robot/5-ucs.md">5.5 User Coordinate System (UCS)</a>".</p>
       </td>
       <td style="text-align:left"></td>
       <td style="text-align:left">
@@ -45,9 +54,7 @@
     </tr>
     <tr>
       <td style="text-align:left">result()</td>
-      <td style="text-align:left">For some procedures, it may be necessary to check the results. If the
-        result() function is called right after the procedure is executed, the
-        execution result can be returned.</td>
+      <td style="text-align:left">For some procedures, it may be necessary to check the results. If the result() function is called right after the procedure is executed, the execution result can be returned.</td>
       <td style="text-align:left">result()</td>
       <td style="text-align:left"></td>
     </tr>

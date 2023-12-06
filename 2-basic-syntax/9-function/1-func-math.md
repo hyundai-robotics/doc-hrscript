@@ -175,10 +175,59 @@
 				-3
 			</td>
 		</tr>
+		<tr>
+			<td>val_as(format, v)</td>
+			<td>
+      Returns the binary data of the v value reinterpreted by the format.<br>
+			For supported format, refer to below [Table 1].
+			</td>
+			<td>
+				val_as("u1", -127)<br>
+				val_as("u2", -2)<br>
+				val_as("s4", -2147483648)<br>
+				val_as("S4", -2147483648)
+			</td>
+			<td>
+				129<br>
+				0xfffe<br>
+				0x80000000<br>
+				0x00000080
+			</td>
+		</tr>
   </tbody>
 </table>
 
+[Table 1] The supported formats of `val_as()` function
 
+<table style="text-align:left">
+	<thead>
+		<tr>
+			<th>endian</th>
+			<th>format</th>
+			<th>meaning</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr><td rowspan="8">little<br>endian</td>
+		     <td>u1</td><td>unsigned 1 byte</td></tr>
+		<tr><td>u2</td><td>unsigned 2 byte</td></tr>
+		<tr><td>u4</td><td>unsigned 4 byte</td></tr>
+		<tr><td>s1</td><td>signed 1 byte</td></tr>
+		<tr><td>s2</td><td>signed 2 byte</td></tr>
+		<tr><td>s4</td><td>signed 4 byte</td></tr>
+		<tr><td>f4</td><td>float 4 byte</td></tr>
+		<tr><td>f8</td><td>double 8 byte</td></tr>
+		<tr><td rowspan="8">big<br>endian</td>
+		     <td>U1</td><td>unsigned 1 byte</td></tr>
+		<tr><td>U2</td><td>unsigned 2 byte</td></tr>
+		<tr><td>U4</td><td>unsigned 4 byte</td></tr>
+		<tr><td>S1</td><td>signed 1 byte</td></tr>
+		<tr><td>S2</td><td>signed 2 byte</td></tr>
+		<tr><td>S4</td><td>signed 4 byte</td></tr>
+		<tr><td>F4</td><td>float 4 byte</td></tr>
+		<tr><td>F8</td><td>double 8 byte</td></tr>
+	</tbody>
+</table>
 
 
 

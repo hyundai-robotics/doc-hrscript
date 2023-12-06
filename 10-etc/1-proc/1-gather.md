@@ -10,6 +10,10 @@ Specifies the start and end of gathering with `gather`. The gathering result fil
 
 Up to 30 gathering result files are stored, and if the number is exceeded, the previous collection result file is overwritten.
 
+`gather_state()` function returns the current state of the data collection operation.
+  - 0 : not in gathering.
+  - 1 : in gathering. (gather 1 ~ gather 0)
+  - 2 : saving the gathering results as a file. (gather 0~)
 
 ### Syntax
 

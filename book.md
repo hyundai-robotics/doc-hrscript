@@ -653,10 +653,59 @@ The list of functions provided in HRScript is as follows. \(The tables are sorte
 				-3
 			</td>
 		</tr>
+		<tr>
+			<td>val_as(format, v)</td>
+			<td>
+      Returns the binary data of the v value reinterpreted by the format.<br>
+			For supported format, refer to below [Table 1].
+			</td>
+			<td>
+				val_as("u1", -127)<br>
+				val_as("u2", -2)<br>
+				val_as("s4", -2147483648)<br>
+				val_as("S4", -2147483648)
+			</td>
+			<td>
+				129<br>
+				0xfffe<br>
+				0x80000000<br>
+				0x00000080
+			</td>
+		</tr>
   </tbody>
 </table>
 
+[Table 1] The supported formats of `val_as()` function
 
+<table style="text-align:left">
+	<thead>
+		<tr>
+			<th>endian</th>
+			<th>format</th>
+			<th>meaning</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr><td rowspan="8">little<br>endian</td>
+		     <td>u1</td><td>unsigned 1 byte</td></tr>
+		<tr><td>u2</td><td>unsigned 2 byte</td></tr>
+		<tr><td>u4</td><td>unsigned 4 byte</td></tr>
+		<tr><td>s1</td><td>signed 1 byte</td></tr>
+		<tr><td>s2</td><td>signed 2 byte</td></tr>
+		<tr><td>s4</td><td>signed 4 byte</td></tr>
+		<tr><td>f4</td><td>float 4 byte</td></tr>
+		<tr><td>f8</td><td>double 8 byte</td></tr>
+		<tr><td rowspan="8">big<br>endian</td>
+		     <td>U1</td><td>unsigned 1 byte</td></tr>
+		<tr><td>U2</td><td>unsigned 2 byte</td></tr>
+		<tr><td>U4</td><td>unsigned 4 byte</td></tr>
+		<tr><td>S1</td><td>signed 1 byte</td></tr>
+		<tr><td>S2</td><td>signed 2 byte</td></tr>
+		<tr><td>S4</td><td>signed 4 byte</td></tr>
+		<tr><td>F4</td><td>float 4 byte</td></tr>
+		<tr><td>F8</td><td>double 8 byte</td></tr>
+	</tbody>
+</table>
 
 
 
@@ -933,6 +982,16 @@ These functions receive an input of a parameter and then create and return an ob
         execution result can be returned.</td>
       <td style="text-align:left">result()</td>
       <td style="text-align:left"></td>
+    </tr>
+    <tr>
+      <td style="text-align:left">gather_state()</td>
+      <td style="text-align:left">Returns the current state of data gathering by executing <a href="../../../10-etc/1-proc/1-gather.md">gather</a> statement</td>
+      <td style="text-align:left">var state=gather_state()</td>
+      <td style="text-align:left">
+        0 : not in gathering.<br>
+        1 : in gathering.<br>
+        2 : saving the gathering result as a file.
+      </td>
     </tr>
   </tbody>
 </table>
@@ -5984,6 +6043,10 @@ Specifies the start and end of gathering with `gather`. The gathering result fil
 
 Up to 30 gathering result files are stored, and if the number is exceeded, the previous collection result file is overwritten.
 
+`gather_state()` function returns the current state of the data collection operation.
+  - 0 : not in gathering.
+  - 1 : in gathering. (gather 1 ~ gather 0)
+  - 2 : saving the gathering results as a file. (gather 0~)
 
 ### Syntax
 
