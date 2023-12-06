@@ -3756,7 +3756,31 @@ S2   move P,spd=250mm/sec,accu=0,tool=0
 * online 명령어는 enet 명령어를 통해 외부로 부터 UDP 통신을 이용하여 전달 받은 외부 지령으로, 로봇을 움직이게 합니다.    
 
 {% endhint %}
-# 5.15 pose_trans 문
+# 5.17 convcrd 문
+
+
+## 설명 
+* convcrd 명령어는 포즈 변수의 좌표계를 변환하는 함수 명령어입니다.  
+
+
+## 문법 
+>* 포즈 변수(poseA)는 변환할 포즈변수, 포즈변수(poseB)는 변환된 포즈변수입니다.
+
+```python
+poseB = poseA.convcrd("base")      #베이스 좌표계
+poseB = poseA.convcrd("robot")     #로봇 좌표계
+poseB = poseA.convcrd("tool")      #툴 좌표계
+poseB = poseA.convcrd("u1")        #1번 사용자 좌표계 
+```
+
+## 사용 예  
+```python
+     var pose_A, pose_B
+     
+     # pose_A는 축각도 (0,60,0,0,-30,0)의 자세 
+     pose_A=Pose(0.00,60.00,0.00,0.00,-30.00,0.00)
+     pose_B=pose_A.convcrd("base")
+```# 5.15 pose_trans 문
 
 
 ## 설명 
