@@ -1,4 +1,4 @@
-﻿# 9.1.2 _intr.target문
+﻿# _intr.target문
 
 _intr.target 시스템 변수는 로봇의 목표위치 도달 상태를 조정합니다.
 
