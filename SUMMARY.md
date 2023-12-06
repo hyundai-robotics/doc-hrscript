@@ -26,6 +26,7 @@
     * [2.9.3 Date and Time Functions](2-basic-syntax/9-function/3-func-datetime.md)
     * [2.9.4 Constructor Functions](2-basic-syntax/9-function/4-func-creator.md)
     * [2.9.5 Other Functions](2-basic-syntax/9-function/5-func-etc.md)
+  * [2.10 import](2-basic-syntax/10-import.md)
 * [3. Flow-Control Statements and Sub-Program](3-flowcontrol-subprogram/README.md)
   * [3.1 Address](3-flowcontrol-subprogram/1-address.md)
   * [3.2 Stop or Wait Statement](3-flowcontrol-subprogram/2-stop-wait/README.md)
