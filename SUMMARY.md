@@ -26,6 +26,7 @@
     * [2.9.3 날짜, 시간 함수](2-basic-syntax/9-function/3-func-datetime.md)
     * [2.9.4 생성자 함수](2-basic-syntax/9-function/4-func-creator.md)
     * [2.9.5 기타 함수](2-basic-syntax/9-function/5-func-etc.md)
+  * [2.10 import문](2-basic-syntax/10-import.md)
 * [3. 제어문과 서브프로그램](3-flowcontrol-subprogram/README.md)
   * [3.1 주소 (Address)](3-flowcontrol-subprogram/1-address.md)
   * [3.2 정지, 대기문](3-flowcontrol-subprogram/2-stop-wait/README.md)
