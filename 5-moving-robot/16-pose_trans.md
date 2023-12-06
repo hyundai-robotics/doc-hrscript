@@ -1,17 +1,16 @@
-﻿# 5.16 pose_inv 
+﻿# 5.16 pose_trans 
 
 
-### Description
-* pose_inv instruction is a function that converts to a pose variable corresponding to the inverse matrix of the pose variable.  
-
+### Description 
+* pose_trans command is a function instruction that multiplies two pose variables to obtain the resulting pose value. 
 
 ### Syntax 
 
 ```python
-poseB = pose_inv(poseA)
+poseC = pose_trans(poseA,poseB)
 ```
 
-### Example  
+### Example 
 ```python
      var pose_A, pose_B, pose_C
      var pose_inv_B
@@ -33,10 +32,9 @@ poseB = pose_inv(poseA)
      # pose_C is same to pose_A
      pose_C=pose_trans(pose_A,pose_B)
      pose_C=pose_trans(pose_C,pose_inv_B)
-
+          
 S1   move P,tg=pose_C,spd=10%,accu=0,tool=0
      
      end
 ```
-
 

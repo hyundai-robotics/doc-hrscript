@@ -3590,7 +3590,36 @@ S2   move P,spd=250mm/sec,accu=0,tool=0
 * The role of robot language "online" is that robot move toward desired joint angle command from "enet" through UDP communication.   
 
 {% endhint %}
-# 5.15 pose_trans 
+# 5.15 convcrd
+
+
+### Description 
+* convcrd command is a function instruction that converts the coordinate system of the pose variable.
+
+
+### Syntax 
+>* poseA: The pose variable to be converted.
+>* poseB: Converted pose variable.
+
+```python
+poseB = poseA.convcrd("base")      # base coordinate
+poseB = poseA.convcrd("robot")     # robot coordinate
+poseB = poseA.convcrd("tool")      # tool coordinate
+poseB = poseA.convcrd("u1")        # user coordinate 1
+```
+
+### Example 
+```python
+     var pose_A, pose_B
+     
+     # joint coordinate
+     pose_A=Pose(0.00,60.00,0.00,0.00,-30.00,0.00)
+     # base coordinate
+     pose_B=pose_A.convcrd("base")
+```
+
+
+# 5.16 pose_trans 
 
 
 ### Description 
@@ -3630,7 +3659,7 @@ S1   move P,tg=pose_C,spd=10%,accu=0,tool=0
      end
 ```
 
-# 5.16 pose_inv 
+# 5.17 pose_inv 
 
 
 ### Description
