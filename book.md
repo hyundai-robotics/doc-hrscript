@@ -515,14 +515,12 @@ HRScript에서 제공되는 함수의 목록은 아래와 같습니다. \(각 �
 		<tr>
 			<th>함수</th>
 			<th>설명</th>
-			<th>사용 예</th>
-			<th>결과</th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr>
-			<td>abs(a)</td>
-			<td>a의 절대값 (absolute) 을 리턴합니다.</td>
+			<td>ㅕ1abs(a)</td>
+			<td>abs(a<td>a의 절대값 (absolute) 을 리턴합니다.</td>
 			<td>abs(-300)</td>
 				<td>300</td>
 		</tr>
@@ -676,6 +674,57 @@ HRScript에서 제공되는 함수의 목록은 아래와 같습니다. \(각 �
 				-3
 			</td>
 		</tr>
+		<tr>
+			<td>val_as(format, v)</td>
+			<td>v값의 binary data를 format의 값으로 재해석하여 리턴합니다.<br>
+			지원 format은 아래 [표 1]과 같습니다.
+			</td>
+			<td>
+				val_as("u1", -127)<br>
+				val_as("u2", -2)<br>
+				val_as("s4", -2147483648)<br>
+				val_as("S4", -2147483648)
+			</td>
+			<td>
+				129<br>
+				0xfffe<br>
+				0x80000000<br>
+				0x00000080
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+
+[표 1] val_as() 함수의 지원 format
+
+<table style="text-align:left">
+	<thead>
+		<tr>
+			<th>endian</th>
+			<th>format</th>
+			<th>의미</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr><td rowspan="8">little<br>endian</td>
+		     <td>u1</td><td>unsigned 1 byte</td></tr>
+		<tr><td>u2</td><td>unsigned 2 byte</td></tr>
+		<tr><td>u4</td><td>unsigned 4 byte</td></tr>
+		<tr><td>s1</td><td>signed 1 byte</td></tr>
+		<tr><td>s2</td><td>signed 2 byte</td></tr>
+		<tr><td>s4</td><td>signed 4 byte</td></tr>
+		<tr><td>f4</td><td>float 4 byte</td></tr>
+		<tr><td>f8</td><td>double 8 byte</td></tr>
+		<tr><td rowspan="8">big<br>endian</td>
+		     <td>U1</td><td>unsigned 1 byte</td></tr>
+		<tr><td>U2</td><td>unsigned 2 byte</td></tr>
+		<tr><td>U4</td><td>unsigned 4 byte</td></tr>
+		<tr><td>S1</td><td>signed 1 byte</td></tr>
+		<tr><td>S2</td><td>signed 2 byte</td></tr>
+		<tr><td>S4</td><td>signed 4 byte</td></tr>
+		<tr><td>F4</td><td>float 4 byte</td></tr>
+		<tr><td>F8</td><td>double 8 byte</td></tr>
 	</tbody>
 </table>
 # 2.9.2 문자열 함수
@@ -1072,6 +1121,16 @@ var str="hello, world"가 실행된 상태에서의 예
         수 있습니다.</td>
       <td style="text-align:left">result()</td>
       <td style="text-align:left"></td>
+    </tr>
+    <tr>
+      <td style="text-align:left">gather_state()</td>
+      <td style="text-align:left"><a href="../10-etc/1-proc/1-gather.md">gather문</a> 수행에 의한 데이터 수집 동작의 현재 상태를 리턴 받을 수 있습니다.</td>
+      <td style="text-align:left">var state=gather_state()</td>
+      <td style="text-align:left">
+        0 : 미수행 중.<br>
+        1 : 수행 중.<br>
+        2 : 결과를 file로 저장 중.
+      </td>
     </tr>
   </tbody>
 </table>
@@ -6929,16 +6988,20 @@ load_job <결과변수>,"*"
 
 # 10.1.1 gather문
 
-gather문은 데이터 수집 기능을 사용할 때 데이터 수집 시작과 종료 위치를 지정하는 프로시져입니다.
+`gather`문은 데이터 수집 기능을 사용할 때 데이터 수집 시작과 종료 위치를 지정하는 프로시져입니다.
 
 ### 설명
 
-gather를 통해 데이터를 수집 시작과 종료를 지정합니다. 수집 결과 파일은 아래와 같이 저장됩니다.
+`gather`를 통해 데이터를 수집 시작과 종료를 지정합니다. 수집 결과 파일은 아래와 같이 저장됩니다.
 - 저장 경로: MAIN/project
 - 파일명: 0001.GDT ~ 0030.GDT
 
 수집 결과 파일은  최대 30개까지 저장되며, 개수 초과 시 이전 수집 결과 파일을 덮어써서 저장됩니다.
 
+`gather_state()` 함수를 호출하면 데이터 수집 동작의 현재 상태를 리턴 받을 수 있습니다.
+  - 0 : gathering 미수행 중.
+  - 1 : gathering 수행 중 (gather 1 ~ gather 0)
+  - 2 : gathering 결과를 file로 저장 중. (gather 0 ~)
 
 ### 문법
 
