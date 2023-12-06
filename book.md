@@ -3780,7 +3780,7 @@ poseB = poseA.convcrd("u1")        #1번 사용자 좌표계
      # pose_A는 축각도 (0,60,0,0,-30,0)의 자세 
      pose_A=Pose(0.00,60.00,0.00,0.00,-30.00,0.00)
      pose_B=pose_A.convcrd("base")
-```# 5.15 pose_trans 문
+```# 5.16 pose_trans 문
 
 
 ## 설명 
@@ -3825,7 +3825,7 @@ S1   move P,tg=pose_C,spd=10%,accu=0,tool=0
      end
 ```
 
-# 5.16 pose_inv 문
+# 5.17 pose_inv 문
 
 
 ## 설명 
