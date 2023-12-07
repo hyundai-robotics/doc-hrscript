@@ -7,7 +7,7 @@
 
 
 
-본 설명서는 사전 예고 없이 변경될 수 있습니다. 시험3
+본 설명서는 사전 예고 없이 변경될 수 있습니다.
 
 
 
@@ -7600,7 +7600,9 @@ result=segment(<시작포즈>,<경유포즈>,<종료포즈>,<분할 수>,<카운
      po3=Pose(2000.000,0.000,1938.000,0.000,0.000,0.000) # 종료포즈
      po10=segment(po1,po2,po3,5,3)
      end
-```# 10.2.3 intersection 함수
+```
+
+# 10.2.3 intersection 함수
 
 intersection 함수를 사용하면 직선과 한 점의 최단거리로 만나는 점을 구하거나, 두 직선을 지나는 최단거리 직선과의 교점을 구할 수 있습니다.
 
@@ -7695,7 +7697,119 @@ result=intersection(<직선참조포즈 1>,<직선참조포즈 2>,<직선참조�
      po3=Pose(2000.000,0.000,2000.000,0.000,0.000,0.000)
      result=segment(po1,po2,po3,po4)
      end
-```# 10.3 시스템 변수
+```
+
+# 10.2.4 rand 함수
+
+rand 함수를 사용하여 난수를 생성할 수 있습니다.
+
+### 설명
+함수의 인수에 따라 0과 1 사이의 실수형 난수 또는 지정한 범위 내의 정수형 난수를 생성합니다.
+
+### 문법
+```python
+# 0과 1 사이의 실수형 난수 생성
+v0=rand() 
+```
+
+```python
+# 지정한 범위 내의 정수형 난수 생성
+v1=rand(<최솟값>,<최댓값>) 
+```
+
+### 파라미터
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">항목</th>
+      <th style="text-align:left">의미</th>
+      <th style="text-align:left">기타</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">최솟값</td>
+      <td style="text-align:left">
+        생성할 난수의 최솟값
+      </td>
+      <td style="text-align:left">정수형 상수</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">최댓값</td>
+      <td style="text-align:left">
+        생성할 난수의 최댓값
+      <td style="text-align:left">정수형 상수</td>
+    </tr>
+  </tbody>
+</table>
+
+### 사용 예
+
+```python
+     var v0, v1
+     var min=1
+     var max=100
+     v0=rand()          # 0과 1 사이의 실수형 난수 생성
+     v1=rand(min,max)   # 1과 100 사이의 정수형 난수 생성
+     end
+```
+
+# 10.2.5 sig2int 함수
+
+sig2int 함수를 사용하면 입출력 신호의 특정 범위를 int형 값으로 표현할 수 있습니다.
+
+### 설명
+- int형으로 표현할 입/출력 변수의 이름을 입력합니다.
+- 입/출력 신호로부터 몇개의 비트를 읽을 지 설정합니다.
+
+### 문법
+
+```python
+result=sig2int(<입/출력 신호명>,<비트 수>)
+```
+
+### 리턴값
+
+결과 포즈
+
+
+### 파라미터
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">항목</th>
+      <th style="text-align:left">의미</th>
+      <th style="text-align:left">기타</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">입/출력 변수명</td>
+      <td style="text-align:left">
+        입/출력 신호명
+      </td>
+      <td style="text-align:left">변수</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">비트 수</td>
+      <td style="text-align:left">
+        입/출력 신호로부터 읽을 비트의 수
+      <td style="text-align:left">변수</td>
+    </tr>
+  </tbody>
+</table>
+
+### 사용 예
+
+```python
+     var result1,result2,result3
+     result1=sig2int(di4,4)
+     result2=sig2int(fb2.0,1)
+     result3=sig2int(fn1.24,8)
+     end
+```
+
+# 10.3 시스템 변수
 # _acc_rate 변수
 
 속도 프로파일의 가속도의 비율을 읽거나 설정합니다.

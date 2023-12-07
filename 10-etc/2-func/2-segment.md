@@ -100,3 +100,4 @@ result=segment(<시작포즈>,<경유포즈>,<종료포즈>,<분할 수>,<카운
      po10=segment(po1,po2,po3,5,3)
      end
 ```
+
