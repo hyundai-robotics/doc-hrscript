@@ -751,42 +751,52 @@
 	},
 	{
 		"link": "10-etc/2-func/3-intersection.md",
-		"char_ofs": 178519,
-		"byte_ofs": 185589
+		"char_ofs": 178521,
+		"byte_ofs": 185593
+	},
+	{
+		"link": "10-etc/2-func/4-rand.md",
+		"char_ofs": 181666,
+		"byte_ofs": 188839
+	},
+	{
+		"link": "10-etc/2-func/5-sig2int.md",
+		"char_ofs": 182986,
+		"byte_ofs": 190217
 	},
 	{
 		"link": "10-etc/3-sysvar/README.md",
-		"char_ofs": 181662,
-		"byte_ofs": 188831
+		"char_ofs": 184167,
+		"byte_ofs": 191451
 	},
 	{
 		"link": "10-etc/3-sysvar/_acc_rate.md",
-		"char_ofs": 181686,
-		"byte_ofs": 188859
+		"char_ofs": 184191,
+		"byte_ofs": 191479
 	},
 	{
 		"link": "10-etc/3-sysvar/_dec_rate.md",
-		"char_ofs": 182008,
-		"byte_ofs": 189211
+		"char_ofs": 184513,
+		"byte_ofs": 191831
 	},
 	{
 		"link": "10-etc/3-sysvar/_intr_no.md",
-		"char_ofs": 182330,
-		"byte_ofs": 189563
+		"char_ofs": 184835,
+		"byte_ofs": 192183
 	},
 	{
 		"link": "10-etc/3-sysvar/_intr_target.md",
-		"char_ofs": 182961,
-		"byte_ofs": 190229
+		"char_ofs": 185466,
+		"byte_ofs": 192849
 	},
 	{
 		"link": "10-etc/3-sysvar/_spd_rate.md",
-		"char_ofs": 183483,
-		"byte_ofs": 190784
+		"char_ofs": 185988,
+		"byte_ofs": 193404
 	},
 	{
 		"link": "10-etc/3-sysvar/_tool.md",
-		"char_ofs": 183847,
-		"byte_ofs": 191180
+		"char_ofs": 186352,
+		"byte_ofs": 193800
 	}
 ]
