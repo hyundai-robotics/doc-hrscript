@@ -27,7 +27,7 @@ result=sig2int(<입/출력 신호명>,<비트 수>)
       <td style="text-align:left">
         입/출력 신호명
       </td>
-      <td style="text-align:left">변수</td>
+      <td style="text-align:left">입/출력변수</td>
     </tr>
     <tr>
       <td style="text-align:left">비트 수</td>
@@ -43,8 +43,8 @@ result=sig2int(<입/출력 신호명>,<비트 수>)
 ```python
      var result1,result2,result3
      result1=sig2int(di4,4)
-     result2=sig2int(fb2.0,1)
-     result3=sig2int(fn1.24,8)
+     result2=sig2int(fb2.do0,1)
+     result3=sig2int(fn1.di24,8)
      end
 ```
 
