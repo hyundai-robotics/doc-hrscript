@@ -776,77 +776,82 @@
 	},
 	{
 		"link": "10-etc/1-proc/5-intr_def.md",
-		"char_ofs": 140594,
-		"byte_ofs": 197771
+		"char_ofs": 140595,
+		"byte_ofs": 197773
 	},
 	{
 		"link": "10-etc/1-proc/6-typeof.md",
-		"char_ofs": 143118,
-		"byte_ofs": 201662
+		"char_ofs": 143119,
+		"byte_ofs": 201664
+	},
+	{
+		"link": "10-etc/1-proc/7-gasp_check.md",
+		"char_ofs": 143742,
+		"byte_ofs": 202406
 	},
 	{
 		"link": "10-etc/2-func/README.md",
-		"char_ofs": 143741,
-		"byte_ofs": 202404
+		"char_ofs": 145770,
+		"byte_ofs": 205382
 	},
 	{
 		"link": "10-etc/2-func/1-rducs.md",
-		"char_ofs": 143755,
-		"byte_ofs": 202431
+		"char_ofs": 145784,
+		"byte_ofs": 205409
 	},
 	{
 		"link": "10-etc/2-func/2-segment.md",
-		"char_ofs": 145457,
-		"byte_ofs": 204925
+		"char_ofs": 147486,
+		"byte_ofs": 207903
 	},
 	{
 		"link": "10-etc/2-func/3-intersection.md",
-		"char_ofs": 147779,
-		"byte_ofs": 208201
+		"char_ofs": 149808,
+		"byte_ofs": 211179
 	},
 	{
 		"link": "10-etc/2-func/4-rand.md",
-		"char_ofs": 150092,
-		"byte_ofs": 211386
+		"char_ofs": 152121,
+		"byte_ofs": 214364
 	},
 	{
 		"link": "10-etc/2-func/5-sig2int.md",
-		"char_ofs": 151043,
-		"byte_ofs": 212717
+		"char_ofs": 153072,
+		"byte_ofs": 215695
 	},
 	{
 		"link": "10-etc/3-sysvar/README.md",
-		"char_ofs": 151960,
-		"byte_ofs": 213953
+		"char_ofs": 153997,
+		"byte_ofs": 216945
 	},
 	{
 		"link": "10-etc/3-sysvar/_acc_rate.md",
-		"char_ofs": 151974,
-		"byte_ofs": 213981
+		"char_ofs": 154011,
+		"byte_ofs": 216973
 	},
 	{
 		"link": "10-etc/3-sysvar/_dec_rate.md",
-		"char_ofs": 152239,
-		"byte_ofs": 214410
+		"char_ofs": 154276,
+		"byte_ofs": 217402
 	},
 	{
 		"link": "10-etc/3-sysvar/_intr_no.md",
-		"char_ofs": 152504,
-		"byte_ofs": 214839
+		"char_ofs": 154541,
+		"byte_ofs": 217831
 	},
 	{
 		"link": "10-etc/3-sysvar/_intr_target.md",
-		"char_ofs": 152927,
-		"byte_ofs": 215609
+		"char_ofs": 154964,
+		"byte_ofs": 218601
 	},
 	{
 		"link": "10-etc/3-sysvar/_spd_rate.md",
-		"char_ofs": 153291,
-		"byte_ofs": 216203
+		"char_ofs": 155328,
+		"byte_ofs": 219195
 	},
 	{
 		"link": "10-etc/3-sysvar/_tool.md",
-		"char_ofs": 153558,
-		"byte_ofs": 216646
+		"char_ofs": 155595,
+		"byte_ofs": 219638
 	}
 ]
