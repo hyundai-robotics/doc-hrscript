@@ -6975,8 +6975,8 @@ result=sig2int(<input/output signal>,<number of bits>)
 ```python
      var result1,result2,result3
      result1=sig2int(di4,4)
-     result2=sig2int(fb2.0,1)
-     result3=sig2int(fn1.24,8)
+     result2=sig2int(fb2.do0,1)
+     result3=sig2int(fn1.di24,8)
      end
 ```
 
