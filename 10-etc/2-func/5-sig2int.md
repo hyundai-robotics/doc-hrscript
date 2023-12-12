@@ -27,7 +27,7 @@ result=sig2int(<input/output signal>,<number of bits>)
       <td style="text-align:left">
         input/output signal variable name
       </td>
-      <td style="text-align:left">variable</td>
+      <td style="text-align:left">input/output signal variable</td>
     </tr>
     <tr>
       <td style="text-align:left">number of bits</td>

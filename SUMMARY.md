@@ -147,6 +147,7 @@
     * [10.1.4 triggout](10-etc/1-proc/4-triggout.md)
     * [10.1.5 intr_def](10-etc/1-proc/5-intr_def.md)
     * [10.1.6 typeof](10-etc/1-proc/6-typeof.md)
+    * [10.1.7 gasp_check](10-etc/1-proc/7-gasp_check.md)
   * [10.2 Etc. functions](10-etc/2-func/README.md)
     * [10.2.1 rducs](10-etc/2-func/1-rducs.md)
     * [10.2.2 segment](10-etc/2-func/2-segment.md)
