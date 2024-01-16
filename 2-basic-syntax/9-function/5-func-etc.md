@@ -57,6 +57,83 @@
       <td style="text-align:left">result()</td>
       <td style="text-align:left"></td>
     </tr>
+    <tr>
+      <td style="text-align:left">mkshift(3,po,sft,2.0) <br>
+      </td>
+      <td style="text-align:left">다수의 기준이 되는 포즈에 해당하는 쉬프트 값으로 부터 최적화된 차이를 계산하여 쉬프트 값으로 리턴합니다. <br>
+      tolerance에 해당하는 4번째 파라미터가 0보다 크게 지정된 경우에 계산된 쉬프트 값이 이 값보다 크면 에러로 정지합니다. <br>
+      # 참고 사항 <br>
+      po는 포즈 변수의 배열, sft는 쉬프트 변수의 배열의 타입입니다.
+      </td>
+      <td style="text-align:left">sft1=mkshift(4,po,sft)</td>
+      <td style="text-align:left">쉬프트</td>
+    </tr> 
+    <tr>
+      <td style="text-align:left">calshift(po1,po2) <br>
+      calshift(po1,po2,"TV")
+      </td>
+      <td style="text-align:left">2개의 포즈간의 차이를 쉬프트 값으로 리턴합니다. <br>
+      "TV" 파라미터가 있으면 툴의 수직 방향의 자세를 쉬프트 값으로 리턴합니다.
+      </td>
+      <td style="text-align:left">sft1=calshift(po1,po2)</td>
+      <td style="text-align:left">쉬프트</td>
+    </tr> 
+    <tr>
+      <td style="text-align:left">po.valid()
+      </td>
+      <td style="text-align:left">
+        포즈 객체에 대한 정보가 로봇의 동작범위 내에 있는지 리턴합니다. <br>
+        # 사용 예 <br>
+        if po1.valid()==0 <br>
+            stop # 로봇 정지<br>
+        endif <br>        
+      </td>
+      <td style="text-align:left">var ret=po1.valid()
+      </td>
+      <td style="text-align:left">0:동작범위 밖 <br>
+      1:동작범위 내
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left">po.str_array()
+      </td>
+      <td style="text-align:left">
+        포즈 객체에 대한 정보를 배열 형식의 문자열로 리턴합니다. <br>
+        # 사용 예 <br>
+        var msg=cpo().str_array() <br>
+        print msg # [1850.000,2010.500,0.000,0.000,-90.000,0.000,"base"]
+      </td>
+      <td style="text-align:left">msg=po1.str_array()
+      </td>
+      <td style="text-align:left">문자열</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">sft.str_array()
+      </td>
+      <td style="text-align:left">
+        쉬프트 객체에 대한 정보를 배열 형식의 문자열로 리턴합니다. <br>
+        # 사용 예 <br>
+        var sft1=Shift(0.000,0.000,30.000,0.000,0.000,0.000,"base") <br>
+        var msg=sft1.str_array() <br>
+        print msg # [0.000,0.000,30.000,0.000,0.000,0.000,"base"]
+      </td>
+      <td style="text-align:left">msg=sft1.str_array()
+      </td>
+      <td style="text-align:left">문자열</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">upo(crd)
+      </td>
+      <td style="text-align:left">
+        move ~ until문 수행시 until 조건이 만족했을 때의 현재 자세(current pose)를 crd좌표계로 리턴합니다.
+        crd 인수로 사용할 수 있는 값은 &quot;<a href="../../5-moving-robot/1-pose.md">5.1 포즈 (pose)</a>&quot;의 표를 참조하십시오.
+        crd 파라미터를 생략 가능하며 디폴트값은 각각 "base" 입니다.
+      </td>
+      <td style="text-align:left">upo(&quot;joint&quot;)
+      </td>
+      <td style="text-align:left">로봇의 포즈*</td>
+    </tr>
+
   </tbody>
 </table>
 

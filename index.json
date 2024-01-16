@@ -850,8 +850,18 @@
 		"byte_ofs": 219195
 	},
 	{
-		"link": "10-etc/3-sysvar/_tool.md",
+		"link": "10-etc/3-sysvar/_task_enable.md",
 		"char_ofs": 155595,
 		"byte_ofs": 219638
+	},
+	{
+		"link": "10-etc/3-sysvar/_tool.md",
+		"char_ofs": 155844,
+		"byte_ofs": 220039
+	},
+	{
+		"link": "10-etc/3-sysvar/_weaving.md",
+		"char_ofs": 156532,
+		"byte_ofs": 221241
 	}
 ]
