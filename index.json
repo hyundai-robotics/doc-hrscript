@@ -790,78 +790,68 @@
 		"byte_ofs": 202406
 	},
 	{
-		"link": "10-etc/1-proc/8-count_up.md",
+		"link": "10-etc/2-func/README.md",
 		"char_ofs": 145770,
 		"byte_ofs": 205382
 	},
 	{
-		"link": "10-etc/1-proc/9-count_dn.md",
-		"char_ofs": 146833,
-		"byte_ofs": 206808
-	},
-	{
-		"link": "10-etc/2-func/README.md",
-		"char_ofs": 147915,
-		"byte_ofs": 208255
-	},
-	{
 		"link": "10-etc/2-func/1-rducs.md",
-		"char_ofs": 147929,
-		"byte_ofs": 208282
+		"char_ofs": 145784,
+		"byte_ofs": 205409
 	},
 	{
 		"link": "10-etc/2-func/2-segment.md",
-		"char_ofs": 149631,
-		"byte_ofs": 210776
+		"char_ofs": 147486,
+		"byte_ofs": 207903
 	},
 	{
 		"link": "10-etc/2-func/3-intersection.md",
-		"char_ofs": 151953,
-		"byte_ofs": 214052
+		"char_ofs": 149808,
+		"byte_ofs": 211179
 	},
 	{
 		"link": "10-etc/2-func/4-rand.md",
-		"char_ofs": 154266,
-		"byte_ofs": 217237
+		"char_ofs": 152121,
+		"byte_ofs": 214364
 	},
 	{
 		"link": "10-etc/2-func/5-sig2int.md",
-		"char_ofs": 155217,
-		"byte_ofs": 218568
+		"char_ofs": 153072,
+		"byte_ofs": 215695
 	},
 	{
 		"link": "10-etc/3-sysvar/README.md",
-		"char_ofs": 156142,
-		"byte_ofs": 219818
+		"char_ofs": 153997,
+		"byte_ofs": 216945
 	},
 	{
 		"link": "10-etc/3-sysvar/_acc_rate.md",
-		"char_ofs": 156156,
-		"byte_ofs": 219846
+		"char_ofs": 154011,
+		"byte_ofs": 216973
 	},
 	{
 		"link": "10-etc/3-sysvar/_dec_rate.md",
-		"char_ofs": 156421,
-		"byte_ofs": 220275
+		"char_ofs": 154276,
+		"byte_ofs": 217402
 	},
 	{
 		"link": "10-etc/3-sysvar/_intr_no.md",
-		"char_ofs": 156686,
-		"byte_ofs": 220704
+		"char_ofs": 154541,
+		"byte_ofs": 217831
 	},
 	{
 		"link": "10-etc/3-sysvar/_intr_target.md",
-		"char_ofs": 157109,
-		"byte_ofs": 221474
+		"char_ofs": 154964,
+		"byte_ofs": 218601
 	},
 	{
 		"link": "10-etc/3-sysvar/_spd_rate.md",
-		"char_ofs": 157473,
-		"byte_ofs": 222068
+		"char_ofs": 155328,
+		"byte_ofs": 219195
 	},
 	{
 		"link": "10-etc/3-sysvar/_tool.md",
-		"char_ofs": 157740,
-		"byte_ofs": 222511
+		"char_ofs": 155595,
+		"byte_ofs": 219638
 	}
 ]
