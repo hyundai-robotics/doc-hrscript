@@ -58,14 +58,17 @@
       <td style="text-align:left"></td>
     </tr>
     <tr>
-      <td style="text-align:left">mkshift(3,po,sft,2.0) <br>
+      <td style="text-align:left">mkshift(3,ref_po,mea_po,2.0) <br>
+      mkshift(5,ref_po,mea_sft)
       </td>
-      <td style="text-align:left">다수의 기준이 되는 포즈에 해당하는 쉬프트 값으로 부터 최적화된 차이를 계산하여 쉬프트 값으로 리턴합니다. <br>
+      <td style="text-align:left">다수의 기준이 되는 포즈에 해당하는 측정된 포즈나 쉬프트 데이터들로 부터 최적화된 쉬프트 값을 계산하여 리턴합니다. <br>
       tolerance에 해당하는 4번째 파라미터가 0보다 크게 지정된 경우에 계산된 쉬프트 값이 이 값보다 크면 에러로 정지합니다. <br>
       # 참고 사항 <br>
-      po는 포즈 변수의 배열, sft는 쉬프트 변수의 배열의 타입입니다.
+      ref_po(기준이 되는 포즈), mea_po(측정된 포즈)는 포즈 변수의 배열, mea_sft(측정된 쉬프트)는 쉬프트 변수의 배열의 타입입니다. <br>
+      tolerance에 해당하는 4번째 파라미터가 없으면 에러를 검지하지 않습니다. <br>
+      현재 지원하는 위치는 최대 100개입니다.
       </td>
-      <td style="text-align:left">sft1=mkshift(4,po,sft)</td>
+      <td style="text-align:left">sft1=mkshift(4,ref_po,mea_po,3.0)</td>
       <td style="text-align:left">쉬프트</td>
     </tr> 
     <tr>
