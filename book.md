@@ -689,7 +689,6 @@ The list of functions provided in HRScript is as follows. \(The tables are sorte
 		<tr><td rowspan="8">little<br>endian</td>
 		     <td>u1</td><td>unsigned 1 byte</td></tr>
 		<tr><td>u2</td><td>unsigned 2 byte</td></tr>
-		<tr><td>u4</td><td>unsigned 4 byte</td></tr>
 		<tr><td>s1</td><td>signed 1 byte</td></tr>
 		<tr><td>s2</td><td>signed 2 byte</td></tr>
 		<tr><td>s4</td><td>signed 4 byte</td></tr>
@@ -698,7 +697,6 @@ The list of functions provided in HRScript is as follows. \(The tables are sorte
 		<tr><td rowspan="8">big<br>endian</td>
 		     <td>U1</td><td>unsigned 1 byte</td></tr>
 		<tr><td>U2</td><td>unsigned 2 byte</td></tr>
-		<tr><td>U4</td><td>unsigned 4 byte</td></tr>
 		<tr><td>S1</td><td>signed 1 byte</td></tr>
 		<tr><td>S2</td><td>signed 2 byte</td></tr>
 		<tr><td>S4</td><td>signed 4 byte</td></tr>
