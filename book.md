@@ -712,7 +712,6 @@ HRScript에서 제공되는 함수의 목록은 아래와 같습니다. \(각 �
 		<tr><td rowspan="8">little<br>endian</td>
 		     <td>u1</td><td>unsigned 1 byte</td></tr>
 		<tr><td>u2</td><td>unsigned 2 byte</td></tr>
-		<tr><td>u4</td><td>unsigned 4 byte</td></tr>
 		<tr><td>s1</td><td>signed 1 byte</td></tr>
 		<tr><td>s2</td><td>signed 2 byte</td></tr>
 		<tr><td>s4</td><td>signed 4 byte</td></tr>
@@ -721,7 +720,6 @@ HRScript에서 제공되는 함수의 목록은 아래와 같습니다. \(각 �
 		<tr><td rowspan="8">big<br>endian</td>
 		     <td>U1</td><td>unsigned 1 byte</td></tr>
 		<tr><td>U2</td><td>unsigned 2 byte</td></tr>
-		<tr><td>U4</td><td>unsigned 4 byte</td></tr>
 		<tr><td>S1</td><td>signed 1 byte</td></tr>
 		<tr><td>S2</td><td>signed 2 byte</td></tr>
 		<tr><td>S4</td><td>signed 4 byte</td></tr>
@@ -1087,6 +1085,86 @@ var str="hello, world"가 실행된 상태에서의 예
       <td style="text-align:left">result()</td>
       <td style="text-align:left"></td>
     </tr>
+    <tr>
+      <td style="text-align:left">mkshift(3,ref_po,mea_po,2.0) <br>
+      mkshift(5,ref_po,mea_sft)
+      </td>
+      <td style="text-align:left">다수의 기준이 되는 포즈에 해당하는 측정된 포즈나 쉬프트 데이터들로 부터 최적화된 쉬프트 값을 계산하여 리턴합니다. <br>
+      tolerance에 해당하는 4번째 파라미터가 0보다 크게 지정된 경우에 계산된 쉬프트 값이 이 값보다 크면 에러로 정지합니다. <br>
+      # 참고 사항 <br>
+      ref_po(기준이 되는 포즈), mea_po(측정된 포즈)는 포즈 변수의 배열, mea_sft(측정된 쉬프트)는 쉬프트 변수의 배열의 타입입니다. <br>
+      tolerance에 해당하는 4번째 파라미터가 없으면 에러를 검지하지 않습니다. <br>
+      현재 지원하는 위치는 최대 100개입니다.
+      </td>
+      <td style="text-align:left">sft1=mkshift(4,ref_po,mea_po,3.0)</td>
+      <td style="text-align:left">쉬프트</td>
+    </tr> 
+    <tr>
+      <td style="text-align:left">calshift(po1,po2) <br>
+      calshift(po1,po2,"TV")
+      </td>
+      <td style="text-align:left">2개의 포즈간의 차이를 쉬프트 값으로 리턴합니다. <br>
+      "TV" 파라미터가 있으면 툴의 수직 방향의 자세를 쉬프트 값으로 리턴합니다.
+      </td>
+      <td style="text-align:left">sft1=calshift(po1,po2)</td>
+      <td style="text-align:left">쉬프트</td>
+    </tr> 
+    <tr>
+      <td style="text-align:left">po.valid()
+      </td>
+      <td style="text-align:left">
+        포즈 객체에 대한 정보가 로봇의 동작범위 내에 있는지 리턴합니다. <br>
+        # 사용 예 <br>
+        if po1.valid()==0 <br>
+            stop # 로봇 정지<br>
+        endif <br>        
+      </td>
+      <td style="text-align:left">var ret=po1.valid()
+      </td>
+      <td style="text-align:left">0:동작범위 밖 <br>
+      1:동작범위 내
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left">po.str_array()
+      </td>
+      <td style="text-align:left">
+        포즈 객체에 대한 정보를 배열 형식의 문자열로 리턴합니다. <br>
+        # 사용 예 <br>
+        var msg=cpo().str_array() <br>
+        print msg # [1850.000,2010.500,0.000,0.000,-90.000,0.000,"base"]
+      </td>
+      <td style="text-align:left">msg=po1.str_array()
+      </td>
+      <td style="text-align:left">문자열</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">sft.str_array()
+      </td>
+      <td style="text-align:left">
+        쉬프트 객체에 대한 정보를 배열 형식의 문자열로 리턴합니다. <br>
+        # 사용 예 <br>
+        var sft1=Shift(0.000,0.000,30.000,0.000,0.000,0.000,"base") <br>
+        var msg=sft1.str_array() <br>
+        print msg # [0.000,0.000,30.000,0.000,0.000,0.000,"base"]
+      </td>
+      <td style="text-align:left">msg=sft1.str_array()
+      </td>
+      <td style="text-align:left">문자열</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">upo(crd)
+      </td>
+      <td style="text-align:left">
+        move ~ until문 수행시 until 조건이 만족했을 때의 현재 자세(current pose)를 crd좌표계로 리턴합니다.
+        crd 인수로 사용할 수 있는 값은 &quot;<a href="../../5-moving-robot/1-pose.md">5.1 포즈 (pose)</a>&quot;의 표를 참조하십시오.
+        crd 파라미터를 생략 가능하며 디폴트값은 각각 "base" 입니다.
+      </td>
+      <td style="text-align:left">upo(&quot;joint&quot;)
+      </td>
+      <td style="text-align:left">로봇의 포즈*</td>
+    </tr>
+
   </tbody>
 </table>
 
@@ -7486,6 +7564,343 @@ gasp_check pres=<추정 압력>,ref=<기준 압력>,tol=<허용오차>,os=<에�
 
 {% endhint %}
 
+# 10.1.8 optime문
+
+optime문은 가동시간의 측정을 시작하거나 갱신하는 프로시져입니다.
+
+### 설명
+
+일반적으로 기동 버튼에 의해 가동시간의 측정을 시작하고, 프로그램의 end를 실행하면 자동으로 가동시간을 갱신합니다. 그런데 end를 실행하지 않고 goto문에 의해 프로그램 선두로 이동하는 경우에는 가동시간이 계속 증가하기 때문에 가동시간의 모니터링 값이 의미가 없게 됩니다. 이 경우에 optime문을 사용하여 측정 시작과 측정 갱신 지점을 사용자가 지정할 수 있습니다.   
+
+
+### 문법
+
+```python
+optime <파라미터>
+```
+
+### 파라미터
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">항목</th>
+      <th style="text-align:left">의미</th>
+      <th style="text-align:left">기타</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+      <td style="text-align:left">파라미터</td>
+      <td style="text-align:left">
+        <ul>
+        <li>cycle_start: 측정 시작</li>
+        <li>cycle_end: 측정 갱신</li>
+        </ul>
+      </td>
+      <td style="text-align:left"></td>
+    </tr>
+  </tbody>
+</table>
+
+### 사용 예
+
+```python
+  *start
+   optime cycle_start
+   move P,spd=30%,accu=0,tool=1
+   delay 0.5
+   move P,spd=30%,accu=0,tool=1
+   move L,spd=30mm/s,accu=0,tool=1
+   move L,spd=30mm/s,accu=0,tool=1
+   delay 0.5
+   move P,spd=30%,accu=0,tool=1
+   optime cycyl_end
+   goto *start
+   end
+```
+# 10.1.9 count_up문
+
+count_up문은 지정된 변수의 값을 1씩 증가시키다 preset값을 초과하면 init값으로 초기화하는 프로시져입니다.
+
+### 설명
+
+지정된 변수의 값을 1씩 증가시키다 preset값을 초과하면 init값으로 변수값을 초기화 하는 동작을 수행합니다. <br>
+count_up cnt,init=0,preset=100를 실행하는 것은 하기의 4줄을 실행하는것과 동일한 결과를 얻을 수 있습니다. <br>
+...<br>
+cnt=cnt+1 <br>
+if cnt>100 <br>
+cnt=0 <br>
+endif <br>
+
+### 문법
+
+```python
+count_up <변수>,init=<초기값>,preset=<최종값>
+```
+
+### 파라미터
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">항목</th>
+      <th style="text-align:left">의미</th>
+      <th style="text-align:left">기타</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+      <td style="text-align:left">변수</td>
+      <td style="text-align:left">
+      카운터를 증가시킬 변수
+      </td>
+      <td style="text-align:left"></td>
+    </tr>
+  </tbody>
+  <tbody>
+  <tr>
+      <td style="text-align:left">init</td>
+      <td style="text-align:left">
+      변수값이 preset에 지정된 값을 초과하는 경우 초기값 지정
+      </td>
+      <td style="text-align:left"></td>
+    </tr>
+  </tbody>
+  <tbody>
+  <tr>
+      <td style="text-align:left">preset</td>
+      <td style="text-align:left">
+      변수의 최대값 지정
+      </td>
+      <td style="text-align:left"></td>
+    </tr>
+  </tbody>
+</table>
+
+### 사용 예
+
+```python
+   global work_no
+   move P,spd=30%,accu=0,tool=1
+   delay 0.5
+   move P,spd=30%,accu=0,tool=1
+   move L,spd=30mm/s,accu=0,tool=1
+   move L,spd=30mm/s,accu=0,tool=1
+   delay 0.5
+   move P,spd=30%,accu=0,tool=1
+   count_up work_no,init=0,preset=99
+   end
+```
+# 10.1.10 count_dn문
+
+count_dn문은 지정된 변수의 값을 1씩 감소시키다 preset 보다 작은값이면 init값으로 초기화하는 프로시져입니다.
+
+### 설명
+
+지정된 변수의 값을 1씩 감소시키다 preset 보다 작은값이면 init값으로 변수값을 초기화 하는 동작을 수행합니다. <br>
+count_dn cnt,init=100,preset=0를 실행하는 것은 하기의 4줄을 실행하는것과 동일한 결과를 얻을 수 있습니다. <br>
+...<br>
+cnt=cnt-1 <br>
+if cnt<0 <br>
+cnt=100 <br>
+endif <br>
+
+### 문법
+
+```python
+count_dn <변수>,init=<초기값>,preset=<최종값>
+```
+
+### 파라미터
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">항목</th>
+      <th style="text-align:left">의미</th>
+      <th style="text-align:left">기타</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+      <td style="text-align:left">변수</td>
+      <td style="text-align:left">
+      카운터를 감소시킬 변수
+      </td>
+      <td style="text-align:left"></td>
+    </tr>
+  </tbody>
+  <tbody>
+  <tr>
+      <td style="text-align:left">init</td>
+      <td style="text-align:left">
+      변수값이 preset에 지정된 값 미만인 경우 초기값 지정
+      </td>
+      <td style="text-align:left"></td>
+    </tr>
+  </tbody>
+  <tbody>
+  <tr>
+      <td style="text-align:left">preset</td>
+      <td style="text-align:left">
+      변수의 최소값 지정
+      </td>
+      <td style="text-align:left"></td>
+    </tr>
+  </tbody>
+</table>
+
+### 사용 예
+
+```python
+   global work_no
+   move P,spd=30%,accu=0,tool=1
+   delay 0.5
+   move P,spd=30%,accu=0,tool=1
+   move L,spd=30mm/s,accu=0,tool=1
+   move L,spd=30mm/s,accu=0,tool=1
+   delay 0.5
+   move P,spd=30%,accu=0,tool=1
+   count_dn work_no,init=99,preset=0
+   end
+```
+# 10.1.11 cycle_end문
+
+cycle_end문은 call문의 수행에 의해 관리되던 호출 스텍을 모두 클리어하는 프로시져입니다.
+
+### 설명
+
+프로그램 end문을 수행할 때 호출 스텍이 존재하는 경우 call문을 수행한 위치로 되돌가 가서 프로그램 실행을 계속 수행합니다. <br>
+그런데 cycle_end문을 실행하면 관리되던 호출 스텍이 모두 클리어되어 call문을 수행한 위치로 되돌아 가지않고 정지합니다. <br>
+
+### 문법
+
+```python
+cycle_end 
+```
+
+
+### 사용 예
+
+```python
+   0001.job
+   ...
+   move P,spd=30%,accu=0,tool=1
+   call 10
+   move P,spd=30%,accu=0,tool=1
+   move L,spd=30mm/s,accu=0,tool=1
+   move L,spd=30mm/s,accu=0,tool=1
+   delay 0.5
+   move P,spd=30%,accu=0,tool=1
+   end
+
+
+   0010.job
+   ...
+   move P,spd=30%,accu=0,tool=1
+   delay 0.5
+   cycle_end
+
+
+```
+# 10.1.12 speed_out문
+
+speed_out문은 로봇의 현재 이동속도에 비례하는 값을 계산한 후 지정한 변수에 대입하는 프로시져입니다. <br>
+보간이 L이나 C로 지정된 move문을 실행하는 동안에만 동작합니다. 
+
+### 설명
+
+로봇이 현재 이동하는 속도에 비례하는 값을 계산한 후 이 결과값을 지정된 변수에 대입합니다. <br>
+하기의 명령문이 수행되었다면 그림과 같이 현재 로봇의 이동속도 x에 대응하는 y의 값을 계산해서 dow10에 대입합니다. <br>
+... <br>
+speed_out on,min_spd=100,max_spd=2000,min_val=10,max_val=100,var=dow10 <br>
+
+![](../../_assets/speed_out.png)
+
+### 문법
+
+```python
+speed_out <on/off>,min_spd=<최소속도>,max_spd=<최대속도>,min_val=<최소값>,max_val=<최대값>,var=<산술변수>
+```
+
+### 파라미터
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">항목</th>
+      <th style="text-align:left">의미</th>
+      <th style="text-align:left">기타</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+      <td style="text-align:left">on/off</td>
+      <td style="text-align:left">
+      실행할 구간을 지정
+      </td>
+      <td style="text-align:left"></td>
+    </tr>
+  </tbody>
+  <tbody>
+  <tr>
+      <td style="text-align:left">min_spd</td>
+      <td style="text-align:left">
+      로봇 이동 최소 속도를 지정 [mm/s]
+      </td>
+      <td style="text-align:left"></td>
+    </tr>
+  </tbody>
+  <tbody>
+  <tr>
+      <td style="text-align:left">max_spd</td>
+      <td style="text-align:left">
+      로봇 이동 최대 속도를 지정 [mm/s]
+      </td>
+      <td style="text-align:left"></td>
+    </tr>
+  </tbody>
+  <tbody>
+  <tr>
+      <td style="text-align:left">min_val</td>
+      <td style="text-align:left">
+      로봇 이동 최소 속도에 대응하는 값을 지정
+      </td>
+      <td style="text-align:left"></td>
+    </tr>
+  </tbody>
+  <tbody>
+  <tr>
+      <td style="text-align:left">max_val</td>
+      <td style="text-align:left">
+      로봇 이동 최대 속도에 대응하는 값을 지정
+      </td>
+      <td style="text-align:left"></td>
+    </tr>
+  </tbody>
+  <tbody>
+  <tr>
+      <td style="text-align:left">var</td>
+      <td style="text-align:left">
+      계산된 값을 저장할 변수를 지정
+      </td>
+      <td style="text-align:left"> 산술변수</td>
+    </tr>
+  </tbody>
+</table>
+
+### 사용 예
+
+```python
+   move P,spd=30%,accu=0,tool=1
+   speed_out on,min_spd=100,max_spd=2000,min_val=10,max_val=100,var=dow10
+   move L,spd=30mm/s,accu=0,tool=1
+   move L,spd=30mm/s,accu=0,tool=1
+   speed_out off
+   move P,spd=30%,accu=0,tool=1
+   end
+```
 # 10.2 기타 함수
 
 # 10.2.1 rducs함수 - 사용자좌표계
@@ -8093,6 +8508,34 @@ _tool[5].izz = <산술식>
    end
 ```
 
+# _vel_rpm_cmd 변수
+
+부가축에 대한 속도제어시 모터가 회전하는 속도를 읽거나 설정합니다.
+
+### 설명
+
+해당 부가축은 반드시 지그축에 속도제어 모드로 설정되어야 합니다. <br>
+단위는 rpm입니다. -10000~10000 의 값을 설정할 수 있으며, default값은 0입니다. <br>
+-로 지정된 경우는 모터가 역회전 합니다.
+
+### 문법
+
+```python
+var res
+_vel_rpm_cmd[6] = 1000 # 7축의 모터를 1000rpm으로 회전 
+res = _vel_rpm_cmd[6] # 7축의 모터 회전속도를 얻음 
+```
+
+### 사용 예
+
+```python
+   ...
+   # 현재 7축의 모터회전 속도 출력한 후, 1000 rpm으로 설정한다.
+   print _vel_rpm_cmd[6]
+   _vel_rpm_cmd[6]=1000
+   ...
+   end
+```
 # _weaving 문
 
 ### 설명
