@@ -208,7 +208,7 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr><td rowspan="8">little<br>endian</td>
+		<tr><td rowspan="7">little<br>endian</td>
 		     <td>u1</td><td>unsigned 1 byte</td></tr>
 		<tr><td>u2</td><td>unsigned 2 byte</td></tr>
 		<tr><td>s1</td><td>signed 1 byte</td></tr>
@@ -216,7 +216,7 @@
 		<tr><td>s4</td><td>signed 4 byte</td></tr>
 		<tr><td>f4</td><td>float 4 byte</td></tr>
 		<tr><td>f8</td><td>double 8 byte</td></tr>
-		<tr><td rowspan="8">big<br>endian</td>
+		<tr><td rowspan="7">big<br>endian</td>
 		     <td>U1</td><td>unsigned 1 byte</td></tr>
 		<tr><td>U2</td><td>unsigned 2 byte</td></tr>
 		<tr><td>S1</td><td>signed 1 byte</td></tr>
