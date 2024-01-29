@@ -3955,38 +3955,25 @@ S1   move P,tg=pose_C,spd=10%,accu=0,tool=0
 
 ## 설명 
 * axisctrl 명령어는 move 명령어 실행에 의해 각 축의 위치를 이동할 때, 부가축에 대해 목표위치로 이동할지 여부를 지정하는 기능입니다.  
-* 부가축에 대한 축제어만 지원합니다.
-* 불연속 명령문으로 처리되어 해당 스텝은 코너링을 하지 않습니다.
+* axisctrl문에 대한 자세한 설명은 아래 링크를 참조하십시오.  
+[Hi6 로봇제어기 기능설명서 - 멀티태스킹](https://hrbook-hrc.web.app/#/view/doc-multi-task/korean/README)
 
 ## 문법 
 ```python
-axisctrl off,a=[1,2]
-axisctrl on,a=1
-```
+axisctrl <on/off>,a=<부가축 번호>
+axisctrl <on/off>,a=[부가축 번호,부가축 번호,...] : 복수지정 가능(최대 4개)
+```# 5.19 smov문
 
-## 사용 예  
+smov문은 포지셔너 동기 시 사용되는 프로시져입니다.
+smov문에 대한 자세한 설명은 아래 링크를 참조하십시오.  
+[Hi6 로봇제어기 기능설명서 - 포지셔너 동기](https://hrbook-hrc.web.app/#/view/doc-positioner-sync/korean/README)
+<br><br>
+
+### 문법
 ```python
-S1   move P,spd=50%,accu=0,tool=1  [0.000,90.000,0.000,0.000,0.000,0.000,0.000,0.000]
-
-# 부가 1,2축을 축제어 무효로 지정
-# 부가 1,2축은 제외하고 이동
-     axisctrl off,a=[1,2] 
-S2   move P,spd=50%,accu=0,tool=1  [-2.301,77.505,29.560,32.949,-36.883,-22.252,200.000,56.000]
-
-# 부가 1축을 축제어 유효로 지정
-# 부가 1축 포함하여 이동
-     axisctrl on,a=1     
-S3   move P,spd=50%,accu=0,tool=1  [-2.301,77.505,29.560,32.949,-36.883,-22.252,130.000,-30.000]
-
-# 부가 2축을 축제어 유효로 지정     
-# 부가 2축 포함하여 이동
-     axisctrl on,a=2
-S4   move P,spd=50%,accu=0,tool=1  [0.691,99.293,24.758,-6.528,-48.574,15.774,0.000,-40.000,150.000]
-     end
-```
-
-
-# 6. 외부장치와 통신하기
+"smov S<스테이션 번호>,<보간방식>,tg=<목표위치>,spd=<속도>,accu=<Accuracy>,tool=<Tool 번호>",
+"smov S<스테이션 번호>,<보간방식>,tg=<목표위치>,spd=<속도>,accu=<Accuracy>,tool=<Tool 번호> until <입력신호>"
+```# 6. 외부장치와 통신하기
 
 # 6.1 fb객체 : 디지털 I/O
 
@@ -7936,6 +7923,32 @@ speed_out <on/off>,min_spd=<최소속도>,max_spd=<최대속도>,min_val=<최소
    speed_out off
    move P,spd=30%,accu=0,tool=1
    end
+```
+# 10.1.13 task문
+
+task문은 멀티태스크 기능을 수행하는 프로시져입니다.
+task문에 대한 자세한 설명은 아래 링크를 참조하십시오.  
+[Hi6 로봇제어기 기능설명서 - 멀티태스킹](https://hrbook-hrc.web.app/#/view/doc-multi-task/korean/README)
+<br><br>
+
+### 문법
+
+```python
+task start,sub=<서브태스크 번호>,job=<프로그램 번호>
+task wait,sub=<서브태스크 번호>
+task sync,id=<식별자>,no=<동일 id의 실행 갯수>
+task stop,sub=<서브태스크 번호>
+task reset,sub=<서브태스크 번호>
+```# 10.1.14 toolchng문
+
+toolchng 명령문은 부가축에 할당된 서보툴을 변경하기 위한 프로시져입니다.
+toolchng문에 대한 자세한 설명은 아래 링크를 참조하십시오.  
+[Hi6 로봇제어기 기능설명서 - 서보툴 체인지](https://hrbook-hrc.web.app/#/view/doc-svtool-change/korean/README)
+
+
+### 문법
+```python
+toolchng on/off,tg=<체인지 대상>,di=<접속완료 신호>,wait=<대기시간>
 ```
 # 10.2 기타 함수
 
