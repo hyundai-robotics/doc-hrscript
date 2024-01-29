@@ -3973,6 +3973,51 @@ smov문에 대한 자세한 설명은 아래 링크를 참조하십시오.
 ```python
 "smov S<스테이션 번호>,<보간방식>,tg=<목표위치>,spd=<속도>,accu=<Accuracy>,tool=<Tool 번호>",
 "smov S<스테이션 번호>,<보간방식>,tg=<목표위치>,spd=<속도>,accu=<Accuracy>,tool=<Tool 번호> until <입력신호>"
+```# 5.20 shift문
+
+shift문은 이미 티칭된 포인트를 XYZ 좌표계에서 툴 각도를 유지하면서 평행 이동하는 기능입니다.
+
+### 문법
+```python
+"shift crd=<기준좌표계>,x=<X시프트량>,y=<Y시프트량>,z=<Z시프트량>
+```
+
+## 파라미터 
+* crd : 기준좌표계["base":베이스, "robot":로봇, "tool":툴, "joint":축,"u":사용자]
+* x,y,z : X,Y,Z시프트량[0~3000,mm]
+
+## 사용 예 
+```python
+     var po1=Pose(0.691,99.293,24.758,-6.528,-48.574,15.774,0.000)
+S1   move P,tg=po1,spd=10%,accu=0,tool=0
+     shift crd="base",x=200,z=100
+S2   move P,tg=po1,spd=10%,accu=0,tool=0
+     shift crd="u1",x=-150,y=70,z=10
+S3   move P,tg=po1,spd=10%,accu=0,tool=0
+     end
+```# 5.21 shift_lim문
+
+shift_lim문은 시프트 기능을 사용할 때 안전성을 향상시키기 위하여 로봇이 시프트할 양의 한계치를 설정하는 기능입니다. 설정한 한계치를 초과하는 시프트량이 입력되면 에러를 발생시킵니다. 
+
+### 문법
+```python
+"shift_lim x=<X시프트 리밋값>,y=<Y시프트 리밋값>,z=<Z시프트 리밋값>
+```
+
+## 파라미터 
+* x,y,z : X,Y,Z시프트 리밋값[0~3000,mm]
+
+### 에러 가이드
+- E1196 : 시프트량이 설정된 시프트 리밋값을 초과하였습니다. 시프트량을 줄이거나 시프트 리밋 값을 재조정하십시오.
+
+## 사용 예 
+```python
+     var po1=Pose(0.691,99.293,24.758,-6.528,-48.574,15.774,0.000)
+S1   move P,tg=po1,spd=10%,accu=0,tool=0
+     shift_lim x=120,x=200,z=100
+     shift crd="base",x=-150,y=70,z=10  # 시프트 리밋 초과 에러 발생
+S2   move P,tg=po1,spd=10%,accu=0,tool=0
+     end
 ```# 6. 외부장치와 통신하기
 
 # 6.1 fb객체 : 디지털 I/O

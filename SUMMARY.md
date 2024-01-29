@@ -84,6 +84,8 @@
   * [5.17 pose_inv문](5-moving-robot/17-pose_inv.md)
   * [5.18 axisctrl문](5-moving-robot/18-axisctrl.md)
   * [5.19 smov문](5-moving-robot/19-smov.md)
+  * [5.20 shift문](5-moving-robot/20-shift.md)
+  * [5.21 shift_lim문](5-moving-robot/21-shift_lim.md)
 * [6. 외부장치와 통신하기](6-external-comm/README.md)
   * [6.1 fb객체 : 디지털 I/O](6-external-comm/1-fb-io/README.md)
     * [6.1.1 입출력 변수](6-external-comm/1-fb-io/1-io-val.md)
