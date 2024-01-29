@@ -82,6 +82,7 @@
   * [5.15 convcrd문](5-moving-robot/15-convcrd.md)
   * [5.16 pose_trans문](5-moving-robot/16-pose_trans.md)
   * [5.17 pose_inv문](5-moving-robot/17-pose_inv.md)
+  * [5.18 axisctrl문](5-moving-robot/18-axisctrl.md)
 * [6. 외부장치와 통신하기](6-external-comm/README.md)
   * [6.1 fb객체 : 디지털 I/O](6-external-comm/1-fb-io/README.md)
     * [6.1.1 입출력 변수](6-external-comm/1-fb-io/1-io-val.md)
