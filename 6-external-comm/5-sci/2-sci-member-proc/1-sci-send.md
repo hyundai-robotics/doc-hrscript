@@ -6,7 +6,7 @@ Sci의 send 를 호출하여 문자열을 송신합니다.
 
 ### 문법
 
-&lt;Sci객체&gt;.send "문자열"
+&lt;Sci객체&gt;.send "문자열" <br>
 &lt;Sci객체&gt;.send 문자열 변수
 
 
