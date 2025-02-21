@@ -2,14 +2,14 @@
 
 ### 설명
 
-Sci의 open 를 호출하여 시리얼 포트를 오픈합니다.
+Sci의 open() 함수를 실행하여 시리얼 포트를 오픈합니다.
 
 제어기 설정을 통해 기 설정된 내용으로 시리얼 포트를 오픈하게 되며, 이전에 해당 포트를 close한 경우 외 에는 open을 별도로 수행 할 필요가 없습니다.(기본값: open)
 
 
 ### 문법
 
-&lt;Sci객체&gt;.open
+&lt;Sci객체&gt;.open()
 
 ### 리턴값
 - 0: 오픈 성공
@@ -19,7 +19,12 @@ Sci의 open 를 호출하여 시리얼 포트를 오픈합니다.
 ### 사용 예
 
 ```python
-sci2.open
+var ret
+ret=sci2.open()
+if ret<0
+  print "open error"
+  stop
+endif
 ```
 
 

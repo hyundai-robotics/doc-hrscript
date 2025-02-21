@@ -5106,20 +5106,20 @@ HRScript에서 모드버스 마스터 동작을 수행할 수 있습니다. 모�
 
 Hi6 제어기의 COM 포트를 통해, 시리얼 통신을 수행할 수 있습니다.
 
-이 기능을 사용하기 위해서는 아래와 같이 sci 모듈을 import한 후, Sci 객체를 생성해야 합니다.
+이 기능을 사용하기 위해서는 아래와 같이 Sci 객체를 전역변수로 생성해야 합니다.
 
 또한 사용하기 전에 반드시 [시스템 > 2. 제어파라미터 > 3. 시리얼 포트] 의 설정 사양을 확인하세요.
 
 ```python
-import sci
-var sci2=sci.Sci(2)
+global sci2
+sci2=com.Sci(2)
 ```
 
 Sci 객체를 생성한 후에는 send, recv, open, close 멤버 프로시져를 호출하면 됩니다.
 
-send를 호출할 때는, 미리 전송할 문자열을 대입해두어야합니다.
+send를 호출할 때는, 미리 전송할 문자열을 대입해 두어야 합니다.
 
-recv를 호출할 때는, 성공적으로 수신하면 응답 문자열을 반환합니다. 
+recv를 호출할 때는, 성공적으로 수신했을 때 지정된 문자열 변수로 대입됩니다. 
 
 open를 호출하여 port를 open 하게 됩니다. 
 
@@ -5131,11 +5131,11 @@ close를 호출하여 port를 close 하게 됩니다.
 
 ### 설명
 
-Sci 객체를 생성합니다. 참조를 리턴합니다.
+Sci 객체의 전역변수를 생성합니다.
 
 ### 문법
 
-Sci(port number)
+com.Sci(port number)
 
 ### 리턴값
 
@@ -5144,7 +5144,8 @@ Sci(port number)
 ### 사용 예
 
 ```python
-var sci2 = sci.Sci(2)
+global sci2
+sci2=com.Sci(2)
 ```
 
 
@@ -5157,18 +5158,17 @@ Sci의 send 를 호출하여 문자열을 송신합니다.
 
 ### 문법
 
-&lt;Sci객체&gt;.send(송신 문자열)
+&lt;Sci객체&gt;.send "문자열"
+&lt;Sci객체&gt;.send 문자열 변수
 
-### 리턴값
-
-송신 문자열의 길이
 
 ### 사용 예
 
 ```python
-sci2.send("test")
-or
 sci2.send "test"
+or
+var msg="test"
+sci2.send msg
 ```
 
 
@@ -5182,7 +5182,7 @@ Sci의 recv 를 호출하여 문자열을 수신합니다.
 
 ### 문법
 
-&lt;Sci객체&gt;.recv \[{대기시간}\] \[, {퇴피주소}\]
+&lt;Sci객체&gt;.recv 문자열 변수 \[,{대기시간}\] \[,{퇴피주소}\]
 
 
 ### 파라미터
@@ -5197,9 +5197,16 @@ Sci의 recv 를 호출하여 문자열을 수신합니다.
   </thead>
   <tbody>
     <tr>
+      <td>문자열 변수</td>
+      <td>
+        성공적으로 수신했을 때, 입력된 문자열을 보관할 문자열 변수<br>
+      </td>
+      <td></td>
+    </tr>
+    <tr>
       <td>대기시간</td>
       <td>
-        timeout 시간. 경과하면 다음 명령문, 혹은 퇴피스텝으로 진행한다.<br>
+        timeout 시간. 지정된 시간동안 데이터 수신이 없을 때 퇴피 주소로 분기하고 퇴피 주소가 없으면 에러가 발생한다.<br>
         지정하지 않으면 무한 대기한다.
       </td>
       <td>msec</td>
@@ -5208,22 +5215,25 @@ Sci의 recv 를 호출하여 문자열을 수신합니다.
       <td>퇴피주소</td>
       <td>
         timeout 일 때 분기할 주소.<br>
-        지정하지 않으면 다음 주소로 진행한다.
+        지정하지 않으면 에러로 정지한다.
       </td>
       <td>주소</td>
     </tr>
   </tbody>
 </table>
 
-### 리턴값
-
-수신한 문자열
 
 ### 사용 예
 
 ```python
-   var msg = sci2.recv(5000, 99)
-99 print "error"
+   var msg
+   sci2.recv msg,5000,*timeout
+   print msg
+   ...
+   ...
+   *timeout
+   print "timeout error"
+   stop
 ```
 
 
@@ -5232,14 +5242,14 @@ Sci의 recv 를 호출하여 문자열을 수신합니다.
 
 ### 설명
 
-Sci의 open 를 호출하여 시리얼 포트를 오픈합니다.
+Sci의 open() 함수를 실행하여 시리얼 포트를 오픈합니다.
 
 제어기 설정을 통해 기 설정된 내용으로 시리얼 포트를 오픈하게 되며, 이전에 해당 포트를 close한 경우 외 에는 open을 별도로 수행 할 필요가 없습니다.(기본값: open)
 
 
 ### 문법
 
-&lt;Sci객체&gt;.open
+&lt;Sci객체&gt;.open()
 
 ### 리턴값
 - 0: 오픈 성공
@@ -5249,7 +5259,12 @@ Sci의 open 를 호출하여 시리얼 포트를 오픈합니다.
 ### 사용 예
 
 ```python
-sci2.open
+var ret
+ret=sci2.open()
+if ret<0
+  print "open error"
+  stop
+endif
 ```
 
 
@@ -5258,12 +5273,12 @@ sci2.open
 
 ### 설명
 
-Sci의 close 를 호출하여 시리얼 포트를 닫습니다.
+Sci의 close 를 실행하여 시리얼 포트를 닫습니다.
 
 
 ### 문법
 
-&lt;Sci객체&gt;.close
+&lt;Sci객체&gt;.close()
 
 ### 리턴값
 - 0: 닫기 성공
@@ -5272,7 +5287,40 @@ Sci의 close 를 호출하여 시리얼 포트를 닫습니다.
 ### 사용 예
 
 ```python
-sci2.close
+var ret
+ret=sci2.close()
+if ret<0
+  print "open error"
+  stop
+endif
+```
+
+
+
+# clr_rbuf
+
+### 설명
+
+Sci의 수신된 버퍼를 초기화 합니다.
+
+
+### 문법
+
+&lt;Sci객체&gt;.clr_rbuf()
+
+### 리턴값
+- 0: 수신 버퍼 초기화 성공
+- -1: 실패
+
+### 사용 예
+
+```python
+var ret
+ret=sci2.clr_rbuf()
+if ret<0
+  print "receive buffer clear error"
+  stop
+endif
 ```
 
 
@@ -5280,29 +5328,29 @@ sci2.close
 # 6.5.3 시리얼 통신 예제
 
 ``` python
-Hyundai Robot Job File; { version: 1.6, mech_type: "388(HS220-02)", total_axis: 6, aux_axis: 0 }
+Hyundai Robot Job File; { version: 1.6, mech_type: "", total_axis: -1, aux_axis: -1 }
      
-     # sci 모듈 import 후, 생성자로 Sci 객체 생성 
-     import sci
-     var sci2=sci.Sci(2)   #port no. (com2)
+     # 생성자로 Sci 객체 생성후 전역 변수에 대입 
+     global sci2
+     sci2=sci.Sci(2)   #port no. (com2)
      
-     # default open
+     # clear receive buffer
+     var ret
+     ret=sci2.clr_rbuf()
+
      # send
      sci2.send "test"
 
-     # receive (선택옵션: 3000msec 타임 아웃시, 99행으로 분기)
-     var msg=sci2.recv(3000,99)
+     # receive (선택옵션: 3000ms 타임 아웃시, *timeout으로 분기)
+     var msg
+     sci2.recv msg,3000,*timeout
      print msg
-
-     # close 
-     sci2.close
-     
-     # re-open
-     sci2.open
 
      end
 
-  99 print "error"
+     *timeout
+     print "error"
+     stop
 
 ```
 

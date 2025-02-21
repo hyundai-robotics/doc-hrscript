@@ -113,6 +113,7 @@
       * [recv](6-external-comm/5-sci/2-sci-member-proc/2-sci-recv.md)
       * [open](6-external-comm/5-sci/2-sci-member-proc/3-sci-open.md)
       * [close](6-external-comm/5-sci/2-sci-member-proc/4-sci-close.md)
+      * [clr_rbuf](6-external-comm/5-sci/2-sci-member-proc/5-sci-clr-rbuf.md)
     * [6.5.3 시리얼 통신 예제](6-external-comm/5-sci/3-sci-example.md)
 * [7. enet 모듈 : 이더넷 TCP/UDP 통신](7-enet-module/README.md)
   * [7.1 peer-to-peer, client 예제](7-enet-module/1-exam-client/README.md)

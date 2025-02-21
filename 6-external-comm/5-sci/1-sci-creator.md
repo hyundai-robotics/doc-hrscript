@@ -2,11 +2,11 @@
 
 ### 설명
 
-Sci 객체를 생성합니다. 참조를 리턴합니다.
+Sci 객체의 전역변수를 생성합니다.
 
 ### 문법
 
-Sci(port number)
+com.Sci(port number)
 
 ### 리턴값
 
@@ -15,7 +15,8 @@ Sci(port number)
 ### 사용 예
 
 ```python
-var sci2 = sci.Sci(2)
+global sci2
+sci2=com.Sci(2)
 ```
 
 
