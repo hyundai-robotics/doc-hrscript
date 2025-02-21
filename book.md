@@ -4325,6 +4325,263 @@ input work_no,10,*timeout
 
 
 
+# 6.4 Modbus module : Modbus master
+
+Modbus master operations can be performed in HRScript. For detailed information on modbus communication functions, please refer to the separate manual. [Hi6 Robot Controller Function Manual - Modbus](https://hrbook-hrc.web.app/#/view/doc-modbus/english/README)  
+# 6.5 Sci module : Serial communication
+
+Serial communication can be performed through the COM port of the Hi6 controller.
+
+To use this function, you must create a Sci object as a global variable as shown below.
+
+Also, be sure to check the settings specifications in [System > 2. Control Parameters > 3. Serial Port] before use.
+
+```python
+global sci2
+sci2=com.Sci(2)
+```
+
+After creating a Sci object, simply call the send, recv, open, and close member procedures.
+
+When calling send, you must input the string to be sent in advance.
+
+When calling recv, it is assigned to the specified string variable upon successful reception. 
+
+When calling open, the port is opened.
+
+When calling open, the port is closed.
+
+
+
+
+# 6.5.1 Constructor
+
+### Description
+
+Creates a global variable for the Sci object.
+
+### Syntax
+
+com.Sci(port number)
+
+### Return Value
+
+Reference to created object
+
+### Example
+
+```python
+global sci2
+sci2=com.Sci(2)
+```
+
+
+
+# 6.5.2 Member procedure# send
+
+### Description
+
+Send a string by calling Sci's send.
+
+### Syntax
+
+&lt;Sci object&gt;.send "string" <br>
+&lt;Sci object&gt;.send string variable
+
+
+### Example
+
+```python
+sci2.send "test"
+or
+var msg="test"
+sci2.send msg
+```
+
+
+
+# recv
+
+### Description
+
+Call Sci's recv to receive a string.
+
+
+### Syntax
+
+&lt;Sci object&gt;.recv string variable \[,{timeout}\] \[,{goto address}\]
+
+
+### Parameters
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Item</th>
+      <th style="text-align:left">Meaning</th>
+      <th style="text-align:left">Etc</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>string variable</td>
+      <td>
+        A string variable that will hold the entered string when successfully received.<br>
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>timeout</td>
+      <td>
+        When no data is received for a specified time, it branches to the goto address, and if there is no goto address, an error occurs.<br>
+        If not specified, it waits indefinitely.
+      </td>
+      <td>msec</td>
+    </tr>
+    <tr>
+      <td>goto address</td>
+      <td>
+        Address to branch to when timeout occurs.<br>
+        If not specified, it stops with an error.
+      </td>
+      <td>address</td>
+    </tr>
+  </tbody>
+</table>
+
+
+### Example
+
+```python
+   var msg
+   sci2.recv msg,5000,*timeout
+   print msg
+   ...
+   ...
+   *timeout
+   print "timeout error"
+   stop
+```
+
+
+
+# open
+
+### Description
+
+Execute Sci's open() function to open the serial port.
+
+The serial port is opened with the preset contents through the controller settings, and there is no need to separately open the port unless the port was previously closed.(default: open)
+
+
+### Syntax
+
+&lt;Sci object&gt;.open()
+
+### Return Value
+- 0: Success
+- <0: Fail
+
+
+### Example
+
+```python
+var ret
+ret=sci2.open()
+if ret<0
+  print "open error"
+  stop
+endif
+```
+
+
+
+# close
+
+### Description
+
+Execute Sci's close to close the serial port.
+
+
+### Syntax
+
+&lt;Sci object&gt;.close()
+
+### Return Value
+- 0: Success
+- -1: Fail
+
+### Example
+
+```python
+var ret
+ret=sci2.close()
+if ret<0
+  print "open error"
+  stop
+endif
+```
+
+
+
+# clr_rbuf
+
+### Description
+
+Initialize Sci's received buffer.
+
+
+### Syntax
+
+&lt;Sci object&gt;.clr_rbuf()
+
+### Return Value
+- 0: Receive buffer initialization success
+- -1: Fail
+
+### Example
+
+```python
+var ret
+ret=sci2.clr_rbuf()
+if ret<0
+  print "receive buffer clear error"
+  stop
+endif
+```
+
+
+
+# 6.5.3 Serial communication example
+
+``` python
+Hyundai Robot Job File; { version: 1.6, mech_type: "", total_axis: -1, aux_axis: -1 }
+     
+     # Create a Sci object using the constructor and assign it to a global variable 
+     global sci2
+     sci2=sci.Sci(2)   #port no. (com2)
+     
+     # clear receive buffer
+     var ret
+     ret=sci2.clr_rbuf()
+
+     # send
+     sci2.send "test"
+
+     # receive (option: when 3000ms over, goto *timeout)
+     var msg
+     sci2.recv msg,3000,*timeout
+     print msg
+
+     end
+
+     *timeout
+     print "error"
+     stop
+
+```
+
+
 # 7 enet module : Ethernet TCP/UDP communication
 
 Using the Hi6 controller's user ethernet port, You can send and receive strings or binary data over Ethernet TCP or UDP communication with an external devices.
