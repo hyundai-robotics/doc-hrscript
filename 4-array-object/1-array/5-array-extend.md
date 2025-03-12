@@ -1,5 +1,7 @@
 # 4.1.5 Extend Procedure for Adding All Elements of One Array to Another
 
+Supported from V60.32-01
+
 The extend procedure can be used to add all elements of an array to another.
 
 ```python

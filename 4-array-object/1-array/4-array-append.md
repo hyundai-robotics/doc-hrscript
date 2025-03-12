@@ -1,5 +1,7 @@
 # 4.1.4 Append Procedure for Adding an Element to an Array
 
+Supported from V60.32-01
+
 The append procedure can be used to add an element to an array
 
 ```python
