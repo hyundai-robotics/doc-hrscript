@@ -61,6 +61,8 @@
     * [4.1.1 배열](4-array-object/1-array/1-1d-array.md)
     * [4.1.2 다차원 배열](4-array-object/1-array/2-md-array.md)
     * [4.1.3 배열 생성자 함수](4-array-object/1-array/3-array-creator.md)
+    * [4.1.4 배열 원소 추가 프로시져 append](4-array-object/1-array/4-array-append.md)
+    * [4.1.5 배열에 다른 배열을 합치는 프로시져 extend](4-array-object/1-array/5-array-extend.md)
   * [4.2 객체 (object)](4-array-object/2-object.md)
   * [4.3 배열과 객체의 복사 대입(assignment)](4-array-object/3-array-object-assignment.md)
   * [4.4 참조 전달(call-by-reference)과 값 전달(call-by-value)](4-array-object/4-call-by-reference-call-by-value.md)
