@@ -2584,6 +2584,45 @@ var 배열변수명 = Array(3,2,4)	# [3][2][4]개의 3차원 배열 생성
 
 
 
+# 4.1.4 배열 원소 추가 프로시져 append
+
+V60.31-01 부터 지원 됩니다.
+
+배열에 원소를 추가 하려면 append 프로시져를 사용할 수 있습니다.
+
+```python
+var arr = [1, 2]
+append arr, 3   # 원소 3을 추가
+print arr       # [1, 2, 3]
+```
+
+배열의 원소는 타입과 상관없이 사용할 수 있기 때문에 다른 배열을 원소로 추가 할 수 있습니다.
+
+```python
+var arr = [1, 2]
+append arr, [3, 4]  # 원소 [3, 4]를 추가
+print arr           # [1, 2, [3, 4]]
+```
+# 4.1.5 배열에 다른 배열을 합치는 프로시져 extend
+
+V60.31-01 부터 지원 됩니다.
+
+배열에 다른 배열을 합쳐 주기 위해 extend 프로시져를 사용할 수 있습니다.
+
+```python
+var arr = [1, 2]
+var brr = [3, 4]
+extend arr, brr
+print arr   # [1, 2, 3, 4]
+```
+
+다음과 같이 임시 배열도 사용 가능 합니다.
+
+```python
+var arr = [1, 2]
+extend arr, [3, 4, 5]
+print arr   # [1, 2, 3, 4, 5]
+```
 # 4.2 객체 \(object\)
 
 앞서, 배열은 여러 개의 요소값을 보관할 수 있고, 인덱스로 접근한다는 것을 배웠습니다.
@@ -3781,38 +3820,38 @@ S2   move P,spd=250mm/sec,accu=0,tool=0
 * softjoint_lim 파라미터는 축 번호와 부드러움 정도는 필수적으로 설정해야 하지만, 각도 범위와 문턱값은 설정을 하지 않으면 각도를 제한하지 않고 문턱값은 0.0[Nm]로 자동 설정 된다. 
 
 {% endhint %}
-# 5.14 online.Traject
+# 5.14 외부 제어(External control)
 
 
 ## 설명 
-* UDP나 TCP 통신에 의해 이더넷으로 로봇의 위치데이터가 입력될 때, 이를 반영하여 로봇을 제어 
+* 로봇의 이동에 대한 위치 지령 생성은 외부 장치에서 수행하고 이 생성된 외부 지령을 이더넷이나 시리얼 통신을 통해 문자열 데이터로 Hi6 제어기에 전송하면 Hi6 제어기는 이 지령을 수신하여 해당 로봇을 제어하는 기능입니다. 
 
 
 ## 문법 
 ```python
      global onl_trj
-     var desired_pose 
+     var msg # 포즈 or 포즈형 문자열
 
      onl_trj=online.Traject()
      onl_trj.time_from_start=-1.0
      onl_trj.look_ahead_time=1.0
      onl_trj.interval=0.1
      onl_trj.init
-     onl_trj.buf_in desired_pose
+     onl_trj.buf_in msg
  
 ```
 
 ## 파라미터 
 * time_from_start : 시작 지령으로 부터 경과된 시간 (-1= 미사용)
 * look_ahead_time : 지령 출력을 위한 지연시간 (단위 [s])
-* interval : 지령 사이의 시간 (단위 [s])
-* init : 온라인 지령상태 초기화 
-* buf_in <포즈데이터> or <문자열데이터>: <포즈> 데이터와 문자열 데이터 로봇의 축 각도로 설정 (ex. [0.000,90.000,0.000,0.000,-90.000,0.000])  
+* interval : 생성된 지령의 샘플링 시간 (단위 [s])
+* init : 온라인 지령상태 초기화, 지령 버퍼를 초기화 
+* buf_in : <포즈> 또는 <포즈형 문자열>을 지령 버퍼에 추가  
 
 
 
 ## 사용 예 
-> enet 명령어를 통해 외부에서 로봇 각축 데이터 msg 명령을 전달 받는다. 
+> enet 통신을 통해 외부에서 생성된 지령을 수신하여 로봇을 이동합니다. 
 
 ```python
      import enet
@@ -3829,14 +3868,18 @@ S2   move P,spd=250mm/sec,accu=0,tool=0
      global onl_trj
      onl_trj=online.Traject()
      onl_trj.time_from_start=-1.0
-     onl_trj.look_ahead_time=1.0
-     onl_trj.interval=0.1
-     onl_trj.init
+     onl_trj.look_ahead_time=1.0 # 로봇이동 시작의 지연시간
+     onl_trj.interval=0.1 # 생성된 지령의 샘플링 시간
+     onl_trj.init # 버퍼 초기화
 
-     var str_pose
+     var msg
 10   enet0.recv
-     str_pose=result()
-     onl_trj.buf_in str_pose
+     msg=result()
+     if msg == "stop"
+       onl_trj.init # 버퍼 클리어 (즉시정지)
+     else
+       onl_trj.buf_in msg 
+     endif
      goto 10
      end 
 ```
@@ -3845,7 +3888,8 @@ S2   move P,spd=250mm/sec,accu=0,tool=0
 --- 
 {% hint style="info" %}
 
-* online.Traject 명령어는 enet 명령어를 통해 외부로 부터  통신을 이용하여 전달 받은 외부 지령으로, 로봇을 움직이게 합니다.    
+* 현재 수신된 포즈나 포즈형의 문자열은 축각도 좌표로만 가능합니다.  
+* 포즈형 문자열은 배열 형식의 축각도 좌표로만 가능합니다. (ex. [0.000,90.000,0.000,0.000,-90.000,0.000])  
 
 {% endhint %}
 # 5.15 convcrd 문
@@ -5158,7 +5202,7 @@ Sci의 send 를 호출하여 문자열을 송신합니다.
 
 ### 문법
 
-&lt;Sci객체&gt;.send "문자열"
+&lt;Sci객체&gt;.send "문자열" <br>
 &lt;Sci객체&gt;.send 문자열 변수
 
 
