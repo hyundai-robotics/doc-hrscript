@@ -7,14 +7,14 @@ The extend procedure can be used to add all elements of an array to another.
 ```python
 var arr = [1, 2]
 var brr = [3, 4]
-extend arr, brr
+extend_arr arr, brr
 print arr   # [1, 2, 3, 4]
 ```
 
-A temporary array can be used as a parameter.
+It can be used like below.
 
 ```python
 var arr = [1, 2]
-extend arr, [3, 4, 5]
+extend_arr arr, [3, 4, 5]
 print arr   # [1, 2, 3, 4, 5]
 ```
