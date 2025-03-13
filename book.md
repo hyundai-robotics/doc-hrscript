@@ -2473,6 +2473,45 @@ var name = Array(3,2,4)	# [3][2][4] numbers of 3-dimensional arrays are created
 
 
 
+# 4.1.4 Append Procedure for Adding an Element to an Array
+
+Supported from V60.31-01
+
+The append procedure can be used to add an element to an array
+
+```python
+var arr = [1, 2]
+append arr, 3   # Adding 3 as an element of arr
+print arr       # [1, 2, 3]
+```
+
+Any value, including another array, can be appended as an element because an array can contain elements of different types.
+
+```python
+var arr = [1, 2]
+append arr, [3, 4]  # Appending [3, 4] as an element of arr
+print arr           # [1, 2, [3, 4]]
+```
+# 4.1.5 Extend Procedure for Adding All Elements of One Array to Another
+
+Supported from V60.31-01
+
+The extend procedure can be used to add all elements of an array to another.
+
+```python
+var arr = [1, 2]
+var brr = [3, 4]
+extend arr, brr
+print arr   # [1, 2, 3, 4]
+```
+
+A temporary array can be used as a parameter.
+
+```python
+var arr = [1, 2]
+extend arr, [3, 4, 5]
+print arr   # [1, 2, 3, 4, 5]
+```
 # 4.2 Object
 
 As previously seen, it was found that an array could store multiple element values and are accessed by index. 
@@ -3618,37 +3657,37 @@ S2   move P,spd=250mm/sec,accu=0,tool=0
 * For using the function of softjoint, parameters on "j" and "sft" on softjoint_lim should be set. Also, if you do not set "ang" parameter, robot moves in workspace on defined softlimit. And, default parameter value on torque threshold "thr" is 0 [Nm]. 
 
 {% endhint %}
-# 5.14 online.Traject
+# 5.14 External control
 
 
 ### Description  
-* As position are input to Ethernet through UDP or TCP communication, robot move toward the command. 
+* The position command generation for the robot's movement is performed by an external device, and this generated external command is transmitted to the Hi6 controller as string data via ethernet or serial communication. The Hi6 controller receives this command and controls the robot. 
 
 ### Syntax 
 ```python
      global onl_trj
-     var desired_pose 
+     var msg # Pose or Pose type string
 
      onl_trj=online.Traject()
      onl_trj.time_from_start=-1.0
      onl_trj.look_ahead_time=1.0
      onl_trj.interval=0.1
      onl_trj.init
-     onl_trj.buf_in desired_pose
+     onl_trj.buf_in msg
  
 ```
 
 ### Parameter 
 * time_from_start : elapsed time from start position (-1: disable)  
 * look_head_time : time delay for robot moving (unit : [s])  
-* interval : time interval between commands (unit : [s])  
-* init : online trajectory operation init  
-* buf_in  : user should set the pose data or string data (ex. [0.000,90.000,0.000,0.000,-90.000,0.000]) in joint space coordinate
+* interval : time interval between generated commands (unit : [s])  
+* init : online trajectory init, clear command buffer  
+* buf_in  : add pose or pose type string to the command buffer
 
 
 
 ### Example
-> joint angle data is obtained from "msg" command through "enet" command. 
+> The robot moves by receiving commands generated externally via enet communication. 
 
 ```python
      import enet
@@ -3664,14 +3703,18 @@ S2   move P,spd=250mm/sec,accu=0,tool=0
      global onl_trj
      onl_trj=online.Traject()
      onl_trj.time_from_start=-1.0
-     onl_trj.look_ahead_time=1.0
-     onl_trj.interval=0.1
-     onl_trj.init
+     onl_trj.look_ahead_time=1.0 # Delay time for robot movement start
+     onl_trj.interval=0.1 # Sampling time of generated commands
+     onl_trj.init # Buffer init
 
-     var str_pose
+     var msg
 10   enet0.recv
      str_pose=result()
-     onl_trj.buf_in str_pose
+      if msg == "stop"
+       onl_trj.init # buffer clear (quick stop)
+     else
+       onl_trj.buf_in msg 
+     endif    
      goto 10
      end 
 ```
@@ -3680,7 +3723,8 @@ S2   move P,spd=250mm/sec,accu=0,tool=0
 --- 
 {% hint style="info" %}
 
-* The role of robot language "online.Traject()" is that robot move toward desired joint angle command from "enet" through communication.   
+* Currently received pose or pose type strings can only be in axis-angle coordinates.
+* Pose strings can only be in array-formatted axis-angle coordinates (e.g. [0.000,90.000,0.000,0.000,-90.000,0.000]).    
 
 {% endhint %}
 # 5.15 convcrd

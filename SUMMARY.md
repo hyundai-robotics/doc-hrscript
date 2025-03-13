@@ -80,7 +80,7 @@
   * [5.11 softxyz_lim](5-moving-robot/11-softxyz_lim.md)
   * [5.12 softjoint](5-moving-robot/12-softjoint.md)
   * [5.13 softjoint_lim](5-moving-robot/13-softjoint_lim.md)
-  * [5.14 online.Traject](5-moving-robot/14-online.Traject.md)
+  * [5.14 External control](5-moving-robot/14-external_control.md)
   * [5.15 convcrd](5-moving-robot/15-convcrd.md)
   * [5.16 pose_trans](5-moving-robot/16-pose_trans.md)
   * [5.17 pose_inv](5-moving-robot/17-pose_inv.md)
