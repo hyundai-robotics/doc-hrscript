@@ -4,7 +4,8 @@
 
 A command that creates a user coordinate system with three poses or one pose.   
 
-- When you create with three poses, it is created with an origin pose, an X-axis pose, and an XY-plane pose.
+- When you create with three poses, it is created with the origin pose, an axis pose, plane pose  according to the specified step order.
+-  If the step order is not specified, it is created with the origin pose, X-axis pose, and XY plane pose.
 - When you create with one pose, it is created with the origin pose and the position/direction is based on the pose value.
 - If the calculation is not possible, the job execution is interrupted with an error.
 
@@ -12,7 +13,7 @@ A command that creates a user coordinate system with three poses or one pose.
 ### Syntax
 
 ```python
-<result variable> = mkucs(<user coord. system number>,<origin pose>,<X-axis pose>,<XY-plane pose>)
+<result variable> = mkucs(<user coord. system number>,<step order>,<origin pose>,<axis pose>,<plane pose>)
 or
 <result variable> = mkucs(<user coord. system number>,<origin pose>)
 ```
@@ -47,6 +48,16 @@ or
       <td style="text-align:left">[1~20]</td>
     </tr>
     <tr>
+      <td style="text-align:left">step order</td>
+      <td style="text-align:left">
+        The order of the three poses below, if not specified, will be "OXY" <br>
+        (Example) <br>
+        "OXY" : origin pose, X axis pose, XY plane pose <br>
+        "OYZ" : origin pose, Y axis pose, YZ plane pose <br>
+      </td>
+      <td style="text-align:left">string variable</td>
+    </tr>
+    <tr>
       <td style="text-align:left">origin pose</td>
       <td style="text-align:left">
         pose at the origin
@@ -54,16 +65,16 @@ or
       <td style="text-align:left">pose variale</td>
     </tr>
     <tr>
-      <td style="text-align:left">X-axis pose</td>
+      <td style="text-align:left">axis pose</td>
       <td style="text-align:left">
-        pose located on the X-axis
+        pose located on the X, Y, Z-axis
       </td>
       <td style="text-align:left">pose variale</td>
     </tr>
     <tr>
-      <td style="text-align:left">XY-plane pose</td>
+      <td style="text-align:left">plane pose</td>
       <td style="text-align:left">
-        Pose located on the XY-plane
+        Pose located on the XY, YZ, ZX-plane
       </td>
       <td style="text-align:left">pose variale</td>
     </tr>
@@ -110,6 +121,7 @@ or
    var p_xyplane_=Pose(100,100,0,0,0,0,"base")
    var uc1 = mkucs(1,p_origin,p_xaxis,p_xyplane)
    var uc2 = mkucs(2,p_origin)
+   var uc3 = mkucs(1,"OXY",p_origin,p_xaxis,p_xyplane)
    end
 ```
 
