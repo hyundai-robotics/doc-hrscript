@@ -4,7 +4,8 @@
 
 세 개의 포즈 혹은 한 개의 포즈로 사용자좌표계를 생성하는 명령어입니다.   
 
-- 세 개의 포즈로 생성시 원점포즈, X축포즈, XY평면포즈로 사용자 좌표계를 생성합니다.
+- 세 개의 포즈로 생성시 지정된 스텝 순서에 따라 원점포즈, 방향포즈, 평면포즈로 사용자 좌표계를 생성합니다.
+- 스텝 순서를 지정하지 않으면 원점포즈, X방향포즈, XY평면포즈로 사용자 좌표계를 생성합니다.
 - 한 개의 포즈로 생성시 원점포즈로 사용자 좌표계를 생성하며 위치/방향은 해당 포즈 값을 기준으로 생성합니다.
 - 계산할 수 없는 경우, 에러가 발생하면서 job 실행이 중단됩니다.
 
@@ -12,7 +13,7 @@
 ### 문법
 
 ```python
-<결과변수> = mkucs(<사용자좌표계 번호>,<원점포즈>,<X방향포즈>,<XY평면포즈>)
+<결과변수> = mkucs(<사용자좌표계 번호>,<원점포즈>,<스텝순서>,<방향포즈>,<평면포즈>)
 또는
 <결과변수> = mkucs(<사용자좌표계 번호>,<원점포즈>)
 ```
@@ -47,6 +48,16 @@
       <td style="text-align:left">[1~20]</td>
     </tr>
     <tr>
+      <td style="text-align:left">스텝 순서</td>
+      <td style="text-align:left">
+        하기 3개의 포즈에 대한 순서, 미지정시 "OXY"로 동작 <br>
+        (예시) <br>
+        "OXY" : 원점 포즈, X축상 포즈, XY평면상 포즈 <br>
+        "OYZ" : 원점 포즈, Y축상 포즈, YZ평면상 포즈 <br>
+      </td>
+      <td style="text-align:left">문자열</td>
+    </tr>
+    <tr>
       <td style="text-align:left">원점포즈</td>
       <td style="text-align:left">
         원점에 위치한 포즈
@@ -54,16 +65,16 @@
       <td style="text-align:left">포즈변수</td>
     </tr>
     <tr>
-      <td style="text-align:left">X방향포즈</td>
+      <td style="text-align:left">방향포즈</td>
       <td style="text-align:left">
-        X축에 위치한 포즈
+        X, Y, Z축에 위치한 포즈
       </td>
       <td style="text-align:left">포즈변수</td>
     </tr>
     <tr>
-      <td style="text-align:left">XY평면포즈</td>
+      <td style="text-align:left">평면포즈</td>
       <td style="text-align:left">
-        XY 평면에 위치한 포즈
+        XY, YZ, ZX의 평면에 위치한 포즈
       </td>
       <td style="text-align:left">포즈변수</td>
     </tr>
@@ -110,6 +121,7 @@
    var p_xyplane_=Pose(100,100,0,0,0,0,"base")
    var uc1 = mkucs(1,p_origin,p_xaxis,p_xyplane)
    var uc2 = mkucs(2,p_origin)
+   var uc3 = mkucs(1,"OXY",p_origin,p_xaxis,p_xyplane)
    end
 ```
 
