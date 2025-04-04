@@ -39,8 +39,8 @@
     <tr>
       <td style="text-align:left">
         <p>mkucs(n,po)</p>
-        <p>mkucs(n,po1,po2
-          <br />,po3)</p>
+        <p>mkucs(n,po1,po2,po3)</p>
+        <p>mkucs(n,"OXY",po1,po2,po3)</p>
       </td>
       <td style="text-align:left">
         <p>Creates and registers the nth user coordinate system object</p>
