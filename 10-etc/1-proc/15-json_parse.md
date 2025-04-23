@@ -1,6 +1,6 @@
 # 10.1.15 json_parse
 
-Supported from V60.32-01
+Supported from V60.32-00
 
 The `json_parse` procedure parses a JSON string to build an object, an array, or a value.
 
