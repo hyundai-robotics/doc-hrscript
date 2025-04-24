@@ -49,7 +49,7 @@ optime <파라미터>
    move L,spd=30mm/s,accu=0,tool=1
    delay 0.5
    move P,spd=30%,accu=0,tool=1
-   optime cycyl_end
+   optime cycle_end
    goto *start
    end
 ```

@@ -83,7 +83,7 @@ move &lt;보간&gt;, \[tg=&lt;포즈/시프트&gt;\], spd=&lt;속도&gt;, accu=&
       <td style="text-align:left">산술식.</td>
     </tr>
     <tr>
-      <td style="text-align:left">정밀</td>
+      <td style="text-align:left">정밀도</td>
       <td style="text-align:left">산술식. 낮을수록 정밀함.
         0이면 불연속으로 동작</td>
       <td

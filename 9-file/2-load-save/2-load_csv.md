@@ -1,6 +1,6 @@
 ﻿# 9.2.2 load_csv문
 
-V60.28-00부터 지원됩니다.
+{% hint style="info" %}
 
 MAIN 모듈의 project/vars/ 폴더의 .csv 파일(전역 최상위 배열)의 변경사항을 메모리로 읽어들이는 명령문입니다.
 

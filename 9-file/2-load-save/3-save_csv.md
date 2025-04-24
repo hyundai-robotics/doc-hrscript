@@ -1,6 +1,6 @@
 ﻿# 9.2.3 save_csv문
 
-V60.28-00부터 지원됩니다.
+{% hint style="info" %}
 
 전역 최상위 배열 변수를 메모리에서 MAIN 모듈의 project/vars/ 폴더의 .csv 파일로 저장하는 명령문입니다.
 

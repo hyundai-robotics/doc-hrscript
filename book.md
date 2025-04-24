@@ -134,9 +134,16 @@ var work_w,work_h  # 작업물의 너비와 높이
 
 # 2.3.4 레이블
 
-goto 문에 의해 이동할 목표 지점을 표시합니다. 별표\(\*\)와 식별자로 구성됩니다.
+goto 문에 의해 이동할 목표 지점을 표시합니다. 별표(*)와 식별자로 구성됩니다.
 
-# 2.4 첫 번째 프로그램 - Hello, World !
+### 사용 예
+
+```python
+goto *lable #lable
+stop #레이블로 이동하여 stop문 생략됨
+*lable
+end
+```# 2.4 첫 번째 프로그램 - Hello, World !
 
 티치펜던트 화면에 문자열을 출력하는 간단한 job 프로그램을 작성해봅시다. 새로운 job을 생성한 후, 아래와 같이 [print문](../6-external-comm/3-tp-console-bar/1-print.md)을 기록하고, "Hello, World !"라는 문자열 파라미터를 붙입시다.
 
@@ -1072,7 +1079,8 @@ var str="hello, world"가 실행된 상태에서의 예
     <tr>
       <td style="text-align:left">
         mkucs(n,po)<br>
-        mkucs(n,po1,po2,po3)
+        mkucs(n,po1,po2,po3)<br>
+        mkucs(n,"OXY",po1,po2,po3)
       </td>
       <td style="text-align:left">
         n번 사용자좌표계 객체를 생성하여 등록합니다.<br>
@@ -1092,10 +1100,10 @@ var str="hello, world"가 실행된 상태에서의 예
       <td style="text-align:left"></td>
     </tr>
     <tr>
-      <td style="text-align:left">mkshift(3,ref_po,mea_po,2.0) <br>
-      mkshift(5,ref_po,mea_sft)
+      <td style="text-align:left">mkshift(n,ref_po,mea_po,2.0) <br>
+      mkshift(n,ref_po,mea_sft)
       </td>
-      <td style="text-align:left">다수의 기준이 되는 포즈에 해당하는 측정된 포즈나 쉬프트 데이터들로 부터 최적화된 쉬프트 값을 계산하여 리턴합니다. <br>
+      <td style="text-align:left">n개의 기준이 되는 포즈에 해당하는 측정된 포즈나 쉬프트 데이터들로 부터 최적화된 쉬프트 값을 계산하여 리턴합니다. <br>
       tolerance에 해당하는 4번째 파라미터가 0보다 크게 지정된 경우에 계산된 쉬프트 값이 이 값보다 크면 에러로 정지합니다. <br>
       # 참고 사항 <br>
       ref_po(기준이 되는 포즈), mea_po(측정된 포즈)는 포즈 변수의 배열, mea_sft(측정된 쉬프트)는 쉬프트 변수의 배열의 타입입니다. <br>
@@ -1827,7 +1835,7 @@ end
 
 ### 설명
 
-이 전 절에서 설명한 `for`~`next`문 사이에서 사용합니다.
+이전 절에서 설명한 `for`~`next`문 사이에서 사용합니다.
 
 - `for`~`next` 블록 내에서 `break`문을 만나면, 반복을 중단하고 `next` 다음 명령문으로 분기합니다.
 - `for`~`next` 블록 내에서 `continue`문을 만나면, 다음 명령문으로 진행하지 않고 인덱스변수의 증감을 수행한 후 `for`문으로 분기합니다.
@@ -1978,7 +1986,7 @@ dist2d 프로그램은 결과값을 return 문을 통해 외부로 전달하고 
 \(return문과 end문은 프로그램을 종료하고 주 프로그램으로 리턴한다는 점에서 동작이 같습니다. 다만 return문은 결과값을 인수로 지정할 수 있다는 점에서만 end문과 다릅니다.\)
 # 3.7.3 def문 (사용자함수 정의)
 
-V60.05-06부터 지원됩니다.
+{% hint style="info" %}
 
 ### 설명
 
@@ -2586,9 +2594,9 @@ var 배열변수명 = Array(3,2,4)	# [3][2][4]개의 3차원 배열 생성
 
 # 4.1.4 배열 원소 추가 프로시져 append_arr
 
-V60.32-01 부터 지원 됩니다.
+{% hint style="info" %}
 
-배열에 원소를 추가 하려면 append_arr 프로시져를 사용할 수 있습니다.
+배열에 원소를 추가 하려면 `append_arr` 프로시져를 사용할 수 있습니다.
 
 ```python
 var arr = [1, 2]
@@ -2605,9 +2613,9 @@ print arr               # [1, 2, [3, 4]]
 ```
 # 4.1.5 배열에 다른 배열을 합치는 프로시져 extend_arr
 
-V60.32-01 부터 지원 됩니다.
+{% hint style="info" %}
 
-배열에 다른 배열을 합쳐 주기 위해 extend_arr 프로시져를 사용할 수 있습니다.
+배열에 다른 배열을 합쳐 주기 위해 `extend_arr` 프로시져를 사용할 수 있습니다.
 
 ```python
 var arr = [1, 2]
@@ -3237,7 +3245,7 @@ move &lt;보간&gt;, \[tg=&lt;포즈/시프트&gt;\], spd=&lt;속도&gt;, accu=&
       <td style="text-align:left">산술식.</td>
     </tr>
     <tr>
-      <td style="text-align:left">정밀</td>
+      <td style="text-align:left">정밀도</td>
       <td style="text-align:left">산술식. 낮을수록 정밀함.
         0이면 불연속으로 동작</td>
       <td
@@ -3295,7 +3303,8 @@ if result() then *sensor_on
 
 세 개의 포즈 혹은 한 개의 포즈로 사용자좌표계를 생성하는 명령어입니다.   
 
-- 세 개의 포즈로 생성시 원점포즈, X축포즈, XY평면포즈로 사용자 좌표계를 생성합니다.
+- 세 개의 포즈로 생성시 지정된 스텝 순서에 따라 원점포즈, 방향포즈, 평면포즈로 사용자 좌표계를 생성합니다.
+- 스텝 순서를 지정하지 않으면 원점포즈, X방향포즈, XY평면포즈로 사용자 좌표계를 생성합니다.
 - 한 개의 포즈로 생성시 원점포즈로 사용자 좌표계를 생성하며 위치/방향은 해당 포즈 값을 기준으로 생성합니다.
 - 계산할 수 없는 경우, 에러가 발생하면서 job 실행이 중단됩니다.
 
@@ -3303,7 +3312,7 @@ if result() then *sensor_on
 ### 문법
 
 ```python
-<결과변수> = mkucs(<사용자좌표계 번호>,<원점포즈>,<X방향포즈>,<XY평면포즈>)
+<결과변수> = mkucs(<사용자좌표계 번호>,<원점포즈>,<스텝순서>,<방향포즈>,<평면포즈>)
 또는
 <결과변수> = mkucs(<사용자좌표계 번호>,<원점포즈>)
 ```
@@ -3338,6 +3347,16 @@ if result() then *sensor_on
       <td style="text-align:left">[1~20]</td>
     </tr>
     <tr>
+      <td style="text-align:left">스텝 순서</td>
+      <td style="text-align:left">
+        하기 3개의 포즈에 대한 순서, 미지정시 "OXY"로 동작 <br>
+        (예시) <br>
+        "OXY" : 원점 포즈, X축상 포즈, XY평면상 포즈 <br>
+        "OYZ" : 원점 포즈, Y축상 포즈, YZ평면상 포즈 <br>
+      </td>
+      <td style="text-align:left">문자열</td>
+    </tr>
+    <tr>
       <td style="text-align:left">원점포즈</td>
       <td style="text-align:left">
         원점에 위치한 포즈
@@ -3345,16 +3364,16 @@ if result() then *sensor_on
       <td style="text-align:left">포즈변수</td>
     </tr>
     <tr>
-      <td style="text-align:left">X방향포즈</td>
+      <td style="text-align:left">방향포즈</td>
       <td style="text-align:left">
-        X축에 위치한 포즈
+        X, Y, Z축에 위치한 포즈
       </td>
       <td style="text-align:left">포즈변수</td>
     </tr>
     <tr>
-      <td style="text-align:left">XY평면포즈</td>
+      <td style="text-align:left">평면포즈</td>
       <td style="text-align:left">
-        XY 평면에 위치한 포즈
+        XY, YZ, ZX의 평면에 위치한 포즈
       </td>
       <td style="text-align:left">포즈변수</td>
     </tr>
@@ -3401,6 +3420,7 @@ if result() then *sensor_on
    var p_xyplane_=Pose(100,100,0,0,0,0,"base")
    var uc1 = mkucs(1,p_origin,p_xaxis,p_xyplane)
    var uc2 = mkucs(2,p_origin)
+   var uc3 = mkucs(1,"OXY",p_origin,p_xaxis,p_xyplane)
    end
 ```
 
@@ -3551,9 +3571,9 @@ S6   move P,spd=60%,accu=0,tool=0
 S7   move P,spd=60%,accu=0,tool=0
      end 
 ```
-* S1과 S2는 레벨1로 검지 한다. 
-* S3는 레벨2로, S4와S5는 레벨3으로 검지 한다.  
-* S6와S7은 충돌검지를 실행하지 않는다.   
+* S1과 S2는 레벨1로 검지 합니다. 
+* S3는 레벨2로, S4와 S5는 레벨3으로 검지 합니다.  
+* S6와 S7은 충돌검지를 실행하지 않습니다.   
 
 --- 
 # 5.9 colsense 문
@@ -3567,8 +3587,8 @@ S7   move P,spd=60%,accu=0,tool=0
 --- 
 
 ## 설명 
-* 모델기반 충돌검지 기능 중 기본 민감도(general, sensitivity)를 조절 할 수 있습니다.
-* 모델기반 충돌검지 기능 중 축별 민감도(axis, criteria)를 조절 할 수 있습니다. 
+* 모델기반 충돌검지 기능 중 기본 민감도(일반 설정-민감도)를 조절 할 수 있습니다.
+* 모델기반 충돌검지 기능 중 축별 민감도(축별 검지 기준-기준값)를 조절 할 수 있습니다. 
 
 
 ## 문법 
@@ -3687,14 +3707,14 @@ S2   wait ...
 {% endhint %}
 # 5.11 softxyz_lim 문
 
-softxyz_lim 명령어는 softxyz on 기능 사용 전 파라미터 값을 미리 설정 해야 한다. <br>
+softxyz_lim 명령어는 softxyz on 기능 사용 전 파라미터 값을 미리 설정 해야 합니다. <br>
 
-사용자는 활성화 되는 로봇의 직교좌표 거리 제한, 위치, 속도 및 문턱값등을 설정 할 수 있다.    
+사용자는 활성화 되는 로봇의 직교좌표 거리 제한, 위치, 속도 및 문턱값등을 설정 할 수 있습니다.    
 
 --- 
 
 ## 설명 
-* softxyz 파라미터 설정 명령어  
+* softxyz 파라미터를 설정합니다.  
 
 
 ## 문법 
@@ -3706,27 +3726,27 @@ softxyz_lim thr,x=<X문턱값>,y=<Y문턱값>,z=<Z문턱값>,rx=<Rx문턱값>,ry
 ```
 
 ## 파라미터 
-* softxyz_lim pos : 로봇이 이동할 수 있는 직교좌표 최대 거리를 설정 (X,Y,Z방향) [mm] 
-* softxyz_lim vel : 로봇이 동작하는 직교좌표 최대 속도를 설정 (X,Y,Z,Rx,Ry,Rz방향) [mm/sec] or [deg/sec] 
-* softxyz_lim xnr : 로봇이 이동할 수 있는 직교좌표 최대 거리와 각도를 제한 (X,Y,Z,Rx,Ry,Rz방향) [mm] or [deg] <br> 
-  (로봇의 최대 동작영역은 pos와 xnr의 합집합으로 결정됨)  
-* softxyz_lim thr : 로봇이 이동하기 위한 직교좌표 힘 문턱값을 설정 (X,Y,Z,Rx,Ry,Rz방향) [N] or [Nm]
+* softxyz_lim pos : 로봇이 이동할 수 있는 직교좌표 최대 거리를 설정합니다. (X,Y,Z방향) [mm] 
+* softxyz_lim vel : 로봇이 동작하는 직교좌표 최대 속도를 설정합니다. (X,Y,Z,Rx,Ry,Rz방향) [mm/sec] or [deg/sec] 
+* softxyz_lim xnr : 로봇이 이동할 수 있는 직교좌표 최대 거리와 각도를 제한합니다. (X,Y,Z,Rx,Ry,Rz방향) [mm] or [deg] <br> 
+  (로봇의 최대 동작영역은 pos와 xnr의 합집합으로 결정됩니다.)  
+* softxyz_lim thr : 로봇이 이동하기 위한 직교좌표 힘 문턱값을 설정합니다. (X,Y,Z,Rx,Ry,Rz방향) [N] or [Nm]
 
 
 ## 사용 예 
-> * +X방향200[mm], -Y방향100[mm], +Z방향300[mm]로 이동하는 최대 거리를 설정  
+> * +X방향200[mm], -Y방향100[mm], +Z방향300[mm]로 이동하는 최대 거리를 설정합니다.  
 ```python
 softxyz_lim pos, _x=200, y_=100, _z=300
 ```
-> * Z방향 최대 이동 속도를 40mm/sec로 설정 
+> * Z방향 최대 이동 속도를 40mm/sec로 설정합니다. 
 ```python
 softxyz_lim vel, z=40
 ```
-> * X방향으로 이동하는 최대 거리를 -200[mm]에서 200[mm]로 설정 
+> * X방향으로 이동하는 최대 거리를 -200[mm]에서 200[mm]로 설정합니다. 
 ```python
 softxyz_lim xnr, x=200
 ```
-> * 직교좌표 Y방향의 힘 문턱값을 10[N]으로 설정 
+> * 직교좌표 Y방향의 힘 문턱값을 10[N]으로 설정합니다. 
 ```python
 softxyz_lim thr, y=10
 ```
@@ -3767,9 +3787,9 @@ softjoint off
 {% endhint %}
 # 5.13 softjoint_lim
 
-softjoint_lim 명령어는 softjoint on 기능 사용 전 파라미터 값을 미리 설정 해야 한다. <br>
+softjoint_lim 명령어는 softjoint on 기능 사용 전 파라미터 값을 미리 설정 해야 합니다. <br>
 
-사용자는 활성화 되는 축 번호, 부드러움, 각도 제한 값 그리고 문턱값 등을 설정 해야 한다. 
+사용자는 활성화 되는 축 번호, 부드러움, 각도 제한 값 그리고 문턱값 등을 설정 해야 합니다. 
 
 --- 
 
@@ -3817,7 +3837,7 @@ S2   move P,spd=250mm/sec,accu=0,tool=0
 --- 
 {% hint style="info" %}
 
-* softjoint_lim 파라미터는 축 번호와 부드러움 정도는 필수적으로 설정해야 하지만, 각도 범위와 문턱값은 설정을 하지 않으면 각도를 제한하지 않고 문턱값은 0.0[Nm]로 자동 설정 된다. 
+* softjoint_lim 파라미터는 축 번호와 부드러움 정도는 필수적으로 설정해야 하지만, 각도 범위와 문턱값은 설정을 하지 않으면 각도를 제한하지 않고 문턱값은 0.0[Nm]로 자동 설정 됩니다. 
 
 {% endhint %}
 # 5.14 외부 제어(External control)
@@ -3905,7 +3925,6 @@ S2   move P,spd=250mm/sec,accu=0,tool=0
 ```python
 poseB = poseA.convcrd("base")      #베이스 좌표계
 poseB = poseA.convcrd("robot")     #로봇 좌표계
-poseB = poseA.convcrd("tool")      #툴 좌표계
 poseB = poseA.convcrd("u1")        #1번 사용자 좌표계 
 ```
 
@@ -4063,10 +4082,10 @@ shift_lim문은 시프트 기능을 사용할 때 안전성을 향상시키기 �
 ```
 
 ## 파라미터 
-* x,y,z : X,Y,Z시프트 리밋값[0~3000,mm]
+* x,y,z : X,Y,Z시프트 리밋값[0~3000,mm]<br><br>
 
 ### 에러 가이드
-- E1196 : 시프트량이 설정된 시프트 리밋값을 초과하였습니다. 시프트량을 줄이거나 시프트 리밋 값을 재조정하십시오.
+* E1196 : 시프트량이 설정된 시프트 리밋값을 초과하였습니다. 시프트량을 줄이거나 시프트 리밋 값을 재조정하십시오.
 
 ## 사용 예 
 ```python
@@ -7217,7 +7236,7 @@ load_job <결과변수>,"*"
 ```
 # 9.2.2 load_csv문
 
-V60.28-00부터 지원됩니다.
+{% hint style="info" %}
 
 MAIN 모듈의 project/vars/ 폴더의 .csv 파일(전역 최상위 배열)의 변경사항을 메모리로 읽어들이는 명령문입니다.
 
@@ -7298,7 +7317,7 @@ load_csv <결과변수>,"<변수명>"
 ```
 # 9.2.3 save_csv문
 
-V60.28-00부터 지원됩니다.
+{% hint style="info" %}
 
 전역 최상위 배열 변수를 메모리에서 MAIN 모듈의 project/vars/ 폴더의 .csv 파일로 저장하는 명령문입니다.
 
@@ -7949,7 +7968,7 @@ optime <파라미터>
    move L,spd=30mm/s,accu=0,tool=1
    delay 0.5
    move P,spd=30%,accu=0,tool=1
-   optime cycyl_end
+   optime cycle_end
    goto *start
    end
 ```
@@ -8260,6 +8279,72 @@ toolchng문에 대한 자세한 설명은 아래 링크를 참조하십시오.
 ### 문법
 ```python
 toolchng on/off,tg=<체인지 대상>,di=<접속완료 신호>,wait=<대기시간>
+```
+# 10.1.15 json_parse문
+
+V60.32-00 부터 지원 됩니다.
+
+json 문자열을 파싱하여 객체, 배열, 값으로 변경 하기 위한 프로시져 입니다.
+
+### 문법
+
+프로시져 시작 직후 `result()` 함수를 사용하여 결과 데이터가 저장될 객체를 받습니다.
+```python
+    json_parse <json string literal/value>
+    var r = result()
+```
+
+파싱 완료 대기
+```python
+    wait r.status == "finished"
+```
+
+이후 r.data에 json 문자열을 파싱한 결과가 저장 되어 있음. 대기 없이 r.data를 사용하면 파싱이 완료 되지 않은 경우 에러 발생 할 수 있음.
+
+
+##### status
+
+<table>
+  <thread>
+    <th style="text-align:left">status</th>
+    <th style="text-align:left">상세 내용</th>
+  </thread>
+  <tbody>
+  <tr>
+    <td style="text-align:left">parsing</td>
+    <td style="text-align:left">json 파싱이 진행 중. data를 사용 할 수 없음.</td>
+  </tr>
+  <tr>
+    <td style="text-align:left">finished</td>
+    <td style="text-align:left">json 파싱이 완료 됨. data를 사용 할 수 있음</td>
+  </tr>
+  </tbody>
+</table>
+
+
+
+### 사용 예
+```python
+    json_parse "[1, 2, 3, 4]"
+    var r = result()
+    wait r.status == "finished", 10 # 최대 10초간 파싱 완료 대기
+    var jr = r.data   # r.data의 타입은 array
+    print jr          # [1, 2, 3, 4] 출력 됨
+```
+
+```python
+    json_parse "3.141592"
+    var r = result()
+    wait r.status == "finished", 10 # 최대 10초간 파싱 완료 대기
+    var jr = r.data    # r.data의 타입은 double
+    print jr           # 3.141592 출력 됨
+```
+```python
+    json_parse "{\"test\": \"value\"}" # 사용되는 따옴표는 escape 되어야 함
+    var r = result()
+    wait r.status == "finished", 10 # 최대 10초간 파싱 완료 대기
+    var jr = r.data    # r.data의 타입은 JObject
+    print jr           # { _type: "JObject", _sub_file: "", _desc: "", test: "value" } 출력 됨
 ```
 # 10.2 기타 함수
 

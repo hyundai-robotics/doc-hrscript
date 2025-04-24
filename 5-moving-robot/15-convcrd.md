@@ -11,7 +11,6 @@
 ```python
 poseB = poseA.convcrd("base")      #베이스 좌표계
 poseB = poseA.convcrd("robot")     #로봇 좌표계
-poseB = poseA.convcrd("tool")      #툴 좌표계
 poseB = poseA.convcrd("u1")        #1번 사용자 좌표계 
 ```
 
