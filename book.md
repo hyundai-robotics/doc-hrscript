@@ -975,8 +975,8 @@ These functions receive an input of a parameter and then create and return an ob
     <tr>
       <td style="text-align:left">
         <p>mkucs(n,po)</p>
-        <p>mkucs(n,po1,po2
-          <br />,po3)</p>
+        <p>mkucs(n,po1,po2,po3)</p>
+        <p>mkucs(n,"OXY",po1,po2,po3)</p>
       </td>
       <td style="text-align:left">
         <p>Creates and registers the nth user coordinate system object</p>
@@ -2475,13 +2475,13 @@ var name = Array(3,2,4)	# [3][2][4] numbers of 3-dimensional arrays are created
 
 # 4.1.4 Append Procedure for Adding an Element to an Array
 
-Supported from V60.31-01
+Supported from V60.32-00
 
 The append procedure can be used to add an element to an array
 
 ```python
 var arr = [1, 2]
-append arr, 3   # Adding 3 as an element of arr
+append_arr arr, 3   # Adding 3 as an element of arr
 print arr       # [1, 2, 3]
 ```
 
@@ -2489,27 +2489,27 @@ Any value, including another array, can be appended as an element because an arr
 
 ```python
 var arr = [1, 2]
-append arr, [3, 4]  # Appending [3, 4] as an element of arr
+append_arr arr, [3, 4]  # Appending [3, 4] as an element of arr
 print arr           # [1, 2, [3, 4]]
 ```
 # 4.1.5 Extend Procedure for Adding All Elements of One Array to Another
 
-Supported from V60.31-01
+Supported from V60.32-00
 
 The extend procedure can be used to add all elements of an array to another.
 
 ```python
 var arr = [1, 2]
 var brr = [3, 4]
-extend arr, brr
+extend_arr arr, brr
 print arr   # [1, 2, 3, 4]
 ```
 
-A temporary array can be used as a parameter.
+It can be used like below.
 
 ```python
 var arr = [1, 2]
-extend arr, [3, 4, 5]
+extend_arr arr, [3, 4, 5]
 print arr   # [1, 2, 3, 4, 5]
 ```
 # 4.2 Object
@@ -2825,7 +2825,41 @@ After understanding the pose that expresses the target position of the robot, le
 
 Pose is an object type embedded in the Hi6 Controller and represents each axis of the robot or the Cartesian coordinates and direction of the tool tip. 
 
-Poses are created by calling the constructor function Pose\( \). All function parameters are position parameters. Meanwhile, crd and cfg are string types, and the rest are number types.
+Poses are created by calling the constructor function `Pose()`. All function parameters are position parameters. The first string element is recognized as the `format`, and the second string element as the `config`. The remaining elements are all numeric type.
+
+### format
+Multiple sub-elements including the coordinate system are listed, separated by semicolons (;). Each sub-element is optional and can appear in any order.
+
+<table>
+  <tr>
+    <th>Sub-element name</th>
+    <th>Type</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>crd</td>
+    <td>string</td>
+    <td>coordinate system.<br>If omitted, joint coordinate system is used.<br>
+See table below.</td>
+  </tr>
+  <tr>
+    <td>sync(p1,p2)</td>
+    <td>p1, p2 : real</td>
+    <td>sensor sync (1 or 2 position values)</td>
+  </tr>
+  <tr>
+    <td>mi(mech#[, ...])</td>
+    <td>Each mech number : integer 0~7</td>
+    <td>Mechanism configuration.<br>(mi stands for mech.info.)<br>If omitted, all mechanisms are included.</td>
+  </tr>
+</table>
+
+Examples of format;
+```python
+"base,mi(0,2)" # Base coord., mech. 0 and 2 included
+"" # Coord. omitted (joint), no sensor sync, mechinfo omitted (all mech.)
+"sync(20.5,-12.0),robot" # Sensor sync (pos.1=20.5, pos.2=-12.0), robot coord.
+```
 
 {% hint style="info" %}
 The cfg element specifies the robot configuration. For more information, refer to "[2.3.2.2 Base and Robot Recording Coordinates](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-tp630/2-operation/3-step/2-step-pose-modify/2-base-robot-crd-sys)" in the Hi6 Robot Controller Operation Manual.
@@ -2834,15 +2868,16 @@ The cfg element specifies the robot configuration. For more information, refer t
 
 
 ```python
-var <pose variable name> = Pose(j1, j2, j3, …)					# axis coordinate
-var <pose variable name> = Pose(x, y, z, rx, ry, rz, j7, j8,…, crd, cfg)		# base coordinate
+var <pose variable name> = Pose(j1, j2, j3, …)		# axis coordinate
+var <pose variable name> = Pose(x, y, z, rx, ry, rz, j7, j8,…, crd, cfg)		# base coord.
 ```
 
 Refer to the following examples of creating the poses for 6 axes + 1 additional axis and for Cartesian + 1 additional axis.
 
 ```python
 var po1 = Pose(10, 90, 0, 0, -30, 0, -1240.8)				# axis coordinate
-var po2 = Pose(1850, 0, 2010.5, 0, -90, 0, -1240.8, "base", "fl;r2")	# base coordinate
+var po2 = Pose(1850, 0, 2010.5, 0, -90, 0, -1240.8, "base", "fl;r2")	# base coord.
+var po3 = Pose(-1140.8, "mi(2)")	# joint coord., mech. 2
 ```
 
 Alternatively, the pose constructor function may be called using a single array or string parameter. With this, files or data may be converted into poses, acquired through remote communication, and used.
@@ -2877,7 +2912,7 @@ Elements of the pose object can be accessed with the following keys.
   </tr>
     <tr>
     <td>nj</td>
-    <td>integer type</td>
+    <td>Integer</td>
     <td>1~32</td>
     <td>Axis count</td>
     <td> </td>
@@ -2885,7 +2920,7 @@ Elements of the pose object can be accessed with the following keys.
    </tr>
     <tr>
     <td>j1~j32</td>
-    <td>Real number</td>
+    <td>Real</td>
     <td>8-byte real mumber</td>
     <td>Axis value</td>
     <td>mm, deg</td>
@@ -2893,7 +2928,7 @@ Elements of the pose object can be accessed with the following keys.
    </tr>
     <tr>
     <td>x, y, z</td>
-    <td>Real number</td>
+    <td>Real</td>
     <td>8-byte real mumber</td>
     <td>Tool position in Cartesian coordinate</td>
     <td>mm</td>
@@ -2901,14 +2936,14 @@ Elements of the pose object can be accessed with the following keys.
    </tr>
     <tr>
     <td>rx, ry, rz</td>
-    <td>Real number</td>
+    <td>Real</td>
     <td>8-byte real mumber</td>
-    <td>Euler angle of tool orientaion</td>
+    <td>Euler angle of tool orientation</td>
     <td>deg</td>
   </tr>
   <tr>
     <td rowspan="4">crd</td>
-    <td rowspan="4">String type</td>
+    <td rowspan="4">String</td>
     <td>joint</td>
     <td>Joint coordinate (default)</td>
     <td rowspan="4"></td>
@@ -2927,7 +2962,7 @@ Elements of the pose object can be accessed with the following keys.
   </tr>
   <tr>
     <td rowspan="8">cfg</td>
-    <td rowspan="8">String type</td>
+    <td rowspan="8">String</td>
     <td>s</td>
     <td>|S|>=180</td>
     <td rowspan="7">Possible to perform<br>combination by <br>dividing with ";"<br><br>The default is all flags turned off.</td>
@@ -2960,6 +2995,27 @@ Elements of the pose object can be accessed with the following keys.
     <td>auto</td>
     <td>auto (automatic desision)</td>
     <td></td>
+  </tr>
+  <tr>
+    <td>mechinfo</td>
+    <td>Integer</td>
+    <td>-1 ~ 255</td>
+    <td>bitfield<br>(bit0:M0, bit1:M1, .... bit7:M7)<br>-1 is all mech.</td>
+    <td>Only the bits corresponding to the included mechanisms are set to 1.</td>
+  </tr>
+  <tr>
+    <td>nsync</td>
+    <td>Integer</td>
+    <td>0~2</td>
+    <td>The number of sensor-sync</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>sync</td>
+    <td>String (p1, p2; integer)</td>
+    <td>sync(p1,p2)</td>
+    <td>Sensor-sync values</td>
+    <td>sync(220.5,195.3)</td>
   </tr>
 </table>
 
@@ -3146,7 +3202,8 @@ When the \[Command\] button is pressed and the \[Motion\] group is opened, selec
 
 A command that creates a user coordinate system with three poses or one pose.   
 
-- When you create with three poses, it is created with an origin pose, an X-axis pose, and an XY-plane pose.
+- When you create with three poses, it is created with the origin pose, an axis pose, plane pose  according to the specified step order.
+-  If the step order is not specified, it is created with the origin pose, X-axis pose, and XY plane pose.
 - When you create with one pose, it is created with the origin pose and the position/direction is based on the pose value.
 - If the calculation is not possible, the job execution is interrupted with an error.
 
@@ -3154,7 +3211,7 @@ A command that creates a user coordinate system with three poses or one pose.
 ### Syntax
 
 ```python
-<result variable> = mkucs(<user coord. system number>,<origin pose>,<X-axis pose>,<XY-plane pose>)
+<result variable> = mkucs(<user coord. system number>,<step order>,<origin pose>,<axis pose>,<plane pose>)
 or
 <result variable> = mkucs(<user coord. system number>,<origin pose>)
 ```
@@ -3189,6 +3246,16 @@ or
       <td style="text-align:left">[1~20]</td>
     </tr>
     <tr>
+      <td style="text-align:left">step order</td>
+      <td style="text-align:left">
+        The order of the three poses below, if not specified, will be "OXY" <br>
+        (Example) <br>
+        "OXY" : origin pose, X axis pose, XY plane pose <br>
+        "OYZ" : origin pose, Y axis pose, YZ plane pose <br>
+      </td>
+      <td style="text-align:left">string variable</td>
+    </tr>
+    <tr>
       <td style="text-align:left">origin pose</td>
       <td style="text-align:left">
         pose at the origin
@@ -3196,16 +3263,16 @@ or
       <td style="text-align:left">pose variale</td>
     </tr>
     <tr>
-      <td style="text-align:left">X-axis pose</td>
+      <td style="text-align:left">axis pose</td>
       <td style="text-align:left">
-        pose located on the X-axis
+        pose located on the X, Y, Z-axis
       </td>
       <td style="text-align:left">pose variale</td>
     </tr>
     <tr>
-      <td style="text-align:left">XY-plane pose</td>
+      <td style="text-align:left">plane pose</td>
       <td style="text-align:left">
-        Pose located on the XY-plane
+        Pose located on the XY, YZ, ZX-plane
       </td>
       <td style="text-align:left">pose variale</td>
     </tr>
@@ -3252,6 +3319,7 @@ or
    var p_xyplane_=Pose(100,100,0,0,0,0,"base")
    var uc1 = mkucs(1,p_origin,p_xaxis,p_xyplane)
    var uc2 = mkucs(2,p_origin)
+   var uc3 = mkucs(1,"OXY",p_origin,p_xaxis,p_xyplane)
    end
 ```
 
@@ -7130,6 +7198,72 @@ gasp_check pres=<estimated pressure>,ref=<normal pressure>,tol=<tolerance>,os=<e
 
 {% endhint %}
 
+# 10.1.15 json_parse
+
+Supported from V60.32-00
+
+The `json_parse` procedure parses a JSON string to build an object, an array, or a value.
+
+### Syntax
+
+Right after the procedure starts, the `result()` function returns a result object used for checking the status and storing the result data.
+```python
+    json_parse <json string literal/value>
+    var r = result()
+```
+
+You must wait for this procedure to complete.
+```python
+    wait r.status == "finished"
+```
+
+The result of parsing will be stored in `r.data`. An error may occur if the procedure is not allowed to finish before accessing the result.
+
+
+##### status
+
+<table>
+  <thread>
+    <th style="text-align:left">status</th>
+    <th style="text-align:left">details</th>
+  </thread>
+  <tbody>
+  <tr>
+    <td style="text-align:left">parsing</td>
+    <td style="text-align:left">The JSON string is still being parsed. The data cannot be used yet.</td>
+  </tr>
+  <tr>
+    <td style="text-align:left">finished</td>
+    <td style="text-align:left">JSON string parsing is complete. The data can now be used.</td>
+  </tr>
+  </tbody>
+</table>
+
+
+
+### Examples
+```python
+    json_parse "[1, 2, 3, 4]"
+    var r = result()
+    wait r.status == "finished", 10 # Wait for the process to complete, with a maximum timeout of 10 seconds.
+    var jr = r.data   # The type of r.data is array
+    print jr          # [1, 2, 3, 4] printed
+```
+
+```python
+    json_parse "3.141592"
+    var r = result()
+    wait r.status == "finished", 10 # Wait for the process to complete, with a maximum timeout of 10 seconds.
+    var jr = r.data    # The type of r.data is double
+    print jr           # 3.141592 printed
+```
+```python
+    json_parse "{\"test\": \"value\"}" # Double quotes must be escaped inside a JSON string.
+    var r = result()
+    wait r.status == "finished", 10 # Wait for the process to complete, with a maximum timeout of 10 seconds.
+    var jr = r.data    # The type of r.data is JObject
+    print jr           # { _type: "JObject", _sub_file: "", _desc: "", test: "value" } printed
+```
 # 10.2 Etc. functions
 
 # 10.2.1 rducs - user coordinate system
