@@ -953,5 +953,10 @@
 		"link": "10-etc/3-sysvar/_weaving.md",
 		"char_ofs": 177751,
 		"byte_ofs": 251629
+	},
+	{
+		"link": "10-etc/3-sysvar/_pc.md",
+		"char_ofs": 181296,
+		"byte_ofs": 255744
 	}
 ]
