@@ -1,4 +1,4 @@
-﻿# 9.1.2 _intr.target
+﻿# _intr.target
 
 `_intr.target` system variable adjusts the robot's target position reach state.
 

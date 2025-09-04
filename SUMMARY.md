@@ -175,4 +175,8 @@
     * [_intr.no](10-etc/3-sysvar/_intr_no.md)
     * [_intr.target](10-etc/3-sysvar/_intr_target.md)
     * [_spd_rate](10-etc/3-sysvar/_spd_rate.md)
+    * [_task.enable](10-etc/3-sysvar/_task_enable.md)
     * [_tool](10-etc/3-sysvar/_tool.md)
+    * [_vel_rpm_cmd](10-etc/3-sysvar/_vel_rpm_cmd.md)
+    * [_weaving](10-etc/3-sysvar/_weaving.md)
+    * [_pc](10-etc/3-sysvar/_pc.md)

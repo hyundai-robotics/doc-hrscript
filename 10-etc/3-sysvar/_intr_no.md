@@ -1,4 +1,4 @@
-﻿# 10.3.1 _intr.no
+﻿# _intr.no
 
 `_intr.no` system variable is the occured interrupt number.
 

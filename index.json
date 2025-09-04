@@ -866,17 +866,37 @@
 	},
 	{
 		"link": "10-etc/3-sysvar/_intr_target.md",
-		"char_ofs": 207044,
-		"byte_ofs": 215211
+		"char_ofs": 207037,
+		"byte_ofs": 215204
 	},
 	{
 		"link": "10-etc/3-sysvar/_spd_rate.md",
-		"char_ofs": 207566,
-		"byte_ofs": 215766
+		"char_ofs": 207553,
+		"byte_ofs": 215753
+	},
+	{
+		"link": "10-etc/3-sysvar/_task_enable.md",
+		"char_ofs": 207917,
+		"byte_ofs": 216149
 	},
 	{
 		"link": "10-etc/3-sysvar/_tool.md",
-		"char_ofs": 207930,
-		"byte_ofs": 216162
+		"char_ofs": 208210,
+		"byte_ofs": 216472
+	},
+	{
+		"link": "10-etc/3-sysvar/_vel_rpm_cmd.md",
+		"char_ofs": 209341,
+		"byte_ofs": 217647
+	},
+	{
+		"link": "10-etc/3-sysvar/_weaving.md",
+		"char_ofs": 210036,
+		"byte_ofs": 218373
+	},
+	{
+		"link": "10-etc/3-sysvar/_pc.md",
+		"char_ofs": 214044,
+		"byte_ofs": 222537
 	}
 ]

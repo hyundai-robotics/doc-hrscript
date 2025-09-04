@@ -7722,7 +7722,7 @@ res = _dec_rate
    ...
    end
 ```
-# 10.3.1 _intr.no
+# _intr.no
 
 `_intr.no` system variable is the occured interrupt number.
 
@@ -7754,7 +7754,7 @@ res = _intr.no
 ```
 
 
-# 9.1.2 _intr.target
+# _intr.target
 
 `_intr.target` system variable adjusts the robot's target position reach state.
 
@@ -7813,7 +7813,34 @@ res = _spd_rate
    ...
    end
 ```
-# 10.3.3 _tool
+# _task.enable
+
+### Description
+
+A system variable to determine whether a subtask is active.
+
+
+### Syntax
+
+```python
+var res
+res = _task[1].enable
+```
+
+
+### Sample
+
+```python
+   ...
+   if _task[1].enable==1  # If subtask 1 is active
+   print "Subtask 1 is active"
+   endif
+   ...
+   end
+```
+
+
+# _tool
 
 `_tool` is a system variable for reading or changing tool data.
 
@@ -7854,3 +7881,239 @@ _tool[5].izz = <arithmetic expression>
    move L,spd=30%,accu=1,tool=3
    end
 ```
+# _vel_rpm_cmd
+
+Reads or sets the speed at which the motor rotates when controlling speed for an additional axis.
+
+### Description
+
+The additional axis must be set to speed control mode on the jig axis.<br>
+The unit is rpm. You can set a value between -10000 and 10000, and the default value is 0. <br>
+If specified as -, the motor rotates in reverse.
+
+### Syntax
+
+```python
+var res
+_vel_rpm_cmd[6] = 1000 # Rotate the 7-axis motor at 1000 rpm 
+res = _vel_rpm_cmd[6] # Assign the rotation speed of the 7-axis motor 
+```
+
+### Sample
+
+```python
+   ...
+   # After print the current 7-axis motor rotation speed, set it to 1000 rpm.
+   print _vel_rpm_cmd[6]
+   _vel_rpm_cmd[6]=1000
+   ...
+   end
+```
+# _weaving
+
+### Description
+
+_weaving is used to change the currently selected weaving conditions.
+
+### Syntax
+
+```python
+_weaving.frequency=2
+_weaving.angle=5
+```
+
+### Parameters
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">item</th>
+      <th style="text-align:left">meanings</th>
+      <th style="text-align:left">etc</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+      <td style="text-align:left">weave</td>
+      <td style="text-align:left">
+         Weaving type (0=single vibration, 1=triangle, 2=L-shaped, 3=circular)
+      </td>
+      <td style="text-align:left">variable</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">frequency</td>
+      <td style="text-align:left">
+        Frequency[Hz]
+      </td>
+      <td style="text-align:left">variable</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">left_distance</td>
+      <td style="text-align:left">
+        Distance towards left[mm]
+      </td>
+      <td style="text-align:left">variable</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">right_distance</td>
+      <td style="text-align:left">
+        Distance towards right[mm]
+      </td>
+      <td style="text-align:left">variable</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">angle</td>
+      <td style="text-align:left">
+        Angle[deg]
+      </td>
+      <td style="text-align:left">variable</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">offset_angle</td>
+      <td style="text-align:left">
+        Offset angle[deg]
+      </td>
+      <td style="text-align:left">variable</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">wall_direction</td>
+      <td style="text-align:left">
+        Wall direction (0=vertical, 1=horizontal, 2=torch orientation)
+      </td>
+      <td style="text-align:left">variable</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">forward_angle</td>
+      <td style="text-align:left">
+        Forward angle[deg]
+      </td>
+      <td style="text-align:left">variable</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">boundary_limit</td>
+      <td style="text-align:left">
+        Boundary limit (0=valid, 1=invalid)
+      </td>
+      <td style="text-align:left">variable</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">segment_time_1</td>
+      <td style="text-align:left">
+        Segment (1~4) moving time[s]
+      </td>
+      <td style="text-align:left">variable</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">segment_delay_1</td>
+      <td style="text-align:left">
+        Segment (1~4) timer(weaving stop)[s]
+      </td>
+      <td style="text-align:left">variable</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">height_sensing_mode</td>
+      <td style="text-align:left">
+        Height sensing mode (0=current change, 1=left fixed, 2=right fixed)
+      </td>
+      <td style="text-align:left">variable</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">side_sensing_mode</td>
+      <td style="text-align:left">
+        Left/Right sensing mode (0=Center, 1=Left, 2=Right)
+      </td>
+      <td style="text-align:left">variable</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">asymetric_sensing_ratio</td>
+      <td style="text-align:left">
+        Asymmetric sensing ratio (-50~50) [%]
+      </td>
+      <td style="text-align:left">variable</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">side_sensing_sensitivity</td>
+      <td style="text-align:left">
+        Left and right sensing sensitivity (0~10)
+      </td>
+      <td style="text-align:left">variable</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">height_sensing_sensitivity</td>
+      <td style="text-align:left">
+        Height sensing sensitivity (0~10)
+      </td>
+      <td style="text-align:left">variable</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+### Sample
+
+```python
+   weaving on,cnd=1
+   move P,spd=50%,accu=3,tool=1
+   _weaving.frequency=5    # Change the weaving frequency to 5Hz
+   move P,spd=50%,accu=3,tool=1
+   weaving off
+   end
+```
+
+# _pc
+
+### Description
+
+_Pc is used to obtain current program counter information. <br>
+The program counter consists of a program number, a step number, and a function number.
+
+### Syntax
+
+```python
+var sno=_pc.cur_sno  # Assign the current step number
+```
+
+### Parameters
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">item</th>
+      <th style="text-align:left">meaning</th>
+      <th style="text-align:left">etc</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+      <td style="text-align:left">cur_sno</td>
+      <td style="text-align:left">
+         Step number where the cursor is currently located
+      </td>
+      <td style="text-align:left">variable</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+### cur_sno sample : If the until condition is not satisfied, move to the previous step.
+
+```python
+   S6 move P,spd=50%,accu=3,tool=1,until di6
+      if (result()==0)
+        goto S[_pc.cur_sno-1]
+      endif
+   S7 move P,spd=50%,accu=3,tool=1,until di7
+      if (result()==0)
+        goto S[_pc.cur_sno-1]
+      endif
+   S8 move P,spd=50%,accu=3,tool=1,until di8
+      if (result()==0)
+        goto S[_pc.cur_sno-1]
+      endif
+   ...
+```
+
