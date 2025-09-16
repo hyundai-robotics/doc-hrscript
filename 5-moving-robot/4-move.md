@@ -10,7 +10,7 @@ The robot’s tool tip moves to the pose position.
 
 move &lt;interpolation&gt;, \[tg=&lt;pose/shift&gt;\], spd=&lt;speed&gt;, accu=&lt;accuracy&gt;
 
-, tool=&lt;tool number&gt; \[until &lt;conditional expression&gt;\]
+, tool=&lt;tool number&gt; \[x=&lt;assignment statement&gt;,\] \[until &lt;conditional expression&gt;\]
 
 ### Parameter
 
@@ -68,6 +68,15 @@ move &lt;interpolation&gt;, \[tg=&lt;pose/shift&gt;\], spd=&lt;speed&gt;, accu=&
       <td
       style="text-align:left">0~31</td>
     </tr>
+      <tr>
+      <td style="text-align:left">Assignment statement</td>
+      <td style="text-align:left">
+        <p>When move starts, the assignment statements to be executed are carried out sequentially from left to right.</p>
+      </td>
+      <td style="text-align:left">True if not 0 False if 0
+      <p>"&lt;assignment statement1;assignment statement2;...&gt;"<\p>
+      </td>
+    </tr>
     <tr>
       <td style="text-align:left">Conditional expression</td>
       <td style="text-align:left">
@@ -85,7 +94,7 @@ move &lt;interpolation&gt;, \[tg=&lt;pose/shift&gt;\], spd=&lt;speed&gt;, accu=&
 
 ```python
 move L,tg=po[0]+sft[1],spd=800mm/sec,accu=0,tool=1
-move P,tg=+Shift(0,0,0,0,-10,0),spd=80%,accu=1,tool=3 until di2  (hidden pose)
+move P,tg=+Shift(0,0,0,0,-10,0),spd=80%,accu=1,tool=3,x="do1=1;do2=2",until di2  (hidden pose)
 if result() then *sensor_on
 ```
 
