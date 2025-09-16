@@ -3233,7 +3233,7 @@ move문은 로봇을 움직이는 프로시져입니다. 형식은 아래와 같
 
 move &lt;보간&gt;, \[tg=&lt;포즈/시프트&gt;\], spd=&lt;속도&gt;, accu=&lt;정밀도&gt;
 
-, tool=&lt;툴 번호&gt; \[until &lt;조건식&gt;\]
+, tool=&lt;툴 번호&gt; \[x=&lt;대입문&gt;,\] \[until &lt;조건식&gt;\]
 
 ### 파라미터
 
@@ -3319,6 +3319,22 @@ move &lt;보간&gt;, \[tg=&lt;포즈/시프트&gt;\], spd=&lt;속도&gt;, accu=&
       <td style="text-align:left">0~31</td>
     </tr>
     <tr>
+      <td style="text-align:left">대입문</td>
+      <td style="text-align:left">
+        <p>move 출발 시, 수행 할 대입문
+          <br
+          />
+        </p>
+        <p>왼쪽부터 순차적으로 각 대입문이 수행됩니다.
+          <br
+          />
+        </p>
+      </td>
+      <td style="text-align:left">
+      "&lt;대입문1;대입문2;...&gt;"
+      </td>
+    </tr>
+    <tr>
       <td style="text-align:left">조건식</td>
       <td style="text-align:left">
         <p>조건식이 참인 순간 로봇동작이
@@ -3348,7 +3364,7 @@ move &lt;보간&gt;, \[tg=&lt;포즈/시프트&gt;\], spd=&lt;속도&gt;, accu=&
 
 ```python
 move L,tg=po[0]+sft[1],spd=800mm/sec,accu=0,tool=1
-move P,tg=+Shift(0,0,0,0,-10,0),spd=80%,accu=1,tool=3 until di2  (숨은 포즈)
+move P,tg=+Shift(0,0,0,0,-10,0),spd=80%,accu=1,tool=3, x="do1=1;do2=2", until di2  (숨은 포즈)
 if result() then *sensor_on
 ```
 
