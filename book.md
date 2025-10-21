@@ -3562,7 +3562,7 @@ selucrd <좌표계번호>
 ```python
    selucrd 1
    end
-```# 5.6 contpath문
+```# 5.7 contpath문
 
 ### 설명
 
@@ -3633,20 +3633,20 @@ contpath 2
 
 --- 
 
-## 설명 
+### 설명 
 * 충돌검지 레벨을 설정합니다. 
 
 
-## 문법 
+### 문법 
 ```python
 coldet LV=<레벨> 
 ```
 
-## 파라미터 
+### 파라미터 
 * 레벨값은 0~16까지 설정 가능(0: 무효)
 
 
-## 사용 예 
+### 사용 예 
 * 충돌검지(축별) 기능이 유효로 설정되어 있고, 작업 프로그램이 아래와 같을 때  
 
 ```python
@@ -3677,24 +3677,24 @@ S7   move P,spd=60%,accu=0,tool=0
 
 --- 
 
-## 설명 
+### 설명 
 * 모델기반 충돌검지 기능 중 기본 민감도(일반 설정-민감도)를 조절 할 수 있습니다.
 * 모델기반 충돌검지 기능 중 축별 민감도(축별 검지 기준-기준값)를 조절 할 수 있습니다. 
 
 
-## 문법 
+### 문법 
 ```python
 colsense general,sensitivity=<기본 민감도>  
 colsense axis,id=<축 번호>,criteria=<축별 민감도> 
 ```
 
-## 파라미터 
+### 파라미터 
 * 기본 민감도(sensitivity)는 0~200까지 설정 가능하며, 값이 높을수록 충돌에 예민하게 반응.(기본 민감도=0, 충돌검지 기능 무효)
 * 축 번호(id)는 로봇의 축 번호를 의미 S축 부터 R1축 까지 순서 대로 1~6으로 대입 한다.   
 * 축별 민감도(criteria)는 0~100까지 설정 가능하며, 값이 낮을수록 충돌에 예민하게 반응.(축별 민감도=0, 해당 축만 충돌검지 기능 무효)
 
 
-## 사용 예 
+### 사용 예 
 * 모델 기반 충돌검지 기능이 유효로 설정되어 있고, 작업 프로그램이 아래와 같으면 
 
 ```python
@@ -3731,17 +3731,17 @@ S7   move P,spd=60%,accu=0,tool=0
 
 --- 
 
-## 설명 
+### 설명 
 * 센서를 사용하지 않고 외력에 대해 직교좌표 기준으로 로봇이 밀리는 기능 
 
 
-## 문법 
+### 문법 
 ```python
 softxyz on, crd=<기준좌표계>
 softxyz off  
 ```
 
-## 파라미터 
+### 파라미터 
 * on : 기능 시작, off : 기능 종료 
 * crd : 로봇이 밀리는 기준 좌표계 (베이스, 로봇, 툴, 사용자 좌표계)
 ```python
@@ -3753,7 +3753,7 @@ softxyz off
 ```
 
 
-## 사용 예 
+### 사용 예 
 > 예제1) Z방향으로 조립하기 위해 X, Y, Ry 방향으로 밀릴 수 있도록 한 경우  
 > * 좌표계 : 로봇좌표계 기준 (crd="robot") <br>
 > * 이동 위치(xnr) 제한 설정 : X, Y방향으로 [-50,+50] 범위(mm), Ry방향 [-3,+3] 범위(deg) <br>
@@ -3804,11 +3804,11 @@ softxyz_lim 명령어는 softxyz on 기능 사용 전 파라미터 값을 미리
 
 --- 
 
-## 설명 
+### 설명 
 * softxyz 파라미터를 설정합니다.  
 
 
-## 문법 
+### 문법 
 ```pythonghlt
 softxyz_lim pos,_x=<+X거리>,x_=<-X거리>,_y=<+Y거리>,y_=<-Y거리>,_z=<+Z거리>,z_=<-Z거리> 
 softxyz_lim vel,x=<X속도>,y=<Y속도>,z=<Z속도>,rx=<Rx속도>,ry=<Ry속도>,rz=<Rz속도> 
@@ -3816,7 +3816,7 @@ softxyz_lim xnr,x=<X거리>,y=<Y거리>,z=<Z거리>,rx=<Rx거리>,ry=<Ry거리>,
 softxyz_lim thr,x=<X문턱값>,y=<Y문턱값>,z=<Z문턱값>,rx=<Rx문턱값>,ry=<Ry문턱값>,rz=<Rz문턱값> 
 ```
 
-## 파라미터 
+### 파라미터 
 * softxyz_lim pos : 로봇이 이동할 수 있는 직교좌표 최대 거리를 설정합니다. (X,Y,Z방향) [mm] 
 * softxyz_lim vel : 로봇이 동작하는 직교좌표 최대 속도를 설정합니다. (X,Y,Z,Rx,Ry,Rz방향) [mm/sec] or [deg/sec] 
 * softxyz_lim xnr : 로봇이 이동할 수 있는 직교좌표 최대 거리와 각도를 제한합니다. (X,Y,Z,Rx,Ry,Rz방향) [mm] or [deg] <br> 
@@ -3824,7 +3824,7 @@ softxyz_lim thr,x=<X문턱값>,y=<Y문턱값>,z=<Z문턱값>,rx=<Rx문턱값>,ry
 * softxyz_lim thr : 로봇이 이동하기 위한 직교좌표 힘 문턱값을 설정합니다. (X,Y,Z,Rx,Ry,Rz방향) [N] or [Nm]
 
 
-## 사용 예 
+### 사용 예 
 > * +X방향200[mm], -Y방향100[mm], +Z방향300[mm]로 이동하는 최대 거리를 설정합니다.  
 ```python
 softxyz_lim pos, _x=200, y_=100, _z=300
@@ -3852,17 +3852,17 @@ softxyz_lim thr, y=10
 
 --- 
 
-## 설명 
+### 설명 
 * 센서를 사용하지 않고 외력에 대해 축 좌표 기준으로 로봇이 밀리는 기능 
 
 
-## 문법 
+### 문법 
 ```python
 softjoint on
 softjoint off  
 ```
 
-## 파라미터 
+### 파라미터 
 * on : 기능 시작
 * off : 기능 종료
 
@@ -3884,23 +3884,23 @@ softjoint_lim 명령어는 softjoint on 기능 사용 전 파라미터 값을 �
 
 --- 
 
-## 설명 
+### 설명 
 * softjoint 파라미터 설정 명령어  
 
 
-## 문법 
+### 문법 
 ```python
 softjoint_lim, j=<축번호>, sft=<부드러움 정도>, ang=<각도 범위>, thr=<문턱값> 
 ```
 
-## 파라미터 
+### 파라미터 
 * j : 축 번호 [1~6]
 * sft : 값이 클 수록 더 유연하게 움직임[0:off,0~100]
 * ang : 각도 제한 범위 [deg]
 * thr : 문턱 값[Nm]
 
 
-## 사용 예 
+### 사용 예 
 > 예제1) 3번 축 방향 파라미터 설정 
 > * 3번 축 활성화, 부드러움(50), 각도 제한 -30~30(deg) 그리고 문턱값10(Nm)   
 ```python
@@ -3934,11 +3934,11 @@ S2   move P,spd=250mm/sec,accu=0,tool=0
 # 5.14 외부 제어(External control)
 
 
-## 설명 
+### 설명 
 * 로봇의 이동에 대한 위치 지령 생성은 외부 장치에서 수행하고 이 생성된 외부 지령을 이더넷이나 시리얼 통신을 통해 문자열 데이터로 Hi6 제어기에 전송하면 Hi6 제어기는 이 지령을 수신하여 해당 로봇을 제어하는 기능입니다. 
 
 
-## 문법 
+### 문법 
 ```python
      global onl_trj
      var msg # 포즈 or 포즈형 문자열
@@ -3952,7 +3952,7 @@ S2   move P,spd=250mm/sec,accu=0,tool=0
  
 ```
 
-## 파라미터 
+### 파라미터 
 * time_from_start : 시작 지령으로 부터 경과된 시간 (-1= 미사용)
 * look_ahead_time : 지령 출력을 위한 지연시간 (단위 [s])
 * interval : 생성된 지령의 샘플링 시간 (단위 [s])
@@ -3961,7 +3961,7 @@ S2   move P,spd=250mm/sec,accu=0,tool=0
 
 
 
-## 사용 예 
+### 사용 예 
 > enet 통신을 통해 외부에서 생성된 지령을 수신하여 로봇을 이동합니다. 
 
 ```python
@@ -4006,11 +4006,11 @@ S2   move P,spd=250mm/sec,accu=0,tool=0
 # 5.15 convcrd 문
 
 
-## 설명 
+### 설명 
 * convcrd 명령어는 포즈 변수의 좌표계를 변환하는 함수 명령어입니다.  
 
 
-## 문법 
+### 문법 
 >* 포즈 변수(poseA)는 변환할 포즈변수, 포즈변수(poseB)는 변환된 포즈변수입니다.
 
 ```python
@@ -4019,7 +4019,7 @@ poseB = poseA.convcrd("robot")     #로봇 좌표계
 poseB = poseA.convcrd("u1")        #1번 사용자 좌표계 
 ```
 
-## 사용 예  
+### 사용 예  
 ```python
      var pose_A, pose_B
      
@@ -4031,11 +4031,11 @@ poseB = poseA.convcrd("u1")        #1번 사용자 좌표계
 # 5.16 pose_trans 문
 
 
-## 설명 
+### 설명 
 * pose_trans 명령어는 2개의 pose 변수를 곱하여 결과 포즈값을 얻는 함수 명령어 입니다. 
 
 
-## 문법 
+### 문법 
 >* 포즈변수(poseC)는 포즈변수(poseA)와 포즈변수(poseB)를 곱하여 얻은 결과값이다.   
 >* 포즈 변수(poseA)는 4x4 transformation 행렬로 변환 가능하고, 포즈변수(poseB)도 4x4 transformation 행렬로 변환이 가능하다. 
 >* 변환 된 두 4x4 transformation 행렬을 곱한 결과 값을 다시 포즈 변수로 도출 한 값이 poseC가 된다. 
@@ -4043,7 +4043,7 @@ poseB = poseA.convcrd("u1")        #1번 사용자 좌표계
 poseC = pose_trans(poseA,poseB)
 ```
 
-## 사용 예  
+### 사용 예  
 ```python
      var pose_A, pose_B, pose_C
      var pose_inv_B
@@ -4076,18 +4076,18 @@ S1   move P,tg=pose_C,spd=10%,accu=0,tool=0
 # 5.17 pose_inv 문
 
 
-## 설명 
+### 설명 
 * pose_inv 명령어는 해당 포즈 변수의 역행렬에 해당하는 포즈 변수로 변환하는 함수 명령어 이다.  
 
 
-## 문법 
+### 문법 
 >* 포즈변수(poseB)는 포즈변수(poseA)의 역행렬에 해당하는 포즈 변수이다.    
 >* 포즈 변수(poseA)를 4x4 transformation 행렬로 변환하고, 이 행렬값의 역행렬을 계산한 뒤 다시 포즈 변수(PoseB)로 변환 하는 방식이다.  
 ```python
 poseB = pose_inv(poseA)
 ```
 
-## 사용 예  
+### 사용 예  
 ```python
      var pose_A, pose_B, pose_C
      var pose_inv_B
@@ -4121,12 +4121,12 @@ S1   move P,tg=pose_C,spd=10%,accu=0,tool=0
 # 5.18 axisctrl 문
 
 
-## 설명 
+### 설명 
 * axisctrl 명령어는 move 명령어 실행에 의해 각 축의 위치를 이동할 때, 부가축에 대해 목표위치로 이동할지 여부를 지정하는 기능입니다.  
 * axisctrl문에 대한 자세한 설명은 아래 링크를 참조하십시오.  
 [Hi6 로봇제어기 기능설명서 - 멀티태스킹](https://hrbook-hrc.web.app/#/view/doc-multi-task/korean/README)
 
-## 문법 
+### 문법 
 ```python
 axisctrl <on/off>,a=<부가축 번호>
 axisctrl <on/off>,a=[부가축 번호,부가축 번호,...] : 복수지정 가능(최대 4개)
@@ -4150,11 +4150,11 @@ shift문은 이미 티칭된 포인트를 XYZ 좌표계에서 툴 각도를 유�
 "shift crd=<기준좌표계>,x=<X시프트량>,y=<Y시프트량>,z=<Z시프트량>
 ```
 
-## 파라미터 
+### 파라미터 
 * crd : 기준좌표계["base":베이스, "robot":로봇, "tool":툴, "joint":축,"u":사용자]
 * x,y,z : X,Y,Z시프트량[0~3000,mm]
 
-## 사용 예 
+### 사용 예 
 ```python
      var po1=Pose(0.691,99.293,24.758,-6.528,-48.574,15.774,0.000)
 S1   move P,tg=po1,spd=10%,accu=0,tool=0
@@ -4172,13 +4172,13 @@ shift_lim문은 시프트 기능을 사용할 때 안전성을 향상시키기 �
 "shift_lim x=<X시프트 리밋값>,y=<Y시프트 리밋값>,z=<Z시프트 리밋값>
 ```
 
-## 파라미터 
+### 파라미터 
 * x,y,z : X,Y,Z시프트 리밋값[0~3000,mm]<br><br>
 
 ### 에러 가이드
 * E1196 : 시프트량이 설정된 시프트 리밋값을 초과하였습니다. 시프트량을 줄이거나 시프트 리밋 값을 재조정하십시오.
 
-## 사용 예 
+### 사용 예 
 ```python
      var po1=Pose(0.691,99.293,24.758,-6.528,-48.574,15.774,0.000)
 S1   move P,tg=po1,spd=10%,accu=0,tool=0

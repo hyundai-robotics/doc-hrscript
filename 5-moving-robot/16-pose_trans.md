@@ -1,11 +1,11 @@
 ﻿# 5.16 pose_trans 문
 
 
-## 설명 
+### 설명 
 * pose_trans 명령어는 2개의 pose 변수를 곱하여 결과 포즈값을 얻는 함수 명령어 입니다. 
 
 
-## 문법 
+### 문법 
 >* 포즈변수(poseC)는 포즈변수(poseA)와 포즈변수(poseB)를 곱하여 얻은 결과값이다.   
 >* 포즈 변수(poseA)는 4x4 transformation 행렬로 변환 가능하고, 포즈변수(poseB)도 4x4 transformation 행렬로 변환이 가능하다. 
 >* 변환 된 두 4x4 transformation 행렬을 곱한 결과 값을 다시 포즈 변수로 도출 한 값이 poseC가 된다. 
@@ -13,7 +13,7 @@
 poseC = pose_trans(poseA,poseB)
 ```
 
-## 사용 예  
+### 사용 예  
 ```python
      var pose_A, pose_B, pose_C
      var pose_inv_B

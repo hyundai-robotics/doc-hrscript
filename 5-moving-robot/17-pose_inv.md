@@ -1,18 +1,18 @@
 ﻿# 5.17 pose_inv 문
 
 
-## 설명 
+### 설명 
 * pose_inv 명령어는 해당 포즈 변수의 역행렬에 해당하는 포즈 변수로 변환하는 함수 명령어 이다.  
 
 
-## 문법 
+### 문법 
 >* 포즈변수(poseB)는 포즈변수(poseA)의 역행렬에 해당하는 포즈 변수이다.    
 >* 포즈 변수(poseA)를 4x4 transformation 행렬로 변환하고, 이 행렬값의 역행렬을 계산한 뒤 다시 포즈 변수(PoseB)로 변환 하는 방식이다.  
 ```python
 poseB = pose_inv(poseA)
 ```
 
-## 사용 예  
+### 사용 예  
 ```python
      var pose_A, pose_B, pose_C
      var pose_inv_B
