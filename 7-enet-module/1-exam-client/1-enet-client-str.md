@@ -4,10 +4,11 @@ Follow these steps:
 
 1. After importing the `enet` module, create an `ENet` object with the constructor.
 2. Set the IP address and port number with the member variables.
+   - `Caution: Ports 50000–50005 on the controller are pre-allocated lports and cannot be used.`
 3. Open the ethernet socket with the `open` member procedure, and check the status with the `state()` member variable.
 \(For TCP communication, the `connect` procedure must also be called after opening.\)
-4. Transceiving with `send` and `recv` member procedure.
-5. Close the communication connection with the `close` member procedure.
+1. Transceiving with `send` and `recv` member procedure.
+2. Close the communication connection with the `close` member procedure.
 
 <br>
 
@@ -21,7 +22,7 @@ Follow these steps:
      cli.ip_addr="192.168.1.172" # remote (opponent) IP address
      cli.lport=51001 # local (self) port
      cli.rport=51002 # remote (opponent) port
-     # (port no. 49152–65535 contains dynamic or private ports)
+     # (port no. 49152–65535(except 50000-50005) contains dynamic or private ports)
 
      # 3. Open ethernet socket
      cli.open
