@@ -28,12 +28,11 @@
      # 2. IP주소와 port번호 설정
      cli.ip_addr="192.168.1.172" # remote (상대방) IP address
      cli.lport=51001 # local (자신) port
-     cli.rport=51002 # remote (상대방) port 
-     # (port no. 49152–65535 contains dynamic or private ports)
+     cli.rport=51002 # remote (상대방) port
 
      # 3. ethernet socket 열기
      cli.open
-     
+
      print cli.state() # 1이면 정상
 
      # 송신 --------------------------------
@@ -42,7 +41,7 @@
 
      # (sample binary data)
      var arr=[ -3, 0, 1 ]
-     
+
      # 4-2. binary data를 BBuf 객체에 추가.
      bbuf.clear()
      bbuf.append("s4", arr) # little endian signed-4byte data 추가
@@ -54,7 +53,7 @@
      # 수신 --------------------------------
      # 4-1. BBuf 객체 생성
      var bbuf2=enet.BBuf()
-     
+
      # 4-2. BBuf 객체에 binary data를 수신
      #     (3초간 수신 없으면 *TimeOut 레이블로 jump)
      cli.recv_bbuf bbuf2,3000,*TimeOut
@@ -86,8 +85,7 @@
      # 2. IP주소와 port번호 설정
      cli.ip_addr="192.168.1.172" # remote (상대방) IP address
      cli.lport=0 # local (자신) port; 무작위
-     cli.rport=51002 # remote (상대방) port 
-     # (port no. 49152–65535 contains dynamic or private ports)
+     cli.rport=51002 # remote (상대방) port
 
      # 3. ethernet socket 열기
      cli.open
@@ -100,7 +98,7 @@
 
      # (sample binary data)
      var arr=[ -3, 0, 1 ]
-     
+
      # 4-2. binary data를 BBuf 객체에 추가.
      bbuf.clear()
      bbuf.append("s4", arr) # little endian signed-4byte data 추가
@@ -112,7 +110,7 @@
      # 수신 --------------------------------
      # 4-1. BBuf 객체 생성
      var bbuf2=enet.BBuf()
-     
+
      # 4-2. BBuf 객체에 binary data를 수신
      #     (3초간 수신 없으면 *TimeOut 레이블로 jump)
      cli.recv_bbuf bbuf2,3000,*TimeOut

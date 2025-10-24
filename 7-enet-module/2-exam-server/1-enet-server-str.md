@@ -4,6 +4,7 @@
 
 1. `enet` 모듈 import 후, 생성자로 ENet 객체 생성.
 2. 멤버변수로 IP주소와 port번호를 설정. (remote port 설정은 필요없음.)
+   - `주의: 제어기의 50000 ~ 50005 사이의 포트는 기할당된 lport로 사용 불가능합니다.`
 3. `open` 멤버 프로시져로 ethernet socket 열고, `listen()`, `accept()` 함수를 수행함. `state()` 멤버변수로 상태 확인.
 4. `send`, `recv` 멤버 프로시져로 송수신 수행.
 5. `close` 멤버 프로시져로 통신 연결 닫기.
@@ -17,7 +18,7 @@
      # 2. IP주소와 port번호 설정
      svr.ip_addr="192.168.1.172" # remote (상대방) IP address
      svr.lport=51001 # local (자신) port
-     # (port no. 49152–65535 contains dynamic or private ports)
+     # (port no. 49152–65535(except 50000~50005) contains dynamic or private ports)
      
      # 3. ethernet socket 열기
      svr.open
