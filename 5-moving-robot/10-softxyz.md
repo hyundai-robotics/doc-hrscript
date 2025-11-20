@@ -33,20 +33,32 @@ softxyz set, dpr=<stiffness>
 softxyz off
 ```
 
-### Parameter 
-* on : function start, off : function end  
-* crd : coordinates (base, robot, tool, user)
+### Parameters
+- **on** : Start the softxyz function  
+- **off** : Stop the softxyz function  
+- **set** : Modify softxyz settings  
+
+- **crd** : Reference coordinate system for external-force displacement  
+  - Available options: `base`, `robot`, `tool`, `user_x`
+
+- **dpr** : Stiffness value  
+  - Range: **0.0 ~ 2.0**  
+  - Higher values = **stiffer**, less displacement under external force  
+  - Default: **1.0**
+
 ```python
-softxyz on, crd="base"   
-softxyz on, crd="robot"  
-softxyz on, crd="tool"   
-softxyz on, crd="user_1"  
-softxyz off  
+softxyz on,  crd="base"     # Based on the base coordinate system
+softxyz on,  crd="robot"    # Based on the robot coordinate system
+softxyz on,  crd="tool"     # Based on the tool coordinate system
+softxyz on,  crd="user_1"   # User-defined coordinate system #1
+
+softxyz set, dpr=1.0        # Set stiffness (0.0~2.0, higher = stiffer)
+softxyz off                 # Disable the softxyz function
 ```
 
 
 ### Example 
-> Example 1) In case that robot move toward X, Y, Ry for assembling Z direction 
+> Example 1) Assembly along the Z-direction while allowing displacement in X, Y, and Ry
 > * Coordinate : robot coordinate (crd="robot") <br>
 > * Position (xnr) limit : the range of X and Y direction [-50,+50](mm), the range of Ry direction [-3,+3] (deg) <br>
 > * Velocity (vel) limit : the maximum speed of X and Y direction 5(mm/sec), the maximum speed of Ry 3(deg/sec)  <br>
@@ -54,14 +66,15 @@ softxyz off
 
 ```python
 S1   move P,spd=100mm/sec,accu=0,tool=0
-     delay 2.0 # before softxyz on  
+     delay 2.0   # Required before enabling softxyz
      softxyz_lim xnr, x=50, y=50, ry=3
      softxyz_lim vel, x=5, y=5, ry=3
-     softxyz_lim thr, x=3, y=3, ry=1
+     softxyz_lim thr, x=20, y=20, ry=3
      softxyz on, crd="robot"
+
 S2   move P,spd=250mm/sec,accu=0,tool=0
-     softxyz off 
-     end 
+     softxyz off
+     end
 ```
 
 > Example 2) Injection materials handling 
@@ -73,13 +86,14 @@ S2   move P,spd=250mm/sec,accu=0,tool=0
 
 ```python
 S1   move P,spd=100mm/sec,accu=0,tool=0
-     delay 2.0 # before softxyz on  
+     delay 2.0   # Required before enabling softxyz
      softxyz_lim pos, _y=300, y_=200
      softxyz_lim vel, y=150
      softxyz on, crd="robot"
-S2   wait ... 
-     softxyz off 
-     end 
+
+S2   wait ...
+     softxyz off
+     end
 ```
 
 --- 
