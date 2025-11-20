@@ -1,19 +1,36 @@
 ﻿# 5.10 softxyz 
 
-softxyz instruction is sensorless force control, that allows the robot to move compliantly in cartesian space with respect to external forces in the environment set by the user. <br>
 
-User should check the validity of robot tool and additional axis information for increasing function accuracy. <br>
+The softxyz function is a sensorless force-control feature that allows the robot  
+to move flexibly in Cartesian space in response to external forces under user-defined conditions.
 
---- 
+To ensure proper operation, **tool data and additional payload information must be configured correctly**.
 
-### Description 
-* Without using sensor, move compliantly in cartesian space with respect to external forces in the environment set by the user. 
+---
 
+## ⚠️ Caution
+
+Since the softxyz function is **sensorless** and does not use a force sensor,  
+there are **inherent limitations** in achieving fully smooth and natural motion.
+
+However, by tuning the `softxyz_lim` values appropriately for the application environment,  
+you can achieve the smoothest possible motion within the functional limitations.
+
+Because `softxyz_lim (pos / xnr / vel / thr)` directly determines how the robot responds to external force,  
+**fine-tuning is required** depending on the environment, assembly process, and tool stiffness.
+
+---
+
+### Description
+* A function that allows the robot to be displaced in a Cartesian coordinate system by external force without using a force sensor.
+
+---
 
 ### Syntax
 ```python
-softxyz on, crd=<coordinate>
-softxyz off  
+softxyz on, crd=<reference_coordinate>
+softxyz set, dpr=<stiffness>
+softxyz off
 ```
 
 ### Parameter 
