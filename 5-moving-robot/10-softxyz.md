@@ -97,10 +97,17 @@ S2   wait ...
 ```
 
 --- 
-{% hint style="info" %}
-
-* Before using "softxyz on", user should set softxyz_lim parameters such as pos, xnr, vel and thr. 
-
-* For upgrading sensorless force control performance, user should set "delay" command as "delay 1.0" befor "softxyz on". 
-
-{% endhint %}
+> **Information**
+>
+> - Before using `softxyz on`, you **must** configure the `softxyz_lim` parameters  
+>   (`pos`, `xnr`, `vel`, `thr`) to set the maximum displacement, speed,  
+>   and Cartesian threshold values.
+>
+> - To improve sensitivity to external force, it is recommended to  
+>   **keep the robot stationary for 1–2 seconds using the `delay` command**  
+>   before executing `softxyz on`.
+>
+> - If vibration occurs during softxyz operation, the following adjustments are recommended:
+>   1) *Increase the `thr` value*  
+>   2) *Increase the `dpr` value*  
+>   3) *Decrease the `vel` value*
