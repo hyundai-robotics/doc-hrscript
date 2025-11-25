@@ -2344,7 +2344,7 @@ global x가 처음 수행되면 변수 x가 생성되면서 default값 0으로 �
 배열은 다른 변수처럼 var이나 global로 정의합니다.
 
 {% hint style="warning" %}
-[전역(global) 변수 중 최상위 배열의 이름은 대소문자를 구분하지 않으므로 유의하십시오.](../../2-basic-syntax/2-identifier.md)
+[전역(global) 변수 중 최상위 배열의 변수명은 예외적으로 대소문자를 구분하지 않으므로 유의하십시오.](../../2-basic-syntax/2-identifier.md)
 {% endhint %}
 
 
