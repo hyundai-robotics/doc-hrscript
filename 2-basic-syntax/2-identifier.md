@@ -1,11 +1,12 @@
-# 2.2 Identifiers
+﻿# 2.2 Identifiers
 
-Names must be given to commands, variables, functions, and labels that are described. These names are collectively referred to as “identifiers.” When deciding an identifier, it must comply with the following rules for the HRScript’s identifiers.
+Names must be given to commands, variables, functions, and labels that are described. These names are collectively referred to as `identifiers.` When deciding an identifier, it must comply with the following rules for the HRScript's identifiers.
 
 * It must consist only of uppercase and lowercase letters, numbers, and underscores.
+* It is case-sensitive. (except for top-level array names in global variables)
 * The first character must only be either a lowercase or uppercase letter or an underscore, not a number.
 * It should not contain a space or tab.
-* Identifiers already defined in the system, such as “if” and “for,” cannot be used.
+* Identifiers already defined in the system, such as `if` and `for` cannot be used.
 * There is no limit to the length.
 
 The following shows correct and incorrect examples of identifiers:
@@ -21,5 +22,14 @@ v300$ (X) – Used a symbol other than an underscore ($)
 my var (X) – Included a space
 ```
 
+{% hint style="warning" %}
 
+Exceptionally, the names of top-level arrays in global variables are not case-sensitive.
+(It is because top-level global arrays are saved as .csv files, and file names are case-insensitive.)
 
+For example, the following two variables cannot be used together:
+
+    global MyArr = Array(10)
+    global myarr = Array(10)
+
+{% endhint %}

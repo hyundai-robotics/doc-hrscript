@@ -1,15 +1,22 @@
-# 4.1.1 Arrays
+﻿# 4.1.1 Arrays
 
 An array is a variable type that collects and stores several values under a single name and allows access through an index number.
 
-Arrays are defined as **var** or **global**, like any other variable. Array definitions and access formats are as follows.
+Arrays are defined as **var** or **global**, like any other variable.
+
+{% hint style="warning" %}
+[The names of top-level arrays in global variables are exceptionally case-insensitive, so please be aware.](../../2-basic-syntax/2-identifier.md)
+{% endhint %}
+
+
+Array definitions and access formats are as follows.
 
 |  |  |
 | :--- | :--- |
 | Definition | var array name = \[ Value, Value, …\] |
 | Access | Array name \[Index\] |
 
-The values that make up an array are called “elements.” Distances, an array shown in the following example, has a total of five elements. The index starts from 0. Element 0 and e lement 1 of “distances” are 10 and 10.5, respectively.
+The values that make up an array are called `elements.` Distances, an array shown in the following example, has a total of five elements. The index starts from 0. Element 0 and element 1 of `distances` are 10 and 10.5, respectively.
 
 
 

@@ -55,12 +55,13 @@ Proper indentation in statements is recommended for readability. Both spaces and
 
 # 2.2 Identifiers
 
-Names must be given to commands, variables, functions, and labels that are described. These names are collectively referred to as “identifiers.” When deciding an identifier, it must comply with the following rules for the HRScript’s identifiers.
+Names must be given to commands, variables, functions, and labels that are described. These names are collectively referred to as `identifiers.` When deciding an identifier, it must comply with the following rules for the HRScript's identifiers.
 
 * It must consist only of uppercase and lowercase letters, numbers, and underscores.
+* It is case-sensitive. (except for top-level array names in global variables)
 * The first character must only be either a lowercase or uppercase letter or an underscore, not a number.
 * It should not contain a space or tab.
-* Identifiers already defined in the system, such as “if” and “for,” cannot be used.
+* Identifiers already defined in the system, such as `if` and `for` cannot be used.
 * There is no limit to the length.
 
 The following shows correct and incorrect examples of identifiers:
@@ -76,8 +77,17 @@ v300$ (X) – Used a symbol other than an underscore ($)
 my var (X) – Included a space
 ```
 
+{% hint style="warning" %}
 
+Exceptionally, the names of top-level arrays in global variables are not case-sensitive.
+(It is because top-level global arrays are saved as .csv files, and file names are case-insensitive.)
 
+For example, the following two variables cannot be used together:
+
+    global MyArr = Array(10)
+    global myarr = Array(10)
+
+{% endhint %}
 # 2.3 Types of Statements
 
 The four types of statements of HRScript are as follows:
@@ -2259,14 +2269,21 @@ When there are local variables and global variables with an identical name, the 
 
 An array is a variable type that collects and stores several values under a single name and allows access through an index number.
 
-Arrays are defined as **var** or **global**, like any other variable. Array definitions and access formats are as follows.
+Arrays are defined as **var** or **global**, like any other variable.
+
+{% hint style="warning" %}
+[The names of top-level arrays in global variables are exceptionally case-insensitive, so please be aware.](../../2-basic-syntax/2-identifier.md)
+{% endhint %}
+
+
+Array definitions and access formats are as follows.
 
 |  |  |
 | :--- | :--- |
 | Definition | var array name = \[ Value, Value, …\] |
 | Access | Array name \[Index\] |
 
-The values that make up an array are called “elements.” Distances, an array shown in the following example, has a total of five elements. The index starts from 0. Element 0 and e lement 1 of “distances” are 10 and 10.5, respectively.
+The values that make up an array are called `elements.` Distances, an array shown in the following example, has a total of five elements. The index starts from 0. Element 0 and element 1 of `distances` are 10 and 10.5, respectively.
 
 
 
@@ -3532,36 +3549,65 @@ The final sensitivity value per axis is proportional to the sensitivity value of
 
 # 5.10 softxyz 
 
-softxyz instruction is sensorless force control, that allows the robot to move compliantly in cartesian space with respect to external forces in the environment set by the user. <br>
 
-User should check the validity of robot tool and additional axis information for increasing function accuracy. <br>
+The softxyz function is a sensorless force-control feature that allows the robot  
+to move flexibly in Cartesian space in response to external forces under user-defined conditions.
 
---- 
+To ensure proper operation, **tool data and additional payload information must be configured correctly**.
 
-### Description 
-* Without using sensor, move compliantly in cartesian space with respect to external forces in the environment set by the user. 
+---
 
+## ⚠️ Caution
+
+Since the softxyz function is **sensorless** and does not use a force sensor,  
+there are **inherent limitations** in achieving fully smooth and natural motion.
+
+However, by tuning the `softxyz_lim` values appropriately for the application environment,  
+you can achieve the smoothest possible motion within the functional limitations.
+
+Because `softxyz_lim (pos / xnr / vel / thr)` directly determines how the robot responds to external force,  
+**fine-tuning is required** depending on the environment, assembly process, and tool stiffness.
+
+---
+
+### Description
+* A function that allows the robot to be displaced in a Cartesian coordinate system by external force without using a force sensor.
+
+---
 
 ### Syntax
 ```python
-softxyz on, crd=<coordinate>
-softxyz off  
+softxyz on, crd=<reference_coordinate>
+softxyz set, dpr=<stiffness>
+softxyz off
 ```
 
-### Parameter 
-* on : function start, off : function end  
-* crd : coordinates (base, robot, tool, user)
+### Parameters
+- **on** : Start the softxyz function  
+- **off** : Stop the softxyz function  
+- **set** : Modify softxyz settings  
+
+- **crd** : Reference coordinate system for external-force displacement  
+  - Available options: `base`, `robot`, `tool`, `user_x`
+
+- **dpr** : Stiffness value  
+  - Range: **0.0 ~ 2.0**  
+  - Higher values = **stiffer**, less displacement under external force  
+  - Default: **1.0**
+
 ```python
-softxyz on, crd="base"   
-softxyz on, crd="robot"  
-softxyz on, crd="tool"   
-softxyz on, crd="user_1"  
-softxyz off  
+softxyz on,  crd="base"     # Based on the base coordinate system
+softxyz on,  crd="robot"    # Based on the robot coordinate system
+softxyz on,  crd="tool"     # Based on the tool coordinate system
+softxyz on,  crd="user_1"   # User-defined coordinate system #1
+
+softxyz set, dpr=1.0        # Set stiffness (0.0~2.0, higher = stiffer)
+softxyz off                 # Disable the softxyz function
 ```
 
 
 ### Example 
-> Example 1) In case that robot move toward X, Y, Ry for assembling Z direction 
+> Example 1) Assembly along the Z-direction while allowing displacement in X, Y, and Ry
 > * Coordinate : robot coordinate (crd="robot") <br>
 > * Position (xnr) limit : the range of X and Y direction [-50,+50](mm), the range of Ry direction [-3,+3] (deg) <br>
 > * Velocity (vel) limit : the maximum speed of X and Y direction 5(mm/sec), the maximum speed of Ry 3(deg/sec)  <br>
@@ -3569,14 +3615,15 @@ softxyz off
 
 ```python
 S1   move P,spd=100mm/sec,accu=0,tool=0
-     delay 2.0 # before softxyz on  
+     delay 2.0   # Required before enabling softxyz
      softxyz_lim xnr, x=50, y=50, ry=3
      softxyz_lim vel, x=5, y=5, ry=3
-     softxyz_lim thr, x=3, y=3, ry=1
+     softxyz_lim thr, x=20, y=20, ry=3
      softxyz on, crd="robot"
+
 S2   move P,spd=250mm/sec,accu=0,tool=0
-     softxyz off 
-     end 
+     softxyz off
+     end
 ```
 
 > Example 2) Injection materials handling 
@@ -3588,24 +3635,31 @@ S2   move P,spd=250mm/sec,accu=0,tool=0
 
 ```python
 S1   move P,spd=100mm/sec,accu=0,tool=0
-     delay 2.0 # before softxyz on  
+     delay 2.0   # Required before enabling softxyz
      softxyz_lim pos, _y=300, y_=200
      softxyz_lim vel, y=150
      softxyz on, crd="robot"
-S2   wait ... 
-     softxyz off 
-     end 
+
+S2   wait ...
+     softxyz off
+     end
 ```
 
 --- 
-{% hint style="info" %}
-
-* Before using "softxyz on", user should set softxyz_lim parameters such as pos, xnr, vel and thr. 
-
-* For upgrading sensorless force control performance, user should set "delay" command as "delay 1.0" befor "softxyz on". 
-
-{% endhint %}
-# 5.11 softxyz_lim
+> **Information**
+>
+> - Before using `softxyz on`, you **must** configure the `softxyz_lim` parameters  
+>   (`pos`, `xnr`, `vel`, `thr`) to set the maximum displacement, speed,  
+>   and Cartesian threshold values.
+>
+> - To improve sensitivity to external force, it is recommended to  
+>   **keep the robot stationary for 1–2 seconds using the `delay` command**  
+>   before executing `softxyz on`.
+>
+> - If vibration occurs during softxyz operation, the following adjustments are recommended:
+>   1) *Increase the `thr` value*  
+>   2) *Increase the `dpr` value*  
+>   3) *Decrease the `vel` value*# 5.11 softxyz_lim
 
 Before using instruction "softxyz on", user should set softxyz_lim parameters such as position limit(pos), workspace limit(xnr), velocity limit(vel) and force threshold limit(thr). <br>
 
@@ -4719,10 +4773,11 @@ Follow these steps:
 
 1. After importing the `enet` module, create an `ENet` object with the constructor.
 2. Set the IP address and port number with the member variables.
+   - `Caution: Ports 50000–50005 on the controller are pre-allocated lports and cannot be used.`
 3. Open the ethernet socket with the `open` member procedure, and check the status with the `state()` member variable.
 \(For TCP communication, the `connect` procedure must also be called after opening.\)
-4. Transceiving with `send` and `recv` member procedure.
-5. Close the communication connection with the `close` member procedure.
+1. Transceiving with `send` and `recv` member procedure.
+2. Close the communication connection with the `close` member procedure.
 
 <br>
 
@@ -4736,7 +4791,7 @@ Follow these steps:
      cli.ip_addr="192.168.1.172" # remote (opponent) IP address
      cli.lport=51001 # local (self) port
      cli.rport=51002 # remote (opponent) port
-     # (port no. 49152–65535 contains dynamic or private ports)
+     # (port no. 49152–65535(except 50000-50005) contains dynamic or private ports)
 
      # 3. Open ethernet socket
      cli.open
@@ -4842,7 +4897,7 @@ Receiving
      cli.ip_addr="192.168.1.172" # remote (opponent) IP address
      cli.lport=51001 # local (self) port
      cli.rport=51002 # remote (opponent) port
-     # (port no. 49152–65535 contains dynamic or private ports)
+     # (port no. 49152–65535(except 50000-50005) contains dynamic or private ports)
 
      # 3. Open ethernet socket
      cli.open
@@ -4963,6 +5018,7 @@ Follow these steps:
 
 1. After importing the `enet` module, create an `ENet` object with the constructor.
 2. Set the IP address and port number with the member variables. (remote port setting is not needed.)
+   - `Caution: Ports 50000–50005 on the controller are pre-allocated lports and cannot be used.`
 3. Open the ethernet socket with the `open` member procedure, and calls `listen()`, `accept()` function. Check the status with the `state()` member variable.
 4. Transceiving with `send` and `recv` member procedure.
 5. Close the communication connection with the `close` member procedure.
@@ -4976,7 +5032,7 @@ Follow these steps:
      # 2. Set the IP address and port number
      svr.ip_addr="192.168.1.172" # remote (opponent) IP address
      svr.lport=51001 # local (self) port
-     # (port no. 49152–65535 contains dynamic or private ports)
+     # (port no. 49152–65535(except 50000-50005) contains dynamic or private ports)
      
      # 3. Open ethernet socket
      svr.open
@@ -5035,7 +5091,7 @@ Receiving
      # 2. Set the IP address and port number
      svr.ip_addr="192.168.1.172" # remote (opponent) IP address
      svr.lport=51001 # local (self) port
-     # (port no. 49152–65535 contains dynamic or private ports)
+     # (port no. 49152–65535(except 50000-50005) contains dynamic or private ports)
      
      # 3. Open ethernet socket
      svr.open
@@ -5166,7 +5222,8 @@ var tcp = ENet("tcp")
         Only used in UDP peer-to-peer and TCP server, ignored in TCP client.<br>
         Set or get the controller's own (local) port number.<br>
         The default value is 0 (if not specified), in which case this port number is automatically generated.<br>
-        Applied only when calling the open statement.
+        Applied only when calling the open statement.<br>
+        Ports 50000–50005 on the controller are pre-allocated lports and cannot be used.
       </td>
     </tr>
   </tbody>
