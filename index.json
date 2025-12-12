@@ -836,127 +836,127 @@
 	},
 	{
 		"link": "10-etc/1-proc/8-optime.md",
-		"char_ofs": 159412,
-		"byte_ofs": 225838
+		"char_ofs": 159510,
+		"byte_ofs": 226017
 	},
 	{
 		"link": "10-etc/1-proc/9-count_up.md",
-		"char_ofs": 160479,
-		"byte_ofs": 227371
+		"char_ofs": 160577,
+		"byte_ofs": 227550
 	},
 	{
 		"link": "10-etc/1-proc/10-count_dn.md",
-		"char_ofs": 161904,
-		"byte_ofs": 229222
+		"char_ofs": 162002,
+		"byte_ofs": 229401
 	},
 	{
 		"link": "10-etc/1-proc/11-cycle_end.md",
-		"char_ofs": 163332,
-		"byte_ofs": 231076
+		"char_ofs": 163430,
+		"byte_ofs": 231255
 	},
 	{
 		"link": "10-etc/1-proc/12-speed_out.md",
-		"char_ofs": 163932,
-		"byte_ofs": 231984
+		"char_ofs": 164030,
+		"byte_ofs": 232163
 	},
 	{
 		"link": "10-etc/1-proc/13-task.md",
-		"char_ofs": 166071,
-		"byte_ofs": 234749
+		"char_ofs": 166169,
+		"byte_ofs": 234928
 	},
 	{
 		"link": "10-etc/1-proc/14-toolchng.md",
-		"char_ofs": 166428,
-		"byte_ofs": 235332
+		"char_ofs": 166526,
+		"byte_ofs": 235511
 	},
 	{
 		"link": "10-etc/1-proc/15-json_parse.md",
-		"char_ofs": 166704,
-		"byte_ofs": 235788
+		"char_ofs": 166802,
+		"byte_ofs": 235967
 	},
 	{
 		"link": "10-etc/2-func/README.md",
-		"char_ofs": 168209,
-		"byte_ofs": 237795
+		"char_ofs": 168307,
+		"byte_ofs": 237974
 	},
 	{
 		"link": "10-etc/2-func/1-rducs.md",
-		"char_ofs": 168223,
-		"byte_ofs": 237822
+		"char_ofs": 168321,
+		"byte_ofs": 238001
 	},
 	{
 		"link": "10-etc/2-func/2-segment.md",
-		"char_ofs": 169925,
-		"byte_ofs": 240316
+		"char_ofs": 170023,
+		"byte_ofs": 240495
 	},
 	{
 		"link": "10-etc/2-func/3-intersection.md",
-		"char_ofs": 172247,
-		"byte_ofs": 243592
+		"char_ofs": 172345,
+		"byte_ofs": 243771
 	},
 	{
 		"link": "10-etc/2-func/4-rand.md",
-		"char_ofs": 174560,
-		"byte_ofs": 246777
+		"char_ofs": 174658,
+		"byte_ofs": 246956
 	},
 	{
 		"link": "10-etc/2-func/5-sig2int.md",
-		"char_ofs": 175511,
-		"byte_ofs": 248108
+		"char_ofs": 175609,
+		"byte_ofs": 248287
 	},
 	{
 		"link": "10-etc/3-sysvar/README.md",
-		"char_ofs": 176436,
-		"byte_ofs": 249358
+		"char_ofs": 176534,
+		"byte_ofs": 249537
 	},
 	{
 		"link": "10-etc/3-sysvar/_acc_rate.md",
-		"char_ofs": 176450,
-		"byte_ofs": 249386
+		"char_ofs": 176548,
+		"byte_ofs": 249565
 	},
 	{
 		"link": "10-etc/3-sysvar/_dec_rate.md",
-		"char_ofs": 176715,
-		"byte_ofs": 249815
+		"char_ofs": 176813,
+		"byte_ofs": 249994
 	},
 	{
 		"link": "10-etc/3-sysvar/_intr_no.md",
-		"char_ofs": 176980,
-		"byte_ofs": 250244
+		"char_ofs": 177078,
+		"byte_ofs": 250423
 	},
 	{
 		"link": "10-etc/3-sysvar/_intr_target.md",
-		"char_ofs": 177403,
-		"byte_ofs": 251014
+		"char_ofs": 177501,
+		"byte_ofs": 251193
 	},
 	{
 		"link": "10-etc/3-sysvar/_spd_rate.md",
-		"char_ofs": 177767,
-		"byte_ofs": 251608
+		"char_ofs": 177865,
+		"byte_ofs": 251787
 	},
 	{
 		"link": "10-etc/3-sysvar/_task_enable.md",
-		"char_ofs": 178034,
-		"byte_ofs": 252051
+		"char_ofs": 178132,
+		"byte_ofs": 252230
 	},
 	{
 		"link": "10-etc/3-sysvar/_tool.md",
-		"char_ofs": 178283,
-		"byte_ofs": 252452
+		"char_ofs": 178381,
+		"byte_ofs": 252631
 	},
 	{
 		"link": "10-etc/3-sysvar/_vel_rpm_cmd.md",
-		"char_ofs": 178971,
-		"byte_ofs": 253654
+		"char_ofs": 179069,
+		"byte_ofs": 253833
 	},
 	{
 		"link": "10-etc/3-sysvar/_weaving.md",
-		"char_ofs": 179423,
-		"byte_ofs": 254423
+		"char_ofs": 179521,
+		"byte_ofs": 254602
 	},
 	{
 		"link": "10-etc/3-sysvar/_pc.md",
-		"char_ofs": 182968,
-		"byte_ofs": 258538
+		"char_ofs": 183066,
+		"byte_ofs": 258717
 	}
 ]

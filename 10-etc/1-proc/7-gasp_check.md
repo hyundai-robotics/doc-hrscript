@@ -75,6 +75,11 @@ gasp_check pres=<추정 압력>,ref=<기준 압력>,tol=<허용오차>,os=<에�
    end
 ```
 
+{% hint style="warning" %}
+* 제품 동작 중에는 작동 범위 내에 들어가거나 로봇을 만지지 마십시오. 상해의 위험이 있습니다.
+
+{% endhint %}
+
 {% hint style="info" %}
 * 가스스프링이 장착된 로봇에서만 지원되는 기능입니다.
 * 정확한 추정을 위해 기능 사용 전 [축별 부가중량 설정](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-tp630/7-system/4-robot-parameter/7-axis-add-weight/README) 및 [부하추정 기능](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-tp630/7-system/7-auto-calibration/3-load-estimation)이 선행되어야 합니다.
