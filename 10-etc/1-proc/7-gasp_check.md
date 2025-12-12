@@ -1,6 +1,6 @@
 ﻿# 10.1.7 gasp_check
 
-The gasp_check statement estimates the pressure of the gas spring mounted on the robot and checks whether it is normal.
+The `gasp_check` statement estimates the pressure of the gas spring mounted on the robot and checks whether it is normal.
 
 ### Description
 
@@ -13,8 +13,8 @@ The gasp_check statement estimates the pressure of the gas spring mounted on the
 ### Syntax
 
 ```python
-gasp_check pres=<estimated pressure>,ref=<normal pressure>,tol=<tolerance>
-gasp_check pres=<estimated pressure>,ref=<normal pressure>,tol=<tolerance>,os=<error output signal>
+gasp_check pres=<estimated pressure>,ref=<reference pressure>,tol=<tolerance>
+gasp_check pres=<estimated pressure>,ref=<reference pressure>,tol=<tolerance>,os=<error output signal>
 ```
 
 ### Parameters
@@ -73,10 +73,14 @@ gasp_check pres=<estimated pressure>,ref=<normal pressure>,tol=<tolerance>,os=<e
    gasp_check pres=v0,ref=120,tol=20,os=do50    # Normal if the estimated pressure is 100 to 140 bar
    end
 ```
+{% hint style="warning" %}
+* Do not enter the operating area or touch the robot while the product is operating. There is a risk of injury.
+{% endhint %}
 
 {% hint style="info" %}
 * Supported only on robots equipped with the gas spring
 * For accurate estimation, [Axis add weight setting](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-tp630/7-system/4-robot-parameter/7-axis-add-weight/README) and [Load estimation function](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-tp630/7-system/7-auto-calibration/3-load-estimation) must be preceded before using the function.
-
+* For a detailed description of the gas spring pressure check monitoring function, please refer to the link below.
+[](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-tp630/6-monitoring/4-system/2-system-diagnosis/2-gas-pressure-check)
 {% endhint %}
 
