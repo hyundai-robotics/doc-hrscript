@@ -175,6 +175,7 @@
     * [10.1.13 task문](10-etc/1-proc/13-task.md)
     * [10.1.14 toolchng문](10-etc/1-proc/14-toolchng.md)
     * [10.1.15 json_parse문](10-etc/1-proc/15-json_parse.md)
+    * [10.1.16 brake_check문](10-etc/1-proc/16-brake_check.md)
   * [10.2 기타 함수](10-etc/2-func/README.md)
     * [10.2.1 rducs 함수](10-etc/2-func/1-rducs.md)
     * [10.2.2 segment 함수](10-etc/2-func/2-segment.md)
