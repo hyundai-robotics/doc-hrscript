@@ -7334,7 +7334,7 @@ The result of parsing will be stored in `r.data`. An error may occur if the proc
     var jr = r.data    # The type of r.data is JObject
     print jr           # { _type: "JObject", _sub_file: "", _desc: "", test: "value" } printed
 ```
-# 10.1.16 brake_check statement
+# 10.1.16 brake_check
 
 The `brake_check` statement is a procedure that applies torque to each axis motor to diagnose whether the brake is functioning correctly.
 

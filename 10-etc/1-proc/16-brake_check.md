@@ -1,4 +1,4 @@
-﻿# 10.1.16 brake_check statement
+﻿# 10.1.16 brake_check
 
 The `brake_check` statement is a procedure that applies torque to each axis motor to diagnose whether the brake is functioning correctly.
 
