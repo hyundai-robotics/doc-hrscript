@@ -2,7 +2,10 @@
     "langCode": "ko",
     "series": "현대로봇 Hi6 제어기",
     "title": "HRScript 프로그래머 설명서",
-    "publisher": "현대로보틱스",
+    "publisher": "HD현대로보틱스",
     "tocTitle": "목차",
-    "tocTitleElements": "[ \"h1\", \"h2\" ]"
+    "tocTitleElements": "[ \"h1\", \"h2\" ]",
+	"variables": {
+		"cont_model": "Hi6"
+	}
 }
