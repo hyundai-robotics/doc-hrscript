@@ -59,6 +59,6 @@ cli.post domain+"/display/update"
 
 #case 2
 var url = domain+"/display/update"
-cli.post url, 1000, *TimeOut
+cli.post url, 10, *TimeOut
 ```
 

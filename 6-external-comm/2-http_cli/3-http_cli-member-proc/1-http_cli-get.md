@@ -59,7 +59,8 @@ cli.get domain+"/setting/max_torque"
 #case 2
 var url = domain+"/joints/max_speed"
 cli.query = {axis: 3}
-cli.get(url)
+cli.get url, 10, *timeout
+# cli.get(url, 10, *timeout) also possible
 ```
 
 
