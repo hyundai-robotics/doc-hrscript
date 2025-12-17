@@ -1,19 +1,19 @@
 ﻿# Hi6 Robot Controller Function Manual - Robot Language HRScript
 
 {% hint style="warning" %}
-The information presented in this manual is the property of Hyundai Robotics.
+The information presented in this manual is the property of HD Hyundai Robotics.
 
-The manual may neither be copied, in part or in full, nor redistributed without prior written consent from Hyundai Robotics.
+The manual may neither be copied, in part or in full, nor redistributed without prior written consent from HD Hyundai Robotics.
 
 It may neither be provided to any third party nor used for any other purposes.
 
 
 
-Hyundai Robotics reserves the right to modify this document without prior notification.
+HD Hyundai Robotics reserves the right to modify this document without prior notification.
 
 
 
-**Copyright ⓒ 2020 by Hyundai Robotics**
+**Copyright ⓒ 2025 by HD Hyundai Robotics**
 {% endhint %}
 # 1. Overview
 
@@ -22,7 +22,7 @@ Hyundai Robotics reserves the right to modify this document without prior notifi
 
 # 1.1 Introduction of HRScript
 
-Hyundai Robotics’ Hi6 Controller allows the user to program the robot’s tasks in a robot language called HRScript. Created programs can be saved as several files with the extension .job.
+HD Hyundai Robotics' Hi6 Controller allows the user to program the robot's tasks in a robot language called HRScript. Created programs can be saved as several files with the extension .job.
 
 HRScript is a scripting language that will be interpreted and executed line by line by the interpreter without a compilation procedure. It is similar to the Python or JavaScript languages but has a simpler syntax.
 
@@ -2879,7 +2879,7 @@ Examples of format;
 ```
 
 {% hint style="info" %}
-The cfg element specifies the robot configuration. For more information, refer to "[2.3.2.2 Base and Robot Recording Coordinates](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-tp630/2-operation/3-step/2-step-pose-modify/2-base-robot-crd-sys)" in the Hi6 Robot Controller Operation Manual.
+The cfg element specifies the robot configuration. For more information, refer to "[2.3.2.2 Base and Robot Recording Coordinates](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-Hi6-tp630/2-operation/3-step/2-step-pose-modify/2-base-robot-crd-sys)" in the Hi6 Robot Controller Operation Manual.
 {% endhint %}
 
 
@@ -3050,7 +3050,7 @@ print po2.z, po2.cfg
 
 # 5.2 Shift
 
-Shift is an object type embedded in the Hi6 Controller and represents the pose’s change value. 
+Shift is an object type embedded in the Hi6 Controller and represents the pose's change value. 
 
 Shifts are created by calling the constructor function Shift\( \). All function parameters are position parameters. Meanwhile, crd and cfg are string types, and the rest are number types.
 
@@ -3402,7 +3402,7 @@ selucrd <coord. system number>
 Select the mode of CONTPATH.
 
 See the link below for the description of CONTPATH.
-[Operation Manual: 8.15 R360 Set CONTPATH manually](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-tp630/8-r-code/15-r360)
+[Operation Manual: 8.15 R360 Set CONTPATH manually](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-Hi6-tp630/8-r-code/15-r360)
 
 <br><br>
 
@@ -4106,7 +4106,7 @@ If the Hi6 controller is a fieldbus master, and there are multiple fieldbus slav
 
 See the link below for instructions on how to set up the fn region.
 
-[Operation manual: fn block allocation](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-tp630/7-system/3-control-parameter/2-io-signal-setting/12-fn-block)
+[Operation manual: fn block allocation](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-Hi6-tp630/7-system/3-control-parameter/2-io-signal-setting/12-fn-block)
   
 &nbsp;
 
@@ -4357,7 +4357,8 @@ cli.get domain+"/setting/max_torque"
 #case 2
 var url = domain+"/joints/max_speed"
 cli.query = {axis: 3}
-cli.get(url)
+cli.get url, 10, *timeout
+# cli.get(url, 10, *timeout) also possible
 ```
 
 
@@ -4423,7 +4424,7 @@ cli.put domain+"/setting/max_torque"
 #case 2
 var url = domain + "/setting"
 cli.body = {max_torque: 500}
-cli.put (url, 5000, S1)
+cli.put(url, 10, S1)
 ```
 
 
@@ -4489,7 +4490,7 @@ cli.post domain+"/display/update"
 
 #case 2
 var url = domain+"/display/update"
-cli.post url, 1000, *TimeOut
+cli.post url, 10, *TimeOut
 ```
 
 # delete
@@ -7104,7 +7105,7 @@ The global root arrays of HRScript is stored in the `vars/` folder as files in C
 
 For information on variable files, please refer to the operation manual link below.
 
-[global variable/variable file](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-tp630/6-monitoring/3-job/3-global-variable/3-var-files)
+[global variable/variable file](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-Hi6-tp630/6-monitoring/3-job/3-global-variable/3-var-files)
 
 You can easily edit .csv files with a text editor on your PC.
 The edited file copied to the `vars/` folder is not immediately reflected in memory, but only by using the `[load all]` function in the TeachPendant's global variable window or executing the `load_csv` statement.
@@ -7185,7 +7186,7 @@ The global root array of HRScript is stored in the `vars/` folder as a file in C
 
 For information on variable files, please refer to the operation manual link below.
 
-[global variable/variable file](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-tp630/6-monitoring/3-job/3-global-variable/3-var-files)
+[global variable/variable file](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-Hi6-tp630/6-monitoring/3-job/3-global-variable/3-var-files)
 
 The global root arrays are not immediately stored to the .csv file whenever the value changes.
 It is saved as a file when you press `Ctrl+[F7: save]` or power off, and you can save it as a file immediately by executing the `save_csv` command.
@@ -7775,9 +7776,9 @@ gasp_check pres=<estimated pressure>,ref=<reference pressure>,tol=<tolerance>,os
 
 {% hint style="info" %}
 * Supported only on robots equipped with the gas spring
-* For accurate estimation, [Axis add weight setting](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-tp630/7-system/4-robot-parameter/7-axis-add-weight/README) and [Load estimation function](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-tp630/7-system/7-auto-calibration/3-load-estimation) must be preceded before using the function.
+* For accurate estimation, [Axis add weight setting](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-Hi6-tp630/7-system/4-robot-parameter/7-axis-add-weight/README) and [Load estimation function](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-Hi6-tp630/7-system/7-auto-calibration/3-load-estimation) must be preceded before using the function.
 * For a detailed description of the gas spring pressure check monitoring function, please refer to the link below.
-[](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-tp630/6-monitoring/4-system/2-system-diagnosis/2-gas-pressure-check)
+[](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-Hi6-tp630/6-monitoring/4-system/2-system-diagnosis/2-gas-pressure-check)
 {% endhint %}
 
 # 10.1.15 json_parse
@@ -7939,9 +7940,9 @@ brake_check os=<error output signal>,job=<return program>
 
 {% hint style="info" %}
 * Supported only on robots equipped with the gas spring
-* For accurate estimation, [Axis add weight setting](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-tp630/7-system/4-robot-parameter/7-axis-add-weight/README) and [Load estimation function](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-tp630/7-system/7-auto-calibration/3-load-estimation) must be preceded before using the function.
+* For accurate estimation, [Axis add weight setting](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-Hi6-tp630/7-system/4-robot-parameter/7-axis-add-weight/README) and [Load estimation function](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-Hi6-tp630/7-system/7-auto-calibration/3-load-estimation) must be preceded before using the function.
 * For a detailed description of the brake check monitoring function, please refer to the link below.
-[](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-tp630/6-monitoring/4-system/2-system-diagnosis/1-brake-check)
+[](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-Hi6-tp630/6-monitoring/4-system/2-system-diagnosis/1-brake-check)
 {% endhint %}# 10.2 Etc. functions
 
 # 10.2.1 rducs - user coordinate system

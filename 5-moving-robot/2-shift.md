@@ -1,6 +1,6 @@
-# 5.2 Shift
+﻿# 5.2 Shift
 
-Shift is an object type embedded in the Hi6 Controller and represents the pose’s change value. 
+Shift is an object type embedded in the ${cont_model} Controller and represents the pose's change value. 
 
 Shifts are created by calling the constructor function Shift\( \). All function parameters are position parameters. Meanwhile, crd and cfg are string types, and the rest are number types.
 

@@ -1,13 +1,13 @@
 ﻿# 6.1.3 fn object
 
 You can define fn objects by specifying specific areas of fb objects.
-If the Hi6 controller is a fieldbus master, and there are multiple fieldbus slave devices, you can set the areas of each slave device to each fn object to handle these slaves intuitively.
+If the ${cont_model} controller is a fieldbus master, and there are multiple fieldbus slave devices, you can set the areas of each slave device to each fn object to handle these slaves intuitively.
 
 ![](../../_assets/io/io_fn.png)
 
 See the link below for instructions on how to set up the fn region.
 
-[Operation manual: fn block allocation](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-tp630/7-system/3-control-parameter/2-io-signal-setting/12-fn-block)
+[Operation manual: fn block allocation](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-${cont_model}-tp630/7-system/3-control-parameter/2-io-signal-setting/12-fn-block)
   
 &nbsp;
 
