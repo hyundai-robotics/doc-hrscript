@@ -2,7 +2,7 @@
 
 
 ### Description  
-* The position command generation for the robot's movement is performed by an external device, and this generated external command is transmitted to the Hi6 controller as string data via ethernet or serial communication. The Hi6 controller receives this command and controls the robot. 
+* The position command generation for the robot's movement is performed by an external device, and this generated external command is transmitted to the ${cont_model} controller as string data via ethernet or serial communication. The ${cont_model} controller receives this command and controls the robot. 
 
 ### Syntax 
 ```python

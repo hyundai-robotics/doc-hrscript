@@ -1,6 +1,6 @@
 # 6.5 Sci module : Serial communication
 
-Serial communication can be performed through the COM port of the Hi6 controller.
+Serial communication can be performed through the COM port of the ${cont_model} controller.
 
 To use this function, you must create a Sci object as a global variable as shown below.
 

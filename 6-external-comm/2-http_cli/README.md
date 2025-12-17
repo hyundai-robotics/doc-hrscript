@@ -1,6 +1,6 @@
 ﻿# 6.2 http_cli Module: HTTP Client
 
-Using the general-purpose Ethernet port of the Hi6 controller, it is possible to access remote web services and consume HTTP services.
+Using the general-purpose Ethernet port of the ${cont_model} controller, it is possible to access remote web services and consume HTTP services.
 To use this feature, import the `http_cli` module and create an `HttpCli` object as shown below.
 
 ```python
