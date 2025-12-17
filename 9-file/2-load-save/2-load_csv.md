@@ -14,7 +14,7 @@ HRScript의 전역 최상위(root) 배열은 vars/ 폴더에 CSV 표준형식의
 
 변수 파일에 대한 관련 내용은 아래 조작설명서 링크를 참고하십시오.
 
-[전역변수/변수 파일](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-tp630/6-monitoring/3-job/3-global-variable/3-var-files)
+[전역변수/변수 파일](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-${cont_model}-tp630/6-monitoring/3-job/3-global-variable/3-var-files)
 
 .csv 파일들은 PC에서 텍스트 편집기로 쉽게 편집할 수 있습니다.
 편집된 파일을 vars/ 폴더로 복사하는 것 만으로는 즉각 메모리에 반영되지 않으며, 티치펜던트의 전역변수창에서 `[전부 불러오기]` 기능을 사용하거나, `load_csv` 명령을 실행해야만 반영됩니다.
