@@ -1,21 +1,22 @@
-# 6.2.1 Constructor
+﻿# 6.2.1 Constructor 
 
 ### Description
 
-It creates an HttpCli object and returns the reference.
+Creates an HttpCli object and returns a reference to it.
 
 ### Syntax
+
 
 HttpCli\(\)
 
 ### Return Value
 
-Reference of the created object
+A reference to the newly created object.
 
-### Example
+### Usage Example
 
 ```python
-var cli = HttpCli()
+var cli = http_cli.HttpCli()
 ```
 
 

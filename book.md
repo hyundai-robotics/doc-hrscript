@@ -4204,49 +4204,43 @@ pulse <Signal>,tlag=<Lag time>,ton=<On time>,toff=<Off time>,cnt=<output count>
 ```python
    pulse do10,tlag=0.0,ton=1.5,toff=0.5,cnt=5
    end
-```# 6.2    Http\_Cli Module: HTTP Client
+```# 6.2 http_cli Module: HTTP Client
 
-Using the general-purpose Ethernet port of the Hi6 Controller makes it possible to access remote web services to receive HTTP services. 
-
-To use this function, it is required to create an HttpCli object after importing the http\_cli module, as shown in the following example.
+Using the general-purpose Ethernet port of the Hi6 controller, it is possible to access remote web services and consume HTTP services.
+To use this feature, import the `http_cli` module and create an `HttpCli` object as shown below.
 
 ```python
 import http_cli
-var cli=http_cli.HttpCli()
+var cli = http_cli.HttpCli()
 ```
 
-After the HttpCli object is created, it must request a service by calling the get, put, post, and delete member procedures.
+After creating an `HttpCli` object, service requests can be made by calling the `get`, `put`, `post`, and `delete` member procedures.<br>
+The `HttpCli` object provides an attribute named `body`.<br>
+- When a GET request is made and a response is successfully received, the data returned by the remote server is stored in the `body` attribute.<br>The type of the `body` value may be a string, a number, an array, or an object.
+- When making a PUT request, the data to be transmitted must be assigned to the `body` attribute in advance.
+- When making a POST request, the data to be transmitted must also be assigned to the `body` attribute in advance, and the data returned by the remote server in the response is stored in the `body` attribute.
+- The DELETE service does not use the `body` attribute.
+The provided HTTP client communication operates in synchronous mode.
 
-The HttpCli object has a property named ??�body.???
-
-When a get service is requested and a response is received successfully, the remote server??�s data will have the body property. The body property value can be a string, number, array, or object. When requesting the put service, it is required to assign the data to be transmitted to the body property in advance.
-
-When requesting the post service, it is required to assign the data to be transmitted to the body property in advance, and the data sent as a response from the remote server is to be stored in the body property.
-
-The delete service does not use the body property.
-
-
-
-
-
-# 6.2.1 Constructor
+# 6.2.1 Constructor 
 
 ### Description
 
-It creates an HttpCli object and returns the reference.
+Creates an HttpCli object and returns a reference to it.
 
 ### Syntax
+
 
 HttpCli\(\)
 
 ### Return Value
 
-Reference of the created object
+A reference to the newly created object.
 
-### Example
+### Usage Example
 
 ```python
-var cli = HttpCli()
+var cli = http_cli.HttpCli()
 ```
 
 
@@ -4257,51 +4251,113 @@ var cli = HttpCli()
   <thead>
     <tr>
       <th style="text-align:left">Variable</th>
-      <th style="text-align:left">Data type</th>
+      <th style="text-align:left">Data Type</th>
       <th style="text-align:left">Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="text-align:left">body</td>
-      <td style="text-align:left">All types are possible</td>
+      <td style="text-align:left">Any</td>
       <td style="text-align:left">
-        <p>It is required to put the data, which is to be loaded on the put and post
-          requests, in advance.
-          <br />
-        </p>
-        <p>Responses for the get and post requests will be stored.
-          <br />
-        </p>
+        <p>The data to be transmitted must be assigned in advance for PUT and POST requests.<br><br>If a value other than an object is assigned to `body`, the last path segment of the URL is treated as the key during execution.<br><br>The response data from GET and POST requests is stored in `body`.<br><br>In HRScript, direct access to the member variables of `body` is not supported. To modify or use the data, assign it to another variable first.</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left">query</td>
+      <td style="text-align:left">object</td>
+      <td style="text-align:left">
+        Used for GET services that require query parameters.<br>The data to be sent with a GET request must be assigned in advance.
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left">status</td>
+      <td style="text-align:left">int</td>
+      <td style="text-align:left">
         <p>
-          <br />
+            Returns the HTTP response code and error code. (See Section [6.2.4, HTTP Communication Codes](./4-http_cli-code.md))
+          <br/>
         </p>
       </td>
     </tr>
   </tbody>
 </table>
 
-# 6.2.3 Member Procedure
+<br/>
+
+Both `body` and `query` use the object data type.
+
+The object type is supported in the `{ key: value }` format.
+
+```python
+cli.body = { name: "WORK #32", color: "green", state: "OK" }
+cli.query = { axis: 3 }
+```
+
+# 6.2.3 Member Procedures
 
 # get
 
 ### Description
 
-Requests the HTTP get service
+Requests an HTTP GET service.
 
-The response data is to be received to the body property.
+The server retrieves the information associated with the requested URL and returns it in the response.
 
-
+The response data is stored in the `body` attribute.
 
 ### Syntax
 
-&lt;HttpCli object&gt;.get &lt;URL string&gt;
+&lt;HttpCli object&gt;.get &lt;URL string, timeout, timeout fallback address&gt;
 
-### Example
+
+### Parameters
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Item</th>
+      <th style="text-align:left">Description</th>
+      <th style="text-align:left">Note</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>URL string</td>
+      <td>
+        The request URL.
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Timeout</td>
+      <td>
+        (Optional) Timeout duration. If the timeout expires, execution proceeds to the next statement or to the fallback address.<br>If not specified, the request waits indefinitely.<br>The timeout must be set between 5 ms and 15 ms (inclusive). Otherwise, a playback timeout error occurs.<br>If the value is outside this range, `-9 (InvalidTimeout)` is stored in `status`. 
+      </td>
+      <td>msec</td>
+    </tr>
+    <tr>
+      <td>timeout fallback address</td>
+      <td>
+        (Optional) The address to branch to when a timeout occurs.<br>If not specified, execution proceeds to the next address.
+      </td>
+      <td>Address</td>
+    </tr>
+  </tbody>
+</table>
+
+
+### Usage Example
 
 ```python
+#case 1
 var domain="http://192.168.1.200:8888"
 cli.get domain+"/setting/max_torque"
+
+#case 2
+var url = domain+"/joints/max_speed"
+cli.query = {axis: 3}
+cli.get(url)
 ```
 
 
@@ -4310,20 +4366,64 @@ cli.get domain+"/setting/max_torque"
 
 ### Description
 
-Requests the HTTP put service
+Requests an HTTP PUT service.
 
-It is required to assign the data, which is to be transmitted, to the body property in advance.
+Updates the specified resource.
+
+The data to be transmitted must be assigned to the `body` attribute in advance.
 
 ### Syntax
 
-&lt;HttpCli object&gt;.put &lt;URL string&gt;
+&lt;HttpCli object&gt;.put &lt;URL string, timeout, timeout fallback address&gt;
 
-### Example
+
+### Parameters
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Item</th>
+      <th style="text-align:left">Description</th>
+      <th style="text-align:left">Note</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>URL string</td>
+      <td>
+        The request URL.
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Timeout</td>
+      <td>
+        (Optional) Timeout duration. If the timeout expires, execution proceeds to the next statement or to the fallback address.<br>If not specified, the request waits indefinitely.<br>The timeout must be set between 5 ms and 15 ms (inclusive). Otherwise, a playback timeout error occurs.<br>If the value is outside this range, `-9 (InvalidTimeout)` is stored in `status`.
+      </td>
+      <td>msec</td>
+    </tr>
+    <tr>
+      <td>timeout fallback address</td>
+      <td>
+        (Optional) The address to branch to when a timeout occurs.<br>If not specified, execution proceeds to the next address.
+      </td>
+      <td>Address</td>
+    </tr>
+  </tbody>
+</table>
+
+### Usage Example
 
 ```python
+#case 1
 var domain="http://192.168.1.200:8888"
 cli.body=500
 cli.put domain+"/setting/max_torque"
+
+#case 2
+var url = domain + "/setting"
+cli.body = {max_torque: 500}
+cli.put (url, 5000, S1)
 ```
 
 
@@ -4332,67 +4432,479 @@ cli.put domain+"/setting/max_torque"
 
 ### Description
 
-Requests the HTTP post service.
+Requests an HTTP POST service.
 
-It is required to assign the data, which is to be transmitted, to the body property in advance.
+Creates the specified resource.
 
-The response data is to be received to the body property.
+The data to be transmitted must be assigned to the `body` attribute in advance.
+
+The response data returned by the remote server is stored in the `body` attribute.
 
 ### Syntax
 
-&lt;HttpCli object&gt;.post &lt;URL string&gt;
+&lt;HttpCli object&gt;.post &lt;URL string, timeout, timeout fallback address&gt;
 
-### Example
+### Parameters
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Item</th>
+      <th style="text-align:left">Description</th>
+      <th style="text-align:left">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>URL string</td>
+      <td>
+      The request URL.
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Timeout</td>
+      <td>
+        (Optional) Timeout duration. If the timeout expires, execution proceeds to the next statement or to the fallback address.<br>If not specified, the request waits indefinitely.<br>The timeout must be set between 5 ms and 15 ms (inclusive). Otherwise, a playback timeout error occurs.<br>If the value is outside this range, `-9 (InvalidTimeout)` is stored in `status`.
+      </td>
+      <td>msec</td>
+    </tr>
+    <tr>
+      <td>timeout fallback address</td>
+      <td>
+        (Optional) The address to branch to when a timeout occurs.<br>If not specified, execution proceeds to the next address.
+      </td>
+      <td>Address</td>
+    </tr>
+  </tbody>
+</table>
+
+### Usage Example 
 
 ```python
+#case 1
 var domain="http://192.168.1.200:8888"
 cli.body={ name: "WORK #32", color: "green", state: "OK" }
 cli.post domain+"/display/update"
+
+#case 2
+var url = domain+"/display/update"
+cli.post url, 1000, *TimeOut
 ```
 
 # delete
 
 ### Description
 
-Request the HTTP delete service. 
+Requests an HTTP DELETE service.
 
-The body property is not be used.
+Deletes the specified resource.
+
+The `body` attribute is not used for this request.
 
 ### Syntax
 
-&lt;HttpCli object&gt;.delete &lt;URL string&gt;
+&lt;HttpCli object&gt;.delete &lt;URL string, timeout, timeout fallback address&gt;
 
-### Example
+
+### Parameters
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Item</th>
+      <th style="text-align:left">Description</th>
+      <th style="text-align:left">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>URL string</td>
+      <td>
+        The request URL.
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Timeout</td>
+      <td>
+        (Optional) Timeout duration. If the timeout expires, execution proceeds to the next statement or to the fallback address.<br>If not specified, the request waits indefinitely.<br>The timeout must be set between 5 ms and 15 ms (inclusive). Otherwise, a playback timeout error occurs.<br>If the value is outside this range, `-9 (InvalidTimeout)` is stored in `status`.
+      </td>
+      <td>msec</td>
+    </tr>
+    <tr>
+      <td>Timeout fallback address</td>
+      <td>
+        (Optional) The address to branch to when a timeout occurs.<br>If not specified, execution proceeds to the next address. 
+      </td>
+      <td>Address</td>
+    </tr>
+  </tbody>
+</table>
+
+### Usage Example
 
 ```python
 var domain="http://192.168.1.200:8888"
-cli.delete domain+"/items/3"
+cli.delete domain+"/items"
 ```
 
-# 6.2.4 Examples of HTTP Client Communication
+# 6.2.4 HTTP Communication Codes
+
+* Major HTTP Response Codes 
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Response Category</th>
+      <th style="text-align:left">Response Code</th>
+      <th style="text-align:left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="2">Informational</td>
+      <td>
+        100
+      </td>
+      <td>
+      continue
+      </td>
+    </tr>
+    <tr>
+      <td>
+        101
+      </td>
+      <td>
+      Switching protocols
+      </td>
+    </tr>
+    <tr>
+    <tr>
+      <td rowspan="5">Success</td>
+      <td>
+        200
+      </td>
+      <td>
+      OK
+      </td>
+    </tr>
+    <tr>
+      <td>
+        201
+      </td>
+      <td>
+      Created
+      </td>
+    </tr>
+    <tr>
+      <td>
+        202
+      </td>
+      <td>
+      Accepted
+      </td>
+    </tr>
+    <tr>
+      <td>
+        203
+      </td>
+      <td>
+      Non-authoritative information
+      </td>
+    </tr>
+    <tr>
+      <td>
+        204
+      </td>
+      <td>
+      No content
+      </td>
+    </tr>
+    <tr>
+    <tr>
+      <td rowspan="3">Redirection</td>
+      <td>
+        301
+      </td>
+      <td>
+      Moved permanently
+      </td>
+    </tr>
+    <tr>
+      <td>
+        302
+      </td>
+      <td>
+      Not temporarily
+      </td>
+    </tr>
+    <tr>
+      <td>
+        303
+      </td>
+      <td>
+      Not modified
+      </td>
+    </tr>
+    <tr>
+      <td rowspan="11">Client error</td>
+      <td>
+        400
+      </td>
+      <td>
+      Bad Request
+      </td>
+    </tr>
+    <tr>
+      <td>
+        401
+      </td>
+      <td>
+      Unauthorized 
+      </td>
+    </tr>
+    <tr>
+      <td>
+        402
+      </td>
+      <td>
+      Payment required
+      </td>
+    </tr>
+    <tr>
+      <td>
+        403
+      </td>
+      <td>
+      Forbidden 
+      </td>
+    </tr>
+    <tr>
+      <td>
+        404
+      </td>
+      <td>
+      Not found 
+      </td>
+    </tr>
+    <tr>
+      <td>
+        405
+      </td>
+      <td>
+      Method not allowed
+      </td>
+    </tr>
+    <tr>
+      <td>
+        407
+      </td>
+      <td>
+      Proxy authentication required 
+      </td>
+    </tr>
+    <tr>
+      <td>
+        408
+      </td>
+      <td>
+      Request timeout
+      </td>
+    </tr>
+    <tr>
+      <td>
+        410
+      </td>
+      <td>
+      Gone  
+      </td>
+    </tr>
+    <tr>
+      <td>
+        412
+      </td>
+      <td>
+      Precondition failed
+      </td>
+    </tr>
+    <tr>
+      <td>
+        414
+      </td>
+      <td>
+      Request-URI too long
+      </td>
+    </tr>
+    <tr>
+      <td rowspan="5">Server error</td>
+      <td>
+        500
+      </td>
+      <td>
+       Internal server error 
+      </td>
+    </tr>
+    <tr>
+      <td>
+        501
+      </td>
+      <td>
+      Not implemented
+      </td>
+    </tr>
+    <tr>
+      <td>
+        503
+      </td>
+      <td>
+      Service unnailable
+      </td>
+    </tr>
+    <tr>
+      <td>
+        504
+      </td>
+      <td>
+      Gateway timeout
+      </td>
+    </tr>
+    <tr>
+      <td>
+        505
+      </td>
+      <td>
+      HTTP version not supported
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+* Error Code (Exception)
+
+<table>
+  <thead>
+    <tr>
+    <th style="text-align:left">Error Name</th>
+      <th style="text-align:left">Error Code</th>
+      <th style="text-align:left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>RequestException</td>      
+      <td>
+        -1
+      </td>
+      <td>
+      There was an ambiguous exception that occurred while handling your request.
+      </td>
+    </tr>
+    <tr>
+      <td> ConnectionErr</td>
+      <td>
+        -2
+      </td>
+      <td>
+      In the event of a network problem (e.g. DNS failure, refused connection, etc)
+      </td>
+    </tr>
+    <tr>
+    <td> HTTPError
+      <td>
+        -3
+      </td>
+      <td>
+      It will occur if the HTTP request returned an unsuccessful status code.
+      </td>
+    </tr>
+    <tr>
+    <td>URLRequired</td>
+      <td>
+        -4
+      </td>
+      <td>
+      A valid URL is required to make a request.
+      </td>
+    </tr>
+    <tr>
+    <td>TooManyRedirects</td>
+      <td>-5</td>
+      <td>
+      If a request exceeds the configured number of maximum redirections, a TooManyRedirects exception is raised.
+      </td>
+    </tr>
+    <tr>
+    <td>Timeout</td>
+      <td>
+        -6
+      </td>
+      <td>
+      If a request times out, a Timeout exception is raised.
+      </td>
+    </tr>
+    <td>SessionInvalid</td>
+      <td>
+        -7
+      </td>
+      <td>
+        This error indicates that the session is invalid because a runtime error occurred while processing a session request.     Session is invalid. This error apears when the runtime error is happend during session requests.
+      </td>
+    </tr>
+    <td>UnhandledException</td>
+      <td>
+        -8
+      </td>
+      <td>
+        An unexpected error occurred during the HTTP request or response processing (e.g., session creation, request execution, or response parsing) and did not match any explicitly handled exceptions. The request outcome is therefore reported as UnhandledException.
+      </td>
+    </tr>
+    <td>InvalidTimeout</td>
+      <td>
+        -9
+      </td>
+      <td>
+        When the timeout value exceeds the range of 5 ms to 15 ms.
+      </td>
+    </tr>
+  </tbody>
+</table>
+# HTTP Client Usage Examples
 
 ```python
-import http_cli
-var cli=http_cli.HttpCli()
+     import http_cli
+     var cli=http_cli.HttpCli()
+     var url, body, query, status_code
+     var domain="http://192.168.1.200:8888"
 
-var domain="http://192.168.1.200:8888"
+     # get
+     cli.get domain+"/device/direction"
+     body = cli.body
 
-# get
-cli.get domain+"/device/direction"
-print cli.body.ry
+     #check the communication status
+     if cli.status>=400 or cli.status<0
+        goto 99 		#http communication error
+     endif
+
+     # put
+     url = domain+"/device/direction"
+     body.ry=90
+     cli.body=body
+     cli.put(url, 3000, *Timeout)
+
+     # post
+     cli.body={ name: "WORK #32", color: "green", state: "OK" }
+     cli.post domain+"/display/update", 5000, *Timeout
+
+     # delete
+     cli.delete(domain+"/items")
+
+     end
      
-# put
-cli.body.ry=90
-cli.put domain+"/device/direction"
+  99 print "error status"
      
-# post
-cli.body=={ name: "WORK #32", color: "green", state: "OK" }
-cli.post domain+"/display/update"
-
-# delete
-cli.delete domain+"/items/3"
-
-end
+     *Timeout
+     print "timeout"
 ```
 
 # 6.3 Input/Output with Teach Pendant console bar

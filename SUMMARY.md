@@ -98,7 +98,9 @@
       * [put](6-external-comm/2-http_cli/3-http_cli-member-proc/2-http_cli-put.md)
       * [post](6-external-comm/2-http_cli/3-http_cli-member-proc/3-http_cli-post.md)
       * [delete](6-external-comm/2-http_cli/3-http_cli-member-proc/4-http_cli-delete.md)
-    * [6.2.4 Examples of HTTP Client Communication](6-external-comm/2-http_cli/4-http_cli-example.md)
+    * [6.2.4 HTTP client communication codes](6-external-comm/2-http_cli/4-http_cli-code.md)
+    * [6.2.4 Examples of HTTP Client Communication](6-external-comm/2-http_cli/5-http_cli-example.md)
+
   * [6.3 Input/Output with Teach Pendant console bar](6-external-comm/3-tp-console-bar/README.md)
     * [6.3.1 print](6-external-comm/3-tp-console-bar/1-print.md)
     * [6.3.2 input](6-external-comm/3-tp-console-bar/2-input.md)

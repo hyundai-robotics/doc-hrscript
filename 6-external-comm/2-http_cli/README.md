@@ -1,25 +1,18 @@
-# 6.2    Http\_Cli Module: HTTP Client
+ï»¿# 6.2 http_cli Module: HTTP Client
 
-Using the general-purpose Ethernet port of the Hi6 Controller makes it possible to access remote web services to receive HTTP services. 
-
-To use this function, it is required to create an HttpCli object after importing the http\_cli module, as shown in the following example.
+Using the general-purpose Ethernet port of the Hi6 controller, it is possible to access remote web services and consume HTTP services.
+To use this feature, import the `http_cli` module and create an `HttpCli` object as shown below.
 
 ```python
 import http_cli
-var cli=http_cli.HttpCli()
+var cli = http_cli.HttpCli()
 ```
 
-After the HttpCli object is created, it must request a service by calling the get, put, post, and delete member procedures.
-
-The HttpCli object has a property named ??œbody.???
-
-When a get service is requested and a response is received successfully, the remote server??™s data will have the body property. The body property value can be a string, number, array, or object. When requesting the put service, it is required to assign the data to be transmitted to the body property in advance.
-
-When requesting the post service, it is required to assign the data to be transmitted to the body property in advance, and the data sent as a response from the remote server is to be stored in the body property.
-
-The delete service does not use the body property.
-
-
-
-
+After creating an `HttpCli` object, service requests can be made by calling the `get`, `put`, `post`, and `delete` member procedures.<br>
+The `HttpCli` object provides an attribute named `body`.<br>
+- When a GET request is made and a response is successfully received, the data returned by the remote server is stored in the `body` attribute.<br>The type of the `body` value may be a string, a number, an array, or an object.
+- When making a PUT request, the data to be transmitted must be assigned to the `body` attribute in advance.
+- When making a POST request, the data to be transmitted must also be assigned to the `body` attribute in advance, and the data returned by the remote server in the response is stored in the `body` attribute.
+- The DELETE service does not use the `body` attribute.
+The provided HTTP client communication operates in synchronous mode.
 
