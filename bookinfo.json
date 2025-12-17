@@ -1,11 +1,11 @@
 ﻿{
     "langCode": "en",
-    "series": "Hyundai Robot Hi6 Controller",
+    "series": "Hyundai Robot Hi7 Controller",
     "title": "HRScript Programmer's Manual",
     "publisher": "HD Hyundai Robotics",
     "tocTitle": "Table of Contents",
     "tocTitleElements": "[ \"h1\", \"h2\" ]",
     "variables": {
-        "cont_model": "Hi6"
+        "cont_model": "Hi7"
     }
 }
