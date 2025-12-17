@@ -35,7 +35,9 @@ HTTP GET 서비스를 요청합니다.
       <td>대기시간</td>
       <td>
         (Optional) timeout 시간. 경과하면 다음 명령문, 혹은 퇴피스텝으로 진행한다.<br>
-        지정하지 않으면 무한 대기한다.
+        지정하지 않으면 무한 대기한다.<br>
+        5ms 이상 15ms 이하로 설정해야한다. 그렇지 않을 경우 Playback 시간 초과 에러가 발생한다.<br>
+        해당 범위를 벗어나는 경우, status 에 -9 (InvalidTimeout) 이 저장된다.
       </td>
       <td>msec</td>
     </tr>

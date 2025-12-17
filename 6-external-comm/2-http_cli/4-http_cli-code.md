@@ -292,7 +292,29 @@
       If a request times out, a Timeout exception is raised.
       </td>
     </tr>
+    <td>SessionInvalid</td>
+      <td>
+        -7
+      </td>
+      <td>
+        This error indicates that the session is invalid because a runtime error occurred while processing a session request.     Session is invalid. This error apears when the runtime error is happend during session requests.
+      </td>
+    </tr>
+    <td>UnhandledException</td>
+      <td>
+        -8
+      </td>
+      <td>
+        An unexpected error occurred during the HTTP request or response processing (e.g., session creation, request execution, or response parsing) and did not match any explicitly handled exceptions. The request outcome is therefore reported as UnhandledException.
+      </td>
+    </tr>
+    <td>InvalidTimeout</td>
+      <td>
+        -9
+      </td>
+      <td>
+        When the timeout value exceeds the range of 5 ms to 15 ms.
+      </td>
+    </tr>
   </tbody>
 </table>
-    
-  
