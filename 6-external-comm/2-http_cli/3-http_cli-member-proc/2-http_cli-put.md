@@ -63,7 +63,7 @@ cli.put domain+"/setting/max_torque"
 #case 2
 var url = domain + "/setting"
 cli.body = {max_torque: 500}
-cli.put (url, 5000, S1)
+cli.put url, 10, S1
 ```
 
 
