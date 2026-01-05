@@ -1,4 +1,4 @@
-﻿# Hi6 로봇제어기 기능설명서 - 로봇언어 HRScript
+﻿# ${cont_model} 로봇제어기 기능설명서 - 로봇언어 HRScript
 
 {% hint style="warning" %}
 본 제품 설명서에서 제공되는 정보는 HD현대로보틱스의 자산입니다.
@@ -21,7 +21,7 @@ HD현대로보틱스의 서면에 의한 동의 없이 전부 또는 일부를 �
 
 # 1.1 HRScript의 소개
 
-현대로봇 Hi6 제어기는 HRScript라는 이름의 로봇언어로 로봇이 할 일을 프로그램할 수 있습니다. 작성된 프로그램은 확장자 .job 을 가진 여러 개의 파일에 나뉘어 저장될 수 있습니다. HRScript는 이름에서 알 수 있듯이 스크립트 언어로서, 컴파일 절차없이 인터프리터에 의해 한 행씩 해석, 실행됩니다. python이나 javascript 언어와 유사하지만 문법은 더 간단합니다.
+현대로봇 ${cont_model} 제어기는 HRScript라는 이름의 로봇언어로 로봇이 할 일을 프로그램할 수 있습니다. 작성된 프로그램은 확장자 .job 을 가진 여러 개의 파일에 나뉘어 저장될 수 있습니다. HRScript는 이름에서 알 수 있듯이 스크립트 언어로서, 컴파일 절차없이 인터프리터에 의해 한 행씩 해석, 실행됩니다. python이나 javascript 언어와 유사하지만 문법은 더 간단합니다.
 
 # 2. 기본 문법
 
@@ -2975,7 +2975,7 @@ print arr   # [1, 2, 3, 4, 5]
 
 # 5.1 포즈 \(pose\)
 
-포즈는 Hi6 제어기에 기본 내장된 객체형으로서, 로봇의 각 축의 자세, 혹은 툴 끝의 직교좌표와 방향을 표현합니다.
+포즈는 ${cont_model} 제어기에 기본 내장된 객체형으로서, 로봇의 각 축의 자세, 혹은 툴 끝의 직교좌표와 방향을 표현합니다.
 
 포즈는 생성자 함수 Pose\( \)를 호출하여 생성합니다. 함수 매개변수들은 모두 위치 매개변수입니다. 첫 번째 문자열 요소는 format으로 두 번째 문자열 요소는 config로 인식됩니다. 나머지는 모두 숫자형입니다.
 
@@ -3016,7 +3016,7 @@ format의 예 (examples);
 {% hint style="info" %}
 cfg요소는 로봇 자세 \(configuration\)를 지정합니다.<br>
 축 좌표(joint)의 경우는 필요 없고, 직교좌표의 경우만 필요합니다.<br>
-자세한 내용은 Hi6 로봇제어기 조작설명서의 "[2.3.2.2 베이스 및 로봇 기록 좌표](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-Hi6-tp630/2-operation/3-step/2-step-pose-modify/2-base-robot-crd-sys)"를 참조하십시오.
+자세한 내용은 ${cont_model} 로봇제어기 조작설명서의 "[2.3.2.2 베이스 및 로봇 기록 좌표](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-${cont_model}-tp630/2-operation/3-step/2-step-pose-modify/2-base-robot-crd-sys)"를 참조하십시오.
 
 {% endhint %}
 
@@ -3185,7 +3185,7 @@ print po2.z, po2.cfg
 
 # 5.2 시프트 \(shift\)
 
-시프트는 Hi6 제어기에 기본 내장된 객체형으로서, 포즈에 대한 변경값을 표현합니다.
+시프트는 ${cont_model} 제어기에 기본 내장된 객체형으로서, 포즈에 대한 변경값을 표현합니다.
 
 시프트는 생성자 함수 Shift\( \)를 호출하여 생성합니다. 함수 매개변수들은 모두 위치 매개변수입니다. crd와 cfg는 문자열형이고, 나머지는 모두 숫자형입니다.
 
@@ -3581,7 +3581,7 @@ selucrd <좌표계번호>
 CONTPATH(연속패스)의 모드를 선택합니다.
 
 CONTPATH에 대한 설명은 아래 링크를 참조하십시오.  
-[Hi6 조작설명서: 8.15 R360 CONTPATH 수동 설정](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-Hi6-tp630/8-r-code/15-r360)
+[${cont_model} 조작설명서: 8.15 R360 CONTPATH 수동 설정](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-${cont_model}-tp630/8-r-code/15-r360)
 <br><br>
 
 
@@ -3977,7 +3977,7 @@ S2   move P,spd=250mm/sec,accu=0,tool=0
 
 
 ### 설명 
-* 로봇의 이동에 대한 위치 지령 생성은 외부 장치에서 수행하고 이 생성된 외부 지령을 이더넷이나 시리얼 통신을 통해 문자열 데이터로 Hi6 제어기에 전송하면 Hi6 제어기는 이 지령을 수신하여 해당 로봇을 제어하는 기능입니다. 
+* 로봇의 이동에 대한 위치 지령 생성은 외부 장치에서 수행하고 이 생성된 외부 지령을 이더넷이나 시리얼 통신을 통해 문자열 데이터로 ${cont_model} 제어기에 전송하면 ${cont_model} 제어기는 이 지령을 수신하여 해당 로봇을 제어하는 기능입니다. 
 
 
 ### 문법 
@@ -4361,13 +4361,13 @@ fb2.do3=fb2.do7=fb2.do11=1   # fb2의 3번, 7번, 11번 출력신호를 한꺼�
 # 6.1.3 fn객체
 
 fb객체의 특정 영역을 지정하여 fn객체를 정의할 수 있습니다.
-Hi6 제어기가 필드버스 master이고, 여러 개의 필드버스 slave장치들이 있을 경우, 각 slave장치의 영역들을 하나씩의 fn객체로 설정해두면, 이 slave들을 직관적으로 다룰 수 있습니다.
+${cont_model} 제어기가 필드버스 master이고, 여러 개의 필드버스 slave장치들이 있을 경우, 각 slave장치의 영역들을 하나씩의 fn객체로 설정해두면, 이 slave들을 직관적으로 다룰 수 있습니다.
 
 ![](../../_assets/io/io_fn.png)
 
 fn영역을 설정하는 방법은 아래 링크를 참조하십시오.
 
-[Hi6 조작설명서: 7.3.2.12 fn 블럭 할당](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-Hi6-tp630/7-setting/3-control-parameter/2-io-signal-setting/12-fn-block)
+[${cont_model} 조작설명서: 7.3.2.12 fn 블럭 할당](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-${cont_model}-tp630/7-setting/3-control-parameter/2-io-signal-setting/12-fn-block)
   
 &nbsp;
 
@@ -4465,7 +4465,7 @@ pulse <신호>,tlag=<지연 시간>,ton=<On 시간>,toff=<Off 시간>,cnt=<출�
    end
 ```# 6.2 http\_cli 모듈 : HTTP 클라이언트
 
-Hi6 제어기의 범용 이더넷 포트를 통해, 원격의 웹 서비스에 접근하여 HTTP 서비스를 받을 수 있습니다.
+${cont_model} 제어기의 범용 이더넷 포트를 통해, 원격의 웹 서비스에 접근하여 HTTP 서비스를 받을 수 있습니다.
 
 이 기능을 사용하기 위해서는 아래와 같이 http\_cli 모듈을 import한 후, HttpCli 객체를 생성해야 합니다.
 
@@ -4615,7 +4615,9 @@ HTTP GET 서비스를 요청합니다.
       <td>대기시간</td>
       <td>
         (Optional) timeout 시간. 경과하면 다음 명령문, 혹은 퇴피스텝으로 진행한다.<br>
-        지정하지 않으면 무한 대기한다.
+        지정하지 않으면 무한 대기한다.<br>
+        5ms 이상 15ms 이하로 설정해야한다. 그렇지 않을 경우 Playback 시간 초과 에러가 발생한다.<br>
+        해당 범위를 벗어나는 경우, status 에 -9 (InvalidTimeout) 이 저장된다.
       </td>
       <td>msec</td>
     </tr>
@@ -4641,7 +4643,8 @@ cli.get domain+"/setting/max_torque"
 #case 2
 var url = domain+"/joints/max_speed"
 cli.query = {axis: 3}
-cli.get(url)
+cli.get url, 10, *timeout
+# cli.get(url, 10, *timeout) also possible.
 ```
 
 
@@ -4683,7 +4686,9 @@ HTTP PUT 서비스를 요청합니다.
       <td>대기시간</td>
       <td>
         (Optional) timeout 시간. 경과하면 다음 명령문, 혹은 퇴피스텝으로 진행한다.<br>
-        지정하지 않으면 무한 대기한다.
+        지정하지 않으면 무한 대기한다.<br>
+        5ms 이상 15ms 이하로 설정해야한다. 그렇지 않을 경우 Playback 시간 초과 에러가 발생한다.<br>
+        해당 범위를 벗어나는 경우, status 에 -9 (InvalidTimeout) 이 저장된다.
       </td>
       <td>msec</td>
     </tr>
@@ -4709,7 +4714,7 @@ cli.put domain+"/setting/max_torque"
 #case 2
 var url = domain + "/setting"
 cli.body = {max_torque: 500}
-cli.put (url, 5000, S1)
+cli.put url, 10, S1
 ```
 
 
@@ -4753,7 +4758,9 @@ HTTP POST 서비스를 요청합니다.
       <td>대기시간</td>
       <td>
         (Optional) timeout 시간. 경과하면 다음 명령문, 혹은 퇴피스텝으로 진행한다.<br>
-        지정하지 않으면 무한 대기한다.
+        지정하지 않으면 무한 대기한다.<br>
+        5ms 이상 15ms 이하로 설정해야한다. 그렇지 않을 경우 Playback 시간 초과 에러가 발생한다.<br>
+        해당 범위를 벗어나는 경우, status 에 -9 (InvalidTimeout) 이 저장된다.
       </td>
       <td>msec</td>
     </tr>
@@ -4778,7 +4785,7 @@ cli.post domain+"/display/update"
 
 #case 2
 var url = domain+"/display/update"
-cli.post url, 1000, *TimeOut
+cli.post url, 10, *TimeOut
 ```
 
 # delete
@@ -4818,7 +4825,9 @@ body 속성은 사용되지 않습니다.
       <td>대기시간</td>
       <td>
         (Optional) timeout 시간. 경과하면 다음 명령문, 혹은 퇴피스텝으로 진행한다.<br>
-        지정하지 않으면 무한 대기한다.
+        지정하지 않으면 무한 대기한다.<br>
+        5ms 이상 15ms 이하로 설정해야한다. 그렇지 않을 경우 Playback 시간 초과 에러가 발생한다.<br>
+        해당 범위를 벗어나는 경우, status 에 -9 (InvalidTimeout) 이 저장된다.
       </td>
       <td>msec</td>
     </tr>
@@ -5134,10 +5143,33 @@ cli.delete domain+"/items"
       If a request times out, a Timeout exception is raised.
       </td>
     </tr>
+    <td>SessionInvalid</td>
+      <td>
+        -7
+      </td>
+      <td>
+        This error indicates that the session is invalid because a runtime error occurred while processing a session request.     Session is invalid. This error apears when the runtime error is happend during session requests.
+      </td>
+    </tr>
+    <td>UnhandledException</td>
+      <td>
+        -8
+      </td>
+      <td>
+        An unexpected error occurred during the HTTP request or response processing (e.g., session creation, request execution, or response parsing) and did not match any explicitly handled exceptions. The request outcome is therefore reported as UnhandledException.
+      </td>
+    </tr>
+    <td>InvalidTimeout</td>
+      <td>
+        -9
+      </td>
+      <td>
+        When the timeout value exceeds the range of 5 ms to 15 ms.
+      </td>
+    </tr>
   </tbody>
 </table>
-    
-  # 6.2.4 HTTP client 통신 예제
+# 6.2.4 HTTP client 통신 예제
 
 ```python
      import http_cli
@@ -5300,7 +5332,7 @@ input work_no,10,*timeout
 HRScript에서 모드버스 마스터 동작을 수행할 수 있습니다. 모드버스 통신 기능에 대한 자세한 내용은 별도의 [Hi6 로봇제어기 기능설명서 - 모드버스](https://hrbook-hrc.web.app/#/view/doc-modbus/korean/README)를 참조하십시오.  
 # 6.5 sci 모듈 : 시리얼 통신
 
-Hi6 제어기의 COM 포트를 통해, 시리얼 통신을 수행할 수 있습니다.
+${cont_model} 제어기의 COM 포트를 통해, 시리얼 통신을 수행할 수 있습니다.
 
 이 기능을 사용하기 위해서는 아래와 같이 Sci 객체를 전역변수로 생성해야 합니다.
 
@@ -5553,7 +5585,7 @@ Hyundai Robot Job File; { version: 1.6, mech_type: "", total_axis: -1, aux_axis:
 
 # 7 enet 모듈 : 이더넷 TCP/UDP 통신
 
-Hi6 제어기의 범용 이더넷 포트를 통해, 외부 장치와 이더넷 TCP 혹은 UDP 통신으로 문자열, 혹은 바이너리 데이터의 송수신을 할 수 있습니다.
+${cont_model} 제어기의 범용 이더넷 포트를 통해, 외부 장치와 이더넷 TCP 혹은 UDP 통신으로 문자열, 혹은 바이너리 데이터의 송수신을 할 수 있습니다.
 
 enet 모듈은 ENet과 BBuf의 2개의 객체를 생성할 수 있습니다. ENet은 이더넷 socket 인터페이스를 제공하고, BBuf는 바이너리 데이터 통신을 할 때 사용됩니다.  
 
@@ -7074,7 +7106,7 @@ global unit="mm/s" # (O)
 
 # 9.1 파일시스템
 
-Hi6 제어기의 MAIN 모듈 파일시스템에서, 디렉토리와 파일의 생성, 복사, 삭제를 수행하는 명령문들을 설명합니다.
+${cont_model} 제어기의 MAIN 모듈 파일시스템에서, 디렉토리와 파일의 생성, 복사, 삭제를 수행하는 명령문들을 설명합니다.
 # 9.1.1 mkdir문
 
 mkdir문은 디렉토리를 생성하는 프로시져입니다.
@@ -7294,7 +7326,7 @@ delfile <결과변수>,<경로파일명>
 ```
 # 9.2 load/save
 
-Hi6 제어기 MAIN 모듈의 메모리로 파일을 불러오거나 저장하는 명령문들을 설명합니다. 
+${cont_model} 제어기 MAIN 모듈의 메모리로 파일을 불러오거나 저장하는 명령문들을 설명합니다. 
 # 9.2.1 load_job문
 
 MAIN 모듈의 project/jobs/ 폴더의 변경사항을 새로 메모리로 읽어들이는 명령문입니다.
@@ -7383,7 +7415,7 @@ HRScript의 전역 최상위(root) 배열은 vars/ 폴더에 CSV 표준형식의
 
 변수 파일에 대한 관련 내용은 아래 조작설명서 링크를 참고하십시오.
 
-[전역변수/변수 파일](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-Hi6-tp630/6-monitoring/3-job/3-global-variable/3-var-files)
+[전역변수/변수 파일](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-${cont_model}-tp630/6-monitoring/3-job/3-global-variable/3-var-files)
 
 .csv 파일들은 PC에서 텍스트 편집기로 쉽게 편집할 수 있습니다.
 편집된 파일을 vars/ 폴더로 복사하는 것 만으로는 즉각 메모리에 반영되지 않으며, 티치펜던트의 전역변수창에서 `[전부 불러오기]` 기능을 사용하거나, `load_csv` 명령을 실행해야만 반영됩니다.
@@ -7468,7 +7500,7 @@ HRScript의 전역 최상위(root) 배열은 vars/ 폴더에 CSV 표준형식의
 
 변수 파일에 대한 관련 내용은 아래 조작설명서 링크를 참고하십시오.
 
-[전역변수/변수 파일](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-Hi6-tp630/6-monitoring/3-job/3-global-variable/3-var-files)
+[전역변수/변수 파일](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-${cont_model}-tp630/6-monitoring/3-job/3-global-variable/3-var-files)
 
 전역 최상위(root) 배열은 값이 바뀔 때마다 즉각적으로 .csv 파일에 저장되지는 않습니다.
 `Ctrl+[F7: save]`를 누르거나 전원을 끌 때에 파일로 저장되는데, `save_csv` 명령문을 수행하면 즉각 파일로 저장할 수 있습니다.
@@ -8546,6 +8578,7 @@ brake_check os=<에러출력신호>,job=<복귀 프로그램>
 </table>
 
 ### 설정 항목
+brake_check 명령어에서 [속성] 버튼을 터치하면 브레이크 검사 관련 설정 화면에 진입합니다.
 ![](../../_assets/brake_check_setting.png)
 
 - **모드**  
