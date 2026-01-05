@@ -1,4 +1,4 @@
-﻿# Hi6 Robot Controller Function Manual - Robot Language HRScript
+﻿# ${cont_model} Robot Controller Function Manual - Robot Language HRScript
 
 {% hint style="warning" %}
 The information presented in this manual is the property of HD Hyundai Robotics.
@@ -22,7 +22,7 @@ HD Hyundai Robotics reserves the right to modify this document without prior not
 
 # 1.1 Introduction of HRScript
 
-HD Hyundai Robotics' Hi6 Controller allows the user to program the robot's tasks in a robot language called HRScript. Created programs can be saved as several files with the extension .job.
+HD Hyundai Robotics' ${cont_model} Controller allows the user to program the robot's tasks in a robot language called HRScript. Created programs can be saved as several files with the extension .job.
 
 HRScript is a scripting language that will be interpreted and executed line by line by the interpreter without a compilation procedure. It is similar to the Python or JavaScript languages but has a simpler syntax.
 
@@ -2840,7 +2840,7 @@ After understanding the pose that expresses the target position of the robot, le
 
 # 5.1 Pose
 
-Pose is an object type embedded in the Hi6 Controller and represents each axis of the robot or the Cartesian coordinates and direction of the tool tip. 
+Pose is an object type embedded in the ${cont_model} Controller and represents each axis of the robot or the Cartesian coordinates and direction of the tool tip. 
 
 Poses are created by calling the constructor function `Pose()`. All function parameters are position parameters. The first string element is recognized as the `format`, and the second string element as the `config`. The remaining elements are all numeric type.
 
@@ -2879,7 +2879,7 @@ Examples of format;
 ```
 
 {% hint style="info" %}
-The cfg element specifies the robot configuration. For more information, refer to "[2.3.2.2 Base and Robot Recording Coordinates](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-Hi6-tp630/2-operation/3-step/2-step-pose-modify/2-base-robot-crd-sys)" in the Hi6 Robot Controller Operation Manual.
+The cfg element specifies the robot configuration. For more information, refer to "[2.3.2.2 Base and Robot Recording Coordinates](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-${cont_model}-tp630/2-operation/3-step/2-step-pose-modify/2-base-robot-crd-sys)" in the ${cont_model} Robot Controller Operation Manual.
 {% endhint %}
 
 
@@ -3050,7 +3050,7 @@ print po2.z, po2.cfg
 
 # 5.2 Shift
 
-Shift is an object type embedded in the Hi6 Controller and represents the pose's change value. 
+Shift is an object type embedded in the ${cont_model} Controller and represents the pose's change value. 
 
 Shifts are created by calling the constructor function Shift\( \). All function parameters are position parameters. Meanwhile, crd and cfg are string types, and the rest are number types.
 
@@ -3402,7 +3402,7 @@ selucrd <coord. system number>
 Select the mode of CONTPATH.
 
 See the link below for the description of CONTPATH.
-[Operation Manual: 8.15 R360 Set CONTPATH manually](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-Hi6-tp630/8-r-code/15-r360)
+[Operation Manual: 8.15 R360 Set CONTPATH manually](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-${cont_model}-tp630/8-r-code/15-r360)
 
 <br><br>
 
@@ -3792,7 +3792,7 @@ S2   move P,spd=250mm/sec,accu=0,tool=0
 
 
 ### Description  
-* The position command generation for the robot's movement is performed by an external device, and this generated external command is transmitted to the Hi6 controller as string data via ethernet or serial communication. The Hi6 controller receives this command and controls the robot. 
+* The position command generation for the robot's movement is performed by an external device, and this generated external command is transmitted to the ${cont_model} controller as string data via ethernet or serial communication. The ${cont_model} controller receives this command and controls the robot. 
 
 ### Syntax 
 ```python
@@ -4100,13 +4100,13 @@ fb2.do3=fb2.do7=fb2.do11=1   # Turns on 3rd, 7th, and 11th output signals of fb2
 # 6.1.3 fn object
 
 You can define fn objects by specifying specific areas of fb objects.
-If the Hi6 controller is a fieldbus master, and there are multiple fieldbus slave devices, you can set the areas of each slave device to each fn object to handle these slaves intuitively.
+If the ${cont_model} controller is a fieldbus master, and there are multiple fieldbus slave devices, you can set the areas of each slave device to each fn object to handle these slaves intuitively.
 
 ![](../../_assets/io/io_fn.png)
 
 See the link below for instructions on how to set up the fn region.
 
-[Operation manual: fn block allocation](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-Hi6-tp630/7-system/3-control-parameter/2-io-signal-setting/12-fn-block)
+[Operation manual: fn block allocation](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-${cont_model}-tp630/7-system/3-control-parameter/2-io-signal-setting/12-fn-block)
   
 &nbsp;
 
@@ -4206,7 +4206,7 @@ pulse <Signal>,tlag=<Lag time>,ton=<On time>,toff=<Off time>,cnt=<output count>
    end
 ```# 6.2 http_cli Module: HTTP Client
 
-Using the general-purpose Ethernet port of the Hi6 controller, it is possible to access remote web services and consume HTTP services.
+Using the general-purpose Ethernet port of the ${cont_model} controller, it is possible to access remote web services and consume HTTP services.
 To use this feature, import the `http_cli` module and create an `HttpCli` object as shown below.
 
 ```python
@@ -5018,7 +5018,7 @@ input work_no,10,*timeout
 Modbus master operations can be performed in HRScript. For detailed information on modbus communication functions, please refer to the separate manual. [Hi6 Robot Controller Function Manual - Modbus](https://hrbook-hrc.web.app/#/view/doc-modbus/english/README)  
 # 6.5 Sci module : Serial communication
 
-Serial communication can be performed through the COM port of the Hi6 controller.
+Serial communication can be performed through the COM port of the ${cont_model} controller.
 
 To use this function, you must create a Sci object as a global variable as shown below.
 
@@ -5272,7 +5272,7 @@ Hyundai Robot Job File; { version: 1.6, mech_type: "", total_axis: -1, aux_axis:
 
 # 7 enet module : Ethernet TCP/UDP communication
 
-Using the Hi6 controller's user ethernet port, You can send and receive strings or binary data over Ethernet TCP or UDP communication with an external devices.
+Using the ${cont_model} controller's user ethernet port, You can send and receive strings or binary data over Ethernet TCP or UDP communication with an external devices.
 
 The enet module can create two objects, ENet and BBuf. ENet provides an Ethernet socket interface, and BBuf is used to communicate binary data.
 
@@ -6800,7 +6800,7 @@ global unit="mm/s" # (O)
 
 # 9.1 File System
 
-In the MAIN module's file system of the Hi6 controller, instructions for creating, copying, and deleting directories and files are described.# 9.1.1 mkdir
+In the MAIN module's file system of the ${cont_model} controller, instructions for creating, copying, and deleting directories and files are described.# 9.1.1 mkdir
 
 mkdir is the procedure making directory.
 
@@ -7020,7 +7020,7 @@ delfile <result-variable>,<pathname>
 ```
 # 9.2 Load/Save
 
-Explains the statements that load/save files into/from the memory of the Hi6 controller's MAIN module.# 9.2.1 load_job
+Explains the statements that load/save files into/from the memory of the ${cont_model} controller's MAIN module.# 9.2.1 load_job
 
 Statement that reads changes of the MAIN module's project/jobs/ folder to update the memory.
 
@@ -7105,7 +7105,7 @@ The global root arrays of HRScript is stored in the `vars/` folder as files in C
 
 For information on variable files, please refer to the operation manual link below.
 
-[global variable/variable file](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-Hi6-tp630/6-monitoring/3-job/3-global-variable/3-var-files)
+[global variable/variable file](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-${cont_model}-tp630/6-monitoring/3-job/3-global-variable/3-var-files)
 
 You can easily edit .csv files with a text editor on your PC.
 The edited file copied to the `vars/` folder is not immediately reflected in memory, but only by using the `[load all]` function in the TeachPendant's global variable window or executing the `load_csv` statement.
@@ -7186,7 +7186,7 @@ The global root array of HRScript is stored in the `vars/` folder as a file in C
 
 For information on variable files, please refer to the operation manual link below.
 
-[global variable/variable file](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-Hi6-tp630/6-monitoring/3-job/3-global-variable/3-var-files)
+[global variable/variable file](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-${cont_model}-tp630/6-monitoring/3-job/3-global-variable/3-var-files)
 
 The global root arrays are not immediately stored to the .csv file whenever the value changes.
 It is saved as a file when you press `Ctrl+[F7: save]` or power off, and you can save it as a file immediately by executing the `save_csv` command.
@@ -7776,9 +7776,9 @@ gasp_check pres=<estimated pressure>,ref=<reference pressure>,tol=<tolerance>,os
 
 {% hint style="info" %}
 * Supported only on robots equipped with the gas spring
-* For accurate estimation, [Axis add weight setting](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-Hi6-tp630/7-system/4-robot-parameter/7-axis-add-weight/README) and [Load estimation function](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-Hi6-tp630/7-system/7-auto-calibration/3-load-estimation) must be preceded before using the function.
+* For accurate estimation, [Axis add weight setting](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-${cont_model}-tp630/7-system/4-robot-parameter/7-axis-add-weight/README) and [Load estimation function](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-${cont_model}-tp630/7-system/7-auto-calibration/3-load-estimation) must be preceded before using the function.
 * For a detailed description of the gas spring pressure check monitoring function, please refer to the link below.
-[](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-Hi6-tp630/6-monitoring/4-system/2-system-diagnosis/2-gas-pressure-check)
+[](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-${cont_model}-tp630/6-monitoring/4-system/2-system-diagnosis/2-gas-pressure-check)
 {% endhint %}
 
 # 10.1.15 json_parse
@@ -7901,6 +7901,7 @@ brake_check os=<error output signal>,job=<return program>
 </table>
 
 ### Settings
+When you touch the [Properties] button in the brake_check command, you will enter the brake diagnostic settings screen.
 ![](../../_assets/brake_check_setting.png)
 
 - **Mode**  
@@ -7940,9 +7941,9 @@ brake_check os=<error output signal>,job=<return program>
 
 {% hint style="info" %}
 * Supported only on robots equipped with the gas spring
-* For accurate estimation, [Axis add weight setting](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-Hi6-tp630/7-system/4-robot-parameter/7-axis-add-weight/README) and [Load estimation function](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-Hi6-tp630/7-system/7-auto-calibration/3-load-estimation) must be preceded before using the function.
+* For accurate estimation, [Axis add weight setting](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-${cont_model}-tp630/7-system/4-robot-parameter/7-axis-add-weight/README) and [Load estimation function](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-${cont_model}-tp630/7-system/7-auto-calibration/3-load-estimation) must be preceded before using the function.
 * For a detailed description of the brake check monitoring function, please refer to the link below.
-[](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-Hi6-tp630/6-monitoring/4-system/2-system-diagnosis/1-brake-check)
+[](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-${cont_model}-tp630/6-monitoring/4-system/2-system-diagnosis/1-brake-check)
 {% endhint %}# 10.2 Etc. functions
 
 # 10.2.1 rducs - user coordinate system
