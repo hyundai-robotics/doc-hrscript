@@ -52,6 +52,7 @@ brake_check os=<error output signal>,job=<return program>
 </table>
 
 ### Settings
+When you touch the [Properties] button in the brake_check command, you will enter the brake diagnostic settings screen.
 ![](../../_assets/brake_check_setting.png)
 
 - **Mode**  
