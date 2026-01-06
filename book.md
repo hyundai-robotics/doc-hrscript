@@ -8578,7 +8578,7 @@ brake_check os=<에러출력신호>,job=<복귀 프로그램>
 </table>
 
 ### 설정 항목
-brake_check 명령어에서 [속성] 버튼을 터치하면 브레이크 검사 관련 설정 화면에 진입합니다.
+brake_check 명령어에서 [속성] 버튼을 터치하면 브레이크 검사 관련 설정 화면에 진입합니다.  
 ![](../../_assets/brake_check_setting.png)
 
 - **모드**  
