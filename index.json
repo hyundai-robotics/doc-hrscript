@@ -826,87 +826,87 @@
 	},
 	{
 		"link": "10-etc/2-func/README.md",
-		"char_ofs": 213531,
-		"byte_ofs": 221884
+		"char_ofs": 213533,
+		"byte_ofs": 221886
 	},
 	{
 		"link": "10-etc/2-func/1-rducs.md",
-		"char_ofs": 213554,
-		"byte_ofs": 221912
+		"char_ofs": 213556,
+		"byte_ofs": 221914
 	},
 	{
 		"link": "10-etc/2-func/2-segment.md",
-		"char_ofs": 215862,
-		"byte_ofs": 224318
+		"char_ofs": 215864,
+		"byte_ofs": 224320
 	},
 	{
 		"link": "10-etc/2-func/3-intersection.md",
-		"char_ofs": 219081,
-		"byte_ofs": 227643
+		"char_ofs": 219083,
+		"byte_ofs": 227645
 	},
 	{
 		"link": "10-etc/2-func/4-rand.md",
-		"char_ofs": 222236,
-		"byte_ofs": 230899
+		"char_ofs": 222238,
+		"byte_ofs": 230901
 	},
 	{
 		"link": "10-etc/2-func/5-sig2int.md",
-		"char_ofs": 223556,
-		"byte_ofs": 232277
+		"char_ofs": 223558,
+		"byte_ofs": 232279
 	},
 	{
 		"link": "10-etc/3-sysvar/README.md",
-		"char_ofs": 224761,
-		"byte_ofs": 233535
+		"char_ofs": 224763,
+		"byte_ofs": 233537
 	},
 	{
 		"link": "10-etc/3-sysvar/_acc_rate.md",
-		"char_ofs": 224785,
-		"byte_ofs": 233563
+		"char_ofs": 224787,
+		"byte_ofs": 233565
 	},
 	{
 		"link": "10-etc/3-sysvar/_dec_rate.md",
-		"char_ofs": 225107,
-		"byte_ofs": 233915
+		"char_ofs": 225109,
+		"byte_ofs": 233917
 	},
 	{
 		"link": "10-etc/3-sysvar/_intr_no.md",
-		"char_ofs": 225429,
-		"byte_ofs": 234267
+		"char_ofs": 225431,
+		"byte_ofs": 234269
 	},
 	{
 		"link": "10-etc/3-sysvar/_intr_target.md",
-		"char_ofs": 226053,
-		"byte_ofs": 234926
+		"char_ofs": 226055,
+		"byte_ofs": 234928
 	},
 	{
 		"link": "10-etc/3-sysvar/_spd_rate.md",
-		"char_ofs": 226569,
-		"byte_ofs": 235475
+		"char_ofs": 226571,
+		"byte_ofs": 235477
 	},
 	{
 		"link": "10-etc/3-sysvar/_task_enable.md",
-		"char_ofs": 226933,
-		"byte_ofs": 235871
+		"char_ofs": 226935,
+		"byte_ofs": 235873
 	},
 	{
 		"link": "10-etc/3-sysvar/_tool.md",
-		"char_ofs": 227226,
-		"byte_ofs": 236194
+		"char_ofs": 227228,
+		"byte_ofs": 236196
 	},
 	{
 		"link": "10-etc/3-sysvar/_vel_rpm_cmd.md",
-		"char_ofs": 228357,
-		"byte_ofs": 237369
+		"char_ofs": 228359,
+		"byte_ofs": 237371
 	},
 	{
 		"link": "10-etc/3-sysvar/_weaving.md",
-		"char_ofs": 229052,
-		"byte_ofs": 238095
+		"char_ofs": 229054,
+		"byte_ofs": 238097
 	},
 	{
 		"link": "10-etc/3-sysvar/_pc.md",
-		"char_ofs": 233060,
-		"byte_ofs": 242259
+		"char_ofs": 233062,
+		"byte_ofs": 242261
 	}
 ]
