@@ -1,18 +1,5 @@
-﻿# ${cont_model} 로봇제어기 기능설명서 - 로봇언어 HRScript
+﻿# Hi6 로봇제어기 기능설명서 - 로봇언어 HRScript
 
-{% hint style="warning" %}
-본 제품 설명서에서 제공되는 정보는 HD현대로보틱스의 자산입니다.
-
-HD현대로보틱스의 서면에 의한 동의 없이 전부 또는 일부를 무단 전재 및 재배포할 수 없으며, 제3자에게 제공되거나 다른 목적에 사용할 수 없습니다.
-
-
-
-본 설명서는 사전 예고 없이 변경될 수 있습니다.
-
-
-
-**Copyright ⓒ 2020 by Hyundai Robotics**
-{% endhint %}
 # 1. 개요
 
 
@@ -21,7 +8,7 @@ HD현대로보틱스의 서면에 의한 동의 없이 전부 또는 일부를 �
 
 # 1.1 HRScript의 소개
 
-현대로봇 ${cont_model} 제어기는 HRScript라는 이름의 로봇언어로 로봇이 할 일을 프로그램할 수 있습니다. 작성된 프로그램은 확장자 .job 을 가진 여러 개의 파일에 나뉘어 저장될 수 있습니다. HRScript는 이름에서 알 수 있듯이 스크립트 언어로서, 컴파일 절차없이 인터프리터에 의해 한 행씩 해석, 실행됩니다. python이나 javascript 언어와 유사하지만 문법은 더 간단합니다.
+현대로봇 Hi6 제어기는 HRScript라는 이름의 로봇언어로 로봇이 할 일을 프로그램할 수 있습니다. 작성된 프로그램은 확장자 .job 을 가진 여러 개의 파일에 나뉘어 저장될 수 있습니다. HRScript는 이름에서 알 수 있듯이 스크립트 언어로서, 컴파일 절차없이 인터프리터에 의해 한 행씩 해석, 실행됩니다. python이나 javascript 언어와 유사하지만 문법은 더 간단합니다.
 
 # 2. 기본 문법
 
@@ -1611,7 +1598,7 @@ print "경고: 압력이 너무 높습니다."
 ```python
 if <bool 표현식>
 	<명령문>
-	…
+	...
 endif
 ```
 
@@ -1643,10 +1630,10 @@ false일 경우 수행할 명령문들도 있는 경우에는 아래의 형태�
 ```python
 if <bool 표현식>
 	<명령문 A>
-	…
+	...
 else
 	<명령문 B>
-	…
+	...
 endif
 ```
 
@@ -1676,16 +1663,16 @@ end
 ```python
 if <bool 표현식>
 	<명령문 A>
-	…
+	...
 elseif <bool 표현식>
 	<명령문 B>
-	…
+	...
 elseif <bool 표현식>
 	<명령문 C>
-	…
+	...
 else
 	<명령문 N>
-	…
+	...
 endif
 ```
 
@@ -1721,19 +1708,19 @@ switch 문은 수식을 평가하여 case문으로 지정한 수식을 평가한
 switch <표현식X>
 case <표현식A>
 	<명령문 A>
-	…
+	...
 	break
 case <표현식B1>
 case <표현식B2>
-	<명령문 B>	… (1)
+	<명령문 B>	... (1)
 case <표현식C>
-	<명령문 C>	… (2)
-	…
-	break		… (3)
+	<명령문 C>	... (2)
+	...
+	break		... (3)
 default
-	<명령문 N>	… (4)
-	…
-	break		… (5)
+	<명령문 N>	... (4)
+	...
+	break		... (5)
 end_switch
 ```
 
@@ -1775,10 +1762,10 @@ end_switch
 if <bool 표현식>
 	if <bool 표현식>
 		<명령문 A>
-		…
+		...
 	else
 		<명령문 B>
-		…
+		...
 	endif
 endif
 ```
@@ -1818,7 +1805,7 @@ step은 지정하지 않으면 1로 적용됩니다.
 ```python
 for <인덱스변수>=<초기값> to <종료값> [step <증감값>]
 	<명령문>
-	…
+	...
 next
 ```
 
@@ -1850,20 +1837,20 @@ end
 ```python
 for <인덱스변수>=<초기값> to <종료값> [step <증감값>]
 	<명령문>
-	…
+	...
 	break
 	<명령문>
-	…
+	...
 next
 ```
 
 ```python
 for <인덱스변수>=<초기값> to <종료값> [step <증감값>]
 	<명령문>
-	…
+	...
 	continue
 	<명령문>
-	…
+	...
 next
 ```
 
@@ -1912,7 +1899,7 @@ HRScript에서 메인 프로그램\(main program\)과 서브 프로그램\(sub p
 ### 문법
 
 ```python
-call <JOB번호 혹은 파일이름, 사용자함수명> [,매개변수1,매개변수2,…]
+call <JOB번호 혹은 파일이름, 사용자함수명> [,매개변수1,매개변수2,...]
 ```
 
 call 뒤에 JOB 번호, 혹은 JOB파일이름\(확장자 제외\)이나 사용자함수명을 지정합니다. A라는 프로그램이 수행되다가 call B를 만나면 A의 수행은 중단되고, 서브프로그램인 B 프로그램(혹은 사용자함수)의 첫 명령문부터 수행이 계속됩니다. B 수행 중 end문이나 return 문을 만나면 호출했던 A 프로그램 call문의 다음 명령문 위치로 복귀하여 A의 수행을 계속하게 됩니다.
@@ -2008,7 +1995,7 @@ def문으로 정의한 함수의 실행은 return문이나 end문을 실행할 �
 ### 문법
 
 ```python
-def <사용자 함수명> [,매개변수1[=디폴트값],매개변수2[=디폴트값],…]
+def <사용자 함수명> [,매개변수1[=디폴트값],매개변수2[=디폴트값],...]
 ```
 
 def 뒤에 사용자 함수명을 지정합니다. 함수명은 [2.2 식별자](../../2-basic-syntax/2-identifier.md) 절에서 정의한 규칙을 따라야 합니다. 또한, 프로젝트 전역적으로 유일한 명칭이어야 합니다. 다른 함수명 혹은 다른 변수명과 중복되지 않도록 유의하십시오.
@@ -2073,7 +2060,7 @@ jump 문의 형식은 아래와 같습니다.
 ### 문법
 
 ```python
-jump <JOB번호 혹은 파일이름> [,매개변수1,매개변수2,…]
+jump <JOB번호 혹은 파일이름> [,매개변수1,매개변수2,...]
 ```
 
 형식이 call문과 완전히 동일하며 동작도 유사합니다.
@@ -2259,7 +2246,7 @@ global x가 처음 수행되면 변수 x가 생성되면서 default값 0으로 �
         <p>count=count+1
           <br />
         </p>
-        <p>…
+        <p>...
           <br />
         </p>
         <p>end
@@ -2276,7 +2263,7 @@ global x가 처음 수행되면 변수 x가 생성되면서 default값 0으로 �
         <p>count=count+1
           <br />
         </p>
-        <p>…
+        <p>...
           <br />
         </p>
         <p>end</p>
@@ -2352,7 +2339,7 @@ global x가 처음 수행되면 변수 x가 생성되면서 default값 0으로 �
 
 |  |  |
 | :--- | :--- |
-| 정의 | var 배열명 = \[ 값, 값, …\] |
+| 정의 | var 배열명 = \[ 값, 값, ...\] |
 | 접근 | 배열명\[인덱스\] |
 
 배열을 구성하는 값들을 요소\(element\)라고 합니다. 위 배열 distances에는 총 5개의 요소가 있습니다. 인덱스는 0부터 시작합니다. distances의 0번 요소는 10, 1번 요소는 10.5 입니다.
@@ -2669,7 +2656,7 @@ print arr   # [1, 2, 3, 4, 5]
 
 |  |  |
 | :--- | :--- |
-| 정의 | var 객체명 = { 키 : 값, 키 : 값, …} |
+| 정의 | var 객체명 = { 키 : 값, 키 : 값, ...} |
 | 접 | 객체명.키 |
 
 아래는 객체 정의하고 접근 한 예입니다.
@@ -2975,7 +2962,7 @@ print arr   # [1, 2, 3, 4, 5]
 
 # 5.1 포즈 \(pose\)
 
-포즈는 ${cont_model} 제어기에 기본 내장된 객체형으로서, 로봇의 각 축의 자세, 혹은 툴 끝의 직교좌표와 방향을 표현합니다.
+포즈는 Hi6 제어기에 기본 내장된 객체형으로서, 로봇의 각 축의 자세, 혹은 툴 끝의 직교좌표와 방향을 표현합니다.
 
 포즈는 생성자 함수 Pose\( \)를 호출하여 생성합니다. 함수 매개변수들은 모두 위치 매개변수입니다. 첫 번째 문자열 요소는 format으로 두 번째 문자열 요소는 config로 인식됩니다. 나머지는 모두 숫자형입니다.
 
@@ -3016,7 +3003,7 @@ format의 예 (examples);
 {% hint style="info" %}
 cfg요소는 로봇 자세 \(configuration\)를 지정합니다.<br>
 축 좌표(joint)의 경우는 필요 없고, 직교좌표의 경우만 필요합니다.<br>
-자세한 내용은 ${cont_model} 로봇제어기 조작설명서의 "[2.3.2.2 베이스 및 로봇 기록 좌표](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-${cont_model}-tp630/2-operation/3-step/2-step-pose-modify/2-base-robot-crd-sys)"를 참조하십시오.
+자세한 내용은 Hi6 로봇제어기 조작설명서의 "[2.3.2.2 베이스 및 로봇 기록 좌표](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-Hi6-tp630/2-operation/3-step/2-step-pose-modify/2-base-robot-crd-sys)"를 참조하십시오.
 
 {% endhint %}
 
@@ -3024,8 +3011,8 @@ cfg요소는 로봇 자세 \(configuration\)를 지정합니다.<br>
 ### 변수 정의 예제
 
 ```python
-var 포즈변수명 = Pose(j1, j2, j3, …)					# 축 좌표
-var 포즈변수명 = Pose(x, y, z, rx, ry, rz, j7, j8,…, format, cfg)		# base 좌표
+var 포즈변수명 = Pose(j1, j2, j3, ...)					# 축 좌표
+var 포즈변수명 = Pose(x, y, z, rx, ry, rz, j7, j8,..., format, cfg)		# base 좌표
 ```
 
 6축+부가1축, 직교+부가 1축, 부가 1축 단독의 포즈를 생성하는 아래의 예를 참고하십시오.
@@ -3185,13 +3172,13 @@ print po2.z, po2.cfg
 
 # 5.2 시프트 \(shift\)
 
-시프트는 ${cont_model} 제어기에 기본 내장된 객체형으로서, 포즈에 대한 변경값을 표현합니다.
+시프트는 Hi6 제어기에 기본 내장된 객체형으로서, 포즈에 대한 변경값을 표현합니다.
 
 시프트는 생성자 함수 Shift\( \)를 호출하여 생성합니다. 함수 매개변수들은 모두 위치 매개변수입니다. crd와 cfg는 문자열형이고, 나머지는 모두 숫자형입니다.
 
 ```python
-var 시프트변수명 = Shift(j1, j2, j3, …)				# 축 좌표
-var 시프트변수명 = Shift(x, y, z, rx, ry, rz, j7, j8,…, crd)		# base 좌표
+var 시프트변수명 = Shift(j1, j2, j3, ...)				# 축 좌표
+var 시프트변수명 = Shift(x, y, z, rx, ry, rz, j7, j8,..., crd)		# base 좌표
 ```
 
 6축+부가1축, 직교+부가 1축의 시프트를 생성하는 아래의 예를 참고하십시오.
@@ -3233,7 +3220,7 @@ Shift 객체의 요소들은 다음의 키들로 접근 가능합니다.
 포즈
 포즈+시프트
 포즈-시프트
-포즈+시프트+시프트+…
+포즈+시프트+시프트+...
 ```
 
 포즈식의 결과를 다른 포즈 변수에 대입하는 아래의 예를 참고하십시오.
@@ -3303,7 +3290,7 @@ move &lt;보간&gt;, \[tg=&lt;포즈/시프트&gt;\], spd=&lt;속도&gt;, accu=&
           <br
           />
         </p>
-        <p>+나 – 부호를 붙인 시프트식을
+        <p>+나 - 부호를 붙인 시프트식을
           지정하면 (숨은포즈+시프트식)이
           목표 자세로 적용됩니다.
           <br
@@ -3581,7 +3568,7 @@ selucrd <좌표계번호>
 CONTPATH(연속패스)의 모드를 선택합니다.
 
 CONTPATH에 대한 설명은 아래 링크를 참조하십시오.  
-[${cont_model} 조작설명서: 8.15 R360 CONTPATH 수동 설정](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-${cont_model}-tp630/8-r-code/15-r360)
+[Hi6 조작설명서: 8.15 R360 CONTPATH 수동 설정](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-Hi6-tp630/8-r-code/15-r360)
 <br><br>
 
 
@@ -3740,9 +3727,7 @@ S7   move P,spd=60%,accu=0,tool=0
 
 정확한 동작을 위해 툴 데이터와 부가중량 정보를 반드시 올바르게 설정해야 합니다.
 
---- 
-
-## ⚠️ 주의사항
+{% hint style="warning" %}
 
 softxyz 기능은 **힘 센서를 사용하지 않는 기반 기능**이기 때문에,  
 부드럽고 자연스러운 모션 구현에는 **물리적 한계가 존재**합니다.
@@ -3750,9 +3735,9 @@ softxyz 기능은 **힘 센서를 사용하지 않는 기반 기능**이기 때�
 다만, `softxyz_lim` 설정값을 작업 환경에 맞게 적절히 조절하면  
 최대한 부드러운 모션을 구현할 수 있습니다.
 
-`softxyz_lim (pos / xnr / vel / thr)` 값은 로봇이 외력에 반응하는 정도를 직접적으로 결정하므로,   환경 · 조립 공정 · 툴 강성 등에 따라 **세밀한 튜닝이 필요**합니다.
+`softxyz_lim (pos / xnr / vel / thr)` 값은 로봇이 외력에 반응하는 정도를 직접적으로 결정하므로,   환경, 조립 공정, 툴 강성 등에 따라 **세밀한 튜닝이 필요**합니다.
 
---- 
+{% endhint %}
 
 ### 설명 
 * 센서를 사용하지 않고 외력에 대해 직교좌표 기준으로 로봇이 밀리는 기능 
@@ -3977,7 +3962,7 @@ S2   move P,spd=250mm/sec,accu=0,tool=0
 
 
 ### 설명 
-* 로봇의 이동에 대한 위치 지령 생성은 외부 장치에서 수행하고 이 생성된 외부 지령을 이더넷이나 시리얼 통신을 통해 문자열 데이터로 ${cont_model} 제어기에 전송하면 ${cont_model} 제어기는 이 지령을 수신하여 해당 로봇을 제어하는 기능입니다. 
+* 로봇의 이동에 대한 위치 지령 생성은 외부 장치에서 수행하고 이 생성된 외부 지령을 이더넷이나 시리얼 통신을 통해 문자열 데이터로 Hi6 제어기에 전송하면 Hi6 제어기는 이 지령을 수신하여 해당 로봇을 제어하는 기능입니다. 
 
 
 ### 문법 
@@ -4361,13 +4346,13 @@ fb2.do3=fb2.do7=fb2.do11=1   # fb2의 3번, 7번, 11번 출력신호를 한꺼�
 # 6.1.3 fn객체
 
 fb객체의 특정 영역을 지정하여 fn객체를 정의할 수 있습니다.
-${cont_model} 제어기가 필드버스 master이고, 여러 개의 필드버스 slave장치들이 있을 경우, 각 slave장치의 영역들을 하나씩의 fn객체로 설정해두면, 이 slave들을 직관적으로 다룰 수 있습니다.
+Hi6 제어기가 필드버스 master이고, 여러 개의 필드버스 slave장치들이 있을 경우, 각 slave장치의 영역들을 하나씩의 fn객체로 설정해두면, 이 slave들을 직관적으로 다룰 수 있습니다.
 
 ![](../../_assets/io/io_fn.png)
 
 fn영역을 설정하는 방법은 아래 링크를 참조하십시오.
 
-[${cont_model} 조작설명서: 7.3.2.12 fn 블럭 할당](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-${cont_model}-tp630/7-setting/3-control-parameter/2-io-signal-setting/12-fn-block)
+[Hi6 조작설명서: 7.3.2.12 fn 블럭 할당](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-Hi6-tp630/7-setting/3-control-parameter/2-io-signal-setting/12-fn-block)
   
 &nbsp;
 
@@ -4465,7 +4450,7 @@ pulse <신호>,tlag=<지연 시간>,ton=<On 시간>,toff=<Off 시간>,cnt=<출�
    end
 ```# 6.2 http\_cli 모듈 : HTTP 클라이언트
 
-${cont_model} 제어기의 범용 이더넷 포트를 통해, 원격의 웹 서비스에 접근하여 HTTP 서비스를 받을 수 있습니다.
+Hi6 제어기의 범용 이더넷 포트를 통해, 원격의 웹 서비스에 접근하여 HTTP 서비스를 받을 수 있습니다.
 
 이 기능을 사용하기 위해서는 아래와 같이 http\_cli 모듈을 import한 후, HttpCli 객체를 생성해야 합니다.
 
@@ -5332,7 +5317,7 @@ input work_no,10,*timeout
 HRScript에서 모드버스 마스터 동작을 수행할 수 있습니다. 모드버스 통신 기능에 대한 자세한 내용은 별도의 [Hi6 로봇제어기 기능설명서 - 모드버스](https://hrbook-hrc.web.app/#/view/doc-modbus/korean/README)를 참조하십시오.  
 # 6.5 sci 모듈 : 시리얼 통신
 
-${cont_model} 제어기의 COM 포트를 통해, 시리얼 통신을 수행할 수 있습니다.
+Hi6 제어기의 COM 포트를 통해, 시리얼 통신을 수행할 수 있습니다.
 
 이 기능을 사용하기 위해서는 아래와 같이 Sci 객체를 전역변수로 생성해야 합니다.
 
@@ -5585,7 +5570,7 @@ Hyundai Robot Job File; { version: 1.6, mech_type: "", total_axis: -1, aux_axis:
 
 # 7 enet 모듈 : 이더넷 TCP/UDP 통신
 
-${cont_model} 제어기의 범용 이더넷 포트를 통해, 외부 장치와 이더넷 TCP 혹은 UDP 통신으로 문자열, 혹은 바이너리 데이터의 송수신을 할 수 있습니다.
+Hi6 제어기의 범용 이더넷 포트를 통해, 외부 장치와 이더넷 TCP 혹은 UDP 통신으로 문자열, 혹은 바이너리 데이터의 송수신을 할 수 있습니다.
 
 enet 모듈은 ENet과 BBuf의 2개의 객체를 생성할 수 있습니다. ENet은 이더넷 socket 인터페이스를 제공하고, BBuf는 바이너리 데이터 통신을 할 때 사용됩니다.  
 
@@ -5618,7 +5603,7 @@ UDP peer-to-peer (1:1통신), 혹은 TCP client 예제 프로그램을 문자열
      cli.ip_addr="192.168.1.172" # remote (상대방) IP address
      cli.lport=51001 # local (자신) port
      cli.rport=51002 # remote (상대방) port
-     # (port no. 49152–65535(except 50000~50005) contains dynamic or private ports)
+     # (port no. 49152-65535(except 50000~50005) contains dynamic or private ports)
 
      # 3. ethernet socket 열기
      cli.open
@@ -5856,7 +5841,7 @@ TCP client가 `connect()` 함수로 server에 접속하는 반면, TCP server는
      # 2. IP주소와 port번호 설정
      svr.ip_addr="192.168.1.172" # remote (상대방) IP address
      svr.lport=51001 # local (자신) port
-     # (port no. 49152–65535(except 50000~50005) contains dynamic or private ports)
+     # (port no. 49152-65535(except 50000~50005) contains dynamic or private ports)
      
      # 3. ethernet socket 열기
      svr.open
@@ -7106,7 +7091,7 @@ global unit="mm/s" # (O)
 
 # 9.1 파일시스템
 
-${cont_model} 제어기의 MAIN 모듈 파일시스템에서, 디렉토리와 파일의 생성, 복사, 삭제를 수행하는 명령문들을 설명합니다.
+Hi6 제어기의 MAIN 모듈 파일시스템에서, 디렉토리와 파일의 생성, 복사, 삭제를 수행하는 명령문들을 설명합니다.
 # 9.1.1 mkdir문
 
 mkdir문은 디렉토리를 생성하는 프로시져입니다.
@@ -7326,7 +7311,7 @@ delfile <결과변수>,<경로파일명>
 ```
 # 9.2 load/save
 
-${cont_model} 제어기 MAIN 모듈의 메모리로 파일을 불러오거나 저장하는 명령문들을 설명합니다. 
+Hi6 제어기 MAIN 모듈의 메모리로 파일을 불러오거나 저장하는 명령문들을 설명합니다. 
 # 9.2.1 load_job문
 
 MAIN 모듈의 project/jobs/ 폴더의 변경사항을 새로 메모리로 읽어들이는 명령문입니다.
@@ -7415,7 +7400,7 @@ HRScript의 전역 최상위(root) 배열은 vars/ 폴더에 CSV 표준형식의
 
 변수 파일에 대한 관련 내용은 아래 조작설명서 링크를 참고하십시오.
 
-[전역변수/변수 파일](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-${cont_model}-tp630/6-monitoring/3-job/3-global-variable/3-var-files)
+[전역변수/변수 파일](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-Hi6-tp630/6-monitoring/3-job/3-global-variable/3-var-files)
 
 .csv 파일들은 PC에서 텍스트 편집기로 쉽게 편집할 수 있습니다.
 편집된 파일을 vars/ 폴더로 복사하는 것 만으로는 즉각 메모리에 반영되지 않으며, 티치펜던트의 전역변수창에서 `[전부 불러오기]` 기능을 사용하거나, `load_csv` 명령을 실행해야만 반영됩니다.
@@ -7500,7 +7485,7 @@ HRScript의 전역 최상위(root) 배열은 vars/ 폴더에 CSV 표준형식의
 
 변수 파일에 대한 관련 내용은 아래 조작설명서 링크를 참고하십시오.
 
-[전역변수/변수 파일](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-${cont_model}-tp630/6-monitoring/3-job/3-global-variable/3-var-files)
+[전역변수/변수 파일](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-Hi6-tp630/6-monitoring/3-job/3-global-variable/3-var-files)
 
 전역 최상위(root) 배열은 값이 바뀔 때마다 즉각적으로 .csv 파일에 저장되지는 않습니다.
 `Ctrl+[F7: save]`를 누르거나 전원을 끌 때에 파일로 저장되는데, `save_csv` 명령문을 수행하면 즉각 파일로 저장할 수 있습니다.

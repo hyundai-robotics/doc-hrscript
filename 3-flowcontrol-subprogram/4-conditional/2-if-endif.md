@@ -11,7 +11,7 @@
 ```python
 if <bool 표현식>
 	<명령문>
-	…
+	...
 endif
 ```
 

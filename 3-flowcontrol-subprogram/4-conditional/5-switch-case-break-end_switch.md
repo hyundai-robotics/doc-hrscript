@@ -14,19 +14,19 @@ switch 문은 수식을 평가하여 case문으로 지정한 수식을 평가한
 switch <표현식X>
 case <표현식A>
 	<명령문 A>
-	…
+	...
 	break
 case <표현식B1>
 case <표현식B2>
-	<명령문 B>	… (1)
+	<명령문 B>	... (1)
 case <표현식C>
-	<명령문 C>	… (2)
-	…
-	break		… (3)
+	<명령문 C>	... (2)
+	...
+	break		... (3)
 default
-	<명령문 N>	… (4)
-	…
-	break		… (5)
+	<명령문 N>	... (4)
+	...
+	break		... (5)
 end_switch
 ```
 

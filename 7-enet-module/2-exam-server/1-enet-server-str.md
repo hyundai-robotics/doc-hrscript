@@ -18,7 +18,7 @@
      # 2. IP주소와 port번호 설정
      svr.ip_addr="192.168.1.172" # remote (상대방) IP address
      svr.lport=51001 # local (자신) port
-     # (port no. 49152–65535(except 50000~50005) contains dynamic or private ports)
+     # (port no. 49152-65535(except 50000~50005) contains dynamic or private ports)
      
      # 3. ethernet socket 열기
      svr.open

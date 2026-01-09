@@ -78,7 +78,7 @@ global x가 처음 수행되면 변수 x가 생성되면서 default값 0으로 �
         <p>count=count+1
           <br />
         </p>
-        <p>…
+        <p>...
           <br />
         </p>
         <p>end
@@ -95,7 +95,7 @@ global x가 처음 수행되면 변수 x가 생성되면서 default값 0으로 �
         <p>count=count+1
           <br />
         </p>
-        <p>…
+        <p>...
           <br />
         </p>
         <p>end</p>

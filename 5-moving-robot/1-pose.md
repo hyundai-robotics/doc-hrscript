@@ -49,8 +49,8 @@ cfg요소는 로봇 자세 \(configuration\)를 지정합니다.<br>
 ### 변수 정의 예제
 
 ```python
-var 포즈변수명 = Pose(j1, j2, j3, …)					# 축 좌표
-var 포즈변수명 = Pose(x, y, z, rx, ry, rz, j7, j8,…, format, cfg)		# base 좌표
+var 포즈변수명 = Pose(j1, j2, j3, ...)					# 축 좌표
+var 포즈변수명 = Pose(x, y, z, rx, ry, rz, j7, j8,..., format, cfg)		# base 좌표
 ```
 
 6축+부가1축, 직교+부가 1축, 부가 1축 단독의 포즈를 생성하는 아래의 예를 참고하십시오.

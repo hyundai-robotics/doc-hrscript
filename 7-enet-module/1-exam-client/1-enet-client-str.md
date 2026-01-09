@@ -23,7 +23,7 @@
      cli.ip_addr="192.168.1.172" # remote (상대방) IP address
      cli.lport=51001 # local (자신) port
      cli.rport=51002 # remote (상대방) port
-     # (port no. 49152–65535(except 50000~50005) contains dynamic or private ports)
+     # (port no. 49152-65535(except 50000~50005) contains dynamic or private ports)
 
      # 3. ethernet socket 열기
      cli.open
