@@ -1,4 +1,4 @@
-# 6.5 Sci module : Serial communication
+﻿# 6.5 Sci module : Serial communication
 
 Serial communication can be performed through the COM port of the ${cont_model} controller.
 

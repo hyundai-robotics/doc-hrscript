@@ -1,4 +1,4 @@
-# 4.1.4 Append Procedure for Adding an Element to an Array
+﻿# 4.1.4 Append Procedure for Adding an Element to an Array
 
 Supported from V60.32-00
 

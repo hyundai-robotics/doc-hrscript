@@ -1,4 +1,4 @@
-# 2.9.2 String Functions
+﻿# 2.9.2 String Functions
 
 Examples with var str="hello, world" executed;
 

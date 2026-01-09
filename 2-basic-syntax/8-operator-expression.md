@@ -1,6 +1,6 @@
 ﻿# 2.8 Operators and Expressions
 
-In the following example, the variable margin is added to the number value 500, and the resulting value is divided by 2. Thus, the calculated value is assigned to a variable called “height.”
+In the following example, the variable margin is added to the number value 500, and the resulting value is divided by 2. Thus, the calculated value is assigned to a variable called "height."
 
 ```python
 var height, margin=10
@@ -8,13 +8,13 @@ height=(500+margin)/2
 print height
 ```
 
-Through the print statement, it is possible to check that 255, which is the result of the expression, is assigned to “height.”
+Through the print statement, it is possible to check that 255, which is the result of the expression, is assigned to "height."
 
 In this way, an expression can be created by concatenating operands, which are values or variables, using various operators, and the result can be assigned to a variable or be used as a parameter of a statement.
 
 
 
-What operation will be performed first if the addition sign and multiplication sign are used without grouping, as shown below? Multiplication and division will be performed first before addition and subtraction because there is an operation order in which operators are applied, which is called “operator precedence.” Because the operator precedence of multiplication is higher than that of addition, multiplication will be performed first even though the multiplication sign is located at a later place.
+What operation will be performed first if the addition sign and multiplication sign are used without grouping, as shown below? Multiplication and division will be performed first before addition and subtraction because there is an operation order in which operators are applied, which is called "operator precedence." Because the operator precedence of multiplication is higher than that of addition, multiplication will be performed first even though the multiplication sign is located at a later place.
 
 
 
@@ -180,5 +180,5 @@ print count_a and height>99
 print count_b and height>99
 ```
 
-“bitwise NOT” and “shift left/right” are calculated on a 32-bit length basis.
+"bitwise NOT" and "shift left/right" are calculated on a 32-bit length basis.
 

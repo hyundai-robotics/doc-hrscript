@@ -1,4 +1,4 @@
-# 4.2 Object
+﻿# 4.2 Object
 
 As previously seen, it was found that an array could store multiple element values and are accessed by index. 
 
@@ -8,7 +8,7 @@ Objects are defined as var or global, like any other variables. The definition o
 
 |  |  |
 | :--- | :--- |
-| Definition | var object name = { key : value, key : value, …} |
+| Definition | var object name = { key : value, key : value, ...} |
 | Access | Object name key |
 
 
@@ -40,9 +40,9 @@ The following shows an example of defining and accessing an object.
 
 
 
-The object’s key must be in the format of an identifier, but the element’s value can be of any type and can also be of different types. 
+The object"s key must be in the format of an identifier, but the element"s value can be of any type and can also be of different types. 
 
-An object can contain other objects or arrays as its elements. Likewise, an array can also contain other arrays or objects as its elements. In the following example, “work,” which is an object, contains “size,” which is an object, and “heights,” which is an array.
+An object can contain other objects or arrays as its elements. Likewise, an array can also contain other arrays or objects as its elements. In the following example, "work," which is an object, contains "size," which is an object, and "heights," which is an array.
 
 <table>
   <thead>

@@ -1,4 +1,4 @@
-# 2.5.3 Boolean Data Type
+﻿# 2.5.3 Boolean Data Type
 
 There are only two values, true and false, as the result of the following logic and comparison operations.
 

@@ -1,4 +1,4 @@
-# 2.9.5 Other Functions
+﻿# 2.9.5 Other Functions
 
 <table>
   <thead>

@@ -1,4 +1,4 @@
-# 2.9.3 Date and Time Functions
+﻿# 2.9.3 Date and Time Functions
 
 <table>
   <thead>

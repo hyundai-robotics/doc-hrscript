@@ -1,4 +1,4 @@
-# 3.4.2 if-endif
+﻿# 3.4.2 if-endif
 
 ### Description
 
@@ -11,7 +11,7 @@ The form is as follows: If &lt;Boolean expression&gt; is true, the multiple numb
 ```python
 if <bool expression>
 	<statement>
-	…
+	...
 endif
 ```
 

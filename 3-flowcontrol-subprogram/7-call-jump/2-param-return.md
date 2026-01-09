@@ -1,4 +1,4 @@
-# 3.7.2 Parameters and param, return
+﻿# 3.7.2 Parameters and param, return
 
 In a job program, formal parameters are used as channels through which input and output are passed. The **param** statement will define formal parameters at the beginning of the job program.
 

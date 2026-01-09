@@ -1,4 +1,4 @@
-# 6.5.3 Serial communication example
+﻿# 6.5.3 Serial communication example
 
 ``` python
 Hyundai Robot Job File; { version: 1.6, mech_type: "", total_axis: -1, aux_axis: -1 }

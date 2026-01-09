@@ -1,4 +1,4 @@
-# 3.4.5 switch-case-break-end\_switch
+﻿# 3.4.5 switch-case-break-end\_switch
 
 ### Description
 
@@ -14,19 +14,19 @@ If the resulting value of Expression X is not equal to that of any **case** stat
 switch <expression X>
 case <expression A>
 	<statement A>
-	…
+	...
 	break
 case <expression B1>
 case <expression B2>
-	<statement B>	… (1)
+	<statement B>	... (1)
 case <expression C>
-	<statement C>	… (2)
-	…
-	break		… (3)
+	<statement C>	... (2)
+	...
+	break		... (3)
 default
-	<statement N>	… (4)
-	…
-	break		… (5)
+	<statement N>	... (4)
+	...
+	break		... (5)
 end_switch
 ```
 

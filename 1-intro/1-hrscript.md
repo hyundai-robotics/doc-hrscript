@@ -1,4 +1,4 @@
-# 1.1 Introduction of HRScript
+﻿# 1.1 Introduction of HRScript
 
 HD Hyundai Robotics' ${cont_model} Controller allows the user to program the robot's tasks in a robot language called HRScript. Created programs can be saved as several files with the extension .job.
 

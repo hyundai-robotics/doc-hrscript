@@ -1,4 +1,4 @@
-# 2.6 Variables
+﻿# 2.6 Variables
 
 A variable can store values and has an identifier name. Variables are divided into global and local variables, and the difference between them will be described later. Examples of local variables are first described here.
 
@@ -13,7 +13,7 @@ var myvar
 var width, height, depth
 ```
 
-Storing a value in a variable is called “assignment.” The assignment may be performed while defining or after defining a variable. If the assignment is not performed while defining, the variable will have a number value of 0 by default.
+Storing a value in a variable is called "assignment." The assignment may be performed while defining or after defining a variable. If the assignment is not performed while defining, the variable will have a number value of 0 by default.
 
 ```python
 var myvar=0
@@ -21,7 +21,7 @@ var message, width=200
 message="Invalid input value"
 ```
 
-In HRScript, \(=\) does not mean equal. It is used as an assignment operator and means that the value on the operator’s right side is assigned to the variable on the left side. The value stored in the variable may be printed through the print statement.
+In HRScript, \(=\) does not mean equal. It is used as an assignment operator and means that the value on the operator"s right side is assigned to the variable on the left side. The value stored in the variable may be printed through the print statement.
 
 ```python
 var myvar=0

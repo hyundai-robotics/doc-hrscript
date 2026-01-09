@@ -1,4 +1,4 @@
-# 2.1 Statements
+﻿# 2.1 Statements
 
 The statement refers to each command string that becomes the execution unit of the job program. HRScript allows only one statement per line. Take note of how the four examples of statements are written below, particularly their appearances.
 

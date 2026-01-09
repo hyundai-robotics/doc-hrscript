@@ -45,8 +45,8 @@ The cfg element specifies the robot configuration. For more information, refer t
 
 
 ```python
-var <pose variable name> = Pose(j1, j2, j3, …)		# axis coordinate
-var <pose variable name> = Pose(x, y, z, rx, ry, rz, j7, j8,…, crd, cfg)		# base coord.
+var <pose variable name> = Pose(j1, j2, j3, ...)		# axis coordinate
+var <pose variable name> = Pose(x, y, z, rx, ry, rz, j7, j8,..., crd, cfg)		# base coord.
 ```
 
 Refer to the following examples of creating the poses for 6 axes + 1 additional axis and for Cartesian + 1 additional axis.

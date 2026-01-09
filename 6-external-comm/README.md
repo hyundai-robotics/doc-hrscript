@@ -1,2 +1,2 @@
-# 6. Communicating with External Devices
+﻿# 6. Communicating with External Devices
 

@@ -1,20 +1,4 @@
-﻿# ${cont_model} Robot Controller Function Manual - Robot Language HRScript
-
-{% hint style="warning" %}
-The information presented in this manual is the property of HD Hyundai Robotics.
-
-The manual may neither be copied, in part or in full, nor redistributed without prior written consent from HD Hyundai Robotics.
-
-It may neither be provided to any third party nor used for any other purposes.
-
-
-
-HD Hyundai Robotics reserves the right to modify this document without prior notification.
-
-
-
-**Copyright ⓒ 2025 by HD Hyundai Robotics**
-{% endhint %}
+﻿# Hi7 Robot Controller Function Manual - Robot Language HRScript
 # 1. Overview
 
   
@@ -22,7 +6,7 @@ HD Hyundai Robotics reserves the right to modify this document without prior not
 
 # 1.1 Introduction of HRScript
 
-HD Hyundai Robotics' ${cont_model} Controller allows the user to program the robot's tasks in a robot language called HRScript. Created programs can be saved as several files with the extension .job.
+HD Hyundai Robotics' Hi7 Controller allows the user to program the robot's tasks in a robot language called HRScript. Created programs can be saved as several files with the extension .job.
 
 HRScript is a scripting language that will be interpreted and executed line by line by the interpreter without a compilation procedure. It is similar to the Python or JavaScript languages but has a simpler syntax.
 
@@ -71,10 +55,10 @@ myvar (O)
 myvar2 (O)
 _myvar (O)
 MyVar (O)
-310a (X) – Started with a number
-move (X) – An identifier already defined in the system
-v300$ (X) – Used a symbol other than an underscore ($)
-my var (X) – Included a space
+310a (X) - Started with a number
+move (X) - An identifier already defined in the system
+v300$ (X) - Used a symbol other than an underscore ($)
+my var (X) - Included a space
 ```
 
 {% hint style="warning" %}
@@ -103,7 +87,7 @@ The four types of statements of HRScript are as follows:
 
 # 2.3.1 Procedures
 
-A procedure consists of a command and a 0–N number of parameters.
+A procedure consists of a command and a 0-N number of parameters.
 
 ```python
 move P,po3,spd=80%,accu=1,tool=3 until do33
@@ -117,7 +101,7 @@ The three types of procedure parameters are as follows:
 | Keyword parameter | &lt;keyword&gt; = &lt;value&gt; | spd=80%, accu=1, tool=3 |
 | Preposition parameter | &lt;preposition&gt;  &lt;value&gt; | until do33 |
 
-The position parameter’s role is determined by its position, so it should not be moved and must always be at the front of the procedure. 
+The position parameter"s role is determined by its position, so it should not be moved and must always be at the front of the procedure. 
 
 Keyword parameters should be placed after position parameters. However, the order between keyword parameters does not affect the operation.
 
@@ -169,13 +153,13 @@ The print statement is used to print the value at the bottom of the teach pendan
 
 # 2.5.1 String Data Type
 
-The first program in the previous paragraph used the data “Hello, World!” as the print statement’s parameter, a string data type. The value of the string data type begins and ends with double quotes. There is no limit for the length of the string.
+The first program in the previous paragraph used the data "Hello, World!" as the print statement"s parameter, a string data type. The value of the string data type begins and ends with double quotes. There is no limit for the length of the string.
 
 ```python
 print "Welcome to the Robot World."
 ```
 
-A sequence beginning with a backslash \(\\) represents double quotes or special characters in a string. This sequence is called the “escape character.”
+A sequence beginning with a backslash \(\\) represents double quotes or special characters in a string. This sequence is called the "escape character."
 
 The supported escape characters are shown in the table below.
 
@@ -255,7 +239,7 @@ var myvar
 var width, height, depth
 ```
 
-Storing a value in a variable is called “assignment.” The assignment may be performed while defining or after defining a variable. If the assignment is not performed while defining, the variable will have a number value of 0 by default.
+Storing a value in a variable is called "assignment." The assignment may be performed while defining or after defining a variable. If the assignment is not performed while defining, the variable will have a number value of 0 by default.
 
 ```python
 var myvar=0
@@ -263,7 +247,7 @@ var message, width=200
 message="Invalid input value"
 ```
 
-In HRScript, \(=\) does not mean equal. It is used as an assignment operator and means that the value on the operator’s right side is assigned to the variable on the left side. The value stored in the variable may be printed through the print statement.
+In HRScript, \(=\) does not mean equal. It is used as an assignment operator and means that the value on the operator"s right side is assigned to the variable on the left side. The value stored in the variable may be printed through the print statement.
 
 ```python
 var myvar=0
@@ -292,7 +276,7 @@ var hexadecimal = 0xFF4A38C0
 
 # 2.8 Operators and Expressions
 
-In the following example, the variable margin is added to the number value 500, and the resulting value is divided by 2. Thus, the calculated value is assigned to a variable called “height.”
+In the following example, the variable margin is added to the number value 500, and the resulting value is divided by 2. Thus, the calculated value is assigned to a variable called "height."
 
 ```python
 var height, margin=10
@@ -300,13 +284,13 @@ height=(500+margin)/2
 print height
 ```
 
-Through the print statement, it is possible to check that 255, which is the result of the expression, is assigned to “height.”
+Through the print statement, it is possible to check that 255, which is the result of the expression, is assigned to "height."
 
 In this way, an expression can be created by concatenating operands, which are values or variables, using various operators, and the result can be assigned to a variable or be used as a parameter of a statement.
 
 
 
-What operation will be performed first if the addition sign and multiplication sign are used without grouping, as shown below? Multiplication and division will be performed first before addition and subtraction because there is an operation order in which operators are applied, which is called “operator precedence.” Because the operator precedence of multiplication is higher than that of addition, multiplication will be performed first even though the multiplication sign is located at a later place.
+What operation will be performed first if the addition sign and multiplication sign are used without grouping, as shown below? Multiplication and division will be performed first before addition and subtraction because there is an operation order in which operators are applied, which is called "operator precedence." Because the operator precedence of multiplication is higher than that of addition, multiplication will be performed first even though the multiplication sign is located at a later place.
 
 
 
@@ -472,11 +456,11 @@ print count_a and height>99
 print count_b and height>99
 ```
 
-“bitwise NOT” and “shift left/right” are calculated on a 32-bit length basis.
+"bitwise NOT" and "shift left/right" are calculated on a 32-bit length basis.
 
 # 2.9 Functions
 
-What is the process of converting the angle 60 to a radian value or finding the length of the string that the variable mystr contains? 
+What is the process of converting the angle 60° to a radian value or finding the length of the string that the variable mystr contains? 
 
 HRScript provides various functions that receive inputs through parameters, perform some processing, and return the result values. 
 
@@ -1494,7 +1478,7 @@ if <bool expression> then <address>
 
 ### Example
 
-Below is an example of the single-line if statement. If the condition that pressure is greater than the limit is true, branching to the label address “\*err will occur,” making it possible to print a warning that the pressure is too high. If the condition is false, the next statement will be executed one after the other without branching, so “In normal operation ” will be printed, ending the program.
+Below is an example of the single-line if statement. If the condition that pressure is greater than the limit is true, branching to the label address "\*err will occur," making it possible to print a warning that the pressure is too high. If the condition is false, the next statement will be executed one after the other without branching, so "In normal operation " will be printed, ending the program.
 
 ```python
 var pressure=95, limit=90
@@ -1518,7 +1502,7 @@ The form is as follows: If &lt;Boolean expression&gt; is true, the multiple numb
 ```python
 if <bool expression>
 	<statement>
-	…
+	...
 endif
 ```
 
@@ -1583,16 +1567,16 @@ In the case of multiple conditions, the elseif statement can be used in the foll
 ```python
 if <bool expression>
 	<statement A>
-	…
+	...
 elseif <bool expression>
 	<statement B>
-	…
+	...
 elseif <bool expression>
 	<statement C>
-	…
+	...
 else
 	<statement N>
-	…
+	...
 endif
 ```
 
@@ -1628,19 +1612,19 @@ If the resulting value of Expression X is not equal to that of any **case** stat
 switch <expression X>
 case <expression A>
 	<statement A>
-	…
+	...
 	break
 case <expression B1>
 case <expression B2>
-	<statement B>	… (1)
+	<statement B>	... (1)
 case <expression C>
-	<statement C>	… (2)
-	…
-	break		… (3)
+	<statement C>	... (2)
+	...
+	break		... (3)
 default
-	<statement N>	… (4)
-	…
-	break		… (5)
+	<statement N>	... (4)
+	...
+	break		... (5)
 end_switch
 ```
 
@@ -1686,10 +1670,10 @@ In the control statement block, another control statement block can be placed, a
 if <bool expression>
 	if <bool expression>
 		<statement A>
-		…
+		...
 	else
 		<statement B>
-		…
+		...
 	endif
 endif
 ```
@@ -1809,7 +1793,7 @@ Tom
 
 If an entire large-scale robot operation is created as one job program, the program becomes large and complex, making it difficult to add functions or find and solve problems.
 
-For the program’s maintainability, it is preferable to divide the unit operations that make up the entire program into subprograms. For example, when routines, such as a routine performs communication with a sensor, a routine that calculates the target position of the tool tip with the received data, and a routine that generates an appropriate message when an error occurs, are turned into individual subprograms and allow the main program to call them, it will be easier to grasp the overall structure of the program. It will also be useful to reuse divided subprograms in other projects.
+For the program"s maintainability, it is preferable to divide the unit operations that make up the entire program into subprograms. For example, when routines, such as a routine performs communication with a sensor, a routine that calculates the target position of the tool tip with the received data, and a routine that generates an appropriate message when an error occurs, are turned into individual subprograms and allow the main program to call them, it will be easier to grasp the overall structure of the program. It will also be useful to reuse divided subprograms in other projects.
 
 
 
@@ -2027,9 +2011,9 @@ Examples have been described only using the examples of local variables defined 
 
 ### Example
 
-“main\_v” is a local variable accessible only within 0001.job, and “sub\_v” is a local variable accessible only within 0107.job.   Attempting to access it from another program will cause an error. 
+"main\_v" is a local variable accessible only within 0001.job, and "sub\_v" is a local variable accessible only within 0107.job.   Attempting to access it from another program will cause an error. 
 
-The local variable “x” is defined in both 0001.job and 0107.job. The local variable “x” respectively defined in both programs has the same name but are different. So the value 5 for the variable “x” is set in subprogram 0107, 3 will be printed instead of 5 after the return to main program 0001.
+The local variable "x" is defined in both 0001.job and 0107.job. The local variable "x" respectively defined in both programs has the same name but are different. So the value 5 for the variable "x" is set in subprogram 0107, 3 will be printed instead of 5 after the return to main program 0001.
 
 
 
@@ -2280,14 +2264,14 @@ Array definitions and access formats are as follows.
 
 |  |  |
 | :--- | :--- |
-| Definition | var array name = \[ Value, Value, …\] |
+| Definition | var array name = \[ Value, Value, ...\] |
 | Access | Array name \[Index\] |
 
 The values that make up an array are called `elements.` Distances, an array shown in the following example, has a total of five elements. The index starts from 0. Element 0 and element 1 of `distances` are 10 and 10.5, respectively.
 
 
 
-The \[ \] operator is used as follows to read or write the value of an array’s specific element value. The following shows an example of an object that is defined and accessed.
+The \[ \] operator is used as follows to read or write the value of an array"s specific element value. The following shows an example of an object that is defined and accessed.
 
 <table>
   <thead>
@@ -2425,9 +2409,9 @@ It does not matter if the values stored in the array are of different types.
 
 # 4.1.2 Multidimensional Arrays
 
-An array can also be nested as an element of an array. When accessing the elements of a multidimensional array, you can use the \[ \] operator consecutively. In the following example, “arr\_y” is a two-dimensional array. \(1\)
+An array can also be nested as an element of an array. When accessing the elements of a multidimensional array, you can use the \[ \] operator consecutively. In the following example, "arr\_y" is a two-dimensional array. \(1\)
 
-arr\_y\[1\] is an array of elements of index 1, namely \["abc", "jqk", "xyz"\], and it is assigned to the new variable “arr\_x.” \(2\)
+arr\_y\[1\] is an array of elements of index 1, namely \["abc", "jqk", "xyz"\], and it is assigned to the new variable "arr\_x." \(2\)
 
 So, arr\_x\[1\] is "jqk", and arr\_y\[1\]\[2\] is "xyz" because it points to \[2\] of arr\_y\[1\].
 
@@ -2539,7 +2523,7 @@ Objects are defined as var or global, like any other variables. The definition o
 
 |  |  |
 | :--- | :--- |
-| Definition | var object name = { key : value, key : value, …} |
+| Definition | var object name = { key : value, key : value, ...} |
 | Access | Object name key |
 
 
@@ -2571,9 +2555,9 @@ The following shows an example of defining and accessing an object.
 
 
 
-The object’s key must be in the format of an identifier, but the element’s value can be of any type and can also be of different types. 
+The object"s key must be in the format of an identifier, but the element"s value can be of any type and can also be of different types. 
 
-An object can contain other objects or arrays as its elements. Likewise, an array can also contain other arrays or objects as its elements. In the following example, “work,” which is an object, contains “size,” which is an object, and “heights,” which is an array.
+An object can contain other objects or arrays as its elements. Likewise, an array can also contain other arrays or objects as its elements. In the following example, "work," which is an object, contains "size," which is an object, and "heights," which is an array.
 
 <table>
   <thead>
@@ -2648,7 +2632,7 @@ If the right side of an assignment statement has object variables, the entire va
 
 In the description of call statements and jump statements given in Section 3.4, the concepts of formal parameters and actual parameters were explained. When an actual parameter has been transported to a sub-program, if the sub-program ends after changing the value of the parameter, will it be reflected to the main program?
 
-For example, let’s assume that a sub-program 0005\_pow3.job raises a value to the third power as follows:
+For example, let"s assume that a sub-program 0005\_pow3.job raises a value to the third power as follows:
 
 
 
@@ -2701,7 +2685,7 @@ For example, let’s assume that a sub-program 0005\_pow3.job raises a value to 
   </tbody>
 </table>
 
-Although we expected that 8 is output because 2×2×2 is 8, the result is 2. It is because, when a numeric-type actual parameter is transported to a sub-program, the value is copied as a parameter. In other words, in \(1\), because the value raised to the third power was assigned to the copied version, it did not affect the value of the original parameter, x.
+Although we expected that 8 is output because 2x2x2 is 8, the result is 2. It is because, when a numeric-type actual parameter is transported to a sub-program, the value is copied as a parameter. In other words, in \(1\), because the value raised to the third power was assigned to the copied version, it did not affect the value of the original parameter, x.
 
 Therefore, the teaching program should be corrected so that the resulting value is transported by a return statement.
 
@@ -2840,7 +2824,7 @@ After understanding the pose that expresses the target position of the robot, le
 
 # 5.1 Pose
 
-Pose is an object type embedded in the ${cont_model} Controller and represents each axis of the robot or the Cartesian coordinates and direction of the tool tip. 
+Pose is an object type embedded in the Hi7 Controller and represents each axis of the robot or the Cartesian coordinates and direction of the tool tip. 
 
 Poses are created by calling the constructor function `Pose()`. All function parameters are position parameters. The first string element is recognized as the `format`, and the second string element as the `config`. The remaining elements are all numeric type.
 
@@ -2879,14 +2863,14 @@ Examples of format;
 ```
 
 {% hint style="info" %}
-The cfg element specifies the robot configuration. For more information, refer to "[2.3.2.2 Base and Robot Recording Coordinates](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-${cont_model}-tp630/2-operation/3-step/2-step-pose-modify/2-base-robot-crd-sys)" in the ${cont_model} Robot Controller Operation Manual.
+The cfg element specifies the robot configuration. For more information, refer to "[2.3.2.2 Base and Robot Recording Coordinates](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-Hi7-tp630/2-operation/3-step/2-step-pose-modify/2-base-robot-crd-sys)" in the Hi7 Robot Controller Operation Manual.
 {% endhint %}
 
 
 
 ```python
-var <pose variable name> = Pose(j1, j2, j3, …)		# axis coordinate
-var <pose variable name> = Pose(x, y, z, rx, ry, rz, j7, j8,…, crd, cfg)		# base coord.
+var <pose variable name> = Pose(j1, j2, j3, ...)		# axis coordinate
+var <pose variable name> = Pose(x, y, z, rx, ry, rz, j7, j8,..., crd, cfg)		# base coord.
 ```
 
 Refer to the following examples of creating the poses for 6 axes + 1 additional axis and for Cartesian + 1 additional axis.
@@ -3050,15 +3034,15 @@ print po2.z, po2.cfg
 
 # 5.2 Shift
 
-Shift is an object type embedded in the ${cont_model} Controller and represents the pose's change value. 
+Shift is an object type embedded in the Hi7 Controller and represents the pose's change value. 
 
 Shifts are created by calling the constructor function Shift\( \). All function parameters are position parameters. Meanwhile, crd and cfg are string types, and the rest are number types.
 
 
 
 ```python
-var <shift variable name> = Shift(j1, j2, j3, …)				# axis coordinate
-var <shift variable name> = Shift(x, y, z, rx, ry, rz, j7, j8,…, crd)		# base coordinate
+var <shift variable name> = Shift(j1, j2, j3, ...)				# axis coordinate
+var <shift variable name> = Shift(x, y, z, rx, ry, rz, j7, j8,..., crd)		# base coordinate
 ```
 
 Refer to the following examples of creating the shifts for 6 axes + 1 additional axis and for Cartesian + 1 additional axis.
@@ -3090,7 +3074,7 @@ Elements of the shift object can be accessed with the following keys.
 
 # 5.3 Pose Expression
 
-The expression in which the result value becomes a pose is called a “pose expression.” 
+The expression in which the result value becomes a pose is called a "pose expression." 
 
 All the following forms are recognized as poses.
 
@@ -3098,7 +3082,7 @@ All the following forms are recognized as poses.
 Pose
 Pose+Shift
 Pose-Shift
-Pose+Shift+Shift+…
+Pose+Shift+Shift+...
 ```
 
 
@@ -3120,7 +3104,7 @@ The move statement is a procedure for moving the robot. The format is as follows
 
 ### Description
 
-The robot’s tool tip moves to the pose position.
+The robot"s tool tip moves to the pose position.
 
 ### Syntax
 
@@ -3402,7 +3386,7 @@ selucrd <coord. system number>
 Select the mode of CONTPATH.
 
 See the link below for the description of CONTPATH.
-[Operation Manual: 8.15 R360 Set CONTPATH manually](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-${cont_model}-tp630/8-r-code/15-r360)
+[Operation Manual: 8.15 R360 Set CONTPATH manually](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-Hi7-tp630/8-r-code/15-r360)
 
 <br><br>
 
@@ -3555,9 +3539,7 @@ to move flexibly in Cartesian space in response to external forces under user-de
 
 To ensure proper operation, **tool data and additional payload information must be configured correctly**.
 
----
-
-## ⚠️ Caution
+{% hint style="warning" %}
 
 Since the softxyz function is **sensorless** and does not use a force sensor,  
 there are **inherent limitations** in achieving fully smooth and natural motion.
@@ -3568,7 +3550,7 @@ you can achieve the smoothest possible motion within the functional limitations.
 Because `softxyz_lim (pos / xnr / vel / thr)` directly determines how the robot responds to external force,  
 **fine-tuning is required** depending on the environment, assembly process, and tool stiffness.
 
----
+{% endhint %}
 
 ### Description
 * A function that allows the robot to be displaced in a Cartesian coordinate system by external force without using a force sensor.
@@ -3653,7 +3635,7 @@ S2   wait ...
 >   and Cartesian threshold values.
 >
 > - To improve sensitivity to external force, it is recommended to  
->   **keep the robot stationary for 1–2 seconds using the `delay` command**  
+>   **keep the robot stationary for 1-2 seconds using the `delay` command**  
 >   before executing `softxyz on`.
 >
 > - If vibration occurs during softxyz operation, the following adjustments are recommended:
@@ -3792,7 +3774,7 @@ S2   move P,spd=250mm/sec,accu=0,tool=0
 
 
 ### Description  
-* The position command generation for the robot's movement is performed by an external device, and this generated external command is transmitted to the ${cont_model} controller as string data via ethernet or serial communication. The ${cont_model} controller receives this command and controls the robot. 
+* The position command generation for the robot's movement is performed by an external device, and this generated external command is transmitted to the Hi7 controller as string data via ethernet or serial communication. The Hi7 controller receives this command and controls the robot. 
 
 ### Syntax 
 ```python
@@ -3973,7 +3955,7 @@ S1   move P,tg=pose_C,spd=10%,accu=0,tool=0
 
 # 6.1 FB Object: Digital I/O
 
-Digital input/output \(I/O\) can be performed through 10 FB objects that can be accessed from HRScript. “FB” refers to fieldbus block, and each FB object is set to be mapped to the I/O hardware installed in the robot controller and contains input and output variables as elements.
+Digital input/output \(I/O\) can be performed through 10 FB objects that can be accessed from HRScript. "FB" refers to fieldbus block, and each FB object is set to be mapped to the I/O hardware installed in the robot controller and contains input and output variables as elements.
 
 # 6.1.1 Input/Output Variables
 
@@ -4056,11 +4038,11 @@ td {border-color:gray;border-style:solid;border-width:1px;}
 
 <br><br>
 
-In do, dob, dow, dol, and dof, the suffixes b, w, l, and f mean “byte,” “word,” “long,” and “float,” respectively, and all are signed values. These are not separate memory spaces and represent the same 960-byte space just with different data types. For example, do\[1~16\], dob\[1~2\], and dow\[1\] are all the same output signals.
+In do, dob, dow, dol, and dof, the suffixes b, w, l, and f mean "byte," "word," "long," and "float," respectively, and all are signed values. These are not separate memory spaces and represent the same 960-byte space just with different data types. For example, do\[1~16\], dob\[1~2\], and dow\[1\] are all the same output signals.
 
 ![](../../_assets/image_2.png)
 
-If a value is assigned to an output variable that starts with “do,” I/O signal output will be performed. The I/O signal currently being inputted can be acquired by reading the input variable value that starts with “di.” The do variable can be read and written, but the di variable can only be read.
+If a value is assigned to an output variable that starts with "do," I/O signal output will be performed. The I/O signal currently being inputted can be acquired by reading the input variable value that starts with "di." The do variable can be read and written, but the di variable can only be read.
 
 
 
@@ -4100,13 +4082,13 @@ fb2.do3=fb2.do7=fb2.do11=1   # Turns on 3rd, 7th, and 11th output signals of fb2
 # 6.1.3 fn object
 
 You can define fn objects by specifying specific areas of fb objects.
-If the ${cont_model} controller is a fieldbus master, and there are multiple fieldbus slave devices, you can set the areas of each slave device to each fn object to handle these slaves intuitively.
+If the Hi7 controller is a fieldbus master, and there are multiple fieldbus slave devices, you can set the areas of each slave device to each fn object to handle these slaves intuitively.
 
 ![](../../_assets/io/io_fn.png)
 
 See the link below for instructions on how to set up the fn region.
 
-[Operation manual: fn block allocation](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-${cont_model}-tp630/7-system/3-control-parameter/2-io-signal-setting/12-fn-block)
+[Operation manual: fn block allocation](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-Hi7-tp630/7-system/3-control-parameter/2-io-signal-setting/12-fn-block)
   
 &nbsp;
 
@@ -4206,7 +4188,7 @@ pulse <Signal>,tlag=<Lag time>,ton=<On time>,toff=<Off time>,cnt=<output count>
    end
 ```# 6.2 http_cli Module: HTTP Client
 
-Using the general-purpose Ethernet port of the ${cont_model} controller, it is possible to access remote web services and consume HTTP services.
+Using the general-purpose Ethernet port of the Hi7 controller, it is possible to access remote web services and consume HTTP services.
 To use this feature, import the `http_cli` module and create an `HttpCli` object as shown below.
 
 ```python
@@ -5018,7 +5000,7 @@ input work_no,10,*timeout
 Modbus master operations can be performed in HRScript. For detailed information on modbus communication functions, please refer to the separate manual. [Hi6 Robot Controller Function Manual - Modbus](https://hrbook-hrc.web.app/#/view/doc-modbus/english/README)  
 # 6.5 Sci module : Serial communication
 
-Serial communication can be performed through the COM port of the ${cont_model} controller.
+Serial communication can be performed through the COM port of the Hi7 controller.
 
 To use this function, you must create a Sci object as a global variable as shown below.
 
@@ -5272,7 +5254,7 @@ Hyundai Robot Job File; { version: 1.6, mech_type: "", total_axis: -1, aux_axis:
 
 # 7 enet module : Ethernet TCP/UDP communication
 
-Using the ${cont_model} controller's user ethernet port, You can send and receive strings or binary data over Ethernet TCP or UDP communication with an external devices.
+Using the Hi7 controller's user ethernet port, You can send and receive strings or binary data over Ethernet TCP or UDP communication with an external devices.
 
 The enet module can create two objects, ENet and BBuf. ENet provides an Ethernet socket interface, and BBuf is used to communicate binary data.
 
@@ -5286,7 +5268,7 @@ Follow these steps:
 
 1. After importing the `enet` module, create an `ENet` object with the constructor.
 2. Set the IP address and port number with the member variables.
-   - `Caution: Ports 50000–50005 on the controller are pre-allocated lports and cannot be used.`
+   - `Caution: Ports 50000-50005 on the controller are pre-allocated lports and cannot be used.`
 3. Open the ethernet socket with the `open` member procedure, and check the status with the `state()` member variable.
 \(For TCP communication, the `connect` procedure must also be called after opening.\)
 1. Transceiving with `send` and `recv` member procedure.
@@ -5304,7 +5286,7 @@ Follow these steps:
      cli.ip_addr="192.168.1.172" # remote (opponent) IP address
      cli.lport=51001 # local (self) port
      cli.rport=51002 # remote (opponent) port
-     # (port no. 49152–65535(except 50000-50005) contains dynamic or private ports)
+     # (port no. 49152-65535(except 50000-50005) contains dynamic or private ports)
 
      # 3. Open ethernet socket
      cli.open
@@ -5348,7 +5330,7 @@ Follow these steps:
      cli.ip_addr="192.168.1.172" # remote (opponent) IP address
      cli.lport=0 # local (self) port; random
      cli.rport=51002 # remote (opponent) port
-     # (port no. 49152–65535 contains dynamic or private ports)
+     # (port no. 49152-65535 contains dynamic or private ports)
 
      # 3. Open ethernet socket
      cli.open
@@ -5410,7 +5392,7 @@ Receiving
      cli.ip_addr="192.168.1.172" # remote (opponent) IP address
      cli.lport=51001 # local (self) port
      cli.rport=51002 # remote (opponent) port
-     # (port no. 49152–65535(except 50000-50005) contains dynamic or private ports)
+     # (port no. 49152-65535(except 50000-50005) contains dynamic or private ports)
 
      # 3. Open ethernet socket
      cli.open
@@ -5469,7 +5451,7 @@ Receiving
      cli.ip_addr="192.168.1.172" # remote (opponent) IP address
      cli.lport=0 # local (self) port; random
      cli.rport=51002 # remote (opponent) port
-     # (port no. 49152–65535 contains dynamic or private ports)
+     # (port no. 49152-65535 contains dynamic or private ports)
 
      # 3. Open ethernet socket
      cli.open
@@ -5531,7 +5513,7 @@ Follow these steps:
 
 1. After importing the `enet` module, create an `ENet` object with the constructor.
 2. Set the IP address and port number with the member variables. (remote port setting is not needed.)
-   - `Caution: Ports 50000–50005 on the controller are pre-allocated lports and cannot be used.`
+   - `Caution: Ports 50000-50005 on the controller are pre-allocated lports and cannot be used.`
 3. Open the ethernet socket with the `open` member procedure, and calls `listen()`, `accept()` function. Check the status with the `state()` member variable.
 4. Transceiving with `send` and `recv` member procedure.
 5. Close the communication connection with the `close` member procedure.
@@ -5545,7 +5527,7 @@ Follow these steps:
      # 2. Set the IP address and port number
      svr.ip_addr="192.168.1.172" # remote (opponent) IP address
      svr.lport=51001 # local (self) port
-     # (port no. 49152–65535(except 50000-50005) contains dynamic or private ports)
+     # (port no. 49152-65535(except 50000-50005) contains dynamic or private ports)
      
      # 3. Open ethernet socket
      svr.open
@@ -5604,7 +5586,7 @@ Receiving
      # 2. Set the IP address and port number
      svr.ip_addr="192.168.1.172" # remote (opponent) IP address
      svr.lport=51001 # local (self) port
-     # (port no. 49152–65535(except 50000-50005) contains dynamic or private ports)
+     # (port no. 49152-65535(except 50000-50005) contains dynamic or private ports)
      
      # 3. Open ethernet socket
      svr.open
@@ -5736,7 +5718,7 @@ var tcp = ENet("tcp")
         Set or get the controller's own (local) port number.<br>
         The default value is 0 (if not specified), in which case this port number is automatically generated.<br>
         Applied only when calling the open statement.<br>
-        Ports 50000–50005 on the controller are pre-allocated lports and cannot be used.
+        Ports 50000-50005 on the controller are pre-allocated lports and cannot be used.
       </td>
     </tr>
   </tbody>
@@ -6800,7 +6782,7 @@ global unit="mm/s" # (O)
 
 # 9.1 File System
 
-In the MAIN module's file system of the ${cont_model} controller, instructions for creating, copying, and deleting directories and files are described.# 9.1.1 mkdir
+In the MAIN module's file system of the Hi7 controller, instructions for creating, copying, and deleting directories and files are described.# 9.1.1 mkdir
 
 mkdir is the procedure making directory.
 
@@ -7020,7 +7002,7 @@ delfile <result-variable>,<pathname>
 ```
 # 9.2 Load/Save
 
-Explains the statements that load/save files into/from the memory of the ${cont_model} controller's MAIN module.# 9.2.1 load_job
+Explains the statements that load/save files into/from the memory of the Hi7 controller's MAIN module.# 9.2.1 load_job
 
 Statement that reads changes of the MAIN module's project/jobs/ folder to update the memory.
 
@@ -7105,7 +7087,7 @@ The global root arrays of HRScript is stored in the `vars/` folder as files in C
 
 For information on variable files, please refer to the operation manual link below.
 
-[global variable/variable file](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-${cont_model}-tp630/6-monitoring/3-job/3-global-variable/3-var-files)
+[global variable/variable file](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-Hi7-tp630/6-monitoring/3-job/3-global-variable/3-var-files)
 
 You can easily edit .csv files with a text editor on your PC.
 The edited file copied to the `vars/` folder is not immediately reflected in memory, but only by using the `[load all]` function in the TeachPendant's global variable window or executing the `load_csv` statement.
@@ -7186,7 +7168,7 @@ The global root array of HRScript is stored in the `vars/` folder as a file in C
 
 For information on variable files, please refer to the operation manual link below.
 
-[global variable/variable file](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-${cont_model}-tp630/6-monitoring/3-job/3-global-variable/3-var-files)
+[global variable/variable file](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-Hi7-tp630/6-monitoring/3-job/3-global-variable/3-var-files)
 
 The global root arrays are not immediately stored to the .csv file whenever the value changes.
 It is saved as a file when you press `Ctrl+[F7: save]` or power off, and you can save it as a file immediately by executing the `save_csv` command.
@@ -7776,9 +7758,9 @@ gasp_check pres=<estimated pressure>,ref=<reference pressure>,tol=<tolerance>,os
 
 {% hint style="info" %}
 * Supported only on robots equipped with the gas spring
-* For accurate estimation, [Axis add weight setting](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-${cont_model}-tp630/7-system/4-robot-parameter/7-axis-add-weight/README) and [Load estimation function](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-${cont_model}-tp630/7-system/7-auto-calibration/3-load-estimation) must be preceded before using the function.
+* For accurate estimation, [Axis add weight setting](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-Hi7-tp630/7-system/4-robot-parameter/7-axis-add-weight/README) and [Load estimation function](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-Hi7-tp630/7-system/7-auto-calibration/3-load-estimation) must be preceded before using the function.
 * For a detailed description of the gas spring pressure check monitoring function, please refer to the link below.
-[](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-${cont_model}-tp630/6-monitoring/4-system/2-system-diagnosis/2-gas-pressure-check)
+[](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-Hi7-tp630/6-monitoring/4-system/2-system-diagnosis/2-gas-pressure-check)
 {% endhint %}
 
 # 10.1.15 json_parse
@@ -7941,9 +7923,9 @@ When you touch the [Properties] button in the brake_check command, you will ente
 
 {% hint style="info" %}
 * Supported only on robots equipped with the gas spring
-* For accurate estimation, [Axis add weight setting](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-${cont_model}-tp630/7-system/4-robot-parameter/7-axis-add-weight/README) and [Load estimation function](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-${cont_model}-tp630/7-system/7-auto-calibration/3-load-estimation) must be preceded before using the function.
+* For accurate estimation, [Axis add weight setting](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-Hi7-tp630/7-system/4-robot-parameter/7-axis-add-weight/README) and [Load estimation function](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-Hi7-tp630/7-system/7-auto-calibration/3-load-estimation) must be preceded before using the function.
 * For a detailed description of the brake check monitoring function, please refer to the link below.
-[](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-${cont_model}-tp630/6-monitoring/4-system/2-system-diagnosis/1-brake-check)
+[](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-Hi7-tp630/6-monitoring/4-system/2-system-diagnosis/1-brake-check)
 {% endhint %}# 10.2 Etc. functions
 
 # 10.2.1 rducs - user coordinate system

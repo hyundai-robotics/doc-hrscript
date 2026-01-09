@@ -1,4 +1,4 @@
-# 3.5. Nested Flow-Control Statements
+﻿# 3.5. Nested Flow-Control Statements
 
 ### Description
 
@@ -10,10 +10,10 @@ In the control statement block, another control statement block can be placed, a
 if <bool expression>
 	if <bool expression>
 		<statement A>
-		…
+		...
 	else
 		<statement B>
-		…
+		...
 	endif
 endif
 ```

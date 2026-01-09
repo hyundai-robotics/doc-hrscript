@@ -36,7 +36,7 @@
         Set or get the controller's own (local) port number.<br>
         The default value is 0 (if not specified), in which case this port number is automatically generated.<br>
         Applied only when calling the open statement.<br>
-        Ports 50000–50005 on the controller are pre-allocated lports and cannot be used.
+        Ports 50000-50005 on the controller are pre-allocated lports and cannot be used.
       </td>
     </tr>
   </tbody>

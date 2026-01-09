@@ -1,4 +1,4 @@
-# 2.3.2 Assignment Statements
+﻿# 2.3.2 Assignment Statements
 
 An assignment statement consists of the left side, the assignment operator \(=\), and the right side. The left side \(lvalue\) must be a variable that can store a value. No constants or expressions are allowed. 
 

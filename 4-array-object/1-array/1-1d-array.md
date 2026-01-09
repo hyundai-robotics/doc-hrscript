@@ -13,14 +13,14 @@ Array definitions and access formats are as follows.
 
 |  |  |
 | :--- | :--- |
-| Definition | var array name = \[ Value, Value, …\] |
+| Definition | var array name = \[ Value, Value, ...\] |
 | Access | Array name \[Index\] |
 
 The values that make up an array are called `elements.` Distances, an array shown in the following example, has a total of five elements. The index starts from 0. Element 0 and element 1 of `distances` are 10 and 10.5, respectively.
 
 
 
-The \[ \] operator is used as follows to read or write the value of an array’s specific element value. The following shows an example of an object that is defined and accessed.
+The \[ \] operator is used as follows to read or write the value of an array"s specific element value. The following shows an example of an object that is defined and accessed.
 
 <table>
   <thead>

@@ -1,8 +1,8 @@
-# 4.4 Call-by-reference and call-by-value
+﻿# 4.4 Call-by-reference and call-by-value
 
 In the description of call statements and jump statements given in Section 3.4, the concepts of formal parameters and actual parameters were explained. When an actual parameter has been transported to a sub-program, if the sub-program ends after changing the value of the parameter, will it be reflected to the main program?
 
-For example, let’s assume that a sub-program 0005\_pow3.job raises a value to the third power as follows:
+For example, let"s assume that a sub-program 0005\_pow3.job raises a value to the third power as follows:
 
 
 
@@ -55,7 +55,7 @@ For example, let’s assume that a sub-program 0005\_pow3.job raises a value to 
   </tbody>
 </table>
 
-Although we expected that 8 is output because 2×2×2 is 8, the result is 2. It is because, when a numeric-type actual parameter is transported to a sub-program, the value is copied as a parameter. In other words, in \(1\), because the value raised to the third power was assigned to the copied version, it did not affect the value of the original parameter, x.
+Although we expected that 8 is output because 2x2x2 is 8, the result is 2. It is because, when a numeric-type actual parameter is transported to a sub-program, the value is copied as a parameter. In other words, in \(1\), because the value raised to the third power was assigned to the copied version, it did not affect the value of the original parameter, x.
 
 Therefore, the teaching program should be corrected so that the resulting value is transported by a return statement.
 
