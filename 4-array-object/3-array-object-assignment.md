@@ -1,4 +1,4 @@
-# 4.3 Copied assignment of arrays and objects
+﻿# 4.3 Copied assignment of arrays and objects
 
 If the right side of an assignment statement has object variables, the entire values of the variables will be copied to the variables of the left side. When an array or an object includes sub-arrays and sub-objects in a complex manner as element values, such inclusion structures will be copied, which is called a deep copy.
 

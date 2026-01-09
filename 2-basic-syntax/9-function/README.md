@@ -1,6 +1,6 @@
-# 2.9 Functions
+﻿# 2.9 Functions
 
-What is the process of converting the angle 60 to a radian value or finding the length of the string that the variable mystr contains? 
+What is the process of converting the angle 60° to a radian value or finding the length of the string that the variable mystr contains? 
 
 HRScript provides various functions that receive inputs through parameters, perform some processing, and return the result values. 
 

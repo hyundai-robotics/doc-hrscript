@@ -1,4 +1,4 @@
-# 3.4.4. if-elseif-else-endif
+﻿# 3.4.4. if-elseif-else-endif
 
 ### Description
 
@@ -9,16 +9,16 @@ In the case of multiple conditions, the elseif statement can be used in the foll
 ```python
 if <bool expression>
 	<statement A>
-	…
+	...
 elseif <bool expression>
 	<statement B>
-	…
+	...
 elseif <bool expression>
 	<statement C>
-	…
+	...
 else
 	<statement N>
-	…
+	...
 endif
 ```
 

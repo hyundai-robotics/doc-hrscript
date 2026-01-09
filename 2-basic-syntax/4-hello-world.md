@@ -1,4 +1,4 @@
-# 2.4 First Program - Hello, World!
+﻿# 2.4 First Program - Hello, World!
 
 Let us create a simple job program that prints a string on the teach pendant screen. After creating a new job, record the print statement as shown below, and attach the string parameter "Hello, World!"
 

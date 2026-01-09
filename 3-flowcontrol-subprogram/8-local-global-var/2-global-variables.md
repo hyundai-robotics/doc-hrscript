@@ -1,4 +1,4 @@
-# 3.8.2 Global Variables
+﻿# 3.8.2 Global Variables
 
 ### Description
 

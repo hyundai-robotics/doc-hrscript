@@ -16,10 +16,10 @@ myvar (O)
 myvar2 (O)
 _myvar (O)
 MyVar (O)
-310a (X) – Started with a number
-move (X) – An identifier already defined in the system
-v300$ (X) – Used a symbol other than an underscore ($)
-my var (X) – Included a space
+310a (X) - Started with a number
+move (X) - An identifier already defined in the system
+v300$ (X) - Used a symbol other than an underscore ($)
+my var (X) - Included a space
 ```
 
 {% hint style="warning" %}

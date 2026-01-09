@@ -1,10 +1,10 @@
-# 5.4 move
+﻿# 5.4 move
 
 The move statement is a procedure for moving the robot. The format is as follows.
 
 ### Description
 
-The robot’s tool tip moves to the pose position.
+The robot"s tool tip moves to the pose position.
 
 ### Syntax
 

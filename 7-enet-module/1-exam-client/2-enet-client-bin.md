@@ -29,7 +29,7 @@ Receiving
      cli.ip_addr="192.168.1.172" # remote (opponent) IP address
      cli.lport=51001 # local (self) port
      cli.rport=51002 # remote (opponent) port
-     # (port no. 49152–65535(except 50000-50005) contains dynamic or private ports)
+     # (port no. 49152-65535(except 50000-50005) contains dynamic or private ports)
 
      # 3. Open ethernet socket
      cli.open
@@ -88,7 +88,7 @@ Receiving
      cli.ip_addr="192.168.1.172" # remote (opponent) IP address
      cli.lport=0 # local (self) port; random
      cli.rport=51002 # remote (opponent) port
-     # (port no. 49152–65535 contains dynamic or private ports)
+     # (port no. 49152-65535 contains dynamic or private ports)
 
      # 3. Open ethernet socket
      cli.open

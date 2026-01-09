@@ -6,9 +6,7 @@ to move flexibly in Cartesian space in response to external forces under user-de
 
 To ensure proper operation, **tool data and additional payload information must be configured correctly**.
 
----
-
-## ⚠️ Caution
+{% hint style="warning" %}
 
 Since the softxyz function is **sensorless** and does not use a force sensor,  
 there are **inherent limitations** in achieving fully smooth and natural motion.
@@ -19,7 +17,7 @@ you can achieve the smoothest possible motion within the functional limitations.
 Because `softxyz_lim (pos / xnr / vel / thr)` directly determines how the robot responds to external force,  
 **fine-tuning is required** depending on the environment, assembly process, and tool stiffness.
 
----
+{% endhint %}
 
 ### Description
 * A function that allows the robot to be displaced in a Cartesian coordinate system by external force without using a force sensor.
@@ -104,7 +102,7 @@ S2   wait ...
 >   and Cartesian threshold values.
 >
 > - To improve sensitivity to external force, it is recommended to  
->   **keep the robot stationary for 1–2 seconds using the `delay` command**  
+>   **keep the robot stationary for 1-2 seconds using the `delay` command**  
 >   before executing `softxyz on`.
 >
 > - If vibration occurs during softxyz operation, the following adjustments are recommended:

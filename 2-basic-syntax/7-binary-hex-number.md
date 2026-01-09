@@ -1,4 +1,4 @@
-# 2.7 Binary and Hexadecimal
+﻿# 2.7 Binary and Hexadecimal
 
 All the number type values previously described as examples are interpreted as decimal numbers. It can represent binary or hexadecimal values just by adding 0b or 0x prefixes, respectively, as shown in the following.
 

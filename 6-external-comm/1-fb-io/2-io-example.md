@@ -1,4 +1,4 @@
-# 6.1.2 Examples
+﻿# 6.1.2 Examples
 
 Refer to the following examples of usage.
 

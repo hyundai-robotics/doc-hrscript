@@ -1,4 +1,4 @@
-# 3.8.1 Local Variables
+﻿# 3.8.1 Local Variables
 
 ### Description
 
@@ -6,9 +6,9 @@ Examples have been described only using the examples of local variables defined 
 
 ### Example
 
-“main\_v” is a local variable accessible only within 0001.job, and “sub\_v” is a local variable accessible only within 0107.job.   Attempting to access it from another program will cause an error. 
+"main\_v" is a local variable accessible only within 0001.job, and "sub\_v" is a local variable accessible only within 0107.job.   Attempting to access it from another program will cause an error. 
 
-The local variable “x” is defined in both 0001.job and 0107.job. The local variable “x” respectively defined in both programs has the same name but are different. So the value 5 for the variable “x” is set in subprogram 0107, 3 will be printed instead of 5 after the return to main program 0001.
+The local variable "x" is defined in both 0001.job and 0107.job. The local variable "x" respectively defined in both programs has the same name but are different. So the value 5 for the variable "x" is set in subprogram 0107, 3 will be printed instead of 5 after the return to main program 0001.
 
 
 

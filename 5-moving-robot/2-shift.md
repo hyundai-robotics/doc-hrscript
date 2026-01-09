@@ -7,8 +7,8 @@ Shifts are created by calling the constructor function Shift\( \). All function 
 
 
 ```python
-var <shift variable name> = Shift(j1, j2, j3, …)				# axis coordinate
-var <shift variable name> = Shift(x, y, z, rx, ry, rz, j7, j8,…, crd)		# base coordinate
+var <shift variable name> = Shift(j1, j2, j3, ...)				# axis coordinate
+var <shift variable name> = Shift(x, y, z, rx, ry, rz, j7, j8,..., crd)		# base coordinate
 ```
 
 Refer to the following examples of creating the shifts for 6 axes + 1 additional axis and for Cartesian + 1 additional axis.

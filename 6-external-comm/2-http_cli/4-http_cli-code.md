@@ -1,4 +1,4 @@
-# 6.2.4 HTTP Communication Codes
+﻿# 6.2.4 HTTP Communication Codes
 
 * Major HTTP Response Codes 
 <table>
