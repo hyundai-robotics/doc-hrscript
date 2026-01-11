@@ -5,9 +5,6 @@
     "publisher": "HD현대로보틱스",
     "tocTitle": "목차",
     "tocTitleElements": "[ \"h1\", \"h2\" ]",
-	"variables": {
-		"cont_model": "Hi6"
-	},
     "docId": "${cont_model:upper}HRSCRIPT_KO_001",
     "references": [
         { "rpath" : "doc-hi6-operation/ko-tp630" }
