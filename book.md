@@ -1,19 +1,29 @@
-﻿# Hi6 로봇제어기 기능설명서 - 로봇언어 HRScript
+﻿
+[__SOURCE](README.md)
+# ${cont_model} 로봇제어기 기능설명서 - 로봇언어 HRScript
 
+
+[__SOURCE](1-intro/README.md)
 # 1. 개요
 
 
   
 
 
+
+[__SOURCE](1-intro/1-hrscript.md)
 # 1.1 HRScript의 소개
 
-현대로봇 Hi6 제어기는 HRScript라는 이름의 로봇언어로 로봇이 할 일을 프로그램할 수 있습니다. 작성된 프로그램은 확장자 .job 을 가진 여러 개의 파일에 나뉘어 저장될 수 있습니다. HRScript는 이름에서 알 수 있듯이 스크립트 언어로서, 컴파일 절차없이 인터프리터에 의해 한 행씩 해석, 실행됩니다. python이나 javascript 언어와 유사하지만 문법은 더 간단합니다.
+현대로봇 ${cont_model} 제어기는 HRScript라는 이름의 로봇언어로 로봇이 할 일을 프로그램할 수 있습니다. 작성된 프로그램은 확장자 .job 을 가진 여러 개의 파일에 나뉘어 저장될 수 있습니다. HRScript는 이름에서 알 수 있듯이 스크립트 언어로서, 컴파일 절차없이 인터프리터에 의해 한 행씩 해석, 실행됩니다. python이나 javascript 언어와 유사하지만 문법은 더 간단합니다.
 
+
+[__SOURCE](2-basic-syntax/README.md)
 # 2. 기본 문법
 
 먼저, hrscript의 기본 용어들을 설명합니다. 변수를 정의하는 방법, 그리고 연산자를 사용해 간단한 수식을 구성하고 그 결과값을 변수에 대입하는 방법을 따라가면서, job 프로그램의 기본적인 개념을 이해해 보도록 하겠습니다.
 
+
+[__SOURCE](2-basic-syntax/1-statements.md)
 # 2.1 명령문
 
 명령문\(statement\)이란 JOB 프로그램의 실행 단위가 되는 각각의 명령 문자열을 말합니다. hrscript는 한 행에 1개의 명령문만을 허용합니다. 아래에 4개의 명령문의 예를 보였습니다. 내용을 이해할 필요는 없습니다. 대략적인 형태만 눈여겨보세요.
@@ -33,6 +43,8 @@
 
 
 
+
+[__SOURCE](2-basic-syntax/2-identifier.md)
 # 2.2 식별자
 
 앞으로 설명될 명령어, 변수, 함수, 레이블은 모두 이름을 가지고 있습니다. 이 이름들을 식별자\(identifier\)라고 통칭합니다. 식별자를 정할 때는 다음과 같은 hrscript의 식별자 규칙을 따라야만 합니다.
@@ -68,6 +80,8 @@ my var (X) ; 공백 포함
     global myarr = Array(10)
 
 {% endhint %}
+
+[__SOURCE](2-basic-syntax/3-statement-type/README.md)
 # 2.3 명령문의 종류
 
 hrscript의 명령문에는 아래와 같이 4종류가 있습니다.
@@ -81,6 +95,8 @@ hrscript의 명령문에는 아래와 같이 4종류가 있습니다.
 
 
 
+
+[__SOURCE](2-basic-syntax/3-statement-type/1-procedure.md)
 # 2.3.1 프로시져
 
 프로시져는 명령어와 0~N개의 매개변수\(parameter\)들로 구성됩니다.
@@ -103,6 +119,8 @@ move P,po3,spd=80%,accu=1,tool=3 until do33
 
 
 
+
+[__SOURCE](2-basic-syntax/3-statement-type/2-assignment.md)
 # 2.3.2 대입문
 
 대입문은 좌변과 대입 연산자\(=\), 우변으로 구성됩니다. 좌변\(lvalue\)는 반드시 값을 저장할 수 있는 변수여야 합니다. 상수나 수식은 허용되지 않습니다.
@@ -113,6 +131,8 @@ move P,po3,spd=80%,accu=1,tool=3 until do33
 height=(500+margin)/2
 ```
 
+
+[__SOURCE](2-basic-syntax/3-statement-type/3-comment.md)
 # 2.3.3 주석문
 
 job 프로그램의 내용을 이해하기 쉽도록 설명하는데 사용합니다. 주석문은 실행 되더라도 아무 동작도 수행되지 않습니다. 아래와 같이 해시 기호\(\#\) 뒤에 설명을 붙이는 형식입니다. 하나의 명령문으로서 사용할 수도 있고 다른 명령문 뒤에 붙일 수도 있습니다.
@@ -124,6 +144,8 @@ var work_w,work_h  # 작업물의 너비와 높이
 
 
 
+
+[__SOURCE](2-basic-syntax/3-statement-type/4-label.md)
 # 2.3.4 레이블
 
 goto 문에 의해 이동할 목표 지점을 표시합니다. 별표(*)와 식별자로 구성됩니다.
@@ -135,7 +157,9 @@ goto *lable #lable
 stop #레이블로 이동하여 stop문 생략됨
 *lable
 end
-```# 2.4 첫 번째 프로그램 - Hello, World !
+```
+[__SOURCE](2-basic-syntax/4-hello-world.md)
+# 2.4 첫 번째 프로그램 - Hello, World !
 
 티치펜던트 화면에 문자열을 출력하는 간단한 job 프로그램을 작성해봅시다. 새로운 job을 생성한 후, 아래와 같이 [print문](../6-external-comm/3-tp-console-bar/1-print.md)을 기록하고, "Hello, World !"라는 문자열 파라미터를 붙입시다.
 
@@ -145,8 +169,12 @@ print "Hello, World !"
 
 print명령문은 티치펜던트의 job panel 하단에 값을 출력할 때 사용합니다. 이제 프로그램을 실행하면 job panel 하단에 Hello, World라는 문자열이 출력되는 것을 볼 수 있습니다.
 
+
+[__SOURCE](2-basic-syntax/5-type/README.md)
 # 2.5 자료형 \(type\)
 
+
+[__SOURCE](2-basic-syntax/5-type/1-type-string.md)
 # 2.5.1 문자열 자료형
 
 앞 절의 첫 프로그램에서 print 문의 파라미터로서 "Hello, World" 라는 데이터를 사용했는데 이것은 문자열 자료형입니다. 문자열 자료형의 값은 큰 따옴표로 시작하고 끝납니다. 문자열 길이의 제한은 없습니다.
@@ -176,6 +204,8 @@ Please, press "OK" button.
 
 
 
+
+[__SOURCE](2-basic-syntax/5-type/2-number-type.md)
 # 2.5.2 숫자 자료형
 
 숫자 자료형은 정수나 실수를 보관합니다.숫자 자료형도 있습니다. print 문으로 출력해봅시다. 아래 예와 같이 print 문에 여러 개의 값을 쉼표\(,\)로 구분하여 나열하면, 각각의 값이 공백으로 구분되어 출력됩니다.
@@ -194,6 +224,8 @@ print 280, -99
 | 정수 \(integer\) | 4 |
 | 실수 \(real\) | 8 |
 
+
+[__SOURCE](2-basic-syntax/5-type/3-bool-type.md)
 # 2.5.3 bool 자료형
 
 아래와 같은 논리, 비교연산의 결과로서 true\(참\)와 false\(거짓\)의 2가지 값만을 갖습니다.
@@ -212,10 +244,14 @@ false
 
 
 
+
+[__SOURCE](2-basic-syntax/5-type/4-array-object-type.md)
 # 2.5.4 배열과 객체형
 
 이외에도 배열\(array\)과 객체\(object\)형이 있습니다. 이 후, 4.1절과 4.2절에서 자세히 알아보겠습니다. 
 
+
+[__SOURCE](2-basic-syntax/6-variable.md)
 # 2.6 변수
 
 변수\(variable\)란 값을 저장하는 공간이며, 식별자 이름을 가지고 있습니다. 변수는 전역변수\(global variable\)와 지역변수\(local variable\)로 나뉘는데 그 차이는 뒤에서 설명하겠습니다. 일단 여기서는 지역변수로 예를 들어 설명합니다.
@@ -255,6 +291,8 @@ width=300
 
 
 
+
+[__SOURCE](2-basic-syntax/7-binary-hex-number.md)
 # 2.7 2진수와 16진수
 
 앞에서 예를 든 숫자형 값들은 모두 10진수로 해석됩니다. 2진수나 16진수 값도 표현할 수 있는데 아래와 같이 각각 0b와 0x접두어를 붙여주면 됩니다.
@@ -264,6 +302,8 @@ var binary = 0b10010011
 var hexadecimal = 0xFF4A38C0
 ```
 
+
+[__SOURCE](2-basic-syntax/8-operator-expression.md)
 # 2.8 연산자와 수식
 
 아래의 예를 보면 숫자 값 500에 변수 margin을 더한 후 2로 나누어 height라는 변수에 대입하고 있습니다.
@@ -495,6 +535,8 @@ print count_b and height>99
 
 bitwise NOT과 shift left/right는 32bit 길이를 기반으로 계산합니다.
 
+
+[__SOURCE](2-basic-syntax/9-function/README.md)
 # 2.9 함수
 
 각도 60° 를 radian값으로 변환하려면 어떻게 해야 할까요? 혹은, 변수 mystr이 담고 있는 문자열의 길이를 알아내려면 어떻게 해야 할까요?
@@ -513,6 +555,8 @@ var validity= len(message) < limit
 
 HRScript에서 제공되는 함수의 목록은 아래와 같습니다. \(각 표는 이름 정렬순입니다.\)
 
+
+[__SOURCE](2-basic-syntax/9-function/1-func-math.md)
 # 2.9.1 수학 함수
 
 <table style="text-align:left">
@@ -732,6 +776,8 @@ HRScript에서 제공되는 함수의 목록은 아래와 같습니다. \(각 �
 		<tr><td>F8</td><td>double 8 byte</td></tr>
 	</tbody>
 </table>
+
+[__SOURCE](2-basic-syntax/9-function/2-func-string.md)
 # 2.9.2 문자열 함수
 
 var str="hello, world"가 실행된 상태에서의 예
@@ -890,6 +936,8 @@ var str="hello, world"가 실행된 상태에서의 예
 
 
 
+
+[__SOURCE](2-basic-syntax/9-function/3-func-datetime.md)
 # 2.9.3 날짜, 시간 함수
 
 <table>
@@ -941,6 +989,8 @@ var str="hello, world"가 실행된 상태에서의 예
   </tbody>
 </table>
 
+
+[__SOURCE](2-basic-syntax/9-function/4-func-creator.md)
 # 2.9.4 생성자 함수
 
 매개변수를 입력받아 새로운 객체를 생성하여 리턴해주는 함수입니다.
@@ -1031,6 +1081,8 @@ var str="hello, world"가 실행된 상태에서의 예
   </tbody>
 </table>
 
+
+[__SOURCE](2-basic-syntax/9-function/5-func-etc.md)
 # 2.9.5 기타 함수
 
 
@@ -1176,6 +1228,8 @@ var str="hello, world"가 실행된 상태에서의 예
 
 \* 포즈\(pose\)는 로봇의 자세 혹은 툴 끝의 위치를 나타내는 데이터형입니다. 이후의 "[5.1 포즈 \(pose\)](../../5-moving-robot/1-pose.md)"에서 자세히 설명합니다.
 
+
+[__SOURCE](2-basic-syntax/10-import.md)
 # 2.10 import문
 
 ### 설명
@@ -1245,8 +1299,12 @@ cli.ip_addr="192.168.1.172" # (3)
 ```
 
 * 이 절에서는 `import`문에 대한 개략적인 문법만 다루었습니다. 이 후, 모듈 기능들을 설명하는 절에서 `import`의 사용 예를 자주 보게 될 것입니다.
+
+[__SOURCE](3-flowcontrol-subprogram/README.md)
 # 3. 제어문과 서브프로그램
 
+
+[__SOURCE](3-flowcontrol-subprogram/1-address.md)
 # 3.1 주소 \(Address\)
 
 순서대로 다음 행을 수행하지 않고 프로그램의 다른 위치로 이동하는 것을 분기\(branch\)라고 합니다. 주소란 분기의 목적지\(destination\) 입니다.주소를 정의하는 방법은 아래와 같이 3가지 형식이 있습니다.
@@ -1298,8 +1356,12 @@ cli.ip_addr="192.168.1.172" # (3)
      *err_handle
 S12  move P,spd=80%,accu=1,tool=3
 ```
+
+[__SOURCE](3-flowcontrol-subprogram/2-stop-wait/README.md)
 # 3.2 정지, 대기문
 
+
+[__SOURCE](3-flowcontrol-subprogram/2-stop-wait/1-stop.md)
 # 3.2.1 stop문
 
 ### 설명
@@ -1320,6 +1382,8 @@ endif
 
 
 
+
+[__SOURCE](3-flowcontrol-subprogram/2-stop-wait/2-end.md)
 # 3.2.2 end문
 
 ### 설명
@@ -1340,6 +1404,8 @@ end
 
 
 
+
+[__SOURCE](3-flowcontrol-subprogram/2-stop-wait/3-delay.md)
 # 3.2.3 delay문
 
 ### 설명
@@ -1380,6 +1446,8 @@ delay 3.5
 
 
 
+
+[__SOURCE](3-flowcontrol-subprogram/2-stop-wait/4-wait.md)
 # 3.2.4 wait문
 
 ### 설명
@@ -1435,10 +1503,14 @@ wait sensor_ok
 wait (sensor_ok and pos_ok),10,*timeout
 ```
 
+
+[__SOURCE](3-flowcontrol-subprogram/3-branch/README.md)
 # 3.3 분기문
 
 조건없이 다른 주소로 분기합니다.
 
+
+[__SOURCE](3-flowcontrol-subprogram/3-branch/1-goto.md)
 # 3.3.1 goto 문
 
 ### 설명
@@ -1482,6 +1554,8 @@ goto *err_hdl
 
 
 
+
+[__SOURCE](3-flowcontrol-subprogram/3-branch/2-gosub.md)
 # 3.3.2 gosub~retsub 문
 
 ### 설명
@@ -1556,10 +1630,14 @@ sum=sum+res
 retsub
 end
 ```
+
+[__SOURCE](3-flowcontrol-subprogram/4-conditional/README.md)
 # 3.4 조건문
 
 조건에 따라 특정한 동작을 수행하거나 수행하지 않을 수 있습니다.
 
+
+[__SOURCE](3-flowcontrol-subprogram/4-conditional/1-simple-if.md)
 # 3.4.1 단문 if문
 
 ### 설명
@@ -1585,6 +1663,8 @@ end
 print "경고: 압력이 너무 높습니다."
 ```
 
+
+[__SOURCE](3-flowcontrol-subprogram/4-conditional/2-if-endif.md)
 # 3.4.2 복문 if~endif 문
 
 ### 설명
@@ -1617,6 +1697,8 @@ end
 
 예제 프로그램을 보면 if와 endif 사이의 명령문들이 2칸 정도 들여쓰기 되어 있습니다. 이 명령문들이 if~ endif 사이에 내포된\(nested\) 한 블록\(block\)의 코드임을 쉽게 알아볼 수 있도록 들여쓰기를 한 것입니다.
 
+
+[__SOURCE](3-flowcontrol-subprogram/4-conditional/3-if-else-endif.md)
 # 3.4.3 복문 if~else~endif 문
 
 ### 설명
@@ -1652,6 +1734,8 @@ end
 
 
 
+
+[__SOURCE](3-flowcontrol-subprogram/4-conditional/4-if-elseif-else-endif.md)
 # 3.4.4. 복문 if~elseif~else~endif문
 
 ### 설명
@@ -1692,6 +1776,8 @@ end
 
 
 
+
+[__SOURCE](3-flowcontrol-subprogram/4-conditional/5-switch-case-break-end_switch.md)
 # 3.4.5. switch~case~break~end\_switch문
 
 ### 설명
@@ -1754,6 +1840,8 @@ end_switch
   99 end
 ```
 
+
+[__SOURCE](3-flowcontrol-subprogram/5-nested-flow-control.md)
 # 3.5. 내포된 \(nested\) 제어문
 
 제어문의 블록 안에는 아래 형태와 같이 또 다른 제어문의 블록이 배치될 수 있습니다. 아래 형태에는 2단계의 내포를 보였지만 필요한 만큼 여러 단계의 내포도 가능합니다.
@@ -1786,10 +1874,14 @@ end
 
 
 
+
+[__SOURCE](3-flowcontrol-subprogram/6-loop/README.md)
 # 3.6 반복문
 
 같은 동작을 여러 번 반복하고자 할 때 반복문을 사용합니다.
 
+
+[__SOURCE](3-flowcontrol-subprogram/6-loop/1-for-next.md)
 # 3.6.1 for~next문
 
 ### 설명
@@ -1823,6 +1915,8 @@ print idx, sum
 end
 ```
 
+
+[__SOURCE](3-flowcontrol-subprogram/6-loop/2-break-continue.md)
 # 3.6.2 break문, continue문
 
 ### 설명
@@ -1882,6 +1976,8 @@ Anna
 James
 Tom
 ```
+
+[__SOURCE](3-flowcontrol-subprogram/7-call-jump/README.md)
 # 3.7 call문, jump문과 서브프로그램
 
 규모가 큰 로봇 작업 전체를 하나의 JOB 프로그램으로 작성하면, 프로그램이 크고 복잡해져서 기능을 추가하거나 문제점을 찾아 해결하기 어려워집니다.
@@ -1890,6 +1986,8 @@ Tom
 
 
 
+
+[__SOURCE](3-flowcontrol-subprogram/7-call-jump/1-call.md)
 # 3.7.1 call문
 
 ### 설명
@@ -1934,6 +2032,8 @@ main job start
 sub-program
 main job end
 ```
+
+[__SOURCE](3-flowcontrol-subprogram/7-call-jump/2-param-return.md)
 # 3.7.2 매개변수와 param문, return문
 
 JOB 프로그램은 입력과 출력을 전달하는 통로\(channel\)로서 형식 매개변수를 사용합니다. 형식 매개변수는 JOB 프로그램의 가장 선두에 param 명령문으로 정의합니다.
@@ -1976,6 +2076,8 @@ return len
 dist2d 프로그램은 결과값을 return 문을 통해 외부로 전달하고 있습니다. 이 return값은 호출한 프로그램에서 result\(\) 함수를 호출하여 얻을 수 있습니다.
 
 \(return문과 end문은 프로그램을 종료하고 주 프로그램으로 리턴한다는 점에서 동작이 같습니다. 다만 return문은 결과값을 인수로 지정할 수 있다는 점에서만 end문과 다릅니다.\)
+
+[__SOURCE](3-flowcontrol-subprogram/7-call-jump/3-def.md)
 # 3.7.3 def문 (사용자함수 정의)
 
 {% hint style="info" %}
@@ -2051,6 +2153,8 @@ manhattan= 17.8
 end
 ```
 <br>
+
+[__SOURCE](3-flowcontrol-subprogram/7-call-jump/4-jump.md)
 # 3.7.3 jump문
 
 ### 설명
@@ -2091,7 +2195,11 @@ end
 main job start
 sub-program
 ```
+
+[__SOURCE](3-flowcontrol-subprogram/8-local-global-var/README.md)
 # 3.8 지역변수와 전역변수
+
+[__SOURCE](3-flowcontrol-subprogram/8-local-global-var/1-local-var.md)
 # 3.8.1 지역변수
 
 ### 설명
@@ -2166,6 +2274,8 @@ main\_v는 0001.job 내에서만 접근 가능한 지역변수이고, sub\_v는 
 
 
 
+
+[__SOURCE](3-flowcontrol-subprogram/8-local-global-var/2-global-var.md)
 # 3.8.2 전역변수
 
 ### 설명
@@ -2272,6 +2382,8 @@ global x가 처음 수행되면 변수 x가 생성되면서 default값 0으로 �
   </tbody>
 </table>
 
+
+[__SOURCE](3-flowcontrol-subprogram/8-local-global-var/3-precedence.md)
 # 3.8.3 우선순위
 
 동일한 이름을 가진 지역변수와 전역변수가 있을 때에는 지역변수에 우선적으로 접근합니다. 가령, 아래 0005.job이 수행되는 동안은 전역변수 x와 지역변수 x가 동시에 존재하게 되는데, 이 때 x값을 읽어보면 지역변수가 읽힙니다. 0005.job에서 0001.job으로 리턴한 후, x값을 읽어보면 전역변수만 존재하는 상태이므로 전역변수가 읽힙니다.
@@ -2316,14 +2428,20 @@ global x가 처음 수행되면 변수 x가 생성되면서 default값 0으로 �
   </tbody>
 </table>
 
+
+[__SOURCE](4-array-object/README.md)
 # 4. 배열과 객체
 
+
+[__SOURCE](4-array-object/1-array/README.md)
 # 4.1 배열
 
 
 
 
 
+
+[__SOURCE](4-array-object/1-array/1-1d-array.md)
 # 4.1.1 배열
 
 배열은 여러 개의 값을 하나의 이름으로 모아 저장해 놓고, 인덱스\(index\) 번호를 통해 접근하는 변수형입니다.
@@ -2527,6 +2645,8 @@ global x가 처음 수행되면 변수 x가 생성되면서 default값 0으로 �
 
 
 
+
+[__SOURCE](4-array-object/1-array/2-md-array.md)
 # 4.1.2 다차원 배열
 
 배열의 요소로서 배열이 내포될 수도 있습니다.
@@ -2579,6 +2699,8 @@ arr\_y\[1\]는 이 중 인덱스 1의 요소, 즉 \["abc", "jqk", "xyz"\] 배열
   </tbody>
 </table>
 
+
+[__SOURCE](4-array-object/1-array/3-array-creator.md)
 # 4.1.3 배열 생성자 함수 - Array()
 
 수 백개의 요소를 가진 배열을 생성하고자 한다면, \[ \] 표기만으로는 어렵습니다. 생성자 함수를 호출하면 원하는 개수의 배열을 생성할 수 있습니다. 각 요소는 0으로 초기화됩니다.
@@ -2596,6 +2718,8 @@ var 배열변수명 = Array(3,2,4)	# [3][2][4]개의 3차원 배열 생성
 
 
 
+
+[__SOURCE](4-array-object/1-array/4-array-append.md)
 # 4.1.4 배열 원소 추가 프로시져 append_arr
 
 {% hint style="info" %}
@@ -2619,6 +2743,8 @@ var arr = [1, 2]
 append_arr arr, [3, 4]  # 원소 [3, 4]를 추가
 print arr               # [1, 2, [3, 4]]
 ```
+
+[__SOURCE](4-array-object/1-array/5-array-extend.md)
 # 4.1.5 배열에 다른 배열을 합치는 프로시져 extend_arr
 
 
@@ -2644,6 +2770,8 @@ var arr = [1, 2]
 extend_arr arr, [3, 4, 5]
 print arr   # [1, 2, 3, 4, 5]
 ```
+
+[__SOURCE](4-array-object/2-object.md)
 # 4.2 객체 \(object\)
 
 앞서, 배열은 여러 개의 요소값을 보관할 수 있고, 인덱스로 접근한다는 것을 배웠습니다.
@@ -2727,6 +2855,8 @@ print arr   # [1, 2, 3, 4, 5]
   </tbody>
 </table>
 
+
+[__SOURCE](4-array-object/3-array-object-assignment.md)
 # 4.3 배열과 객체의 복사 대입\(assignment\)
 
 대입문 우변이 배열이나 객체 변수인 경우, 변수의 값 전체가 좌변의 변수로 복사됩니다. 배열이나 객체가 요소값으로서 서브 배열과 서브 객체들을 복잡하게 포함하고 있을 때에도, 이러한 포함 구조들이 모두 복사되는데 이를 깊은 복사\(deep copy\)라고 합니다.
@@ -2770,6 +2900,8 @@ print arr   # [1, 2, 3, 4, 5]
 
 
 
+
+[__SOURCE](4-array-object/4-call-by-reference-call-by-value.md)
 # 4.4 참조 전달\(call-by-reference\)과 값 전달\(call-by-value\)
 
 3.4절의 call문과 jump문 설명에서 형식 매개변수와 실 매개변수의 개념을 배운 바 있습니다. 실 매개변수를 서브 프로그램으로 전달했는데, 서브 프로그램이 이 변수의 값을 변경한 후 종료했다면 변경된 내용이 메인 프로그램에 반영되어 있을까요?
@@ -2956,13 +3088,17 @@ print arr   # [1, 2, 3, 4, 5]
 
 
 
+
+[__SOURCE](5-moving-robot/README.md)
 # 5. 로봇언어로 로봇 움직이기
 
 로봇의 목표위치를 표현하는 포즈를 이해한 후, 로봇 이동 명령을 배워봅시다.
 
+
+[__SOURCE](5-moving-robot/1-pose.md)
 # 5.1 포즈 \(pose\)
 
-포즈는 Hi6 제어기에 기본 내장된 객체형으로서, 로봇의 각 축의 자세, 혹은 툴 끝의 직교좌표와 방향을 표현합니다.
+포즈는 ${cont_model} 제어기에 기본 내장된 객체형으로서, 로봇의 각 축의 자세, 혹은 툴 끝의 직교좌표와 방향을 표현합니다.
 
 포즈는 생성자 함수 Pose\( \)를 호출하여 생성합니다. 함수 매개변수들은 모두 위치 매개변수입니다. 첫 번째 문자열 요소는 format으로 두 번째 문자열 요소는 config로 인식됩니다. 나머지는 모두 숫자형입니다.
 
@@ -3003,7 +3139,7 @@ format의 예 (examples);
 {% hint style="info" %}
 cfg요소는 로봇 자세 \(configuration\)를 지정합니다.<br>
 축 좌표(joint)의 경우는 필요 없고, 직교좌표의 경우만 필요합니다.<br>
-자세한 내용은 Hi6 로봇제어기 조작설명서의 "[2.3.2.2 베이스 및 로봇 기록 좌표](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-Hi6-tp630/2-operation/3-step/2-step-pose-modify/2-base-robot-crd-sys)"를 참조하십시오.
+자세한 내용은 ${cont_model} 로봇제어기 조작설명서의 "[2.3.2.2 베이스 및 로봇 기록 좌표](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-${cont_model}-tp630/2-operation/3-step/2-step-pose-modify/2-base-robot-crd-sys)"를 참조하십시오.
 
 {% endhint %}
 
@@ -3170,9 +3306,11 @@ print po2.z, po2.cfg
 
 
 
+
+[__SOURCE](5-moving-robot/2-shift.md)
 # 5.2 시프트 \(shift\)
 
-시프트는 Hi6 제어기에 기본 내장된 객체형으로서, 포즈에 대한 변경값을 표현합니다.
+시프트는 ${cont_model} 제어기에 기본 내장된 객체형으로서, 포즈에 대한 변경값을 표현합니다.
 
 시프트는 생성자 함수 Shift\( \)를 호출하여 생성합니다. 함수 매개변수들은 모두 위치 매개변수입니다. crd와 cfg는 문자열형이고, 나머지는 모두 숫자형입니다.
 
@@ -3208,6 +3346,8 @@ Shift 객체의 요소들은 다음의 키들로 접근 가능합니다.
 
 ![](../_assets/image_4.png)
 
+
+[__SOURCE](5-moving-robot/3-pose-expression.md)
 # 5.3 포즈식 \(pose expression\)
 
 결과값이 포즈가 되는 수식을 포즈식이라고 합니다.
@@ -3234,6 +3374,8 @@ var po4 = po1-sft1
 var po5 = po2+sft1+Shift(0, 0, 55.2, 0, -5, 0, "base")
 ```
 
+
+[__SOURCE](5-moving-robot/4-move.md)
 # 5.4 move문
 
 move문은 로봇을 움직이는 프로시져입니다. 형식은 아래와 같습니다.
@@ -3387,6 +3529,8 @@ if result() then *sensor_on
 
 
 
+
+[__SOURCE](5-moving-robot/5-mkucs.md)
 # 5.5 mkucs함수 - 사용자좌표계
 
 ### 설명
@@ -3516,6 +3660,8 @@ if result() then *sensor_on
 
 ![](../../_assets/mkucs.png)
 
+
+[__SOURCE](5-moving-robot/6-selucrd.md)
 # 5.6 selucrd문
 
 selucrd문은 조건설정의 사용자 좌표계로 지정되어 있는 사용자 좌표계 번호를 변경하기 위한 프로시져입니다.
@@ -3561,14 +3707,16 @@ selucrd <좌표계번호>
 ```python
    selucrd 1
    end
-```# 5.7 contpath문
+```
+[__SOURCE](5-moving-robot/7-contpath.md)
+# 5.7 contpath문
 
 ### 설명
 
 CONTPATH(연속패스)의 모드를 선택합니다.
 
 CONTPATH에 대한 설명은 아래 링크를 참조하십시오.  
-[Hi6 조작설명서: 8.15 R360 CONTPATH 수동 설정](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-Hi6-tp630/8-r-code/15-r360)
+[${cont_model} 조작설명서: 8.15 R360 CONTPATH 수동 설정](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-${cont_model}-tp630/8-r-code/15-r360)
 <br><br>
 
 
@@ -3616,7 +3764,9 @@ contpath 2
 
 - 변경된 상태는 제목표시줄의 `CP0` / `CP1` / `CP2` 플래그로 확인할 수 있습니다.
 
-{% endhint %}# 5.8 coldet 문
+{% endhint %}
+[__SOURCE](5-moving-robot/8-coldet.md)
+# 5.8 coldet 문
 
 충돌검지(축별) 기능이 유효로 설정되어 있는 상태에서 로봇의 충돌검지(축별) 레벨을 설정합니다. 
 
@@ -3666,6 +3816,8 @@ S7   move P,spd=60%,accu=0,tool=0
 * S6와 S7은 충돌검지를 실행하지 않습니다.   
 
 --- 
+
+[__SOURCE](5-moving-robot/9-colsense.md)
 # 5.9 colsense 문
 
 모델기반 충돌검지 기능이 유효로 설정되어 있는 상태에서 로봇의 충돌검지 민감도를 설정합니다. 
@@ -3721,6 +3873,8 @@ S7   move P,spd=60%,accu=0,tool=0
 {% endhint %}
 
 
+
+[__SOURCE](5-moving-robot/10-softxyz.md)
 # 5.10 softxyz 문
 
 센서리스 힘제어 기능으로, 사용자가 설정한 환경에서 로봇이 외력에 대해 직교좌표 기준으로 유연하게 움직이도록 하는 기능입니다.
@@ -3823,6 +3977,8 @@ S2   wait ...
 >   2) *dpr 값을 높인다*  
 >   3) *vel 값을 낮춘다*
 
+
+[__SOURCE](5-moving-robot/11-softxyz_lim.md)
 # 5.11 softxyz_lim 문
 
 softxyz_lim 명령어는 softxyz on 기능 사용 전 파라미터 값을 미리 설정 해야 합니다. <br>
@@ -3870,6 +4026,8 @@ softxyz_lim thr, y=10
 ```
 
 
+
+[__SOURCE](5-moving-robot/12-softjoint.md)
 # 5.12 softjoint
 
 센서리스 힘제어 기능으로 사용자가 설정한 환경에서 로봇이 외력에 대해 축 좌표로 유연하게 움직이는 기능입니다. <br>
@@ -3903,6 +4061,8 @@ softjoint off
 * 외력에 대한 로봇 민감도를 향상시키기 위해 softjoint on 명령어 전에 반드시 delay 명령어로 로봇을 1~2초 가량 정지시켜 놓는 것이 좋습니다. 
 
 {% endhint %}
+
+[__SOURCE](5-moving-robot/13-softjoint_lim.md)
 # 5.13 softjoint_lim
 
 softjoint_lim 명령어는 softjoint on 기능 사용 전 파라미터 값을 미리 설정 해야 합니다. <br>
@@ -3958,11 +4118,13 @@ S2   move P,spd=250mm/sec,accu=0,tool=0
 * softjoint_lim 파라미터는 축 번호와 부드러움 정도는 필수적으로 설정해야 하지만, 각도 범위와 문턱값은 설정을 하지 않으면 각도를 제한하지 않고 문턱값은 0.0[Nm]로 자동 설정 됩니다. 
 
 {% endhint %}
+
+[__SOURCE](5-moving-robot/14-external_control.md)
 # 5.14 외부 제어(External control)
 
 
 ### 설명 
-* 로봇의 이동에 대한 위치 지령 생성은 외부 장치에서 수행하고 이 생성된 외부 지령을 이더넷이나 시리얼 통신을 통해 문자열 데이터로 Hi6 제어기에 전송하면 Hi6 제어기는 이 지령을 수신하여 해당 로봇을 제어하는 기능입니다. 
+* 로봇의 이동에 대한 위치 지령 생성은 외부 장치에서 수행하고 이 생성된 외부 지령을 이더넷이나 시리얼 통신을 통해 문자열 데이터로 ${cont_model} 제어기에 전송하면 ${cont_model} 제어기는 이 지령을 수신하여 해당 로봇을 제어하는 기능입니다. 
 
 
 ### 문법 
@@ -4030,6 +4192,8 @@ S2   move P,spd=250mm/sec,accu=0,tool=0
 * 포즈형 문자열은 배열 형식의 축각도 좌표로만 가능합니다. (ex. [0.000,90.000,0.000,0.000,-90.000,0.000])  
 
 {% endhint %}
+
+[__SOURCE](5-moving-robot/15-convcrd.md)
 # 5.15 convcrd 문
 
 
@@ -4055,6 +4219,8 @@ poseB = poseA.convcrd("u1")        #1번 사용자 좌표계
      pose_B=pose_A.convcrd("base")
 ```
 
+
+[__SOURCE](5-moving-robot/16-pose_trans.md)
 # 5.16 pose_trans 문
 
 
@@ -4100,6 +4266,8 @@ S1   move P,tg=pose_C,spd=10%,accu=0,tool=0
      end
 ```
 
+
+[__SOURCE](5-moving-robot/17-pose_inv.md)
 # 5.17 pose_inv 문
 
 
@@ -4145,6 +4313,8 @@ S1   move P,tg=pose_C,spd=10%,accu=0,tool=0
 ```
 
 
+
+[__SOURCE](5-moving-robot/18-axisctrl.md)
 # 5.18 axisctrl 문
 
 
@@ -4157,7 +4327,9 @@ S1   move P,tg=pose_C,spd=10%,accu=0,tool=0
 ```python
 axisctrl <on/off>,a=<부가축 번호>
 axisctrl <on/off>,a=[부가축 번호,부가축 번호,...] : 복수지정 가능(최대 4개)
-```# 5.19 smov문
+```
+[__SOURCE](5-moving-robot/19-smov.md)
+# 5.19 smov문
 
 smov문은 포지셔너 동기 시 사용되는 프로시져입니다.
 smov문에 대한 자세한 설명은 아래 링크를 참조하십시오.  
@@ -4168,7 +4340,9 @@ smov문에 대한 자세한 설명은 아래 링크를 참조하십시오.
 ```python
 "smov S<스테이션 번호>,<보간방식>,tg=<목표위치>,spd=<속도>,accu=<Accuracy>,tool=<Tool 번호>",
 "smov S<스테이션 번호>,<보간방식>,tg=<목표위치>,spd=<속도>,accu=<Accuracy>,tool=<Tool 번호> until <입력신호>"
-```# 5.20 shift문
+```
+[__SOURCE](5-moving-robot/20-shift.md)
+# 5.20 shift문
 
 shift문은 이미 티칭된 포인트를 XYZ 좌표계에서 툴 각도를 유지하면서 평행 이동하는 기능입니다.
 
@@ -4190,7 +4364,9 @@ S2   move P,tg=po1,spd=10%,accu=0,tool=0
      shift crd="u1",x=-150,y=70,z=10
 S3   move P,tg=po1,spd=10%,accu=0,tool=0
      end
-```# 5.21 shift_lim문
+```
+[__SOURCE](5-moving-robot/21-shift_lim.md)
+# 5.21 shift_lim문
 
 shift_lim문은 시프트 기능을 사용할 때 안전성을 향상시키기 위하여 로봇이 시프트할 양의 한계치를 설정하는 기능입니다. 설정한 한계치를 초과하는 시프트량이 입력되면 에러를 발생시킵니다. 
 
@@ -4213,12 +4389,18 @@ S1   move P,tg=po1,spd=10%,accu=0,tool=0
      shift crd="base",x=-150,y=70,z=10  # 시프트 리밋 초과 에러 발생
 S2   move P,tg=po1,spd=10%,accu=0,tool=0
      end
-```# 6. 외부장치와 통신하기
+```
+[__SOURCE](6-external-comm/README.md)
+# 6. 외부장치와 통신하기
 
+
+[__SOURCE](6-external-comm/1-fb-io/README.md)
 # 6.1 fb객체 : 디지털 I/O
 
 HRScript에서 접근할 수 있는 총 10개의 fb객체를 통해 디지털 I/O 입출력을 할 수 있습니다. fb는 Fieldbus Block이라는 의미이며, 각 fb 객체는 로봇제어기에 장착된 I/O 하드웨어에 매핑되도록 설정되며, 출력변수와 입력변수들을 요소로서 포함하고 있습니다.
 
+
+[__SOURCE](6-external-comm/1-fb-io/1-io-val.md)
 # 6.1.1 입출력 변수
 
 <style type="text/css">
@@ -4327,6 +4509,8 @@ fb 객체명은 아래와 같이 생략할 수도 있습니다.
 
 
 
+
+[__SOURCE](6-external-comm/1-fb-io/2-io-example.md)
 # 6.1.2 예제
 
 아래의 사용 예를 참고하십시오.
@@ -4343,16 +4527,18 @@ next
 fb2.do3=fb2.do7=fb2.do11=1   # fb2의 3번, 7번, 11번 출력신호를 한꺼번에 켠다.
 ```
 
+
+[__SOURCE](6-external-comm/1-fb-io/3-fn-io.md)
 # 6.1.3 fn객체
 
 fb객체의 특정 영역을 지정하여 fn객체를 정의할 수 있습니다.
-Hi6 제어기가 필드버스 master이고, 여러 개의 필드버스 slave장치들이 있을 경우, 각 slave장치의 영역들을 하나씩의 fn객체로 설정해두면, 이 slave들을 직관적으로 다룰 수 있습니다.
+${cont_model} 제어기가 필드버스 master이고, 여러 개의 필드버스 slave장치들이 있을 경우, 각 slave장치의 영역들을 하나씩의 fn객체로 설정해두면, 이 slave들을 직관적으로 다룰 수 있습니다.
 
 ![](../../_assets/io/io_fn.png)
 
 fn영역을 설정하는 방법은 아래 링크를 참조하십시오.
 
-[Hi6 조작설명서: 7.3.2.12 fn 블럭 할당](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-Hi6-tp630/7-setting/3-control-parameter/2-io-signal-setting/12-fn-block)
+[${cont_model} 조작설명서: 7.3.2.12 fn 블럭 할당](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-${cont_model}-tp630/7-setting/3-control-parameter/2-io-signal-setting/12-fn-block)
   
 &nbsp;
 
@@ -4374,6 +4560,8 @@ for idx=21 to 29
 next
 fn2.do3=fn2.do7=fn2.do11=1   # fn2의 3번, 7번, 11번 출력신호를 한꺼번에 켠다.
 ```
+
+[__SOURCE](6-external-comm/1-fb-io/4-pulse.md)
 # 6.1.4 pulse문
 
 pulse문은 펄스 형태의 신호 출력을 위해 사용하는 프로시져 입니다.
@@ -4448,9 +4636,11 @@ pulse <신호>,tlag=<지연 시간>,ton=<On 시간>,toff=<Off 시간>,cnt=<출�
 ```python
    pulse do10,tlag=0.0,ton=1.5,toff=0.5,cnt=5
    end
-```# 6.2 http\_cli 모듈 : HTTP 클라이언트
+```
+[__SOURCE](6-external-comm/2-http_cli/README.md)
+# 6.2 http\_cli 모듈 : HTTP 클라이언트
 
-Hi6 제어기의 범용 이더넷 포트를 통해, 원격의 웹 서비스에 접근하여 HTTP 서비스를 받을 수 있습니다.
+${cont_model} 제어기의 범용 이더넷 포트를 통해, 원격의 웹 서비스에 접근하여 HTTP 서비스를 받을 수 있습니다.
 
 이 기능을 사용하기 위해서는 아래와 같이 http\_cli 모듈을 import한 후, HttpCli 객체를 생성해야 합니다.
 
@@ -4474,6 +4664,8 @@ delete 서비스는 body 속성을 사용하지 않습니다.
 제공되는 Http 클라이언트 통신은 동기 통신으로 진행됩니다.
 
 
+
+[__SOURCE](6-external-comm/2-http_cli/1-http_cli-creator.md)
 # 6.2.1 생성자
 
 ### 설명
@@ -4496,6 +4688,8 @@ var cli = http_cli.HttpCli()
 
 
 
+
+[__SOURCE](6-external-comm/2-http_cli/2-http_cli-member-var.md)
 # 6.2.2 멤버변수
 
 <table>
@@ -4561,8 +4755,12 @@ cli.body = { name: "WORK #32", color: "green", state: "OK" }
 cli.query = { axis: 3 }
 ```
 
+
+[__SOURCE](6-external-comm/2-http_cli/3-http_cli-member-proc/README.md)
 # 6.2.3 멤버 프로시져
 
+
+[__SOURCE](6-external-comm/2-http_cli/3-http_cli-member-proc/1-http_cli-get.md)
 # get
 
 ### 설명
@@ -4634,6 +4832,8 @@ cli.get url, 10, *timeout
 
 
 
+
+[__SOURCE](6-external-comm/2-http_cli/3-http_cli-member-proc/2-http_cli-put.md)
 # put
 
 ### 설명
@@ -4704,6 +4904,8 @@ cli.put url, 10, S1
 
 
 
+
+[__SOURCE](6-external-comm/2-http_cli/3-http_cli-member-proc/3-http_cli-post.md)
 # post
 
 ### 설명
@@ -4773,6 +4975,8 @@ var url = domain+"/display/update"
 cli.post url, 10, *TimeOut
 ```
 
+
+[__SOURCE](6-external-comm/2-http_cli/3-http_cli-member-proc/4-http_cli-delete.md)
 # delete
 
 ### 설명
@@ -4834,6 +5038,8 @@ var domain="http://192.168.1.200:8888"
 cli.delete domain+"/items"
 ```
 
+
+[__SOURCE](6-external-comm/2-http_cli/4-http_cli-code.md)
 # 6.2.4 HTTP 통신 코드
 
 * HTTP 주요 응답 코드 
@@ -5154,6 +5360,8 @@ cli.delete domain+"/items"
     </tr>
   </tbody>
 </table>
+
+[__SOURCE](6-external-comm/2-http_cli/5-http_cli-example.md)
 # 6.2.4 HTTP client 통신 예제
 
 ```python
@@ -5192,8 +5400,12 @@ cli.delete domain+"/items"
      print "timeout"
 ```
 
+
+[__SOURCE](6-external-comm/3-tp-console-bar/README.md)
 # 6.3 티치펜던트 console bar로 입출력하기
 
+
+[__SOURCE](6-external-comm/3-tp-console-bar/1-print.md)
 # 6.3.1 print문
 
 ### 설명
@@ -5236,6 +5448,8 @@ print arr[0],arr[1],arr[2]
 print "x-center: "+(width/2), "y-center: "+(height/2)
 print po10+sft21
 ```
+
+[__SOURCE](6-external-comm/3-tp-console-bar/2-input.md)
 # 6.3.2 input문
 
 ### 설명
@@ -5312,12 +5526,16 @@ input work_no,10,*timeout
 
 
 
+
+[__SOURCE](6-external-comm/4-modbus/README.md)
 # 6.4 modbus 모듈 : 모드버스 마스터
 
 HRScript에서 모드버스 마스터 동작을 수행할 수 있습니다. 모드버스 통신 기능에 대한 자세한 내용은 별도의 [Hi6 로봇제어기 기능설명서 - 모드버스](https://hrbook-hrc.web.app/#/view/doc-modbus/korean/README)를 참조하십시오.  
+
+[__SOURCE](6-external-comm/5-sci/README.md)
 # 6.5 sci 모듈 : 시리얼 통신
 
-Hi6 제어기의 COM 포트를 통해, 시리얼 통신을 수행할 수 있습니다.
+${cont_model} 제어기의 COM 포트를 통해, 시리얼 통신을 수행할 수 있습니다.
 
 이 기능을 사용하기 위해서는 아래와 같이 Sci 객체를 전역변수로 생성해야 합니다.
 
@@ -5340,6 +5558,8 @@ close를 호출하여 port를 close 하게 됩니다.
 
 
 
+
+[__SOURCE](6-external-comm/5-sci/1-sci-creator.md)
 # 6.5.1 생성자
 
 ### 설명
@@ -5363,7 +5583,11 @@ sci2=com.Sci(2)
 
 
 
-# 6.5.2 멤버 프로시져# send
+
+[__SOURCE](6-external-comm/5-sci/2-sci-member-proc/README.md)
+# 6.5.2 멤버 프로시져
+[__SOURCE](6-external-comm/5-sci/2-sci-member-proc/1-sci-send.md)
+# send
 
 ### 설명
 
@@ -5386,6 +5610,8 @@ sci2.send msg
 
 
 
+
+[__SOURCE](6-external-comm/5-sci/2-sci-member-proc/2-sci-recv.md)
 # recv
 
 ### 설명
@@ -5451,6 +5677,8 @@ Sci의 recv 를 호출하여 문자열을 수신합니다.
 
 
 
+
+[__SOURCE](6-external-comm/5-sci/2-sci-member-proc/3-sci-open.md)
 # open
 
 ### 설명
@@ -5482,6 +5710,8 @@ endif
 
 
 
+
+[__SOURCE](6-external-comm/5-sci/2-sci-member-proc/4-sci-close.md)
 # close
 
 ### 설명
@@ -5510,6 +5740,8 @@ endif
 
 
 
+
+[__SOURCE](6-external-comm/5-sci/2-sci-member-proc/5-sci-clr-rbuf.md)
 # clr_rbuf
 
 ### 설명
@@ -5538,6 +5770,8 @@ endif
 
 
 
+
+[__SOURCE](6-external-comm/5-sci/3-sci-example.md)
 # 6.5.3 시리얼 통신 예제
 
 ``` python
@@ -5568,16 +5802,22 @@ Hyundai Robot Job File; { version: 1.6, mech_type: "", total_axis: -1, aux_axis:
 ```
 
 
+
+[__SOURCE](7-enet-module/README.md)
 # 7 enet 모듈 : 이더넷 TCP/UDP 통신
 
-Hi6 제어기의 범용 이더넷 포트를 통해, 외부 장치와 이더넷 TCP 혹은 UDP 통신으로 문자열, 혹은 바이너리 데이터의 송수신을 할 수 있습니다.
+${cont_model} 제어기의 범용 이더넷 포트를 통해, 외부 장치와 이더넷 TCP 혹은 UDP 통신으로 문자열, 혹은 바이너리 데이터의 송수신을 할 수 있습니다.
 
 enet 모듈은 ENet과 BBuf의 2개의 객체를 생성할 수 있습니다. ENet은 이더넷 socket 인터페이스를 제공하고, BBuf는 바이너리 데이터 통신을 할 때 사용됩니다.  
 
 client 예제와 server 예제를 따라가면서 사용법을 이해해 봅시다. 각 객체의 멤버 변수와 함수들의 참조설명서(reference guide)는 그 뒤에 이어집니다.
+
+[__SOURCE](7-enet-module/1-exam-client/README.md)
 # 7.1 peer-to-peer, client 예제
 
 UDP peer-to-peer (1:1통신), 혹은 TCP client 예제 프로그램을 문자열과 바이너리 송수신 방식으로 나누어 설명합니다.
+
+[__SOURCE](7-enet-module/1-exam-client/1-enet-client-str.md)
 # 7.1.1 peer-to-peer, client 예제 - 문자열 송수신
 
 다음과 같은 순서로 수행합니다.
@@ -5676,7 +5916,9 @@ UDP peer-to-peer (1:1통신), 혹은 TCP client 예제 프로그램을 문자열
      print "time out!"
      cli.close
      end
-```# 7.1.2 peer-to-peer, client 예제 - 바이너리 송수신
+```
+[__SOURCE](7-enet-module/1-exam-client/2-enet-client-bin.md)
+# 7.1.2 peer-to-peer, client 예제 - 바이너리 송수신
 
 바이너리 송수신은 `BBuf` (Binary Buffer) 객체를 통해 수행합니다.  
 (송수신 부분만 다르고, 나머지는 문자열 송수신과 동일합니다.)
@@ -5811,7 +6053,9 @@ UDP peer-to-peer (1:1통신), 혹은 TCP client 예제 프로그램을 문자열
 ```
 
 
-* "s4"나 "U2" 같은 문자열 인수가 endian 방식, signed/unsigned, byte수 같은 binary data 형식을 결정합니다. 자세한 내용은 [7.4.2 지원 형식 (format)](../4-bbuf/2-format.md)을 참조하십시오.# 7.2 TCP server 예제
+* "s4"나 "U2" 같은 문자열 인수가 endian 방식, signed/unsigned, byte수 같은 binary data 형식을 결정합니다. 자세한 내용은 [7.4.2 지원 형식 (format)](../4-bbuf/2-format.md)을 참조하십시오.
+[__SOURCE](7-enet-module/2-exam-server/README.md)
+# 7.2 TCP server 예제
 
 TCP server 예제 프로그램을 문자열과 바이너리 송수신 방식으로 나누어 설명합니다.
 
@@ -5821,6 +6065,8 @@ TCP client가 `connect()` 함수로 server에 접속하는 반면, TCP server는
 * remote port는 지정할 필요 없습니다.
 
 나머지 동작들은 client와 동일합니다.
+
+[__SOURCE](7-enet-module/2-exam-server/1-enet-server-str.md)
 # 7.2.1 ethernet TCP server 예제 - 문자열 송수신
 
 다음과 같은 순서로 수행합니다.
@@ -5873,6 +6119,8 @@ TCP client가 `connect()` 함수로 server에 접속하는 반면, TCP server는
      svr.close
      end
 ```
+
+[__SOURCE](7-enet-module/2-exam-server/2-enet-server-bin.md)
 # 7.2.2 ethernet TCP server 예제 - 바이너리 송수신
 
 바이너리 송수신은 BBuf (Binary Buffer) 객체를 통해 수행합니다.  
@@ -5948,10 +6196,14 @@ TCP client가 `connect()` 함수로 server에 접속하는 반면, TCP server는
 ```
 
 * "s4"나 "U2" 같은 문자열 인수가 endian 방식, signed/unsigned, byte수 같은 binary data 형식을 결정합니다. 자세한 내용은 [7.4.2 지원 형식 (format)](../4-bbuf/2-format.md)을 참조하십시오.
+
+[__SOURCE](7-enet-module/3-enet/README.md)
 # 7.3 ENet 객체
 
 `ENet` 객체는 이더넷 통신을 위한 socket 인터페이스를 제공합니다.  
 사용법은 앞 절의 예제를 참고하십시오.
+
+[__SOURCE](7-enet-module/3-enet/1-enet-creator.md)
 # 7.3.1 ENet 생성자
 
 ### 설명
@@ -5993,6 +6245,8 @@ TCP client가 `connect()` 함수로 server에 접속하는 반면, TCP server는
 enet0 = ENet()
 var tcp = ENet("tcp")
 ```
+
+[__SOURCE](7-enet-module/3-enet/2-enet-member-var.md)
 # 7.3.2 ENet 멤버변수
 
 <table>
@@ -6037,6 +6291,8 @@ var tcp = ENet("tcp")
   </tbody>
 </table>
 
+
+[__SOURCE](7-enet-module/3-enet/3-enet-member-func/README.md)
 # 7.3.3 ENet 멤버 함수
 
 * 멤버 함수는 리턴값을 받을 때는 반드시 인수를 괄호로 묶어주십시오.  
@@ -6051,7 +6307,9 @@ var tcp = ENet("tcp")
   ```python
   obj.func(param1,param2) # (O)
   obj.func param1,param2 # (O) ; 괄호 생략
-  ```# accept
+  ```
+[__SOURCE](7-enet-module/3-enet/3-enet-member-func/enet-accept.md)
+# accept
 
 ### 설명
 
@@ -6144,6 +6402,8 @@ enet_to_sensor.listen
 enet_to_sensor.accept 5000,*TimeOut
 ```
 
+
+[__SOURCE](7-enet-module/3-enet/3-enet-member-func/enet-close.md)
 # close
 
 ### 설명
@@ -6160,6 +6420,8 @@ enet_to_sensor.accept 5000,*TimeOut
 enet_to_sensor.close
 ```
 
+
+[__SOURCE](7-enet-module/3-enet/3-enet-member-func/enet-connect.md)
 # connect
 
 ### 설명
@@ -6250,7 +6512,9 @@ var ret=enet_to_sensor.connect(5000)
 
 ```python
 enet_to_sensor.connect 5000,*TimeOut
-```# listen
+```
+[__SOURCE](7-enet-module/3-enet/3-enet-member-func/enet-listen.md)
+# listen
 
 ### 설명
 
@@ -6317,6 +6581,8 @@ UDP peer-to-peer 통신에서는 사용되지 않습니다.
 enet_to_sensor.listen
 enet_to_sensor.accept 5000,*TimeOut
 ```
+
+[__SOURCE](7-enet-module/3-enet/3-enet-member-func/enet-open.md)
 # open
 
 ### 설명
@@ -6333,6 +6599,8 @@ enet_to_sensor.accept 5000,*TimeOut
 enet_to_sensor.open
 ```
 
+
+[__SOURCE](7-enet-module/3-enet/3-enet-member-func/enet-recv.md)
 # recv
 
 ### 설명
@@ -6392,6 +6660,8 @@ end
 print "Time out! No response from sensor"
 end
 ```
+
+[__SOURCE](7-enet-module/3-enet/3-enet-member-func/enet-recv_bbuf.md)
 # recv_bbuf
 
 ### 설명
@@ -6459,6 +6729,8 @@ print "Time out! No response from sensor"
 end
 ```
 
+
+[__SOURCE](7-enet-module/3-enet/3-enet-member-func/enet-send.md)
 # send
 
 ### 설명
@@ -6506,6 +6778,8 @@ enet_to_sensor.send "rob:"+10+", command:"+cmd+"\n"
 
 
 
+
+[__SOURCE](7-enet-module/3-enet/3-enet-member-func/enet-send_bbuf.md)
 # send_bbuf
 
 ### 설명
@@ -6556,6 +6830,8 @@ var nitem=cli.send_bbuf(bbuf)
 
 
 
+
+[__SOURCE](7-enet-module/3-enet/3-enet-member-func/enet-set_send_trail_null.md)
 # set_send_trail_null
 
 ### 설명
@@ -6579,6 +6855,8 @@ enet_to_sensor.set_send_trail_null(true)
 enet_to_sensor.send "ACK"
 enet_to_sensor.set_send_trail_null(false)
 ```
+
+[__SOURCE](7-enet-module/3-enet/3-enet-member-func/enet-state.md)
 # state
 
 ### 설명
@@ -6650,6 +6928,8 @@ enet_to_sensor.set_send_trail_null(false)
 var ret = enet_to_sensor.state()
 ```
 
+
+[__SOURCE](7-enet-module/4-bbuf/README.md)
 # 7.4 BBuf 객체
 
 BBuf (Binary Buffer) 객체는 이더넷 통신으로 송수신할 바이너리 데이터를 캡슐화합니다. 
@@ -6658,6 +6938,8 @@ BBuf (Binary Buffer) 객체는 이더넷 통신으로 송수신할 바이너리 
 [7.1.2 peer-to-peer, client 예제 - 바이너리 송수신](../1-exam-client/2-enet-client-bin.md)
 
 [7.2.2 ethernet TCP server - 바이너리 송수신](../2-exam-server/2-enet-server-bin.md)
+
+[__SOURCE](7-enet-module/4-bbuf/1-bbuf-creator.md)
 # 7.4.1 BBuf 생성자
 
 ### 설명
@@ -6680,6 +6962,8 @@ var bbuf = BBuf()
 ```
 
 
+
+[__SOURCE](7-enet-module/4-bbuf/2-format.md)
 # 7.4.2 지원 형식 (format)
 
 멤버함수인 `append()`나 `read_num()`는 인수로 형식을 지정해야 합니다.  
@@ -6798,8 +7082,12 @@ var bbuf = BBuf()
 	 <tr>
 
   </tbody>
-</table># 7.4.2 BBuf 멤버 함수
+</table>
+[__SOURCE](7-enet-module/4-bbuf/3-bbuf-member-func/README.md)
+# 7.4.2 BBuf 멤버 함수
 
+
+[__SOURCE](7-enet-module/4-bbuf/3-bbuf-member-func/bbuf-append.md)
 # append
 
 ### 설명
@@ -6865,6 +7153,8 @@ var bbuf=enet.BBuf()
 bbuf.append("F8", 9.80665)
 bbuf.append("U4", [2, 3, 5, 7, 11, 13])
 ```
+
+[__SOURCE](7-enet-module/4-bbuf/3-bbuf-member-func/bbuf-clear.md)
 # clear
 
 ### 설명
@@ -6890,6 +7180,8 @@ bbuf.append("s4", 20)
 bbuf.append("s4", -10)
 bbuf.clear()
 ```
+
+[__SOURCE](7-enet-module/4-bbuf/3-bbuf-member-func/bbuf-nbyte.md)
 # nbyte
 
 ### 문법
@@ -6911,6 +7203,8 @@ bbuf.append("s4", -10)
 print bbuf.nbyte() # "8"
 ```
 
+
+[__SOURCE](7-enet-module/4-bbuf/3-bbuf-member-func/bbuf-read_num.md)
 # read_num
 
 ### 설명
@@ -6974,6 +7268,8 @@ print bbuf.read_num("F8", 0) # "9.80665"
 print bbuf.read_num("U4", 12) # "3"
 print bbuf.read_num("U4", 16) # "5"
 ```
+
+[__SOURCE](7-enet-module/4-bbuf/3-bbuf-member-func/bbuf-read_nums.md)
 # read_nums
 
 ### 설명
@@ -7046,6 +7342,8 @@ bbuf.append("U4", [2, 3, 5, 7, 11, 13])
 print bbuf.read_nums("U4", 12, 3) # "[3, 5, 7]"
 print bbuf.read_num("U4", 12, 6) # "[3, 5, 7, 11, 13]"
 ```
+
+[__SOURCE](8-alias.md)
 # 8. 앨리어스(alias)
 
 앨리어스\(alias\)란 변수나 객체의 속성의 표기를 대체할 수 있는 이름입니다. 반복해 사용하기에 너무 긴 속성 표기를 간결한 이름으로 대체하거나, 특정한 인덱스의 IO 변수를 가독성이 좋은 이름으로 대체해 사용할 수 있습니다.
@@ -7087,11 +7385,17 @@ global unit="mm/s" # (O)
 
 #alias pie_2 = pie*pie # (X)
 ```
+
+[__SOURCE](9-file/README.md)
 # 9. 파일
 
+
+[__SOURCE](9-file/1-file-system/README.md)
 # 9.1 파일시스템
 
-Hi6 제어기의 MAIN 모듈 파일시스템에서, 디렉토리와 파일의 생성, 복사, 삭제를 수행하는 명령문들을 설명합니다.
+${cont_model} 제어기의 MAIN 모듈 파일시스템에서, 디렉토리와 파일의 생성, 복사, 삭제를 수행하는 명령문들을 설명합니다.
+
+[__SOURCE](9-file/1-file-system/1-mkdir.md)
 # 9.1.1 mkdir문
 
 mkdir문은 디렉토리를 생성하는 프로시져입니다.
@@ -7139,6 +7443,8 @@ mkdir "work/data1"
 
 ![](../../_assets/mkdir.png)
 
+
+[__SOURCE](9-file/1-file-system/2-copyfile.md)
 # 9.1.2 copyfile문
 
 copyfile문은 디렉토리나 파일의 복사를 요청하는 프로시져입니다.
@@ -7236,6 +7542,8 @@ copyfile <결과변수>,<원본 경로파일명>,<대상 경로파일명>
 
 ![](../../_assets/copyfile.png)
 
+
+[__SOURCE](9-file/1-file-system/3-delfile.md)
 # 9.1.3 delfile문
 
 delfile문은 디렉토리나 파일의 삭제를 요청하는 프로시져입니다.
@@ -7309,9 +7617,13 @@ delfile <결과변수>,<경로파일명>
    print "delfile failed"
    end
 ```
+
+[__SOURCE](9-file/2-load-save/README.md)
 # 9.2 load/save
 
-Hi6 제어기 MAIN 모듈의 메모리로 파일을 불러오거나 저장하는 명령문들을 설명합니다. 
+${cont_model} 제어기 MAIN 모듈의 메모리로 파일을 불러오거나 저장하는 명령문들을 설명합니다. 
+
+[__SOURCE](9-file/2-load-save/1-load_job.md)
 # 9.2.1 load_job문
 
 MAIN 모듈의 project/jobs/ 폴더의 변경사항을 새로 메모리로 읽어들이는 명령문입니다.
@@ -7384,6 +7696,8 @@ load_job <결과변수>,"*"
      print "copyfile failed"
      end
 ```
+
+[__SOURCE](9-file/2-load-save/2-load_csv.md)
 # 9.2.2 load_csv문
 
 {% hint style="info" %}
@@ -7400,7 +7714,7 @@ HRScript의 전역 최상위(root) 배열은 vars/ 폴더에 CSV 표준형식의
 
 변수 파일에 대한 관련 내용은 아래 조작설명서 링크를 참고하십시오.
 
-[전역변수/변수 파일](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-Hi6-tp630/6-monitoring/3-job/3-global-variable/3-var-files)
+[전역변수/변수 파일](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-${cont_model}-tp630/6-monitoring/3-job/3-global-variable/3-var-files)
 
 .csv 파일들은 PC에서 텍스트 편집기로 쉽게 편집할 수 있습니다.
 편집된 파일을 vars/ 폴더로 복사하는 것 만으로는 즉각 메모리에 반영되지 않으며, 티치펜던트의 전역변수창에서 `[전부 불러오기]` 기능을 사용하거나, `load_csv` 명령을 실행해야만 반영됩니다.
@@ -7469,6 +7783,8 @@ load_csv <결과변수>,"<변수명>"
      print "failed to load new locations."
      end
 ```
+
+[__SOURCE](9-file/2-load-save/3-save_csv.md)
 # 9.2.3 save_csv문
 
 {% hint style="info" %}
@@ -7485,7 +7801,7 @@ HRScript의 전역 최상위(root) 배열은 vars/ 폴더에 CSV 표준형식의
 
 변수 파일에 대한 관련 내용은 아래 조작설명서 링크를 참고하십시오.
 
-[전역변수/변수 파일](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-Hi6-tp630/6-monitoring/3-job/3-global-variable/3-var-files)
+[전역변수/변수 파일](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-${cont_model}-tp630/6-monitoring/3-job/3-global-variable/3-var-files)
 
 전역 최상위(root) 배열은 값이 바뀔 때마다 즉각적으로 .csv 파일에 저장되지는 않습니다.
 `Ctrl+[F7: save]`를 누르거나 전원을 끌 때에 파일로 저장되는데, `save_csv` 명령문을 수행하면 즉각 파일로 저장할 수 있습니다.
@@ -7554,10 +7870,16 @@ save_csv <결과변수>,"<변수명>"
      print "failed to save new locations."
      end
 ```
+
+[__SOURCE](10-etc/README.md)
 # 10. 기타
 
+
+[__SOURCE](10-etc/1-proc/README.md)
 # 10.1 기타 프로시져
 
+
+[__SOURCE](10-etc/1-proc/1-gather.md)
 # 10.1.1 gather문
 
 `gather`문은 데이터 수집 기능을 사용할 때 데이터 수집 시작과 종료 위치를 지정하는 프로시져입니다.
@@ -7615,7 +7937,9 @@ S2   move L,spd=100%,accu=0,tool=0
 S3   move L,spd=100%,accu=0,tool=0
      gather 0
      end
-```# 10.1.2 tonl문
+```
+[__SOURCE](10-etc/1-proc/2-tonl.md)
+# 10.1.2 tonl문
 
 tonl문은 시작과 종료 사이의 스텝들에 대해 위치보정을 수행하기 위한 프로시져입니다.
 
@@ -7682,6 +8006,8 @@ tonl <시작/종료>,<시프트량>
 
 ![](../../_assets/tonl.png)
 
+
+[__SOURCE](10-etc/1-proc/3-seltool.md)
 # 10.1.3 seltool문
 
 seltool문은 툴번호를 변경하는 프로시져입니다.
@@ -7745,6 +8071,8 @@ seltool <툴번호>,<툴타입>
    move P,spd=30%,accu=0,tool=1
    end
 ```
+
+[__SOURCE](10-etc/1-proc/4-triggout.md)
 # 10.1.4 triggout문
 
 triggout문은 신호출력 시점을 선출(-) 혹은 후출(+)할 수 있게 조정할 수 있는 프로시져입니다.
@@ -7844,6 +8172,8 @@ triggout <출력변수>,val=<출력값>,dist=<선출/후출 거리>,j=<tcp 또�
    move L,spd=30%,accu=2,tool=1
    end
 ```
+
+[__SOURCE](10-etc/1-proc/5-intr_def.md)
 # 10.1.5 intr_def문
 
 intr_def문은 인터럽트 조건과 감시 구간, 그리고 인터럽트 발생시 실행할 프로그램을 지정하는 프로시져입니다.
@@ -7956,6 +8286,8 @@ intr_def <on/off>,no=<인터럽트 번호>,var=<인터럽트 조건>,val=<조건
 ```
 
 
+
+[__SOURCE](10-etc/1-proc/6-typeof.md)
 # 10.1.6 typeof문
 
 typeof문은 변수나 식의 타입을 확인하는 프로시져입니다. 결과는 result() 함수로 리턴받습니다.
@@ -7992,6 +8324,8 @@ typeof <식>
      print result() # "object"
      end
 ```
+
+[__SOURCE](10-etc/1-proc/7-gasp_check.md)
 # 10.1.7 gasp_check문
 
 gasp_check문은 로봇에 장착된 가스스프링의 압력을 추정하여 정상 범위에 있는지 확인합니다.
@@ -8080,6 +8414,8 @@ gasp_check pres=<추정 압력>,ref=<기준 압력>,tol=<허용오차>,os=<에�
 
 {% endhint %}
 
+
+[__SOURCE](10-etc/1-proc/8-optime.md)
 # 10.1.8 optime문
 
 optime문은 가동시간의 측정을 시작하거나 갱신하는 프로시져입니다.
@@ -8135,6 +8471,8 @@ optime <파라미터>
    goto *start
    end
 ```
+
+[__SOURCE](10-etc/1-proc/9-count_up.md)
 # 10.1.9 count_up문
 
 count_up문은 지정된 변수의 값을 1씩 증가시키다 preset값을 초과하면 init값으로 초기화하는 프로시져입니다.
@@ -8208,6 +8546,8 @@ count_up <변수>,init=<초기값>,preset=<최종값>
    count_up work_no,init=0,preset=99
    end
 ```
+
+[__SOURCE](10-etc/1-proc/10-count_dn.md)
 # 10.1.10 count_dn문
 
 count_dn문은 지정된 변수의 값을 1씩 감소시키다 preset 보다 작은값이면 init값으로 초기화하는 프로시져입니다.
@@ -8281,6 +8621,8 @@ count_dn <변수>,init=<초기값>,preset=<최종값>
    count_dn work_no,init=99,preset=0
    end
 ```
+
+[__SOURCE](10-etc/1-proc/11-cycle_end.md)
 # 10.1.11 cycle_end문
 
 cycle_end문은 call문의 수행에 의해 관리되던 호출 스텍을 모두 클리어하는 프로시져입니다.
@@ -8320,6 +8662,8 @@ cycle_end
 
 
 ```
+
+[__SOURCE](10-etc/1-proc/12-speed_out.md)
 # 10.1.12 speed_out문
 
 speed_out문은 로봇의 현재 이동속도에 비례하는 값을 계산한 후 지정한 변수에 대입하는 프로시져입니다. <br>
@@ -8417,6 +8761,8 @@ speed_out <on/off>,min_spd=<최소속도>,max_spd=<최대속도>,min_val=<최소
    move P,spd=30%,accu=0,tool=1
    end
 ```
+
+[__SOURCE](10-etc/1-proc/13-task.md)
 # 10.1.13 task문
 
 task문은 멀티태스크 기능을 수행하는 프로시져입니다.
@@ -8432,7 +8778,9 @@ task wait,sub=<서브태스크 번호>
 task sync,id=<식별자>,no=<동일 id의 실행 갯수>
 task stop,sub=<서브태스크 번호>
 task reset,sub=<서브태스크 번호>
-```# 10.1.14 toolchng문
+```
+[__SOURCE](10-etc/1-proc/14-toolchng.md)
+# 10.1.14 toolchng문
 
 toolchng 명령문은 부가축에 할당된 서보툴을 변경하기 위한 프로시져입니다.
 toolchng문에 대한 자세한 설명은 아래 링크를 참조하십시오.  
@@ -8443,6 +8791,8 @@ toolchng문에 대한 자세한 설명은 아래 링크를 참조하십시오.
 ```python
 toolchng on/off,tg=<체인지 대상>,di=<접속완료 신호>,wait=<대기시간>
 ```
+
+[__SOURCE](10-etc/1-proc/15-json_parse.md)
 # 10.1.15 json_parse문
 
 V60.32-00 부터 지원 됩니다.
@@ -8509,6 +8859,8 @@ json 문자열을 파싱하여 객체, 배열, 값으로 변경 하기 위한 �
     var jr = r.data    # r.data의 타입은 JObject
     print jr           # { _type: "JObject", _sub_file: "", _desc: "", test: "value" } 출력 됨
 ```
+
+[__SOURCE](10-etc/1-proc/16-brake_check.md)
 # 10.1.16 brake_check문
 
 brake_check문은 각 축별 모터에 토크를 적용하여 브레이크가 정상 동작하는지 진단하기 위한 프로시져 입니다.
@@ -8603,8 +8955,12 @@ brake_check 명령어에서 [속성] 버튼을 터치하면 브레이크 검사 
 
 {% endhint %}
 
+
+[__SOURCE](10-etc/2-func/README.md)
 # 10.2 기타 함수
 
+
+[__SOURCE](10-etc/2-func/1-rducs.md)
 # 10.2.1 rducs함수 - 사용자좌표계
 
 생성된 사용자좌표계를 포즈로 읽는 명령어입니다.
@@ -8700,6 +9056,8 @@ brake_check 명령어에서 [속성] 버튼을 터치하면 브레이크 검사 
 
 ![](../../_assets/rducs.png)
 
+
+[__SOURCE](10-etc/2-func/2-segment.md)
 # 10.2.2 segment 함수
 
 segment 함수는 시작위치와 종료위치간의 거리를 균등 분할하는 함수입니다.
@@ -8803,6 +9161,8 @@ result=segment(<시작포즈>,<경유포즈>,<종료포즈>,<분할 수>,<카운
      end
 ```
 
+
+[__SOURCE](10-etc/2-func/3-intersection.md)
 # 10.2.3 intersection 함수
 
 intersection 함수를 사용하면 직선과 한 점의 최단거리로 만나는 점을 구하거나, 두 직선을 지나는 최단거리 직선과의 교점을 구할 수 있습니다.
@@ -8900,6 +9260,8 @@ result=intersection(<직선참조포즈 1>,<직선참조포즈 2>,<직선참조�
      end
 ```
 
+
+[__SOURCE](10-etc/2-func/4-rand.md)
 # 10.2.4 rand 함수
 
 rand 함수를 사용하여 난수를 생성할 수 있습니다.
@@ -8955,6 +9317,8 @@ v1=rand(<최솟값>,<최댓값>)
      end
 ```
 
+
+[__SOURCE](10-etc/2-func/5-sig2int.md)
 # 10.2.5 sig2int 함수
 
 sig2int 함수를 사용하면 입출력 신호의 특정 범위를 int형 값으로 표현할 수 있습니다.
@@ -9005,7 +9369,11 @@ result=sig2int(<입/출력 신호명>,<비트 수>)
      end
 ```
 
+
+[__SOURCE](10-etc/3-sysvar/README.md)
 # 10.3 시스템 변수
+
+[__SOURCE](10-etc/3-sysvar/_acc_rate.md)
 # _acc_rate 변수
 
 속도 프로파일의 가속도의 비율을 읽거나 설정합니다.
@@ -9031,6 +9399,8 @@ res = _acc_rate
    ...
    end
 ```
+
+[__SOURCE](10-etc/3-sysvar/_dec_rate.md)
 # _dec_rate 변수
 
 속도 프로파일의 감속도의 비율을 읽거나 설정합니다.
@@ -9056,6 +9426,8 @@ res = _dec_rate
    ...
    end
 ```
+
+[__SOURCE](10-etc/3-sysvar/_intr_no.md)
 # _intr.no 변수
 
 _intr.no 시스템 변수는 발생한 인터럽트 번호를 관리합니다.
@@ -9088,6 +9460,8 @@ res = _intr.no
 ```
 
 
+
+[__SOURCE](10-etc/3-sysvar/_intr_target.md)
 # _intr.target문
 
 _intr.target 시스템 변수는 로봇의 목표위치 도달 상태를 조정합니다.
@@ -9117,6 +9491,8 @@ _intr_target=1
 ```
 ![](../../_assets/intr_target_2.png)
 
+
+[__SOURCE](10-etc/3-sysvar/_spd_rate.md)
 # _spd_rate 변수
 
 재생속도 비율을 읽거나 설정합니다.
@@ -9142,6 +9518,8 @@ res = _spd_rate
    ...
    end
 ```
+
+[__SOURCE](10-etc/3-sysvar/_task_enable.md)
 # _task.enable 변수
 
 ### 설명
@@ -9169,6 +9547,8 @@ res = _task[1].enable
 ```
 
 
+
+[__SOURCE](10-etc/3-sysvar/_tool.md)
 # _tool 변수
 
 ### 설명
@@ -9210,6 +9590,8 @@ _tool[5].izz = <산술식>
    end
 ```
 
+
+[__SOURCE](10-etc/3-sysvar/_vel_rpm_cmd.md)
 # _vel_rpm_cmd 변수
 
 부가축에 대한 속도제어시 모터가 회전하는 속도를 읽거나 설정합니다.
@@ -9238,6 +9620,8 @@ res = _vel_rpm_cmd[6] # 7축의 모터 회전속도를 얻음
    ...
    end
 ```
+
+[__SOURCE](10-etc/3-sysvar/_weaving.md)
 # _weaving 문
 
 ### 설명
@@ -9391,6 +9775,8 @@ _weaving.angle=5
    end
 ```
 
+
+[__SOURCE](10-etc/3-sysvar/_pc.md)
 # _pc 문
 
 ### 설명
