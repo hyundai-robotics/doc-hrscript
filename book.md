@@ -1,21 +1,31 @@
-﻿# Hi7 Robot Controller Function Manual - Robot Language HRScript
+﻿
+[__SOURCE](README.md)
+# ${cont_model} Robot Controller Function Manual - Robot Language HRScript
+
+[__SOURCE](1-intro/README.md)
 # 1. Overview
 
   
 
 
+
+[__SOURCE](1-intro/1-hrscript.md)
 # 1.1 Introduction of HRScript
 
-HD Hyundai Robotics' Hi7 Controller allows the user to program the robot's tasks in a robot language called HRScript. Created programs can be saved as several files with the extension .job.
+HD Hyundai Robotics' ${cont_model} Controller allows the user to program the robot's tasks in a robot language called HRScript. Created programs can be saved as several files with the extension .job.
 
 HRScript is a scripting language that will be interpreted and executed line by line by the interpreter without a compilation procedure. It is similar to the Python or JavaScript languages but has a simpler syntax.
 
 
 
+
+[__SOURCE](2-basic-syntax/README.md)
 # 2. Basic Syntax
 
 Described in this section are the basic terms of HRScript. The basic concept of the job program could be understood by following the method for defining a variable, constructing a simple expression using operators, and assigning the resulting value to a variable.
 
+
+[__SOURCE](2-basic-syntax/1-statements.md)
 # 2.1 Statements
 
 The statement refers to each command string that becomes the execution unit of the job program. HRScript allows only one statement per line. Take note of how the four examples of statements are written below, particularly their appearances.
@@ -37,6 +47,8 @@ Proper indentation in statements is recommended for readability. Both spaces and
 
 
 
+
+[__SOURCE](2-basic-syntax/2-identifier.md)
 # 2.2 Identifiers
 
 Names must be given to commands, variables, functions, and labels that are described. These names are collectively referred to as `identifiers.` When deciding an identifier, it must comply with the following rules for the HRScript's identifiers.
@@ -72,6 +84,8 @@ For example, the following two variables cannot be used together:
     global myarr = Array(10)
 
 {% endhint %}
+
+[__SOURCE](2-basic-syntax/3-statement-type/README.md)
 # 2.3 Types of Statements
 
 The four types of statements of HRScript are as follows:
@@ -85,6 +99,8 @@ The four types of statements of HRScript are as follows:
 
 
 
+
+[__SOURCE](2-basic-syntax/3-statement-type/1-procedure.md)
 # 2.3.1 Procedures
 
 A procedure consists of a command and a 0-N number of parameters.
@@ -113,6 +129,8 @@ The preposition parameters are placed last.
 
 
 
+
+[__SOURCE](2-basic-syntax/3-statement-type/2-assignment.md)
 # 2.3.2 Assignment Statements
 
 An assignment statement consists of the left side, the assignment operator \(=\), and the right side. The left side \(lvalue\) must be a variable that can store a value. No constants or expressions are allowed. 
@@ -125,6 +143,8 @@ On the other hand, constants, variables, and expressions are allowed on the righ
 height=(500+margin)/2
 ```
 
+
+[__SOURCE](2-basic-syntax/3-statement-type/3-comment.md)
 # 2.3.3 Comment Statements
 
 A comment statement is used to describe the contents of the job program in a way that they can be understood easily. Even if the comment statement is executed, no operation is performed. As shown below, a description is attached after the hash sign \(\#\). It can be used as a single statement or attached after another statement.
@@ -136,10 +156,14 @@ var work_w,work_h  # width and height of a workpiece
 
 
 
+
+[__SOURCE](2-basic-syntax/3-statement-type/4-label.md)
 # 2.3.4 Labels
 
 A label is used to mark the target point to move to according to the goto statement. It consists of an asterisk \(\*\) and an identifier.
 
+
+[__SOURCE](2-basic-syntax/4-hello-world.md)
 # 2.4 First Program - Hello, World!
 
 Let us create a simple job program that prints a string on the teach pendant screen. After creating a new job, record the print statement as shown below, and attach the string parameter "Hello, World!"
@@ -149,8 +173,12 @@ print "Hello, World !"
 ```
 
 The print statement is used to print the value at the bottom of the teach pendant's job panel. Now, when you run the program, you can see the text, "Hello, World!" printed at the bottom of the job panel.
+
+[__SOURCE](2-basic-syntax/5-type/README.md)
 # 2.5 Data Type
 
+
+[__SOURCE](2-basic-syntax/5-type/1-type-string.md)
 # 2.5.1 String Data Type
 
 The first program in the previous paragraph used the data "Hello, World!" as the print statement"s parameter, a string data type. The value of the string data type begins and ends with double quotes. There is no limit for the length of the string.
@@ -182,6 +210,8 @@ Please, press "OK" button.
 
 
 
+
+[__SOURCE](2-basic-syntax/5-type/2-number-type.md)
 # 2.5.2 Number Data Type
 
 The number data type stores an integer or real number. Let us print using the print statement. If you list multiple values separated by commas \(,\) in the print statement, as shown in the example below, each value will be displayed separated by a space.
@@ -202,6 +232,8 @@ Inside the system, integers and real numbers are processed separately. Each data
 
 
 
+
+[__SOURCE](2-basic-syntax/5-type/3-bool-type.md)
 # 2.5.3 Boolean Data Type
 
 There are only two values, true and false, as the result of the following logic and comparison operations.
@@ -220,10 +252,14 @@ false
 
 
 
+
+[__SOURCE](2-basic-syntax/5-type/4-array-object-type.md)
 # 2.5.4 Array Type and Object Type
 
 In addition, there are array types and object types. These will be discussed in further detail in Sections 4.1 and 4.2.
 
+
+[__SOURCE](2-basic-syntax/6-variable.md)
 # 2.6 Variables
 
 A variable can store values and has an identifier name. Variables are divided into global and local variables, and the difference between them will be described later. Examples of local variables are first described here.
@@ -265,6 +301,8 @@ width=300
 
 
 
+
+[__SOURCE](2-basic-syntax/7-binary-hex-number.md)
 # 2.7 Binary and Hexadecimal
 
 All the number type values previously described as examples are interpreted as decimal numbers. It can represent binary or hexadecimal values just by adding 0b or 0x prefixes, respectively, as shown in the following.
@@ -274,6 +312,8 @@ var binary = 0b10010011
 var hexadecimal = 0xFF4A38C0
 ```
 
+
+[__SOURCE](2-basic-syntax/8-operator-expression.md)
 # 2.8 Operators and Expressions
 
 In the following example, the variable margin is added to the number value 500, and the resulting value is divided by 2. Thus, the calculated value is assigned to a variable called "height."
@@ -458,6 +498,8 @@ print count_b and height>99
 
 "bitwise NOT" and "shift left/right" are calculated on a 32-bit length basis.
 
+
+[__SOURCE](2-basic-syntax/9-function/README.md)
 # 2.9 Functions
 
 What is the process of converting the angle 60° to a radian value or finding the length of the string that the variable mystr contains? 
@@ -476,6 +518,8 @@ var validity= len(message) < limit
 
 The list of functions provided in HRScript is as follows. \(The tables are sorted in the ascending order of names.\)
 
+
+[__SOURCE](2-basic-syntax/9-function/1-func-math.md)
 # 2.9.1 Math Functions
 
 <table style="text-align:left">
@@ -707,6 +751,8 @@ The list of functions provided in HRScript is as follows. \(The tables are sorte
 
 
 
+
+[__SOURCE](2-basic-syntax/9-function/2-func-string.md)
 # 2.9.2 String Functions
 
 Examples with var str="hello, world" executed;
@@ -831,6 +877,8 @@ Examples with var str="hello, world" executed;
 
 
 
+
+[__SOURCE](2-basic-syntax/9-function/3-func-datetime.md)
 # 2.9.3 Date and Time Functions
 
 <table>
@@ -871,6 +919,8 @@ Examples with var str="hello, world" executed;
   </tbody>
 </table>
 
+
+[__SOURCE](2-basic-syntax/9-function/4-func-creator.md)
 # 2.9.4 Constructor Functions
 
 These functions receive an input of a parameter and then create and return an object.
@@ -928,6 +978,8 @@ These functions receive an input of a parameter and then create and return an ob
 
 
 
+
+[__SOURCE](2-basic-syntax/9-function/5-func-etc.md)
 # 2.9.5 Other Functions
 
 <table>
@@ -1075,6 +1127,8 @@ These functions receive an input of a parameter and then create and return an ob
 
 \* Pose is a data type that represents the posture of the robot or the position of the tool tip. Details will be described later in "[5.1 Pose](../../5-moving-robot/1-pose.md)".
 
+
+[__SOURCE](2-basic-syntax/10-import.md)
 # 2.10 import
 
 ### Description
@@ -1142,10 +1196,14 @@ var cli=enet_module.ENet() # (2)
 cli.ip_addr="192.168.1.172" # (3)
 ```
 
-* This section only covered the rough syntax of the `import` statement. You will often see examples of the use of `import` in the later sections describing module features.# 3. Flow-Control Statements and Sub-Program
+* This section only covered the rough syntax of the `import` statement. You will often see examples of the use of `import` in the later sections describing module features.
+[__SOURCE](3-flowcontrol-subprogram/README.md)
+# 3. Flow-Control Statements and Sub-Program
 
 The statements in the job program are executed line by line in top-to-bottom order. However, depending on certain conditions, the statements can be skipped without being executed, or certain statements can be executed repeatedly. Let us look at the control statements that can control the flow of the program in this manner. 
 
+
+[__SOURCE](3-flowcontrol-subprogram/1-address.md)
 # 3.1 Address
 
 Moving to another position in the program without executing the next line in order is called a "branch."
@@ -1201,10 +1259,14 @@ S12  move P,spd=80%,accu=1,tool=3
 
 
 
+
+[__SOURCE](3-flowcontrol-subprogram/2-stop-wait/README.md)
 # 3.2 Stop or Wait Statement
 
 This statement can stop the execution of a program or make it wait for a certain period of time or until the conditions are satisfied.
 
+
+[__SOURCE](3-flowcontrol-subprogram/2-stop-wait/1-stop.md)
 # 3.2.1 stop
 
 ### Description
@@ -1225,6 +1287,8 @@ endif
 
 
 
+
+[__SOURCE](3-flowcontrol-subprogram/2-stop-wait/2-end.md)
 # 3.2.2 end
 
 ### Description
@@ -1245,6 +1309,8 @@ end
 
 
 
+
+[__SOURCE](3-flowcontrol-subprogram/2-stop-wait/3-delay.md)
 # 3.2.3 delay
 
 ### Description
@@ -1289,6 +1355,8 @@ delay 3.5
 
 
 
+
+[__SOURCE](3-flowcontrol-subprogram/2-stop-wait/4-wait.md)
 # 3.2.4 wait
 
 ### Description
@@ -1340,10 +1408,14 @@ wait sensor_ok
 wait (sensor_ok and pos_ok),10,*timeout
 ```
 
+
+[__SOURCE](3-flowcontrol-subprogram/3-branch/README.md)
 # 3.3 Branch Statement
 
 Makes it possible to go to a different address, without conditions.
 
+
+[__SOURCE](3-flowcontrol-subprogram/3-branch/1-goto.md)
 # 3.3.1 goto
 
 ### Description
@@ -1386,6 +1458,8 @@ goto *err_hdl
 
 
 
+
+[__SOURCE](3-flowcontrol-subprogram/3-branch/2-gosub.md)
 # 3.3.2 gosub~retsub
 
 ### Description
@@ -1460,10 +1534,14 @@ sum=sum+res
 retsub
 end
 ```
+
+[__SOURCE](3-flowcontrol-subprogram/4-conditional/README.md)
 # 3.4 Conditional Statements
 
 These statements allow a certain operation to be or not to be executed depending on certain conditions.
 
+
+[__SOURCE](3-flowcontrol-subprogram/4-conditional/1-simple-if.md)
 # 3.4.1 Single-Line if
 
 ### Description
@@ -1489,6 +1567,8 @@ end
 print "warning: pressure is too high."
 ```
 
+
+[__SOURCE](3-flowcontrol-subprogram/4-conditional/2-if-endif.md)
 # 3.4.2 if-endif
 
 ### Description
@@ -1521,6 +1601,8 @@ end
 
 In the example program, the statements between if and endif are indented by two spaces. These statements are indented to make it easier to recognize that they are codes for the blocks nested between if and endif.
 
+
+[__SOURCE](3-flowcontrol-subprogram/4-conditional/3-if-else-endif.md)
 # 3.4.3 if-else-endif Statement
 
 ### Description
@@ -1556,6 +1638,8 @@ end
 
 
 
+
+[__SOURCE](3-flowcontrol-subprogram/4-conditional/4-if-elseif-else-endif.md)
 # 3.4.4. if-elseif-else-endif
 
 ### Description
@@ -1596,6 +1680,8 @@ end
 
 
 
+
+[__SOURCE](3-flowcontrol-subprogram/4-conditional/5-switch-case-break-end_switch.md)
 # 3.4.5 switch-case-break-end\_switch
 
 ### Description
@@ -1658,6 +1744,8 @@ Any expressions such as Boolean, numeric, string  constant, parameter, and numer
   99 end
 ```
 
+
+[__SOURCE](3-flowcontrol-subprogram/5-nested-flow-control.md)
 # 3.5. Nested Flow-Control Statements
 
 ### Description
@@ -1694,10 +1782,14 @@ end
 
 
 
+
+[__SOURCE](3-flowcontrol-subprogram/6-loop/README.md)
 # 3.6 Loop Statements
 
 Loop statements can be used when the same operation needs to be repeated multiple times.
 
+
+[__SOURCE](3-flowcontrol-subprogram/6-loop/1-for-next.md)
 # 3.6.1 for-next
 
 ### Description
@@ -1730,6 +1822,8 @@ next
 print idx, sum
 end
 ```
+
+[__SOURCE](3-flowcontrol-subprogram/6-loop/2-break-continue.md)
 # 3.6.2 break, continue
 
 ### Description
@@ -1789,6 +1883,8 @@ Anna
 James
 Tom
 ```
+
+[__SOURCE](3-flowcontrol-subprogram/7-call-jump/README.md)
 # 3.7 Call, Jump Statement and Subprograms
 
 If an entire large-scale robot operation is created as one job program, the program becomes large and complex, making it difficult to add functions or find and solve problems.
@@ -1799,6 +1895,8 @@ For the program"s maintainability, it is preferable to divide the unit operation
 
 
 
+
+[__SOURCE](3-flowcontrol-subprogram/7-call-jump/1-call.md)
 # 3.7.1 call
 
 ### Description
@@ -1841,6 +1939,8 @@ main job start
 sub-program
 main job end
 ```
+
+[__SOURCE](3-flowcontrol-subprogram/7-call-jump/2-param-return.md)
 # 3.7.2 Parameters and param, return
 
 In a job program, formal parameters are used as channels through which input and output are passed. The **param** statement will define formal parameters at the beginning of the job program.
@@ -1881,6 +1981,8 @@ In job no. 1, the dist2d subprogram is called with the **call** statement, and "
 The dist2d program transports resulting values to external destinations through **return** statements. Returned values can be obtained by calling a result\(\) function in the called program.
 
 (A **return** statement and an **end** statement have the same action as they end a called program and return to the main program. However, a **return** statement is different from **end** statement as the former can designate a resulting value as an element).
+
+[__SOURCE](3-flowcontrol-subprogram/7-call-jump/3-def.md)
 # 3.7.3 def (defining user function)
 
 since V60.05-06
@@ -1956,6 +2058,8 @@ end
 ```
 
 
+
+[__SOURCE](3-flowcontrol-subprogram/7-call-jump/4-jump.md)
 # 3.7.3 jump
 
 ### Description
@@ -1999,10 +2103,14 @@ RESULT
 main job start
 sub-program
 ```
+
+[__SOURCE](3-flowcontrol-subprogram/8-local-global-var/README.md)
 # 3.8 Local Variables and Global Variables
 
 ## 
 
+
+[__SOURCE](3-flowcontrol-subprogram/8-local-global-var/1-local-variables.md)
 # 3.8.1 Local Variables
 
 ### Description
@@ -2075,6 +2183,8 @@ The local variable "x" is defined in both 0001.job and 0107.job. The local varia
   </tbody>
 </table>
 
+
+[__SOURCE](3-flowcontrol-subprogram/8-local-global-var/2-global-variables.md)
 # 3.8.2 Global Variables
 
 ### Description
@@ -2197,6 +2307,8 @@ Therefore, if a global variable is to be utilized as a counter for the number of
   </tbody>
 </table>
 
+
+[__SOURCE](3-flowcontrol-subprogram/8-local-global-var/3-precedence.md)
 # 3.8.3 Precedence
 
 When there are local variables and global variables with an identical name, the local variable will be accessed preferentially. For example, while 0005.job is executed, as shown below, the global variable x and the local variable x will exist concurrently. At this time, if you read the x value, the local variable will also be read. After 0005.job returns to 0001.job, if you read the x value, the global variable will be read because only the global variable is present.
@@ -2241,14 +2353,20 @@ When there are local variables and global variables with an identical name, the 
   </tbody>
 </table>
 
+
+[__SOURCE](4-array-object/README.md)
 # 4. Arrays and Objects
 
+
+[__SOURCE](4-array-object/1-array/README.md)
 # 4.1 Arrays
 
 
 
 
 
+
+[__SOURCE](4-array-object/1-array/1-1d-array.md)
 # 4.1.1 Arrays
 
 An array is a variable type that collects and stores several values under a single name and allows access through an index number.
@@ -2407,6 +2525,8 @@ It does not matter if the values stored in the array are of different types.
 
 
 
+
+[__SOURCE](4-array-object/1-array/2-md-array.md)
 # 4.1.2 Multidimensional Arrays
 
 An array can also be nested as an element of an array. When accessing the elements of a multidimensional array, you can use the \[ \] operator consecutively. In the following example, "arr\_y" is a two-dimensional array. \(1\)
@@ -2457,6 +2577,8 @@ So, arr\_x\[1\] is "jqk", and arr\_y\[1\]\[2\] is "xyz" because it points to \[2
   </tbody>
 </table>
 
+
+[__SOURCE](4-array-object/1-array/3-array-creator.md)
 # 4.1.3 Array Constructor Function - Array()
 
 It is difficult to create an array with hundreds of elements with the notation \[ \] alone. Any number of arrays may be created by calling the constructor function. Each element will be initialized to 0.
@@ -2474,6 +2596,8 @@ var name = Array(3,2,4)	# [3][2][4] numbers of 3-dimensional arrays are created
 
 
 
+
+[__SOURCE](4-array-object/1-array/4-array-append.md)
 # 4.1.4 Append Procedure for Adding an Element to an Array
 
 Supported from V60.32-00
@@ -2493,6 +2617,8 @@ var arr = [1, 2]
 append_arr arr, [3, 4]  # Appending [3, 4] as an element of arr
 print arr           # [1, 2, [3, 4]]
 ```
+
+[__SOURCE](4-array-object/1-array/5-array-extend.md)
 # 4.1.5 Extend Procedure for Adding All Elements of One Array to Another
 
 Supported from V60.32-00
@@ -2513,6 +2639,8 @@ var arr = [1, 2]
 extend_arr arr, [3, 4, 5]
 print arr   # [1, 2, 3, 4, 5]
 ```
+
+[__SOURCE](4-array-object/2-object.md)
 # 4.2 Object
 
 As previously seen, it was found that an array could store multiple element values and are accessed by index. 
@@ -2585,6 +2713,8 @@ An object can contain other objects or arrays as its elements. Likewise, an arra
 
 
 
+
+[__SOURCE](4-array-object/3-array-object-assignment.md)
 # 4.3 Copied assignment of arrays and objects
 
 If the right side of an assignment statement has object variables, the entire values of the variables will be copied to the variables of the left side. When an array or an object includes sub-arrays and sub-objects in a complex manner as element values, such inclusion structures will be copied, which is called a deep copy.
@@ -2628,6 +2758,8 @@ If the right side of an assignment statement has object variables, the entire va
 
 
 
+
+[__SOURCE](4-array-object/4-call-by-reference-call-by-value.md)
 # 4.4 Call-by-reference and call-by-value
 
 In the description of call statements and jump statements given in Section 3.4, the concepts of formal parameters and actual parameters were explained. When an actual parameter has been transported to a sub-program, if the sub-program ends after changing the value of the parameter, will it be reflected to the main program?
@@ -2818,13 +2950,17 @@ When a sub-program is called, if the copied version of the value of an actual pa
 
 
 
+
+[__SOURCE](5-moving-robot/README.md)
 # 5. Moving a Robotwith Robot Language
 
 After understanding the pose that expresses the target position of the robot, let us learn about the commands to move the robot.
 
+
+[__SOURCE](5-moving-robot/1-pose.md)
 # 5.1 Pose
 
-Pose is an object type embedded in the Hi7 Controller and represents each axis of the robot or the Cartesian coordinates and direction of the tool tip. 
+Pose is an object type embedded in the ${cont_model} Controller and represents each axis of the robot or the Cartesian coordinates and direction of the tool tip. 
 
 Poses are created by calling the constructor function `Pose()`. All function parameters are position parameters. The first string element is recognized as the `format`, and the second string element as the `config`. The remaining elements are all numeric type.
 
@@ -2863,7 +2999,7 @@ Examples of format;
 ```
 
 {% hint style="info" %}
-The cfg element specifies the robot configuration. For more information, refer to "[2.3.2.2 Base and Robot Recording Coordinates](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-Hi7-tp630/2-operation/3-step/2-step-pose-modify/2-base-robot-crd-sys)" in the Hi7 Robot Controller Operation Manual.
+The cfg element specifies the robot configuration. For more information, refer to "[2.3.2.2 Base and Robot Recording Coordinates](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-${cont_model}-tp630/2-operation/3-step/2-step-pose-modify/2-base-robot-crd-sys)" in the ${cont_model} Robot Controller Operation Manual.
 {% endhint %}
 
 
@@ -3032,9 +3168,11 @@ print po2.z, po2.cfg
 
 
 
+
+[__SOURCE](5-moving-robot/2-shift.md)
 # 5.2 Shift
 
-Shift is an object type embedded in the Hi7 Controller and represents the pose's change value. 
+Shift is an object type embedded in the ${cont_model} Controller and represents the pose's change value. 
 
 Shifts are created by calling the constructor function Shift\( \). All function parameters are position parameters. Meanwhile, crd and cfg are string types, and the rest are number types.
 
@@ -3072,6 +3210,8 @@ Elements of the shift object can be accessed with the following keys.
 
 ![](../_assets/image_7.png)
 
+
+[__SOURCE](5-moving-robot/3-pose-expression.md)
 # 5.3 Pose Expression
 
 The expression in which the result value becomes a pose is called a "pose expression." 
@@ -3098,6 +3238,8 @@ var po4 = po1-sft1
 var po5 = po2+sft1+Shift(0, 0, 55.2, 0, -5, 0, "base")
 ```
 
+
+[__SOURCE](5-moving-robot/4-move.md)
 # 5.4 move
 
 The move statement is a procedure for moving the robot. The format is as follows.
@@ -3206,6 +3348,8 @@ When the \[Command\] button is pressed and the \[Motion\] group is opened, selec
 
 
 
+
+[__SOURCE](5-moving-robot/5-mkucs.md)
 # 5.5 mkucs - make user coordinate system
 
 ### Description
@@ -3335,6 +3479,8 @@ or
 
 ![](../../_assets/mkucs.png)
 
+
+[__SOURCE](5-moving-robot/6-selucrd.md)
 # 5.6 selucrd - select user coordinate system
 
 The selucrd statement is a procedure for changing the user coordinate system number specified as the user coordinate system in the condition setting.
@@ -3379,14 +3525,16 @@ selucrd <coord. system number>
 ```python
    selucrd 1
    end
-```# 5.7 contpath
+```
+[__SOURCE](5-moving-robot/7-contpath.md)
+# 5.7 contpath
 
 ### Description
 
 Select the mode of CONTPATH.
 
 See the link below for the description of CONTPATH.
-[Operation Manual: 8.15 R360 Set CONTPATH manually](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-Hi7-tp630/8-r-code/15-r360)
+[Operation Manual: 8.15 R360 Set CONTPATH manually](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-${cont_model}-tp630/8-r-code/15-r360)
 
 <br><br>
 
@@ -3436,6 +3584,8 @@ contpath 2
 - The changed status can be checked by the `CP0` / `CP1` / `CP2` flags on the title bar.
 
 {% endhint %}
+
+[__SOURCE](5-moving-robot/8-coldet.md)
 # 5.8 coldet 
 
 Robot language "coldet" is used for setting collision detection(of each axis) level in case of the function activated on. 
@@ -3481,6 +3631,8 @@ S7   move P,spd=60%,accu=0,tool=0
 * The value of detecting level in step3 is 2, and that of level in step 4 and step5 is 3.
 * In case of step6 and step7, the function of collision detection is deactivated. 
 --- 
+
+[__SOURCE](5-moving-robot/9-colsense.md)
 # 5.9 colsense 
 
 Robot language "colsense" is used for setting detection sensitivity in case of the function activated on. 
@@ -3531,6 +3683,8 @@ The final sensitivity value per axis is proportional to the sensitivity value of
 {% endhint %}
 
 
+
+[__SOURCE](5-moving-robot/10-softxyz.md)
 # 5.10 softxyz 
 
 
@@ -3641,7 +3795,9 @@ S2   wait ...
 > - If vibration occurs during softxyz operation, the following adjustments are recommended:
 >   1) *Increase the `thr` value*  
 >   2) *Increase the `dpr` value*  
->   3) *Decrease the `vel` value*# 5.11 softxyz_lim
+>   3) *Decrease the `vel` value*
+[__SOURCE](5-moving-robot/11-softxyz_lim.md)
+# 5.11 softxyz_lim
 
 Before using instruction "softxyz on", user should set softxyz_lim parameters such as position limit(pos), workspace limit(xnr), velocity limit(vel) and force threshold limit(thr). <br>
 
@@ -3687,6 +3843,8 @@ softxyz_lim thr, y=10
 ```
 
 
+
+[__SOURCE](5-moving-robot/12-softjoint.md)
 # 5.12 softjoint
 
 softjoint instruction is sensorless force control, that allows the robot to move compliantly in joint space with respect to external forces in the environment set by the user. <br>
@@ -3721,6 +3879,8 @@ softjoint off
 * For upgrading sensorless force control performance, user should set "delay" command as "delay 1.0" befor "softjoint on".  
 
 {% endhint %}
+
+[__SOURCE](5-moving-robot/13-softjoint_lim.md)
 # 5.13 softjoint_lim
 
 Before using instruction "softjoint on", user should set softjoint_lim  parameters such as joint number(j), compliance(sft), joint angle limit(ang) and torque threshold(thr). <br>
@@ -3770,11 +3930,13 @@ S2   move P,spd=250mm/sec,accu=0,tool=0
 * For using the function of softjoint, parameters on "j" and "sft" on softjoint_lim should be set. Also, if you do not set "ang" parameter, robot moves in workspace on defined softlimit. And, default parameter value on torque threshold "thr" is 0 [Nm]. 
 
 {% endhint %}
+
+[__SOURCE](5-moving-robot/14-external_control.md)
 # 5.14 External control
 
 
 ### Description  
-* The position command generation for the robot's movement is performed by an external device, and this generated external command is transmitted to the Hi7 controller as string data via ethernet or serial communication. The Hi7 controller receives this command and controls the robot. 
+* The position command generation for the robot's movement is performed by an external device, and this generated external command is transmitted to the ${cont_model} controller as string data via ethernet or serial communication. The ${cont_model} controller receives this command and controls the robot. 
 
 ### Syntax 
 ```python
@@ -3840,6 +4002,8 @@ S2   move P,spd=250mm/sec,accu=0,tool=0
 * Pose strings can only be in array-formatted axis-angle coordinates (e.g. [0.000,90.000,0.000,0.000,-90.000,0.000]).    
 
 {% endhint %}
+
+[__SOURCE](5-moving-robot/15-convcrd.md)
 # 5.15 convcrd
 
 
@@ -3869,6 +4033,8 @@ poseB = poseA.convcrd("u1")        # user coordinate 1
 ```
 
 
+
+[__SOURCE](5-moving-robot/16-pose_trans.md)
 # 5.16 pose_trans 
 
 
@@ -3909,6 +4075,8 @@ S1   move P,tg=pose_C,spd=10%,accu=0,tool=0
      end
 ```
 
+
+[__SOURCE](5-moving-robot/17-pose_inv.md)
 # 5.17 pose_inv 
 
 
@@ -3951,12 +4119,18 @@ S1   move P,tg=pose_C,spd=10%,accu=0,tool=0
 ```
 
 
+
+[__SOURCE](6-external-comm/README.md)
 # 6. Communicating with External Devices
 
+
+[__SOURCE](6-external-comm/1-fb-io/README.md)
 # 6.1 FB Object: Digital I/O
 
 Digital input/output \(I/O\) can be performed through 10 FB objects that can be accessed from HRScript. "FB" refers to fieldbus block, and each FB object is set to be mapped to the I/O hardware installed in the robot controller and contains input and output variables as elements.
 
+
+[__SOURCE](6-external-comm/1-fb-io/1-io-val.md)
 # 6.1.1 Input/Output Variables
 
 <style type="text/css">
@@ -4063,6 +4237,8 @@ The FB object name can be omitted as follows.
 
 
 
+
+[__SOURCE](6-external-comm/1-fb-io/2-io-example.md)
 # 6.1.2 Examples
 
 Refer to the following examples of usage.
@@ -4079,16 +4255,18 @@ next
 fb2.do3=fb2.do7=fb2.do11=1   # Turns on 3rd, 7th, and 11th output signals of fb2 at once
 ```
 
+
+[__SOURCE](6-external-comm/1-fb-io/3-fn-io.md)
 # 6.1.3 fn object
 
 You can define fn objects by specifying specific areas of fb objects.
-If the Hi7 controller is a fieldbus master, and there are multiple fieldbus slave devices, you can set the areas of each slave device to each fn object to handle these slaves intuitively.
+If the ${cont_model} controller is a fieldbus master, and there are multiple fieldbus slave devices, you can set the areas of each slave device to each fn object to handle these slaves intuitively.
 
 ![](../../_assets/io/io_fn.png)
 
 See the link below for instructions on how to set up the fn region.
 
-[Operation manual: fn block allocation](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-Hi7-tp630/7-system/3-control-parameter/2-io-signal-setting/12-fn-block)
+[Operation manual: fn block allocation](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-${cont_model}-tp630/7-system/3-control-parameter/2-io-signal-setting/12-fn-block)
   
 &nbsp;
 
@@ -4112,6 +4290,8 @@ for idx=21 to 29
 next
 fn2.do3=fn2.do7=fn2.do11=1   # Turn on the fn2's output signals 3, 7, and 11 at once.
 ```
+
+[__SOURCE](6-external-comm/1-fb-io/4-pulse.md)
 # 6.1.4 pulse
 
 `pulse` statement is the procedure for signal output of pulse type.
@@ -4186,9 +4366,11 @@ pulse <Signal>,tlag=<Lag time>,ton=<On time>,toff=<Off time>,cnt=<output count>
 ```python
    pulse do10,tlag=0.0,ton=1.5,toff=0.5,cnt=5
    end
-```# 6.2 http_cli Module: HTTP Client
+```
+[__SOURCE](6-external-comm/2-http_cli/README.md)
+# 6.2 http_cli Module: HTTP Client
 
-Using the general-purpose Ethernet port of the Hi7 controller, it is possible to access remote web services and consume HTTP services.
+Using the general-purpose Ethernet port of the ${cont_model} controller, it is possible to access remote web services and consume HTTP services.
 To use this feature, import the `http_cli` module and create an `HttpCli` object as shown below.
 
 ```python
@@ -4204,6 +4386,8 @@ The `HttpCli` object provides an attribute named `body`.<br>
 - The DELETE service does not use the `body` attribute.
 The provided HTTP client communication operates in synchronous mode.
 
+
+[__SOURCE](6-external-comm/2-http_cli/1-http_cli-creator.md)
 # 6.2.1 Constructor 
 
 ### Description
@@ -4227,6 +4411,8 @@ var cli = http_cli.HttpCli()
 
 
 
+
+[__SOURCE](6-external-comm/2-http_cli/2-http_cli-member-var.md)
 # 6.2.2 Member Variables
 
 <table>
@@ -4276,8 +4462,12 @@ cli.body = { name: "WORK #32", color: "green", state: "OK" }
 cli.query = { axis: 3 }
 ```
 
+
+[__SOURCE](6-external-comm/2-http_cli/3-http_cli-member-proc/README.md)
 # 6.2.3 Member Procedures
 
+
+[__SOURCE](6-external-comm/2-http_cli/3-http_cli-member-proc/1-http_cli-get.md)
 # get
 
 ### Description
@@ -4345,6 +4535,8 @@ cli.get url, 10, *timeout
 
 
 
+
+[__SOURCE](6-external-comm/2-http_cli/3-http_cli-member-proc/2-http_cli-put.md)
 # put
 
 ### Description
@@ -4411,6 +4603,8 @@ cli.put(url, 10, S1)
 
 
 
+
+[__SOURCE](6-external-comm/2-http_cli/3-http_cli-member-proc/3-http_cli-post.md)
 # post
 
 ### Description
@@ -4475,6 +4669,8 @@ var url = domain+"/display/update"
 cli.post url, 10, *TimeOut
 ```
 
+
+[__SOURCE](6-external-comm/2-http_cli/3-http_cli-member-proc/4-http_cli-delete.md)
 # delete
 
 ### Description
@@ -4532,6 +4728,8 @@ var domain="http://192.168.1.200:8888"
 cli.delete domain+"/items"
 ```
 
+
+[__SOURCE](6-external-comm/2-http_cli/4-http_cli-code.md)
 # 6.2.4 HTTP Communication Codes
 
 * Major HTTP Response Codes 
@@ -4852,6 +5050,8 @@ cli.delete domain+"/items"
     </tr>
   </tbody>
 </table>
+
+[__SOURCE](6-external-comm/2-http_cli/5-http_cli-example.md)
 # HTTP Client Usage Examples
 
 ```python
@@ -4890,9 +5090,13 @@ cli.delete domain+"/items"
      print "timeout"
 ```
 
+
+[__SOURCE](6-external-comm/3-tp-console-bar/README.md)
 # 6.3 Input/Output with Teach Pendant console bar
 
 
+
+[__SOURCE](6-external-comm/3-tp-console-bar/1-print.md)
 # 6.3.1 print
 
 ### Description
@@ -4936,6 +5140,8 @@ input work_no
 input work_no,10
 input work_no,10,*timeout
 ```
+
+[__SOURCE](6-external-comm/3-tp-console-bar/2-input.md)
 # 6.3.2 input
 
 ### Description
@@ -4995,12 +5201,16 @@ input work_no,10,*timeout
 
 
 
+
+[__SOURCE](6-external-comm/4-modbus/README.md)
 # 6.4 Modbus module : Modbus master
 
 Modbus master operations can be performed in HRScript. For detailed information on modbus communication functions, please refer to the separate manual. [Hi6 Robot Controller Function Manual - Modbus](https://hrbook-hrc.web.app/#/view/doc-modbus/english/README)  
+
+[__SOURCE](6-external-comm/5-sci/README.md)
 # 6.5 Sci module : Serial communication
 
-Serial communication can be performed through the COM port of the Hi7 controller.
+Serial communication can be performed through the COM port of the ${cont_model} controller.
 
 To use this function, you must create a Sci object as a global variable as shown below.
 
@@ -5024,6 +5234,8 @@ When calling open, the port is closed.
 
 
 
+
+[__SOURCE](6-external-comm/5-sci/1-sci-creator.md)
 # 6.5.1 Constructor
 
 ### Description
@@ -5047,7 +5259,11 @@ sci2=com.Sci(2)
 
 
 
-# 6.5.2 Member procedure# send
+
+[__SOURCE](6-external-comm/5-sci/2-sci-member-proc/README.md)
+# 6.5.2 Member procedure
+[__SOURCE](6-external-comm/5-sci/2-sci-member-proc/1-sci-send.md)
+# send
 
 ### Description
 
@@ -5070,6 +5286,8 @@ sci2.send msg
 
 
 
+
+[__SOURCE](6-external-comm/5-sci/2-sci-member-proc/2-sci-recv.md)
 # recv
 
 ### Description
@@ -5135,6 +5353,8 @@ Call Sci's recv to receive a string.
 
 
 
+
+[__SOURCE](6-external-comm/5-sci/2-sci-member-proc/3-sci-open.md)
 # open
 
 ### Description
@@ -5166,6 +5386,8 @@ endif
 
 
 
+
+[__SOURCE](6-external-comm/5-sci/2-sci-member-proc/4-sci-close.md)
 # close
 
 ### Description
@@ -5194,6 +5416,8 @@ endif
 
 
 
+
+[__SOURCE](6-external-comm/5-sci/2-sci-member-proc/5-sci-clr-rbuf.md)
 # clr_rbuf
 
 ### Description
@@ -5222,6 +5446,8 @@ endif
 
 
 
+
+[__SOURCE](6-external-comm/5-sci/3-sci-example.md)
 # 6.5.3 Serial communication example
 
 ``` python
@@ -5252,16 +5478,22 @@ Hyundai Robot Job File; { version: 1.6, mech_type: "", total_axis: -1, aux_axis:
 ```
 
 
+
+[__SOURCE](7-enet-module/README.md)
 # 7 enet module : Ethernet TCP/UDP communication
 
-Using the Hi7 controller's user ethernet port, You can send and receive strings or binary data over Ethernet TCP or UDP communication with an external devices.
+Using the ${cont_model} controller's user ethernet port, You can send and receive strings or binary data over Ethernet TCP or UDP communication with an external devices.
 
 The enet module can create two objects, ENet and BBuf. ENet provides an Ethernet socket interface, and BBuf is used to communicate binary data.
 
 Let's follow the client example and the server example to understand how to use it. A reference guide for each object's member variables and functions follows it.
+
+[__SOURCE](7-enet-module/1-exam-client/README.md)
 # 7.1 peer-to-peer, client example
 
 The UDP peer-to-peer (1:1 communication), or TCP client example program is explained for string and binary transmission.
+
+[__SOURCE](7-enet-module/1-exam-client/1-enet-client-str.md)
 # 7.1.1 peer-to-peer, client Example - Transceiving string data
 
 Follow these steps:
@@ -5361,6 +5593,8 @@ Follow these steps:
      cli.close
      end
 ```
+
+[__SOURCE](7-enet-module/1-exam-client/2-enet-client-bin.md)
 # 7.1.2 peer-to-peer, client Example - Transceiving binary data
 
 Binary transceiving are performed using `BBuf` (binary buffer) object.  
@@ -5498,7 +5732,9 @@ Receiving
      end
 ```
 
-* String arguments such as "s4" and "U2" determine the binary data format such as endian type, signed/unsigned, and the number of bytes. For more information, see [7.4.2 Supported format](../4-bbuf/2-format.md).# 7.2 TCP server example
+* String arguments such as "s4" and "U2" determine the binary data format such as endian type, signed/unsigned, and the number of bytes. For more information, see [7.4.2 Supported format](../4-bbuf/2-format.md).
+[__SOURCE](7-enet-module/2-exam-server/README.md)
+# 7.2 TCP server example
 
 The TCP server example program is explained for the case of tranceiving string data and binary data.
 
@@ -5507,7 +5743,9 @@ While the TCP client connects to the server with the `connect()` function, the T
 * Allow only one client connection at the same time.
 * You do not need to specify a remote port.
 
-The rest of the action is the same as the client.# 7.2.1 ethernet TCP server - Transceiving string data
+The rest of the action is the same as the client.
+[__SOURCE](7-enet-module/2-exam-server/1-enet-server-str.md)
+# 7.2.1 ethernet TCP server - Transceiving string data
 
 Follow these steps:
 
@@ -5559,6 +5797,8 @@ Follow these steps:
      svr.close
      end
 ```
+
+[__SOURCE](7-enet-module/2-exam-server/2-enet-server-bin.md)
 # 7.2.2 ethernet TCP server Example - Transceiving binary data
 
 Binary transceiving are performed using BBuf (binary buffer) object.  
@@ -5635,10 +5875,14 @@ Receiving
 ```
 
 * String arguments such as "s4" and "U2" determine the binary data format such as endian type, signed/unsigned, and the number of bytes. For more information, see [7.4.2 supported format](../4-bbuf/2-format.md).
+
+[__SOURCE](7-enet-module/3-enet/README.md)
 # 7.3 ENet object
 
 The `ENet` object provides a socket interface for Ethernet communication.  
 See the examples in the previous section for instructions on how to use them.
+
+[__SOURCE](7-enet-module/3-enet/1-enet-creator.md)
 # 7.3.1 ENet creator
 
 ### Description
@@ -5680,6 +5924,8 @@ Reference of the created object.
 enet0 = ENet()
 var tcp = ENet("tcp")
 ```
+
+[__SOURCE](7-enet-module/3-enet/2-enet-member-var.md)
 # 7.3.2 ENet member variable
 
 <table>
@@ -5724,6 +5970,8 @@ var tcp = ENet("tcp")
   </tbody>
 </table>
 
+
+[__SOURCE](7-enet-module/3-enet/3-enet-member-func/README.md)
 # 7.3.3 ENet member function
 
 * When getting the return value from a member function, be sure to enclose the argument in parentheses.
@@ -5738,7 +5986,9 @@ var tcp = ENet("tcp")
   ```python
   obj.func(param1,param2) # (O)
   obj.func param1,param2 # (O) ; parentheses omitted
-  ```# accept
+  ```
+[__SOURCE](7-enet-module/3-enet/3-enet-member-func/enet-accept.md)
+# accept
 
 ### Description
 
@@ -5833,6 +6083,8 @@ enet_to_sensor.listen
 enet_to_sensor.accept 5000,*TimeOut
 ```
 
+
+[__SOURCE](7-enet-module/3-enet/3-enet-member-func/enet-close.md)
 # close
 
 ### Description
@@ -5848,6 +6100,8 @@ Closes the connection for Ethernet TCP or UDP communication.
 ```python
 enet_to_sensor.close
 ```
+
+[__SOURCE](7-enet-module/3-enet/3-enet-member-func/enet-connect.md)
 # connect
 
 ### Description
@@ -5939,7 +6193,9 @@ var ret=enet_to_sensor.connect(5000)
 
 ```python
 enet_to_sensor.connect 5000,*TimeOut
-```# listen
+```
+[__SOURCE](7-enet-module/3-enet/3-enet-member-func/enet-listen.md)
+# listen
 
 ### Description
 
@@ -6008,6 +6264,8 @@ Not used in UDP peer-to-peer communication.
 enet_to_sensor.listen
 enet_to_sensor.accept 5000,*TimeOut
 ```
+
+[__SOURCE](7-enet-module/3-enet/3-enet-member-func/enet-open.md)
 # open
 
 ### Description
@@ -6023,6 +6281,8 @@ Opens a connection for Ethernet TCP or UDP communication.
 ```python
 enet_to_sensor.open
 ```
+
+[__SOURCE](7-enet-module/3-enet/3-enet-member-func/enet-recv.md)
 # recv
 
 ### Description
@@ -6084,6 +6344,8 @@ end
 print "Time out! No response from sensor"
 end
 ```
+
+[__SOURCE](7-enet-module/3-enet/3-enet-member-func/enet-recv_bbuf.md)
 # recv_bbuf
 
 ### Description
@@ -6153,6 +6415,8 @@ print "Time out! No response from sensor"
 end
 ```
 
+
+[__SOURCE](7-enet-module/3-enet/3-enet-member-func/enet-send.md)
 # send
 
 ### Description
@@ -6201,6 +6465,8 @@ enet_to_sensor.send "rob:"+10+", command:"+cmd+"\n"
 
 
 
+
+[__SOURCE](7-enet-module/3-enet/3-enet-member-func/enet-send_bbuf.md)
 # send_bbuf
 
 ### Description
@@ -6248,6 +6514,8 @@ var arr=[ -3, 0, 1 ]
 bbuf.append("s4", arr)
 var nitem=cli.send_bbuf(bbuf)
 ```
+
+[__SOURCE](7-enet-module/3-enet/3-enet-member-func/enet-set_send_trail_null.md)
 # set_send_trail_null
 
 
@@ -6273,6 +6541,8 @@ enet_to_sensor.set_send_trail_null(true)
 enet_to_sensor.send "ACK"
 enet_to_sensor.set_send_trail_null(false)
 ```
+
+[__SOURCE](7-enet-module/3-enet/3-enet-member-func/enet-state.md)
 # state
 
 ### Description
@@ -6345,6 +6615,8 @@ Returns the state of the ethernet object.
 var ret = enet_to_sensor.state()
 ```
 
+
+[__SOURCE](7-enet-module/4-bbuf/README.md)
 # 7.4 BBuf object
 
 A BBuf (Binary Buffer) object encapsulates binary data to be sent and received over Ethernet communication.
@@ -6353,6 +6625,8 @@ For usage, see the binary communication examples.
 [7.1.2 peer-to-peer, client example - binary transmission](7-enet-module/1-exam-client/2-enet-client-bin.md)
 
 [7.2.2 ethernet TCP server - binary transmission](7-enet-module/2-exam-server/2-enet-server-bin.md)
+
+[__SOURCE](7-enet-module/4-bbuf/1-bbuf-creator.md)
 # 7.4.1 BBuf creator
 
 ### Description
@@ -6373,6 +6647,8 @@ Reference of the created object.
 ```python
 var bbuf = BBuf()
 ```
+
+[__SOURCE](7-enet-module/4-bbuf/2-format.md)
 # 7.4.2 Supported format
 
 The member function `append()` or `read_num()` requires a type to be specified as an argument.
@@ -6489,8 +6765,12 @@ If the alphabet is uppercase it is big endian, and lowercase it is little endian
 	 <tr>
 
   </tbody>
-</table># 7.4.2 BBuf member function
+</table>
+[__SOURCE](7-enet-module/4-bbuf/3-bbuf-member-func/README.md)
+# 7.4.2 BBuf member function
 
+
+[__SOURCE](7-enet-module/4-bbuf/3-bbuf-member-func/bbuf-append.md)
 # append
 
 ### Description
@@ -6554,6 +6834,8 @@ var bbuf=enet.BBuf()
 bbuf.append("F8", 9.80665)
 bbuf.append("U4", [2, 3, 5, 7, 11, 13])
 ```
+
+[__SOURCE](7-enet-module/4-bbuf/3-bbuf-member-func/bbuf-clear.md)
 # clear
 
 ### Description
@@ -6579,6 +6861,8 @@ bbuf.append("s4", 20)
 bbuf.append("s4", -10)
 bbuf.clear()
 ```
+
+[__SOURCE](7-enet-module/4-bbuf/3-bbuf-member-func/bbuf-nbyte.md)
 # nbyte
 
 ### Syntax
@@ -6599,6 +6883,8 @@ bbuf.append("s4", 20)
 bbuf.append("s4", -10)
 print bbuf.nbyte() # "8"
 ```
+
+[__SOURCE](7-enet-module/4-bbuf/3-bbuf-member-func/bbuf-read_num.md)
 # read_num
 
 ### Description
@@ -6661,6 +6947,8 @@ print bbuf.read_num("F8", 0) # "9.80665"
 print bbuf.read_num("U4", 12) # "3"
 print bbuf.read_num("U4", 16) # "5"
 ```
+
+[__SOURCE](7-enet-module/4-bbuf/3-bbuf-member-func/bbuf-read_nums.md)
 # read_nums
 
 ### Description
@@ -6733,6 +7021,8 @@ bbuf.append("U4", [2, 3, 5, 7, 11, 13])
 print bbuf.read_nums("U4", 12, 3) # "[3, 5, 7]"
 print bbuf.read_num("U4", 12, 6) # "[3, 5, 7, 11, 13]"
 ```
+
+[__SOURCE](8-alias.md)
 # 8. Alias
 
 Alias is a name that can be used as an alternative to the notation of a variable or a property of an object.
@@ -6778,11 +7068,17 @@ global unit="mm/s" # (O)
 
 #alias pie_2 = pie*pie # (X)
 ```
+
+[__SOURCE](9-file/README.md)
 # 9. File
 
+
+[__SOURCE](9-file/1-file-system/README.md)
 # 9.1 File System
 
-In the MAIN module's file system of the Hi7 controller, instructions for creating, copying, and deleting directories and files are described.# 9.1.1 mkdir
+In the MAIN module's file system of the ${cont_model} controller, instructions for creating, copying, and deleting directories and files are described.
+[__SOURCE](9-file/1-file-system/1-mkdir.md)
+# 9.1.1 mkdir
 
 mkdir is the procedure making directory.
 
@@ -6828,6 +7124,8 @@ mkdir "work/data1"
 ```
 
 ![](../../_assets/mkdir.png)
+
+[__SOURCE](9-file/1-file-system/2-copyfile.md)
 # 9.1.2 copyfile
 
 A copyfile is a procedure that requests to copy a directory or file.
@@ -6926,6 +7224,8 @@ copyfile <result-variable>,<source pathname>,<destination pathname>
 
 ![](../../_assets/copyfile.png)
 
+
+[__SOURCE](9-file/1-file-system/3-delfile.md)
 # 9.1.3 delfile
 
 A delfile is a procedure that requests to delete a directory or file.
@@ -7000,9 +7300,13 @@ delfile <result-variable>,<pathname>
    print "delfile failed"
    end
 ```
+
+[__SOURCE](9-file/2-load-save/README.md)
 # 9.2 Load/Save
 
-Explains the statements that load/save files into/from the memory of the Hi7 controller's MAIN module.# 9.2.1 load_job
+Explains the statements that load/save files into/from the memory of the ${cont_model} controller's MAIN module.
+[__SOURCE](9-file/2-load-save/1-load_job.md)
+# 9.2.1 load_job
 
 Statement that reads changes of the MAIN module's project/jobs/ folder to update the memory.
 
@@ -7075,6 +7379,8 @@ load_job <result-variable>,"*"
      print "copyfile failed"
      end
 ```
+
+[__SOURCE](9-file/2-load-save/2-load_csv.md)
 # 9.2.2 load_csv
 
 Supported from V60.28-00.
@@ -7087,7 +7393,7 @@ The global root arrays of HRScript is stored in the `vars/` folder as files in C
 
 For information on variable files, please refer to the operation manual link below.
 
-[global variable/variable file](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-Hi7-tp630/6-monitoring/3-job/3-global-variable/3-var-files)
+[global variable/variable file](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-${cont_model}-tp630/6-monitoring/3-job/3-global-variable/3-var-files)
 
 You can easily edit .csv files with a text editor on your PC.
 The edited file copied to the `vars/` folder is not immediately reflected in memory, but only by using the `[load all]` function in the TeachPendant's global variable window or executing the `load_csv` statement.
@@ -7156,6 +7462,8 @@ If you load all .csv with "*", the root arrays in memory that does not have .csv
      print "failed to load new locations."
      end
 ```
+
+[__SOURCE](9-file/2-load-save/3-save_csv.md)
 # 9.2.3 save_csv
 
 Supported from V60.28-00.
@@ -7168,7 +7476,7 @@ The global root array of HRScript is stored in the `vars/` folder as a file in C
 
 For information on variable files, please refer to the operation manual link below.
 
-[global variable/variable file](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-Hi7-tp630/6-monitoring/3-job/3-global-variable/3-var-files)
+[global variable/variable file](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-${cont_model}-tp630/6-monitoring/3-job/3-global-variable/3-var-files)
 
 The global root arrays are not immediately stored to the .csv file whenever the value changes.
 It is saved as a file when you press `Ctrl+[F7: save]` or power off, and you can save it as a file immediately by executing the `save_csv` command.
@@ -7237,10 +7545,16 @@ If you save all .csv by specifying "*", it does not delete the .csv files in the
      print "failed to save new locations."
      end
 ```
+
+[__SOURCE](10-etc/README.md)
 # 10. Etc.
 
+
+[__SOURCE](10-etc/1-proc/README.md)
 # 10.1 Etc. procedures
 
+
+[__SOURCE](10-etc/1-proc/1-gather.md)
 # 10.1.1 gather
 
 `gather` is the procedure that specifies the start and end of the gathering when you use the data gathering function.
@@ -7298,7 +7612,9 @@ S2   move L,spd=100%,accu=0,tool=0
 S3   move L,spd=100%,accu=0,tool=0
      gather 0
      end
-```# 10.1.2 tonl
+```
+[__SOURCE](10-etc/1-proc/2-tonl.md)
+# 10.1.2 tonl
 
 `tonl` statement is the procedure for performing position correction for steps between start and end.
 
@@ -7367,6 +7683,8 @@ tonl <start/end>,<shift>
 
 ![](../../_assets/tonl.png)
 
+
+[__SOURCE](10-etc/1-proc/3-seltool.md)
 # 10.1.3 seltool
 
 `seltool` is a procedure to change the tool number.
@@ -7430,6 +7748,8 @@ seltool <tool number>,<tool type>
    move P,spd=30%,accu=0,tool=1
    end
 ```
+
+[__SOURCE](10-etc/1-proc/4-triggout.md)
 # 10.1.4 triggout
 
 `triggout` is a procedure that allows you to adjust the signal output time-point to be output-ahead (-) or output-behind (+).
@@ -7527,6 +7847,8 @@ triggout <output variable>,val=<output value>,dist=<ahead/behind distance>,j=<tc
    move L,spd=30%,accu=2,tool=1
    end
 ```
+
+[__SOURCE](10-etc/1-proc/5-intr_def.md)
 # 10.1.5 intr_def
 
 `intr_def` is a procedure that specifies interrupt condition, watch-interval, and program to run when an interrupt occurs.
@@ -7640,6 +7962,8 @@ intr_def <on/off>,no=<interrupt number>,var=<interrupt condition>,val=<condition
    move P,spd=30%,accu=3,tool=1
    end
 ```
+
+[__SOURCE](10-etc/1-proc/6-typeof.md)
 # 10.1.6 typeof
 
 `typeof` is the procedure for getting the type of a variable or an expression. The result is returned from the `result()` function.
@@ -7677,6 +8001,8 @@ typeof <expression>
      print result() # "object"
      end
 ```
+
+[__SOURCE](10-etc/1-proc/7-gasp_check.md)
 # 10.1.7 gasp_check
 
 The `gasp_check` statement estimates the pressure of the gas spring mounted on the robot and checks whether it is normal.
@@ -7758,11 +8084,13 @@ gasp_check pres=<estimated pressure>,ref=<reference pressure>,tol=<tolerance>,os
 
 {% hint style="info" %}
 * Supported only on robots equipped with the gas spring
-* For accurate estimation, [Axis add weight setting](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-Hi7-tp630/7-system/4-robot-parameter/7-axis-add-weight/README) and [Load estimation function](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-Hi7-tp630/7-system/7-auto-calibration/3-load-estimation) must be preceded before using the function.
+* For accurate estimation, [Axis add weight setting](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-${cont_model}-tp630/7-system/4-robot-parameter/7-axis-add-weight/README) and [Load estimation function](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-${cont_model}-tp630/7-system/7-auto-calibration/3-load-estimation) must be preceded before using the function.
 * For a detailed description of the gas spring pressure check monitoring function, please refer to the link below.
-[](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-Hi7-tp630/6-monitoring/4-system/2-system-diagnosis/2-gas-pressure-check)
+[](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-${cont_model}-tp630/6-monitoring/4-system/2-system-diagnosis/2-gas-pressure-check)
 {% endhint %}
 
+
+[__SOURCE](10-etc/1-proc/15-json_parse.md)
 # 10.1.15 json_parse
 
 Supported from V60.32-00
@@ -7829,6 +8157,8 @@ The result of parsing will be stored in `r.data`. An error may occur if the proc
     var jr = r.data    # The type of r.data is JObject
     print jr           # { _type: "JObject", _sub_file: "", _desc: "", test: "value" } printed
 ```
+
+[__SOURCE](10-etc/1-proc/16-brake_check.md)
 # 10.1.16 brake_check
 
 The `brake_check` statement is a procedure that applies torque to each axis motor to diagnose whether the brake is functioning correctly.
@@ -7923,11 +8253,15 @@ When you touch the [Properties] button in the brake_check command, you will ente
 
 {% hint style="info" %}
 * Supported only on robots equipped with the gas spring
-* For accurate estimation, [Axis add weight setting](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-Hi7-tp630/7-system/4-robot-parameter/7-axis-add-weight/README) and [Load estimation function](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-Hi7-tp630/7-system/7-auto-calibration/3-load-estimation) must be preceded before using the function.
+* For accurate estimation, [Axis add weight setting](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-${cont_model}-tp630/7-system/4-robot-parameter/7-axis-add-weight/README) and [Load estimation function](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-${cont_model}-tp630/7-system/7-auto-calibration/3-load-estimation) must be preceded before using the function.
 * For a detailed description of the brake check monitoring function, please refer to the link below.
-[](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-Hi7-tp630/6-monitoring/4-system/2-system-diagnosis/1-brake-check)
-{% endhint %}# 10.2 Etc. functions
+[](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-${cont_model}-tp630/6-monitoring/4-system/2-system-diagnosis/1-brake-check)
+{% endhint %}
+[__SOURCE](10-etc/2-func/README.md)
+# 10.2 Etc. functions
 
+
+[__SOURCE](10-etc/2-func/1-rducs.md)
 # 10.2.1 rducs - user coordinate system
 
 ### Description
@@ -8023,6 +8357,8 @@ Function to read the generated user coordinate system as a pose.
 
 ![](../../_assets/rducs.png)
 
+
+[__SOURCE](10-etc/2-func/2-segment.md)
 # 10.2.2 segment
 
 `segment` is the function that divides the distance between the start and end positions evenly.
@@ -8126,6 +8462,8 @@ The result pose.
      end
 ```
 
+
+[__SOURCE](10-etc/2-func/3-intersection.md)
 # 10.2.3 intersection
 
 You can use the `intersection` function to find a point that meets a straight line at the shortest distance of one point, or to find an intersection with a straight line at the shortest distance that passes.
@@ -8224,6 +8562,8 @@ The result pose.
      end
 ```
 
+
+[__SOURCE](10-etc/2-func/4-rand.md)
 # 10.2.4 rand
 
 You can generate random numbers using the rand function.
@@ -8279,6 +8619,8 @@ v1=rand(<minimum value>,<maximum value>)
      end
 ```
 
+
+[__SOURCE](10-etc/2-func/5-sig2int.md)
 # 10.2.5 sig2int
 
 Using the sig2int function, a specific range of input/output signals can be expressed as an int type value.
@@ -8329,7 +8671,11 @@ result=sig2int(<input/output signal>,<number of bits>)
      end
 ```
 
+
+[__SOURCE](10-etc/3-sysvar/README.md)
 # 10.3 System variables
+
+[__SOURCE](10-etc/3-sysvar/_acc_rate.md)
 # _acc_rate
 
 Get or set the rate of acceleration in the speed-profile.
@@ -8357,6 +8703,8 @@ res = _acc_rate
    ...
    end
 ```
+
+[__SOURCE](10-etc/3-sysvar/_dec_rate.md)
 # _dec_rate
 
 Get or set the rate of deceleration in the speed-profile.
@@ -8384,6 +8732,8 @@ res = _dec_rate
    ...
    end
 ```
+
+[__SOURCE](10-etc/3-sysvar/_intr_no.md)
 # _intr.no
 
 `_intr.no` system variable is the occured interrupt number.
@@ -8416,6 +8766,8 @@ res = _intr.no
 ```
 
 
+
+[__SOURCE](10-etc/3-sysvar/_intr_target.md)
 # _intr.target
 
 `_intr.target` system variable adjusts the robot's target position reach state.
@@ -8446,6 +8798,8 @@ _intr_target=1
 ```
 ![](../../_assets/intr_target_2.png)
 
+
+[__SOURCE](10-etc/3-sysvar/_spd_rate.md)
 # _spd_rate
 
 Get or set the playback speed-rate.
@@ -8475,6 +8829,8 @@ res = _spd_rate
    ...
    end
 ```
+
+[__SOURCE](10-etc/3-sysvar/_task_enable.md)
 # _task.enable
 
 ### Description
@@ -8502,6 +8858,8 @@ res = _task[1].enable
 ```
 
 
+
+[__SOURCE](10-etc/3-sysvar/_tool.md)
 # _tool
 
 `_tool` is a system variable for reading or changing tool data.
@@ -8543,6 +8901,8 @@ _tool[5].izz = <arithmetic expression>
    move L,spd=30%,accu=1,tool=3
    end
 ```
+
+[__SOURCE](10-etc/3-sysvar/_vel_rpm_cmd.md)
 # _vel_rpm_cmd
 
 Reads or sets the speed at which the motor rotates when controlling speed for an additional axis.
@@ -8571,6 +8931,8 @@ res = _vel_rpm_cmd[6] # Assign the rotation speed of the 7-axis motor
    ...
    end
 ```
+
+[__SOURCE](10-etc/3-sysvar/_weaving.md)
 # _weaving
 
 ### Description
@@ -8724,6 +9086,8 @@ _weaving.angle=5
    end
 ```
 
+
+[__SOURCE](10-etc/3-sysvar/_pc.md)
 # _pc
 
 ### Description

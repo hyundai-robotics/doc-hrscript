@@ -1,11 +1,15 @@
 ﻿{
     "langCode": "en",
-    "series": "Hi7 Controller",
-    "title": "HRScript Programmer's Manual",
+    "series": "${cont_model} Controller",
+    "title": "Function Manual - HRScript",
     "publisher": "HD Hyundai Robotics",
     "tocTitle": "Table of Contents",
     "tocTitleElements": "[ \"h1\", \"h2\" ]",
     "variables": {
         "cont_model": "Hi7"
-    }
+    },
+    "docId": "${cont_model:upper}HRSCRIPT_EN_001",
+    "references": [
+        { "rpath" : "doc-hi6-operation/en-tp630" }
+    ]
 }
