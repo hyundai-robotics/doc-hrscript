@@ -1,6 +1,6 @@
 ﻿
 [__SOURCE](README.md)
-# ${cont_model} Robot Controller Function Manual - Robot Language HRScript
+# ${cont_model} Controller Function Manual - Robot Language HRScript
 
 [__SOURCE](1-intro/README.md)
 # 1. Overview
@@ -2999,7 +2999,7 @@ Examples of format;
 ```
 
 {% hint style="info" %}
-The cfg element specifies the robot configuration. For more information, refer to "[2.3.2.2 Base and Robot Recording Coordinates](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-${cont_model}-tp630/2-operation/3-step/2-step-pose-modify/2-base-robot-crd-sys)" in the ${cont_model} Robot Controller Operation Manual.
+The cfg element specifies the robot configuration. For more information, refer to "[2.3.2.2 Base and Robot Recording Coordinates](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/2-operation/3-step/2-step-pose-modify/2-base-robot-crd-sys)" in the ${cont_model} Robot Controller Operation Manual.
 {% endhint %}
 
 
@@ -3534,7 +3534,7 @@ selucrd <coord. system number>
 Select the mode of CONTPATH.
 
 See the link below for the description of CONTPATH.
-[Operation Manual: 8.15 R360 Set CONTPATH manually](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-${cont_model}-tp630/8-r-code/15-r360)
+[Operation Manual: 8.15 R360 Set CONTPATH manually](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/8-r-code/15-r360)
 
 <br><br>
 
@@ -4266,7 +4266,7 @@ If the ${cont_model} controller is a fieldbus master, and there are multiple fie
 
 See the link below for instructions on how to set up the fn region.
 
-[Operation manual: fn block allocation](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-${cont_model}-tp630/7-system/3-control-parameter/2-io-signal-setting/12-fn-block)
+[Operation manual: fn block allocation](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/7-system/3-control-parameter/2-io-signal-setting/12-fn-block)
   
 &nbsp;
 
@@ -5205,7 +5205,7 @@ input work_no,10,*timeout
 [__SOURCE](6-external-comm/4-modbus/README.md)
 # 6.4 Modbus module : Modbus master
 
-Modbus master operations can be performed in HRScript. For detailed information on modbus communication functions, please refer to the separate manual. [Hi6 Robot Controller Function Manual - Modbus](https://hrbook-hrc.web.app/#/view/doc-modbus/english/README)  
+Modbus master operations can be performed in HRScript. For detailed information on modbus communication functions, please refer to the separate manual. [${cont_model} Controller Function Manual - Modbus](https://hrbook-hrc.web.app/#/view/doc-modbus/en/README)  
 
 [__SOURCE](6-external-comm/5-sci/README.md)
 # 6.5 Sci module : Serial communication
@@ -7393,7 +7393,7 @@ The global root arrays of HRScript is stored in the `vars/` folder as files in C
 
 For information on variable files, please refer to the operation manual link below.
 
-[global variable/variable file](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-${cont_model}-tp630/6-monitoring/3-job/3-global-variable/3-var-files)
+[global variable/variable file](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/6-monitoring/3-job/3-global-variable/3-var-files)
 
 You can easily edit .csv files with a text editor on your PC.
 The edited file copied to the `vars/` folder is not immediately reflected in memory, but only by using the `[load all]` function in the TeachPendant's global variable window or executing the `load_csv` statement.
@@ -7476,7 +7476,7 @@ The global root array of HRScript is stored in the `vars/` folder as a file in C
 
 For information on variable files, please refer to the operation manual link below.
 
-[global variable/variable file](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-${cont_model}-tp630/6-monitoring/3-job/3-global-variable/3-var-files)
+[global variable/variable file](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/6-monitoring/3-job/3-global-variable/3-var-files)
 
 The global root arrays are not immediately stored to the .csv file whenever the value changes.
 It is saved as a file when you press `Ctrl+[F7: save]` or power off, and you can save it as a file immediately by executing the `save_csv` command.
@@ -8084,9 +8084,9 @@ gasp_check pres=<estimated pressure>,ref=<reference pressure>,tol=<tolerance>,os
 
 {% hint style="info" %}
 * Supported only on robots equipped with the gas spring
-* For accurate estimation, [Axis add weight setting](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-${cont_model}-tp630/7-system/4-robot-parameter/7-axis-add-weight/README) and [Load estimation function](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-${cont_model}-tp630/7-system/7-auto-calibration/3-load-estimation) must be preceded before using the function.
+* For accurate estimation, [Axis add weight setting](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/7-system/4-robot-parameter/7-axis-add-weight/README) and [Load estimation function](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/7-system/7-auto-calibration/3-load-estimation) must be preceded before using the function.
 * For a detailed description of the gas spring pressure check monitoring function, please refer to the link below.
-[](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-${cont_model}-tp630/6-monitoring/4-system/2-system-diagnosis/2-gas-pressure-check)
+[](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/6-monitoring/4-system/2-system-diagnosis/2-gas-pressure-check)
 {% endhint %}
 
 
@@ -8253,9 +8253,9 @@ When you touch the [Properties] button in the brake_check command, you will ente
 
 {% hint style="info" %}
 * Supported only on robots equipped with the gas spring
-* For accurate estimation, [Axis add weight setting](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-${cont_model}-tp630/7-system/4-robot-parameter/7-axis-add-weight/README) and [Load estimation function](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-${cont_model}-tp630/7-system/7-auto-calibration/3-load-estimation) must be preceded before using the function.
+* For accurate estimation, [Axis add weight setting](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/7-system/4-robot-parameter/7-axis-add-weight/README) and [Load estimation function](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/7-system/7-auto-calibration/3-load-estimation) must be preceded before using the function.
 * For a detailed description of the brake check monitoring function, please refer to the link below.
-[](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-${cont_model}-tp630/6-monitoring/4-system/2-system-diagnosis/1-brake-check)
+[](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/6-monitoring/4-system/2-system-diagnosis/1-brake-check)
 {% endhint %}
 [__SOURCE](10-etc/2-func/README.md)
 # 10.2 Etc. functions

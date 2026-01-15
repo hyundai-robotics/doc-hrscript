@@ -92,7 +92,7 @@ When you touch the [Properties] button in the brake_check command, you will ente
 
 {% hint style="info" %}
 * Supported only on robots equipped with the gas spring
-* For accurate estimation, [Axis add weight setting](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-${cont_model}-tp630/7-system/4-robot-parameter/7-axis-add-weight/README) and [Load estimation function](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-${cont_model}-tp630/7-system/7-auto-calibration/3-load-estimation) must be preceded before using the function.
+* For accurate estimation, [Axis add weight setting](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/7-system/4-robot-parameter/7-axis-add-weight/README) and [Load estimation function](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/7-system/7-auto-calibration/3-load-estimation) must be preceded before using the function.
 * For a detailed description of the brake check monitoring function, please refer to the link below.
-[](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-${cont_model}-tp630/6-monitoring/4-system/2-system-diagnosis/1-brake-check)
+[](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/6-monitoring/4-system/2-system-diagnosis/1-brake-check)
 {% endhint %}

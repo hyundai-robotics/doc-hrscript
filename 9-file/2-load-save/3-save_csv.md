@@ -10,7 +10,7 @@ The global root array of HRScript is stored in the `vars/` folder as a file in C
 
 For information on variable files, please refer to the operation manual link below.
 
-[global variable/variable file](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-${cont_model}-tp630/6-monitoring/3-job/3-global-variable/3-var-files)
+[global variable/variable file](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/6-monitoring/3-job/3-global-variable/3-var-files)
 
 The global root arrays are not immediately stored to the .csv file whenever the value changes.
 It is saved as a file when you press `Ctrl+[F7: save]` or power off, and you can save it as a file immediately by executing the `save_csv` command.

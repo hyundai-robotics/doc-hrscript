@@ -1,6 +1,6 @@
 ﻿# Table of contents
 
-* [${cont_model} Robot Controller Function Manual - Robot Language HRScript](README.md)
+* [${cont_model} Controller Function Manual - Robot Language HRScript](README.md)
 * [1. Overview](1-intro/README.md)
   * [1.1 Introduction of HRScript](1-intro/1-hrscript.md)
 * [2. Basic Syntax](2-basic-syntax/README.md)

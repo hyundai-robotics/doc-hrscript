@@ -10,7 +10,7 @@ The global root arrays of HRScript is stored in the `vars/` folder as files in C
 
 For information on variable files, please refer to the operation manual link below.
 
-[global variable/variable file](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-${cont_model}-tp630/6-monitoring/3-job/3-global-variable/3-var-files)
+[global variable/variable file](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/6-monitoring/3-job/3-global-variable/3-var-files)
 
 You can easily edit .csv files with a text editor on your PC.
 The edited file copied to the `vars/` folder is not immediately reflected in memory, but only by using the `[load all]` function in the TeachPendant's global variable window or executing the `load_csv` statement.
