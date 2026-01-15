@@ -5,7 +5,7 @@
 CONTPATH(연속패스)의 모드를 선택합니다.
 
 CONTPATH에 대한 설명은 아래 링크를 참조하십시오.  
-[${cont_model} 조작설명서: 8.15 R360 CONTPATH 수동 설정](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-${cont_model}-tp630/8-r-code/15-r360)
+[${cont_model} 조작설명서: 8.15 R360 CONTPATH 수동 설정](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/ko-${cont_model}-tp630/8-r-code/15-r360)
 <br><br>
 
 
