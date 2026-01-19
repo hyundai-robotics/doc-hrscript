@@ -8011,7 +8011,7 @@ The `gasp_check` statement estimates the pressure of the gas spring mounted on t
 
 ![](../../_assets/gasp_check.png)
 
-- To estimate the pressure, the axis equipped with the gas spring is reciprocated by -20 degrees from its current position.
+- To estimate the pressure, the axis equipped with the gas spring is reciprocated by -20 degrees from its current position.(Recommended to be performed at the H-axis 140 degree position)
 - You can monitor pressure by saving the estimated pressure as a variable.
 - User can enter normal pressure and tolerance. If the estimated pressure exceeds the range, the set error output signal turns on.
 
