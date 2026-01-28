@@ -83,6 +83,7 @@ gasp_check pres=<추정 압력>,ref=<기준 압력>,tol=<허용오차>,os=<에�
 {% hint style="info" %}
 * 가스스프링이 장착된 로봇에서만 지원되는 기능입니다.
 * 정확한 추정을 위해 기능 사용 전 [축별 부가중량 설정](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/ko-tp630/7-system/4-robot-parameter/7-axis-add-weight/README) 및 [부하추정 기능](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/ko-tp630/7-system/7-auto-calibration/3-load-estimation)이 선행되어야 합니다.
+* 측정 시작 자세에 따라 가스 스프링 압력의 추정 결과가 달라질 수 있습니다. 로봇 초기 세팅 시 각 기준 자세에서 측정된 압력값을 기준으로 관리하시기 바라며, 동일한 자세에서 정기적으로 압력을 측정하여 초기 값과 비교하십시오. 측정값의 차이가 크게 발생할 경우, 장비 상태를 점검해 주시기 바랍니다.  
 
 {% endhint %}
 
