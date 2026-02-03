@@ -95,3 +95,10 @@ triggout <output variable>,val=<output value>,dist=<ahead/behind distance>,j=<tc
    move L,spd=30%,accu=2,tool=1
    end
 ```
+
+{% hint style="warning" %}
+* **The step that contains the `triggout` command** is used as the reference point, and the system checks whether a signal is output **up to the moment when the following step ends**.  
+* If **no signal is output within that time frame**, the following warning is displayed:  
+  **W0241: _"The triggout signal was not output within the step range."_**
+
+{% endhint %}
