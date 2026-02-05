@@ -2110,7 +2110,7 @@ sub-program
 ## 
 
 
-[__SOURCE](3-flowcontrol-subprogram/8-local-global-var/1-local-variables.md)
+[__SOURCE](3-flowcontrol-subprogram/8-local-global-var/1-local-var.md)
 # 3.8.1 Local Variables
 
 ### Description
@@ -2184,7 +2184,7 @@ The local variable "x" is defined in both 0001.job and 0107.job. The local varia
 </table>
 
 
-[__SOURCE](3-flowcontrol-subprogram/8-local-global-var/2-global-variables.md)
+[__SOURCE](3-flowcontrol-subprogram/8-local-global-var/2-global-var.md)
 # 3.8.2 Global Variables
 
 ### Description
