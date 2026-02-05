@@ -8181,6 +8181,251 @@ If a significant difference is observed in the measured values, please inspect t
 {% endhint %}
 
 
+[__SOURCE](10-etc/1-proc/8-optime.md)
+# 10.1.8 optime
+
+The `optime` statement is a procedure used to start or update the measurement of operating time.
+
+### Description
+
+Normally, the measurement of operating time starts when the start button is pressed, and the operating time is automatically updated when the program executes `end`.  
+However, if the program jumps back to the beginning using a `goto` statement without executing `end`, the operating time continues to increase. In this case, the monitored operating-time value becomes meaningless.
+
+To address this situation, the `optime` statement allows the user to explicitly specify the points at which operating-time measurement starts and is updated.
+
+### Syntax
+```python
+optime <parameter>
+```
+### Parameters
+| Item      | Description                                                             | Remarks |
+| --------- | ----------------------------------------------------------------------- | ------- |
+| Parameter | - cycle_start: Start measurement<br>- cycle_end: Update measurement     |         |
+
+```python
+  *start
+   optime cycle_start
+   move P, spd=30%, accu=0, tool=1
+   delay 0.5
+   move P, spd=30%, accu=0, tool=1
+   move L, spd=30mm/s, accu=0, tool=1
+   move L, spd=30mm/s, accu=0, tool=1
+   delay 0.5
+   move P, spd=30%, accu=0, tool=1
+   optime cycle_end
+   goto *start
+   end
+```
+[__SOURCE](10-etc/1-proc/9-count_up.md)
+# 10.1.9 count_up
+
+The `count_up` statement is a procedure that increments the value of a specified variable by 1, and resets it to the init value when it exceeds the preset value.
+
+### Description
+
+This statement increases the value of the specified variable by 1 each time it is executed.  
+If the variable value exceeds the value specified by preset value, the variable is reset to the value specified by init value.
+
+Executing  
+```python
+count_up cnt, init=0, preset=100`  
+```
+produces the same result as executing the following four lines:
+
+```python
+cnt = cnt + 1
+if cnt > 100
+    cnt = 0
+endif
+```
+
+### Syntax
+```python
+count_up <variable>, init=<initial value>, preset=<final value>
+```
+
+### Parameters
+| Item     | Description                                                              | Remarks |
+| -------- | ------------------------------------------------------------------------ | ------- |
+| Variable | The variable whose value will be incremented as a counter                |         |
+| init     | The initial value to assign when the variable exceeds the preset value   |         |
+| preset   | The maximum value of the variable                                        |         |
+
+### Example
+```python
+   global work_no
+   move P, spd=30%, accu=0, tool=1
+   delay 0.5
+   move P, spd=30%, accu=0, tool=1
+   move L, spd=30mm/s, accu=0, tool=1
+   move L, spd=30mm/s, accu=0, tool=1
+   delay 0.5
+   move P, spd=30%, accu=0, tool=1
+   count_up work_no, init=0, preset=99
+   end
+```
+[__SOURCE](10-etc/1-proc/10-count_dn.md)
+# 10.1.10 count_dn Statement
+
+The `count_dn` statement is a procedure that decrements the value of a specified variable by 1, and resets it to the init value when it becomes smaller than the preset value.
+
+### Description
+
+This statement decreases the value of the specified variable by 1 each time it is executed.  
+If the variable value becomes less than the value specified by preset value, the variable is reset to the value specified by init value.
+
+Executing  
+```python
+count_dn cnt, init=100, preset=0
+```
+produces the same result as executing the following four lines:
+
+```python
+cnt = cnt - 1
+if cnt < 0
+    cnt = 100
+endif
+```
+
+### Syntax
+```python
+count_dn <variable>, init=<initial value>, preset=<final value>
+```
+
+### Parameters
+| Item     | Description                                                                        | Remarks |
+| -------- | ---------------------------------------------------------------------------------- | ------- |
+| Variable | The variable whose value will be decremented as a counter                          |         |
+| init     | The initial value to assign when the variable becomes less than the `preset` value |         |
+| preset   | The minimum value of the variable                                                  |         |
+
+
+### Example
+```python
+   global work_no
+   move P,spd=30%,accu=0,tool=1
+   delay 0.5
+   move P,spd=30%,accu=0,tool=1
+   move L,spd=30mm/s,accu=0,tool=1
+   move L,spd=30mm/s,accu=0,tool=1
+   delay 0.5
+   move P,spd=30%,accu=0,tool=1
+   count_dn work_no,init=99,preset=0
+   end
+```
+
+[__SOURCE](10-etc/1-proc/11-cycle_end.md)
+# 10.1.11 cycle_end
+
+The `cycle_end` statement is a procedure that clears all call stacks that are being managed as a result of executing `call` statements.
+
+### Description
+
+When a program executes the `end` statement while a call stack exists, program execution returns to the position where the `call` statement was executed and continues running.  
+However, when the `cycle_end` statement is executed, all managed call stacks are cleared. As a result, the program does not return to the position of the `call` statement and instead stops execution.
+
+### Syntax
+
+```python
+cycle_end
+```
+
+### Example
+
+```python
+   0001.job
+   ...
+   move P,spd=30%,accu=0,tool=1
+   call 10
+   move P,spd=30%,accu=0,tool=1
+   move L,spd=30mm/s,accu=0,tool=1
+   move L,spd=30mm/s,accu=0,tool=1
+   delay 0.5
+   move P,spd=30%,accu=0,tool=1
+   end
+
+
+   0010.job
+   ...
+   move P,spd=30%,accu=0,tool=1
+   delay 0.5
+   cycle_end
+
+
+```
+
+[__SOURCE](10-etc/1-proc/12-speed_out.md)
+# 10.1.12 speed_out Statement
+
+The `speed_out` statement is a procedure that calculates a value proportional to the robot's current movement speed and assigns the result to a specified variable.  
+It operates only while executing a `move` statement with interpolation set to `L` or `C`.
+
+### Description
+
+This statement calculates a value proportional to the robot's current moving speed and stores the calculated result in the specified variable.  
+
+If the following command is executed, as shown in the figure, the value **y** corresponding to the current robot speed **x** is calculated and assigned to dow10.
+...  
+speed_out on,min_spd=100,max_spd=2000,min_val=10,max_val=100,var=dow10  
+
+![](../../_assets/speed_out.png)
+
+### Syntax
+```python
+speed_out <on/off>, min_spd=<minimum speed>, max_spd=<maximum speed>, min_val=<minimum value>, max_val=<maximum value>, var=<numeric variable>
+```
+
+### Parameters
+| Item    | Description                                                    | Remarks          |
+| ------- | -------------------------------------------------------------- | ---------------- |
+| on/off  | Specifies the section in which the function is enabled         |                  |
+| min_spd | Specifies the minimum robot movement speed [mm/s]              |                  |
+| max_spd | Specifies the maximum robot movement speed [mm/s]              |                  |
+| min_val | Specifies the value corresponding to the minimum robot speed   |                  |
+| max_val | Specifies the value corresponding to the maximum robot speed   |                  |
+| var     | Specifies the variable in which the calculated value is stored | Numeric variable |
+
+### Example
+
+```python
+   move P,spd=30%,accu=0,tool=1
+   speed_out on,min_spd=100,max_spd=2000,min_val=10,max_val=100,var=dow10
+   move L,spd=30mm/s,accu=0,tool=1
+   move L,spd=30mm/s,accu=0,tool=1
+   speed_out off
+   move P,spd=30%,accu=0,tool=1
+   end
+```
+
+[__SOURCE](10-etc/1-proc/13-task.md)
+# 10.1.13 task Statement
+
+The `task` statement is a procedure used to perform multitasking functions.  
+For detailed information about the `task` statement, refer to the link below:  
+[${cont_model} Controller Function Manual - Multitasking](https://hrbook-hrc.web.app/#/view/doc-multi-task/en/README)  
+
+### Syntax
+
+```python
+task start, sub=<subtask number>, job=<program number>
+task wait,  sub=<subtask number>
+task sync,  id=<identifier>, no=<number of executions with the same id>
+task stop,  sub=<subtask number>
+task reset, sub=<subtask number>
+```
+
+[__SOURCE](10-etc/1-proc/14-toolchng.md)
+# 10.1.14 toolchng
+
+The `toolchng` statement is a procedure used to change the servo tool assigned to an additional axis.  
+For detailed information about the `toolchng` statement, refer to the link below:  
+[${cont_model} Robot Controller Function Manual - Servo Tool Change](https://hrbook-hrc.web.app/#/view/doc-svtool-change/en/README)
+
+### Syntax
+
+```python
+toolchng on/off, tg=<change target>, di=<connection complete signal>, wait=<waiting time>
+```
 [__SOURCE](10-etc/1-proc/15-json_parse.md)
 # 10.1.15 json_parse
 
