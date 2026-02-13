@@ -3,6 +3,11 @@
 # ${cont_model} 제어기 기능설명서 - 로봇언어 HRScript
 
 
+[__SOURCE](0-about-this-manual/precautions.md)
+# 사전 주의사항
+
+{% include url="https://hrcontentsrelay-bmgae5hdbzapc4bc.koreacentral-01.azurewebsites.net/api/proxy?path=doc-common-pages/ko/precautions.md" %}
+
 [__SOURCE](1-intro/README.md)
 # 1. 개요
 
