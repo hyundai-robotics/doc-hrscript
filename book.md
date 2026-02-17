@@ -1134,7 +1134,7 @@ These functions receive an input of a parameter and then create and return an ob
 
 
 [__SOURCE](2-basic-syntax/10-import.md)
-# 2.10 import
+# 2.10 `import`
 
 ### Description
 
@@ -1272,7 +1272,7 @@ This statement can stop the execution of a program or make it wait for a certain
 
 
 [__SOURCE](3-flowcontrol-subprogram/2-stop-wait/1-stop.md)
-# 3.2.1 stop
+# 3.2.1 `stop`
 
 ### Description
 
@@ -1294,7 +1294,7 @@ endif
 
 
 [__SOURCE](3-flowcontrol-subprogram/2-stop-wait/2-end.md)
-# 3.2.2 end
+# 3.2.2 `end`
 
 ### Description
 
@@ -1316,7 +1316,7 @@ end
 
 
 [__SOURCE](3-flowcontrol-subprogram/2-stop-wait/3-delay.md)
-# 3.2.3 delay
+# 3.2.3 `delay`
 
 ### Description
 
@@ -1362,7 +1362,7 @@ delay 3.5
 
 
 [__SOURCE](3-flowcontrol-subprogram/2-stop-wait/4-wait.md)
-# 3.2.4 wait
+# 3.2.4 `wait`
 
 ### Description
 
@@ -1421,7 +1421,7 @@ Makes it possible to go to a different address, without conditions.
 
 
 [__SOURCE](3-flowcontrol-subprogram/3-branch/1-goto.md)
-# 3.3.1 goto
+# 3.3.1 `goto`
 
 ### Description
 
@@ -1465,13 +1465,13 @@ goto *err_hdl
 
 
 [__SOURCE](3-flowcontrol-subprogram/3-branch/2-gosub.md)
-# 3.3.2 gosub~retsub
+# 3.3.2 `gosub`~`retsub`
 
 ### Description
 
-When the gosub statement is encountered, it branches to the specified address.
-When the retsub statement is encountered, it returns to the next position after the gosub statement.
-Gosub can be nested into several level, and there is no limit on the number of nesting.
+When the `gosub` statement is encountered, it branches to the specified address.
+When the `retsub` statement is encountered, it returns to the next position after the gosub statement.
+`gosub` can be nested into several level, and there is no limit on the number of nesting.
 
 ### Syntax
 ```python
@@ -1547,11 +1547,11 @@ These statements allow a certain operation to be or not to be executed depending
 
 
 [__SOURCE](3-flowcontrol-subprogram/4-conditional/1-simple-if.md)
-# 3.4.1 Single-Line if
+# 3.4.1 Single-Line `if`
 
 ### Description
 
-The form of a single-line if statement is as follows: If &lt;Boolean expression&gt; is true, branching to &lt;address&gt; will occur. If false, moving to the next statement will occur.
+The form of a single-line `if` statement is as follows: If &lt;Boolean expression&gt; is true, branching to &lt;address&gt; will occur. If false, moving to the next statement will occur.
 
 ### Syntax
 
@@ -1574,13 +1574,13 @@ print "warning: pressure is too high."
 
 
 [__SOURCE](3-flowcontrol-subprogram/4-conditional/2-if-endif.md)
-# 3.4.2 if-endif
+# 3.4.2 `if`-`endif`
 
 ### Description
 
-If the single-line if statement is true, only the operation of branching to a specific address will occur. If executing other operations or multiple statements is necessary, the if-endif block should be used.
+If the single-line `if` statement is true, only the operation of branching to a specific address will occur. If executing other operations or multiple statements is necessary, the `if`-`endif` block should be used.
 
-The form is as follows: If &lt;Boolean expression&gt; is true, the multiple number of &lt;statement&gt; between if and endif will be executed in order. If &lt;Boolean expression&gt; is false, skipping to the position after endif will occur without the &lt;statements&gt; being executed.
+The form is as follows: If &lt;Boolean expression&gt; is true, the multiple number of &lt;statement&gt; between `if` and `endif` will be executed in order. If &lt;Boolean expression&gt; is false, skipping to the position after `endif` will occur without the &lt;statements&gt; being executed.
 
 ### Syntax
 
@@ -1604,15 +1604,15 @@ endif
 end
 ```
 
-In the example program, the statements between if and endif are indented by two spaces. These statements are indented to make it easier to recognize that they are codes for the blocks nested between if and endif.
+In the example program, the statements between `if` and `endif` are indented by two spaces. These statements are indented to make it easier to recognize that they are codes for the blocks nested between `if` and `endif`.
 
 
 [__SOURCE](3-flowcontrol-subprogram/4-conditional/3-if-else-endif.md)
-# 3.4.3 if-else-endif Statement
+# 3.4.3 `if`-`else`-`endif` Statement
 
 ### Description
 
-If the expression is false and if there are statements to be executed, the following form is used:
+If the expression is false and `if` there are statements to be executed, the following form is used:
 
 If the expression is true, statement A will be executed. If false, statement B will be executed.
 
@@ -1645,11 +1645,11 @@ end
 
 
 [__SOURCE](3-flowcontrol-subprogram/4-conditional/4-if-elseif-else-endif.md)
-# 3.4.4. if-elseif-else-endif
+# 3.4.4. `if`-`elseif`-`else`-`endif`
 
 ### Description
 
-In the case of multiple conditions, the elseif statement can be used in the following form.
+In the case of multiple conditions, the `elseif` statement can be used in the following form.
 
 ### Syntax
 
@@ -1687,15 +1687,15 @@ end
 
 
 [__SOURCE](3-flowcontrol-subprogram/4-conditional/5-switch-case-break-end_switch.md)
-# 3.4.5 switch-case-break-end\_switch
+# 3.4.5 `switch`-`case`-`break`-`end_switch`
 
 ### Description
 
-A **switch** statement evaluates a numeric expression and compares it with the resulting value of the numeric expression designated by a **case** statement. It is executed from the **case** statement of equal value until a **break** statement is encountered.
+A `switch` statement evaluates a numeric expression and compares it with the resulting value of the numeric expression designated by a `case` statement. It is executed from the `case` statement of equal value until a `break` statement is encountered.
 
-In the following example, if the resulting value of Expression X is equal to the resulting value of Expression B1 or B2, \(1\) through \(3\) will be executed, and it will move to the point of the **end\_switch** statement \(note that there is no **break** below the command statement B\). Meanwhile, if the resulting value of Expression X is equal to that of Expression C, \(2\) through \(3\) will be executed.
+In the following example, if the resulting value of Expression `X` is equal to the resulting value of Expression `B1` or `B2`, \(1\) through \(3\) will be executed, and it will move to the point of the `end_switch` statement \(note that there is no `break` below the command statement B\). Meanwhile, if the resulting value of Expression `X` is equal to that of Expression `C`, \(2\) through \(3\) will be executed.
 
-If the resulting value of Expression X is not equal to that of any **case** statement, it will be moved to the **default**, and \(4\) through \(5\) will be executed. Then, the **default** section may be omitted.
+If the resulting value of Expression `X` is not equal to that of any `case` statement, it will be moved to the `default`, and \(4\) through \(5\) will be executed. Then, the `default` section may be omitted.
 
 ### Syntax
 
@@ -1795,13 +1795,13 @@ Loop statements can be used when the same operation needs to be repeated multipl
 
 
 [__SOURCE](3-flowcontrol-subprogram/6-loop/1-for-next.md)
-# 3.6.1 for-next
+# 3.6.1 `for`-`next`
 
 ### Description
 
 The format of the `for`~`next` statement, which repeats the same operation, is as follows.
 
-First, the initial value will be assigned to the index variable. When the `next` statement is encountered while the statements under the for statement are executed, the index variable will add increment/decrement values and perform repetition from the point of the for statement. When the index variable passes the end value, the repetition will end.
+First, the initial value will be assigned to the index variable. When the `next` statement is encountered while the statements under the `for` statement are executed, the index variable will add increment/decrement values and perform repetition from the point of the `for` statement. When the index variable passes the end value, the repetition will end.
 
 If a step is not specified, 1 will be applied.
 
@@ -1816,7 +1816,7 @@ next
 
 ### Example
 
-The following shows an example of a routine that accumulates 1 to 10 in the sum using the for-next statement. When the repetition is over, 11 and 55 will be printed on the screen.
+The following shows an example of a routine that accumulates 1 to 10 in the sum using the `for`-`next` statement. When the repetition is over, 11 and 55 will be printed on the screen.
 
 ```python
 var idx
@@ -1829,7 +1829,7 @@ end
 ```
 
 [__SOURCE](3-flowcontrol-subprogram/6-loop/2-break-continue.md)
-# 3.6.2 break, continue
+# 3.6.2 `break`, `continue`
 
 ### Description
 
@@ -1890,7 +1890,7 @@ Tom
 ```
 
 [__SOURCE](3-flowcontrol-subprogram/7-call-jump/README.md)
-# 3.7 Call, Jump Statement and Subprograms
+# 3.7 `call`, `jump` Statement and Subprograms
 
 If an entire large-scale robot operation is created as one job program, the program becomes large and complex, making it difficult to add functions or find and solve problems.
 
@@ -1902,11 +1902,11 @@ For the program"s maintainability, it is preferable to divide the unit operation
 
 
 [__SOURCE](3-flowcontrol-subprogram/7-call-jump/1-call.md)
-# 3.7.1 call
+# 3.7.1 `call`
 
 ### Description
 
-There is no significant difference in format between the main program and the subprogram in HRScript. The first job executed by the start button or by a signal is the main program, and all other jobs called by the **call** statement are subprograms. 
+There is no significant difference in format between the main program and the subprogram in HRScript. The first job executed by the start button or by a signal is the main program, and all other jobs called by the `call` statement are subprograms. 
 
 ### Syntax
 
@@ -1914,11 +1914,11 @@ There is no significant difference in format between the main program and the su
 call <job number, file name, or user function name> [,parameter 1,parameter 2,...]
 ```
 
-Specify the job number of the job file name \(excluding the extension\) after the **call** statement. Then, while program A is being executed, if call B is encountered, A's execution will be stopped, and the first statement of program B, a subprogram, will continue to be executed. If the **end** or **return** statement is encountered while B is being executed, program A's execution will continue upon returning to the position of the next statement of program A's **call** statement that was previously called.
+Specify the job number of the job file name \(excluding the extension\) after the `call` statement. Then, while program `A` is being executed, if call `B` is encountered, `A`'s execution will be stopped, and the first statement of program `B`, a subprogram, will continue to be executed. If the `end` or `return` statement is encountered while `B` is being executed, program `A`'s execution will continue upon returning to the position of the next statement of program `A`'s `call` statement that was previously called.
 
 ### Example
 
-The following shows an example and the result of a subprogram called by a **call** statement. It seems meaningless to divide the program into two because the subprogram must handle only one print statement. However, a more practical example will be shown later.
+The following shows an example and the result of a subprogram called by a `call` statement. It seems meaningless to divide the program into two because the subprogram must handle only one print statement. However, a more practical example will be shown later.
 
 * Refer to [3.7.3 def](./3-def.md) for an example of calling user function.
 
@@ -1946,9 +1946,9 @@ main job end
 ```
 
 [__SOURCE](3-flowcontrol-subprogram/7-call-jump/2-param-return.md)
-# 3.7.2 Parameters and param, return
+# 3.7.2 Parameters and `param`, `return`
 
-In a job program, formal parameters are used as channels through which input and output are passed. The **param** statement will define formal parameters at the beginning of the job program.
+In a job program, formal parameters are used as channels through which input and output are passed. The `param` statement will define formal parameters at the beginning of the job program.
 
 In the following example, job no. 105 is named as "dist2d" as it is a subjob that acquires the Euclidean distance from the origin to the coordinate value \(x, y\) and returns it to len.
 
@@ -1981,21 +1981,21 @@ RESULT
 13.742
 ```
 
-In job no. 1, the dist2d subprogram is called with the **call** statement, and "x, y," which are local variables, are passed. In the dist2d subprogram, "dx", and "dy" defined with the **param** statement are called "formal parameters", and "x, y" passed to the **call** statement are called "actual parameters."
+In job no. 1, the dist2d subprogram is called with the `call` statement, and "x, y," which are local variables, are passed. In the dist2d subprogram, "dx", and "dy" defined with the `param` statement are called "formal parameters", and "x, y" passed to the `call` statement are called "actual parameters."
 
-The dist2d program transports resulting values to external destinations through **return** statements. Returned values can be obtained by calling a result\(\) function in the called program.
+The dist2d program transports resulting values to external destinations through `return` statements. Returned values can be obtained by calling a result\(\) function in the called program.
 
-(A **return** statement and an **end** statement have the same action as they end a called program and return to the main program. However, a **return** statement is different from **end** statement as the former can designate a resulting value as an element).
+(A `return` statement and an `end` statement have the same action as they end a called program and return to the main program. However, a `return` statement is different from `end` statement as the former can designate a resulting value as an element).
 
 [__SOURCE](3-flowcontrol-subprogram/7-call-jump/3-def.md)
-# 3.7.3 def (defining user function)
+# 3.7.3 `def` (defining user function)
 
 since V60.05-06
 
 ### Description
 
-You can define user functions in the job with **def** statement and call it with **call** statement. Similar to **param** statement, **def** statement can specify a list of formal parameters. The actual parameter values of the **call** statement are passed to the formal parameters.
-The execution of a function defined by **def** statement returns to the next statement after the **call** statement when executing **return** statement or **end** statement
+You can define user functions in the job with `def` statement and call it with `call` statement. Similar to `param` statement, `def` statement can specify a list of formal parameters. The actual parameter values of the `call` statement are passed to the formal parameters.
+The execution of a function defined by `def` statement returns to the next statement after the `call` statement when executing `return` statement or `end` statement
 
 User functions are called by name rather than number, so its readability is better than sub-program. And you can group multiple related functions into one subprogram to make your project structure better.
 
@@ -2006,8 +2006,8 @@ User functions are called by name rather than number, so its readability is bett
 def <user function name> [,parameter1[=default value],parameter2[=default value],...]
 ```
 
-Specify the user function name after **def**. Function names must follow the rules defined in the section [2.2 Identifier](../../2-basic-syntax/2-identifier.md). In addition, it should be globally unique name. Be careful not to duplicate the new name with other function names or other variable names.
-After that, specify the formal parameters. You can also specify a default value for each parameter. If you omit a actual parameter in the call statement, the formal parameter is initialized to the default value. If you start specifying a default value for a particular formal parameter, you must specify all paramters until last parameter.
+Specify the user function name after `def`. Function names must follow the rules defined in the section [2.2 Identifier](../../2-basic-syntax/2-identifier.md). In addition, it should be globally unique name. Be careful not to duplicate the new name with other function names or other variable names.
+After that, specify the formal parameters. You can also specify a default value for each parameter. If you omit a actual parameter in the `call` statement, the formal parameter is initialized to the default value. If you start specifying a default value for a particular formal parameter, you must specify all paramters until last parameter.
 
 
 ```python
@@ -2018,7 +2018,7 @@ def set_work,mass,cx=0,cy,cz     # illegal example
 
 ### Example
 
-Below are examples of user function calls with **call** statements and the results. We've presented the Euclidean distance example in the previous section to describe the subprogram. Now let's define user functions for Euclidean distance and Manhattan distance respectively and call them.
+Below are examples of user function calls with `call` statements and the results. We've presented the Euclidean distance example in the previous section to describe the subprogram. Now let's define user functions for Euclidean distance and Manhattan distance respectively and call them.
 
 
 ```python
@@ -2062,16 +2062,14 @@ manhattan= 17.8
 end
 ```
 
-
-
 [__SOURCE](3-flowcontrol-subprogram/7-call-jump/4-jump.md)
-# 3.7.3 jump
+# 3.7.4 `jump`
 
 ### Description
 
-This format is completely identical to that of call statements, and its action is also similar to that of **call** statements.
+This format is completely identical to that of `call` statements, and its action is also similar to that of `call` statements.
 
-The only difference is that, while a **call** statement returns to the main program using an end program, a **jump** statement does not.
+The only difference is that, while a `call` statement returns to the main program using an `end` statement, a `jump` statement does not.
 
 ### Syntax
 
@@ -2083,7 +2081,7 @@ jump <job number or file name> [,parameter 1,parameter 2,???]
 
 ### Example
 
-If the jump statement of this example program is replaced with a **call** statement, the result of the replaced program will be as follows. When the **end** of the sub-program \(0102\_err\) is encountered, the action cycle will end. If the next action cycle is executed, the main program \(0001\) will be executed from the start.
+If the `jump` statement of this example program is replaced with a `call` statement, the result of the replaced program will be as follows. When the `end` of the sub-program \(0102\_err\) is encountered, the action cycle will end. If the next action cycle is executed, the main program \(0001\) will be executed from the start.
 
 
 ```python
@@ -2376,7 +2374,7 @@ When there are local variables and global variables with an identical name, the 
 
 An array is a variable type that collects and stores several values under a single name and allows access through an index number.
 
-Arrays are defined as **var** or **global**, like any other variable.
+Arrays are defined as `var` or `global`, like any other variable.
 
 {% hint style="warning" %}
 [The names of top-level arrays in global variables are exceptionally case-insensitive, so please be aware.](../../2-basic-syntax/2-identifier.md)
@@ -2425,7 +2423,7 @@ The \[ \] operator is used as follows to read or write the value of an array"s s
 
 
 
-The number of elements in an array can be acquired by using the len\(\) function. Previously, the len\(\) function was introduced as a function to acquire the length of a string. If an array is put as a parameter of len\( \), it will return the number of elements in the array.
+The number of elements in an array can be acquired by using the `len`\(\) function. Previously, the `len`\(\) function was introduced as a function to acquire the length of a string. If an array is put as a parameter of `len`\( \), it will return the number of elements in the array.
 
 <table>
   <thead>
@@ -2455,7 +2453,7 @@ The number of elements in an array can be acquired by using the len\(\) function
 
 
 
-The **for-next** statement is mainly used to perform some processing on all elements of an array.
+The `for-next` statement is mainly used to perform some processing on all elements of an array.
 
 <table>
   <thead>
@@ -2534,11 +2532,11 @@ It does not matter if the values stored in the array are of different types.
 [__SOURCE](4-array-object/1-array/2-md-array.md)
 # 4.1.2 Multidimensional Arrays
 
-An array can also be nested as an element of an array. When accessing the elements of a multidimensional array, you can use the \[ \] operator consecutively. In the following example, "arr\_y" is a two-dimensional array. \(1\)
+An array can also be nested as an element of an array. When accessing the elements of a multidimensional array, you can use the `[ ]` operator consecutively. In the following example, `arr_y` is a two-dimensional array. \(1\)
 
-arr\_y\[1\] is an array of elements of index 1, namely \["abc", "jqk", "xyz"\], and it is assigned to the new variable "arr\_x." \(2\)
+`arr_y[1]` is an array of elements of index 1, namely `["abc", "jqk", "xyz"]`, and it is assigned to the new variable `arr_x`. \(2\)
 
-So, arr\_x\[1\] is "jqk", and arr\_y\[1\]\[2\] is "xyz" because it points to \[2\] of arr\_y\[1\].
+So, `arr_x[1]` is `jqk`, and `arr_y[1][2]` is `xyz` because it points to `[2]` of `arr_y[1]`.
 
 
 
@@ -2584,30 +2582,27 @@ So, arr\_x\[1\] is "jqk", and arr\_y\[1\]\[2\] is "xyz" because it points to \[2
 
 
 [__SOURCE](4-array-object/1-array/3-array-creator.md)
-# 4.1.3 Array Constructor Function - Array()
+# 4.1.3 Array Constructor Function - `Array()`
 
-It is difficult to create an array with hundreds of elements with the notation \[ \] alone. Any number of arrays may be created by calling the constructor function. Each element will be initialized to 0.
+It is difficult to create an array with hundreds of elements with the notation `[ ]` alone. Any number of arrays may be created by calling the constructor function. Each element will be initialized to 0.
 
 ```python
 var name = Array(900)	# creates an array of 900 elements
 ```
 
-If two or more elements are designated, a multidimensional array can be created. In the following example of a 3-dimensional array, \[4\] is the lowest dimension.
+If two or more elements are designated, a multidimensional array can be created. In the following example of a 3-dimensional array, `[4]` is the lowest dimension.
 
 ```python
 var name = Array(3,2,4)	# [3][2][4] numbers of 3-dimensional arrays are created
 # [ [[0,0,0,0], [0,0,0,0]], [[0,0,0,0], [0,0,0,0]], [[0,0,0,0], [0,0,0,0]] ]
 ```
 
-
-
-
 [__SOURCE](4-array-object/1-array/4-array-append.md)
-# 4.1.4 Append Procedure for Adding an Element to an Array
+# 4.1.4 `append_arr` Procedure for Adding an Element to an Array
 
 Supported from V60.32-00
 
-The append procedure can be used to add an element to an array
+The `append_arr` procedure can be used to add an element to an array
 
 ```python
 var arr = [1, 2]
@@ -2624,11 +2619,11 @@ print arr           # [1, 2, [3, 4]]
 ```
 
 [__SOURCE](4-array-object/1-array/5-array-extend.md)
-# 4.1.5 Extend Procedure for Adding All Elements of One Array to Another
+# 4.1.5 `extend_arr` Procedure for Adding All Elements of One Array to Another
 
 Supported from V60.32-00
 
-The extend procedure can be used to add all elements of an array to another.
+The `extend_arr` procedure can be used to add all elements of an array to another.
 
 ```python
 var arr = [1, 2]
@@ -2652,12 +2647,13 @@ As previously seen, it was found that an array could store multiple element valu
 
 Objects are like arrays in that they store multiple element values. The difference is that an object is accessed by a key, not with an index. Moreover, the key is a string, not a number. 
 
-Objects are defined as var or global, like any other variables. The definition of an object and format of its access are as follows.
+Objects are defined as `var` or `global`, like any other variables. The definition of an object and format of its access are as follows.
 
 |  |  |
 | :--- | :--- |
 | Definition | var object name = { key : value, key : value, ...} |
 | Access | Object name key |
+
 
 
 
@@ -2688,7 +2684,7 @@ The following shows an example of defining and accessing an object.
 
 
 
-The object"s key must be in the format of an identifier, but the element"s value can be of any type and can also be of different types. 
+The object's key must be in the format of an identifier, but the element's value can be of any type and can also be of different types. 
 
 An object can contain other objects or arrays as its elements. Likewise, an array can also contain other arrays or objects as its elements. In the following example, "work," which is an object, contains "size," which is an object, and "heights," which is an array.
 
@@ -2715,9 +2711,6 @@ An object can contain other objects or arrays as its elements. Likewise, an arra
     </tr>
   </tbody>
 </table>
-
-
-
 
 [__SOURCE](4-array-object/3-array-object-assignment.md)
 # 4.3 Copied assignment of arrays and objects
@@ -2767,9 +2760,9 @@ If the right side of an assignment statement has object variables, the entire va
 [__SOURCE](4-array-object/4-call-by-reference-call-by-value.md)
 # 4.4 Call-by-reference and call-by-value
 
-In the description of call statements and jump statements given in Section 3.4, the concepts of formal parameters and actual parameters were explained. When an actual parameter has been transported to a sub-program, if the sub-program ends after changing the value of the parameter, will it be reflected to the main program?
+In the description of `call` statements and `jump` statements given in Section 3.4, the concepts of formal parameters and actual parameters were explained. When an actual parameter has been transported to a sub-program, if the sub-program ends after changing the value of the parameter, will it be reflected to the main program?
 
-For example, let"s assume that a sub-program 0005\_pow3.job raises a value to the third power as follows:
+For example, let's assume that a sub-program `0005_pow3.job` raises a value to the third power as follows:
 
 
 
@@ -2957,7 +2950,7 @@ When a sub-program is called, if the copied version of the value of an actual pa
 
 
 [__SOURCE](5-moving-robot/README.md)
-# 5. Moving a Robotwith Robot Language
+# 5. Moving a Robot with Robot Language
 
 After understanding the pose that expresses the target position of the robot, let us learn about the commands to move the robot.
 
@@ -3162,7 +3155,7 @@ Elements of the pose object can be accessed with the following keys.
 </table>
 
 
-1. For V60.06-06 or older versions, fl is non-fl.
+1. For V60.06-06 or older versions, `fl` is `non-fl`.
 
 The pose element values can be accessed as shown in the following example.
 
@@ -3179,7 +3172,7 @@ print po2.z, po2.cfg
 
 Shift is an object type embedded in the ${cont_model} Controller and represents the pose's change value. 
 
-Shifts are created by calling the constructor function Shift\( \). All function parameters are position parameters. Meanwhile, crd and cfg are string types, and the rest are number types.
+Shifts are created by calling the constructor function `Shift()`. All function parameters are position parameters. Meanwhile, `crd` and `cfg` are string types, and the rest are number types.
 
 
 
@@ -3219,7 +3212,7 @@ Elements of the shift object can be accessed with the following keys.
 [__SOURCE](5-moving-robot/3-pose-expression.md)
 # 5.3 Pose Expression
 
-The expression in which the result value becomes a pose is called a "pose expression." 
+The expression in which the result value becomes a pose is called a `pose expression`. 
 
 All the following forms are recognized as poses.
 
@@ -3245,9 +3238,9 @@ var po5 = po2+sft1+Shift(0, 0, 55.2, 0, -5, 0, "base")
 
 
 [__SOURCE](5-moving-robot/4-move.md)
-# 5.4 move
+# 5.4 `move`
 
-The move statement is a procedure for moving the robot. The format is as follows.
+The `move` statement is a procedure for moving the robot. The format is as follows.
 
 ### Description
 
@@ -3345,9 +3338,9 @@ move P,tg=+Shift(0,0,0,0,-10,0),spd=80%,accu=1,tool=3,x="do1=1;do2=2",until di2 
 if result() then *sensor_on
 ```
 
-If the \[Record\] button of the teach pendant is pressed, a move statement in hidden pose type will be recorded as the current robot position. The hidden pose value can be checked or edited by placing the cursor on the move statement and pressing the \[Property\] button. 
+If the `[Record]` button of the teach pendant is pressed, a `move` statement in hidden pose type will be recorded as the current robot position. The hidden pose value can be checked or edited by placing the cursor on the `move` statement and pressing the `[Property]` button. 
 
-When the \[Command\] button is pressed and the \[Motion\] group is opened, select the move menu. As a result, a pose-type move statement is recorded.
+When the `[Command]` button is pressed and the `[Motion]` group is opened, select the move menu. As a result, a pose-type `move` statement is recorded.
 
 
 
@@ -3355,14 +3348,14 @@ When the \[Command\] button is pressed and the \[Motion\] group is opened, selec
 
 
 [__SOURCE](5-moving-robot/5-mkucs.md)
-# 5.5 mkucs - make user coordinate system
+# 5.5 `mkucs` - make user coordinate system
 
 ### Description
 
 A command that creates a user coordinate system with three poses or one pose.   
 
 - When you create with three poses, it is created with the origin pose, an axis pose, plane pose  according to the specified step order.
--  If the step order is not specified, it is created with the origin pose, X-axis pose, and XY plane pose.
+- If the step order is not specified, it is created with the origin pose, X-axis pose, and XY plane pose.
 - When you create with one pose, it is created with the origin pose and the position/direction is based on the pose value.
 - If the calculation is not possible, the job execution is interrupted with an error.
 
@@ -3486,9 +3479,9 @@ or
 
 
 [__SOURCE](5-moving-robot/6-selucrd.md)
-# 5.6 selucrd - select user coordinate system
+# 5.6 `selucrd` - select user coordinate system
 
-The selucrd statement is a procedure for changing the user coordinate system number specified as the user coordinate system in the condition setting.
+The `selucrd` statement is a procedure for changing the user coordinate system number specified as the user coordinate system in the condition setting.
 
 ### Description
 
@@ -3532,7 +3525,7 @@ selucrd <coord. system number>
    end
 ```
 [__SOURCE](5-moving-robot/7-contpath.md)
-# 5.7 contpath
+# 5.7 `contpath`
 
 ### Description
 
@@ -3591,11 +3584,11 @@ contpath 2
 {% endhint %}
 
 [__SOURCE](5-moving-robot/8-coldet.md)
-# 5.8 coldet 
+# 5.8 `coldet`
 
-Robot language "coldet" is used for setting collision detection(of each axis) level in case of the function activated on. 
+Robot language `coldet` is used for setting collision detection(of each axis) level in case of the function activated on. 
 
-Users should set the function activation on/off and collision level in the TP menu. \[3: robot parameter &gt; 14: impact detection &gt; 2: set the collision detection(of each axis) \] 
+Users should set the function activation on/off and collision level in the TP menu. `[F2: System] - 3: robot parameter - 14: impact detection - 2: set the collision detection (of each axis)`
 
 The menu can be shown in that robot is set for detecting collision.  
 
@@ -3633,16 +3626,16 @@ S7   move P,spd=60%,accu=0,tool=0
      end 
 ```
 * The value of detecting level in step1 and step2 is 1. 
-* The value of detecting level in step3 is 2, and that of level in step 4 and step5 is 3.
-* In case of step6 and step7, the function of collision detection is deactivated. 
+* The value of detecting level in step 3 is 2, and that of level in step 4 and step 5 is 3.
+* In case of step 6 and step 7, the function of collision detection is deactivated. 
 --- 
 
 [__SOURCE](5-moving-robot/9-colsense.md)
-# 5.9 colsense 
+# 5.9 `colsense` 
 
-Robot language "colsense" is used for setting detection sensitivity in case of the function activated on. 
+Robot language `colsense` is used for setting detection sensitivity in case of the function activated on. 
 
-Users should set the function activation on/off and detection sensitivity in the TP menu. \[3: robot parameter &gt; 14: impact detection &gt; 1: Model-based collision detection \] 
+Users should set the function activation on/off and detection sensitivity in the TP menu. `[F2: System] - 3: robot parameter - 14: impact detection - 1: Model-based collision detection`.
 
 --- 
 
@@ -3677,9 +3670,9 @@ S6   move P,spd=60%,accu=0,tool=0
 S7   move P,spd=60%,accu=0,tool=0
      end 
 ```
-* The detection sensitivity value in step1 and step2 is used from setting based on the menu \[3: robot parameter &gt; 14: impact detection &gt; 1: Model-based collision detection \] 
-* The General sensitivity in step3 is 150, and the value is changed as 200 in step4 and step5 
-* Sensing collision on joint1 and joint2 is deactivated, and other joints collision are detected by general sensitivity as 200.  
+* The detection sensitivity value in step1 and step2 is used from setting based on the menu `[F2: System] - 3: robot parameter - 14: impact detection - 1: Model-based collision detection`.
+* The General sensitivity in step 3 is 150, and the value is changed as 200 in step 4 and step 5 
+* Sensing collision on joint 1 and joint 2 is deactivated, and other joints collision are detected by general sensitivity as 200.  
 
 --- 
 {% hint style="info" %}
@@ -3690,24 +3683,23 @@ The final sensitivity value per axis is proportional to the sensitivity value of
 
 
 [__SOURCE](5-moving-robot/10-softxyz.md)
-# 5.10 softxyz 
+# 5.10 `softxyz`
 
 
-The softxyz function is a sensorless force-control feature that allows the robot  
-to move flexibly in Cartesian space in response to external forces under user-defined conditions.
+The `softxyz` function is a sensorless force-control feature that allows the robot to move flexibly in Cartesian space in response to external forces under user-defined conditions.
 
-To ensure proper operation, **tool data and additional payload information must be configured correctly**.
+To ensure proper operation, `tool data and additional payload information must be configured correctly`.
 
 {% hint style="warning" %}
 
-Since the softxyz function is **sensorless** and does not use a force sensor,  
-there are **inherent limitations** in achieving fully smooth and natural motion.
+Since the `softxyz` function is `sensorless` and does not use a force sensor,  
+there are `inherent limitations` in achieving fully smooth and natural motion.
 
 However, by tuning the `softxyz_lim` values appropriately for the application environment,  
 you can achieve the smoothest possible motion within the functional limitations.
 
 Because `softxyz_lim (pos / xnr / vel / thr)` directly determines how the robot responds to external force,  
-**fine-tuning is required** depending on the environment, assembly process, and tool stiffness.
+`fine-tuning is required` depending on the environment, assembly process, and tool stiffness.
 
 {% endhint %}
 
@@ -3724,17 +3716,17 @@ softxyz off
 ```
 
 ### Parameters
-- **on** : Start the softxyz function  
-- **off** : Stop the softxyz function  
-- **set** : Modify softxyz settings  
+- `on` : Start the softxyz function  
+- `off` : Stop the softxyz function  
+- `set` : Modify softxyz settings  
 
-- **crd** : Reference coordinate system for external-force displacement  
+- `crd` : Reference coordinate system for external-force displacement  
   - Available options: `base`, `robot`, `tool`, `user_x`
 
-- **dpr** : Stiffness value  
-  - Range: **0.0 ~ 2.0**  
-  - Higher values = **stiffer**, less displacement under external force  
-  - Default: **1.0**
+- `dpr` : Stiffness value  
+  - Range: `0.0 ~ 2.0`  
+  - Higher values = `stiffer`, less displacement under external force  
+  - Default: `1.0`
 
 ```python
 softxyz on,  crd="base"     # Based on the base coordinate system
@@ -3787,14 +3779,14 @@ S2   wait ...
 ```
 
 --- 
-> **Information**
+> `Information`
 >
-> - Before using `softxyz on`, you **must** configure the `softxyz_lim` parameters  
+> - Before using `softxyz on`, you `must` configure the `softxyz_lim` parameters  
 >   (`pos`, `xnr`, `vel`, `thr`) to set the maximum displacement, speed,  
 >   and Cartesian threshold values.
 >
 > - To improve sensitivity to external force, it is recommended to  
->   **keep the robot stationary for 1-2 seconds using the `delay` command**  
+>   `keep the robot stationary for 1-2 seconds using the `delay` command`  
 >   before executing `softxyz on`.
 >
 > - If vibration occurs during softxyz operation, the following adjustments are recommended:
@@ -3802,9 +3794,9 @@ S2   wait ...
 >   2) *Increase the `dpr` value*  
 >   3) *Decrease the `vel` value*
 [__SOURCE](5-moving-robot/11-softxyz_lim.md)
-# 5.11 softxyz_lim
+# 5.11 `softxyz_lim`
 
-Before using instruction "softxyz on", user should set softxyz_lim parameters such as position limit(pos), workspace limit(xnr), velocity limit(vel) and force threshold limit(thr). <br>
+Before using instruction `softxyz on`, user should set `softxyz_lim` parameters such as position limit(`pos`), workspace limit(`xnr`), velocity limit(`vel`) and force threshold limit(`thr`). <br>
 
 
 --- 
@@ -3850,9 +3842,9 @@ softxyz_lim thr, y=10
 
 
 [__SOURCE](5-moving-robot/12-softjoint.md)
-# 5.12 softjoint
+# 5.12 `softjoint`
 
-softjoint instruction is sensorless force control, that allows the robot to move compliantly in joint space with respect to external forces in the environment set by the user. <br>
+`softjoint` instruction is sensorless force control, that allows the robot to move compliantly in joint space with respect to external forces in the environment set by the user. <br>
 
 User should check the validity of robot tool and additional axis information for increasing function accuracy. <br>
 
@@ -3879,16 +3871,16 @@ softjoint off
 --- 
 {% hint style="info" %}
 
-* Before using "softjoint on", user should set softjoint_lim parameters such as joint number(j), softness(sft), joint angle limit(ang) and torque threshold(thr).
+* Before using `softjoint on`, user should set softjoint_lim parameters such as joint number(`j`), softness(`sft`), joint angle limit(`ang`) and torque threshold(`thr`).
 
-* For upgrading sensorless force control performance, user should set "delay" command as "delay 1.0" befor "softjoint on".  
+* For upgrading sensorless force control performance, user should set `delay` command as `delay 1.0` before `softjoint on`.  
 
 {% endhint %}
 
 [__SOURCE](5-moving-robot/13-softjoint_lim.md)
-# 5.13 softjoint_lim
+# 5.13 `softjoint_lim`
 
-Before using instruction "softjoint on", user should set softjoint_lim  parameters such as joint number(j), compliance(sft), joint angle limit(ang) and torque threshold(thr). <br>
+Before using instruction `softjoint on`, user should set `softjoint_lim`  parameters such as joint number(`j`), compliance(`sft`), joint angle limit(`ang`) and torque threshold(`thr`). <br>
 
 --- 
 
@@ -3932,7 +3924,7 @@ S2   move P,spd=250mm/sec,accu=0,tool=0
 --- 
 {% hint style="info" %}
 
-* For using the function of softjoint, parameters on "j" and "sft" on softjoint_lim should be set. Also, if you do not set "ang" parameter, robot moves in workspace on defined softlimit. And, default parameter value on torque threshold "thr" is 0 [Nm]. 
+* For using the function of `softjoint`, parameters on `j` and `sft` on `softjoint_lim` should be set. Also, if you do not set `ang` parameter, robot moves in workspace on defined softlimit. And, default parameter value on torque threshold `thr` is 0 [Nm]. 
 
 {% endhint %}
 
@@ -3958,11 +3950,11 @@ S2   move P,spd=250mm/sec,accu=0,tool=0
 ```
 
 ### Parameter 
-* time_from_start : elapsed time from start position (-1: disable)  
-* look_head_time : time delay for robot moving (unit : [s])  
-* interval : time interval between generated commands (unit : [s])  
-* init : online trajectory init, clear command buffer  
-* buf_in  : add pose or pose type string to the command buffer
+* `time_from_start` : elapsed time from start position (-1: disable)  
+* `look_head_time` : time delay for robot moving (unit : [s])  
+* `interval` : time interval between generated commands (unit : [s])  
+* `init` : online trajectory init, clear command buffer  
+* `buf_in`  : add pose or pose type string to the command buffer
 
 
 
@@ -4009,11 +4001,11 @@ S2   move P,spd=250mm/sec,accu=0,tool=0
 {% endhint %}
 
 [__SOURCE](5-moving-robot/15-convcrd.md)
-# 5.15 convcrd
+# 5.15 `convcrd`
 
 
 ### Description 
-* convcrd command is a function instruction that converts the coordinate system of the pose variable.
+* `convcrd` command is a function instruction that converts the coordinate system of the pose variable.
 
 
 ### Syntax 
@@ -4040,11 +4032,11 @@ poseB = poseA.convcrd("u1")        # user coordinate 1
 
 
 [__SOURCE](5-moving-robot/16-pose_trans.md)
-# 5.16 pose_trans 
+# 5.16 `pose_trans`
 
 
 ### Description 
-* pose_trans command is a function instruction that multiplies two pose variables to obtain the resulting pose value. 
+* `pose_trans` command is a function instruction that multiplies two pose variables to obtain the resulting pose value. 
 
 ### Syntax 
 
@@ -4082,11 +4074,12 @@ S1   move P,tg=pose_C,spd=10%,accu=0,tool=0
 
 
 [__SOURCE](5-moving-robot/17-pose_inv.md)
-# 5.17 pose_inv 
+# 5.17 `pose_inv`
 
 
 ### Description
-* pose_inv instruction is a function that converts to a pose variable corresponding to the inverse matrix of the pose variable.  
+
+* `pose_inv` instruction is a function that converts to a pose variable corresponding to the inverse matrix of the pose variable.  
 
 
 ### Syntax 
@@ -4123,10 +4116,8 @@ S1   move P,tg=pose_C,spd=10%,accu=0,tool=0
      end
 ```
 
-
-
 [__SOURCE](5-moving-robot/18-axisctrl.md)
-# 5.18 axisctrl
+# 5.18 `axisctrl`
 
 ### Description
 * The `axisctrl` command specifies whether additional axes should move to their target positions when the `move` command is executed to move each axis.
@@ -4139,7 +4130,7 @@ axisctrl <on/off>,a=<additional axis number>
 axisctrl <on/off>,a=[additional axis number, additional axis number, ...]  # Multiple specification possible (up to 4)
 ```
 [__SOURCE](5-moving-robot/19-smov.md)
-# 5.19 smov
+# 5.19 `smov`
 
 ### Description
 The `smov` statement is a procedure used for positioner synchronization.  
@@ -4154,7 +4145,7 @@ smov S<station number>,<interpolation mode>,tg=<target position>,spd=<speed>,acc
 smov S<station number>,<interpolation mode>,tg=<target position>,spd=<speed>,accu=<Accuracy>,tool=<tool number> until <input signal>
 ```
 [__SOURCE](5-moving-robot/20-shift.md)
-# 5.20 shift
+# 5.20 `shift`
 
 ### Description
 The `shift` statement translates an already taught point in the XYZ coordinate system while maintaining the tool orientation (tool angles).
@@ -4180,7 +4171,7 @@ S3   move P,tg=po1,spd=10%,accu=0,tool=0
      end
 ```
 [__SOURCE](5-moving-robot/21-shift_lim.md)
-# 5.21 shift_lim
+# 5.21 `shift_lim`
 
 The `shift_lim` statement is a function that improves safety when using the shift feature by setting the maximum allowable shift amount for the robot.  
 If a shift value exceeding the configured limit is entered, an error is generated.
@@ -4210,9 +4201,9 @@ S2   move P, tg=po1, spd=10%, accu=0, tool=0
 
 
 [__SOURCE](6-external-comm/1-fb-io/README.md)
-# 6.1 FB Object: Digital I/O
+# 6.1 `FB` Object: Digital I/O
 
-Digital input/output \(I/O\) can be performed through 10 FB objects that can be accessed from HRScript. "FB" refers to fieldbus block, and each FB object is set to be mapped to the I/O hardware installed in the robot controller and contains input and output variables as elements.
+Digital input/output \(I/O\) can be performed through 10 `FB` objects that can be accessed from HRScript. `FB` refers to fieldbus block, and each `FB` object is set to be mapped to the I/O hardware installed in the robot controller and contains input and output variables as elements.
 
 
 [__SOURCE](6-external-comm/1-fb-io/1-io-val.md)
@@ -4297,15 +4288,15 @@ td {border-color:gray;border-style:solid;border-width:1px;}
 
 <br><br>
 
-In do, dob, dow, dol, and dof, the suffixes b, w, l, and f mean "byte," "word," "long," and "float," respectively, and all are signed values. These are not separate memory spaces and represent the same 960-byte space just with different data types. For example, do\[1~16\], dob\[1~2\], and dow\[1\] are all the same output signals.
+In `do`, `dob`, `dow`, `dol`, and `dof`, the suffixes `b`, `w`, `l`, and `f` mean `byte`, `word`, `long`, and `float`, respectively, and all are signed values. These are not separate memory spaces and represent the same 960-byte space just with different data types. For example, `do[1~16]`, `dob[1~2]`, and `dow[1]` are all the same output signals.
 
 ![](../../_assets/image_2.png)
 
-If a value is assigned to an output variable that starts with "do," I/O signal output will be performed. The I/O signal currently being inputted can be acquired by reading the input variable value that starts with "di." The do variable can be read and written, but the di variable can only be read.
+If a value is assigned to an output variable that starts with `do`, I/O signal output will be performed. The I/O signal currently being inputted can be acquired by reading the input variable value that starts with `di`. The do variable can be read and written, but the di variable can only be read.
 
 
 
-The FB object name can be omitted as follows.
+The `FB` object name can be omitted as follows.
 
 | **object name** | **do notation** | fb.do notation |
 | :--- | :--- | :--- |
@@ -4342,24 +4333,24 @@ fb2.do3=fb2.do7=fb2.do11=1   # Turns on 3rd, 7th, and 11th output signals of fb2
 
 
 [__SOURCE](6-external-comm/1-fb-io/3-fn-io.md)
-# 6.1.3 fn object
+# 6.1.3 `fn` object
 
-You can define fn objects by specifying specific areas of fb objects.
-If the ${cont_model} controller is a fieldbus master, and there are multiple fieldbus slave devices, you can set the areas of each slave device to each fn object to handle these slaves intuitively.
+You can define `fn` objects by specifying specific areas of `fb` objects.
+If the ${cont_model} controller is a fieldbus master, and there are multiple fieldbus slave devices, you can set the areas of each slave device to each `fn` object to handle these slaves intuitively.
 
 ![](../../_assets/io/io_fn.png)
 
-See the link below for instructions on how to set up the fn region.
+See the link below for instructions on how to set up the `fn` region.
 
 [Operation manual: fn block allocation](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/7-system/3-control-parameter/2-io-signal-setting/12-fn-block)
   
 &nbsp;
 
-The syntax of fn is the same format as fb.
-The fn index is 0 to 63, and the bit index is 0 to 959, just like the fb.
+The syntax of `fn` is the same format as `fb`.
+The `fn` index is 0 to 63, and the bit index is 0 to 959, just like the `fb`.
 That is, the maximum configurable index is fn0.do0 to fn63.do959.
 
-An error occurs when accessing an unconfigured non-existent fn object or when accessing a do/di that exceeds the set range of fn.
+An error occurs when accessing an unconfigured non-existent `fn` object or when accessing a do/di that exceeds the set range of `fn`.
 
 See the use cases below;
 
@@ -4377,7 +4368,7 @@ fn2.do3=fn2.do7=fn2.do11=1   # Turn on the fn2's output signals 3, 7, and 11 at 
 ```
 
 [__SOURCE](6-external-comm/1-fb-io/4-pulse.md)
-# 6.1.4 pulse
+# 6.1.4 `pulse`
 
 `pulse` statement is the procedure for signal output of pulse type.
 
@@ -4453,7 +4444,7 @@ pulse <Signal>,tlag=<Lag time>,ton=<On time>,toff=<Off time>,cnt=<output count>
    end
 ```
 [__SOURCE](6-external-comm/2-http_cli/README.md)
-# 6.2 http_cli Module: HTTP Client
+# 6.2 `http_cli` Module: HTTP Client
 
 Using the general-purpose Ethernet port of the ${cont_model} controller, it is possible to access remote web services and consume HTTP services.
 To use this feature, import the `http_cli` module and create an `HttpCli` object as shown below.
@@ -4465,10 +4456,10 @@ var cli = http_cli.HttpCli()
 
 After creating an `HttpCli` object, service requests can be made by calling the `get`, `put`, `post`, and `delete` member procedures.<br>
 The `HttpCli` object provides an attribute named `body`.<br>
-- When a GET request is made and a response is successfully received, the data returned by the remote server is stored in the `body` attribute.<br>The type of the `body` value may be a string, a number, an array, or an object.
-- When making a PUT request, the data to be transmitted must be assigned to the `body` attribute in advance.
-- When making a POST request, the data to be transmitted must also be assigned to the `body` attribute in advance, and the data returned by the remote server in the response is stored in the `body` attribute.
-- The DELETE service does not use the `body` attribute.
+- When a `GET` request is made and a response is successfully received, the data returned by the remote server is stored in the `body` attribute.<br>The type of the `body` value may be a string, a number, an array, or an object.
+- When making a `PUT` request, the data to be transmitted must be assigned to the `body` attribute in advance.
+- When making a `POST` request, the data to be transmitted must also be assigned to the `body` attribute in advance, and the data returned by the remote server in the response is stored in the `body` attribute.
+- The `DELETE` service does not use the `body` attribute.
 The provided HTTP client communication operates in synchronous mode.
 
 
@@ -4477,7 +4468,7 @@ The provided HTTP client communication operates in synchronous mode.
 
 ### Description
 
-Creates an HttpCli object and returns a reference to it.
+Creates an `HttpCli` object and returns a reference to it.
 
 ### Syntax
 
@@ -4553,7 +4544,7 @@ cli.query = { axis: 3 }
 
 
 [__SOURCE](6-external-comm/2-http_cli/3-http_cli-member-proc/1-http_cli-get.md)
-# get
+# `get`
 
 ### Description
 
@@ -4622,7 +4613,7 @@ cli.get url, 10, *timeout
 
 
 [__SOURCE](6-external-comm/2-http_cli/3-http_cli-member-proc/2-http_cli-put.md)
-# put
+# `put`
 
 ### Description
 
@@ -4690,7 +4681,7 @@ cli.put(url, 10, S1)
 
 
 [__SOURCE](6-external-comm/2-http_cli/3-http_cli-member-proc/3-http_cli-post.md)
-# post
+# `post`
 
 ### Description
 
@@ -4756,7 +4747,7 @@ cli.post url, 10, *TimeOut
 
 
 [__SOURCE](6-external-comm/2-http_cli/3-http_cli-member-proc/4-http_cli-delete.md)
-# delete
+# `delete`
 
 ### Description
 
@@ -5182,7 +5173,7 @@ cli.delete domain+"/items"
 
 
 [__SOURCE](6-external-comm/3-tp-console-bar/1-print.md)
-# 6.3.1 print
+# 6.3.1 `print`
 
 ### Description
 
@@ -5227,11 +5218,11 @@ input work_no,10,*timeout
 ```
 
 [__SOURCE](6-external-comm/3-tp-console-bar/2-input.md)
-# 6.3.2 input
+# 6.3.2 `input`
 
 ### Description
 
-Use the **input** statement to enter a string as a keystroke of the Teach Pendant and store it in a variable. If not entered by the timeout, proceed to the following statement or branch to the timeout address.
+Use the `input` statement to enter a string as a keystroke of the Teach Pendant and store it in a variable. If not entered by the timeout, proceed to the following statement or branch to the timeout address.
 
 ### Syntax
 
@@ -5297,20 +5288,20 @@ Modbus master operations can be performed in HRScript. For detailed information 
 
 Serial communication can be performed through the COM port of the ${cont_model} controller.
 
-To use this function, you must create a Sci object as a global variable as shown below.
+To use this function, you must create a `Sci` object as a global variable as shown below.
 
-Also, be sure to check the settings specifications in [System > 2. Control Parameters > 3. Serial Port] before use.
+Also, be sure to check the settings specifications in `[F2: System] - 2. Control Parameters - 3. Serial Port` before use.
 
 ```python
 global sci2
 sci2=com.Sci(2)
 ```
 
-After creating a Sci object, simply call the send, recv, open, and close member procedures.
+After creating a `Sci` object, simply call the `send`, `recv`, `open`, and `close` member procedures.
 
-When calling send, you must input the string to be sent in advance.
+When calling `send`, you must input the string to be sent in advance.
 
-When calling recv, it is assigned to the specified string variable upon successful reception. 
+When calling `recv`, it is assigned to the specified string variable upon successful reception. 
 
 When calling open, the port is opened.
 
@@ -5325,7 +5316,7 @@ When calling open, the port is closed.
 
 ### Description
 
-Creates a global variable for the Sci object.
+Creates a global variable for the `Sci` object.
 
 ### Syntax
 
@@ -5348,11 +5339,11 @@ sci2=com.Sci(2)
 [__SOURCE](6-external-comm/5-sci/2-sci-member-proc/README.md)
 # 6.5.2 Member procedure
 [__SOURCE](6-external-comm/5-sci/2-sci-member-proc/1-sci-send.md)
-# send
+# `send`
 
 ### Description
 
-Send a string by calling Sci's send.
+Send a string by calling `Sci`'s `send`.
 
 ### Syntax
 
@@ -5377,7 +5368,7 @@ sci2.send msg
 
 ### Description
 
-Call Sci's recv to receive a string.
+Call `Sci`'s `recv` to receive a string.
 
 
 ### Syntax
@@ -5440,11 +5431,11 @@ Call Sci's recv to receive a string.
 
 
 [__SOURCE](6-external-comm/5-sci/2-sci-member-proc/3-sci-open.md)
-# open
+# `open`
 
 ### Description
 
-Execute Sci's open() function to open the serial port.
+Execute `Sci`'s `open()` function to open the serial port.
 
 The serial port is opened with the preset contents through the controller settings, and there is no need to separately open the port unless the port was previously closed.(default: open)
 
@@ -5473,11 +5464,11 @@ endif
 
 
 [__SOURCE](6-external-comm/5-sci/2-sci-member-proc/4-sci-close.md)
-# close
+# `close`
 
 ### Description
 
-Execute Sci's close to close the serial port.
+Execute `Sci`'s `close` to close the serial port.
 
 
 ### Syntax
@@ -5503,11 +5494,11 @@ endif
 
 
 [__SOURCE](6-external-comm/5-sci/2-sci-member-proc/5-sci-clr-rbuf.md)
-# clr_rbuf
+# `clr_rbuf`
 
 ### Description
 
-Initialize Sci's received buffer.
+Initialize `Sci`'s received buffer.
 
 
 ### Syntax
@@ -5565,11 +5556,11 @@ Hyundai Robot Job File; { version: 1.6, mech_type: "", total_axis: -1, aux_axis:
 
 
 [__SOURCE](7-enet-module/README.md)
-# 7 enet module : Ethernet TCP/UDP communication
+# 7 `enet` module : Ethernet TCP/UDP communication
 
 Using the ${cont_model} controller's user ethernet port, You can send and receive strings or binary data over Ethernet TCP or UDP communication with an external devices.
 
-The enet module can create two objects, ENet and BBuf. ENet provides an Ethernet socket interface, and BBuf is used to communicate binary data.
+The `enet` module can create two objects, `ENet` and `BBuf`. `ENet` provides an Ethernet socket interface, and `BBuf` is used to communicate binary data.
 
 Let's follow the client example and the server example to understand how to use it. A reference guide for each object's member variables and functions follows it.
 
@@ -5886,7 +5877,7 @@ Follow these steps:
 [__SOURCE](7-enet-module/2-exam-server/2-enet-server-bin.md)
 # 7.2.2 ethernet TCP server Example - Transceiving binary data
 
-Binary transceiving are performed using BBuf (binary buffer) object.  
+Binary transceiving are performed using `BBuf` (binary buffer) object.  
 (Only the transceiving parts are different, and the rest are the same as the transceiving string data.)
 
 Sending
@@ -5968,7 +5959,7 @@ The `ENet` object provides a socket interface for Ethernet communication.
 See the examples in the previous section for instructions on how to use them.
 
 [__SOURCE](7-enet-module/3-enet/1-enet-creator.md)
-# 7.3.1 ENet creator
+# 7.3.1 `ENet` creator
 
 ### Description
 
@@ -6011,7 +6002,7 @@ var tcp = ENet("tcp")
 ```
 
 [__SOURCE](7-enet-module/3-enet/2-enet-member-var.md)
-# 7.3.2 ENet member variable
+# 7.3.2 `ENet` member variable
 
 <table>
   <thead>
@@ -6057,7 +6048,7 @@ var tcp = ENet("tcp")
 
 
 [__SOURCE](7-enet-module/3-enet/3-enet-member-func/README.md)
-# 7.3.3 ENet member function
+# 7.3.3 `ENet` member function
 
 * When getting the return value from a member function, be sure to enclose the argument in parentheses.
   
@@ -6073,7 +6064,7 @@ var tcp = ENet("tcp")
   obj.func param1,param2 # (O) ; parentheses omitted
   ```
 [__SOURCE](7-enet-module/3-enet/3-enet-member-func/enet-accept.md)
-# accept
+# `accept`
 
 ### Description
 
@@ -6170,7 +6161,7 @@ enet_to_sensor.accept 5000,*TimeOut
 
 
 [__SOURCE](7-enet-module/3-enet/3-enet-member-func/enet-close.md)
-# close
+# `close`
 
 ### Description
 
@@ -6187,7 +6178,7 @@ enet_to_sensor.close
 ```
 
 [__SOURCE](7-enet-module/3-enet/3-enet-member-func/enet-connect.md)
-# connect
+# `connect`
 
 ### Description
 
@@ -6280,7 +6271,7 @@ var ret=enet_to_sensor.connect(5000)
 enet_to_sensor.connect 5000,*TimeOut
 ```
 [__SOURCE](7-enet-module/3-enet/3-enet-member-func/enet-listen.md)
-# listen
+# `listen`
 
 ### Description
 
@@ -6351,7 +6342,7 @@ enet_to_sensor.accept 5000,*TimeOut
 ```
 
 [__SOURCE](7-enet-module/3-enet/3-enet-member-func/enet-open.md)
-# open
+# `open`
 
 ### Description
 
@@ -6368,7 +6359,7 @@ enet_to_sensor.open
 ```
 
 [__SOURCE](7-enet-module/3-enet/3-enet-member-func/enet-recv.md)
-# recv
+# `recv`
 
 ### Description
 
@@ -6431,7 +6422,7 @@ end
 ```
 
 [__SOURCE](7-enet-module/3-enet/3-enet-member-func/enet-recv_bbuf.md)
-# recv_bbuf
+# `recv_bbuf`
 
 ### Description
 
@@ -6502,7 +6493,7 @@ end
 
 
 [__SOURCE](7-enet-module/3-enet/3-enet-member-func/enet-send.md)
-# send
+# `send`
 
 ### Description
 
@@ -6552,7 +6543,7 @@ enet_to_sensor.send "rob:"+10+", command:"+cmd+"\n"
 
 
 [__SOURCE](7-enet-module/3-enet/3-enet-member-func/enet-send_bbuf.md)
-# send_bbuf
+# `send_bbuf`
 
 ### Description
 
@@ -6601,7 +6592,7 @@ var nitem=cli.send_bbuf(bbuf)
 ```
 
 [__SOURCE](7-enet-module/3-enet/3-enet-member-func/enet-set_send_trail_null.md)
-# set_send_trail_null
+# `set_send_trail_null`
 
 
 ### Description
@@ -6628,7 +6619,7 @@ enet_to_sensor.set_send_trail_null(false)
 ```
 
 [__SOURCE](7-enet-module/3-enet/3-enet-member-func/enet-state.md)
-# state
+# `state`
 
 ### Description
 
@@ -6702,9 +6693,9 @@ var ret = enet_to_sensor.state()
 
 
 [__SOURCE](7-enet-module/4-bbuf/README.md)
-# 7.4 BBuf object
+# 7.4 `BBuf` object
 
-A BBuf (Binary Buffer) object encapsulates binary data to be sent and received over Ethernet communication.
+A `BBuf (Binary Buffer)` object encapsulates binary data to be sent and received over Ethernet communication.
 For usage, see the binary communication examples.
 
 [7.1.2 peer-to-peer, client example - binary transmission](7-enet-module/1-exam-client/2-enet-client-bin.md)
@@ -6712,7 +6703,7 @@ For usage, see the binary communication examples.
 [7.2.2 ethernet TCP server - binary transmission](7-enet-module/2-exam-server/2-enet-server-bin.md)
 
 [__SOURCE](7-enet-module/4-bbuf/1-bbuf-creator.md)
-# 7.4.1 BBuf creator
+# 7.4.1 `BBuf` creator
 
 ### Description
 
@@ -6852,11 +6843,11 @@ If the alphabet is uppercase it is big endian, and lowercase it is little endian
   </tbody>
 </table>
 [__SOURCE](7-enet-module/4-bbuf/3-bbuf-member-func/README.md)
-# 7.4.2 BBuf member function
+# 7.4.2 `BBuf` member function
 
 
 [__SOURCE](7-enet-module/4-bbuf/3-bbuf-member-func/bbuf-append.md)
-# append
+# `append`
 
 ### Description
 
@@ -6921,7 +6912,7 @@ bbuf.append("U4", [2, 3, 5, 7, 11, 13])
 ```
 
 [__SOURCE](7-enet-module/4-bbuf/3-bbuf-member-func/bbuf-clear.md)
-# clear
+# `clear`
 
 ### Description
 
@@ -6948,7 +6939,7 @@ bbuf.clear()
 ```
 
 [__SOURCE](7-enet-module/4-bbuf/3-bbuf-member-func/bbuf-nbyte.md)
-# nbyte
+# `nbyte`
 
 ### Syntax
 
@@ -6970,7 +6961,7 @@ print bbuf.nbyte() # "8"
 ```
 
 [__SOURCE](7-enet-module/4-bbuf/3-bbuf-member-func/bbuf-read_num.md)
-# read_num
+# `read_num`
 
 ### Description
 
@@ -7034,7 +7025,7 @@ print bbuf.read_num("U4", 16) # "5"
 ```
 
 [__SOURCE](7-enet-module/4-bbuf/3-bbuf-member-func/bbuf-read_nums.md)
-# read_nums
+# `read_nums`
 
 ### Description
 
@@ -7108,15 +7099,15 @@ print bbuf.read_num("U4", 12, 6) # "[3, 5, 7, 11, 13]"
 ```
 
 [__SOURCE](8-alias.md)
-# 8. Alias
+# 8. alias
 
 Alias is a name that can be used as an alternative to the notation of a variable or a property of an object.
 
 Alias is an alternative name can be used to notate a variable or object. You can replace property notations that are too long to be repeated with concise names, or replace IO variables at specific indexes with more readable names.
 
-An alias is defined with the **alias** statement, and the syntax is almost identical to that of **var** or **global**.
+An alias is defined with the `alias` statement, and the syntax is almost identical to that of `var` or `global`.
 
-The scope of an alias is the same as global. That is, after the alias statement is executed, it can be used in any subsequent job, and is not destroyed even if the program cycle is reset by the end statement of the main program or the R0 \[ENTER\] operation.
+The scope of an alias is the same as global. That is, after the `alias` statement is executed, it can be used in any subsequent job, and is not destroyed even if the program cycle is reset by the `end` statement of the main program or the `R0 - [ENTER]` operation.
 
 ```python
 global myval=3, yourname="Jane"
@@ -7134,14 +7125,14 @@ print role[1]
 tool0.mass=12
 ```
 
-In (1) of the above example, the output variable **fb3.do4** was defined as an alias named **grip**, and the input variable **fb1.diw2** was defined as an alias **work_no**.  
-In (2), the role array which is an property of **profile**, is defined as alias **role**.  
-In (3), the built-in object **project.robot.tools.t_0** is defined as alias **tool0**, which points to tool-data \#0.
+In (1) of the above example, the output variable `fb3.do4` was defined as an alias named `grip`, and the input variable `fb1.diw2` was defined as an alias `work_no`.  
+In (2), the role array which is an property of `profile`, is defined as alias `role`.  
+In (3), the built-in object `project.robot.tools.t_0` is defined as alias `tool0`, which points to tool-data \#0.
 
-For an alias refer to an array, its element can be specified with [ ] operator, like **role[1]**.  
-For an alias refer to an object, its property can be specified with . operator, like **tool0.mass**.
+For an alias refer to an array, its element can be specified with [ ] operator, like `role[1]`.  
+For an alias refer to an object, its property can be specified with . operator, like `tool0.mass`.
 
-A constant cannot be defined as an alias. Define it using **global** or **var**.  
+A constant cannot be defined as an alias. Define it using `global` or `var`.  
 Expression cannot be defined as alias, either. Be careful as it may cause malfunction.
 
 
@@ -7163,9 +7154,9 @@ global unit="mm/s" # (O)
 
 In the MAIN module's file system of the ${cont_model} controller, instructions for creating, copying, and deleting directories and files are described.
 [__SOURCE](9-file/1-file-system/1-mkdir.md)
-# 9.1.1 mkdir
+# 9.1.1 `mkdir`
 
-mkdir is the procedure making directory.
+`mkdir` is the procedure making directory.
 
 ### Description
 
@@ -7211,9 +7202,9 @@ mkdir "work/data1"
 ![](../../_assets/mkdir.png)
 
 [__SOURCE](9-file/1-file-system/2-copyfile.md)
-# 9.1.2 copyfile
+# 9.1.2 `copyfile`
 
-A copyfile is a procedure that requests to copy a directory or file.
+A `copyfile` is a procedure that requests to copy a directory or file.
 
 ### Description
 
@@ -7226,7 +7217,7 @@ Copies a directory or file of specified source path to the specified destination
 - All subdirectories in the directory are also copied.
 - The pathname also supports wildcard ('*', '?').
 
-- Because large files or entire directories may be copied, it is asynchronously performed in the background to avoid loss of tact time due to waiting during copying. In other words, when the copyfile statement is performed, starting the copy in the background task, immediately proceed with the next statement. For example, you can request a copy and execute the move statements. The successful completion of the copy can be determined by reading the values of the result-variable. (That is, no errors or warnings are generated when the copy fails.)
+- Because large files or entire directories may be copied, it is asynchronously performed in the background to avoid loss of tact time due to waiting during copying. In other words, when the `copyfile` statement is performed, starting the copy in the background task, immediately proceed with the next statement. For example, you can request a copy and execute the move statements. The successful completion of the copy can be determined by reading the values of the result-variable. (That is, no errors or warnings are generated when the copy fails.)
 
 - You cannot request another copy or deletion until one copy or deletion is complete.
 
@@ -7311,9 +7302,9 @@ copyfile <result-variable>,<source pathname>,<destination pathname>
 
 
 [__SOURCE](9-file/1-file-system/3-delfile.md)
-# 9.1.3 delfile
+# 9.1.3 `delfile`
 
-A delfile is a procedure that requests to delete a directory or file.
+A `delfile` is a procedure that requests to delete a directory or file.
 
 ### Description
 
@@ -7391,7 +7382,7 @@ delfile <result-variable>,<pathname>
 
 Explains the statements that load/save files into/from the memory of the ${cont_model} controller's MAIN module.
 [__SOURCE](9-file/2-load-save/1-load_job.md)
-# 9.2.1 load_job
+# 9.2.1 `load_job`
 
 Statement that reads changes of the MAIN module's project/jobs/ folder to update the memory.
 
@@ -7466,7 +7457,7 @@ load_job <result-variable>,"*"
 ```
 
 [__SOURCE](9-file/2-load-save/2-load_csv.md)
-# 9.2.2 load_csv
+# 9.2.2 `load_csv`
 
 Supported from V60.28-00.
 
@@ -7549,7 +7540,7 @@ If you load all .csv with "*", the root arrays in memory that does not have .csv
 ```
 
 [__SOURCE](9-file/2-load-save/3-save_csv.md)
-# 9.2.3 save_csv
+# 9.2.3 `save_csv`
 
 Supported from V60.28-00.
 
@@ -7640,7 +7631,7 @@ If you save all .csv by specifying "*", it does not delete the .csv files in the
 
 
 [__SOURCE](10-etc/1-proc/1-gather.md)
-# 10.1.1 gather
+# 10.1.1 `gather`
 
 `gather` is the procedure that specifies the start and end of the gathering when you use the data gathering function.
 
@@ -7699,7 +7690,7 @@ S3   move L,spd=100%,accu=0,tool=0
      end
 ```
 [__SOURCE](10-etc/1-proc/2-tonl.md)
-# 10.1.2 tonl
+# 10.1.2 `tonl`
 
 `tonl` statement is the procedure for performing position correction for steps between start and end.
 
@@ -7770,7 +7761,7 @@ tonl <start/end>,<shift>
 
 
 [__SOURCE](10-etc/1-proc/3-seltool.md)
-# 10.1.3 seltool
+# 10.1.3 `seltool`
 
 `seltool` is a procedure to change the tool number.
 
@@ -7835,7 +7826,7 @@ seltool <tool number>,<tool type>
 ```
 
 [__SOURCE](10-etc/1-proc/4-triggout.md)
-# 10.1.4 triggout
+# 10.1.4 `triggout`
 
 `triggout` is a procedure that allows you to adjust the signal output time-point to be output-ahead (-) or output-behind (+).
 
@@ -7941,7 +7932,7 @@ triggout <output variable>,val=<output value>,dist=<ahead/behind distance>,j=<tc
 {% endhint %}
 
 [__SOURCE](10-etc/1-proc/5-intr_def.md)
-# 10.1.5 intr_def
+# 10.1.5 `intr_def`
 
 `intr_def` is a procedure that specifies interrupt condition, watch-interval, and program to run when an interrupt occurs.
 
@@ -8056,7 +8047,7 @@ intr_def <on/off>,no=<interrupt number>,var=<interrupt condition>,val=<condition
 ```
 
 [__SOURCE](10-etc/1-proc/6-typeof.md)
-# 10.1.6 typeof
+# 10.1.6 `typeof`
 
 `typeof` is the procedure for getting the type of a variable or an expression. The result is returned from the `result()` function.
 
@@ -8095,7 +8086,7 @@ typeof <expression>
 ```
 
 [__SOURCE](10-etc/1-proc/7-gasp_check.md)
-# 10.1.7 gasp_check
+# 10.1.7 `gasp_check`
 
 The `gasp_check` statement estimates the pressure of the gas spring mounted on the robot and checks whether it is normal.
 
@@ -8187,7 +8178,7 @@ If a significant difference is observed in the measured values, please inspect t
 
 
 [__SOURCE](10-etc/1-proc/8-optime.md)
-# 10.1.8 optime
+# 10.1.8 `optime`
 
 The `optime` statement is a procedure used to start or update the measurement of operating time.
 
@@ -8222,7 +8213,7 @@ optime <parameter>
    end
 ```
 [__SOURCE](10-etc/1-proc/9-count_up.md)
-# 10.1.9 count_up
+# 10.1.9 `count_up`
 
 The `count_up` statement is a procedure that increments the value of a specified variable by 1, and resets it to the init value when it exceeds the preset value.
 
@@ -8270,7 +8261,7 @@ count_up <variable>, init=<initial value>, preset=<final value>
    end
 ```
 [__SOURCE](10-etc/1-proc/10-count_dn.md)
-# 10.1.10 count_dn Statement
+# 10.1.10 `count_dn` Statement
 
 The `count_dn` statement is a procedure that decrements the value of a specified variable by 1, and resets it to the init value when it becomes smaller than the preset value.
 
@@ -8320,7 +8311,7 @@ count_dn <variable>, init=<initial value>, preset=<final value>
 ```
 
 [__SOURCE](10-etc/1-proc/11-cycle_end.md)
-# 10.1.11 cycle_end
+# 10.1.11 `cycle_end`
 
 The `cycle_end` statement is a procedure that clears all call stacks that are being managed as a result of executing `call` statements.
 
@@ -8360,7 +8351,7 @@ cycle_end
 ```
 
 [__SOURCE](10-etc/1-proc/12-speed_out.md)
-# 10.1.12 speed_out Statement
+# 10.1.12 `speed_out` Statement
 
 The `speed_out` statement is a procedure that calculates a value proportional to the robot's current movement speed and assigns the result to a specified variable.  
 It operates only while executing a `move` statement with interpolation set to `L` or `C`.
@@ -8369,9 +8360,11 @@ It operates only while executing a `move` statement with interpolation set to `L
 
 This statement calculates a value proportional to the robot's current moving speed and stores the calculated result in the specified variable.  
 
-If the following command is executed, as shown in the figure, the value **y** corresponding to the current robot speed **x** is calculated and assigned to dow10.
+If the following command is executed, as shown in the figure, the value `y` corresponding to the current robot speed `x` is calculated and assigned to dow10.
 ...  
-speed_out on,min_spd=100,max_spd=2000,min_val=10,max_val=100,var=dow10  
+```python
+speed_out on,min_spd=100,max_spd=2000,min_val=10,max_val=100,var=dow10
+```
 
 ![](../../_assets/speed_out.png)
 
@@ -8403,7 +8396,7 @@ speed_out <on/off>, min_spd=<minimum speed>, max_spd=<maximum speed>, min_val=<m
 ```
 
 [__SOURCE](10-etc/1-proc/13-task.md)
-# 10.1.13 task Statement
+# 10.1.13 `task` Statement
 
 The `task` statement is a procedure used to perform multitasking functions.  
 For detailed information about the `task` statement, refer to the link below:  
@@ -8420,7 +8413,7 @@ task reset, sub=<subtask number>
 ```
 
 [__SOURCE](10-etc/1-proc/14-toolchng.md)
-# 10.1.14 toolchng
+# 10.1.14 `toolchng`
 
 The `toolchng` statement is a procedure used to change the servo tool assigned to an additional axis.  
 For detailed information about the `toolchng` statement, refer to the link below:  
@@ -8432,7 +8425,7 @@ For detailed information about the `toolchng` statement, refer to the link below
 toolchng on/off, tg=<change target>, di=<connection complete signal>, wait=<waiting time>
 ```
 [__SOURCE](10-etc/1-proc/15-json_parse.md)
-# 10.1.15 json_parse
+# 10.1.15 `json_parse`
 
 Supported from V60.32-00
 
@@ -8500,7 +8493,7 @@ The result of parsing will be stored in `r.data`. An error may occur if the proc
 ```
 
 [__SOURCE](10-etc/1-proc/16-brake_check.md)
-# 10.1.16 brake_check
+# 10.1.16 `brake_check`
 
 The `brake_check` statement is a procedure that applies torque to each axis motor to diagnose whether the brake is functioning correctly.
 
@@ -8603,7 +8596,7 @@ When you touch the [Properties] button in the brake_check command, you will ente
 
 
 [__SOURCE](10-etc/2-func/1-rducs.md)
-# 10.2.1 rducs - user coordinate system
+# 10.2.1 `rducs` - user coordinate system
 
 ### Description
 
@@ -8700,7 +8693,7 @@ Function to read the generated user coordinate system as a pose.
 
 
 [__SOURCE](10-etc/2-func/2-segment.md)
-# 10.2.2 segment
+# 10.2.2 `segment`
 
 `segment` is the function that divides the distance between the start and end positions evenly.
 
@@ -8710,14 +8703,14 @@ Function to read the generated user coordinate system as a pose.
 Divides the distance between the start and end positions of the function factors evenly and stores the pose value considering the position and posture corresponding to the specified counter in the pose variable.
 ![](../../_assets/image_segment_1.png)
 
-For example, if P3=segment(P1,P2,3,2), divide the distance between the P2 target positions from the P1 start position into 3 equal parts and store the pose value of the position and rotation of the 2nd pose in the P3 pose variable.
+For example, if `P3=segment(P1,P2,3,2)`, divide the distance between the `P2` target positions from the `P1` start position into 3 equal parts and store the pose value of the position and rotation of the 2nd pose in the `P3` pose variable.
 
 When you add the via position as a paramter of the function, the distance on the arc consisting of the start position, the via point, and the target position is evenly divided and the pose value of the position and rotation is stored in the pose variable.
 
 ![](../../_assets/image_segment_2.png)
 
-For example, if P10=segment (P1,P2,P3,4,2),
-The distance on the arc consisting of the P1 starting pose and P2 via pose P3 target pose is divided into 4 equal parts, and the pose value of the position and rotation of the specified 2nd pose is stored in the P10 pose variable.
+For example, if `P10=segment (P1,P2,P3,4,2)`,
+The distance on the arc consisting of the `P1` starting pose and `P2` via pose `P3` target pose is divided into 4 equal parts, and the pose value of the position and rotation of the specified 2nd pose is stored in the `P10` pose variable.
 
 <br>
 
@@ -8805,7 +8798,7 @@ The result pose.
 
 
 [__SOURCE](10-etc/2-func/3-intersection.md)
-# 10.2.3 intersection
+# 10.2.3 `intersection`
 
 You can use the `intersection` function to find a point that meets a straight line at the shortest distance of one point, or to find an intersection with a straight line at the shortest distance that passes.
 
@@ -8905,9 +8898,9 @@ The result pose.
 
 
 [__SOURCE](10-etc/2-func/4-rand.md)
-# 10.2.4 rand
+# 10.2.4 `rand`
 
-You can generate random numbers using the rand function.
+You can generate random numbers using the `rand` function.
 
 ### Description
 Depending on the function's arguments, it generates a random real number between 0 and 1 or a random integer number within a specified range.
@@ -8962,12 +8955,12 @@ v1=rand(<minimum value>,<maximum value>)
 
 
 [__SOURCE](10-etc/2-func/5-sig2int.md)
-# 10.2.5 sig2int
+# 10.2.5 `sig2int`
 
-Using the sig2int function, a specific range of input/output signals can be expressed as an int type value.
+Using the `sig2int` function, a specific range of input/output signals can be expressed as an `int` type value.
 
 ### Description
-- Enter the name of the input/output signal to be expressed in int type.
+- Enter the name of the input/output signal to be expressed in `int` type.
 - Set how many bits to read from input/output signals.
 
 ### Syntax
@@ -9017,7 +9010,7 @@ result=sig2int(<input/output signal>,<number of bits>)
 # 10.3 System variables
 
 [__SOURCE](10-etc/3-sysvar/_acc_rate.md)
-# _acc_rate
+# `_acc_rate`
 
 Get or set the rate of acceleration in the speed-profile.
 
@@ -9046,7 +9039,7 @@ res = _acc_rate
 ```
 
 [__SOURCE](10-etc/3-sysvar/_dec_rate.md)
-# _dec_rate
+# `_dec_rate`
 
 Get or set the rate of deceleration in the speed-profile.
 
@@ -9075,7 +9068,7 @@ res = _dec_rate
 ```
 
 [__SOURCE](10-etc/3-sysvar/_intr_no.md)
-# _intr.no
+# `_intr.no`
 
 `_intr.no` system variable is the occured interrupt number.
 
@@ -9109,7 +9102,7 @@ res = _intr.no
 
 
 [__SOURCE](10-etc/3-sysvar/_intr_target.md)
-# _intr.target
+# `_intr.target`
 
 `_intr.target` system variable adjusts the robot's target position reach state.
 
@@ -9141,7 +9134,7 @@ _intr_target=1
 
 
 [__SOURCE](10-etc/3-sysvar/_spd_rate.md)
-# _spd_rate
+# `_spd_rate`
 
 Get or set the playback speed-rate.
 
@@ -9172,7 +9165,7 @@ res = _spd_rate
 ```
 
 [__SOURCE](10-etc/3-sysvar/_task_enable.md)
-# _task.enable
+# `_task.enable`
 
 ### Description
 
@@ -9201,7 +9194,7 @@ res = _task[1].enable
 
 
 [__SOURCE](10-etc/3-sysvar/_tool.md)
-# _tool
+# `_tool`
 
 `_tool` is a system variable for reading or changing tool data.
 
@@ -9244,7 +9237,7 @@ _tool[5].izz = <arithmetic expression>
 ```
 
 [__SOURCE](10-etc/3-sysvar/_vel_rpm_cmd.md)
-# _vel_rpm_cmd
+# `_vel_rpm_cmd`
 
 Reads or sets the speed at which the motor rotates when controlling speed for an additional axis.
 
@@ -9274,11 +9267,11 @@ res = _vel_rpm_cmd[6] # Assign the rotation speed of the 7-axis motor
 ```
 
 [__SOURCE](10-etc/3-sysvar/_weaving.md)
-# _weaving
+# `_weaving`
 
 ### Description
 
-_weaving is used to change the currently selected weaving conditions.
+`_weaving` is used to change the currently selected weaving conditions.
 
 ### Syntax
 
@@ -9429,11 +9422,11 @@ _weaving.angle=5
 
 
 [__SOURCE](10-etc/3-sysvar/_pc.md)
-# _pc
+# `_pc`
 
 ### Description
 
-_Pc is used to obtain current program counter information. <br>
+`_pc` is used to obtain current program counter information. <br>
 The program counter consists of a program number, a step number, and a function number.
 
 ### Syntax
@@ -9466,7 +9459,7 @@ var sno=_pc.cur_sno  # Assign the current step number
 
 
 
-### cur_sno sample : If the until condition is not satisfied, move to the previous step.
+### `cur_sno` sample : If the until condition is not satisfied, move to the previous step.
 
 ```python
    S6 move P,spd=50%,accu=3,tool=1,until di6
