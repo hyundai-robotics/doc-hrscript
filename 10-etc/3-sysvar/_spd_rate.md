@@ -1,27 +1,27 @@
 ﻿# `_spd_rate`
 
-Get or set the playback speed-rate.
+获取或设置播放速度。
 
-### Description
+### 描述
 
-Same setting as cond.set - Playback speed rate.
+与 cond.set 相同的设置 - 播放速度。
 
-- unit : %
-- range : 1 to 100
-- default value : 100
+- 单位 : %
+- 范围 : 1 到 100
+- 默认值 : 100
 
-### Syntax
+### 语法
 
 ```python
 var res
 res = _spd_rate
 ```
 
-### Sample
+### 示例
 
 ```python
    ...
-   # If playback speed is less than 50%, raise it to 100%.
+   # 如果播放速度低于 50%，则将其提高到 100%。
    if _spd_rate<50
      _spd_rate=100
    ...

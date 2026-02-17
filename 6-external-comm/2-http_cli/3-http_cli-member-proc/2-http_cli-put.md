@@ -1,66 +1,62 @@
 ﻿# `put`
 
-### Description
+### 描述
 
-Requests an HTTP PUT service.
+请求 HTTP PUT 服务。
 
-Updates the specified resource.
+更新指定的资源。
 
-The data to be transmitted must be assigned to the `body` attribute in advance.
+要传输的数据必须提前分配给 `body` 属性。
 
-### Syntax
+### 语法
 
-&lt;HttpCli object&gt;.put &lt;URL string, timeout, timeout fallback address&gt;
+&lt;HttpCli 对象&gt;.put &lt;URL 字符串, 超时, 超时回退地址&gt;
 
 
-### Parameters
+### 参数
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Item</th>
-      <th style="text-align:left">Description</th>
-      <th style="text-align:left">Note</th>
+      <th style="text-align:left">项目</th>
+      <th style="text-align:left">描述</th>
+      <th style="text-align:left">备注</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>URL string</td>
+      <td>URL 字符串</td>
       <td>
-        The request URL.
+        请求的 URL。
       </td>
       <td></td>
     </tr>
     <tr>
-      <td>Timeout</td>
+      <td>超时</td>
       <td>
-        (Optional) Timeout duration. If the timeout expires, execution proceeds to the next statement or to the fallback address.<br>If not specified, the request waits indefinitely.<br>The timeout must be set between 5 ms and 15 ms (inclusive). Otherwise, a playback timeout error occurs.<br>If the value is outside this range, `-9 (InvalidTimeout)` is stored in `status`.
+        （可选）超时持续时间。如果超时到期，执行将继续到下一条语句或回退地址。<br>如果未指定，请求将无限期等待。<br>超时时间必须设置在 5 毫秒到 15 毫秒之间（包括）。否则将发生播放超时错误。<br>如果值超出此范围，`-9 (InvalidTimeout)` 将存储在 `状态 (status)` 中。
       </td>
-      <td>msec</td>
+      <td>毫秒</td>
     </tr>
     <tr>
-      <td>timeout fallback address</td>
+      <td>超时回退地址</td>
       <td>
-        (Optional) The address to branch to when a timeout occurs.<br>If not specified, execution proceeds to the next address.
+        （可选）发生超时时要跳转的地址。<br>如果未指定，执行将继续到下一个地址。
       </td>
-      <td>Address</td>
+      <td>地址</td>
     </tr>
   </tbody>
 </table>
-
-### Usage Example
+### 使用示例
 
 ```python
-#case 1
+#案例 1
 var domain="http://192.168.1.200:8888"
 cli.body=500
 cli.put domain+"/setting/max_torque"
 
-#case 2
+#案例 2
 var url = domain + "/setting"
 cli.body = {max_torque: 500}
 cli.put(url, 10, S1)
 ```
-
-
-

@@ -1,4 +1,4 @@
-﻿# HTTP Client Usage Examples
+﻿# HTTP 客户端使用示例
 
 ```python
      import http_cli
@@ -10,9 +10,9 @@
      cli.get domain+"/device/direction"
      body = cli.body
 
-     #check the communication status
+     #检查通信状态
      if cli.status>=400 or cli.status<0
-        goto 99 		#http communication error
+        goto 99 		#http 通信错误
      endif
 
      # put
@@ -30,9 +30,8 @@
 
      end
      
-  99 print "error status"
+  99 print "错误状态"
      
      *Timeout
-     print "timeout"
+     print "超时"
 ```
-

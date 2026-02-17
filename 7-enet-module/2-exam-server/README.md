@@ -1,10 +1,10 @@
-﻿# 7.2 TCP server example
+﻿# 7.2 TCP 服务器示例
 
-The TCP server example program is explained for the case of tranceiving string data and binary data.
+TCP 服务器示例程序解释了传输字符串数据和二进制数据的情况。
 
-While the TCP client connects to the server with the `connect()` function, the TCP server calls the `listen()` function and waits for the client's connection with the `accept()` function.  
+当 TCP 客户端使用 `connect()` 函数连接到服务器时，TCP 服务器调用 `listen()` 函数并使用 `accept()` 函数等待客户端的连接。
 
-* Allow only one client connection at the same time.
-* You do not need to specify a remote port.
+* 同时只允许一个客户端连接。
+* 您不需要指定远程端口。
 
-The rest of the action is the same as the client.
+其余的操作与客户端相同。

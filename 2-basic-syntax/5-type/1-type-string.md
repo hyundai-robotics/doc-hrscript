@@ -1,31 +1,26 @@
-﻿# 2.5.1 String Data Type
+﻿# 2.5.1 字符串数据类型
 
-The first program in the previous paragraph used the data "Hello, World!" as the print statement"s parameter, a string data type. The value of the string data type begins and ends with double quotes. There is no limit for the length of the string.
+前一段中的第一个程序使用了数据 "Hello, World!" 作为打印语句的参数，属于字符串数据类型。字符串数据类型的值以双引号开始和结束。字符串的长度没有限制。
 
 ```python
-print "Welcome to the Robot World."
+print "欢迎来到机器人世界。"
 ```
 
-A sequence beginning with a backslash \(\\) represents double quotes or special characters in a string. This sequence is called the "escape character."
+以反斜杠 \(\\) 开头的序列表示字符串中的双引号或特殊字符。这个序列称为“转义字符”。
 
-The supported escape characters are shown in the table below.
-
-
+支持的转义字符如下表所示。
 
 |  |  |
 | :--- | :--- |
-| \" | Double quotes |
-| \\ | Backslash |
-| \t | Tab |
-| \n | New line character |
+| \" | 双引号 |
+| \\ | 反斜杠 |
+| \t | 制表符 |
+| \n | 换行符 |
 
 ```python
-print "Message:\nPlease, press \"OK\" button."
+print "信息:\n请按 \"确定\" 按钮。"
 
-# Result of print
-Message:
-Please, press "OK" button.
+# 打印结果
+信息:
+请按 "确定" 按钮。
 ```
-
-
-

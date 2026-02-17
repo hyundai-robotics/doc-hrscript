@@ -1,4 +1,3 @@
-﻿# 2.5.4 Array Type and Object Type
+﻿# 2.5.4 数组类型和对象类型
 
-In addition, there are array types and object types. These will be discussed in further detail in Sections 4.1 and 4.2.
-
+此外，还有数组类型和对象类型。这将在第 4.1 节和第 4.2 节中进行更详细的讨论。

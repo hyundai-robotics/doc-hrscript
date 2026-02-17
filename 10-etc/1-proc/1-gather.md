@@ -1,34 +1,34 @@
 ﻿# 10.1.1 `gather`
 
-`gather` is the procedure that specifies the start and end of the gathering when you use the data gathering function.
+`gather` 是指定使用数据收集功能时收集开始和结束的过程。
 
-### Description
+### 描述
 
-Specifies the start and end of gathering with `gather`. The gathering result file is saved as follows;
-- Storage path: MAIN/project
-- File name: 0001.GDT to 0030.GDT
+使用 `gather` 指定收集的开始和结束。收集结果文件保存在以下位置：
+- 存储路径：MAIN/project
+- 文件名：0001.GDT 到 0030.GDT
 
-Up to 30 gathering result files are stored, and if the number is exceeded, the previous collection result file is overwritten.
+最多保存 30 个收集结果文件，如果超过此数量，之前的收集结果文件将被覆盖。
 
-`gather_state()` function returns the current state of the data collection operation.
-  - 0 : not in gathering.
-  - 1 : in gathering. (gather 1 ~ gather 0)
-  - 2 : saving the gathering results as a file. (gather 0~)
+`gather_state()` 函数返回数据收集操作的当前状态。
+  - 0 : 不在收集中。
+  - 1 : 在收集中。 (gather 1 ~ gather 0)
+  - 2 : 将收集结果保存为文件。 (gather 0~)
 
-### Syntax
+### 语法
 
 ```python
 gather <start/end>
 ```
 
-### Parameters
+### 参数
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Parameter</th>
-      <th style="text-align:left">Description</th>
-      <th style="text-align:left">Remarks</th>
+      <th style="text-align:left">参数</th>
+      <th style="text-align:left">描述</th>
+      <th style="text-align:left">备注</th>
     </tr>
   </thead>
   <tbody>
@@ -36,16 +36,16 @@ gather <start/end>
       <td style="text-align:left">start/end</td>
       <td style="text-align:left">
         <ul>
-        <li>1: data gathering start</li>
-        <li>0: data gathering end</li>
+        <li>1: 数据收集开始</li>
+        <li>0: 数据收集结束</li>
         </ul>
       </td>
-      <td style="text-align:left">arithmetic expression</td>
+      <td style="text-align:left">算术表达式</td>
     </tr>
   </tbody>
 </table>
 
-### Sample
+### 示例
 
 ```python
 S1   move L,spd=100%,accu=0,tool=0

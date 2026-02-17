@@ -1,26 +1,22 @@
-﻿# 6.5 Sci module : Serial communication
+# 6.5 Sci模块：串行通信
 
-Serial communication can be performed through the COM port of the ${cont_model} controller.
+串行通信可以通过 ${cont_model} 控制器的 COM 端口进行。
 
-To use this function, you must create a `Sci` object as a global variable as shown below.
+要使用此功能，您必须创建一个 `Sci` 对象作为全局变量，如下所示。
 
-Also, be sure to check the settings specifications in `[F2: System] - 2. Control Parameters - 3. Serial Port` before use.
+此外，请确保在使用前检查 `[F2: 系统] - 2. 控制参数 - 3. 串口 ([F2: System] - 2. Control Parameters - 3. Serial Port)` 中的设置规格。
 
 ```python
 global sci2
 sci2=com.Sci(2)
 ```
 
-After creating a `Sci` object, simply call the `send`, `recv`, `open`, and `close` member procedures.
+创建 `Sci` 对象后，只需调用 `send`、`recv`、`open` 和 `关闭 (close)` 成员程序。
 
-When calling `send`, you must input the string to be sent in advance.
+调用 `send` 时，您必须提前输入要发送的字符串。
 
-When calling `recv`, it is assigned to the specified string variable upon successful reception. 
+调用 `recv` 时，它会在成功接收后分配给指定的字符串变量。
 
-When calling open, the port is opened.
+调用 open 时，将打开端口。
 
-When calling open, the port is closed.
-
-
-
-
+调用 open 时，将关闭端口。

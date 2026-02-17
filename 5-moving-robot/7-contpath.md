@@ -1,57 +1,54 @@
 ﻿# 5.7 `contpath`
 
-### Description
+### 描述
 
-Select the mode of CONTPATH.
+选择 CONTPATH 的模式。
 
-See the link below for the description of CONTPATH.
-[Operation Manual: 8.15 R360 Set CONTPATH manually](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/8-r-code/15-r360)
+请参阅下面的链接以获取 CONTPATH 的描述。
+[操作手册：8.15 手动设置 CONTPATH](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/8-r-code/15-r360)
 
 <br><br>
 
-
-### Syntax
+### 语法
 
 ```python
 contpath <mode number>
 ```
 
-### Parameter
+### 参数
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Parameter</th>
-      <th style="text-align:left">Description</th>
-      <th style="text-align:left">Remarks</th>
+      <th style="text-align:left">参数</th>
+      <th style="text-align:left">描述</th>
+      <th style="text-align:left">备注</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="text-align:left">mode number</td>
       <td style="text-align:left">
-        0: Discontinuous<br>
-        1: Continuous. However, input signal is discontinuous (default)<br>
-        2: Continuous. Input signal is also continuous
+        0: 不连续<br>
+        1: 连续。然而，输入信号是不连续的（默认）<br>
+        2: 连续。输入信号也是连续的
       </td>
       <td style="text-align:left"></td>
     </tr>
   </tbody>
 </table>
 
-### Example
+### 示例
 
 ```python
 contpath 0
 contpath 1
 contpath 2
 ```
-
-
 {% hint style="info" %}
 
-- If the `contpath` statement is not explicitly executed, `contpath 1` is applied by default. Even if specified explicitly, it is initialized to `contpath 1` at the start of the cycle.
+- 如果`contpath`语句没有被明确执行，则默认使用`contpath 1`。即使明确指定，它在循环开始时也会初始化为`contpath 1`。
 
-- The changed status can be checked by the `CP0` / `CP1` / `CP2` flags on the title bar.
+- 可以通过标题栏上的`CP0` / `CP1` / `CP2`标志检查状态变化。
 
 {% endhint %}

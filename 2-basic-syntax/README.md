@@ -1,4 +1,3 @@
-﻿# 2. Basic Syntax
+﻿# 2. 基本语法
 
-Described in this section are the basic terms of HRScript. The basic concept of the job program could be understood by following the method for defining a variable, constructing a simple expression using operators, and assigning the resulting value to a variable.
-
+本节描述了HRScript的基本术语。通过以下定义变量的方法、使用运算符构造简单表达式以及将结果值分配给变量的方式，可以理解作业程序的基本概念。

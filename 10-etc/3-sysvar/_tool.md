@@ -1,15 +1,13 @@
 ﻿# `_tool`
 
-`_tool` is a system variable for reading or changing tool data.
+`_tool` 是一个用于读取或更改工具数据的系统变量。
 
+### 描述
 
-### Description
+- 读取注册的工具数据（重量/质心/惯性）或更改工具数据。
+- 如果工具数据未注册或成员无效，将会发生错误，并且作业执行将被中断。
 
-- Read the registered tool data (weight/center of mass/inertia) or change the tool data.
-- If the tool data is not registered or if the member is not valid, an error occurs and the job execution is interrupted.
-
-
-### Syntax
+### 语法
 
 ```python
 <shift variable> = _tool3
@@ -24,14 +22,12 @@ _tool[5].iyy = <arithmetic expression>
 _tool[5].izz = <arithmetic expression>
 ```
 
+### 错误
 
-### Errors
+- E14550 : 当工具数据的成员无效时发生。确保设置的工具数据的成员为质量、cx、cy、cz、ixx、iyy、izz。
+- E14286 : 当赋值语句的右侧不是移位类型或工具变量的成员无效时发生。请正确指定右侧。
 
-- E14550 : Occurs when the member of the tool data is not valid. Make sure that the members of the set tool data are mass, cx, cy, cz, ixx, iyy, izz.
-- E14286 : Occurs when the right side of the assignment statement is not a shift type or when the member of the tool variable is not valid. Please specify the right side correctly.
-
-
-### Sample
+### 示例
 
 ```python
    var sft=Shift(100,20,30,0,0,0,"tool")

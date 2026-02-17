@@ -1,13 +1,8 @@
-﻿# 2.3 Types of Statements
+﻿# 2.3 语句类型
 
-The four types of statements of HRScript are as follows:
+HRScript 的四种语句类型如下：
 
-
-
-* procedure
-* assignment
-* comment
-* label
-
-
-
+* 过程
+* 赋值
+* 注释
+* 标签

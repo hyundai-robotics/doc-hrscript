@@ -1,43 +1,43 @@
-﻿# 5.6 `selucrd` - select user coordinate system
+﻿# 5.6 `selucrd` - 选择用户坐标系统
 
-The `selucrd` statement is a procedure for changing the user coordinate system number specified as the user coordinate system in the condition setting.
+`selucrd` 语句是一个用于更改指定为条件设置中的用户坐标系统的用户坐标系统编号的过程。
 
-### Description
+### 描述
 
-Function corresponding to specifying the User coordinate system in the condition setting.
+与在条件设置中指定用户坐标系统相对应的功能。
 
-### Syntax
+### 语法
 
 ```python
-selucrd <coord. system number>
+selucrd <坐标系统编号>
 ```
 
-### Parameters
+### 参数
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Parameter</th>
-      <th style="text-align:left">Description</th>
-      <th style="text-align:left">Remarks</th>
+      <th style="text-align:left">参数</th>
+      <th style="text-align:left">描述</th>
+      <th style="text-align:left">备注</th>
     </tr>
   </thead>
   <tbody>
   <tr>
-      <td style="text-align:left">coord. system number</td>
+      <td style="text-align:left">坐标系统编号</td>
       <td style="text-align:left">
-        coord. system number to select<br>
+        要选择的坐标系统编号<br>
         <ul>
-        <li>0: Unspecifying user coordinate system</li>
-        <li>1~20: Specifying a User Coordinate system</li>
+        <li>0：取消指定用户坐标系统</li>
+        <li>1~20：指定用户坐标系统</li>
         </ul>
       </td>
-      <td style="text-align:left">expression</td>
+      <td style="text-align:left">表达式</td>
     </tr>
   </tbody>
 </table>
 
-### Example
+### 示例
 
 ```python
    selucrd 1

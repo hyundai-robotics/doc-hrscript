@@ -1,18 +1,16 @@
 ﻿# 5.17 `pose_inv`
 
+### 描述
 
-### Description
+* `pose_inv` 指令是一个将姿态变量转换为与姿态变量的逆矩阵相对应的姿态变量的函数。
 
-* `pose_inv` instruction is a function that converts to a pose variable corresponding to the inverse matrix of the pose variable.  
-
-
-### Syntax 
+### 语法
 
 ```python
 poseB = pose_inv(poseA)
 ```
 
-### Example  
+### 示例  
 ```python
      var pose_A, pose_B, pose_C
      var pose_inv_B
@@ -26,12 +24,12 @@ poseB = pose_inv(poseA)
  
      pose_B=pose_A+pose_shift
      
-     # pose_inv_B is inverse matrix oof pose_B
+     # pose_inv_B 是 pose_B 的逆矩阵
      pose_inv_B=pose_B
      pose_inv_B=pose_B.convcrd("base")
      pose_inv_B=pose_inv(pose_B)
 
-     # pose_C is same to pose_A
+     # pose_C 与 pose_A 相同
      pose_C=pose_trans(pose_A,pose_B)
      pose_C=pose_trans(pose_C,pose_inv_B)
 

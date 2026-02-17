@@ -1,48 +1,45 @@
 ﻿# `send`
 
-### Description
+### 描述
 
-Send string data to ethernet object.
+将字符串数据发送到以太网对象。
 
 
-### Syntax
+### 语法
 
 `{ENet object}.send {msg}`
 
 
 
-### Parameters
+### 参数
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Name</th>
-      <th style="text-align:left">Meaning</th>
-      <th style="text-align:left">Misc.</th>
+      <th style="text-align:left">名称</th>
+      <th style="text-align:left">含义</th>
+      <th style="text-align:left">其他</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="text-align:left">msg</td>
       <td style="text-align:left">
-        string to send
+        要发送的字符串
       </td>
-      <td style="text-align:left">string</td>
+      <td style="text-align:left">字符串</td>
     </tr>
   </tbody>
 </table>
 
 
-### Return value
+### 返回值
 
-The number of bytes sent.
+发送的字节数。
 
 
-### Example
+### 示例
 
 ```python
 enet_to_sensor.send "rob:"+10+", command:"+cmd+"\n"
 ```
-
-
-

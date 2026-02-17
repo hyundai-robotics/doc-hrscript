@@ -1,73 +1,72 @@
 ﻿# 6.1.4 `pulse`
 
-`pulse` statement is the procedure for signal output of pulse type.
+`pulse`语句是脉冲类型信号输出的过程。
 
-### Description
+### 描述
 
-After tlag time has elapsed, it is output as many times as cnt in the form of On(High) for ton time and Off(Low) for toff time.
+在延迟时间经过后，它以On(高)状态输出cnt次，持续ton时间，然后以Off(低)状态持续toff时间。
 
-
-### Syntax
+### 语法
 
 ```python
 pulse <Signal>,tlag=<Lag time>,ton=<On time>,toff=<Off time>,cnt=<output count>
 ```
 
-### Parameters
+### 参数
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Parameter</th>
-      <th style="text-align:left">Description</th>
-      <th style="text-align:left">Remarks</th>
+      <th style="text-align:left">参数</th>
+      <th style="text-align:left">描述</th>
+      <th style="text-align:left">备注</th>
     </tr>
   </thead>
   <tbody>
   <tr>
-      <td style="text-align:left">Signal</td>
+      <td style="text-align:left">信号</td>
       <td style="text-align:left">
-        Output signal name to be output in pulse form<br>
-        (Only supports fb.do signals.)
+        要以脉冲形式输出的信号名称<br>
+        (仅支持fb.do信号。)
       </td>
-      <td style="text-align:left">output signal</td>
+      <td style="text-align:left">输出信号</td>
     </tr>
     <tr>
-      <td style="text-align:left">Lag time</td>
+      <td style="text-align:left">延迟时间</td>
       <td style="text-align:left">
-        Time to wait until the pulse signal starts after performing the procedure<br>
-        (0.0 ~ 100.0[sec])
+        执行该过程后，脉冲信号开始前的等待时间<br>
+        (0.0 ~ 100.0[秒])
       </td>
-      <td style="text-align:left">arithmetic expression</td>
+      <td style="text-align:left">算术表达式</td>
     </tr>
     <tr>
-      <td style="text-align:left">On time</td>
+      <td style="text-align:left">开启时间</td>
       <td style="text-align:left">
-        Time to output signal in On(High) state<br>
-        (0.0 ~ 100.0[sec])
+        输出信号在On(高)状态下的持续时间<br>
+        (0.0 ~ 100.0[秒])
       </td>
-      <td style="text-align:left">arithmetic expression</td>
+      <td style="text-align:left">算术表达式</td>
+    </tr>
+<tr>
+      <td style="text-align:left">关闭时间</td>
+      <td style="text-align:left">
+        关闭（低）状态时输出信号的时间<br>
+        （0.0 ~ 100.0[秒]）
+      </td>
+      <td style="text-align:left">算术表达式</td>
     </tr>
     <tr>
-      <td style="text-align:left">Off time</td>
+      <td style="text-align:left">输出次数</td>
       <td style="text-align:left">
-        Time to output signal in Off (Low) state<br>
-        (0.0 ~ 100.0[sec])
+        重复脉冲周期的次数
+        （0 ~ 1000）
       </td>
-      <td style="text-align:left">arithmetic expression</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">Number of outputs</td>
-      <td style="text-align:left">
-        Number of times to repeat pulse cycle
-        (0 ~ 1000)
-      </td>
-      <td style="text-align:left">arithmetic expression</td>
+      <td style="text-align:left">算术表达式</td>
     </tr>
   </tbody>
 </table>
 
-### Sample
+### 示例
 
 ```python
    pulse do10,tlag=0.0,ton=1.5,toff=0.5,cnt=5

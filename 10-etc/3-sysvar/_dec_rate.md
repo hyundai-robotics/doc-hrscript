@@ -1,25 +1,25 @@
-﻿# `_dec_rate`
+# `_dec_rate`
 
-Get or set the rate of deceleration in the speed-profile.
+获取或设置速度曲线中的减速率。
 
-### Description
+### 描述
 
-- unit : %
-- range : 1 to 100
-- default value : 100
+- 单位 : %
+- 范围 : 1 到 100
+- 默认值 : 100
 
-### Syntax
+### 语法
 
 ```python
 var res
 res = _dec_rate
 ```
 
-### Sample
+### 示例
 
 ```python
    ...
-   # Print current decel-rate, and set to 70%.
+   # 打印当前减速率，并设置为 70%。
    print _dec_rate
    _dec_rate=70
    ...

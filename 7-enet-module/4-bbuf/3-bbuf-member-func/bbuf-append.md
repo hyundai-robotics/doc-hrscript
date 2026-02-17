@@ -1,60 +1,54 @@
-﻿# `append`
+﻿# `附加 (append)`
 
-### Description
+### 描述
 
-Appends data in the specified format to a binary buffer.
+将指定格式的数据附加到二进制缓冲区。
 
-
-### Syntax
+### 语法
 
 `{BBuf object}.append {format},{data}`
 
-
-### Parameters
+### 参数
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Name</th>
-      <th style="text-align:left">Meaning</th>
-      <th style="text-align:left">Misc.</th>
+      <th style="text-align:left">名称</th>
+      <th style="text-align:left">含义</th>
+      <th style="text-align:left">其他</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="text-align:left">format</td>
-      <td style="text-align:left">binary format<sup>*</sup><br>
-      e.g. "U4", "s2"
+      <td style="text-align:left">二进制格式<sup>*</sup><br>
+      例如 "U4", "s2"
       </td>
-      <td style="text-align:left">string</td>
+      <td style="text-align:left">字符串</td>
     </tr>
 	 <tr>
       <td style="text-align:left">data</td>
       <td style="text-align:left">
-        data to append in binary buffer
+        要附加到二进制缓冲区的数据
       </td>
-      <td style="text-align:left">primitive data,<br>or 1-D array of primitive data</td>
+      <td style="text-align:left">原始数据,<br>或原始数据的1-D数组</td>
     </tr>
   </tbody>
 </table>
 
 <br>
 
-
-* See [7.4.2 Supported format](../2-format.md).
-* If data of a different type from the specified format, automatic type casting is performed implicitly. For example, if the format is "s2" (2-byte integer) and the data is a float value of 3.7, the integer value 3(0x0003) is appended to the buffer.
-Conversely, if format is "f4" (4-byte real number) and data is an integer value of -3, the real value -3.0(0xC0400000) is stored in the buffer.
-* If the format is unsigned and the data is a negative number, an error occurs, so be careful.
+* 查看[7.4.2 支持的格式](../2-format.md)。
+* 如果数据类型与指定格式不同，则会隐式执行自动类型转换。例如，如果格式为"s2"（2字节整数）且数据为浮点值3.7，则整数值3(0x0003)将附加到缓冲区。反之，如果格式为"f4"（4字节实数）且数据为整数值-3，则实值-3.0(0xC0400000)将存储在缓冲区中。
+* 如果格式为无符号且数据为负数，则会发生错误，因此请小心。
 
 <br>
+### 返回值
+
+附加的数据数量。
 
 
-### Return value
-
-The number of data appended.
-
-
-### Example
+### 示例
 
 ```python
 var bbuf=enet.BBuf()

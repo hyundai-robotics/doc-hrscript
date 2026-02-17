@@ -1,3 +1,3 @@
-﻿# 9.1 File System
+﻿# 9.1 文件系统
 
-In the MAIN module's file system of the ${cont_model} controller, instructions for creating, copying, and deleting directories and files are described.
+在${cont_model}控制器的MAIN模块文件系统中，描述了创建、复制和删除目录和文件的指令。

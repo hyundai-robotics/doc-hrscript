@@ -1,28 +1,21 @@
-﻿# 2.3.1 Procedures
+﻿# 2.3.1 程序
 
-A procedure consists of a command and a 0-N number of parameters.
+一个程序由一个命令和 0-N 个参数组成。
 
 ```python
 move P,po3,spd=80%,accu=1,tool=3 until do33
 ```
 
-The three types of procedure parameters are as follows:
+三种类型的程序参数如下：
 
-| Type | Syntax | Example |
+| 类型 | 语法 | 示例 |
 | :--- | :--- | :--- |
-| Position parameter | &lt;value&gt; | P, po3 |
-| Keyword parameter | &lt;keyword&gt; = &lt;value&gt; | spd=80%, accu=1, tool=3 |
-| Preposition parameter | &lt;preposition&gt;  &lt;value&gt; | until do33 |
+| 位置参数 | &lt;value&gt; | P, po3 |
+| 关键字参数 | &lt;keyword&gt; = &lt;value&gt; | spd=80%, accu=1, tool=3 |
+| 介词参数 | &lt;preposition&gt;  &lt;value&gt; | until do33 |
 
-The position parameter"s role is determined by its position, so it should not be moved and must always be at the front of the procedure. 
+位置参数的角色由其位置决定，因此不应移动，并且必须始终位于程序的前面。
 
-Keyword parameters should be placed after position parameters. However, the order between keyword parameters does not affect the operation.
+关键字参数应放在位置参数之后。然而，关键字参数之间的顺序不会影响操作。
 
-
-
-The preposition parameters are placed last.
-
-
-
-
-
+介词参数应放在最后。

@@ -1,16 +1,16 @@
 ﻿# `nbyte`
 
-### Syntax
+### 语法
 
 `{BBuf object}.nbyte`
 
 
-### Return value
+### 返回值
 
-The number of bytes of binary data
+二进制数据的字节数
 
 
-### Example
+### 示例
 
 ```python
 var bbuf=enet.BBuf()

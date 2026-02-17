@@ -1,7 +1,7 @@
-﻿# 7 `enet` module : Ethernet TCP/UDP communication
+﻿# 7 `enet` 模块 : 以太网 TCP/UDP 通信
 
-Using the ${cont_model} controller's user ethernet port, You can send and receive strings or binary data over Ethernet TCP or UDP communication with an external devices.
+使用 ${cont_model} 控制器的用户 Ethernet 端口，您可以通过以太网 TCP 或 UDP 通信与外部设备发送和接收字符串或二进制数据。
 
-The `enet` module can create two objects, `ENet` and `BBuf`. `ENet` provides an Ethernet socket interface, and `BBuf` is used to communicate binary data.
+`enet` 模块可以创建两个对象，`ENet` 和 `BBuf`。`ENet` 提供以太网套接字接口，`BBuf` 用于传输二进制数据。
 
-Let's follow the client example and the server example to understand how to use it. A reference guide for each object's member variables and functions follows it.
+让我们按照客户端示例和服务器示例来理解如何使用它。随后是每个对象的成员变量和函数的参考指南。

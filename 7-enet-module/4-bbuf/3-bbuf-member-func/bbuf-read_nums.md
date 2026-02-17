@@ -1,67 +1,63 @@
 ﻿# `read_nums`
 
-### Description
+### 描述
 
-Reads a specified number of numeric values from a specified position in the binary buffer and returns them in array format.
+从二进制缓冲区中的指定位置读取指定数量的数值，并以数组格式返回它们。
 
-
-### Syntax
+### 语法
 
 `{BBuf object}.read_num  {format},{offset},{n.item}`
 
-
-### Parameters
+### 参数
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Name</th>
-      <th style="text-align:left">Meaning</th>
-      <th style="text-align:left">Misc.</th>
+      <th style="text-align:left">名称</th>
+      <th style="text-align:left">含义</th>
+      <th style="text-align:left">杂项</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="text-align:left">format</td>
       <td style="text-align:left">
-			binary data format<sup>*</sup><br>
-      e.g. "U4", "s2"
+			二进制数据格式<sup>*</sup><br>
+      例如 "U4", "s2"
       </td>
-      <td style="text-align:left">string</td>
+      <td style="text-align:left">字符串</td>
     </tr>
 	  <tr>
       <td style="text-align:left">offset</td>
       <td style="text-align:left">
-        position at which to read the data (0-based byte offset)
+        读取数据的位置（基于0的字节偏移）
       </td>
-      <td style="text-align:left">integer</td>
+      <td style="text-align:left">整数</td>
     </tr>
     <tr>
       <td style="text-align:left">n.item</td>
       <td style="text-align:left">
-        the number of data to read
+        要读取的数据数量
       </td>
-      <td style="text-align:left">integer</td>
+      <td style="text-align:left">整数</td>
     </tr>
   </tbody>
 </table>
 
 <br>
-
-
-\* Refer to [7.4.2 Supported format](../2-format.md).
+\* 请参阅 [7.4.2 支持的格式](../2-format.md).
 <br>
 <br>
 
 
-### Return value
+### 返回值
 
-* Array of numeric values read.
-* If the number of data in the buffer is less than the specified number, only reads as many as there are.
-* Returns an empty array if an error occurs when reading the data type.
+* 读取的数值数组。
+* 如果缓冲区中的数据数量少于指定数量，则只读取可用数量。
+* 如果在读取数据类型时发生错误，则返回空数组。
 
 
-### Example
+### 示例
 
 ```python
 var bbuf=enet.BBuf()

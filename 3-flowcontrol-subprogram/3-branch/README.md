@@ -1,4 +1,3 @@
-﻿# 3.3 Branch Statement
+﻿# 3.3 分支语句
 
-Makes it possible to go to a different address, without conditions.
-
+使得在没有条件的情况下可以转到不同的地址。

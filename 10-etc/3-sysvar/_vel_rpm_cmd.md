@@ -1,26 +1,26 @@
-﻿# `_vel_rpm_cmd`
+# `_vel_rpm_cmd`
 
-Reads or sets the speed at which the motor rotates when controlling speed for an additional axis.
+读取或设置电机旋转时控制附加轴速度的速度。
 
-### Description
+### 描述
 
-The additional axis must be set to speed control mode on the jig axis.<br>
-The unit is rpm. You can set a value between -10000 and 10000, and the default value is 0. <br>
-If specified as -, the motor rotates in reverse.
+附加轴必须在工装轴上设置为速度控制模式。<br>
+单位为 rpm。您可以设置 -10000 到 10000 之间的值，默认值为 0。<br>
+如果指定为 -，电机将反向旋转。
 
-### Syntax
+### 语法
 
 ```python
 var res
-_vel_rpm_cmd[6] = 1000 # Rotate the 7-axis motor at 1000 rpm 
-res = _vel_rpm_cmd[6] # Assign the rotation speed of the 7-axis motor 
+_vel_rpm_cmd[6] = 1000 # 以 1000 rpm 的速度旋转 7 轴电机 
+res = _vel_rpm_cmd[6] # 赋值 7 轴电机的旋转速度 
 ```
 
-### Sample
+### 示例
 
 ```python
    ...
-   # After print the current 7-axis motor rotation speed, set it to 1000 rpm.
+   # 打印当前 7 轴电机旋转速度后，将其设置为 1000 rpm。
    print _vel_rpm_cmd[6]
    _vel_rpm_cmd[6]=1000
    ...

@@ -1,9 +1,9 @@
-﻿# 2.4 First Program - Hello, World!
+﻿# 2.4 第一个程序 - 你好，世界！
 
-Let us create a simple job program that prints a string on the teach pendant screen. After creating a new job, record the print statement as shown below, and attach the string parameter "Hello, World!"
+让我们创建一个简单的作业程序，在教学挂件屏幕上打印字符串。在创建新作业后，如下所示记录打印语句，并附加字符串参数“你好，世界！”
 
 ```python
 print "Hello, World !"
 ```
 
-The print statement is used to print the value at the bottom of the teach pendant's job panel. Now, when you run the program, you can see the text, "Hello, World!" printed at the bottom of the job panel.
+打印语句用于在教学挂件的作业面板的底部打印值。现在，当你运行程序时，可以看到文本“你好，世界！”打印在作业面板的底部。

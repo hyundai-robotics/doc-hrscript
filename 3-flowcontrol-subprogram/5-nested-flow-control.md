@@ -1,10 +1,10 @@
-﻿# 3.5. Nested Flow-Control Statements
+﻿# 3.5. 嵌套流程控制语句
 
-### Description
+### 描述
 
-In the control statement block, another control statement block can be placed, as shown in the following example. In the following form, two nesting  levels are shown, but multiple nesting levels can be made as much as necessary.
+在控制语句块中，可以放置另一个控制语句块，如下例所示。在以下形式中，显示了两个嵌套级别，但可以根据需要进行多个嵌套级别。
 
-### Syntax
+### 语法
 
 ```python
 if <bool expression>
@@ -18,7 +18,7 @@ if <bool expression>
 endif
 ```
 
-### Example
+### 示例
 
 ```python
 var pressure=95, limit=90, inject_on=true
@@ -31,6 +31,3 @@ if inject_on
 endif
 end
 ```
-
-
-

@@ -1,113 +1,107 @@
 ﻿# 10.1.5 `intr_def`
 
-`intr_def` is a procedure that specifies interrupt condition, watch-interval, and program to run when an interrupt occurs.
+`intr_def` 是一个指定中断条件、观察间隔和发生中断时运行的程序的过程。
 
-### Syntax
+### 语法
 
-An interrupt function is a type of program call. When the robot works in an interrupt watch-interval, it calls a specified job when it meets the predefined interrupt conditions. When the called-program finishes running, it returns to the previous running program's location and continues to run.
-
+中断函数是一种程序调用。当机器人在中断观察间隔内工作时，它会在满足预定义的中断条件时调用指定的作业。当被调用的程序运行完成后，它会返回到先前运行程序的位置并继续运行。
 
 ![](../../_assets/intr_def_1.png)
 
+### 简要说明
 
-### Brief
+- 仅在中断观察间隔中操作。
+- 支持算术表达式作为中断条件表达式。
+- 允许在执行中断程序时处理另一个中断（多个中断）。
 
-- Operates only in interrupt watch intervals.
-- Arithmetic expressions are supported as interrupt conditional expressions.
-- Allow another interrupt handling (multiple interrupt) while performing an interrupt program.
+### 中断被清除的时间点
 
+如果发生以下操作，所有定义的中断会自动清除。
 
-### Timepoint when the interrupt is cleared
+- 执行 'R0: 任务重置' 时
+- 程序第一次运行时
+- 更改程序计数器（步骤/功能 #）后开始时
 
-All defined interrupts are automatically cleared if the following actions occur.
-
-- When performing 'R0: Task Reset'
-- The first time the program runs
-- When starting after changing the program counter (step/func #)
-
-
-### Sample
+### 示例
 
 ```python
 intr_def <on/off>,no=<interrupt number>,var=<interrupt condition>,val=<condition matching value>,job=<call program number>,[once]
 ```
 
-### Parameters
+### 参数
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Parameter</th>
-      <th style="text-align:left">Description</th>
-      <th style="text-align:left">Remarks</th>
+      <th style="text-align:left">参数</th>
+      <th style="text-align:left">描述</th>
+      <th style="text-align:left">备注</th>
     </tr>
   </thead>
   <tbody>
   <tr>
       <td style="text-align:left">on/off</td>
       <td style="text-align:left">
-        Define interrupts or delete defined interrupts<br>
+        定义中断或删除已定义的中断<br>
         <ul>
-        <li>on: Defines a new interrupt.</li>
-        <li>off: Deletes defined interrupt. (3rd and later parameters are ignored.)</li>
+        <li>打开：定义一个新的中断。</li>
+        <li>关闭：删除已定义的中断。 （第三个及后续参数将被忽略。）</li>
         </ul>
       </td>
-      <td style="text-align:left">on/off</td>
+      <td style="text-align:left">打开/关闭</td>
     </tr>
     <tr>
-      <td style="text-align:left">interrupt number</td>
+      <td style="text-align:left">中断号码</td>
       <td style="text-align:left">
-        The interrupt number to define or delete.<br>
+        要定义或删除的中断号码。<br>
       </td>
-      <td style="text-align:left">arithmetic expression</td>
+      <td style="text-align:left">算式表达式</td>
     </tr>
     <tr>
-      <td style="text-align:left">interrupt condition</td>
+      <td style="text-align:left">中断条件</td>
       <td style="text-align:left">
-        The conditional expression that will cause an interrupt.
+        将导致中断的条件表达式。
       </td>
-      <td style="text-align:left">variable</td>
+      <td style="text-align:left">变量</td>
     </tr>
     <tr>
-      <td style="text-align:left">condition matching value</td>
+      <td style="text-align:left">条件匹配值</td>
       <td style="text-align:left">
-        The value of the conditional expression to generate interrupt.
+        生成中断的条件表达式的值。
       </td>
-      <td style="text-align:left">arithmetic expression</td>
+      <td style="text-align:left">算式表达式</td>
     </tr>
     <tr>
-      <td style="text-align:left">call program number</td>
+      <td style="text-align:left">调用程序号码</td>
       <td style="text-align:left">
-        Program number to call when an interrupt occurs.
+        当发生中断时要调用的程序号码。
       </td>
-      <td style="text-align:left">arithmetic expression</td>
+      <td style="text-align:left">算式表达式</td>
     </tr>
     <tr>
-      <td style="text-align:left">[once]</td>
+      <td style="text-align:left">[一次]</td>
       <td style="text-align:left">
-        handles only one interrupt in the interrupt watch interval without processing additional interrupts.
+        在中断监视间隔内只处理一个中断，而不处理额外的中断。
       </td>
-      <td style="text-align:left">once</td>
+      <td style="text-align:left">一次</td>
     </tr>
   </tbody>
 </table>
 
 
-### Errors
+### 错误
 
-- E1351 : Occurs when redefine an already-defined interrupt number without deletion. Please check the program that was created.
-
-
-### Sample
+- E1351 : 在不删除的情况下重新定义已定义的中断号码时发生。 请检查已创建的程序。
+### 示例
 
 ```python
-   intr_def on,no=1,var=di5,val=1,job=24,once # Defines interrupt
+   intr_def on,no=1,var=di5,val=1,job=24,once # 定义中断
    move P,spd=30%,accu=3,tool=1
    move L,spd=30mm/s,accu=3,tool=1
    ...
    move L,spd=30mm/s,accu=3,tool=1
    move P,spd=30%,accu=3,tool=1
-   intr_def off,no=1 # Deletes interrupt
+   intr_def off,no=1 # 删除中断
    move P,spd=30%,accu=3,tool=1
    end
 ```

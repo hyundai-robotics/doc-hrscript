@@ -1,19 +1,18 @@
-﻿# `clr_rbuf`
+# `clr_rbuf`
 
-### Description
+### 描述
 
-Initialize `Sci`'s received buffer.
+初始化 `Sci` 的接收缓冲区。
 
+### 语法
 
-### Syntax
+&lt;Sci 对象&gt;.clr_rbuf()
 
-&lt;Sci object&gt;.clr_rbuf()
+### 返回值
+- 0: 接收缓冲区初始化成功
+- -1: 失败
 
-### Return Value
-- 0: Receive buffer initialization success
-- -1: Fail
-
-### Example
+### 示例
 
 ```python
 var ret
@@ -23,6 +22,3 @@ if ret<0
   stop
 endif
 ```
-
-
-

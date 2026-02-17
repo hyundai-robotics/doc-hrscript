@@ -1,10 +1,5 @@
-﻿# 3.7 `call`, `jump` Statement and Subprograms
+﻿# 3.7 `call`, `jump` 语句和子程序
 
-If an entire large-scale robot operation is created as one job program, the program becomes large and complex, making it difficult to add functions or find and solve problems.
+如果整个大规模机器人操作作为一个工作程序创建，程序将变得庞大而复杂，使得添加功能或找到并解决问题变得困难。
 
-For the program"s maintainability, it is preferable to divide the unit operations that make up the entire program into subprograms. For example, when routines, such as a routine performs communication with a sensor, a routine that calculates the target position of the tool tip with the received data, and a routine that generates an appropriate message when an error occurs, are turned into individual subprograms and allow the main program to call them, it will be easier to grasp the overall structure of the program. It will also be useful to reuse divided subprograms in other projects.
-
-
-
-
-
+为了程序的可维护性，最好将构成整个程序的单元操作划分为子程序。例如，当例程，如与传感器进行通信的例程、使用接收到的数据计算工具尖端目标位置的例程，以及当发生错误时生成适当消息的例程，变成独立的子程序并允许主程序调用时，将更容易掌握程序的整体结构。这在其他项目中重用分割的子程序也会有所帮助。

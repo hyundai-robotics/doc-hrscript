@@ -1,8 +1,8 @@
-﻿# 3.7.2 Parameters and `param`, `return`
+﻿# 3.7.2 参数和 `param`， `return`
 
-In a job program, formal parameters are used as channels through which input and output are passed. The `param` statement will define formal parameters at the beginning of the job program.
+在作业程序中，正式参数作为输入和输出传递的通道。 `param` 语句将在作业程序的开头定义正式参数。
 
-In the following example, job no. 105 is named as "dist2d" as it is a subjob that acquires the Euclidean distance from the origin to the coordinate value \(x, y\) and returns it to len.
+在以下示例中，作业编号 105 被命名为 "dist2d"，因为它是一个子作业，获取从原点到坐标值 \(x, y\) 的欧几里得距离并将其返回到 len。
 
 ```python
 # 0001_main.job
@@ -17,24 +17,24 @@ end
 
 ```python
 # 0105_dist2d.job
-# Calc. Euclide distance 2D
+# 计算二维欧几里得距离
 param dx,dy
 var tmp
 
 tmp=x*x+y*y
-var len=sqr(tmp) # distance from origin
+var len=sqr(tmp) # 从原点的距离
 return len
 ```
 
 <br>
 
-RESULT
+结果
 ```python
 13.742
 ```
 
-In job no. 1, the dist2d subprogram is called with the `call` statement, and "x, y," which are local variables, are passed. In the dist2d subprogram, "dx", and "dy" defined with the `param` statement are called "formal parameters", and "x, y" passed to the `call` statement are called "actual parameters."
+在作业编号 1 中，dist2d 子程序通过 `call` 语句被调用，"x, y," 作为局部变量被传递。在 dist2d 子程序中，通过 `param` 语句定义的 "dx" 和 "dy" 被称为 "正式参数"，而传递给 `call` 语句的 "x, y" 被称为 "实际参数"。
 
-The dist2d program transports resulting values to external destinations through `return` statements. Returned values can be obtained by calling a result\(\) function in the called program.
+dist2d 程序通过 `return` 语句将结果值传输到外部目的地。返回的值可以通过在被调用程序中调用 result\(\) 函数来获取。
 
-(A `return` statement and an `end` statement have the same action as they end a called program and return to the main program. However, a `return` statement is different from `end` statement as the former can designate a resulting value as an element).
+(`return` 语句和 `end` 语句具有相同的作用，因为它们结束被调用程序并返回到主程序。然而，`return` 语句与 `end` 语句不同，因为前者可以将结果值指定为元素)。

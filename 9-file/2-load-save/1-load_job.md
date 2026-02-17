@@ -1,61 +1,61 @@
 ﻿# 9.2.1 `load_job`
 
-Statement that reads changes of the MAIN module's project/jobs/ folder to update the memory.
+读取 MAIN 模块的 project/jobs/ 文件夹更改以更新内存的语句。
 
 
-### Description
+### 描述
 
-Load the jobs in the project/jobs/ folder of the MAIN module into new memory.
+将 MAIN 模块的 project/jobs/ 文件夹中的作业加载到新的内存中。
 
-If you copy or overwrite .job files into the jobs/ folder with FTP or copyfile commands, you must perform this statement to reflect the memory to be able to select or call the job.
+如果您通过 FTP 或 copyfile 命令将 .job 文件复制或覆盖到 jobs/ 文件夹中，则必须执行该语句以反映内存，以便能够选择或调用作业。
 
-- CAUTION: Jobs in memory that do not exist in the jobs/ folder will be deleted.
-- If the file has different modified time, it is loaded.
-- Files that do not exist in memory are loaded.
+- 注意：内存中不存在于 jobs/ 文件夹的作业将被删除。
+- 如果文件的修改时间不同，则会加载该文件。
+- 内存中不存在的文件将被加载。
 
-- Since large capacity .jobs can be loaded, it is performed asynchronously in the background to avoid loss of tact time due to load. The successful completion of the load can be determined by reading the value of the resulting-variable.
-- You cannot request another loading until current loading is finished.
+- 由于可以加载大容量的 .jobs，因此在后台异步进行，以避免因加载而导致的节拍时间损失。可以通过读取结果变量的值来确定加载的成功完成。
+- 在当前加载完成之前，无法请求另一个加载。
 
 
-### Syntax
+### 语法
 
 ```python
 load_job <result-variable>,"*"
 ```
 
-### Parameters
+### 参数
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Parameter</th>
-      <th style="text-align:left">Description</th>
-      <th style="text-align:left">Remarks</th>
+      <th style="text-align:left">参数</th>
+      <th style="text-align:left">描述</th>
+      <th style="text-align:left">备注</th>
     </tr>
   </thead>
   <tbody>
   <tr>
       <td style="text-align:left">result-variable</td>
       <td style="text-align:left">
-        result of background execution<br>
+        背景执行的结果<br>
         <ul>
-        <li>1: Successfully completed.</li>
-        <li>0: Load in progress.</li>
+        <li>1：成功完成。</li>
+        <li>0：加载中。</li>
         </ul>
       </td>
-      <td style="text-align:left">variable</td>
+      <td style="text-align:left">变量</td>
     </tr>
     <tr>
       <td style="text-align:left">job filename</td>
       <td style="text-align:left">
-        You can only use the "*" argument, which means all files.
+      您只能使用“*”参数，这意味着所有文件。
       </td>
-      <td style="text-align:left">string expression</td>
+      <td style="text-align:left">字符串表达式</td>
     </tr>
   </tbody>
 </table>
 
-### Sample
+### 示例
 
 ```python
      var res

@@ -1,16 +1,15 @@
-﻿# 5.5 `mkucs` - make user coordinate system
+﻿# 5.5 `mkucs` - 创建用户坐标系
 
-### Description
+### 描述
 
-A command that creates a user coordinate system with three poses or one pose.   
+一个创建用户坐标系的命令，使用三个姿态或一个姿态。
 
-- When you create with three poses, it is created with the origin pose, an axis pose, plane pose  according to the specified step order.
-- If the step order is not specified, it is created with the origin pose, X-axis pose, and XY plane pose.
-- When you create with one pose, it is created with the origin pose and the position/direction is based on the pose value.
-- If the calculation is not possible, the job execution is interrupted with an error.
+- 当使用三个姿态创建时，按照指定的步骤顺序创建原点姿态、轴姿态和平面姿态。
+- 如果没有指定步骤顺序，则使用原点姿态、X轴姿态和XY平面姿态进行创建。
+- 当使用一个姿态创建时，创建原点姿态，位置/方向基于姿态值。
+- 如果无法进行计算，则作业执行会由于错误而中断。
 
-
-### Syntax
+### 语法
 
 ```python
 <result variable> = mkucs(<user coord. system number>,<step order>,<origin pose>,<axis pose>,<plane pose>)
@@ -18,78 +17,78 @@ or
 <result variable> = mkucs(<user coord. system number>,<origin pose>)
 ```
 
-### Parameters
+### 参数
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Parameter</th>
-      <th style="text-align:left">Description</th>
-      <th style="text-align:left">Remarks</th>
+      <th style="text-align:left">参数</th>
+      <th style="text-align:left">描述</th>
+      <th style="text-align:left">备注</th>
     </tr>
   </thead>
   <tbody>
   <tr>
       <td style="text-align:left">result variable</td>
       <td style="text-align:left">
-        result of background execution<br>
+        后台执行的结果<br>
         <ul>
-        <li>0: Successfully completed.</li>
-        <li>-1: Failed to create user coord. system.</li>
+        <li>0: 成功完成。</li>
+        <li>-1: 创建用户坐标系失败。</li>
         </ul>
       </td>
-      <td style="text-align:left">Variable</td>
+      <td style="text-align:left">变量</td>
     </tr>
     <tr>
       <td style="text-align:left">user coord. system number</td>
       <td style="text-align:left">
-        umber of the user coordinate system to create
+        要创建的用户坐标系的编号
       </td>
       <td style="text-align:left">[1~20]</td>
     </tr>
     <tr>
-      <td style="text-align:left">step order</td>
+      <td style="text-align:left">步骤顺序</td>
       <td style="text-align:left">
-        The order of the three poses below, if not specified, will be "OXY" <br>
-        (Example) <br>
-        "OXY" : origin pose, X axis pose, XY plane pose <br>
-        "OYZ" : origin pose, Y axis pose, YZ plane pose <br>
+        如果未指定，以下三个姿势的顺序将为"OXY" <br>
+        （示例） <br>
+        "OXY" : 原点姿势, X 轴姿势, XY 平面姿势 <br>
+        "OYZ" : 原点姿势, Y 轴姿势, YZ 平面姿势 <br>
       </td>
-      <td style="text-align:left">string variable</td>
+      <td style="text-align:left">字符串变量</td>
     </tr>
     <tr>
-      <td style="text-align:left">origin pose</td>
+      <td style="text-align:left">原点姿势</td>
       <td style="text-align:left">
-        pose at the origin
+        位于原点的姿势
       </td>
-      <td style="text-align:left">pose variale</td>
+      <td style="text-align:left">姿势变量</td>
     </tr>
     <tr>
-      <td style="text-align:left">axis pose</td>
+      <td style="text-align:left">轴姿势</td>
       <td style="text-align:left">
-        pose located on the X, Y, Z-axis
+        位于 X、Y、Z 轴上的姿势
       </td>
-      <td style="text-align:left">pose variale</td>
+      <td style="text-align:left">姿势变量</td>
     </tr>
     <tr>
-      <td style="text-align:left">plane pose</td>
+      <td style="text-align:left">平面姿势</td>
       <td style="text-align:left">
-        Pose located on the XY, YZ, ZX-plane
+        位于 XY、YZ、ZX 平面上的姿势
       </td>
-      <td style="text-align:left">pose variale</td>
+      <td style="text-align:left">姿势变量</td>
     </tr>
   </tbody>
 </table>
 
-### Return value
+### 返回值
 
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Value</th>
-      <th style="text-align:left">Meaning</th>
-      <th style="text-align:left">Etc.</th>
+      <th style="text-align:left">值</th>
+      <th style="text-align:left">含义</th>
+      <th style="text-align:left">其他</th>
     </tr>
   </thead>
   <tbody>
@@ -98,22 +97,22 @@ or
       <td>
         OK
       </td>
-      <td></td>
+<td></td>
     </tr>  
   </tbody>
 </table>
 
 
-### Errors
+### 错误
 
-- E14613 : Occurs when the actual parameter does not match the formal parameter. Check the actual parameters.
-- E14614 : Occurs when the user coordinate number is not a number. Please specify the user coordinate number again.
-- E14615 : Occurs when the user coordinate number is not a number between 1 and 20. Please change the user coordinate number.
-- E1011 : Occurs when the distance between the taught poses is too close. Occurs when the distance between each point is less than 1mm. Please correct the distance value between poses.
-- E1012 : Occurs when three called poses are in a straight line.
+- E14613 : 当实际参数与形式参数不匹配时发生。请检查实际参数。
+- E14614 : 当用户坐标编号不是数字时发生。请重新指定用户坐标编号。
+- E14615 : 当用户坐标编号不是1到20之间的数字时发生。请更改用户坐标编号。
+- E1011 : 当教学姿势之间的距离太近时发生。当每个点之间的距离小于1mm时发生。请纠正姿势之间的距离值。
+- E1012 : 当三个调用的姿势在一条直线上时发生。
 
 
-### Example
+### 示例
 
 ```python
    var p_origin=Pose(0,0,0,0,0,0,"base")
@@ -126,4 +125,3 @@ or
 ```
 
 ![](../../_assets/mkucs.png)
-

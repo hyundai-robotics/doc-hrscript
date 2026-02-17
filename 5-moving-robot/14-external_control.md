@@ -1,13 +1,12 @@
-﻿# 5.14 External control
+﻿# 5.14 外部控制
 
+### 说明  
+* 机器人运动的位置命令由外部设备生成，生成的外部命令通过以太网或串行通信作为字符串数据传输到 ${cont_model} 控制器。 ${cont_model} 控制器接收该命令并控制机器人。 
 
-### Description  
-* The position command generation for the robot's movement is performed by an external device, and this generated external command is transmitted to the ${cont_model} controller as string data via ethernet or serial communication. The ${cont_model} controller receives this command and controls the robot. 
-
-### Syntax 
+### 语法  
 ```python
      global onl_trj
-     var msg # Pose or Pose type string
+     var msg # 姿态或姿态类型字符串
 
      onl_trj=online.Traject()
      onl_trj.time_from_start=-1.0
@@ -18,17 +17,15 @@
  
 ```
 
-### Parameter 
-* `time_from_start` : elapsed time from start position (-1: disable)  
-* `look_head_time` : time delay for robot moving (unit : [s])  
-* `interval` : time interval between generated commands (unit : [s])  
-* `init` : online trajectory init, clear command buffer  
-* `buf_in`  : add pose or pose type string to the command buffer
+### 参数  
+* `time_from_start` : 从起始位置开始经过的时间 (-1: 禁用)  
+* `look_head_time` : 机器人移动的时间延迟 (单位 : [s])  
+* `interval` : 生成命令之间的时间间隔 (单位 : [s])  
+* `init` : 在线轨迹初始化，清除命令缓冲区  
+* `buf_in`  : 将姿态或姿态类型字符串添加到命令缓冲区
 
-
-
-### Example
-> The robot moves by receiving commands generated externally via enet communication. 
+### 示例  
+> 机器人通过接收外部生成的命令通过以太网通信移动。
 
 ```python
      import enet
@@ -44,27 +41,25 @@
      global onl_trj
      onl_trj=online.Traject()
      onl_trj.time_from_start=-1.0
-     onl_trj.look_ahead_time=1.0 # Delay time for robot movement start
-     onl_trj.interval=0.1 # Sampling time of generated commands
-     onl_trj.init # Buffer init
+     onl_trj.look_ahead_time=1.0 # 机器人移动开始的延迟时间
+     onl_trj.interval=0.1 # 生成命令的采样时间
+     onl_trj.init # 缓冲区初始化
 
      var msg
 10   enet0.recv
      str_pose=result()
       if msg == "stop"
-       onl_trj.init # buffer clear (quick stop)
+       onl_trj.init # 缓冲区清空 (快速停止)
      else
        onl_trj.buf_in msg 
      endif    
      goto 10
      end 
 ```
-
-
 --- 
 {% hint style="info" %}
 
-* Currently received pose or pose type strings can only be in axis-angle coordinates.
-* Pose strings can only be in array-formatted axis-angle coordinates (e.g. [0.000,90.000,0.000,0.000,-90.000,0.000]).    
+* 当前接收的姿态或姿态类型字符串只能采用轴角坐标。
+* 姿态字符串只能采用数组格式的轴角坐标（例如 [0.000,90.000,0.000,0.000,-90.000,0.000]）。    
 
 {% endhint %}

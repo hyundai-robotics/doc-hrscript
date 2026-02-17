@@ -1,71 +1,70 @@
 ﻿# 9.2.3 `save_csv`
 
-Supported from V60.28-00.
+支持版本 V60.28-00。
 
-Statement that stores the global root array variable in memory as a .csv file in the `project/vars/` folder of the MAIN module.
+将全局根数组变量存储为 .csv 文件，存放在 MAIN 模块的 `project/vars/` 文件夹中。
 
-### Description
+### 描述
 
-The global root array of HRScript is stored in the `vars/` folder as a file in CSV standard format. ('Root' means that it is not a property of another array or object.)
+HRScript 的全局根数组被存储在 `vars/` 文件夹中，作为 CSV 标准格式的文件。（“根”意味着它不是另一个数组或对象的属性。）
 
-For information on variable files, please refer to the operation manual link below.
+有关变量文件的信息，请参阅以下操作手册链接。
 
-[global variable/variable file](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/6-monitoring/3-job/3-global-variable/3-var-files)
+[全局变量/变量文件](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/6-monitoring/3-job/3-global-variable/3-var-files)
 
-The global root arrays are not immediately stored to the .csv file whenever the value changes.
-It is saved as a file when you press `Ctrl+[F7: save]` or power off, and you can save it as a file immediately by executing the `save_csv` command.
+全局根数组不会在值更改时立即存储到 .csv 文件中。
+当您按 `Ctrl+[F7: 保存]` 或关闭电源时，它将作为文件保存，您可以通过执行 `save_csv` 命令立即将其保存为文件。
 
-- Because large .csv's can be saved, they are performed asynchronously in the background to avoid loss of tact time due to saving. The successful saving can be determined by reading the value of the result-variable.
-- You cannot request another saving until current saving is finished.
+- 因为可以保存大的 .csv，所以它们在后台异步执行，以避免由于保存而导致的节拍时间损失。成功保存的结果可以通过读取结果变量的值来确定。
+- 在当前保存完成之前，您无法请求另一个保存。
 
-
-### Syntax
+### 语法
 
 ```python
 save_csv <result-variable>,"*"
 save_csv <result-variable>,"<variable name>"
 ```
 
-### Parameters
+### 参数
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Parameter</th>
-      <th style="text-align:left">Description</th>
-      <th style="text-align:left">Remarks</th>
+      <th style="text-align:left">参数</th>
+      <th style="text-align:left">描述</th>
+      <th style="text-align:left">备注</th>
     </tr>
   </thead>
   <tbody>
   <tr>
       <td style="text-align:left">result-variable</td>
       <td style="text-align:left">
-        result of background execution<br>
+        后台执行的结果<br>
         <ul>
-        <li>1: Completed.</li>
-        <li>0: Save in progress.</li>
+        <li>1: 完成。</li>
+        <li>0: 保存进行中。</li>
         </ul>
       </td>
-      <td style="text-align:left">variable</td>
+      <td style="text-align:left">变量</td>
     </tr>
-    <tr>
-      <td style="text-align:left">.csv file title</td>
+<tr>
+      <td style="text-align:left">.csv 文件标题</td>
       <td style="text-align:left">
         <ul>
-        <li>"*": saves all variable.</li>
-        <li>"&lt;variable name&gt;": Saves &lt;variable name&gt;.csv file.</li>
+        <li>"*": 保存所有变量。</li>
+        <li>"&lt;variable name&gt;": 保存 &lt;variable name&gt;.csv 文件。</li>
         </ul>
       </td>
-      <td style="text-align:left">string expression</td>
+      <td style="text-align:left">字符串表达式</td>
     </tr>
   </tbody>
 </table>
 
 {% hint style="warning" %}
-If you save all .csv by specifying "*", it does not delete the .csv files in the `vars/` folder because the root variable of the corresponding name does not exist.
+如果您通过指定 "*" 来保存所有 .csv 文件，它不会删除 `vars/` 文件夹中的 .csv 文件，因为对应名称的根变量不存在。
 {% endhint %}
 
-### Sample
+### 示例
 
 ```python
      var res
@@ -76,6 +75,6 @@ If you save all .csv by specifying "*", it does not delete the .csv files in the
      call 5
      end
      *timeout
-     print "failed to save new locations."
+     print "无法保存新位置。"
      end
 ```

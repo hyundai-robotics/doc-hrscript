@@ -1,23 +1,20 @@
 ﻿# 3.7.4 `jump`
 
-### Description
+### 描述
 
-This format is completely identical to that of `call` statements, and its action is also similar to that of `call` statements.
+此格式与 `call` 语句完全相同，其动作也与 `call` 语句类似。
 
-The only difference is that, while a `call` statement returns to the main program using an `end` statement, a `jump` statement does not.
+唯一的区别是，`call` 语句使用 `end` 语句返回到主程序，而 `jump` 语句则不这样做。
 
-### Syntax
+### 语法
 
 ```python
-jump <job number or file name> [,parameter 1,parameter 2,???]
+jump <作业编号或文件名称> [,参数 1,参数 2,???]
 ```
 
+### 示例
 
-
-### Example
-
-If the `jump` statement of this example program is replaced with a `call` statement, the result of the replaced program will be as follows. When the `end` of the sub-program \(0102\_err\) is encountered, the action cycle will end. If the next action cycle is executed, the main program \(0001\) will be executed from the start.
-
+如果将此示例程序的 `jump` 语句替换为 `call` 语句，则替换后的程序结果如下。当遇到子程序 \(0102\_err\) 的 `end` 时，动作循环将结束。如果执行下一个动作循环，主程序 \(0001\) 将从头开始执行。
 
 ```python
 # 0001_main.job
@@ -33,10 +30,9 @@ print "sub-program"
 end
 ```
 
-
 <br>
 
-RESULT
+结果
 ```python
 main job start
 sub-program

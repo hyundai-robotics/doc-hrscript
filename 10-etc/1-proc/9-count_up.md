@@ -1,17 +1,17 @@
 ﻿# 10.1.9 `count_up`
 
-The `count_up` statement is a procedure that increments the value of a specified variable by 1, and resets it to the init value when it exceeds the preset value.
+`count_up` 声明是一个过程，它将指定变量的值增加 1，并在超过预设值时将其重置为初始值。
 
-### Description
+### 描述
 
-This statement increases the value of the specified variable by 1 each time it is executed.  
-If the variable value exceeds the value specified by preset value, the variable is reset to the value specified by init value.
+此声明每次执行时将指定变量的值增加 1。  
+如果变量值超过预设值所指定的值，则该变量将重置为初始值所指定的值。
 
-Executing  
+执行  
 ```python
 count_up cnt, init=0, preset=100`  
 ```
-produces the same result as executing the following four lines:
+产生的结果与执行以下四行相同：
 
 ```python
 cnt = cnt + 1
@@ -20,19 +20,19 @@ if cnt > 100
 endif
 ```
 
-### Syntax
+### 语法
 ```python
 count_up <variable>, init=<initial value>, preset=<final value>
 ```
 
-### Parameters
-| Item     | Description                                                              | Remarks |
+### 参数
+| 项目     | 描述                                                              | 备注 |
 | -------- | ------------------------------------------------------------------------ | ------- |
-| Variable | The variable whose value will be incremented as a counter                |         |
-| init     | The initial value to assign when the variable exceeds the preset value   |         |
-| preset   | The maximum value of the variable                                        |         |
+| Variable | 将作为计数器的变量，其值将被增加                                    |         |
+| init     | 当变量超过预设值时要分配的初始值                                     |         |
+| preset   | 变量的最大值                                                         |         |
 
-### Example
+### 示例
 ```python
    global work_no
    move P, spd=30%, accu=0, tool=1

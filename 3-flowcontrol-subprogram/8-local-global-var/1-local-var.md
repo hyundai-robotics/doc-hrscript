@@ -1,16 +1,14 @@
-﻿# 3.8.1 Local Variables
+﻿# 3.8.1 局部变量
 
-### Description
+### 描述
 
-Examples have been described only using the examples of local variables defined with the var statement. Local variables are created by a var statement in one job program and are automatically destroyed when the program ends after the encounter with the end statement. Moreover, their values cannot be read or written by other programs. 
+示例仅使用 var 语句定义的局部变量进行描述。局部变量是在一个作业程序中通过 var 语句创建的，并在程序结束后自动销毁。此外，其他程序无法读取或写入它们的值。
 
-### Example
+### 示例
 
-"main\_v" is a local variable accessible only within 0001.job, and "sub\_v" is a local variable accessible only within 0107.job.   Attempting to access it from another program will cause an error. 
+"main\_v" 是一个仅在 0001.job 中可访问的局部变量，"sub\_v" 是一个仅在 0107.job 中可访问的局部变量。从其他程序尝试访问它会导致错误。
 
-The local variable "x" is defined in both 0001.job and 0107.job. The local variable "x" respectively defined in both programs has the same name but are different. So the value 5 for the variable "x" is set in subprogram 0107, 3 will be printed instead of 5 after the return to main program 0001.
-
-
+局部变量 "x" 同时在 0001.job 和 0107.job 中定义。在两个程序中分别定义的局部变量 "x" 同名但不同。因此，在子程序 0107 中为变量 "x" 设置的值 5，在返回主程序 0001 后将打印 3，而不是 5。
 
 <table>
   <thead>
@@ -55,18 +53,17 @@ The local variable "x" is defined in both 0001.job and 0107.job. The local varia
         <p>var x
           <br />
         </p>
-        <p>print sub_v # ok
+        <p>打印 sub_v # ok
           <br />
         </p>
-        <p>print main_v # error
+        <p>打印 main_v # error
           <br />
         </p>
         <p>x=5
           <br />
         </p>
-        <p>end</p>
+        <p>结束</p>
       </td>
     </tr>
   </tbody>
 </table>
-

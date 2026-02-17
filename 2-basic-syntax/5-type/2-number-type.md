@@ -1,6 +1,6 @@
-﻿# 2.5.2 Number Data Type
+﻿# 2.5.2 数值数据类型
 
-The number data type stores an integer or real number. Let us print using the print statement. If you list multiple values separated by commas \(,\) in the print statement, as shown in the example below, each value will be displayed separated by a space.
+数值数据类型存储整数或实数。让我们使用打印语句进行打印。如果在打印语句中列出多个用逗号 \(,\) 分隔的值，如下例所示，则每个值将以空格分隔显示。
 
 ```python
 280
@@ -9,12 +9,9 @@ The number data type stores an integer or real number. Let us print using the pr
 print 280, -99
 ```
 
-Inside the system, integers and real numbers are processed separately. Each data size is as follows:
+在系统内部，整数和实数分别处理。每种数据大小如下：
 
-| Data type | Data size \(byte\) |
+| 数据类型 | 数据大小 \(字节\) |
 | :--- | :--- |
-| Integer | 4 |
-| Real number | 8 |
-
-
-
+| 整数 | 4 |
+| 实数 | 8 |

@@ -1,12 +1,9 @@
-﻿# 2.3.2 Assignment Statements
+# 2.3.2 赋值语句
 
-An assignment statement consists of the left side, the assignment operator \(=\), and the right side. The left side \(lvalue\) must be a variable that can store a value. No constants or expressions are allowed. 
+赋值语句由左侧、赋值运算符 \(=\) 和右侧组成。左侧 \(lvalue\) 必须是一个可以存储值的变量。常量或表达式是不允许的。
 
-On the other hand, constants, variables, and expressions are allowed on the right side \(rvalue\).
-
-
+另一方面，右侧 \(rvalue\) 允许常量、变量和表达式。 
 
 ```python
 height=(500+margin)/2
 ```
-

@@ -1,25 +1,25 @@
-﻿# `_acc_rate`
+# `_acc_rate`
 
-Get or set the rate of acceleration in the speed-profile.
+获取或设置速度曲线中的加速度。
 
-### Description
+### 描述
 
-- unit : %
-- range : 1 to 100
-- default value : 100
+- 单位 : %
+- 范围 : 1 到 100
+- 默认值 : 100
 
-### Syntax
+### 语法
 
 ```python
 var res
 res = _acc_rate
 ```
 
-### Sample
+### 示例
 
 ```python
    ...
-   # Print current accel-rate, and set to 70%.
+   # 打印当前加速度，并设置为70%。
    print _acc_rate
    _acc_rate=70
    ...

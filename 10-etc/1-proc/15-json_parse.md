@@ -1,66 +1,61 @@
 ﻿# 10.1.15 `json_parse`
 
-Supported from V60.32-00
+支持版本：V60.32-00
 
-The `json_parse` procedure parses a JSON string to build an object, an array, or a value.
+`json_parse` 过程解析 JSON 字符串以构建对象、数组或值。
 
-### Syntax
+### 语法
 
-Right after the procedure starts, the `result()` function returns a result object used for checking the status and storing the result data.
+在过程开始后，`result()` 函数返回一个结果对象，用于检查状态和存储结果数据。
 ```python
     json_parse <json string literal/value>
     var r = result()
 ```
 
-You must wait for this procedure to complete.
+您必须等待此过程完成。
 ```python
     wait r.status == "finished"
 ```
 
-The result of parsing will be stored in `r.data`. An error may occur if the procedure is not allowed to finish before accessing the result.
+解析的结果将存储在 `r.data` 中。如果在访问结果之前不允许程序完成，则可能会发生错误。
 
-
-##### status
+##### 状态
 
 <table>
   <thread>
-    <th style="text-align:left">status</th>
-    <th style="text-align:left">details</th>
+    <th style="text-align:left">状态</th>
+    <th style="text-align:left">详细信息</th>
   </thread>
   <tbody>
   <tr>
-    <td style="text-align:left">parsing</td>
-    <td style="text-align:left">The JSON string is still being parsed. The data cannot be used yet.</td>
+    <td style="text-align:left">解析中</td>
+    <td style="text-align:left">JSON 字符串仍在解析中。数据尚不可用。</td>
   </tr>
   <tr>
-    <td style="text-align:left">finished</td>
-    <td style="text-align:left">JSON string parsing is complete. The data can now be used.</td>
+    <td style="text-align:left">已完成</td>
+    <td style="text-align:left">JSON 字符串解析已完成。数据现在可用。</td>
   </tr>
   </tbody>
 </table>
 
-
-
-### Examples
+### 示例
 ```python
     json_parse "[1, 2, 3, 4]"
     var r = result()
-    wait r.status == "finished", 10 # Wait for the process to complete, with a maximum timeout of 10 seconds.
-    var jr = r.data   # The type of r.data is array
-    print jr          # [1, 2, 3, 4] printed
+    wait r.status == "finished", 10 # 等待进程完成，最长超时 10 秒。
+    var jr = r.data   # r.data 的类型是数组
+    print jr          # 打印 [1, 2, 3, 4]
 ```
-
-```python
     json_parse "3.141592"
     var r = result()
-    wait r.status == "finished", 10 # Wait for the process to complete, with a maximum timeout of 10 seconds.
-    var jr = r.data    # The type of r.data is double
-    print jr           # 3.141592 printed
+    wait r.status == "finished", 10 # 等待进程完成，最大超时为10秒。
+    var jr = r.data    # r.data 的类型为 double
+    print jr           # 打印出 3.141592
 ```
 ```python
-    json_parse "{\"test\": \"value\"}" # Double quotes must be escaped inside a JSON string.
+    json_parse "{\"test\": \"value\"}" # JSON 字符串内部的双引号必须被转义。
     var r = result()
-    wait r.status == "finished", 10 # Wait for the process to complete, with a maximum timeout of 10 seconds.
-    var jr = r.data    # The type of r.data is JObject
-    print jr           # { _type: "JObject", _sub_file: "", _desc: "", test: "value" } printed
+    wait r.status == "finished", 10 # 等待进程完成，最大超时为10秒。
+    var jr = r.data    # r.data 的类型为 JObject
+    print jr           # 打印出 { _type: "JObject", _sub_file: "", _desc: "", test: "value" } 
 ```

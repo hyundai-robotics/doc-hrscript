@@ -1,20 +1,17 @@
-﻿# 3.2.2 `end`
+# 3.2.2 `end`
 
-### Description
+### 描述
 
-This will stop the program. Execution will restart from the beginning of the main program when in continuous playback mode or in restart mode.
+这将停止程序。当处于连续播放模式或重启模式时，执行将从主程序的开头重新开始。
 
-### Syntax
+### 语法
 
 end
 
-### Example
+### 示例
 
 ```python
 move p,spd=70%,accu=1,tool=0
 move p,spd=70%,accu=1,tool=0
 end
 ```
-
-
-

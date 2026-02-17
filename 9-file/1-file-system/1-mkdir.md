@@ -1,43 +1,43 @@
 ﻿# 9.1.1 `mkdir`
 
-`mkdir` is the procedure making directory.
+`mkdir` 是创建目录的过程。
 
-### Description
+### 描述
 
-Creates a directory for the specified path in the MAIN module.
+在MAIN模块中为指定路径创建一个目录。
 
-- You cannot create a directory on Teach Pendant or USB memory.
-- If a directory with an intermediate path does not exist, it creates the intermediate path.
+- 您不能在教学挂件或USB内存上创建目录。
+- 如果中间路径的目录不存在，则会创建中间路径。
 
-### Syntax
+### 语法
 
 ```python
 mkdir <path>
 ```
 
-### Parameters
+### 参数
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Parameter</th>
-      <th style="text-align:left">Description</th>
-      <th style="text-align:left">Remarks</th>
+      <th style="text-align:left">参数</th>
+      <th style="text-align:left">描述</th>
+      <th style="text-align:left">备注</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="text-align:left">path</td>
       <td style="text-align:left">
-        The directory path to create.<br>
-        Do not put / at the beginning.
+        要创建的目录路径。<br>
+        开头不要加 /。
       </td>
-      <td style="text-align:left">string expression</td>
+      <td style="text-align:left">字符串表达式</td>
     </tr>
   </tbody>
 </table>
 
-### Sample
+### 示例
 
 ```python
 mkdir "work/data1"

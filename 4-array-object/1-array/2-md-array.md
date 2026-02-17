@@ -1,10 +1,10 @@
-﻿# 4.1.2 Multidimensional Arrays
+﻿# 4.1.2 多维数组
 
-An array can also be nested as an element of an array. When accessing the elements of a multidimensional array, you can use the `[ ]` operator consecutively. In the following example, `arr_y` is a two-dimensional array. \(1\)
+数组也可以作为数组的元素进行嵌套。访问多维数组的元素时，可以连续使用 `[ ]` 操作符。在以下示例中，`arr_y` 是一个二维数组。 \(1\)
 
-`arr_y[1]` is an array of elements of index 1, namely `["abc", "jqk", "xyz"]`, and it is assigned to the new variable `arr_x`. \(2\)
+`arr_y[1]` 是索引为 1 的元素数组，即 `["abc", "jqk", "xyz"]`，并将其赋值给新变量 `arr_x`。 \(2\)
 
-So, `arr_x[1]` is `jqk`, and `arr_y[1][2]` is `xyz` because it points to `[2]` of `arr_y[1]`.
+所以，`arr_x[1]` 是 `jqk`，而 `arr_y[1][2]` 是 `xyz`，因为它指向 `arr_y[1]` 的 `[2]`。
 
 
 
@@ -35,7 +35,7 @@ So, `arr_x[1]` is `jqk`, and `arr_y[1][2]` is `xyz` because it points to `[2]` o
       </td>
     </tr>
     <tr>
-      <td style="text-align:left">Result</td>
+      <td style="text-align:left">结果</td>
       <td style="text-align:left">
         <p>jqk
           <br />
@@ -47,4 +47,3 @@ So, `arr_x[1]` is `jqk`, and `arr_y[1][2]` is `xyz` because it points to `[2]` o
     </tr>
   </tbody>
 </table>
-

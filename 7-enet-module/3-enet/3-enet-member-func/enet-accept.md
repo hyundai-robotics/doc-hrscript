@@ -1,95 +1,93 @@
-﻿# `accept`
+# `accept`
 
-### Description
+### 描述
 
-As a server in Ethernet TCP communication, it waits for a connection request from the client side. Creates a connection when a request occurs.
-Not used in UDP peer-to-peer communication.
-
-
-### Syntax
-
-`{ENet object}.accept [{waiting time}] [, {address on timeout}]`
+作为以太网 TCP 通信中的服务器，它等待来自客户端的连接请求。当请求发生时创建连接。
+在 UDP 对等通信中不使用。
 
 
-### Parameters
+### 语法
+
+`{ENet object}.accept [{等待时间}] [, {超时地址}]`
+
+
+### 参数
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Name</th>
-      <th style="text-align:left">Meaning</th>
-      <th style="text-align:left">Misc.</th>
+      <th style="text-align:left">名称</th>
+      <th style="text-align:left">含义</th>
+      <th style="text-align:left">其他</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>waiting time</td>
+      <td>等待时间</td>
       <td>
-        timeout. If elapsed, proceed to the next command or jump to the address on timeout.<br>
-        If not specified, wait ininfinitely.
+        超时。如果经过时间，执行下一个命令或跳转到超时地址。<br>
+        如果未指定，则无限等待。
       </td>
-      <td>msec</td>
+      <td>毫秒</td>
     </tr>
     <tr>
-      <td>address on timeout</td>
+      <td>超时地址</td>
       <td>
-        address to which jump on timeout.<br>
-        If not specified, proceed to next command.
+        超时后跳转的地址。<br>
+        如果未指定，则执行下一个命令。
       </td>
-      <td>address</td>
+      <td>地址</td>
     </tr>
   </tbody>
 </table>
 
 
-### Return value
+### 返回值
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Name</th>
-      <th style="text-align:left">Meaning</th>
-      <th style="text-align:left">Misc.</th>
+      <th style="text-align:left">名称</th>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">含义</th>
+      <th style="text-align:left">其他</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>1</td>
       <td>
-        OK (completed)
+        OK（完成）
       </td>
       <td></td>
     </tr>  
     <tr>
       <td>0</td>
       <td>
-        waiting
+        等待中
       </td>
       <td></td>
     </tr>
     <tr>
       <td>-1</td>
-      <td>timeout</td>
+      <td>超时</td>
       <td></td>
     </tr>
     <tr>
       <td>-2</td>
-      <td>error</td>
+      <td>错误</td>
       <td></td>
     </tr>    
   </tbody>
 </table>
 
 
-### Example
+### 示例
 
-```python
 enet_to_sensor.listen
 var ret=enet_to_sensor.accept(5000)
-```
 
-```python
 enet_to_sensor.listen
 enet_to_sensor.accept 5000,*TimeOut
-```
-

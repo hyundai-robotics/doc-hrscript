@@ -1,20 +1,17 @@
-﻿# 3.2.1 `stop`
+﻿# 3.2.1 `停止 (stop)`
 
-### Description
+### 描述
 
-This will stop the program. When the program is restarted, execution will continue from the next line.
+这将停止程序。当程序重新启动时，执行将从下一行继续。
 
-### Syntax
+### 语法
 
 stop
 
-### Example 
+### 示例 
 
 ```python
 if di9
   stop
 endif
 ```
-
-
-

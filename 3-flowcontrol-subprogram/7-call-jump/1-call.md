@@ -1,22 +1,22 @@
 ﻿# 3.7.1 `call`
 
-### Description
+### 描述
 
-There is no significant difference in format between the main program and the subprogram in HRScript. The first job executed by the start button or by a signal is the main program, and all other jobs called by the `call` statement are subprograms. 
+HRScript中主程序和子程序的格式没有显著区别。通过启动按钮或信号执行的第一个任务是主程序，所有通过`call`语句调用的其他任务则是子程序。
 
-### Syntax
+### 语法
 
 ```python
-call <job number, file name, or user function name> [,parameter 1,parameter 2,...]
+call <作业编号，文件名或用户函数名> [,参数1,参数2,...]
 ```
 
-Specify the job number of the job file name \(excluding the extension\) after the `call` statement. Then, while program `A` is being executed, if call `B` is encountered, `A`'s execution will be stopped, and the first statement of program `B`, a subprogram, will continue to be executed. If the `end` or `return` statement is encountered while `B` is being executed, program `A`'s execution will continue upon returning to the position of the next statement of program `A`'s `call` statement that was previously called.
+在`call`语句后指定作业文件名的作业编号（不包括扩展名）。然后，在执行程序`A`时，如果遇到调用`B`，将停止执行`A`，并继续执行子程序`B`的第一条语句。如果在执行`B`时遇到`end`或`return`语句，程序`A`的执行将在返回到之前调用的程序`A`的`call`语句的下一条语句的位置继续。
 
-### Example
+### 示例
 
-The following shows an example and the result of a subprogram called by a `call` statement. It seems meaningless to divide the program into two because the subprogram must handle only one print statement. However, a more practical example will be shown later.
+以下显示了通过`call`语句调用的子程序的示例及结果。将程序分成两个似乎没有意义，因为子程序必须仅处理一个打印语句。不过，将在后面展示一个更实用的例子。
 
-* Refer to [3.7.3 def](./3-def.md) for an example of calling user function.
+* 请参见[3.7.3 def](./3-def.md)以获取调用用户函数的示例。
 
 ```python
 # 0001_main.job
@@ -34,7 +34,7 @@ end
 
 <br>
 
-RESULT
+结果
 ```python
 main job start
 sub-program

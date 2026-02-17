@@ -1,32 +1,32 @@
-﻿# 3.2.3 `delay`
+﻿# 3.2.3 `延迟 (delay)`
 
-### Description
+### 描述
 
-Makes it possible to progress to the next command statement after waiting for a designated time.
+使得在等待指定时间后可以继续执行下一个命令语句。
 
-### Syntax
+### 语法
 
 delay &lt;time&gt;
 
-### Parameter
+### 参数
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Parameter</th>
-      <th style="text-align:left">Description</th>
-      <th style="text-align:left">Remarks</th>
+      <th style="text-align:left">参数</th>
+      <th style="text-align:left">描述</th>
+      <th style="text-align:left">备注</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align:left">Time</td>
-      <td style="text-align:left">Time to wait</td>
+      <td style="text-align:left">时间</td>
+      <td style="text-align:left">等待的时间</td>
       <td style="text-align:left">
-        <p>Arithmetic expression
+        <p>算术表达式
           <br />
         </p>
-        <p>0.1~60.0 sec
+        <p>0.1~60.0 秒
           <br />
         </p>
       </td>
@@ -34,11 +34,8 @@ delay &lt;time&gt;
   </tbody>
 </table>
 
-### Example
+### 示例
 
 ```python
 delay 3.5
 ```
-
-
-

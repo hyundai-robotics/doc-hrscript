@@ -1,22 +1,18 @@
 ﻿# `set_send_trail_null`
 
+### 描述
 
-### Description
+当使用 `ENet.send()` 函数发送字符串时，它设置是否附加终止空字符进行发送。（默认为 false）
 
-When sending a string with the `ENet.send()` function, it sets whether to send it with a terminating-null character attached. (default is false)
-
-
-### Syntax
+### 语法
 
 `{ENet object}.set_send_trail_null(true|false)`
 
+### 返回值
 
-### Return value
+无。
 
-None.
-
-
-### Example
+### 示例
 
 ```python
 enet_to_sensor.set_send_trail_null(true)

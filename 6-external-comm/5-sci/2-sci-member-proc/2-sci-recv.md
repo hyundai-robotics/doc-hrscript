@@ -1,54 +1,50 @@
 ﻿# recv
 
-### Description
+### 描述
 
-Call `Sci`'s `recv` to receive a string.
+调用 `Sci` 的 `recv` 以接收字符串。
 
-
-### Syntax
+### 语法
 
 &lt;Sci object&gt;.recv string variable \[,{timeout}\] \[,{goto address}\]
 
-
-### Parameters
+### 参数
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Item</th>
-      <th style="text-align:left">Meaning</th>
-      <th style="text-align:left">Etc</th>
+      <th style="text-align:left">项目</th>
+      <th style="text-align:left">含义</th>
+      <th style="text-align:left">其他</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>string variable</td>
       <td>
-        A string variable that will hold the entered string when successfully received.<br>
+        一个字符串变量，当成功接收输入的字符串时将其存放在此处。<br>
       </td>
       <td></td>
     </tr>
     <tr>
       <td>timeout</td>
       <td>
-        When no data is received for a specified time, it branches to the goto address, and if there is no goto address, an error occurs.<br>
-        If not specified, it waits indefinitely.
+        当指定时间内没有接收到数据时，分支到goto地址，如果没有goto地址，则会发生错误。<br>
+        如果未指定，则无限期等待。
       </td>
-      <td>msec</td>
+      <td>毫秒</td>
     </tr>
     <tr>
       <td>goto address</td>
       <td>
-        Address to branch to when timeout occurs.<br>
-        If not specified, it stops with an error.
+        当发生超时时要分支的地址。<br>
+        如果未指定，则会停止并发生错误。
       </td>
-      <td>address</td>
+      <td>地址</td>
     </tr>
   </tbody>
 </table>
-
-
-### Example
+### 示例
 
 ```python
    var msg
@@ -57,9 +53,6 @@ Call `Sci`'s `recv` to receive a string.
    ...
    ...
    *timeout
-   print "timeout error"
+   print "超时错误"
    stop
 ```
-
-
-

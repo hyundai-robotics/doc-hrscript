@@ -1,115 +1,115 @@
-﻿# 7.4.2 Supported format
+﻿# 7.4.2 支持的格式
 
-The member function `append()` or `read_num()` requires a type to be specified as an argument.
+成员函数 `append()` 或 `read_num()` 需要指定一个类型作为参数。
 
-The format consists of 1 alphabet meaning Signed/Unsigned/Floating-point and 1 digit meaning the number of bytes.<br>
-If the alphabet is uppercase it is big endian, and lowercase it is little endian.
+格式由 1 个字母表示有符号/无符号/浮点数和 1 个数字表示字节数。<br>
+如果字母是大写则为大端模式，小写则为小端模式。
 
 <table>
   <thead>
     <tr>
-      <th>Format</th>
-      <th>Endian</th>
-      <th>Type</th>
-      <th>The number of bytes</th>
+      <th>格式</th>
+      <th>字节顺序</th>
+      <th>类型</th>
+      <th>字节数</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>"S1"</td>
-      <td>big endian<br>
-      <td>signed integer<br>
-      <td>1byte<br>
+      <td>大端模式<br>
+      <td>有符号整数<br>
+      <td>1字节<br>
     </tr>
     <tr>
       <td>"S2"</td>
-      <td>big endian<br>
-      <td>signed integer<br>
-      <td>2byte<br>
+      <td>大端模式<br>
+      <td>有符号整数<br>
+      <td>2字节<br>
     </tr>
     <tr>
       <td>"S4"</td>
-      <td>big endian<br>
-      <td>signed integer<br>
-      <td>4byte<br>
+      <td>大端模式<br>
+      <td>有符号整数<br>
+      <td>4字节<br>
     </tr>
     <tr>
       <td>"U1"</td>
-      <td>big endian<br>
-      <td>unsigned integer<br>
-      <td>1byte<br>
+      <td>大端模式<br>
+      <td>无符号整数<br>
+      <td>1字节<br>
     </tr>
     <tr>
       <td>"U2"</td>
-      <td>big endian<br>
-      <td>unsigned integer<br>
-      <td>2byte<br>
+      <td>大端模式<br>
+      <td>无符号整数<br>
+      <td>2字节<br>
     </tr>
     <tr>
       <td>"U4"</td>
-      <td>big endian<br>
-      <td>unsigned integer<br>
-      <td>4byte<br>
+      <td>大端模式<br>
+<td>无符号整数<br>
+      <td>4字节<br>
     </tr>
     <tr>
       <td>"F4"</td>
-      <td>big endian<br>
-      <td>single-precision real<br>
-      <td>4byte<br>
+      <td>大端<br>
+      <td>单精度实数<br>
+      <td>4字节<br>
     </tr>
     <tr>
       <td>"F8"</td>
-      <td>big endian<br>
-      <td>double-precision real<br>
-      <td>8byte<br>
+      <td>大端<br>
+      <td>双精度实数<br>
+      <td>8字节<br>
     </tr>
     <tr>
       <td>"s1"</td>
-      <td>little endian<br>
-      <td>signed integer<br>
-      <td>1byte<br>
+      <td>小端<br>
+      <td>带符号整数<br>
+      <td>1字节<br>
     </tr>
     <tr>
       <td>"s2"</td>
-      <td>little endian<br>
-      <td>signed integer<br>
-      <td>2byte<br>
+      <td>小端<br>
+      <td>带符号整数<br>
+      <td>2字节<br>
     </tr>
     <tr>
       <td>"s4"</td>
-      <td>little endian<br>
-      <td>signed integer<br>
-      <td>4byte<br>
+      <td>小端<br>
+      <td>带符号整数<br>
+      <td>4字节<br>
     </tr>
     <tr>
       <td>"u1"</td>
-      <td>little endian<br>
-      <td>unsigned integer<br>
-      <td>1byte<br>
+      <td>小端<br>
+      <td>无符号整数<br>
+      <td>1字节<br>
     </tr>
     <tr>
       <td>"u2"</td>
-      <td>little endian<br>
-      <td>unsigned integer<br>
-      <td>2byte<br>
+      <td>小端<br>
+      <td>无符号整数<br>
+      <td>2字节<br>
     </tr>
     <tr>
       <td>"u4"</td>
-      <td>little endian<br>
-      <td>unsigned integer<br>
-      <td>4byte<br>
+      <td>小端<br>
+      <td>无符号整数<br>
+      <td>4字节<br>
     </tr>
     <tr>
       <td>"f4"</td>
-      <td>little endian<br>
-      <td>single-precision real<br>
-      <td>4byte<br>
+      <td>小端<br>
+      <td>单精度实数<br>
+      <td>4字节<br>
     </tr>
     <tr>
       <td>"f8"</td>
-      <td>little endian<br>
-      <td>double-precision real<br>
-      <td>8byte<br>
+      <td>小端<br>
+      <td>双精度实数<br>
+      <td>8字节<br>
     </tr>
 	 <tr>
 

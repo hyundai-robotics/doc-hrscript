@@ -1,41 +1,34 @@
-﻿# 2.6 Variables
+# 2.6 变量
 
-A variable can store values and has an identifier name. Variables are divided into global and local variables, and the difference between them will be described later. Examples of local variables are first described here.
+变量可以存储值并具有标识符名称。变量分为全局变量和局部变量，它们之间的区别将在后面描述。局部变量的示例将在这里首次介绍。
 
-
-
-Variables can be created with the var command, as shown in the following. This is called defining a variable. Multiple identifiers can be created at once by enumerating multiple identifiers after the var command.
-
-
+变量可以使用 var 命令创建，如下所示。这被称为定义变量。可以通过在 var 命令后列举多个标识符一次性创建多个标识符。
 
 ```python
 var myvar
 var width, height, depth
 ```
 
-Storing a value in a variable is called "assignment." The assignment may be performed while defining or after defining a variable. If the assignment is not performed while defining, the variable will have a number value of 0 by default.
+将值存储到变量中称为“赋值”。赋值可以在定义变量时或在定义变量后进行。如果在定义时未进行赋值，则变量默认具有数值 0。
 
 ```python
 var myvar=0
 var message, width=200
-message="Invalid input value"
+message="无效的输入值"
 ```
 
-In HRScript, \(=\) does not mean equal. It is used as an assignment operator and means that the value on the operator"s right side is assigned to the variable on the left side. The value stored in the variable may be printed through the print statement.
+在 HRScript 中，\(=\) 并不表示相等。它用作赋值运算符，意味着运算符右侧的值被赋给左侧的变量。存储在变量中的值可以通过 print 语句打印出来。
 
 ```python
 var myvar=0
 var message, width=200
-message="Invalid input value"
+message="无效的输入值"
 print width, message
 ```
 
-A different value may be assigned to a variable to which a value has already been assigned. It is called a variable because its value can change.
+可以给已经赋值的变量赋一个不同的值。之所以称为变量，是因为其值可以改变。
 
 ```python
 var width=200
 width=300
 ```
-
-
-

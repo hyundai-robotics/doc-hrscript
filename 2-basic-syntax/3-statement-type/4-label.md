@@ -1,4 +1,3 @@
-﻿# 2.3.4 Labels
+﻿# 2.3.4 标签
 
-A label is used to mark the target point to move to according to the goto statement. It consists of an asterisk \(\*\) and an identifier.
-
+标签用于标记根据 goto 语句移动的目标点。它由一个星号 \(\*\) 和一个标识符组成。

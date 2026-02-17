@@ -1,25 +1,25 @@
 ﻿# 3.6.1 `for`-`next`
 
-### Description
+### 描述
 
-The format of the `for`~`next` statement, which repeats the same operation, is as follows.
+重复相同操作的 `for`~`next` 语句的格式如下。
 
-First, the initial value will be assigned to the index variable. When the `next` statement is encountered while the statements under the `for` statement are executed, the index variable will add increment/decrement values and perform repetition from the point of the `for` statement. When the index variable passes the end value, the repetition will end.
+首先，初始值将被分配给索引变量。当在执行 `for` 语句下的语句时遇到 `next` 语句时，索引变量将增加或减少值，并从 `for` 语句的点开始重复。当索引变量超过结束值时，重复将结束。
 
-If a step is not specified, 1 will be applied.
+如果未指定步长，将应用 1。
 
-### Syntax
+### 语法
 
 ```python
-for <index variable>=<initial value> to <end value> [step <increment/decrement value>]
-	<statement>
+for <索引变量>=<初始值> to <结束值> [step <增量/减量值>]
+	<语句>
 	...
 next
 ```
 
-### Example
+### 示例
 
-The following shows an example of a routine that accumulates 1 to 10 in the sum using the `for`-`next` statement. When the repetition is over, 11 and 55 will be printed on the screen.
+下面是一个使用 `for`-`next` 语句将 1 到 10 累加到总和的例子。当重复结束时，11 和 55 将在屏幕上打印出来。
 
 ```python
 var idx

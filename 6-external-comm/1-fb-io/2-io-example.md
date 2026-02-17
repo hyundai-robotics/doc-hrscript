@@ -1,16 +1,15 @@
-﻿# 6.1.2 Examples
+﻿# 6.1.2 示例
 
-Refer to the following examples of usage.
+请参考以下使用示例。
 
 ```python
-do2=1		# Turns on the bit output value of number 0 of fb0
-fb2.dob3=0b00001111  	# Designates the 3rd byte output value of fb2 as a binary bit string
-fb[4].dob1=0x0F  	# Turns on the lower 4 bits of the 1st byte output value of fb4, and turns off the upper 4 bits
-var work_no=fb9.dib3    # Assigns the 3rd byte input value of fb9 to the work_no variable
-if fb5.di43 then *err  	# Branches to the *err label when fb5.di42 is turned on
+do2=1		# 打开 fb0 的编号0的位输出值
+fb2.dob3=0b00001111  	# 将 fb2 的第3个字节输出值指定为二进制位字符串
+fb[4].dob1=0x0F  	# 打开 fb4 的第1个字节输出值的最低4位，并关闭最高4位
+var work_no=fb9.dib3    # 将 fb9 的第3个字节输入值分配给 work_no 变量
+if fb5.di43 then *err  	# 当 fb5.di42 被打开时，分支到 *err 标签
 for idx=21 to 29
-  fb3.do[idx]=1  	# Turns on all output signals do21 ~ do29 of fb3 
+  fb3.do[idx]=1  	# 打开 fb3 的所有输出信号 do21 ~ do29 
 next
-fb2.do3=fb2.do7=fb2.do11=1   # Turns on 3rd, 7th, and 11th output signals of fb2 at once
+fb2.do3=fb2.do7=fb2.do11=1   # 一次性打开 fb2 的第3、第7和第11个输出信号
 ```
-

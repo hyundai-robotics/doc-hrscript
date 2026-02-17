@@ -1,72 +1,69 @@
-﻿# `state`
+﻿# `状态 (state)`
 
-### Description
+### 描述
 
-Returns the state of the ethernet object.
+返回以太网对象的状态。
 
-
-### Syntax
+### 语法
 
 `{ENet object}.state`
 
-
-### Return value
+### 返回值
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Name</th>
-      <th style="text-align:left">Meaning</th>
-      <th style="text-align:left">Misc.</th>
+      <th style="text-align:left">名称</th>
+      <th style="text-align:left">含义</th>
+      <th style="text-align:left">其他</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>1</td>
       <td>
-        Connected. <br>
-        (In case of UDP, even just an `open` is considered connected.<br>
-         In the case of TCP, it is considered connected only when `listen`, `connect`, and `accept` are performed after `open`.
+        连接中。 <br>
+        （在 UDP 的情况下，即使只是 `open` 也被视为连接。<br>
+         在 TCP 的情况下，仅在 `open` 后执行 `listen`、`连接 (connect)` 和 `accept` 时才被视为连接。
       </td>
       <td></td>
     </tr>
     <tr>
       <td>0</td>
-      <td>Disconnected.</td>
+      <td>已断开连接。</td>
       <td></td>
     </tr>
     <tr>
       <td>-1</td>
-      <td>Failed in creating ethernet socket.</td>
+      <td>创建以太网套接字失败。</td>
       <td></td>
     </tr>
     <tr>
       <td>-2</td>
-      <td>Failed in binding ethernet socket.</td>
+      <td>绑定以太网套接字失败。</td>
       <td></td>
     </tr>
     <tr>
       <td>-3</td>
-      <td>Failed to connect.</td>
-      <td></td>
+      <td>连接失败。</td>
+<td></td>
     </tr>
     <tr>
       <td>-4</td>
-      <td>Failed to listen.</td>
+      <td>监听失败。</td>
       <td></td>
     </tr>
     <tr>
       <td>-5</td>
-      <td>Failed to accept.</td>
+      <td>接受失败。</td>
       <td></td>
     </tr>
   </tbody>
 </table>
 
 
-### Example
+### 示例
 
 ```python
 var ret = enet_to_sensor.state()
 ```
-

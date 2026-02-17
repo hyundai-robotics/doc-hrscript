@@ -1,10 +1,10 @@
-﻿# 3.4.4. `if`-`elseif`-`else`-`endif`
+# 3.4.4. `if`-`elseif`-`else`-`endif`
 
-### Description
+### 描述
 
-In the case of multiple conditions, the `elseif` statement can be used in the following form.
+在多个条件的情况下，可以以以下形式使用 `elseif` 语句。
 
-### Syntax
+### 语法
 
 ```python
 if <bool expression>
@@ -22,7 +22,7 @@ else
 endif
 ```
 
-### Example
+### 示例
 
 ```python
 var pressure=95, limit_h=90, limit_m=80
@@ -35,6 +35,3 @@ else
 endif
 end
 ```
-
-
-

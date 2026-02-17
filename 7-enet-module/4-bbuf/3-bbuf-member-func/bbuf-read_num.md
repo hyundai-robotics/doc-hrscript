@@ -1,56 +1,52 @@
 ﻿# `read_num`
 
-### Description
+### 描述
 
-Reads a numeric value from a specified position in the binary buffer, and returns it.
+从二进制缓冲区的指定位置读取数值，并返回该值。
 
-
-### Syntax
+### 语法
 
 `{BBuf object}.read_num {format},{offset}`
 
-
-### Parameters
+### 参数
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Name</th>
-      <th style="text-align:left">Meaning</th>
-      <th style="text-align:left">Misc.</th>
+      <th style="text-align:left">名称</th>
+      <th style="text-align:left">含义</th>
+      <th style="text-align:left">其他</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="text-align:left">format</td>
-      <td style="text-align:left">binary data format<sup>*</sup><br>
-      e.g. "U4", "s2"<br>
+      <td style="text-align:left">二进制数据格式<sup>*</sup><br>
+      例如 "U4", "s2"<br>
       </td>
-      <td style="text-align:left">string</td>
+      <td style="text-align:left">字符串</td>
     </tr>
 	 <tr>
       <td style="text-align:left">offset</td>
       <td style="text-align:left">
-        position at which to read the data (0-based byte offset)
+        读取数据的位置（基于0的字节偏移）
       </td>
-      <td style="text-align:left">integer</td>
+      <td style="text-align:left">整数</td>
     </tr>
   </tbody>
 </table>
 
 <br>
 
-\* Refer to [7.4.2 Supported format](../2-format.md).
+\* 请参考 [7.4.2 支持的格式](../2-format.md).
 <br>
 <br>
 
-### Return value
+### 返回值
 
-* Numeric value read
-* If an error occurs when reading the data type, it returns 0.
-
-
-### Example
+* 读取的数值
+* 如果在读取数据类型时发生错误，则返回0。
+### 示例
 
 ```python
 var bbuf=enet.BBuf()

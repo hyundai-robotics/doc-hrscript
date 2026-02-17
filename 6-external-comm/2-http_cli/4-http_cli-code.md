@@ -1,22 +1,22 @@
-﻿# 6.2.4 HTTP Communication Codes
+﻿# 6.2.4 HTTP通信代码
 
-* Major HTTP Response Codes 
+* 主要HTTP响应代码 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Response Category</th>
-      <th style="text-align:left">Response Code</th>
-      <th style="text-align:left">Description</th>
+      <th style="text-align:left">响应类别</th>
+      <th style="text-align:left">响应代码</th>
+      <th style="text-align:left">描述</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td rowspan="2">Informational</td>
+      <td rowspan="2">信息</td>
       <td>
         100
       </td>
       <td>
-      continue
+      继续
       </td>
     </tr>
     <tr>
@@ -24,17 +24,17 @@
         101
       </td>
       <td>
-      Switching protocols
+      切换协议
       </td>
     </tr>
     <tr>
     <tr>
-      <td rowspan="5">Success</td>
+      <td rowspan="5">成功</td>
       <td>
         200
       </td>
       <td>
-      OK
+      成功
       </td>
     </tr>
     <tr>
@@ -42,7 +42,7 @@
         201
       </td>
       <td>
-      Created
+      已创建
       </td>
     </tr>
     <tr>
@@ -50,7 +50,7 @@
         202
       </td>
       <td>
-      Accepted
+      已接受
       </td>
     </tr>
     <tr>
@@ -58,7 +58,7 @@
         203
       </td>
       <td>
-      Non-authoritative information
+      非权威信息
       </td>
     </tr>
     <tr>
@@ -66,17 +66,17 @@
         204
       </td>
       <td>
-      No content
+      无内容
       </td>
     </tr>
     <tr>
     <tr>
-      <td rowspan="3">Redirection</td>
+      <td rowspan="3">重定向</td>
       <td>
         301
       </td>
       <td>
-      Moved permanently
+      永久移动
       </td>
     </tr>
     <tr>
@@ -84,7 +84,7 @@
         302
       </td>
       <td>
-      Not temporarily
+      非临时
       </td>
     </tr>
     <tr>
@@ -92,16 +92,16 @@
         303
       </td>
       <td>
-      Not modified
+      未修改
       </td>
     </tr>
     <tr>
-      <td rowspan="11">Client error</td>
+      <td rowspan="11">客户端错误</td>
       <td>
-        400
+```html
       </td>
       <td>
-      Bad Request
+      错误的请求
       </td>
     </tr>
     <tr>
@@ -109,7 +109,7 @@
         401
       </td>
       <td>
-      Unauthorized 
+      未授权 
       </td>
     </tr>
     <tr>
@@ -117,7 +117,7 @@
         402
       </td>
       <td>
-      Payment required
+      需要支付
       </td>
     </tr>
     <tr>
@@ -125,7 +125,7 @@
         403
       </td>
       <td>
-      Forbidden 
+      被禁止 
       </td>
     </tr>
     <tr>
@@ -133,7 +133,7 @@
         404
       </td>
       <td>
-      Not found 
+      未找到 
       </td>
     </tr>
     <tr>
@@ -141,15 +141,17 @@
         405
       </td>
       <td>
-      Method not allowed
+      方法不允许
       </td>
     </tr>
     <tr>
       <td>
         407
       </td>
-      <td>
-      Proxy authentication required 
+```
+```html
+<td>
+      需要代理身份验证
       </td>
     </tr>
     <tr>
@@ -157,7 +159,7 @@
         408
       </td>
       <td>
-      Request timeout
+      请求超时
       </td>
     </tr>
     <tr>
@@ -165,7 +167,7 @@
         410
       </td>
       <td>
-      Gone  
+      消失  
       </td>
     </tr>
     <tr>
@@ -173,7 +175,7 @@
         412
       </td>
       <td>
-      Precondition failed
+      先决条件失败
       </td>
     </tr>
     <tr>
@@ -181,24 +183,24 @@
         414
       </td>
       <td>
-      Request-URI too long
+      请求-URI太长
       </td>
     </tr>
     <tr>
-      <td rowspan="5">Server error</td>
+      <td rowspan="5">服务器错误</td>
       <td>
         500
       </td>
       <td>
-       Internal server error 
+       内部服务器错误 
       </td>
     </tr>
     <tr>
       <td>
         501
       </td>
-      <td>
-      Not implemented
+```
+      未实现
       </td>
     </tr>
     <tr>
@@ -206,7 +208,7 @@
         503
       </td>
       <td>
-      Service unnailable
+      服务不可用
       </td>
     </tr>
     <tr>
@@ -214,7 +216,7 @@
         504
       </td>
       <td>
-      Gateway timeout
+      网关超时
       </td>
     </tr>
     <tr>
@@ -222,21 +224,21 @@
         505
       </td>
       <td>
-      HTTP version not supported
+      不支持的HTTP版本
       </td>
     </tr>
   </tbody>
 </table>
 
 
-* Error Code (Exception)
+* 错误代码（异常）
 
 <table>
   <thead>
     <tr>
-    <th style="text-align:left">Error Name</th>
-      <th style="text-align:left">Error Code</th>
-      <th style="text-align:left">Description</th>
+    <th style="text-align:left">错误名称</th>
+      <th style="text-align:left">错误代码</th>
+      <th style="text-align:left">描述</th>
     </tr>
   </thead>
   <tbody>
@@ -246,74 +248,74 @@
         -1
       </td>
       <td>
-      There was an ambiguous exception that occurred while handling your request.
+      处理您的请求时发生了模棱两可的异常。
       </td>
-    </tr>
+</tr>
     <tr>
-      <td> ConnectionErr</td>
+      <td> 连接错误</td>
       <td>
         -2
       </td>
       <td>
-      In the event of a network problem (e.g. DNS failure, refused connection, etc)
+      如果发生网络问题（例如 DNS 失败、拒绝连接等）
       </td>
     </tr>
     <tr>
-    <td> HTTPError
+    <td> HTTP错误
       <td>
         -3
       </td>
       <td>
-      It will occur if the HTTP request returned an unsuccessful status code.
+      如果 HTTP 请求返回了不成功的状态码，则会发生此错误。
       </td>
     </tr>
     <tr>
-    <td>URLRequired</td>
+    <td>必需 URL</td>
       <td>
         -4
       </td>
       <td>
-      A valid URL is required to make a request.
+      进行请求需要一个有效的 URL。
       </td>
     </tr>
     <tr>
-    <td>TooManyRedirects</td>
+    <td>重定向过多</td>
       <td>-5</td>
       <td>
-      If a request exceeds the configured number of maximum redirections, a TooManyRedirects exception is raised.
+      如果请求超过配置的最大重定向次数，将引发 TooManyRedirects 异常。
       </td>
     </tr>
     <tr>
-    <td>Timeout</td>
+    <td>超时</td>
       <td>
         -6
       </td>
       <td>
-      If a request times out, a Timeout exception is raised.
+      如果请求超时，将引发 Timeout 异常。
       </td>
     </tr>
-    <td>SessionInvalid</td>
+    <td>会话无效</td>
       <td>
         -7
       </td>
       <td>
-        This error indicates that the session is invalid because a runtime error occurred while processing a session request.     Session is invalid. This error apears when the runtime error is happend during session requests.
+        此错误表示会话无效，因为在处理会话请求时发生了运行时错误。会话无效。此错误在会话请求期间发生运行时错误时出现。
       </td>
     </tr>
-    <td>UnhandledException</td>
+    <td>未处理的异常</td>
       <td>
         -8
       </td>
       <td>
-        An unexpected error occurred during the HTTP request or response processing (e.g., session creation, request execution, or response parsing) and did not match any explicitly handled exceptions. The request outcome is therefore reported as UnhandledException.
+        在HTTP请求或响应处理期间发生意外错误（例如，会话创建、请求执行或响应解析），并且不符合任何显式处理的异常。因此，请求结果报告为未处理的异常。
       </td>
     </tr>
-    <td>InvalidTimeout</td>
+    <td>无效的超时</td>
       <td>
         -9
       </td>
       <td>
-        When the timeout value exceeds the range of 5 ms to 15 ms.
+        当超时值超出5毫秒到15毫秒的范围时。
       </td>
     </tr>
   </tbody>

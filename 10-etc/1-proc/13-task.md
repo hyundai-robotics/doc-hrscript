@@ -1,10 +1,10 @@
-﻿# 10.1.13 `task` Statement
+# 10.1.13 `任务 (task)` 语句
 
-The `task` statement is a procedure used to perform multitasking functions.  
-For detailed information about the `task` statement, refer to the link below:  
-[${cont_model} Controller Function Manual - Multitasking](https://hrbook-hrc.web.app/#/view/doc-multi-task/en/README)  
+`任务 (task)` 语句是用于执行多任务功能的过程。  
+有关 `任务 (task)` 语句的详细信息，请参阅以下链接：  
+[${cont_model} 控制器功能手册 - 多任务处理](https://hrbook-hrc.web.app/#/view/doc-multi-task/en/README)  
 
-### Syntax
+### 语法
 
 ```python
 task start, sub=<subtask number>, job=<program number>

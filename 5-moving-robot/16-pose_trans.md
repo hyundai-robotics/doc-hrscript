@@ -1,16 +1,15 @@
 ﻿# 5.16 `pose_trans`
 
+### 描述
+* `pose_trans` 命令是一个函数指令，用于将两个位姿变量相乘以获得结果位姿值。
 
-### Description 
-* `pose_trans` command is a function instruction that multiplies two pose variables to obtain the resulting pose value. 
-
-### Syntax 
+### 语法
 
 ```python
 poseC = pose_trans(poseA,poseB)
 ```
 
-### Example 
+### 示例
 ```python
      var pose_A, pose_B, pose_C
      var pose_inv_B
@@ -24,12 +23,12 @@ poseC = pose_trans(poseA,poseB)
  
      pose_B=pose_A+pose_shift
      
-     # pose_inv_B is inverse matrix oof pose_B
+     # pose_inv_B 是 pose_B 的逆矩阵
      pose_inv_B=pose_B
      pose_inv_B=pose_B.convcrd("base")
      pose_inv_B=pose_inv(pose_B)
 
-     # pose_C is same to pose_A
+     # pose_C 与 pose_A 相同
      pose_C=pose_trans(pose_A,pose_B)
      pose_C=pose_trans(pose_C,pose_inv_B)
           
@@ -37,4 +36,3 @@ S1   move P,tg=pose_C,spd=10%,accu=0,tool=0
      
      end
 ```
-

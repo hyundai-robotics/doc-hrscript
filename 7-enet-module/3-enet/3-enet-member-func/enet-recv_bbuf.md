@@ -1,59 +1,55 @@
 ﻿# `recv_bbuf`
 
-### Description
+### 描述
 
-Receives binary data from the Ethernet object and stores it in the [BBuf](../../4-bbuf/README.md) object.
+从以太网对象接收二进制数据并将其存储在 [BBuf](../../4-bbuf/README.md) 对象中。
 
-
-### Syntax
+### 语法
 
 `{ENet object}.recv_bbuf {BBuf onject}[,{waiting time}][,{address on timeout}]`
 
-
-### Parameters
+### 参数
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Name</th>
-      <th style="text-align:left">Meaning</th>
-      <th style="text-align:left">Misc.</th>
+      <th style="text-align:left">名称</th>
+      <th style="text-align:left">含义</th>
+      <th style="text-align:left">备注</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>BBuf object</td>
+      <td>BBuf 对象</td>
       <td>
-        BBuf object to store the received binary data
+        用于存储接收到的二进制数据的 BBuf 对象
       </td>
       <td></td>
     </tr>
     <tr>
-      <td>waiting time</td>
+      <td>等待时间</td>
       <td>
-        timeout. If elapsed, proceed to the next command or jump to the address on timeout.<br>
-        If not specified, wait ininfinitely.
+        超时。如果超时，继续执行下一个命令或跳转到超时地址。<br>
+        如果未指定，将无限期等待。
       </td>
-      <td>msec</td>
+      <td>毫秒</td>
     </tr>
     <tr>
-      <td>address on timeout</td>
+      <td>超时地址</td>
       <td>
-        address to which jump on timeout.<br>
-        If not specified, proceed to next command.
+        超时时要跳转的地址。<br>
+        如果未指定，则继续执行下一个命令。
       </td>
-      <td>address</td>
+      <td>地址</td>
     </tr>
   </tbody>
 </table>
+### 返回值
+
+接收到的数据数量。
 
 
-### Return value
-
-The number of received data.
-
-
-### Example
+### 示例
 
 ```python
 var bbuf=enet_to_sensor.BBuf()
@@ -63,7 +59,6 @@ var nitem=enet_to_sensor.recv(bbuf,5000,*TimeOut)
 end
 
 *TimeOut
-print "Time out! No response from sensor"
+print "时间到！传感器没有响应"
 end
 ```
-

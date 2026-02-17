@@ -1,53 +1,48 @@
 ﻿# `recv`
 
-### Description
+### 描述
 
-Receives string data from the Ethernet object. The received string can be get from return value or `result()` function.
+从以太网对象接收字符串数据。接收到的字符串可以从返回值或 `result()` 函数中获取。
 
+### 语法
 
-### Syntax
+`{ENet object}.recv [{等待时间}][,{超时地址}]`
 
-`{ENet object}.recv [{waiting time}][,{address on timeout}]`
-
-
-### Parameters
+### 参数
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Name</th>
-      <th style="text-align:left">Meaning</th>
-      <th style="text-align:left">Misc.</th>
+      <th style="text-align:left">名称</th>
+      <th style="text-align:left">含义</th>
+      <th style="text-align:left">其他</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>waiting time</td>
+      <td>等待时间</td>
       <td>
-        timeout. If elapsed, proceed to the next command or jump to the address on timeout.<br>
-        If not specified, wait ininfinitely.
+        超时。如果超时，继续下一个命令或跳转到超时地址。<br>
+        如果未指定，则无限期等待。
       </td>
-      <td>msec</td>
+      <td>毫秒</td>
     </tr>
     <tr>
-      <td>address on timeout</td>
+      <td>超时地址</td>
       <td>
-        address to which jump on timeout.<br>
-        If not specified, proceed to next command.
+        超时后跳转的地址。<br>
+        如果未指定，继续下一个命令。
       </td>
-      <td>address</td>
+      <td>地址</td>
     </tr>
   </tbody>
 </table>
 
+### 返回值
 
-### Return value
+接收到的字符串。
 
-The received string.
-
-
-### Example
-
+### 示例
 ```python
 var msg
 msg=enet_to_sensor.recv
@@ -56,6 +51,6 @@ msg=enet_to_sensor.recv(5000,*TimeOut)
 end
 
 *TimeOut
-print "Time out! No response from sensor"
+print "超时！传感器没有响应"
 end
 ```

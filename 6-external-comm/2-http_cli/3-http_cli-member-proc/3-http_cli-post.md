@@ -1,64 +1,62 @@
 ﻿# `post`
 
-### Description
+### 描述
 
-Requests an HTTP POST service.
+请求一个 HTTP POST 服务。
 
-Creates the specified resource.
+创建指定的资源。
 
-The data to be transmitted must be assigned to the `body` attribute in advance.
+要传输的数据必须提前分配给 `body` 属性。
 
-The response data returned by the remote server is stored in the `body` attribute.
+远程服务器返回的响应数据存储在 `body` 属性中。
 
-### Syntax
+### 语法
 
 &lt;HttpCli object&gt;.post &lt;URL string, timeout, timeout fallback address&gt;
 
-### Parameters
+### 参数
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Item</th>
-      <th style="text-align:left">Description</th>
-      <th style="text-align:left">Notes</th>
+      <th style="text-align:left">项目</th>
+      <th style="text-align:left">描述</th>
+      <th style="text-align:left">备注</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>URL string</td>
+      <td>URL 字符串</td>
       <td>
-      The request URL.
+      请求的 URL。
       </td>
       <td></td>
     </tr>
     <tr>
-      <td>Timeout</td>
+      <td>超时</td>
       <td>
-        (Optional) Timeout duration. If the timeout expires, execution proceeds to the next statement or to the fallback address.<br>If not specified, the request waits indefinitely.<br>The timeout must be set between 5 ms and 15 ms (inclusive). Otherwise, a playback timeout error occurs.<br>If the value is outside this range, `-9 (InvalidTimeout)` is stored in `status`.
+        （可选）超时持续时间。如果超时过期，执行将继续到下一个语句或回退地址。<br>如果未指定，请求将无限期等待。<br>超时必须设置在 5 毫秒到 15 毫秒（包含）之间。否则，将发生播放超时错误。<br>如果值超出此范围，将在 `状态 (status)` 中存储 `-9 (InvalidTimeout)`。
       </td>
-      <td>msec</td>
+      <td>毫秒</td>
     </tr>
     <tr>
-      <td>timeout fallback address</td>
+      <td>超时回退地址</td>
       <td>
-        (Optional) The address to branch to when a timeout occurs.<br>If not specified, execution proceeds to the next address.
+        （可选）超时发生时要分支到的地址。<br>如果未指定，执行将继续到下一个地址。
       </td>
-      <td>Address</td>
+      <td>地址</td>
     </tr>
   </tbody>
 </table>
-
-### Usage Example 
+### 使用示例 
 
 ```python
-#case 1
+#案例 1
 var domain="http://192.168.1.200:8888"
 cli.body={ name: "WORK #32", color: "green", state: "OK" }
 cli.post domain+"/display/update"
 
-#case 2
+#案例 2
 var url = domain+"/display/update"
 cli.post url, 10, *TimeOut
 ```
-

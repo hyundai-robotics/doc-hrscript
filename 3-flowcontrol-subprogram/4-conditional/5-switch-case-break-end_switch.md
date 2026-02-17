@@ -1,14 +1,14 @@
 ﻿# 3.4.5 `switch`-`case`-`break`-`end_switch`
 
-### Description
+### 描述
 
-A `switch` statement evaluates a numeric expression and compares it with the resulting value of the numeric expression designated by a `case` statement. It is executed from the `case` statement of equal value until a `break` statement is encountered.
+`switch` 语句评估一个数值表达式，并将其与由 `case` 语句指定的数值表达式的结果进行比较。它从相等值的 `case` 语句开始执行，直到遇见 `break` 语句。
 
-In the following example, if the resulting value of Expression `X` is equal to the resulting value of Expression `B1` or `B2`, \(1\) through \(3\) will be executed, and it will move to the point of the `end_switch` statement \(note that there is no `break` below the command statement B\). Meanwhile, if the resulting value of Expression `X` is equal to that of Expression `C`, \(2\) through \(3\) will be executed.
+在以下示例中，如果表达式 `X` 的结果值等于表达式 `B1` 或 `B2` 的结果值，则将执行 \(1\) 到 \(3\)，并移动到 `end_switch` 语句的位置 \(请注意，这里没有位于命令语句 B\ 下方的 `break`\)。与此同时，如果表达式 `X` 的结果值等于表达式 `C` 的结果值，则将执行 \(2\) 到 \(3\)。
 
-If the resulting value of Expression `X` is not equal to that of any `case` statement, it will be moved to the `default`, and \(4\) through \(5\) will be executed. Then, the `default` section may be omitted.
+如果表达式 `X` 的结果值不等于任何 `case` 语句的结果值，将移动到 `默认 (default)`，并将执行 \(4\) 到 \(5\)。然后，可以省略 `默认 (default)` 部分。
 
-### Syntax
+### 语法
 
 ```python
 switch <expression X>
@@ -30,9 +30,9 @@ default
 end_switch
 ```
 
-Any expressions such as Boolean, numeric, string  constant, parameter, and numeric, are permissible.
+任何表达式，例如布尔值、数值、字符串常量、参数和数值，都是允许的。
 
-### Example
+### 示例
 
 ```python
      var state="timeout"
@@ -59,4 +59,3 @@ Any expressions such as Boolean, numeric, string  constant, parameter, and numer
      
   99 end
 ```
-

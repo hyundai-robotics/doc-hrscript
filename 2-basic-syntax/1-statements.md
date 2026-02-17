@@ -1,6 +1,6 @@
-﻿# 2.1 Statements
+﻿# 2.1 声明
 
-The statement refers to each command string that becomes the execution unit of the job program. HRScript allows only one statement per line. Take note of how the four examples of statements are written below, particularly their appearances.
+声明是指每个命令字符串，该字符串成为作业程序的执行单元。HRScript 每行只允许一个声明。请注意下面四个声明示例的写法，特别是它们的外观。
 
 ```python
      move P,po3,spd=80%,accu=1,tool=3 until do33
@@ -9,13 +9,8 @@ The statement refers to each command string that becomes the execution unit of t
      *err_handle
 ```
 
-For statements other than a step statement \(move statements, etc.\) that moves the robot, you can optionally add a line number \(1 to 9999\) at the beginning of the line. The number 10 in the second line is an example of a line number.
+对于除了步骤声明（如移动声明等）之外的其他声明，您可以选择在行首添加一个行号（1 到 9999）。第二行中的数字 10 是行号的示例。
 
-It does not matter if there are any number of spaces or tabs before and after the statement.
+在声明前后有任意数量的空格或制表符都无关紧要。
 
-Proper indentation in statements is recommended for readability. Both spaces and tabs are allowed for indentation and do not affect the operation during execution.
-
-
-
-
-
+为了提高可读性，建议在声明中使用适当的缩进。缩进允许使用空格和制表符，在执行过程中不会影响操作。

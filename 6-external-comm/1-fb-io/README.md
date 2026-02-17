@@ -1,4 +1,3 @@
-﻿# 6.1 `FB` Object: Digital I/O
+﻿# 6.1 `FB` 对象：数字 I/O
 
-Digital input/output \(I/O\) can be performed through 10 `FB` objects that can be accessed from HRScript. `FB` refers to fieldbus block, and each `FB` object is set to be mapped to the I/O hardware installed in the robot controller and contains input and output variables as elements.
-
+数字输入/输出 \(I/O\) 可以通过 10 个可以从 HRScript 访问的 `FB` 对象进行。`FB` 代表现场总线块，每个 `FB` 对象被设置为映射到安装在机器人控制器中的 I/O 硬件，并包含输入和输出变量作为元素。

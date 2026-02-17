@@ -1,90 +1,86 @@
 ﻿# 10.1.7 `gasp_check`
 
-The `gasp_check` statement estimates the pressure of the gas spring mounted on the robot and checks whether it is normal.
+`gasp_check`语句估计安装在机器人上的气体弹簧的压力，并检查其是否正常。
 
-### Description
+### 描述
 
 ![](../../_assets/gasp_check.png)
 
-- To estimate the pressure, the axis equipped with the gas spring is reciprocated by -20 degrees from its current position.(Recommended to be performed at the H-axis 140 degree position)
-- You can monitor pressure by saving the estimated pressure as a variable.
-- User can enter normal pressure and tolerance. If the estimated pressure exceeds the range, the set error output signal turns on.
+- 为了估计压力，配备气体弹簧的轴从其当前位置往回移动-20度。（建议在H轴140度位置执行）
+- 通过将估计压力保存为变量来监测压力。
+- 用户可以输入正常压力和容差。如果估计压力超过范围，设置的错误输出信号将开启。
 
-### Syntax
+### 语法
 
 ```python
 gasp_check pres=<estimated pressure>,ref=<reference pressure>,tol=<tolerance>
 gasp_check pres=<estimated pressure>,ref=<reference pressure>,tol=<tolerance>,os=<error output signal>
 ```
 
-### Parameters
+### 参数
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Parameter</th>
-      <th style="text-align:left">Description</th>
-      <th style="text-align:left">Remarks</th>
+      <th style="text-align:left">参数</th>
+      <th style="text-align:left">描述</th>
+      <th style="text-align:left">备注</th>
     </tr>
   </thead>
   <tbody>
   <tr>
       <td style="text-align:left">estimated pressure</td>
       <td style="text-align:left">
-         Variables in which the estimated gas spring pressure is stored[bar]
+         存储估计气体弹簧压力的变量[bar]
       </td>
-      <td style="text-align:left">variable</td>
+      <td style="text-align:left">变量</td>
     </tr>
     <tr>
       <td style="text-align:left">normal pressure</td>
       <td style="text-align:left">
-        Normal pressure to be the reference value for error occurrence[bar]
+        作为错误发生的参考值的正常压力[bar]
       </td>
-      <td style="text-align:left">variable</td>
+      <td style="text-align:left">变量</td>
     </tr>
     <tr>
       <td style="text-align:left">tolerance</td>
       <td style="text-align:left">
-        estimated pressure error tolerance[bar]
+        估计压力误差容差[bar]
       </td>
-      <td style="text-align:left">variable</td>
+      <td style="text-align:left">变量</td>
     </tr>
     <tr>
-      <td style="text-align:left">error output signal</td>
+      <td style="text-align:left">错误输出信号</td>
       <td style="text-align:left">
-        Signal output when an error occurs
+        当发生错误时的信号输出
       </td>
-      <td style="text-align:left">output signal variable</td>
+      <td style="text-align:left">输出信号变量</td>
     </tr>
   </tbody>
 </table>
 
-### Errors
-- E21011 : Occurs when the estimated gas spring pressure is below the minimum error criterion.
-- E21012 : Occurs when the estimated gas spring pressure is higher than the maximum error reference.
-- E21013 : Occurs on robots that do not support gas spring pressure inspection.
+### 错误
+- E21011 : 当估计的气弹簧压力低于最低错误标准时发生。
+- E21012 : 当估计的气弹簧压力高于最高错误参考时发生。
+- E21013 : 在不支持气弹簧压力检查的机器人上发生。
 
 
-### Sample
+### 示例
 
-```python
    var v0
    move P,spd=50%,accu=3,tool=1
-   gasp_check pres=v0,ref=120,tol=20,os=do50    # Normal if the estimated pressure is 100 to 140 bar
+   gasp_check pres=v0,ref=120,tol=20,os=do50    # 如果估计压力在100到140 bar之间，则为正常
    end
-```
+
 {% hint style="warning" %}
-* Do not enter the operating area or touch the robot while the product is operating. There is a risk of injury.
+* 产品运行时，请勿进入操作区域或触摸机器人。 有受伤的风险。
 {% endhint %}
 
 {% hint style="info" %}
-* Supported only on robots equipped with the gas spring
-* For accurate estimation, [Axis add weight setting](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/7-system/4-robot-parameter/7-axis-add-weight/README) and [Load estimation function](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/7-system/7-auto-calibration/3-load-estimation) must be preceded before using the function.
-* For a detailed description of the gas spring pressure check monitoring function, please refer to the link below.
+* 仅在配备气弹簧的机器人上支持
+* 为了准确估计，必须在使用该功能之前进行[轴添加重量设置](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/7-system/4-robot-parameter/7-axis-add-weight/README)和[负载估计功能](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/7-system/7-auto-calibration/3-load-estimation)。
+* 有关气弹簧压力检查监控功能的详细说明，请参阅以下链接。
 [](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/6-monitoring/4-system/2-system-diagnosis/2-gas-pressure-check)
-* The estimated gas spring pressure may vary depending on the initial posture at the start of measurement.
-During the robot's initial setup, please manage the pressure values based on the measurements taken at each reference posture, and regularly measure the pressure in the same posture to compare it with the initial values.
-If a significant difference is observed in the measured values, please inspect the condition of the equipment.  
+* 估计的气弹簧压力可能会因测量开始时的初始姿势而有所变化。在机器人的初始设置期间，请根据每个参考姿势进行的测量管理压力值，并定期在同一姿势下测量压力，以便将其与初始值进行比较。如果在测量值中观察到显著差异，请检查设备的状态。
 
 {% endhint %}
-

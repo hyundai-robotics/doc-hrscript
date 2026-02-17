@@ -1,108 +1,98 @@
-﻿# 5.4 `move`
+﻿# 5.4 `移动 (move)`
 
-The `move` statement is a procedure for moving the robot. The format is as follows.
+`移动 (move)` 语句是用于移动机器人的过程。格式如下。
 
-### Description
+### 描述
 
-The robot"s tool tip moves to the pose position.
+机器人的工具尖端移动到姿态位置。
 
-### Syntax
+### 语法
 
-move &lt;interpolation&gt;, \[tg=&lt;pose/shift&gt;\], spd=&lt;speed&gt;, accu=&lt;accuracy&gt;
+move &lt;插值&gt;, \[tg=&lt;姿态/偏移&gt;\], spd=&lt;速度&gt;, accu=&lt;精度&gt;
 
-, tool=&lt;tool number&gt; \[x=&lt;assignment statement&gt;,\] \[until &lt;conditional expression&gt;\]
+, tool=&lt;工具编号&gt; \[x=&lt;赋值语句&gt;,\] \[直到 &lt;条件表达式&gt;\]
 
-### Parameter
+### 参数
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Parameter</th>
-      <th style="text-align:left">Description</th>
-      <th style="text-align:left">Remarks</th>
+      <th style="text-align:left">参数</th>
+      <th style="text-align:left">描述</th>
+      <th style="text-align:left">备注</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align:left">Interpolation</td>
+      <td style="text-align:left">插值</td>
       <td style="text-align:left">
-        <p>P: Axis interpolation;</p>
-        <p>L: Linear interpolation;</p>
-        <p>C: Circular interpolation,</p>
-        <p>SP: Stationary axis interpolation,</p>
-        <p>SL: Stationary tool linear interpolation,</p>
-        <p>SC: Stationary tool circular interpolation</p>
+        <p>P: 轴插值;</p>
+        <p>L: 线性插值;</p>
+        <p>C: 圆形插值;</p>
+        <p>SP: 静态轴插值;</p>
+        <p>SL: 静态工具线性插值;</p>
+        <p>SC: 静态工具圆形插值</p>
       </td>
       <td style="text-align:left"></td>
     </tr>
     <tr>
-      <td style="text-align:left">Pose/Shift</td>
+      <td style="text-align:left">姿态/偏移</td>
       <td style="text-align:left">
-        <p>Target posture (pose) to move to</p>
-        <p>It will be omitted if there is a hidden pose.</p>
-        <p>If a shift expression is specified with a + or - sign, (hidden pose +
-          shift expression) will be applied as the target posture.</p>
+        <p>要移动到的目标姿态（pose）</p>
+        <p>如果存在隐藏姿态，将被省略。</p>
+        <p>如果以 + 或 - 符号指定了偏移表达式，将会应用（隐藏姿态 + 
+          偏移表达式）作为目标姿态。</p>
       </td>
-      <td style="text-align:left">Pose expression or a signed shift expression</td>
+      <td style="text-align:left">姿态表达式或带符号的偏移表达式</td>
     </tr>
     <tr>
-      <td style="text-align:left">Speed</td>
+      <td style="text-align:left">速度</td>
       <td style="text-align:left">
-        <p>Moving speed of the tool tip</p>
-        <p>A unit (mm/sec, cm/min, sec, %) should be added.</p>
-      </td>
-      <td style="text-align:left">Arithmetic expression</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">Accuracy</td>
-      <td style="text-align:left">
-        <p>Arithmetic expression</p>
-        <p>The lower the value, the more accurate. If it is 0, the operation will
-          occur discontinuously.</p>
-      </td>
-      <td style="text-align:left">0~7</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">Tool number</td>
-      <td style="text-align:left">The number of the tool to be used when the robot is operating</td>
-      <td
-      style="text-align:left">0~31</td>
-    </tr>
-      <tr>
-      <td style="text-align:left">Assignment statement</td>
-      <td style="text-align:left">
-        <p>When move starts, the assignment statements to be executed are carried out sequentially from left to right.</p>
-      </td>
-      <td style="text-align:left">True if not 0 False if 0
-      <p>"&lt;assignment statement1;assignment statement2;...&gt;"<\p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left">Conditional expression</td>
-      <td style="text-align:left">
-        <p>As soon as the conditional expression is true, the robot operation will
-          end, and the designated pose is considered to have been reached.</p>
-        <p>The result of the conditional expression can be acquired with the result()
-          function.</p>
-      </td>
-      <td style="text-align:left">True if not 0 False if 0</td>
-    </tr>
-  </tbody>
+<p>工具尖端的移动速度</p>
+<p>应该添加一个单位（mm/秒，cm/分钟，秒，%）。</p>
+</td>
+<td style="text-align:left">算术表达式</td>
+</tr>
+<tr>
+<td style="text-align:left">准确性</td>
+<td style="text-align:left">
+<p>算术表达式</p>
+<p>值越低，越准确。如果为0，则操作将不连续地发生。</p>
+</td>
+<td style="text-align:left">0~7</td>
+</tr>
+<tr>
+<td style="text-align:left">工具编号</td>
+<td style="text-align:left">机器人操作时使用的工具编号</td>
+<td style="text-align:left">0~31</td>
+</tr>
+<tr>
+<td style="text-align:left">赋值语句</td>
+<td style="text-align:left">
+<p>当移动开始时，将按从左到右的顺序执行赋值语句。</p>
+</td>
+<td style="text-align:left">如果不为0则为真，如果为0则为假
+<p>"&lt;赋值语句1;赋值语句2;...&gt;"<\p>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">条件表达式</td>
+<td style="text-align:left">
+<p>一旦条件表达式为真，机器人操作将结束，指定的姿势将被视为已达到。</p>
+<p>条件表达式的结果可以通过result()函数获得。</p>
+</td>
+<td style="text-align:left">如果不为0则为真，如果为0则为假</td>
+</tr>
+</tbody>
 </table>
 
-### Example
+### 示例
 
 ```python
 move L,tg=po[0]+sft[1],spd=800mm/sec,accu=0,tool=1
 move P,tg=+Shift(0,0,0,0,-10,0),spd=80%,accu=1,tool=3,x="do1=1;do2=2",until di2  (hidden pose)
 if result() then *sensor_on
 ```
+如果按下教学挂件的 `[Record]` 按钮，隐式姿态类型的 `移动 (move)` 语句将记录为当前机器人位置。通过将光标放在 `移动 (move)` 语句上并按下 `[Property]` 按钮，可以检查或编辑隐式姿态值。 
 
-If the `[Record]` button of the teach pendant is pressed, a `move` statement in hidden pose type will be recorded as the current robot position. The hidden pose value can be checked or edited by placing the cursor on the `move` statement and pressing the `[Property]` button. 
-
-When the `[Command]` button is pressed and the `[Motion]` group is opened, select the move menu. As a result, a pose-type `move` statement is recorded.
-
-
-
-
-
+当按下 `[Command]` 按钮并打开 `[Motion]` 组时，选择移动菜单。因此，录制了一条姿态类型的 `移动 (move)` 语句。

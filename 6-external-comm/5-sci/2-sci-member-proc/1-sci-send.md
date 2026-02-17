@@ -1,23 +1,20 @@
-﻿# `send`
+# `send`
 
-### Description
+### 描述
 
-Send a string by calling `Sci`'s `send`.
+通过调用 `Sci` 的 `send` 发送字符串。
 
-### Syntax
+### 语法
 
-&lt;Sci object&gt;.send "string" <br>
-&lt;Sci object&gt;.send string variable
+&lt;Sci 对象&gt;.send "字符串" <br>
+&lt;Sci 对象&gt;.send 字符串 变量
 
 
-### Example
+### 示例
 
 ```python
 sci2.send "test"
-or
+或
 var msg="test"
 sci2.send msg
 ```
-
-
-

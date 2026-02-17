@@ -1,22 +1,22 @@
-﻿# 10.1.8 `optime`
+# 10.1.8 `optime`
 
-The `optime` statement is a procedure used to start or update the measurement of operating time.
+`optime`语句是一种用于启动或更新操作时间测量的程序。
 
-### Description
+### 描述
 
-Normally, the measurement of operating time starts when the start button is pressed, and the operating time is automatically updated when the program executes `end`.  
-However, if the program jumps back to the beginning using a `goto` statement without executing `end`, the operating time continues to increase. In this case, the monitored operating-time value becomes meaningless.
+通常，当按下启动按钮时，操作时间测量开始，操作时间在程序执行`end`时自动更新。  
+然而，如果程序在未执行`end`的情况下使用`goto`语句跳回开始，操作时间会继续增加。在这种情况下，监控的操作时间值变得毫无意义。
 
-To address this situation, the `optime` statement allows the user to explicitly specify the points at which operating-time measurement starts and is updated.
+为了解决这种情况，`optime`语句允许用户明确指定操作时间测量开始和更新的点。
 
-### Syntax
+### 语法
 ```python
 optime <parameter>
 ```
-### Parameters
-| Item      | Description                                                             | Remarks |
-| --------- | ----------------------------------------------------------------------- | ------- |
-| Parameter | - cycle_start: Start measurement<br>- cycle_end: Update measurement     |         |
+### 参数
+| 项目      | 描述                                                               | 备注   |
+| --------- | ------------------------------------------------------------------ | ------ |
+| 参数      | - cycle_start: 开始测量<br>- cycle_end: 更新测量                 |        |
 
 ```python
   *start

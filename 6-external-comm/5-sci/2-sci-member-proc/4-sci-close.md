@@ -1,19 +1,18 @@
-﻿# `close`
+# `关闭 (close)`
 
-### Description
+### 描述
 
-Execute `Sci`'s `close` to close the serial port.
+执行 `Sci` 的 `关闭 (close)` 以关闭串口。
 
-
-### Syntax
+### 语法
 
 &lt;Sci object&gt;.close()
 
-### Return Value
-- 0: Success
-- -1: Fail
+### 返回值
+- 0: 成功
+- -1: 失败
 
-### Example
+### 示例
 
 ```python
 var ret
@@ -23,6 +22,3 @@ if ret<0
   stop
 endif
 ```
-
-
-

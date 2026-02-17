@@ -1,30 +1,30 @@
 ﻿# `send_bbuf`
 
-### Description
+### 描述
 
-Send [BBuf](../../4-bbuf/README.md) object to ethernet object.
+将 [BBuf](../../4-bbuf/README.md) 对象发送至以太网对象。
 
 
-### Syntax
+### 语法
 
 `{ENet object}.send_bbuf {BBuf object}`
 
 
-### Parameters
+### 参数
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Name</th>
-      <th style="text-align:left">Meaning</th>
-      <th style="text-align:left">Misc.</th>
+      <th style="text-align:left">名称</th>
+      <th style="text-align:left">含义</th>
+      <th style="text-align:left">其他</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align:left">BBuf object</td>
+      <td style="text-align:left">BBuf 对象</td>
       <td style="text-align:left">
-        binary buffer object to send.
+        要发送的二进制缓冲区对象。
       </td>
       <td style="text-align:left"></td>
     </tr>
@@ -32,12 +32,12 @@ Send [BBuf](../../4-bbuf/README.md) object to ethernet object.
 </table>
 
 
-### Return value
+### 返回值
 
-The number of bytes sent.
+发送的字节数。
 
 
-### Example
+### 示例
 
 ```python
 var bbuf=enet.BBuf()

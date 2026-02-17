@@ -1,22 +1,22 @@
 ﻿# `open`
 
-### Description
+### 描述
 
-Execute `Sci`'s `open()` function to open the serial port.
+执行 `Sci` 的 `open()` 函数以打开串口。
 
-The serial port is opened with the preset contents through the controller settings, and there is no need to separately open the port unless the port was previously closed.(default: open)
-
-
-### Syntax
-
-&lt;Sci object&gt;.open()
-
-### Return Value
-- 0: Success
-- <0: Fail
+串口通过控制器设置以预设内容打开，无需单独打开端口，除非端口之前已关闭。（默认：打开）
 
 
-### Example
+### 语法
+
+&lt;Sci 对象&gt;.open()
+
+### 返回值
+- 0: 成功
+- <0: 失败
+
+
+### 示例
 
 ```python
 var ret
@@ -26,6 +26,3 @@ if ret<0
   stop
 endif
 ```
-
-
-

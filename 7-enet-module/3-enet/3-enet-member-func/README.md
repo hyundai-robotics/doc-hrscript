@@ -1,15 +1,15 @@
-﻿# 7.3.3 `ENet` member function
+﻿# 7.3.3 `ENet` 成员函数
 
-* When getting the return value from a member function, be sure to enclose the argument in parentheses.
+* 当从成员函数获取返回值时，请确保将参数放在括号中。
   
   ```python
-  var nitem=obj.func(param1,param2) # (O) ; parentheses is necessary
-  var nitem=obj.func param1,param2 # (X) ; syntax error
+  var nitem=obj.func(param1,param2) # (O) ; 必须使用括号
+  var nitem=obj.func param1,param2 # (X) ; 语法错误
   ```
 
-* Parentheses can be omitted, not getting the return value.
+* 可以省略括号，但不获取返回值。
 
   ```python
   obj.func(param1,param2) # (O)
-  obj.func param1,param2 # (O) ; parentheses omitted
+  obj.func param1,param2 # (O) ; 省略了括号
   ```

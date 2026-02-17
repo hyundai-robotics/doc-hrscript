@@ -1,32 +1,32 @@
 ﻿# 6.3.1 `print`
 
-### Description
+### 描述
 
-`print` statement prints a string to the guide-bar of the Teach Pendant. In addition to string constants, any type of expression (including constants and variables) result converted into a string and printed out. If you specify multiple expressions, each expression is printed separated by a single space character.
+`print` 语句将字符串打印到教导挂件的导引条上。除了字符串常量外，任何类型的表达式（包括常量和变量）都会被转换为字符串并打印出来。如果指定多个表达式，则每个表达式之间以单个空格字符分隔。
 
-### Syntax
+### 语法
 
 ```python
 print <expression>[,<expression>,<expression>...]
 ```
 
 
-### Parameter
+### 参数
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Parameter</th>
-      <th style="text-align:left">Description</th>
-      <th style="text-align:left">Remarks</th>
+      <th style="text-align:left">参数</th>
+      <th style="text-align:left">描述</th>
+      <th style="text-align:left">备注</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="text-align:left">expression</td>
       <td style="text-align:left">
-        <p>Expresion to print out.<br>
-        All types of boolean, number, string, array, object are supported.
+        <p>要打印的表达式。<br>
+        支持所有类型的布尔值、数字、字符串、数组、对象。
         </p>
       </td>
       <td style="text-align:left"></td>
@@ -34,7 +34,7 @@ print <expression>[,<expression>,<expression>...]
   </tbody>
 </table>
 
-### Example
+### 示例
 
 ```python
 input work_no

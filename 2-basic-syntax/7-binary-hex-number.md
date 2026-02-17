@@ -1,9 +1,8 @@
-﻿# 2.7 Binary and Hexadecimal
+﻿# 2.7 二进制和十六进制
 
-All the number type values previously described as examples are interpreted as decimal numbers. It can represent binary or hexadecimal values just by adding 0b or 0x prefixes, respectively, as shown in the following.
+之前作为示例描述的所有数字类型值都被解释为十进制数。只需添加 0b 或 0x 前缀，即可表示二进制或十六进制值，如下所示。
 
 ```python
 var binary = 0b10010011
 var hexadecimal = 0xFF4A38C0
 ```
-

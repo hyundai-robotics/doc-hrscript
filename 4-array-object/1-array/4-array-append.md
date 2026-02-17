@@ -1,19 +1,19 @@
-﻿# 4.1.4 `append_arr` Procedure for Adding an Element to an Array
+﻿# 4.1.4 `append_arr` 程序用于向数组添加元素
 
-Supported from V60.32-00
+支持版本 V60.32-00
 
-The `append_arr` procedure can be used to add an element to an array
+`append_arr` 程序可以用于向数组添加元素
 
 ```python
 var arr = [1, 2]
-append_arr arr, 3   # Adding 3 as an element of arr
+append_arr arr, 3   # 添加 3 作为 arr 的元素
 print arr       # [1, 2, 3]
 ```
 
-Any value, including another array, can be appended as an element because an array can contain elements of different types.
+任何值，包括另一个数组，都可以作为元素添加，因为数组可以包含不同类型的元素。
 
 ```python
 var arr = [1, 2]
-append_arr arr, [3, 4]  # Appending [3, 4] as an element of arr
+append_arr arr, [3, 4]  # 将 [3, 4] 作为 arr 的元素添加
 print arr           # [1, 2, [3, 4]]
 ```

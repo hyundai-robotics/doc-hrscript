@@ -1,3 +1,3 @@
-﻿# 6.4 Modbus module : Modbus master
+﻿# 6.4 Modbus模块：Modbus主站
 
-Modbus master operations can be performed in HRScript. For detailed information on modbus communication functions, please refer to the separate manual. [${cont_model} Controller Function Manual - Modbus](https://hrbook-hrc.web.app/#/view/doc-modbus/en/README)  
+Modbus主站操作可以在HRScript中执行。有关Modbus通信功能的详细信息，请参阅单独的手册。[${cont_model} 控制器功能手册 - Modbus](https://hrbook-hrc.web.app/#/view/doc-modbus/en/README)  
