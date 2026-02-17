@@ -1,4 +1,4 @@
-﻿# 10.1.4 triggout
+﻿# 10.1.4 `triggout`
 
 `triggout` is a procedure that allows you to adjust the signal output time-point to be output-ahead (-) or output-behind (+).
 

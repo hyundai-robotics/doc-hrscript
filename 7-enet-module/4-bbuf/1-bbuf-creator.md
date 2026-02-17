@@ -1,4 +1,4 @@
-﻿# 7.4.1 BBuf creator
+﻿# 7.4.1 `BBuf` creator
 
 ### Description
 

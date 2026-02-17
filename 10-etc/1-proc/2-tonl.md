@@ -1,4 +1,4 @@
-﻿# 10.1.2 tonl
+﻿# 10.1.2 `tonl`
 
 `tonl` statement is the procedure for performing position correction for steps between start and end.
 

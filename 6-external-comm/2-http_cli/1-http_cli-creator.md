@@ -2,7 +2,7 @@
 
 ### Description
 
-Creates an HttpCli object and returns a reference to it.
+Creates an `HttpCli` object and returns a reference to it.
 
 ### Syntax
 

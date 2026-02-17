@@ -1,6 +1,6 @@
-﻿# 5.13 softjoint_lim
+﻿# 5.13 `softjoint_lim`
 
-Before using instruction "softjoint on", user should set softjoint_lim  parameters such as joint number(j), compliance(sft), joint angle limit(ang) and torque threshold(thr). <br>
+Before using instruction `softjoint on`, user should set `softjoint_lim`  parameters such as joint number(`j`), compliance(`sft`), joint angle limit(`ang`) and torque threshold(`thr`). <br>
 
 --- 
 
@@ -44,6 +44,6 @@ S2   move P,spd=250mm/sec,accu=0,tool=0
 --- 
 {% hint style="info" %}
 
-* For using the function of softjoint, parameters on "j" and "sft" on softjoint_lim should be set. Also, if you do not set "ang" parameter, robot moves in workspace on defined softlimit. And, default parameter value on torque threshold "thr" is 0 [Nm]. 
+* For using the function of `softjoint`, parameters on `j` and `sft` on `softjoint_lim` should be set. Also, if you do not set `ang` parameter, robot moves in workspace on defined softlimit. And, default parameter value on torque threshold `thr` is 0 [Nm]. 
 
 {% endhint %}

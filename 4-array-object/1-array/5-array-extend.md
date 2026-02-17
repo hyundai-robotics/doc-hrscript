@@ -1,8 +1,8 @@
-﻿# 4.1.5 Extend Procedure for Adding All Elements of One Array to Another
+﻿# 4.1.5 `extend_arr` Procedure for Adding All Elements of One Array to Another
 
 Supported from V60.32-00
 
-The extend procedure can be used to add all elements of an array to another.
+The `extend_arr` procedure can be used to add all elements of an array to another.
 
 ```python
 var arr = [1, 2]

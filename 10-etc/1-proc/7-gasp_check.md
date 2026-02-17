@@ -1,4 +1,4 @@
-﻿# 10.1.7 gasp_check
+﻿# 10.1.7 `gasp_check`
 
 The `gasp_check` statement estimates the pressure of the gas spring mounted on the robot and checks whether it is normal.
 

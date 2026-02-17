@@ -1,4 +1,4 @@
-﻿# 10.1.9 count_up
+﻿# 10.1.9 `count_up`
 
 The `count_up` statement is a procedure that increments the value of a specified variable by 1, and resets it to the init value when it exceeds the preset value.
 

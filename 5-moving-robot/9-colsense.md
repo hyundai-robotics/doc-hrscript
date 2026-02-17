@@ -1,8 +1,8 @@
-﻿# 5.9 colsense 
+﻿# 5.9 `colsense` 
 
-Robot language "colsense" is used for setting detection sensitivity in case of the function activated on. 
+Robot language `colsense` is used for setting detection sensitivity in case of the function activated on. 
 
-Users should set the function activation on/off and detection sensitivity in the TP menu. \[3: robot parameter &gt; 14: impact detection &gt; 1: Model-based collision detection \] 
+Users should set the function activation on/off and detection sensitivity in the TP menu. `[F2: System] - 3: robot parameter - 14: impact detection - 1: Model-based collision detection`.
 
 --- 
 
@@ -37,9 +37,9 @@ S6   move P,spd=60%,accu=0,tool=0
 S7   move P,spd=60%,accu=0,tool=0
      end 
 ```
-* The detection sensitivity value in step1 and step2 is used from setting based on the menu \[3: robot parameter &gt; 14: impact detection &gt; 1: Model-based collision detection \] 
-* The General sensitivity in step3 is 150, and the value is changed as 200 in step4 and step5 
-* Sensing collision on joint1 and joint2 is deactivated, and other joints collision are detected by general sensitivity as 200.  
+* The detection sensitivity value in step1 and step2 is used from setting based on the menu `[F2: System] - 3: robot parameter - 14: impact detection - 1: Model-based collision detection`.
+* The General sensitivity in step 3 is 150, and the value is changed as 200 in step 4 and step 5 
+* Sensing collision on joint 1 and joint 2 is deactivated, and other joints collision are detected by general sensitivity as 200.  
 
 --- 
 {% hint style="info" %}

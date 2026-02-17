@@ -1,11 +1,11 @@
-﻿# 3.7.3 def (defining user function)
+﻿# 3.7.3 `def` (defining user function)
 
 since V60.05-06
 
 ### Description
 
-You can define user functions in the job with **def** statement and call it with **call** statement. Similar to **param** statement, **def** statement can specify a list of formal parameters. The actual parameter values of the **call** statement are passed to the formal parameters.
-The execution of a function defined by **def** statement returns to the next statement after the **call** statement when executing **return** statement or **end** statement
+You can define user functions in the job with `def` statement and call it with `call` statement. Similar to `param` statement, `def` statement can specify a list of formal parameters. The actual parameter values of the `call` statement are passed to the formal parameters.
+The execution of a function defined by `def` statement returns to the next statement after the `call` statement when executing `return` statement or `end` statement
 
 User functions are called by name rather than number, so its readability is better than sub-program. And you can group multiple related functions into one subprogram to make your project structure better.
 
@@ -16,8 +16,8 @@ User functions are called by name rather than number, so its readability is bett
 def <user function name> [,parameter1[=default value],parameter2[=default value],...]
 ```
 
-Specify the user function name after **def**. Function names must follow the rules defined in the section [2.2 Identifier](../../2-basic-syntax/2-identifier.md). In addition, it should be globally unique name. Be careful not to duplicate the new name with other function names or other variable names.
-After that, specify the formal parameters. You can also specify a default value for each parameter. If you omit a actual parameter in the call statement, the formal parameter is initialized to the default value. If you start specifying a default value for a particular formal parameter, you must specify all paramters until last parameter.
+Specify the user function name after `def`. Function names must follow the rules defined in the section [2.2 Identifier](../../2-basic-syntax/2-identifier.md). In addition, it should be globally unique name. Be careful not to duplicate the new name with other function names or other variable names.
+After that, specify the formal parameters. You can also specify a default value for each parameter. If you omit a actual parameter in the `call` statement, the formal parameter is initialized to the default value. If you start specifying a default value for a particular formal parameter, you must specify all paramters until last parameter.
 
 
 ```python
@@ -28,7 +28,7 @@ def set_work,mass,cx=0,cy,cz     # illegal example
 
 ### Example
 
-Below are examples of user function calls with **call** statements and the results. We've presented the Euclidean distance example in the previous section to describe the subprogram. Now let's define user functions for Euclidean distance and Manhattan distance respectively and call them.
+Below are examples of user function calls with `call` statements and the results. We've presented the Euclidean distance example in the previous section to describe the subprogram. Now let's define user functions for Euclidean distance and Manhattan distance respectively and call them.
 
 
 ```python
@@ -71,5 +71,3 @@ euclid= 13.7419
 manhattan= 17.8
 end
 ```
-
-

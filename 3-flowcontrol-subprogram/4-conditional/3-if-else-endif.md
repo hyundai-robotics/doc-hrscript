@@ -1,8 +1,8 @@
-﻿# 3.4.3 if-else-endif Statement
+﻿# 3.4.3 `if`-`else`-`endif` Statement
 
 ### Description
 
-If the expression is false and if there are statements to be executed, the following form is used:
+If the expression is false and `if` there are statements to be executed, the following form is used:
 
 If the expression is true, statement A will be executed. If false, statement B will be executed.
 

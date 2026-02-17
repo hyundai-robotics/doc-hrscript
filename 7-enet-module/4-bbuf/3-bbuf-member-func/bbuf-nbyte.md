@@ -1,4 +1,4 @@
-﻿# nbyte
+﻿# `nbyte`
 
 ### Syntax
 

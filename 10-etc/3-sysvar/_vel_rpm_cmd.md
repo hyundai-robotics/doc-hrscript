@@ -1,4 +1,4 @@
-﻿# _vel_rpm_cmd
+﻿# `_vel_rpm_cmd`
 
 Reads or sets the speed at which the motor rotates when controlling speed for an additional axis.
 

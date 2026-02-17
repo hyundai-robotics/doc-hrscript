@@ -1,6 +1,6 @@
 ﻿# 7.2.2 ethernet TCP server Example - Transceiving binary data
 
-Binary transceiving are performed using BBuf (binary buffer) object.  
+Binary transceiving are performed using `BBuf` (binary buffer) object.  
 (Only the transceiving parts are different, and the rest are the same as the transceiving string data.)
 
 Sending

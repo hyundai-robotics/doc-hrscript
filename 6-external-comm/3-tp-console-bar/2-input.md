@@ -1,8 +1,8 @@
-﻿# 6.3.2 input
+﻿# 6.3.2 `input`
 
 ### Description
 
-Use the **input** statement to enter a string as a keystroke of the Teach Pendant and store it in a variable. If not entered by the timeout, proceed to the following statement or branch to the timeout address.
+Use the `input` statement to enter a string as a keystroke of the Teach Pendant and store it in a variable. If not entered by the timeout, proceed to the following statement or branch to the timeout address.
 
 ### Syntax
 

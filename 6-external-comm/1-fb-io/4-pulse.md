@@ -1,4 +1,4 @@
-﻿# 6.1.4 pulse
+﻿# 6.1.4 `pulse`
 
 `pulse` statement is the procedure for signal output of pulse type.
 

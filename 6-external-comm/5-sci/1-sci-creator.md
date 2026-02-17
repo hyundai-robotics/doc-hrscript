@@ -2,7 +2,7 @@
 
 ### Description
 
-Creates a global variable for the Sci object.
+Creates a global variable for the `Sci` object.
 
 ### Syntax
 

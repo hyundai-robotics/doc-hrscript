@@ -1,4 +1,4 @@
-﻿# 5.18 axisctrl
+﻿# 5.18 `axisctrl`
 
 ### Description
 * The `axisctrl` command specifies whether additional axes should move to their target positions when the `move` command is executed to move each axis.

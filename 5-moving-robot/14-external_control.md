@@ -19,11 +19,11 @@
 ```
 
 ### Parameter 
-* time_from_start : elapsed time from start position (-1: disable)  
-* look_head_time : time delay for robot moving (unit : [s])  
-* interval : time interval between generated commands (unit : [s])  
-* init : online trajectory init, clear command buffer  
-* buf_in  : add pose or pose type string to the command buffer
+* `time_from_start` : elapsed time from start position (-1: disable)  
+* `look_head_time` : time delay for robot moving (unit : [s])  
+* `interval` : time interval between generated commands (unit : [s])  
+* `init` : online trajectory init, clear command buffer  
+* `buf_in`  : add pose or pose type string to the command buffer
 
 
 

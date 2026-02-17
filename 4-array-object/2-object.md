@@ -4,14 +4,15 @@ As previously seen, it was found that an array could store multiple element valu
 
 Objects are like arrays in that they store multiple element values. The difference is that an object is accessed by a key, not with an index. Moreover, the key is a string, not a number. 
 
-Objects are defined as var or global, like any other variables. The definition of an object and format of its access are as follows.
+Objects are defined as `var` or `global`, like any other variables. The definition of an object and format of its access are as follows.
 
 |  |  |
 | :--- | :--- |
 | Definition | var object name = { key : value, key : value, ...} |
 | Access | Object name key |
 
-
+
+
 
 The following shows an example of defining and accessing an object.
 
@@ -40,7 +41,7 @@ The following shows an example of defining and accessing an object.
 
 
 
-The object"s key must be in the format of an identifier, but the element"s value can be of any type and can also be of different types. 
+The object's key must be in the format of an identifier, but the element's value can be of any type and can also be of different types. 
 
 An object can contain other objects or arrays as its elements. Likewise, an array can also contain other arrays or objects as its elements. In the following example, "work," which is an object, contains "size," which is an object, and "heights," which is an array.
 
@@ -67,6 +68,3 @@ An object can contain other objects or arrays as its elements. Likewise, an arra
     </tr>
   </tbody>
 </table>
-
-
-

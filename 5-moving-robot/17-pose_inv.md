@@ -1,8 +1,9 @@
-﻿# 5.17 pose_inv 
+﻿# 5.17 `pose_inv`
 
 
 ### Description
-* pose_inv instruction is a function that converts to a pose variable corresponding to the inverse matrix of the pose variable.  
+
+* `pose_inv` instruction is a function that converts to a pose variable corresponding to the inverse matrix of the pose variable.  
 
 
 ### Syntax 
@@ -38,5 +39,3 @@ S1   move P,tg=pose_C,spd=10%,accu=0,tool=0
      
      end
 ```
-
-

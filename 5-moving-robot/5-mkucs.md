@@ -1,11 +1,11 @@
-﻿# 5.5 mkucs - make user coordinate system
+﻿# 5.5 `mkucs` - make user coordinate system
 
 ### Description
 
 A command that creates a user coordinate system with three poses or one pose.   
 
 - When you create with three poses, it is created with the origin pose, an axis pose, plane pose  according to the specified step order.
--  If the step order is not specified, it is created with the origin pose, X-axis pose, and XY plane pose.
+- If the step order is not specified, it is created with the origin pose, X-axis pose, and XY plane pose.
 - When you create with one pose, it is created with the origin pose and the position/direction is based on the pose value.
 - If the calculation is not possible, the job execution is interrupted with an error.
 

@@ -1,8 +1,8 @@
-﻿# _pc
+﻿# `_pc`
 
 ### Description
 
-_Pc is used to obtain current program counter information. <br>
+`_pc` is used to obtain current program counter information. <br>
 The program counter consists of a program number, a step number, and a function number.
 
 ### Syntax
@@ -35,7 +35,7 @@ var sno=_pc.cur_sno  # Assign the current step number
 
 
 
-### cur_sno sample : If the until condition is not satisfied, move to the previous step.
+### `cur_sno` sample : If the until condition is not satisfied, move to the previous step.
 
 ```python
    S6 move P,spd=50%,accu=3,tool=1,until di6

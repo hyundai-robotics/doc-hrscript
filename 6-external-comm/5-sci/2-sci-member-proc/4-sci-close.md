@@ -1,8 +1,8 @@
-﻿# close
+﻿# `close`
 
 ### Description
 
-Execute Sci's close to close the serial port.
+Execute `Sci`'s `close` to close the serial port.
 
 
 ### Syntax

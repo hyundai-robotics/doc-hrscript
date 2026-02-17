@@ -1,4 +1,4 @@
-﻿# 10.1.1 gather
+﻿# 10.1.1 `gather`
 
 `gather` is the procedure that specifies the start and end of the gathering when you use the data gathering function.
 

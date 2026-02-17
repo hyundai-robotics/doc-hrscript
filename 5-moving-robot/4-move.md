@@ -1,6 +1,6 @@
-﻿# 5.4 move
+﻿# 5.4 `move`
 
-The move statement is a procedure for moving the robot. The format is as follows.
+The `move` statement is a procedure for moving the robot. The format is as follows.
 
 ### Description
 
@@ -98,9 +98,9 @@ move P,tg=+Shift(0,0,0,0,-10,0),spd=80%,accu=1,tool=3,x="do1=1;do2=2",until di2 
 if result() then *sensor_on
 ```
 
-If the \[Record\] button of the teach pendant is pressed, a move statement in hidden pose type will be recorded as the current robot position. The hidden pose value can be checked or edited by placing the cursor on the move statement and pressing the \[Property\] button. 
+If the `[Record]` button of the teach pendant is pressed, a `move` statement in hidden pose type will be recorded as the current robot position. The hidden pose value can be checked or edited by placing the cursor on the `move` statement and pressing the `[Property]` button. 
 
-When the \[Command\] button is pressed and the \[Motion\] group is opened, select the move menu. As a result, a pose-type move statement is recorded.
+When the `[Command]` button is pressed and the `[Motion]` group is opened, select the move menu. As a result, a pose-type `move` statement is recorded.
 
 
 

@@ -197,7 +197,7 @@ Elements of the pose object can be accessed with the following keys.
 </table>
 
 
-1. For V60.06-06 or older versions, fl is non-fl.
+1. For V60.06-06 or older versions, `fl` is `non-fl`.
 
 The pose element values can be accessed as shown in the following example.
 

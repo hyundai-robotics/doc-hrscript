@@ -1,6 +1,6 @@
-﻿# 5.6 selucrd - select user coordinate system
+﻿# 5.6 `selucrd` - select user coordinate system
 
-The selucrd statement is a procedure for changing the user coordinate system number specified as the user coordinate system in the condition setting.
+The `selucrd` statement is a procedure for changing the user coordinate system number specified as the user coordinate system in the condition setting.
 
 ### Description
 

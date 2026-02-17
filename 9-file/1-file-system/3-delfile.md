@@ -1,6 +1,6 @@
-﻿# 9.1.3 delfile
+﻿# 9.1.3 `delfile`
 
-A delfile is a procedure that requests to delete a directory or file.
+A `delfile` is a procedure that requests to delete a directory or file.
 
 ### Description
 

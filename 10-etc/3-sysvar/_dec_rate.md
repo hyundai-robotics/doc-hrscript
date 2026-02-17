@@ -1,4 +1,4 @@
-﻿# _dec_rate
+﻿# `_dec_rate`
 
 Get or set the rate of deceleration in the speed-profile.
 

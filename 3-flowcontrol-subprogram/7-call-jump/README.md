@@ -1,4 +1,4 @@
-﻿# 3.7 Call, Jump Statement and Subprograms
+﻿# 3.7 `call`, `jump` Statement and Subprograms
 
 If an entire large-scale robot operation is created as one job program, the program becomes large and complex, making it difficult to add functions or find and solve problems.
 

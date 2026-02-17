@@ -1,4 +1,4 @@
-﻿# 10.1.5 intr_def
+﻿# 10.1.5 `intr_def`
 
 `intr_def` is a procedure that specifies interrupt condition, watch-interval, and program to run when an interrupt occurs.
 

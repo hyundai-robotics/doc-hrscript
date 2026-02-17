@@ -1,6 +1,6 @@
 ﻿# 5.3 Pose Expression
 
-The expression in which the result value becomes a pose is called a "pose expression." 
+The expression in which the result value becomes a pose is called a `pose expression`. 
 
 All the following forms are recognized as poses.
 

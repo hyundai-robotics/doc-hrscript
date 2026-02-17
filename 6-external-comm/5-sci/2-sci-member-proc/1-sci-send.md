@@ -1,8 +1,8 @@
-﻿# send
+﻿# `send`
 
 ### Description
 
-Send a string by calling Sci's send.
+Send a string by calling `Sci`'s `send`.
 
 ### Syntax
 

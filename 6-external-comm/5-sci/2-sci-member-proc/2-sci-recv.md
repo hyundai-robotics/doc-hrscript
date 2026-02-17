@@ -2,7 +2,7 @@
 
 ### Description
 
-Call Sci's recv to receive a string.
+Call `Sci`'s `recv` to receive a string.
 
 
 ### Syntax

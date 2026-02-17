@@ -79,15 +79,15 @@ td {border-color:gray;border-style:solid;border-width:1px;}
 
 <br><br>
 
-In do, dob, dow, dol, and dof, the suffixes b, w, l, and f mean "byte," "word," "long," and "float," respectively, and all are signed values. These are not separate memory spaces and represent the same 960-byte space just with different data types. For example, do\[1~16\], dob\[1~2\], and dow\[1\] are all the same output signals.
+In `do`, `dob`, `dow`, `dol`, and `dof`, the suffixes `b`, `w`, `l`, and `f` mean `byte`, `word`, `long`, and `float`, respectively, and all are signed values. These are not separate memory spaces and represent the same 960-byte space just with different data types. For example, `do[1~16]`, `dob[1~2]`, and `dow[1]` are all the same output signals.
 
 ![](../../_assets/image_2.png)
 
-If a value is assigned to an output variable that starts with "do," I/O signal output will be performed. The I/O signal currently being inputted can be acquired by reading the input variable value that starts with "di." The do variable can be read and written, but the di variable can only be read.
+If a value is assigned to an output variable that starts with `do`, I/O signal output will be performed. The I/O signal currently being inputted can be acquired by reading the input variable value that starts with `di`. The do variable can be read and written, but the di variable can only be read.
 
 
 
-The FB object name can be omitted as follows.
+The `FB` object name can be omitted as follows.
 
 | **object name** | **do notation** | fb.do notation |
 | :--- | :--- | :--- |

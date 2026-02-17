@@ -1,4 +1,4 @@
-﻿# 10.2.2 segment
+﻿# 10.2.2 `segment`
 
 `segment` is the function that divides the distance between the start and end positions evenly.
 
@@ -8,14 +8,14 @@
 Divides the distance between the start and end positions of the function factors evenly and stores the pose value considering the position and posture corresponding to the specified counter in the pose variable.
 ![](../../_assets/image_segment_1.png)
 
-For example, if P3=segment(P1,P2,3,2), divide the distance between the P2 target positions from the P1 start position into 3 equal parts and store the pose value of the position and rotation of the 2nd pose in the P3 pose variable.
+For example, if `P3=segment(P1,P2,3,2)`, divide the distance between the `P2` target positions from the `P1` start position into 3 equal parts and store the pose value of the position and rotation of the 2nd pose in the `P3` pose variable.
 
 When you add the via position as a paramter of the function, the distance on the arc consisting of the start position, the via point, and the target position is evenly divided and the pose value of the position and rotation is stored in the pose variable.
 
 ![](../../_assets/image_segment_2.png)
 
-For example, if P10=segment (P1,P2,P3,4,2),
-The distance on the arc consisting of the P1 starting pose and P2 via pose P3 target pose is divided into 4 equal parts, and the pose value of the position and rotation of the specified 2nd pose is stored in the P10 pose variable.
+For example, if `P10=segment (P1,P2,P3,4,2)`,
+The distance on the arc consisting of the `P1` starting pose and `P2` via pose `P3` target pose is divided into 4 equal parts, and the pose value of the position and rotation of the specified 2nd pose is stored in the `P10` pose variable.
 
 <br>
 

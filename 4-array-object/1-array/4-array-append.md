@@ -1,8 +1,8 @@
-﻿# 4.1.4 Append Procedure for Adding an Element to an Array
+﻿# 4.1.4 `append_arr` Procedure for Adding an Element to an Array
 
 Supported from V60.32-00
 
-The append procedure can be used to add an element to an array
+The `append_arr` procedure can be used to add an element to an array
 
 ```python
 var arr = [1, 2]

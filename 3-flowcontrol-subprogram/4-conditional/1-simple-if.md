@@ -1,8 +1,8 @@
-﻿# 3.4.1 Single-Line if
+﻿# 3.4.1 Single-Line `if`
 
 ### Description
 
-The form of a single-line if statement is as follows: If &lt;Boolean expression&gt; is true, branching to &lt;address&gt; will occur. If false, moving to the next statement will occur.
+The form of a single-line `if` statement is as follows: If &lt;Boolean expression&gt; is true, branching to &lt;address&gt; will occur. If false, moving to the next statement will occur.
 
 ### Syntax
 

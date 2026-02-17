@@ -1,6 +1,6 @@
-﻿# 9.1.1 mkdir
+﻿# 9.1.1 `mkdir`
 
-mkdir is the procedure making directory.
+`mkdir` is the procedure making directory.
 
 ### Description
 

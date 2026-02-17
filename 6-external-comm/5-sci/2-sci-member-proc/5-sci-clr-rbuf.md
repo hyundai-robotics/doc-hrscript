@@ -1,8 +1,8 @@
-﻿# clr_rbuf
+﻿# `clr_rbuf`
 
 ### Description
 
-Initialize Sci's received buffer.
+Initialize `Sci`'s received buffer.
 
 
 ### Syntax

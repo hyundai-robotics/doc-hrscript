@@ -2,7 +2,7 @@
 
 Shift is an object type embedded in the ${cont_model} Controller and represents the pose's change value. 
 
-Shifts are created by calling the constructor function Shift\( \). All function parameters are position parameters. Meanwhile, crd and cfg are string types, and the rest are number types.
+Shifts are created by calling the constructor function `Shift()`. All function parameters are position parameters. Meanwhile, `crd` and `cfg` are string types, and the rest are number types.
 
 
 

@@ -1,6 +1,6 @@
-﻿# 9.1.2 copyfile
+﻿# 9.1.2 `copyfile`
 
-A copyfile is a procedure that requests to copy a directory or file.
+A `copyfile` is a procedure that requests to copy a directory or file.
 
 ### Description
 
@@ -13,7 +13,7 @@ Copies a directory or file of specified source path to the specified destination
 - All subdirectories in the directory are also copied.
 - The pathname also supports wildcard ('*', '?').
 
-- Because large files or entire directories may be copied, it is asynchronously performed in the background to avoid loss of tact time due to waiting during copying. In other words, when the copyfile statement is performed, starting the copy in the background task, immediately proceed with the next statement. For example, you can request a copy and execute the move statements. The successful completion of the copy can be determined by reading the values of the result-variable. (That is, no errors or warnings are generated when the copy fails.)
+- Because large files or entire directories may be copied, it is asynchronously performed in the background to avoid loss of tact time due to waiting during copying. In other words, when the `copyfile` statement is performed, starting the copy in the background task, immediately proceed with the next statement. For example, you can request a copy and execute the move statements. The successful completion of the copy can be determined by reading the values of the result-variable. (That is, no errors or warnings are generated when the copy fails.)
 
 - You cannot request another copy or deletion until one copy or deletion is complete.
 

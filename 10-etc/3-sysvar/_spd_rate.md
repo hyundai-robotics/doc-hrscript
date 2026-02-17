@@ -1,4 +1,4 @@
-﻿# _spd_rate
+﻿# `_spd_rate`
 
 Get or set the playback speed-rate.
 

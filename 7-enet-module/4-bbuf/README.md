@@ -1,6 +1,6 @@
-﻿# 7.4 BBuf object
+﻿# 7.4 `BBuf` object
 
-A BBuf (Binary Buffer) object encapsulates binary data to be sent and received over Ethernet communication.
+A `BBuf (Binary Buffer)` object encapsulates binary data to be sent and received over Ethernet communication.
 For usage, see the binary communication examples.
 
 [7.1.2 peer-to-peer, client example - binary transmission](7-enet-module/1-exam-client/2-enet-client-bin.md)

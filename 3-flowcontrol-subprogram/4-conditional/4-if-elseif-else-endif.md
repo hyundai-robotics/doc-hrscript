@@ -1,8 +1,8 @@
-﻿# 3.4.4. if-elseif-else-endif
+﻿# 3.4.4. `if`-`elseif`-`else`-`endif`
 
 ### Description
 
-In the case of multiple conditions, the elseif statement can be used in the following form.
+In the case of multiple conditions, the `elseif` statement can be used in the following form.
 
 ### Syntax
 

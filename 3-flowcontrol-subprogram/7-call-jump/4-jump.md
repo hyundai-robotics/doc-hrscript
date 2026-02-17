@@ -1,10 +1,10 @@
-﻿# 3.7.3 jump
+﻿# 3.7.4 `jump`
 
 ### Description
 
-This format is completely identical to that of call statements, and its action is also similar to that of **call** statements.
+This format is completely identical to that of `call` statements, and its action is also similar to that of `call` statements.
 
-The only difference is that, while a **call** statement returns to the main program using an end program, a **jump** statement does not.
+The only difference is that, while a `call` statement returns to the main program using an `end` statement, a `jump` statement does not.
 
 ### Syntax
 
@@ -16,7 +16,7 @@ jump <job number or file name> [,parameter 1,parameter 2,???]
 
 ### Example
 
-If the jump statement of this example program is replaced with a **call** statement, the result of the replaced program will be as follows. When the **end** of the sub-program \(0102\_err\) is encountered, the action cycle will end. If the next action cycle is executed, the main program \(0001\) will be executed from the start.
+If the `jump` statement of this example program is replaced with a `call` statement, the result of the replaced program will be as follows. When the `end` of the sub-program \(0102\_err\) is encountered, the action cycle will end. If the next action cycle is executed, the main program \(0001\) will be executed from the start.
 
 
 ```python

@@ -1,4 +1,4 @@
-﻿# 5.19 smov
+﻿# 5.19 `smov`
 
 ### Description
 The `smov` statement is a procedure used for positioner synchronization.  

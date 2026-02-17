@@ -1,8 +1,8 @@
-﻿# _weaving
+﻿# `_weaving`
 
 ### Description
 
-_weaving is used to change the currently selected weaving conditions.
+`_weaving` is used to change the currently selected weaving conditions.
 
 ### Syntax
 

@@ -1,21 +1,20 @@
-﻿# 5.10 softxyz 
+﻿# 5.10 `softxyz`
 
 
-The softxyz function is a sensorless force-control feature that allows the robot  
-to move flexibly in Cartesian space in response to external forces under user-defined conditions.
+The `softxyz` function is a sensorless force-control feature that allows the robot to move flexibly in Cartesian space in response to external forces under user-defined conditions.
 
-To ensure proper operation, **tool data and additional payload information must be configured correctly**.
+To ensure proper operation, `tool data and additional payload information must be configured correctly`.
 
 {% hint style="warning" %}
 
-Since the softxyz function is **sensorless** and does not use a force sensor,  
-there are **inherent limitations** in achieving fully smooth and natural motion.
+Since the `softxyz` function is `sensorless` and does not use a force sensor,  
+there are `inherent limitations` in achieving fully smooth and natural motion.
 
 However, by tuning the `softxyz_lim` values appropriately for the application environment,  
 you can achieve the smoothest possible motion within the functional limitations.
 
 Because `softxyz_lim (pos / xnr / vel / thr)` directly determines how the robot responds to external force,  
-**fine-tuning is required** depending on the environment, assembly process, and tool stiffness.
+`fine-tuning is required` depending on the environment, assembly process, and tool stiffness.
 
 {% endhint %}
 
@@ -32,17 +31,17 @@ softxyz off
 ```
 
 ### Parameters
-- **on** : Start the softxyz function  
-- **off** : Stop the softxyz function  
-- **set** : Modify softxyz settings  
+- `on` : Start the softxyz function  
+- `off` : Stop the softxyz function  
+- `set` : Modify softxyz settings  
 
-- **crd** : Reference coordinate system for external-force displacement  
+- `crd` : Reference coordinate system for external-force displacement  
   - Available options: `base`, `robot`, `tool`, `user_x`
 
-- **dpr** : Stiffness value  
-  - Range: **0.0 ~ 2.0**  
-  - Higher values = **stiffer**, less displacement under external force  
-  - Default: **1.0**
+- `dpr` : Stiffness value  
+  - Range: `0.0 ~ 2.0`  
+  - Higher values = `stiffer`, less displacement under external force  
+  - Default: `1.0`
 
 ```python
 softxyz on,  crd="base"     # Based on the base coordinate system
@@ -95,14 +94,14 @@ S2   wait ...
 ```
 
 --- 
-> **Information**
+> `Information`
 >
-> - Before using `softxyz on`, you **must** configure the `softxyz_lim` parameters  
+> - Before using `softxyz on`, you `must` configure the `softxyz_lim` parameters  
 >   (`pos`, `xnr`, `vel`, `thr`) to set the maximum displacement, speed,  
 >   and Cartesian threshold values.
 >
 > - To improve sensitivity to external force, it is recommended to  
->   **keep the robot stationary for 1-2 seconds using the `delay` command**  
+>   `keep the robot stationary for 1-2 seconds using the `delay` command`  
 >   before executing `softxyz on`.
 >
 > - If vibration occurs during softxyz operation, the following adjustments are recommended:

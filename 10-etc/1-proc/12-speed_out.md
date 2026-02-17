@@ -1,4 +1,4 @@
-﻿# 10.1.12 speed_out Statement
+﻿# 10.1.12 `speed_out` Statement
 
 The `speed_out` statement is a procedure that calculates a value proportional to the robot's current movement speed and assigns the result to a specified variable.  
 It operates only while executing a `move` statement with interpolation set to `L` or `C`.
@@ -7,9 +7,11 @@ It operates only while executing a `move` statement with interpolation set to `L
 
 This statement calculates a value proportional to the robot's current moving speed and stores the calculated result in the specified variable.  
 
-If the following command is executed, as shown in the figure, the value **y** corresponding to the current robot speed **x** is calculated and assigned to dow10.
+If the following command is executed, as shown in the figure, the value `y` corresponding to the current robot speed `x` is calculated and assigned to dow10.
 ...  
-speed_out on,min_spd=100,max_spd=2000,min_val=10,max_val=100,var=dow10  
+```python
+speed_out on,min_spd=100,max_spd=2000,min_val=10,max_val=100,var=dow10
+```
 
 ![](../../_assets/speed_out.png)
 

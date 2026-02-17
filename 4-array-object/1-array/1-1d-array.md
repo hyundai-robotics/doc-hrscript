@@ -2,7 +2,7 @@
 
 An array is a variable type that collects and stores several values under a single name and allows access through an index number.
 
-Arrays are defined as **var** or **global**, like any other variable.
+Arrays are defined as `var` or `global`, like any other variable.
 
 {% hint style="warning" %}
 [The names of top-level arrays in global variables are exceptionally case-insensitive, so please be aware.](../../2-basic-syntax/2-identifier.md)
@@ -51,7 +51,7 @@ The \[ \] operator is used as follows to read or write the value of an array"s s
 
 
 
-The number of elements in an array can be acquired by using the len\(\) function. Previously, the len\(\) function was introduced as a function to acquire the length of a string. If an array is put as a parameter of len\( \), it will return the number of elements in the array.
+The number of elements in an array can be acquired by using the `len`\(\) function. Previously, the `len`\(\) function was introduced as a function to acquire the length of a string. If an array is put as a parameter of `len`\( \), it will return the number of elements in the array.
 
 <table>
   <thead>
@@ -81,7 +81,7 @@ The number of elements in an array can be acquired by using the len\(\) function
 
 
 
-The **for-next** statement is mainly used to perform some processing on all elements of an array.
+The `for-next` statement is mainly used to perform some processing on all elements of an array.
 
 <table>
   <thead>

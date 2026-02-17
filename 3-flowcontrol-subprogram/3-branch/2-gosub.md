@@ -1,10 +1,10 @@
-﻿# 3.3.2 gosub~retsub
+﻿# 3.3.2 `gosub`~`retsub`
 
 ### Description
 
-When the gosub statement is encountered, it branches to the specified address.
-When the retsub statement is encountered, it returns to the next position after the gosub statement.
-Gosub can be nested into several level, and there is no limit on the number of nesting.
+When the `gosub` statement is encountered, it branches to the specified address.
+When the `retsub` statement is encountered, it returns to the next position after the gosub statement.
+`gosub` can be nested into several level, and there is no limit on the number of nesting.
 
 ### Syntax
 ```python

@@ -1,4 +1,4 @@
-﻿# _acc_rate
+﻿# `_acc_rate`
 
 Get or set the rate of acceleration in the speed-profile.
 

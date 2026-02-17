@@ -1,4 +1,4 @@
-﻿# 5.21 shift_lim
+﻿# 5.21 `shift_lim`
 
 The `shift_lim` statement is a function that improves safety when using the shift feature by setting the maximum allowable shift amount for the robot.  
 If a shift value exceeding the configured limit is entered, an error is generated.

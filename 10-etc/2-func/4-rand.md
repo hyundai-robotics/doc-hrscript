@@ -1,6 +1,6 @@
-﻿# 10.2.4 rand
+﻿# 10.2.4 `rand`
 
-You can generate random numbers using the rand function.
+You can generate random numbers using the `rand` function.
 
 ### Description
 Depending on the function's arguments, it generates a random real number between 0 and 1 or a random integer number within a specified range.

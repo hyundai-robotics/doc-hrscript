@@ -1,4 +1,4 @@
-﻿# 7.3.3 ENet member function
+﻿# 7.3.3 `ENet` member function
 
 * When getting the return value from a member function, be sure to enclose the argument in parentheses.
   

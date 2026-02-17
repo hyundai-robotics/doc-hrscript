@@ -1,4 +1,4 @@
-﻿# _tool
+﻿# `_tool`
 
 `_tool` is a system variable for reading or changing tool data.
 

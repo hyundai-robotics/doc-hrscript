@@ -1,4 +1,4 @@
-﻿# 10.1.8 optime
+﻿# 10.1.8 `optime`
 
 The `optime` statement is a procedure used to start or update the measurement of operating time.
 

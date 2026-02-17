@@ -1,10 +1,10 @@
-﻿# 3.4.2 if-endif
+﻿# 3.4.2 `if`-`endif`
 
 ### Description
 
-If the single-line if statement is true, only the operation of branching to a specific address will occur. If executing other operations or multiple statements is necessary, the if-endif block should be used.
+If the single-line `if` statement is true, only the operation of branching to a specific address will occur. If executing other operations or multiple statements is necessary, the `if`-`endif` block should be used.
 
-The form is as follows: If &lt;Boolean expression&gt; is true, the multiple number of &lt;statement&gt; between if and endif will be executed in order. If &lt;Boolean expression&gt; is false, skipping to the position after endif will occur without the &lt;statements&gt; being executed.
+The form is as follows: If &lt;Boolean expression&gt; is true, the multiple number of &lt;statement&gt; between `if` and `endif` will be executed in order. If &lt;Boolean expression&gt; is false, skipping to the position after `endif` will occur without the &lt;statements&gt; being executed.
 
 ### Syntax
 
@@ -28,5 +28,5 @@ endif
 end
 ```
 
-In the example program, the statements between if and endif are indented by two spaces. These statements are indented to make it easier to recognize that they are codes for the blocks nested between if and endif.
+In the example program, the statements between `if` and `endif` are indented by two spaces. These statements are indented to make it easier to recognize that they are codes for the blocks nested between `if` and `endif`.
 

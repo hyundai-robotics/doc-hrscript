@@ -1,8 +1,8 @@
-﻿# 5.16 pose_trans 
+﻿# 5.16 `pose_trans`
 
 
 ### Description 
-* pose_trans command is a function instruction that multiplies two pose variables to obtain the resulting pose value. 
+* `pose_trans` command is a function instruction that multiplies two pose variables to obtain the resulting pose value. 
 
 ### Syntax 
 

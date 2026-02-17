@@ -1,9 +1,9 @@
-﻿# 10.2.5 sig2int
+﻿# 10.2.5 `sig2int`
 
-Using the sig2int function, a specific range of input/output signals can be expressed as an int type value.
+Using the `sig2int` function, a specific range of input/output signals can be expressed as an `int` type value.
 
 ### Description
-- Enter the name of the input/output signal to be expressed in int type.
+- Enter the name of the input/output signal to be expressed in `int` type.
 - Set how many bits to read from input/output signals.
 
 ### Syntax

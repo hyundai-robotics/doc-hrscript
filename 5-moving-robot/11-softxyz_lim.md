@@ -1,6 +1,6 @@
-﻿# 5.11 softxyz_lim
+﻿# 5.11 `softxyz_lim`
 
-Before using instruction "softxyz on", user should set softxyz_lim parameters such as position limit(pos), workspace limit(xnr), velocity limit(vel) and force threshold limit(thr). <br>
+Before using instruction `softxyz on`, user should set `softxyz_lim` parameters such as position limit(`pos`), workspace limit(`xnr`), velocity limit(`vel`) and force threshold limit(`thr`). <br>
 
 
 --- 

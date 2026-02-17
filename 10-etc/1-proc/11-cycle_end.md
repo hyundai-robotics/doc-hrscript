@@ -1,4 +1,4 @@
-﻿# 10.1.11 cycle_end
+﻿# 10.1.11 `cycle_end`
 
 The `cycle_end` statement is a procedure that clears all call stacks that are being managed as a result of executing `call` statements.
 

@@ -1,4 +1,4 @@
-﻿# 10.1.6 typeof
+﻿# 10.1.6 `typeof`
 
 `typeof` is the procedure for getting the type of a variable or an expression. The result is returned from the `result()` function.
 

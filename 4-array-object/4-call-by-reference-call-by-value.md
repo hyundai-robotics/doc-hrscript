@@ -1,8 +1,8 @@
 ﻿# 4.4 Call-by-reference and call-by-value
 
-In the description of call statements and jump statements given in Section 3.4, the concepts of formal parameters and actual parameters were explained. When an actual parameter has been transported to a sub-program, if the sub-program ends after changing the value of the parameter, will it be reflected to the main program?
+In the description of `call` statements and `jump` statements given in Section 3.4, the concepts of formal parameters and actual parameters were explained. When an actual parameter has been transported to a sub-program, if the sub-program ends after changing the value of the parameter, will it be reflected to the main program?
 
-For example, let"s assume that a sub-program 0005\_pow3.job raises a value to the third power as follows:
+For example, let's assume that a sub-program `0005_pow3.job` raises a value to the third power as follows:
 
 
 

@@ -1,4 +1,4 @@
-﻿# 7.3.2 ENet member variable
+﻿# 7.3.2 `ENet` member variable
 
 <table>
   <thead>

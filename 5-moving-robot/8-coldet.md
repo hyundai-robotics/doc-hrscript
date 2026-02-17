@@ -1,8 +1,8 @@
-﻿# 5.8 coldet 
+﻿# 5.8 `coldet`
 
-Robot language "coldet" is used for setting collision detection(of each axis) level in case of the function activated on. 
+Robot language `coldet` is used for setting collision detection(of each axis) level in case of the function activated on. 
 
-Users should set the function activation on/off and collision level in the TP menu. \[3: robot parameter &gt; 14: impact detection &gt; 2: set the collision detection(of each axis) \] 
+Users should set the function activation on/off and collision level in the TP menu. `[F2: System] - 3: robot parameter - 14: impact detection - 2: set the collision detection (of each axis)`
 
 The menu can be shown in that robot is set for detecting collision.  
 
@@ -40,6 +40,6 @@ S7   move P,spd=60%,accu=0,tool=0
      end 
 ```
 * The value of detecting level in step1 and step2 is 1. 
-* The value of detecting level in step3 is 2, and that of level in step 4 and step5 is 3.
-* In case of step6 and step7, the function of collision detection is deactivated. 
+* The value of detecting level in step 3 is 2, and that of level in step 4 and step 5 is 3.
+* In case of step 6 and step 7, the function of collision detection is deactivated. 
 --- 
