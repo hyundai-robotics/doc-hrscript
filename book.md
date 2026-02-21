@@ -1,4 +1,10 @@
 ﻿
+[__SOURCE](README.md)
+# ${cont_model} 控制器功能手册 - 机器人语言 HRScript
+[__SOURCE](0-about-this-manual/precautions.md)
+# 注意事项
+
+{% include url="https://hrcontentsrelay-bmgae5hdbzapc4bc.koreacentral-01.azurewebsites.net/api/proxy?path=doc-common-pages/zh/precautions.md" %}
 [__SOURCE](1-intro/README.md)
 # 1. 概述
 [__SOURCE](1-intro/1-hrscript.md)
@@ -7167,3 +7173,449 @@ result=sig2int(<input/output signal>,<number of bits>)
 
 [__SOURCE](10-etc/3-sysvar/README.md)
 # 10.3 系统变量
+[__SOURCE](10-etc/3-sysvar/_acc_rate.md)
+# `_acc_rate`
+
+获取或设置速度曲线中的加速度。
+
+### 描述
+
+- 单位 : %
+- 范围 : 1 到 100
+- 默认值 : 100
+
+### 语法
+
+```python
+var res
+res = _acc_rate
+```
+
+### 示例
+
+```python
+   ...
+   # 打印当前加速度，并设置为70%。
+   print _acc_rate
+   _acc_rate=70
+   ...
+   end
+```
+[__SOURCE](10-etc/3-sysvar/_dec_rate.md)
+# `_dec_rate`
+
+获取或设置速度曲线中的减速率。
+
+### 描述
+
+- 单位 : %
+- 范围 : 1 到 100
+- 默认值 : 100
+
+### 语法
+
+```python
+var res
+res = _dec_rate
+```
+
+### 示例
+
+```python
+   ...
+   # 打印当前减速率，并设置为 70%。
+   print _dec_rate
+   _dec_rate=70
+   ...
+   end
+```
+[__SOURCE](10-etc/3-sysvar/_intr_no.md)
+# `_intr.no`
+
+`_intr.no` 系统变量是发生的中断号。
+
+### 描述
+
+当因为 `intr_def` 程序中的条件表达式被满足而发生中断时，您可以使用 `_intr.no` 来确定程序是由哪个中断号调用的。
+
+
+### 语法
+
+```python
+var res
+res = _intr.no
+```
+
+
+### 示例
+
+```python
+   ...
+   if _intr.no==1  # 如果发生中断号 1 
+   print "通过传感器 1 的激活，发生中断。"
+   else if _intr.no==2 # 如果发生中断号 2 
+   print "通过传感器 2 的激活，发生中断。"
+   stop # 机器人停止
+   endif
+   ...
+   end
+```
+[__SOURCE](10-etc/3-sysvar/_intr_target.md)
+# `_intr.target`
+
+`_intr.target` 系统变量调整机器人的目标位置达成状态。
+
+### 描述
+
+在移动语句中，当发生中断并在调用程序执行结束后返回到上一个程序的位置时，用于调整位置。
+
+### 语法
+
+```python
+_intr_target=1
+```
+
+### 示例
+
+```python
+- _intr.target=-1
+```
+
+![](../../_assets/intr_target_1.png)
+
+
+```python
+- _intr.target=1 or 0
+```
+![](../../_assets/intr_target_2.png)
+[__SOURCE](10-etc/3-sysvar/_spd_rate.md)
+# `_spd_rate`
+
+获取或设置播放速度。
+
+### 描述
+
+与 cond.set 相同的设置 - 播放速度。
+
+- 单位 : %
+- 范围 : 1 到 100
+- 默认值 : 100
+
+### 语法
+
+```python
+var res
+res = _spd_rate
+```
+
+### 示例
+
+```python
+   ...
+   # 如果播放速度低于 50%，则将其提高到 100%。
+   if _spd_rate<50
+     _spd_rate=100
+   ...
+   end
+```
+[__SOURCE](10-etc/3-sysvar/_task_enable.md)
+# `_task.enable`
+
+### 描述
+
+一个系统变量，用于确定子任务是否处于活动状态。
+
+
+### 语法
+
+```python
+var res
+res = _task[1].enable
+```
+
+
+### 示例
+
+```python
+   ...
+   if _task[1].enable==1  # 如果子任务 1 处于活动状态
+   print "Subtask 1 is active"
+   endif
+   ...
+   end
+```
+[__SOURCE](10-etc/3-sysvar/_tool.md)
+# `_tool`
+
+`_tool` 是一个用于读取或更改工具数据的系统变量。
+
+### 描述
+
+- 读取注册的工具数据（重量/质心/惯性）或更改工具数据。
+- 如果工具数据未注册或成员无效，将会发生错误，并且作业执行将被中断。
+
+### 语法
+
+```python
+<shift variable> = _tool3
+_tool3 = <shift>
+_tool[3] = <shift>
+_tool[5].mass = <arithmetic expression>
+_tool[5].cx = <arithmetic expression>
+_tool[5].cy = <arithmetic expression>
+_tool[5].cz = <arithmetic expression>
+_tool[5].ixx = <arithmetic expression>
+_tool[5].iyy = <arithmetic expression>
+_tool[5].izz = <arithmetic expression>
+```
+
+### 错误
+
+- E14550 : 当工具数据的成员无效时发生。确保设置的工具数据的成员为质量、cx、cy、cz、ixx、iyy、izz。
+- E14286 : 当赋值语句的右侧不是移位类型或工具变量的成员无效时发生。请正确指定右侧。
+
+### 示例
+
+```python
+   var sft=Shift(100,20,30,0,0,0,"tool")
+   _tool3=sft
+   move L,spd=30%,accu=1,tool=3
+   end
+```
+[__SOURCE](10-etc/3-sysvar/_vel_rpm_cmd.md)
+# `_vel_rpm_cmd`
+
+读取或设置电机旋转时控制附加轴速度的速度。
+
+### 描述
+
+附加轴必须在工装轴上设置为速度控制模式。<br>
+单位为 rpm。您可以设置 -10000 到 10000 之间的值，默认值为 0。<br>
+如果指定为 -，电机将反向旋转。
+
+### 语法
+
+```python
+var res
+_vel_rpm_cmd[6] = 1000 # 以 1000 rpm 的速度旋转 7 轴电机 
+res = _vel_rpm_cmd[6] # 赋值 7 轴电机的旋转速度 
+```
+
+### 示例
+
+```python
+   ...
+   # 打印当前 7 轴电机旋转速度后，将其设置为 1000 rpm。
+   print _vel_rpm_cmd[6]
+   _vel_rpm_cmd[6]=1000
+   ...
+   end
+```
+[__SOURCE](10-etc/3-sysvar/_weaving.md)
+# `_weaving`
+
+### 描述
+
+`_weaving` 用于更改当前选定的编织条件。
+
+### 语法
+
+```python
+_weaving.frequency=2
+_weaving.angle=5
+```
+
+### 参数
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">项目</th>
+      <th style="text-align:left">含义</th>
+      <th style="text-align:left">其他</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+      <td style="text-align:left">编织</td>
+      <td style="text-align:left">
+         编织类型 (0=单次振动, 1=三角形, 2=L形, 3=圆形)
+      </td>
+      <td style="text-align:left">变量</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">频率</td>
+      <td style="text-align:left">
+        频率[Hz]
+      </td>
+      <td style="text-align:left">变量</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">左距离</td>
+      <td style="text-align:left">
+        向左的距离[mm]
+      </td>
+      <td style="text-align:left">变量</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">右距离</td>
+      <td style="text-align:left">
+        向右的距离[mm]
+      </td>
+<td style="text-align:left">变量</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">角度</td>
+      <td style="text-align:left">
+        角度[度]
+      </td>
+      <td style="text-align:left">变量</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">偏移角度</td>
+      <td style="text-align:left">
+        偏移角度[度]
+      </td>
+      <td style="text-align:left">变量</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">墙面方向</td>
+      <td style="text-align:left">
+        墙面方向 (0=垂直, 1=水平, 2=火炬方向)
+      </td>
+      <td style="text-align:left">变量</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">前向角度</td>
+      <td style="text-align:left">
+        前向角度[度]
+      </td>
+      <td style="text-align:left">变量</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">边界限制</td>
+      <td style="text-align:left">
+        边界限制 (0=有效, 1=无效)
+      </td>
+      <td style="text-align:left">变量</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">段时间_1</td>
+      <td style="text-align:left">
+        段 (1~4) 移动时间[s]
+      </td>
+      <td style="text-align:left">变量</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">段延迟_1</td>
+      <td style="text-align:left">
+        段 (1~4) 计时器（编织停止）[s]
+      </td>
+      <td style="text-align:left">变量</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">height_sensing_mode</td>
+      <td style="text-align:left">
+        高度感应模式 (0=当前变化, 1=左固定, 2=右固定)
+      </td>
+      <td style="text-align:left">variable</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">side_sensing_mode</td>
+      <td style="text-align:left">
+        左/右感应模式 (0=中心, 1=左, 2=右)
+      </td>
+      <td style="text-align:left">variable</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">asymetric_sensing_ratio</td>
+      <td style="text-align:left">
+        非对称感应比例 (-50~50) [%]
+      </td>
+      <td style="text-align:left">variable</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">side_sensing_sensitivity</td>
+      <td style="text-align:left">
+        左右感应灵敏度 (0~10)
+      </td>
+      <td style="text-align:left">variable</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">height_sensing_sensitivity</td>
+      <td style="text-align:left">
+        高度感应灵敏度 (0~10)
+      </td>
+      <td style="text-align:left">variable</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+### 示例
+
+   weaving on,cnd=1
+   move P,spd=50%,accu=3,tool=1
+   _weaving.frequency=5    # 将编织频率更改为5Hz
+   move P,spd=50%,accu=3,tool=1
+   weaving off
+   end
+
+
+[__SOURCE](10-etc/3-sysvar/_pc.md)
+# `_pc`
+
+### 描述
+
+`_pc` 用于获取当前程序计数器信息。 <br>
+程序计数器由程序编号、步骤编号和功能编号组成。
+
+### 语法
+
+```python
+var sno=_pc.cur_sno  # 分配当前步骤编号
+```
+
+### 参数
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">项</th>
+      <th style="text-align:left">含义</th>
+      <th style="text-align:left">其他</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+      <td style="text-align:left">cur_sno</td>
+      <td style="text-align:left">
+         光标当前所在的步骤编号
+      </td>
+      <td style="text-align:left">变量</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+### `cur_sno` 示例：如果未满足条件，则移动到上一个步骤。
+
+```python
+   S6 move P,spd=50%,accu=3,tool=1,until di6
+      if (result()==0)
+        goto S[_pc.cur_sno-1]
+      endif
+   S7 move P,spd=50%,accu=3,tool=1,until di7
+      if (result()==0)
+        goto S[_pc.cur_sno-1]
+      endif
+   S8 move P,spd=50%,accu=3,tool=1,until di8
+      if (result()==0)
+        goto S[_pc.cur_sno-1]
+      endif
+   ...
+```
