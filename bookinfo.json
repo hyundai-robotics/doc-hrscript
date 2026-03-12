@@ -7,6 +7,6 @@
     "tocTitleElements": "[ \"h1\", \"h2\" ]",
     "docId": "${cont_model:upper}HRSCRIPT_KO_001",
     "references": [
-        { "rpath" : "doc-hi6-operation/ko-tp630" }
+        { "title" : "조작설명서 - TP630", "id" : "${cont_model:upper}OPTP630_KO_001" }
     ]
 }
