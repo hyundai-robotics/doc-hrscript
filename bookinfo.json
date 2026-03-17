@@ -7,6 +7,6 @@
     "tocTitleElements": "[ \"h1\", \"h2\" ]",
     "docId": "${cont_model:upper}HRSCRIPT_EN_001",
     "references": [
-        { "title" : "Operation Manual - TP630", "id" : "${cont_model:upper}OPTP630_EN_001" }
+        { "title" : "${cont_model} Controller Operation Manual - TP630", "id" : "${cont_model:upper}OPTP630_EN_001" }
     ]
 }
