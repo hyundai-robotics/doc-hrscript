@@ -7,6 +7,6 @@
     "tocTitleElements": "[ \"h1\", \"h2\" ]",
     "docId": "${cont_model:upper}HRSCRIPT_ZH_001",
     "references": [
-        { "title" : "操作手册 - TP630", "id" : "${cont_model:upper}OPTP630_ZH_001" }
+        { "title" : "${cont_model} 控制器操作手册 - TP630", "id" : "${cont_model:upper}OPTP630_ZH_001" }
     ]
 }
