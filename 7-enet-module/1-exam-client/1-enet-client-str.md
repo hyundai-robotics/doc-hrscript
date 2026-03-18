@@ -16,7 +16,7 @@ Follow these steps:
 ```python
      # 1. After importing the enet module, create an ENet object with the constructor
      import enet
-     var cli=enet.ENet() # for TCP communication, ENet("tcp")
+     var cli=enet.ENet() # default enet mode is "udp"
 
      # 2. Set the IP address and port number
      cli.ip_addr="192.168.1.172" # remote (opponent) IP address
@@ -60,7 +60,7 @@ Follow these steps:
 ```python
      # 1. After importing the enet module, create an ENet object with the constructor
      import enet
-     var cli=enet.ENet() # for TCP communication, ENet("tcp")
+     var cli=enet.ENet("tcp")
 
      # 2. Set the IP address and port number
      cli.ip_addr="192.168.1.172" # remote (opponent) IP address
