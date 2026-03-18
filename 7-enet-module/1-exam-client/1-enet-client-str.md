@@ -17,7 +17,7 @@
 ```python
      # 1. enet 모듈 import 후, 생성자로 ENet 객체 생성
      import enet
-     var cli=enet.ENet() # TCP 통신인 경우, ENet("tcp")
+     var cli=enet.ENet() # 객체 생성 시 default 는 "udp"
 
      # 2. IP주소와 port번호 설정
      cli.ip_addr="192.168.1.172" # remote (상대방) IP address
@@ -61,7 +61,7 @@
 ```python
      # 1. enet 모듈 import 후, 생성자로 ENet 객체 생성
      import enet
-     var cli=enet.ENet() # TCP 통신인 경우, ENet("tcp")
+     var cli=enet.ENet("tcp")
 
      # 2. IP주소와 port번호 설정
      cli.ip_addr="192.168.1.172" # remote (상대방) IP address
