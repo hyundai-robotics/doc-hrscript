@@ -23,7 +23,7 @@
 ```python
      # 1. 导入 enet 模块后，使用构造函数创建 ENet 对象
      import enet
-     var cli=enet.ENet() # 对于 TCP 通信，ENet("tcp")
+     var cli=enet.ENet()
 
      # 2. 设置 IP 地址和端口号
      cli.ip_addr="192.168.1.172" # 远程（对手）IP 地址
@@ -80,7 +80,7 @@
 ```python
      # 1. 导入 enet 模块后，用构造函数创建一个 ENet 对象
      import enet
-     var cli=enet.ENet() # 对于 TCP 通信，ENet("tcp")
+     var cli=enet.ENet("tcp")
 
      # 2. 设置 IP 地址和端口号
      cli.ip_addr="192.168.1.172" # 远程 (对手) IP 地址
