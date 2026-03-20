@@ -4196,6 +4196,64 @@ S1   move P, tg=po1, spd=10%, accu=0, tool=0
 S2   move P, tg=po1, spd=10%, accu=0, tool=0
      end
 ```
+[__SOURCE](5-moving-robot/22-s-curve.md)
+# 5.22 scurve
+
+The S‑curve is a motion‑trajectory planning method that treats the speed changes during the acceleration and deceleration phases of robot motion as a smooth curve.
+
+- **Default method**: At the start and end of acceleration the speed changes abruptly, which can cause mechanical shock (jerk).
+- **S‑curve method**: Makes the speed change smoothly, minimizing equipment vibration, extending hardware lifespan, and ensuring stable path accuracy during high‑speed operation.
+
+### Syntax
+```python
+"scurve on, cnd=<condition number>
+"scurve off
+```
+
+### 파라미터
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Item</th>
+      <th style="text-align:left">Description</th>
+      <th style="text-align:left">Etc</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">on/off</td>
+      <td style="text-align:left">
+        Whether the S‑curve function is enabled
+      </td>
+      <td style="text-align:left">on(enable), off(disable)</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">
+        cnd (condition number)
+      </td>
+      <td style="text-align:left">
+        Specifies the number of the S‑curve condition to use
+      </td>
+      <td style="text-align:left">1~16</td>
+    </tr>
+  </tbody>
+</table>
+
+
+### 사용 예
+```python
+     scurve on,cnd=1   # Apply S‑curve condition #1
+S1   move P,tg=po1,spd=10%,accu=0,tool=0
+     scurve off       # Disable S‑curve
+S2   move P,tg=po1,spd=10%,accu=0,tool=0
+     end
+```
+
+{% hint style="info" %}
+For detailed information, see the “[7.5.23 S‑curve condition](https://hrbook-hrc.web.app/#/view/doc-${cont_model}-operation/en-tp630/7-system/5-application-parameter/23-scurve-condition/README?cont_model=${cont_model})” section of the ${cont_model} controller operation manual.
+{% endhint %}
+
 [__SOURCE](6-external-comm/README.md)
 # 6. Communicating with External Devices
 
@@ -5588,7 +5646,7 @@ Follow these steps:
 ```python
      # 1. After importing the enet module, create an ENet object with the constructor
      import enet
-     var cli=enet.ENet() # for TCP communication, ENet("tcp")
+     var cli=enet.ENet() # default enet mode is "udp"
 
      # 2. Set the IP address and port number
      cli.ip_addr="192.168.1.172" # remote (opponent) IP address
@@ -5632,7 +5690,7 @@ Follow these steps:
 ```python
      # 1. After importing the enet module, create an ENet object with the constructor
      import enet
-     var cli=enet.ENet() # for TCP communication, ENet("tcp")
+     var cli=enet.ENet("tcp")
 
      # 2. Set the IP address and port number
      cli.ip_addr="192.168.1.172" # remote (opponent) IP address
@@ -5696,7 +5754,7 @@ Receiving
 ```python
      # 1. After importing the enet module, create an ENet object with the constructor
      import enet
-     var cli=enet.ENet() # For TCP communications, ENet("tcp")
+     var cli=enet.ENet()
 
      # 2. Set the IP address and port number
      cli.ip_addr="192.168.1.172" # remote (opponent) IP address
@@ -5755,7 +5813,7 @@ Receiving
 ```python
      # 1. After importing the enet module, create an ENet object with the constructor
      import enet
-     var cli=enet.ENet() # For TCP communications, ENet("tcp")
+     var cli=enet.ENet("tcp")
 
      # 2. Set the IP address and port number
      cli.ip_addr="192.168.1.172" # remote (opponent) IP address
@@ -5809,6 +5867,7 @@ Receiving
 ```
 
 * String arguments such as "s4" and "U2" determine the binary data format such as endian type, signed/unsigned, and the number of bytes. For more information, see [7.4.2 Supported format](../4-bbuf/2-format.md).
+
 [__SOURCE](7-enet-module/2-exam-server/README.md)
 # 7.2 TCP server example
 

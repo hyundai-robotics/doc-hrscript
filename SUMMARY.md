@@ -91,6 +91,7 @@
   * [5.19 smov](5-moving-robot/19-smov.md)
   * [5.20 shift](5-moving-robot/20-shift.md)
   * [5.21 shift_lim](5-moving-robot/21-shift_lim.md)
+  * [5.22 scurve](5-moving-robot/22-s-curve.md)
 * [6. Communicating with External Devices](6-external-comm/README.md)
   * [6.1 FB Object: Digital I/O](6-external-comm/1-fb-io/README.md)
     * [6.1.1 Input/Output Variables](6-external-comm/1-fb-io/1-io-val.md)
