@@ -4734,7 +4734,7 @@ UDP 点对点 (1:1 通信) 或 TCP 客户端示例程序用于字符串和二进
 ```python
      # 1. 导入 enet 模块后，使用构造函数创建一个 ENet 对象
      import enet
-     var cli=enet.ENet() # 用于 TCP 通信，ENet("tcp")
+     var cli=enet.ENet()
 
      # 2. 设置 IP 地址和端口号
      cli.ip_addr="192.168.1.172" # 远程 (对手) IP 地址
@@ -4776,7 +4776,7 @@ UDP 点对点 (1:1 通信) 或 TCP 客户端示例程序用于字符串和二进
 ```python
      # 1. 导入 enet 模块后，使用构造函数创建 ENet 对象
      import enet
-     var cli=enet.ENet() # 用于 TCP 通信，ENet("tcp")
+     var cli=enet.ENet("tcp") # 用于 udp 通信，ENet("udp") / Enet()
 
      # 2. 设置 IP 地址和端口号
      cli.ip_addr="192.168.1.172" # 远程 (对手) IP 地址
@@ -4813,6 +4813,7 @@ UDP 点对点 (1:1 通信) 或 TCP 客户端示例程序用于字符串和二进
      cli.close
      end
 ```
+
 [__SOURCE](7-enet-module/1-exam-client/2-enet-client-bin.md)
 # 7.1.2 点对点，客户端示例 - 发送接收二进制数据
 
@@ -4839,7 +4840,7 @@ UDP 点对点 (1:1 通信) 或 TCP 客户端示例程序用于字符串和二进
 ```python
      # 1. 导入 enet 模块后，使用构造函数创建 ENet 对象
      import enet
-     var cli=enet.ENet() # 对于 TCP 通信，ENet("tcp")
+     var cli=enet.ENet()
 
      # 2. 设置 IP 地址和端口号
      cli.ip_addr="192.168.1.172" # 远程（对手）IP 地址
@@ -4896,7 +4897,7 @@ UDP 点对点 (1:1 通信) 或 TCP 客户端示例程序用于字符串和二进
 ```python
      # 1. 导入 enet 模块后，用构造函数创建一个 ENet 对象
      import enet
-     var cli=enet.ENet() # 对于 TCP 通信，ENet("tcp")
+     var cli=enet.ENet("tcp")
 
      # 2. 设置 IP 地址和端口号
      cli.ip_addr="192.168.1.172" # 远程 (对手) IP 地址
@@ -4949,6 +4950,7 @@ UDP 点对点 (1:1 通信) 或 TCP 客户端示例程序用于字符串和二进
      end
 ```
 * 字符串参数如 "s4" 和 "U2" 决定二进制数据格式，例如字节序类型、符号/无符号和字节数。更多信息，请参见 [7.4.2 Supported format](../4-bbuf/2-format.md)。
+
 [__SOURCE](7-enet-module/2-exam-server/README.md)
 # 7.2 TCP 服务器示例
 
