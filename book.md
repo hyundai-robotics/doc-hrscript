@@ -5899,7 +5899,7 @@ UDP peer-to-peer (1:1통신), 혹은 TCP client 예제 프로그램을 문자열
 ```python
      # 1. enet 모듈 import 후, 생성자로 ENet 객체 생성
      import enet
-     var cli=enet.ENet() # TCP 통신인 경우, ENet("tcp")
+     var cli=enet.ENet() # 객체 생성 시 default 는 "udp"
 
      # 2. IP주소와 port번호 설정
      cli.ip_addr="192.168.1.172" # remote (상대방) IP address
@@ -5943,7 +5943,7 @@ UDP peer-to-peer (1:1통신), 혹은 TCP client 예제 프로그램을 문자열
 ```python
      # 1. enet 모듈 import 후, 생성자로 ENet 객체 생성
      import enet
-     var cli=enet.ENet() # TCP 통신인 경우, ENet("tcp")
+     var cli=enet.ENet("tcp")
 
      # 2. IP주소와 port번호 설정
      cli.ip_addr="192.168.1.172" # remote (상대방) IP address
@@ -5979,6 +5979,7 @@ UDP peer-to-peer (1:1통신), 혹은 TCP client 예제 프로그램을 문자열
      cli.close
      end
 ```
+
 [__SOURCE](7-enet-module/1-exam-client/2-enet-client-bin.md)
 # 7.1.2 peer-to-peer, client 예제 - 바이너리 송수신
 
@@ -6005,7 +6006,7 @@ UDP peer-to-peer (1:1통신), 혹은 TCP client 예제 프로그램을 문자열
 ```python
      # 1. enet 모듈 import 후, 생성자로 ENet 객체 생성
      import enet
-     var cli=enet.ENet() # TCP 통신인 경우, ENet("tcp")
+     var cli=enet.ENet()
 
      # 2. IP주소와 port번호 설정
      cli.ip_addr="192.168.1.172" # remote (상대방) IP address
@@ -6062,7 +6063,7 @@ UDP peer-to-peer (1:1통신), 혹은 TCP client 예제 프로그램을 문자열
 ```python
      # 1. enet 모듈 import 후, 생성자로 ENet 객체 생성
      import enet
-     var cli=enet.ENet() # TCP 통신인 경우, ENet("tcp")
+     var cli=enet.ENet("tcp")
 
      # 2. IP주소와 port번호 설정
      cli.ip_addr="192.168.1.172" # remote (상대방) IP address
@@ -6116,6 +6117,7 @@ UDP peer-to-peer (1:1통신), 혹은 TCP client 예제 프로그램을 문자열
 
 
 * "s4"나 "U2" 같은 문자열 인수가 endian 방식, signed/unsigned, byte수 같은 binary data 형식을 결정합니다. 자세한 내용은 [7.4.2 지원 형식 (format)](../4-bbuf/2-format.md)을 참조하십시오.
+
 [__SOURCE](7-enet-module/2-exam-server/README.md)
 # 7.2 TCP server 예제
 
