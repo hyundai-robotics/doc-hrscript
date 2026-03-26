@@ -2997,7 +2997,7 @@ Examples of format;
 ```
 
 {% hint style="info" %}
-The cfg element specifies the robot configuration. For more information, refer to "[2.3.2.2 Base and Robot Recording Coordinates](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/2-operation/3-step/2-step-pose-modify/2-base-robot-crd-sys)" in the ${cont_model} Robot Controller Operation Manual.
+The cfg element specifies the robot configuration. For more information, refer to "[2.3.2.2 Base and Robot Recording Coordinates](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/2-operation/3-step/2-step-pose-modify/2-base-robot-crd-sys?cont_model=${cont_model})" in the ${cont_model} Robot Controller Operation Manual.
 {% endhint %}
 
 
@@ -3532,7 +3532,7 @@ selucrd <coord. system number>
 Select the mode of CONTPATH.
 
 See the link below for the description of CONTPATH.
-[Operation Manual: 8.15 R360 Set CONTPATH manually](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/8-r-code/15-r360)
+[Operation Manual: 8.15 R360 Set CONTPATH manually](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/8-r-code/15-r360?cont_model=${cont_model})
 
 <br><br>
 
@@ -4122,7 +4122,7 @@ S1   move P,tg=pose_C,spd=10%,accu=0,tool=0
 ### Description
 * The `axisctrl` command specifies whether additional axes should move to their target positions when the `move` command is executed to move each axis.
 * For a detailed description of the `axisctrl` statement, refer to the link below.  
-[${cont_model} Controller Function Manual - Multitasking](https://hrbook-hrc.web.app/#/view/doc-multi-task/en/README)
+[${cont_model} Controller Function Manual - Multitasking](https://hrbook-hrc.web.app/#/view/doc-multi-task/en/README?cont_model=${cont_model})
 
 ### Syntax
 ```python
@@ -4135,7 +4135,7 @@ axisctrl <on/off>,a=[additional axis number, additional axis number, ...]  # Mul
 ### Description
 The `smov` statement is a procedure used for positioner synchronization.  
 For a detailed description of the `smov` statement, refer to the link below.  
-[${cont_model} Controller Function Manual - Positioner Synchronization](https://hrbook-hrc.web.app/#/view/doc-positioner-sync/en/README)
+[${cont_model} Controller Function Manual - Positioner Synchronization](https://hrbook-hrc.web.app/#/view/doc-positioner-sync/en/README?cont_model=${cont_model})
 
 <br><br>
 
@@ -4251,7 +4251,7 @@ S2   move P,tg=po1,spd=10%,accu=0,tool=0
 ```
 
 {% hint style="info" %}
-For detailed information, see the “[7.5.23 S‑curve condition](https://hrbook-hrc.web.app/#/view/doc-${cont_model}-operation/en-tp630/7-system/5-application-parameter/23-scurve-condition/README?cont_model=${cont_model})” section of the ${cont_model} controller operation manual.
+For detailed information, see the “[7.5.23 S‑curve condition](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/7-system/5-application-parameter/23-scurve-condition/README?cont_model=${cont_model})” section of the ${cont_model} controller operation manual.
 {% endhint %}
 
 [__SOURCE](6-external-comm/README.md)
@@ -4400,7 +4400,7 @@ If the ${cont_model} controller is a fieldbus master, and there are multiple fie
 
 See the link below for instructions on how to set up the `fn` region.
 
-[Operation manual: fn block allocation](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/7-system/3-control-parameter/2-io-signal-setting/12-fn-block)
+[Operation manual: fn block allocation](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/7-system/3-control-parameter/2-io-signal-setting/12-fn-block?cont_model=${cont_model})
   
 &nbsp;
 
@@ -5339,7 +5339,7 @@ input work_no,10,*timeout
 [__SOURCE](6-external-comm/4-modbus/README.md)
 # 6.4 Modbus module : Modbus master
 
-Modbus master operations can be performed in HRScript. For detailed information on modbus communication functions, please refer to the separate manual. [${cont_model} Controller Function Manual - Modbus](https://hrbook-hrc.web.app/#/view/doc-modbus/en/README)  
+Modbus master operations can be performed in HRScript. For detailed information on modbus communication functions, please refer to the separate manual. [${cont_model} Controller Function Manual - Modbus](https://hrbook-hrc.web.app/#/view/doc-modbus/en/README?cont_model=${cont_model})  
 
 [__SOURCE](6-external-comm/5-sci/README.md)
 # 6.5 Sci module : Serial communication
@@ -7528,7 +7528,7 @@ The global root arrays of HRScript is stored in the `vars/` folder as files in C
 
 For information on variable files, please refer to the operation manual link below.
 
-[global variable/variable file](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/6-monitoring/3-job/3-global-variable/3-var-files)
+[global variable/variable file](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/6-monitoring/3-job/3-global-variable/3-var-files?cont_model=${cont_model})
 
 You can easily edit .csv files with a text editor on your PC.
 The edited file copied to the `vars/` folder is not immediately reflected in memory, but only by using the `[load all]` function in the TeachPendant's global variable window or executing the `load_csv` statement.
@@ -7611,7 +7611,7 @@ The global root array of HRScript is stored in the `vars/` folder as a file in C
 
 For information on variable files, please refer to the operation manual link below.
 
-[global variable/variable file](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/6-monitoring/3-job/3-global-variable/3-var-files)
+[global variable/variable file](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/6-monitoring/3-job/3-global-variable/3-var-files?cont_model=${cont_model})
 
 The global root arrays are not immediately stored to the .csv file whenever the value changes.
 It is saved as a file when you press `Ctrl+[F7: save]` or power off, and you can save it as a file immediately by executing the `save_csv` command.
@@ -8226,9 +8226,9 @@ gasp_check pres=<estimated pressure>,ref=<reference pressure>,tol=<tolerance>,os
 
 {% hint style="info" %}
 * Supported only on robots equipped with the gas spring
-* For accurate estimation, [Axis add weight setting](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/7-system/4-robot-parameter/7-axis-add-weight/README) and [Load estimation function](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/7-system/7-auto-calibration/3-load-estimation) must be preceded before using the function.
+* For accurate estimation, [Axis add weight setting](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/7-system/4-robot-parameter/7-axis-add-weight/README?cont_model=${cont_model}) and [Load estimation function](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/7-system/7-auto-calibration/3-load-estimation?cont_model=${cont_model}) must be preceded before using the function.
 * For a detailed description of the gas spring pressure check monitoring function, please refer to the link below.
-[](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/6-monitoring/4-system/2-system-diagnosis/2-gas-pressure-check)
+[](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/6-monitoring/4-system/2-system-diagnosis/2-gas-pressure-check?cont_model=${cont_model})
 * The estimated gas spring pressure may vary depending on the initial posture at the start of measurement.
 During the robot's initial setup, please manage the pressure values based on the measurements taken at each reference posture, and regularly measure the pressure in the same posture to compare it with the initial values.
 If a significant difference is observed in the measured values, please inspect the condition of the equipment.  
@@ -8459,7 +8459,7 @@ speed_out <on/off>, min_spd=<minimum speed>, max_spd=<maximum speed>, min_val=<m
 
 The `task` statement is a procedure used to perform multitasking functions.  
 For detailed information about the `task` statement, refer to the link below:  
-[${cont_model} Controller Function Manual - Multitasking](https://hrbook-hrc.web.app/#/view/doc-multi-task/en/README)  
+[${cont_model} Controller Function Manual - Multitasking](https://hrbook-hrc.web.app/#/view/doc-multi-task/en/README?cont_model=${cont_model})  
 
 ### Syntax
 
@@ -8476,7 +8476,7 @@ task reset, sub=<subtask number>
 
 The `toolchng` statement is a procedure used to change the servo tool assigned to an additional axis.  
 For detailed information about the `toolchng` statement, refer to the link below:  
-[${cont_model} Robot Controller Function Manual - Servo Tool Change](https://hrbook-hrc.web.app/#/view/doc-svtool-change/en/README)
+[${cont_model} Robot Controller Function Manual - Servo Tool Change](https://hrbook-hrc.web.app/#/view/doc-svtool-change/en/README?cont_model=${cont_model})
 
 ### Syntax
 
@@ -8646,9 +8646,9 @@ When you touch the [Properties] button in the brake_check command, you will ente
 
 {% hint style="info" %}
 * Supported only on robots equipped with the gas spring
-* For accurate estimation, [Axis add weight setting](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/7-system/4-robot-parameter/7-axis-add-weight/README) and [Load estimation function](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/7-system/7-auto-calibration/3-load-estimation) must be preceded before using the function.
+* For accurate estimation, [Axis add weight setting](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/7-system/4-robot-parameter/7-axis-add-weight/README?cont_model=${cont_model}) and [Load estimation function](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/7-system/7-auto-calibration/3-load-estimation?cont_model=${cont_model}) must be preceded before using the function.
 * For a detailed description of the brake check monitoring function, please refer to the link below.
-[](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/6-monitoring/4-system/2-system-diagnosis/1-brake-check)
+[](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/6-monitoring/4-system/2-system-diagnosis/1-brake-check?cont_model=${cont_model})
 {% endhint %}
 [__SOURCE](10-etc/2-func/README.md)
 # 10.2 Etc. functions

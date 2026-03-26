@@ -52,5 +52,5 @@ S2   move P,tg=po1,spd=10%,accu=0,tool=0
 ```
 
 {% hint style="info" %}
-For detailed information, see the “[7.5.23 S‑curve condition](https://hrbook-hrc.web.app/#/view/doc-${cont_model}-operation/en-tp630/7-system/5-application-parameter/23-scurve-condition/README?cont_model=${cont_model})” section of the ${cont_model} controller operation manual.
+For detailed information, see the “[7.5.23 S‑curve condition](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/7-system/5-application-parameter/23-scurve-condition/README?cont_model=${cont_model})” section of the ${cont_model} controller operation manual.
 {% endhint %}
