@@ -52,5 +52,5 @@ S2   move P,tg=po1,spd=10%,accu=0,tool=0
 ```
 
 {% hint style="info" %}
-자세한 내용은 ${cont_model} 제어기 조작설명서의 "[7.5.23 S-curve 조건](https://hrbook-hrc.web.app/#/view/doc-${cont_model}-operation/ko-tp630/7-system/5-application-parameter/23-scurve-condition/README?cont_model=${cont_model})"를 참조하십시오.
+자세한 내용은 ${cont_model} 제어기 조작설명서의 "[7.5.23 S-curve 조건](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/ko-tp630/7-system/5-application-parameter/23-scurve-condition/README?cont_model=${cont_model})"를 참조하십시오.
 {% endhint %}

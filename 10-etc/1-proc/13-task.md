@@ -2,7 +2,7 @@
 
 task문은 멀티태스크 기능을 수행하는 프로시져입니다.
 task문에 대한 자세한 설명은 아래 링크를 참조하십시오.  
-[${cont_model} 제어기 기능설명서 - 멀티태스킹](https://hrbook-hrc.web.app/#/view/doc-multi-task/ko/README)
+[${cont_model} 제어기 기능설명서 - 멀티태스킹](https://hrbook-hrc.web.app/#/view/doc-multi-task/ko/README?cont_model=${cont_model})
 <br><br>
 
 ### 문법

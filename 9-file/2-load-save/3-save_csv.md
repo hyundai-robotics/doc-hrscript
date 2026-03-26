@@ -14,7 +14,7 @@ HRScript의 전역 최상위(root) 배열은 vars/ 폴더에 CSV 표준형식의
 
 변수 파일에 대한 관련 내용은 아래 조작설명서 링크를 참고하십시오.
 
-[전역변수/변수 파일](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/ko-${cont_model}-tp630/6-monitoring/3-job/3-global-variable/3-var-files)
+[전역변수/변수 파일](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/ko-tp630/6-monitoring/3-job/3-global-variable/3-var-files?cont_model=${cont_model})
 
 전역 최상위(root) 배열은 값이 바뀔 때마다 즉각적으로 .csv 파일에 저장되지는 않습니다.
 `Ctrl+[F7: save]`를 누르거나 전원을 끌 때에 파일로 저장되는데, `save_csv` 명령문을 수행하면 즉각 파일로 저장할 수 있습니다.

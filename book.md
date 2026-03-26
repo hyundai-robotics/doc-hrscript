@@ -3144,7 +3144,7 @@ format의 예 (examples);
 {% hint style="info" %}
 cfg요소는 로봇 자세 \(configuration\)를 지정합니다.<br>
 축 좌표(joint)의 경우는 필요 없고, 직교좌표의 경우만 필요합니다.<br>
-자세한 내용은 ${cont_model} 제어기 조작설명서의 "[2.3.2.2 베이스 및 로봇 기록 좌표](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/ko-${cont_model}-tp630/2-operation/3-step/2-step-pose-modify/2-base-robot-crd-sys)"를 참조하십시오.
+자세한 내용은 ${cont_model} 제어기 조작설명서의 "[2.3.2.2 베이스 및 로봇 기록 좌표](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/ko-${cont_model}-tp630/2-operation/3-step/2-step-pose-modify/2-base-robot-crd-sys?cont_model=${cont_model})"를 참조하십시오.
 
 {% endhint %}
 
@@ -3721,7 +3721,7 @@ selucrd <좌표계번호>
 CONTPATH(연속패스)의 모드를 선택합니다.
 
 CONTPATH에 대한 설명은 아래 링크를 참조하십시오.  
-[${cont_model} 조작설명서: 8.15 R360 CONTPATH 수동 설정](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/ko-${cont_model}-tp630/8-r-code/15-r360)
+[${cont_model} 조작설명서: 8.15 R360 CONTPATH 수동 설정](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/ko-tp630/8-r-code/15-r360?cont_model=${cont_model})
 <br><br>
 
 
@@ -4326,7 +4326,7 @@ S1   move P,tg=pose_C,spd=10%,accu=0,tool=0
 ### 설명 
 * axisctrl 명령어는 move 명령어 실행에 의해 각 축의 위치를 이동할 때, 부가축에 대해 목표위치로 이동할지 여부를 지정하는 기능입니다.  
 * axisctrl문에 대한 자세한 설명은 아래 링크를 참조하십시오.  
-[${cont_model} 제어기 기능설명서 - 멀티태스킹](https://hrbook-hrc.web.app/#/view/doc-multi-task/ko/README)
+[${cont_model} 제어기 기능설명서 - 멀티태스킹](https://hrbook-hrc.web.app/#/view/doc-multi-task/ko/README?cont_model=${cont_model})
 
 ### 문법 
 ```python
@@ -4338,7 +4338,7 @@ axisctrl <on/off>,a=[부가축 번호,부가축 번호,...] : 복수지정 가�
 
 smov문은 포지셔너 동기 시 사용되는 프로시져입니다.
 smov문에 대한 자세한 설명은 아래 링크를 참조하십시오.  
-[${cont_model} 제어기 기능설명서 - 포지셔너 동기](https://hrbook-hrc.web.app/#/view/doc-positioner-sync/ko/README)
+[${cont_model} 제어기 기능설명서 - 포지셔너 동기](https://hrbook-hrc.web.app/#/view/doc-positioner-sync/ko/README?cont_model=${cont_model})
 <br><br>
 
 ### 문법
@@ -4450,7 +4450,7 @@ S2   move P,tg=po1,spd=10%,accu=0,tool=0
 ```
 
 {% hint style="info" %}
-자세한 내용은 ${cont_model} 제어기 조작설명서의 "[7.5.23 S-curve 조건](https://hrbook-hrc.web.app/#/view/doc-${cont_model}-operation/ko-tp630/7-system/5-application-parameter/23-scurve-condition/README?cont_model=${cont_model})"를 참조하십시오.
+자세한 내용은 ${cont_model} 제어기 조작설명서의 "[7.5.23 S-curve 조건](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/ko-tp630/7-system/5-application-parameter/23-scurve-condition/README?cont_model=${cont_model})"를 참조하십시오.
 {% endhint %}
 [__SOURCE](6-external-comm/README.md)
 # 6. 외부장치와 통신하기
@@ -4600,7 +4600,7 @@ ${cont_model} 제어기가 필드버스 master이고, 여러 개의 필드버스
 
 fn영역을 설정하는 방법은 아래 링크를 참조하십시오.
 
-[${cont_model} 조작설명서: 7.3.2.12 fn 블럭 할당](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/ko-${cont_model}-tp630/7-setting/3-control-parameter/2-io-signal-setting/12-fn-block)
+[${cont_model} 조작설명서: 7.3.2.12 fn 블럭 할당](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/ko-${cont_model}-tp630/7-setting/3-control-parameter/2-io-signal-setting/12-fn-block?cont_model=${cont_model})
   
 &nbsp;
 
@@ -5592,7 +5592,7 @@ input work_no,10,*timeout
 [__SOURCE](6-external-comm/4-modbus/README.md)
 # 6.4 modbus 모듈 : 모드버스 마스터
 
-HRScript에서 모드버스 마스터 동작을 수행할 수 있습니다. 모드버스 통신 기능에 대한 자세한 내용은 별도의 [${cont_model} 제어기 기능설명서 - 모드버스](https://hrbook-hrc.web.app/#/view/doc-modbus/ko/README)를 참조하십시오.  
+HRScript에서 모드버스 마스터 동작을 수행할 수 있습니다. 모드버스 통신 기능에 대한 자세한 내용은 별도의 [${cont_model} 제어기 기능설명서 - 모드버스](https://hrbook-hrc.web.app/#/view/doc-modbus/ko/README?cont_model=${cont_model})를 참조하십시오.  
 
 [__SOURCE](6-external-comm/5-sci/README.md)
 # 6.5 sci 모듈 : 시리얼 통신
@@ -7778,7 +7778,7 @@ HRScript의 전역 최상위(root) 배열은 vars/ 폴더에 CSV 표준형식의
 
 변수 파일에 대한 관련 내용은 아래 조작설명서 링크를 참고하십시오.
 
-[전역변수/변수 파일](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/ko-${cont_model}-tp630/6-monitoring/3-job/3-global-variable/3-var-files)
+[전역변수/변수 파일](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/ko-tp630/6-monitoring/3-job/3-global-variable/3-var-files?cont_model=${cont_model})
 
 .csv 파일들은 PC에서 텍스트 편집기로 쉽게 편집할 수 있습니다.
 편집된 파일을 vars/ 폴더로 복사하는 것 만으로는 즉각 메모리에 반영되지 않으며, 티치펜던트의 전역변수창에서 `[전부 불러오기]` 기능을 사용하거나, `load_csv` 명령을 실행해야만 반영됩니다.
@@ -7865,7 +7865,7 @@ HRScript의 전역 최상위(root) 배열은 vars/ 폴더에 CSV 표준형식의
 
 변수 파일에 대한 관련 내용은 아래 조작설명서 링크를 참고하십시오.
 
-[전역변수/변수 파일](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/ko-${cont_model}-tp630/6-monitoring/3-job/3-global-variable/3-var-files)
+[전역변수/변수 파일](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/ko-tp630/6-monitoring/3-job/3-global-variable/3-var-files?cont_model=${cont_model})
 
 전역 최상위(root) 배열은 값이 바뀔 때마다 즉각적으로 .csv 파일에 저장되지는 않습니다.
 `Ctrl+[F7: save]`를 누르거나 전원을 끌 때에 파일로 저장되는데, `save_csv` 명령문을 수행하면 즉각 파일로 저장할 수 있습니다.
@@ -8481,7 +8481,7 @@ gasp_check pres=<추정 압력>,ref=<기준 압력>,tol=<허용오차>,os=<에�
 
 {% hint style="info" %}
 * 가스스프링이 장착된 로봇에서만 지원되는 기능입니다.
-* 정확한 추정을 위해 기능 사용 전 [축별 부가중량 설정](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/ko-tp630/7-system/4-robot-parameter/7-axis-add-weight/README) 및 [부하추정 기능](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/ko-tp630/7-system/7-auto-calibration/3-load-estimation)이 선행되어야 합니다.
+* 정확한 추정을 위해 기능 사용 전 [축별 부가중량 설정](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/ko-tp630/7-system/4-robot-parameter/7-axis-add-weight/README?cont_model=${cont_model}) 및 [부하추정 기능](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/ko-tp630/7-system/7-auto-calibration/3-load-estimation?cont_model=${cont_model})이 선행되어야 합니다.
 * 측정 시작 자세에 따라 가스 스프링 압력의 추정 결과가 달라질 수 있습니다. 로봇 초기 세팅 시 각 기준 자세에서 측정된 압력값을 기준으로 관리하시기 바라며, 동일한 자세에서 정기적으로 압력을 측정하여 초기 값과 비교하십시오. 측정값의 차이가 크게 발생할 경우, 장비 상태를 점검해 주시기 바랍니다.  
 
 {% endhint %}
@@ -8839,7 +8839,7 @@ speed_out <on/off>,min_spd=<최소속도>,max_spd=<최대속도>,min_val=<최소
 
 task문은 멀티태스크 기능을 수행하는 프로시져입니다.
 task문에 대한 자세한 설명은 아래 링크를 참조하십시오.  
-[${cont_model} 제어기 기능설명서 - 멀티태스킹](https://hrbook-hrc.web.app/#/view/doc-multi-task/ko/README)
+[${cont_model} 제어기 기능설명서 - 멀티태스킹](https://hrbook-hrc.web.app/#/view/doc-multi-task/ko/README?cont_model=${cont_model})
 <br><br>
 
 ### 문법
@@ -8856,7 +8856,7 @@ task reset,sub=<서브태스크 번호>
 
 toolchng 명령문은 부가축에 할당된 서보툴을 변경하기 위한 프로시져입니다.
 toolchng문에 대한 자세한 설명은 아래 링크를 참조하십시오.  
-[${cont_model} 로봇제어기 기능설명서 - 서보툴 체인지](https://hrbook-hrc.web.app/#/view/doc-svtool-change/ko/README)
+[${cont_model} 로봇제어기 기능설명서 - 서보툴 체인지](https://hrbook-hrc.web.app/#/view/doc-svtool-change/ko/README?cont_model=${cont_model})
 
 
 ### 문법

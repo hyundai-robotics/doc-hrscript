@@ -2,7 +2,7 @@
 
 smov문은 포지셔너 동기 시 사용되는 프로시져입니다.
 smov문에 대한 자세한 설명은 아래 링크를 참조하십시오.  
-[${cont_model} 제어기 기능설명서 - 포지셔너 동기](https://hrbook-hrc.web.app/#/view/doc-positioner-sync/ko/README)
+[${cont_model} 제어기 기능설명서 - 포지셔너 동기](https://hrbook-hrc.web.app/#/view/doc-positioner-sync/ko/README?cont_model=${cont_model})
 <br><br>
 
 ### 문법
