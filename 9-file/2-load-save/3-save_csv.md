@@ -10,7 +10,7 @@ HRScript 的全局根数组被存储在 `vars/` 文件夹中，作为 CSV 标准
 
 有关变量文件的信息，请参阅以下操作手册链接。
 
-[全局变量/变量文件](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/6-monitoring/3-job/3-global-variable/3-var-files)
+[全局变量/变量文件](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/zh-tp630/6-monitoring/3-job/3-global-variable/3-var-files?cont_model=${cont_model})
 
 全局根数组不会在值更改时立即存储到 .csv 文件中。
 当您按 `Ctrl+[F7: 保存]` 或关闭电源时，它将作为文件保存，您可以通过执行 `save_csv` 命令立即将其保存为文件。

@@ -78,9 +78,9 @@ gasp_check pres=<estimated pressure>,ref=<reference pressure>,tol=<tolerance>,os
 
 {% hint style="info" %}
 * 仅在配备气弹簧的机器人上支持
-* 为了准确估计，必须在使用该功能之前进行[轴添加重量设置](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/7-system/4-robot-parameter/7-axis-add-weight/README)和[负载估计功能](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/7-system/7-auto-calibration/3-load-estimation)。
+* 为了准确估计，必须在使用该功能之前进行[轴添加重量设置](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/zh-tp630/7-system/4-robot-parameter/7-axis-add-weight/README?cont_model=${cont_model})和[负载估计功能](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/zh-tp630/7-system/7-auto-calibration/3-load-estimation?cont_model=${cont_model})。
 * 有关气弹簧压力检查监控功能的详细说明，请参阅以下链接。
-[](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/6-monitoring/4-system/2-system-diagnosis/2-gas-pressure-check)
+[](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/zh-tp630/6-monitoring/4-system/2-system-diagnosis/2-gas-pressure-check?cont_model=${cont_model})
 * 估计的气弹簧压力可能会因测量开始时的初始姿势而有所变化。在机器人的初始设置期间，请根据每个参考姿势进行的测量管理压力值，并定期在同一姿势下测量压力，以便将其与初始值进行比较。如果在测量值中观察到显著差异，请检查设备的状态。
 
 {% endhint %}

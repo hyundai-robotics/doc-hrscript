@@ -7,7 +7,7 @@
 
 有关如何设置 `fn` 区域的说明，请参见以下链接。
 
-[操作手册：fn 块分配](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/7-system/3-control-parameter/2-io-signal-setting/12-fn-block)
+[操作手册：fn 块分配](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/zh-tp630/7-system/3-control-parameter/2-io-signal-setting/12-fn-block?cont_model=${cont_model})
 
 &nbsp;
 

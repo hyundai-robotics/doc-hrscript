@@ -92,7 +92,7 @@ brake_check os=<error output signal>,job=<return program>
 
 {% hint style="info" %}
 * 仅支持配备气弹簧的机器人
-* 为了准确估计，必须在使用该功能之前进行 [轴添加重量设置](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/7-system/4-robot-parameter/7-axis-add-weight/README) 和 [负载估计功能](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/7-system/7-auto-calibration/3-load-estimation)。
+* 为了准确估计，必须在使用该功能之前进行 [轴添加重量设置](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/zh-tp630/7-system/4-robot-parameter/7-axis-add-weight/README?cont_model=${cont_model}) 和 [负载估计功能](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/zh-tp630/7-system/7-auto-calibration/3-load-estimation?cont_model=${cont_model})。
 * 有关刹车检查监控功能的详细说明，请参阅以下链接。
-[](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/6-monitoring/4-system/2-system-diagnosis/1-brake-check)
+[](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/zh-tp630/6-monitoring/4-system/2-system-diagnosis/1-brake-check?cont_model=${cont_model})
 {% endhint %}

@@ -5,7 +5,7 @@
 选择 CONTPATH 的模式。
 
 请参阅下面的链接以获取 CONTPATH 的描述。
-[操作手册：8.15 手动设置 CONTPATH](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/8-r-code/15-r360)
+[操作手册：8.15 手动设置 CONTPATH](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/zh-tp630/8-r-code/15-r360?cont_model=${cont_model})
 
 <br><br>
 

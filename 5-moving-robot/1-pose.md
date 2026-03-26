@@ -38,7 +38,7 @@
 ```
 
 {% hint style="info" %}
-cfg 元素指定机器人配置。有关更多信息，请参阅 ${cont_model} 机器人控制器操作手册中的 "[2.3.2.2 基础和机器人记录坐标](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/2-operation/3-step/2-step-pose-modify/2-base-robot-crd-sys)"。
+cfg 元素指定机器人配置。有关更多信息，请参阅 ${cont_model} 机器人控制器操作手册中的 "[2.3.2.2 基础和机器人记录坐标](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/zh-tp630/2-operation/3-step/2-step-pose-modify/2-base-robot-crd-sys?cont_model=${cont_model})"。
 {% endhint %}
 
 

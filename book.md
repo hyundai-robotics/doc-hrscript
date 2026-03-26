@@ -2746,7 +2746,7 @@ print arr   # [1, 2, 3, 4, 5]
 ```
 
 {% hint style="info" %}
-cfg 元素指定机器人配置。有关更多信息，请参阅 ${cont_model} 机器人控制器操作手册中的 "[2.3.2.2 基础和机器人记录坐标](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/2-operation/3-step/2-step-pose-modify/2-base-robot-crd-sys)"。
+cfg 元素指定机器人配置。有关更多信息，请参阅 ${cont_model} 机器人控制器操作手册中的 "[2.3.2.2 基础和机器人记录坐标](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/zh-tp630/2-operation/3-step/2-step-pose-modify/2-base-robot-crd-sys?cont_model=${cont_model})"。
 {% endhint %}
 
 
@@ -3253,7 +3253,7 @@ selucrd <坐标系统编号>
 选择 CONTPATH 的模式。
 
 请参阅下面的链接以获取 CONTPATH 的描述。
-[操作手册：8.15 手动设置 CONTPATH](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/8-r-code/15-r360)
+[操作手册：8.15 手动设置 CONTPATH](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/zh-tp630/8-r-code/15-r360?cont_model=${cont_model})
 
 <br><br>
 
@@ -3807,7 +3807,7 @@ S1   move P,tg=pose_C,spd=10%,accu=0,tool=0
 ### 描述
 * `axisctrl` 命令指定在执行 `移动 (move)` 命令以移动每个轴时，是否应当额外轴移动到其目标位置。
 * 有关 `axisctrl` 声明的详细描述，请参阅以下链接。  
-[${cont_model} 控制器功能手册 - 多任务处理](https://hrbook-hrc.web.app/#/view/doc-multi-task/en/README)
+[${cont_model} 控制器功能手册 - 多任务处理](https://hrbook-hrc.web.app/#/view/doc-multi-task/zh/README?cont_model=${cont_model})
 
 ### 语法
 ```python
@@ -3820,7 +3820,7 @@ axisctrl <on/off>,a=[additional axis number, additional axis number, ...]  # 多
 ### 描述
 `smov` 语句是用于定位器同步的程序。  
 有关 `smov` 语句的详细描述，请参阅以下链接。  
-[${cont_model} 控制器功能手册 - 定位器同步](https://hrbook-hrc.web.app/#/view/doc-positioner-sync/en/README)
+[${cont_model} 控制器功能手册 - 定位器同步](https://hrbook-hrc.web.app/#/view/doc-positioner-sync/zh/README?cont_model=${cont_model})
 
 <br><br>
 
@@ -4015,7 +4015,7 @@ fb2.do3=fb2.do7=fb2.do11=1   # 一次性打开 fb2 的第3、第7和第11个输�
 
 有关如何设置 `fn` 区域的说明，请参见以下链接。
 
-[操作手册：fn 块分配](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/7-system/3-control-parameter/2-io-signal-setting/12-fn-block)
+[操作手册：fn 块分配](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/zh-tp630/7-system/3-control-parameter/2-io-signal-setting/12-fn-block?cont_model=${cont_model})
 
 &nbsp;
 
@@ -4628,7 +4628,7 @@ input work_no,10,*timeout
 [__SOURCE](6-external-comm/4-modbus/README.md)
 # 6.4 Modbus模块：Modbus主站
 
-Modbus主站操作可以在HRScript中执行。有关Modbus通信功能的详细信息，请参阅单独的手册。[${cont_model} 控制器功能手册 - Modbus](https://hrbook-hrc.web.app/#/view/doc-modbus/en/README)  
+Modbus主站操作可以在HRScript中执行。有关Modbus通信功能的详细信息，请参阅单独的手册。[${cont_model} 控制器功能手册 - Modbus](https://hrbook-hrc.web.app/#/view/doc-modbus/zh/README?cont_model=${cont_model})
 [__SOURCE](6-external-comm/5-sci/README.md)
 # 6.5 Sci模块：串行通信
 
@@ -5706,7 +5706,7 @@ HRScript 的全局根数组存储在 `vars/` 文件夹中，作为 CSV 标准格
 
 有关变量文件的信息，请参阅下面的操作手册链接。
 
-[全局变量/变量文件](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/6-monitoring/3-job/3-global-variable/3-var-files)
+[全局变量/变量文件](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/zh-tp630/6-monitoring/3-job/3-global-variable/3-var-files?cont_model=${cont_model})
 
 您可以使用 PC 上的文本编辑器轻松编辑 .csv 文件。
 复制到 `vars/` 文件夹的编辑文件不会立即在内存中反映，只有在教学挂件的全局变量窗口中使用 `[load all]` 功能或执行 `load_csv` 语句时才会反映。
@@ -5787,7 +5787,7 @@ HRScript 的全局根数组被存储在 `vars/` 文件夹中，作为 CSV 标准
 
 有关变量文件的信息，请参阅以下操作手册链接。
 
-[全局变量/变量文件](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/6-monitoring/3-job/3-global-variable/3-var-files)
+[全局变量/变量文件](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/zh-tp630/6-monitoring/3-job/3-global-variable/3-var-files?cont_model=${cont_model})
 
 全局根数组不会在值更改时立即存储到 .csv 文件中。
 当您按 `Ctrl+[F7: 保存]` 或关闭电源时，它将作为文件保存，您可以通过执行 `save_csv` 命令立即将其保存为文件。
@@ -6378,9 +6378,9 @@ gasp_check pres=<estimated pressure>,ref=<reference pressure>,tol=<tolerance>,os
 
 {% hint style="info" %}
 * 仅在配备气弹簧的机器人上支持
-* 为了准确估计，必须在使用该功能之前进行[轴添加重量设置](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/7-system/4-robot-parameter/7-axis-add-weight/README)和[负载估计功能](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/7-system/7-auto-calibration/3-load-estimation)。
+* 为了准确估计，必须在使用该功能之前进行[轴添加重量设置](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/zh-tp630/7-system/4-robot-parameter/7-axis-add-weight/README?cont_model=${cont_model})和[负载估计功能](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/zh-tp630/7-system/7-auto-calibration/3-load-estimation?cont_model=${cont_model})。
 * 有关气弹簧压力检查监控功能的详细说明，请参阅以下链接。
-[](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/6-monitoring/4-system/2-system-diagnosis/2-gas-pressure-check)
+[](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/zh-tp630/6-monitoring/4-system/2-system-diagnosis/2-gas-pressure-check?cont_model=${cont_model})
 * 估计的气弹簧压力可能会因测量开始时的初始姿势而有所变化。在机器人的初始设置期间，请根据每个参考姿势进行的测量管理压力值，并定期在同一姿势下测量压力，以便将其与初始值进行比较。如果在测量值中观察到显著差异，请检查设备的状态。
 
 {% endhint %}
@@ -6604,7 +6604,7 @@ speed_out <on/off>, min_spd=<最低速度>, max_spd=<最高速度>, min_val=<最
 
 `任务 (task)` 语句是用于执行多任务功能的过程。  
 有关 `任务 (task)` 语句的详细信息，请参阅以下链接：  
-[${cont_model} 控制器功能手册 - 多任务处理](https://hrbook-hrc.web.app/#/view/doc-multi-task/en/README)  
+[${cont_model} 控制器功能手册 - 多任务处理](https://hrbook-hrc.web.app/#/view/doc-multi-task/zh/README?cont_model=${cont_model})  
 
 ### 语法
 
@@ -6620,7 +6620,7 @@ task reset, sub=<subtask number>
 
 `toolchng`语句是用于更改分配给附加轴的伺服工具的程序。  
 有关`toolchng`语句的详细信息，请参阅以下链接：  
-[${cont_model} 机器人控制器功能手册 - 伺服工具更换](https://hrbook-hrc.web.app/#/view/doc-svtool-change/en/README)
+[${cont_model} 机器人控制器功能手册 - 伺服工具更换](https://hrbook-hrc.web.app/#/view/doc-svtool-change/zh/README?cont_model=${cont_model})
 
 ### 语法
 
@@ -6784,9 +6784,9 @@ brake_check os=<error output signal>,job=<return program>
 
 {% hint style="info" %}
 * 仅支持配备气弹簧的机器人
-* 为了准确估计，必须在使用该功能之前进行 [轴添加重量设置](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/7-system/4-robot-parameter/7-axis-add-weight/README) 和 [负载估计功能](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/7-system/7-auto-calibration/3-load-estimation)。
+* 为了准确估计，必须在使用该功能之前进行 [轴添加重量设置](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/zh-tp630/7-system/4-robot-parameter/7-axis-add-weight/README?cont_model=${cont_model}) 和 [负载估计功能](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/zh-tp630/7-system/7-auto-calibration/3-load-estimation?cont_model=${cont_model})。
 * 有关刹车检查监控功能的详细说明，请参阅以下链接。
-[](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/6-monitoring/4-system/2-system-diagnosis/1-brake-check)
+[](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/zh-tp630/6-monitoring/4-system/2-system-diagnosis/1-brake-check?cont_model=${cont_model})
 {% endhint %}
 [__SOURCE](10-etc/2-func/README.md)
 # 10.2 其他功能
