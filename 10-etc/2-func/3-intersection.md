@@ -1,4 +1,4 @@
-# 10.2.3 `intersection`
+﻿# 10.2.3 `intersection`
 
 You can use the `intersection` function to find a point that meets a straight line at the shortest distance of one point, or to find an intersection with a straight line at the shortest distance that passes.
 

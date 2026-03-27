@@ -915,6 +915,15 @@ Examples with var str="hello, world" executed;
       <td style="text-align:left">&quot;08:48:14&quot;</td>
     </tr>
     <tr>
+      <td style="text-align:right">time("hh:mm:ss.00")</td>
+      <td style="text-align:left">
+        <p>Returns the current time with fractional seconds in string type</p>
+        <p>(HH:MM:SS.00 format)</p>
+      </td>
+      <td style="text-align:left">time("hh:mm:ss.000")</td>
+      <td style="text-align:left">&quot;08:48:14.187&quot;</td>
+    </tr>
+    <tr>
       <td style="text-align:right">timer( )</td>
       <td style="text-align:left">Returns the time elapsed in seconds (sec) from when the power was turned
         on</td>
@@ -4199,10 +4208,10 @@ S2   move P, tg=po1, spd=10%, accu=0, tool=0
 [__SOURCE](5-moving-robot/22-s-curve.md)
 # 5.22 scurve
 
-The S‑curve is a motion‑trajectory planning method that treats the speed changes during the acceleration and deceleration phases of robot motion as a smooth curve.
+The S-curve is a motion-trajectory planning method that treats the speed changes during the acceleration and deceleration phases of robot motion as a smooth curve.
 
 - **Default method**: At the start and end of acceleration the speed changes abruptly, which can cause mechanical shock (jerk).
-- **S‑curve method**: Makes the speed change smoothly, minimizing equipment vibration, extending hardware lifespan, and ensuring stable path accuracy during high‑speed operation.
+- **S-curve method**: Makes the speed change smoothly, minimizing equipment vibration, extending hardware lifespan, and ensuring stable path accuracy during high-speed operation.
 
 ### Syntax
 ```python
@@ -4224,7 +4233,7 @@ The S‑curve is a motion‑trajectory planning method that treats the speed cha
     <tr>
       <td style="text-align:left">on/off</td>
       <td style="text-align:left">
-        Whether the S‑curve function is enabled
+        Whether the S-curve function is enabled
       </td>
       <td style="text-align:left">on(enable), off(disable)</td>
     </tr>
@@ -4233,7 +4242,7 @@ The S‑curve is a motion‑trajectory planning method that treats the speed cha
         cnd (condition number)
       </td>
       <td style="text-align:left">
-        Specifies the number of the S‑curve condition to use
+        Specifies the number of the S-curve condition to use
       </td>
       <td style="text-align:left">1~16</td>
     </tr>
@@ -4243,15 +4252,15 @@ The S‑curve is a motion‑trajectory planning method that treats the speed cha
 
 ### 사용 예
 ```python
-     scurve on,cnd=1   # Apply S‑curve condition #1
+     scurve on,cnd=1   # Apply S-curve condition #1
 S1   move P,tg=po1,spd=10%,accu=0,tool=0
-     scurve off       # Disable S‑curve
+     scurve off       # Disable S-curve
 S2   move P,tg=po1,spd=10%,accu=0,tool=0
      end
 ```
 
 {% hint style="info" %}
-For detailed information, see the “[7.5.23 S‑curve condition](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/7-system/5-application-parameter/23-scurve-condition/README?cont_model=${cont_model})” section of the ${cont_model} controller operation manual.
+For detailed information, see the "[7.5.23 S-curve condition](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/7-system/5-application-parameter/23-scurve-condition/README?cont_model=${cont_model})" section of the ${cont_model} controller operation manual.
 {% endhint %}
 
 [__SOURCE](6-external-comm/README.md)
