@@ -984,6 +984,20 @@ var str="hello, world"가 실행된 상태에서의 예
       <td style="text-align:left">&quot;08:48:14&quot;</td>
     </tr>
     <tr>
+      <td style="text-align:left">time("hh:mm:ss.00")</td>
+      <td style="text-align:left">
+        <p>현재의 시간을 분수 초를 포함하여 문자열
+          형으로 리턴합니다.
+          <br />
+        </p>
+        <p>(HH:MM:SS.00형식)
+          <br />
+        </p>
+      </td>
+      <td style="text-align:left">time("hh:mm:ss.000")</td>
+      <td style="text-align:left">&quot;08:48:14.184&quot;</td>
+    </tr>
+    <tr>
       <td style="text-align:left">timer( )</td>
       <td style="text-align:left">전원투입 시로부터 경과한
         시간을 초(sec) 단위로 리턴합니다.</td>
