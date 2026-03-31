@@ -196,3 +196,4 @@
     * [_weaving 변수](10-etc/3-sysvar/_weaving.md)
     * [_pc 변수](10-etc/3-sysvar/_pc.md)
     * [_soft_limit 변수](10-etc/3-sysvar/_soft_limit.md)
+    * [_ax 변수](10-etc/3-sysvar/_ax.md)
