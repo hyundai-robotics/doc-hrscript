@@ -1031,7 +1031,7 @@ These functions receive an input of a parameter and then create and return an ob
       </td>
       <td style="text-align:left">
         <p>Creates and registers the nth user coordinate system object</p>
-        <p>Refer to "<a href="../../5-moving-robot/5-ucs.md">5.5 User Coordinate System (UCS)</a>".</p>
+        <p>Refer to "<a href="../../5-moving-robot/5-mkucs.md">5.5 User Coordinate System (UCS)</a>".</p>
       </td>
       <td style="text-align:left"></td>
       <td style="text-align:left">
@@ -5128,7 +5128,7 @@ cli.delete domain+"/items"
 </table>
 
 [__SOURCE](6-external-comm/2-http_cli/5-http_cli-example.md)
-# HTTP Client Usage Examples
+# 6.2.5 HTTP Client Usage Examples
 
 ```python
      import http_cli
@@ -6698,9 +6698,9 @@ var ret = enet_to_sensor.state()
 A `BBuf (Binary Buffer)` object encapsulates binary data to be sent and received over Ethernet communication.
 For usage, see the binary communication examples.
 
-[7.1.2 peer-to-peer, client example - binary transmission](7-enet-module/1-exam-client/2-enet-client-bin.md)
+[7.1.2 peer-to-peer, client example - binary transmission](../1-exam-client/2-enet-client-bin.md)
 
-[7.2.2 ethernet TCP server - binary transmission](7-enet-module/2-exam-server/2-enet-server-bin.md)
+[7.2.2 ethernet TCP server - binary transmission](../2-exam-server/2-enet-server-bin.md)
 
 [__SOURCE](7-enet-module/4-bbuf/1-bbuf-creator.md)
 # 7.4.1 `BBuf` creator

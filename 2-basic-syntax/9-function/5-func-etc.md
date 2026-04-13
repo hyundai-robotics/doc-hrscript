@@ -44,7 +44,7 @@
       </td>
       <td style="text-align:left">
         <p>Creates and registers the nth user coordinate system object</p>
-        <p>Refer to "<a href="../../5-moving-robot/5-ucs.md">5.5 User Coordinate System (UCS)</a>".</p>
+        <p>Refer to "<a href="../../5-moving-robot/5-mkucs.md">5.5 User Coordinate System (UCS)</a>".</p>
       </td>
       <td style="text-align:left"></td>
       <td style="text-align:left">

@@ -14,7 +14,7 @@
     * [2.3.2 Assignment Statements](2-basic-syntax/3-statement-type/2-assignment.md)
     * [2.3.3 Comment Statements](2-basic-syntax/3-statement-type/3-comment.md)
     * [2.3.4 Labels](2-basic-syntax/3-statement-type/4-label.md)
-  * [4.4 First Program - Hello, World!](2-basic-syntax/4-hello-world.md)
+  * [2.4 First Program - Hello, World!](2-basic-syntax/4-hello-world.md)
   * [2.5 Data Type](2-basic-syntax/5-type/README.md)
     * [2.5.1 String Data Type](2-basic-syntax/5-type/1-type-string.md)
     * [2.5.2 Number Data Type](2-basic-syntax/5-type/2-number-type.md)
@@ -106,7 +106,7 @@
       * [post](6-external-comm/2-http_cli/3-http_cli-member-proc/3-http_cli-post.md)
       * [delete](6-external-comm/2-http_cli/3-http_cli-member-proc/4-http_cli-delete.md)
     * [6.2.4 HTTP client communication codes](6-external-comm/2-http_cli/4-http_cli-code.md)
-    * [6.2.4 Examples of HTTP Client Communication](6-external-comm/2-http_cli/5-http_cli-example.md)
+    * [6.2.5 Examples of HTTP Client Communication](6-external-comm/2-http_cli/5-http_cli-example.md)
 
   * [6.3 Input/Output with Teach Pendant console bar](6-external-comm/3-tp-console-bar/README.md)
     * [6.3.1 print](6-external-comm/3-tp-console-bar/1-print.md)

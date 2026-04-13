@@ -1,4 +1,4 @@
-﻿# HTTP Client Usage Examples
+﻿# 6.2.5 HTTP Client Usage Examples
 
 ```python
      import http_cli
