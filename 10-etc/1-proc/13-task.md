@@ -2,7 +2,7 @@
 
 The `task` statement is a procedure used to perform multitasking functions.  
 For detailed information about the `task` statement, refer to the link below:  
-[${cont_model} Controller Function Manual - Multitasking](https://hrbook-hrc.web.app/#/view/doc-multi-task/en/README)  
+[${cont_model} Controller Function Manual - Multitasking](https://hrbook-hrc.web.app/#/view/doc-multi-task/en/README?cont_model=${cont_model})  
 
 ### Syntax
 

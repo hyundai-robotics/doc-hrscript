@@ -3,7 +3,7 @@
 ### Description
 * The `axisctrl` command specifies whether additional axes should move to their target positions when the `move` command is executed to move each axis.
 * For a detailed description of the `axisctrl` statement, refer to the link below.  
-[${cont_model} Controller Function Manual - Multitasking](https://hrbook-hrc.web.app/#/view/doc-multi-task/en/README)
+[${cont_model} Controller Function Manual - Multitasking](https://hrbook-hrc.web.app/#/view/doc-multi-task/en/README?cont_model=${cont_model})
 
 ### Syntax
 ```python

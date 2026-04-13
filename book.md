@@ -915,6 +915,15 @@ Examples with var str="hello, world" executed;
       <td style="text-align:left">&quot;08:48:14&quot;</td>
     </tr>
     <tr>
+      <td style="text-align:right">time("hh:mm:ss.00")</td>
+      <td style="text-align:left">
+        <p>Returns the current time with fractional seconds in string type</p>
+        <p>(HH:MM:SS.00 format)</p>
+      </td>
+      <td style="text-align:left">time("hh:mm:ss.000")</td>
+      <td style="text-align:left">&quot;08:48:14.187&quot;</td>
+    </tr>
+    <tr>
       <td style="text-align:right">timer( )</td>
       <td style="text-align:left">Returns the time elapsed in seconds (sec) from when the power was turned
         on</td>
@@ -2997,7 +3006,7 @@ Examples of format;
 ```
 
 {% hint style="info" %}
-The cfg element specifies the robot configuration. For more information, refer to "[2.3.2.2 Base and Robot Recording Coordinates](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/2-operation/3-step/2-step-pose-modify/2-base-robot-crd-sys)" in the ${cont_model} Robot Controller Operation Manual.
+The cfg element specifies the robot configuration. For more information, refer to "[2.3.2.2 Base and Robot Recording Coordinates](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/2-operation/3-step/2-step-pose-modify/2-base-robot-crd-sys?cont_model=${cont_model})" in the ${cont_model} Robot Controller Operation Manual.
 {% endhint %}
 
 
@@ -3532,7 +3541,7 @@ selucrd <coord. system number>
 Select the mode of CONTPATH.
 
 See the link below for the description of CONTPATH.
-[Operation Manual: 8.15 R360 Set CONTPATH manually](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/8-r-code/15-r360)
+[Operation Manual: 8.15 R360 Set CONTPATH manually](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/8-r-code/15-r360?cont_model=${cont_model})
 
 <br><br>
 
@@ -4122,7 +4131,7 @@ S1   move P,tg=pose_C,spd=10%,accu=0,tool=0
 ### Description
 * The `axisctrl` command specifies whether additional axes should move to their target positions when the `move` command is executed to move each axis.
 * For a detailed description of the `axisctrl` statement, refer to the link below.  
-[${cont_model} Controller Function Manual - Multitasking](https://hrbook-hrc.web.app/#/view/doc-multi-task/en/README)
+[${cont_model} Controller Function Manual - Multitasking](https://hrbook-hrc.web.app/#/view/doc-multi-task/en/README?cont_model=${cont_model})
 
 ### Syntax
 ```python
@@ -4135,7 +4144,7 @@ axisctrl <on/off>,a=[additional axis number, additional axis number, ...]  # Mul
 ### Description
 The `smov` statement is a procedure used for positioner synchronization.  
 For a detailed description of the `smov` statement, refer to the link below.  
-[${cont_model} Controller Function Manual - Positioner Synchronization](https://hrbook-hrc.web.app/#/view/doc-positioner-sync/en/README)
+[${cont_model} Controller Function Manual - Positioner Synchronization](https://hrbook-hrc.web.app/#/view/doc-positioner-sync/en/README?cont_model=${cont_model})
 
 <br><br>
 
@@ -4196,6 +4205,64 @@ S1   move P, tg=po1, spd=10%, accu=0, tool=0
 S2   move P, tg=po1, spd=10%, accu=0, tool=0
      end
 ```
+[__SOURCE](5-moving-robot/22-s-curve.md)
+# 5.22 scurve
+
+The S-curve is a motion-trajectory planning method that treats the speed changes during the acceleration and deceleration phases of robot motion as a smooth curve.
+
+- **Default method**: At the start and end of acceleration the speed changes abruptly, which can cause mechanical shock (jerk).
+- **S-curve method**: Makes the speed change smoothly, minimizing equipment vibration, extending hardware lifespan, and ensuring stable path accuracy during high-speed operation.
+
+### Syntax
+```python
+"scurve on, cnd=<condition number>
+"scurve off
+```
+
+### 파라미터
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Item</th>
+      <th style="text-align:left">Description</th>
+      <th style="text-align:left">Etc</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">on/off</td>
+      <td style="text-align:left">
+        Whether the S-curve function is enabled
+      </td>
+      <td style="text-align:left">on(enable), off(disable)</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">
+        cnd (condition number)
+      </td>
+      <td style="text-align:left">
+        Specifies the number of the S-curve condition to use
+      </td>
+      <td style="text-align:left">1~16</td>
+    </tr>
+  </tbody>
+</table>
+
+
+### 사용 예
+```python
+     scurve on,cnd=1   # Apply S-curve condition #1
+S1   move P,tg=po1,spd=10%,accu=0,tool=0
+     scurve off       # Disable S-curve
+S2   move P,tg=po1,spd=10%,accu=0,tool=0
+     end
+```
+
+{% hint style="info" %}
+For detailed information, see the "[7.5.23 S-curve condition](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/7-system/5-application-parameter/23-scurve-condition/README?cont_model=${cont_model})" section of the ${cont_model} controller operation manual.
+{% endhint %}
+
 [__SOURCE](6-external-comm/README.md)
 # 6. Communicating with External Devices
 
@@ -4342,7 +4409,7 @@ If the ${cont_model} controller is a fieldbus master, and there are multiple fie
 
 See the link below for instructions on how to set up the `fn` region.
 
-[Operation manual: fn block allocation](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/7-system/3-control-parameter/2-io-signal-setting/12-fn-block)
+[Operation manual: fn block allocation](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/7-system/3-control-parameter/2-io-signal-setting/12-fn-block?cont_model=${cont_model})
   
 &nbsp;
 
@@ -5281,7 +5348,7 @@ input work_no,10,*timeout
 [__SOURCE](6-external-comm/4-modbus/README.md)
 # 6.4 Modbus module : Modbus master
 
-Modbus master operations can be performed in HRScript. For detailed information on modbus communication functions, please refer to the separate manual. [${cont_model} Controller Function Manual - Modbus](https://hrbook-hrc.web.app/#/view/doc-modbus/en/README)  
+Modbus master operations can be performed in HRScript. For detailed information on modbus communication functions, please refer to the separate manual. [${cont_model} Controller Function Manual - Modbus](https://hrbook-hrc.web.app/#/view/doc-modbus/en/README?cont_model=${cont_model})  
 
 [__SOURCE](6-external-comm/5-sci/README.md)
 # 6.5 Sci module : Serial communication
@@ -5588,7 +5655,7 @@ Follow these steps:
 ```python
      # 1. After importing the enet module, create an ENet object with the constructor
      import enet
-     var cli=enet.ENet() # for TCP communication, ENet("tcp")
+     var cli=enet.ENet() # default enet mode is "udp"
 
      # 2. Set the IP address and port number
      cli.ip_addr="192.168.1.172" # remote (opponent) IP address
@@ -5632,7 +5699,7 @@ Follow these steps:
 ```python
      # 1. After importing the enet module, create an ENet object with the constructor
      import enet
-     var cli=enet.ENet() # for TCP communication, ENet("tcp")
+     var cli=enet.ENet("tcp")
 
      # 2. Set the IP address and port number
      cli.ip_addr="192.168.1.172" # remote (opponent) IP address
@@ -5696,7 +5763,7 @@ Receiving
 ```python
      # 1. After importing the enet module, create an ENet object with the constructor
      import enet
-     var cli=enet.ENet() # For TCP communications, ENet("tcp")
+     var cli=enet.ENet()
 
      # 2. Set the IP address and port number
      cli.ip_addr="192.168.1.172" # remote (opponent) IP address
@@ -5755,7 +5822,7 @@ Receiving
 ```python
      # 1. After importing the enet module, create an ENet object with the constructor
      import enet
-     var cli=enet.ENet() # For TCP communications, ENet("tcp")
+     var cli=enet.ENet("tcp")
 
      # 2. Set the IP address and port number
      cli.ip_addr="192.168.1.172" # remote (opponent) IP address
@@ -5809,6 +5876,7 @@ Receiving
 ```
 
 * String arguments such as "s4" and "U2" determine the binary data format such as endian type, signed/unsigned, and the number of bytes. For more information, see [7.4.2 Supported format](../4-bbuf/2-format.md).
+
 [__SOURCE](7-enet-module/2-exam-server/README.md)
 # 7.2 TCP server example
 
@@ -7469,7 +7537,7 @@ The global root arrays of HRScript is stored in the `vars/` folder as files in C
 
 For information on variable files, please refer to the operation manual link below.
 
-[global variable/variable file](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/6-monitoring/3-job/3-global-variable/3-var-files)
+[global variable/variable file](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/6-monitoring/3-job/3-global-variable/3-var-files?cont_model=${cont_model})
 
 You can easily edit .csv files with a text editor on your PC.
 The edited file copied to the `vars/` folder is not immediately reflected in memory, but only by using the `[load all]` function in the TeachPendant's global variable window or executing the `load_csv` statement.
@@ -7552,7 +7620,7 @@ The global root array of HRScript is stored in the `vars/` folder as a file in C
 
 For information on variable files, please refer to the operation manual link below.
 
-[global variable/variable file](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/6-monitoring/3-job/3-global-variable/3-var-files)
+[global variable/variable file](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/6-monitoring/3-job/3-global-variable/3-var-files?cont_model=${cont_model})
 
 The global root arrays are not immediately stored to the .csv file whenever the value changes.
 It is saved as a file when you press `Ctrl+[F7: save]` or power off, and you can save it as a file immediately by executing the `save_csv` command.
@@ -8167,9 +8235,9 @@ gasp_check pres=<estimated pressure>,ref=<reference pressure>,tol=<tolerance>,os
 
 {% hint style="info" %}
 * Supported only on robots equipped with the gas spring
-* For accurate estimation, [Axis add weight setting](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/7-system/4-robot-parameter/7-axis-add-weight/README) and [Load estimation function](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/7-system/7-auto-calibration/3-load-estimation) must be preceded before using the function.
+* For accurate estimation, [Axis add weight setting](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/7-system/4-robot-parameter/7-axis-add-weight/README?cont_model=${cont_model}) and [Load estimation function](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/7-system/7-auto-calibration/3-load-estimation?cont_model=${cont_model}) must be preceded before using the function.
 * For a detailed description of the gas spring pressure check monitoring function, please refer to the link below.
-[](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/6-monitoring/4-system/2-system-diagnosis/2-gas-pressure-check)
+[](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/6-monitoring/4-system/2-system-diagnosis/2-gas-pressure-check?cont_model=${cont_model})
 * The estimated gas spring pressure may vary depending on the initial posture at the start of measurement.
 During the robot's initial setup, please manage the pressure values based on the measurements taken at each reference posture, and regularly measure the pressure in the same posture to compare it with the initial values.
 If a significant difference is observed in the measured values, please inspect the condition of the equipment.  
@@ -8400,7 +8468,7 @@ speed_out <on/off>, min_spd=<minimum speed>, max_spd=<maximum speed>, min_val=<m
 
 The `task` statement is a procedure used to perform multitasking functions.  
 For detailed information about the `task` statement, refer to the link below:  
-[${cont_model} Controller Function Manual - Multitasking](https://hrbook-hrc.web.app/#/view/doc-multi-task/en/README)  
+[${cont_model} Controller Function Manual - Multitasking](https://hrbook-hrc.web.app/#/view/doc-multi-task/en/README?cont_model=${cont_model})  
 
 ### Syntax
 
@@ -8417,7 +8485,7 @@ task reset, sub=<subtask number>
 
 The `toolchng` statement is a procedure used to change the servo tool assigned to an additional axis.  
 For detailed information about the `toolchng` statement, refer to the link below:  
-[${cont_model} Robot Controller Function Manual - Servo Tool Change](https://hrbook-hrc.web.app/#/view/doc-svtool-change/en/README)
+[${cont_model} Robot Controller Function Manual - Servo Tool Change](https://hrbook-hrc.web.app/#/view/doc-svtool-change/en/README?cont_model=${cont_model})
 
 ### Syntax
 
@@ -8587,9 +8655,9 @@ When you touch the [Properties] button in the brake_check command, you will ente
 
 {% hint style="info" %}
 * Supported only on robots equipped with the gas spring
-* For accurate estimation, [Axis add weight setting](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/7-system/4-robot-parameter/7-axis-add-weight/README) and [Load estimation function](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/7-system/7-auto-calibration/3-load-estimation) must be preceded before using the function.
+* For accurate estimation, [Axis add weight setting](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/7-system/4-robot-parameter/7-axis-add-weight/README?cont_model=${cont_model}) and [Load estimation function](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/7-system/7-auto-calibration/3-load-estimation?cont_model=${cont_model}) must be preceded before using the function.
 * For a detailed description of the brake check monitoring function, please refer to the link below.
-[](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-${cont_model}-tp630/6-monitoring/4-system/2-system-diagnosis/1-brake-check)
+[](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/6-monitoring/4-system/2-system-diagnosis/1-brake-check?cont_model=${cont_model})
 {% endhint %}
 [__SOURCE](10-etc/2-func/README.md)
 # 10.2 Etc. functions
@@ -9477,3 +9545,58 @@ var sno=_pc.cur_sno  # Assign the current step number
    ...
 ```
 
+
+[__SOURCE](10-etc/3-sysvar/_soft_limit.md)
+# `_soft_limit`
+
+Reads or sets the value of the software limit.
+
+### Description
+
+The units are mm for the linear axis and degrees for the rotation axis. You can set the value within the minimum to maximum range specified for the robot.
+
+### Syntax
+
+```python
+var res
+res = _soft_limit[2].min
+```
+
+### Sample
+
+```python
+   ...
+   # Set the minimum value of the software limit of the 1st axis to -90 degrees.
+   print _soft_limit[0].min
+   _soft_limit[0].min=-90
+   ...
+   end
+```
+
+[__SOURCE](10-etc/3-sysvar/_ax.md)
+# `_ax`
+
+It is used to read the axis index by the axis name.
+
+### Description
+
+The axis index is obtained with 0 based value. Specify the string following "_ax." as the axis name. Axis name supports both lowercase and uppercase.
+
+### Syntax
+
+```python
+var res
+res = _ax.v # Get V-axis index
+```
+
+### Sample
+
+```python
+   ...
+   # Print the current position of the R1 axis.
+   global po
+   po=cpo("joint")
+   print po.j[_ax.R1]
+   ...
+   end
+```

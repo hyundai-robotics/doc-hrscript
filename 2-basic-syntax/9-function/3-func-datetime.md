@@ -29,6 +29,15 @@
       <td style="text-align:left">&quot;08:48:14&quot;</td>
     </tr>
     <tr>
+      <td style="text-align:right">time("hh:mm:ss.00")</td>
+      <td style="text-align:left">
+        <p>Returns the current time with fractional seconds in string type</p>
+        <p>(HH:MM:SS.00 format)</p>
+      </td>
+      <td style="text-align:left">time("hh:mm:ss.000")</td>
+      <td style="text-align:left">&quot;08:48:14.187&quot;</td>
+    </tr>
+    <tr>
       <td style="text-align:right">timer( )</td>
       <td style="text-align:left">Returns the time elapsed in seconds (sec) from when the power was turned
         on</td>
