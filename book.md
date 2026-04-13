@@ -904,7 +904,7 @@ HRScript 提供的函数列表如下。\(表格按名称的升序排列。\)
       </td>
       <td style="text-align:left">
         <p>创建并注册第 n 个用户坐标系对象</p>
-        <p>请参考 "<a href="../../5-moving-robot/5-ucs.md">5.5 用户坐标系统 (UCS)</a>"。</p>
+        <p>请参考 "<a href="../../5-moving-robot/5-mkucs.md">5.5 用户坐标系统 (UCS)</a>"。</p>
       </td>
       <td style="text-align:left"></td>
       <td style="text-align:left">
@@ -4525,6 +4525,44 @@ cli.query = { axis: 3 }
     </tr>
   </tbody>
 </table>
+[__SOURCE](6-external-comm/2-http_cli/5-http_cli-example.md)
+# 6.2.5 HTTP 客户端使用示例
+
+```python
+     import http_cli
+     var cli=http_cli.HttpCli()
+     var url, body, query, status_code
+     var domain="http://192.168.1.200:8888"
+
+     # get
+     cli.get domain+"/device/direction"
+     body = cli.body
+
+     #检查通信状态
+     if cli.status>=400 or cli.status<0
+        goto 99 		#http 通信错误
+     endif
+
+     # put
+     url = domain+"/device/direction"
+     body.ry=90
+     cli.body=body
+     cli.put(url, 3000, *Timeout)
+
+     # post
+     cli.body={ name: "WORK #32", color: "green", state: "OK" }
+     cli.post domain+"/display/update", 5000, *Timeout
+
+     # delete
+     cli.delete(domain+"/items")
+
+     end
+     
+  99 print "错误状态"
+     
+     *Timeout
+     print "超时"
+```
 [__SOURCE](6-external-comm/3-tp-console-bar/README.md)
 # 6.3 使用教学挂件控制台栏的输入/输出
 [__SOURCE](6-external-comm/3-tp-console-bar/1-print.md)
@@ -5206,9 +5244,9 @@ var tcp = ENet("tcp")
 一个 `BBuf (二进制缓冲区)` 对象封装了通过以太网通信发送和接收的二进制数据。
 有关用法，请参见二进制通信示例。
 
-[7.1.2 点对点、客户端示例 - 二进制传输](7-enet-module/1-exam-client/2-enet-client-bin.md)
+[7.1.2 点对点、客户端示例 - 二进制传输](../1-exam-client/2-enet-client-bin.md)
 
-[7.2.2 以太网 TCP 服务器 - 二进制传输](7-enet-module/2-exam-server/2-enet-server-bin.md)
+[7.2.2 以太网 TCP 服务器 - 二进制传输](../2-exam-server/2-enet-server-bin.md)
 [__SOURCE](7-enet-module/4-bbuf/1-bbuf-creator.md)
 # 7.4.1 `BBuf` 创建者
 

@@ -104,7 +104,7 @@
           * [`post`](6-external-comm/2-http_cli/3-http_cli-member-proc/3-http_cli-post.md)
           * [`删除 (delete)`](6-external-comm/2-http_cli/3-http_cli-member-proc/4-http_cli-delete.md)
     * [6.2.4 HTTP通信代码](6-external-comm/2-http_cli/4-http_cli-code.md)
-          * [HTTP 客户端使用示例](6-external-comm/2-http_cli/5-http_cli-example.md)
+    * [6.2.5 HTTP 客户端使用示例](6-external-comm/2-http_cli/5-http_cli-example.md)
   * [6.3 使用教学挂件控制台栏的输入/输出](6-external-comm/3-tp-console-bar/README.md)
     * [6.3.1 `print`](6-external-comm/3-tp-console-bar/1-print.md)
     * [6.3.2 `input`](6-external-comm/3-tp-console-bar/2-input.md)

@@ -39,7 +39,7 @@
       </td>
       <td style="text-align:left">
         <p>创建并注册第 n 个用户坐标系对象</p>
-        <p>请参考 "<a href="../../5-moving-robot/5-ucs.md">5.5 用户坐标系统 (UCS)</a>"。</p>
+        <p>请参考 "<a href="../../5-moving-robot/5-mkucs.md">5.5 用户坐标系统 (UCS)</a>"。</p>
       </td>
       <td style="text-align:left"></td>
       <td style="text-align:left">
