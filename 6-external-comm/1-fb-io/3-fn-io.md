@@ -7,7 +7,7 @@ ${cont_model} 제어기가 필드버스 master이고, 여러 개의 필드버스
 
 fn영역을 설정하는 방법은 아래 링크를 참조하십시오.
 
-[${cont_model} 조작설명서: 7.3.2.12 fn 블럭 할당](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/ko-${cont_model}-tp630/7-setting/3-control-parameter/2-io-signal-setting/12-fn-block?cont_model=${cont_model})
+[${cont_model} 조작설명서: 7.3.2.12 fn 블럭 할당](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/ko-tp630/7-system/3-control-parameter/2-io-signal-setting/12-fn-block?cont_model=${cont_model})
   
 &nbsp;
 

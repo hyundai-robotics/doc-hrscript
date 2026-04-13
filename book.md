@@ -2868,7 +2868,6 @@ print arr   # [1, 2, 3, 4, 5]
     </tr>
     <tr>
       <td style="text-align:left">결과</td>
-
       <td style="text-align:left">false, 80, 87.600000</td>
     </tr>
   </tbody>
@@ -3158,7 +3157,7 @@ format의 예 (examples);
 {% hint style="info" %}
 cfg요소는 로봇 자세 \(configuration\)를 지정합니다.<br>
 축 좌표(joint)의 경우는 필요 없고, 직교좌표의 경우만 필요합니다.<br>
-자세한 내용은 ${cont_model} 제어기 조작설명서의 "[2.3.2.2 베이스 및 로봇 기록 좌표](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/ko-${cont_model}-tp630/2-operation/3-step/2-step-pose-modify/2-base-robot-crd-sys?cont_model=${cont_model})"를 참조하십시오.
+자세한 내용은 ${cont_model} 제어기 조작설명서의 "[2.3.2.2 베이스 및 로봇 기록 좌표](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/ko-tp630/2-operation/3-step/2-step-pose-modify/2-base-robot-crd-sys?cont_model=${cont_model})"를 참조하십시오.
 
 {% endhint %}
 
@@ -4614,7 +4613,7 @@ ${cont_model} 제어기가 필드버스 master이고, 여러 개의 필드버스
 
 fn영역을 설정하는 방법은 아래 링크를 참조하십시오.
 
-[${cont_model} 조작설명서: 7.3.2.12 fn 블럭 할당](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/ko-${cont_model}-tp630/7-setting/3-control-parameter/2-io-signal-setting/12-fn-block?cont_model=${cont_model})
+[${cont_model} 조작설명서: 7.3.2.12 fn 블럭 할당](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/ko-tp630/7-system/3-control-parameter/2-io-signal-setting/12-fn-block?cont_model=${cont_model})
   
 &nbsp;
 
@@ -5438,7 +5437,7 @@ cli.delete domain+"/items"
 </table>
 
 [__SOURCE](6-external-comm/2-http_cli/5-http_cli-example.md)
-# 6.2.4 HTTP client 통신 예제
+# 6.2.5 HTTP client 통신 예제
 
 ```python
      import http_cli

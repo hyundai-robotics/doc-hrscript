@@ -1,4 +1,4 @@
-﻿# 6.2.4 HTTP client 통신 예제
+﻿# 6.2.5 HTTP client 통신 예제
 
 ```python
      import http_cli

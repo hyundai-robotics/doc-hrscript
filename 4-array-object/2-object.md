@@ -75,7 +75,6 @@
     </tr>
     <tr>
       <td style="text-align:left">결과</td>
-
       <td style="text-align:left">false, 80, 87.600000</td>
     </tr>
   </tbody>
