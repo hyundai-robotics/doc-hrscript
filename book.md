@@ -9580,7 +9580,7 @@ It is used to read the axis index by the axis name.
 
 ### Description
 
-The axis index is obtained with 0 based value. Specify the string following "_ax." as the axis name. Axis name supports both lowercase and uppercase.
+The axis index is obtained with a reference value of 0. However, if the axis does not exist, -1 is assigned. Specify the string following "_ax." as the axis name. Axis name supports both lowercase and uppercase.
 
 ### Syntax
 
@@ -9597,6 +9597,84 @@ res = _ax.v # Get V-axis index
    global po
    po=cpo("joint")
    print po.j[_ax.R1]
+   ...
+   end
+```
+
+[__SOURCE](10-etc/3-sysvar/_total_ax.md)
+# `_total_ax`
+
+Reads the total number of axes in the current system.
+
+### Description
+
+It cannot be set as the left side of an assignment statement.
+
+### Syntax
+
+```python
+var res
+res = _total_ax
+```
+
+### Sample
+
+```python
+   ...
+   # Outputs the total number of axes in the current system.
+   print _total_ax
+   ...
+   end
+```
+
+[__SOURCE](10-etc/3-sysvar/_aux_ax.md)
+# `_aux_ax`
+
+Reads the number of auxiliary axes in the current system.
+
+### Description
+
+It cannot be set as the left side of an assignment statement.
+
+### Syntax
+
+```python
+var res
+res = _aux_ax
+```
+
+### Sample
+
+```python
+   ...
+   # Outputs the number of auxiliary axes in the current system.
+   print _aux_ax
+   ...
+   end
+```
+
+[__SOURCE](10-etc/3-sysvar/_mech_type.md)
+# `_mech_type`
+
+Reads the currently selected robot type.
+
+### Description
+
+It cannot be set as the left side of an assignment statement.
+
+### Syntax
+
+```python
+var res
+res = _mech_type
+```
+
+### Sample
+
+```python
+   ...
+   # Prints the current robot type.
+   print _mech_type
    ...
    end
 ```
