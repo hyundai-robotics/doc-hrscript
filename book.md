@@ -9972,3 +9972,81 @@ res = _ax.v # V축의 인덱스 얻기
    ...
    end
 ```
+
+[__SOURCE](10-etc/3-sysvar/_total_ax.md)
+# _total_ax 변수
+
+현재 시스템의 총 축수를 읽습니다.
+
+### 설명
+
+대입문 좌변으로 설정할 수는 없습니다.
+
+### 문법
+
+```python
+var res
+res = _total_ax
+```
+
+### 사용 예
+
+```python
+   ...
+   # 현재 시스템의 총 축수를 출력한다.
+   print _total_ax
+   ...
+   end
+```
+
+[__SOURCE](10-etc/3-sysvar/_aux_ax.md)
+# _aux_ax 변수
+
+현재 시스템의 부가축 수를 읽습니다.
+
+### 설명
+
+대입문 좌변으로 설정할 수는 없습니다.
+
+### 문법
+
+```python
+var res
+res = _aux_ax
+```
+
+### 사용 예
+
+```python
+   ...
+   # 현재 시스템의 부가축 수를 출력한다.
+   print _aux_ax
+   ...
+   end
+```
+
+[__SOURCE](10-etc/3-sysvar/_mech_type.md)
+# _mech_type 변수
+
+현재 선택된 로봇 타입을 읽습니다.
+
+### 설명
+
+대입문 좌변으로 설정할 수는 없습니다.
+
+### 문법
+
+```python
+var res
+res = _mech_type
+```
+
+### 사용 예
+
+```python
+   ...
+   # 현재 로봇 타입을 출력한다.
+   print _mech_type
+   ...
+   end
+```
