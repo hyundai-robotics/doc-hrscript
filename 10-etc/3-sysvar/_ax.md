@@ -6,6 +6,8 @@ It is used to read the axis index by the axis name.
 
 The axis index is obtained with a reference value of 0. However, if the axis does not exist, -1 is assigned. Specify the string following "_ax." as the axis name. Axis name supports both lowercase and uppercase.
 
+Supported from V70.02-00
+
 ### Syntax
 
 ```python

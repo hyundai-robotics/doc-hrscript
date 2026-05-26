@@ -6,6 +6,8 @@ Reads the total number of axes in the current system.
 
 It cannot be set as the left side of an assignment statement.
 
+Supported from V70.02-00
+
 ### Syntax
 
 ```python

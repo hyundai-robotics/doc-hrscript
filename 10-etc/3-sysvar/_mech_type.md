@@ -6,6 +6,8 @@ Reads the currently selected robot type.
 
 It cannot be set as the left side of an assignment statement.
 
+Supported from V70.02-00
+
 ### Syntax
 
 ```python
