@@ -184,6 +184,7 @@
     * [10.2.3 intersection 함수](10-etc/2-func/3-intersection.md)
     * [10.2.4 rand 함수](10-etc/2-func/4-rand.md)
     * [10.2.5 sig2int 함수](10-etc/2-func/5-sig2int.md)
+    * [10.2.6 sigout 함수](10-etc/2-func/6-sigout.md)
   * [10.3 시스템 변수](10-etc/3-sysvar/README.md)
     * [_acc_rate 변수](10-etc/3-sysvar/_acc_rate.md)
     * [_dec_rate 변수](10-etc/3-sysvar/_dec_rate.md)
