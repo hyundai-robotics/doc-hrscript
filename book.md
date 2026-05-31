@@ -1350,7 +1350,7 @@ cli.ip_addr="192.168.1.172" # (3)
       <td style="text-align:left">레이블 (label)</td>
       <td style="text-align:left">
         레이블은 명령문에 지정하는 것이 아니라 그 자체로 명령문입니다.<br>
-        \* 뒤에 [식별자](2-identifier.md)를 붙인 형식입니다. 단 식별자의 길이는 128자 이하여야 합니다.
+        \* 뒤에 [식별자](../2-basic-syntax/2-identifier.md)를 붙인 형식입니다. 단 식별자의 길이는 128자 이하여야 합니다.
       </td>
       <td style="text-align:left">*timeout</td>
     </tr>
@@ -3676,7 +3676,7 @@ if result() then *sensor_on
    end
 ```
 
-![](../../_assets/mkucs.png)
+![](../_assets/mkucs.png)
 
 
 [__SOURCE](5-moving-robot/6-selucrd.md)
@@ -9061,7 +9061,7 @@ brake_check 명령어에서 [속성] 버튼을 터치하면 브레이크 검사 
 ```python
 <결과변수> = rducs(<사용자좌표계 번호>,<포즈변수>)
 ```
-
+ 
 ### 파라미터
 
 <table>
@@ -9138,9 +9138,6 @@ brake_check 명령어에서 [속성] 버튼을 터치하면 브레이크 검사 
    var res=rducs(2,p_uc2)
    end
 ```
-
-![](../../_assets/rducs.png)
-
 
 [__SOURCE](10-etc/2-func/2-segment.md)
 # 10.2.2 segment 함수

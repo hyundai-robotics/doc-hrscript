@@ -13,7 +13,7 @@
 ```python
 <결과변수> = rducs(<사용자좌표계 번호>,<포즈변수>)
 ```
-
+ 
 ### 파라미터
 
 <table>
@@ -90,6 +90,3 @@
    var res=rducs(2,p_uc2)
    end
 ```
-
-![](../../_assets/rducs.png)
-
