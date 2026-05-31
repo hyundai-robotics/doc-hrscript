@@ -57,7 +57,7 @@ softxyz off                 # Disable the softxyz function
 ### Example 
 > Example 1) Assembly along the Z-direction while allowing displacement in X, Y, and Ry
 > * Coordinate : robot coordinate (crd="robot") <br>
-> * Position (xnr) limit : the range of X and Y direction [-50,+50](mm), the range of Ry direction [-3,+3] (deg) <br>
+> * Position (xnr) limit : the range of X and Y direction [-50,+50] (mm), the range of Ry direction [-3,+3] (deg) <br>
 > * Velocity (vel) limit : the maximum speed of X and Y direction 5(mm/sec), the maximum speed of Ry 3(deg/sec)  <br>
 > * Torque (thr) limit : the threshold of X direction 3N, that of Y direction 3N and that of Ry direction 1Nm 
 

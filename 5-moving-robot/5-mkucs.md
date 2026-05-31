@@ -125,5 +125,5 @@ or
    end
 ```
 
-![](../../_assets/mkucs.png)
+![](../_assets/mkucs.png)
 

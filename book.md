@@ -1245,7 +1245,7 @@ There are three ways to define addresses:
       <td style="text-align:left">label</td>
       <td style="text-align:left">
         A label is not a syntax you attach to a statement, it is a statement in itself.<br>
-        It is in the form of \* followed by [identifier](2-identifier.md). However, the identifier must not be longer than 128 characters.
+        It is in the form of \* followed by <a href="../2-basic-syntax/2-identifier">identifier</a>. However, the identifier must not be longer than 128 characters.
       </td>
       <td style="text-align:left">*timeout</td>
     </tr>
@@ -3484,7 +3484,7 @@ or
    end
 ```
 
-![](../../_assets/mkucs.png)
+![](../_assets/mkucs.png)
 
 
 [__SOURCE](5-moving-robot/6-selucrd.md)
@@ -3751,7 +3751,7 @@ softxyz off                 # Disable the softxyz function
 ### Example 
 > Example 1) Assembly along the Z-direction while allowing displacement in X, Y, and Ry
 > * Coordinate : robot coordinate (crd="robot") <br>
-> * Position (xnr) limit : the range of X and Y direction [-50,+50](mm), the range of Ry direction [-3,+3] (deg) <br>
+> * Position (xnr) limit : the range of X and Y direction [-50,+50] (mm), the range of Ry direction [-3,+3] (deg) <br>
 > * Velocity (vel) limit : the maximum speed of X and Y direction 5(mm/sec), the maximum speed of Ry 3(deg/sec)  <br>
 > * Torque (thr) limit : the threshold of X direction 3N, that of Y direction 3N and that of Ry direction 1Nm 
 
@@ -8756,8 +8756,6 @@ Function to read the generated user coordinate system as a pose.
    var res=rducs(2,p_uc2)
    end
 ```
-
-![](../../_assets/rducs.png)
 
 
 [__SOURCE](10-etc/2-func/2-segment.md)
