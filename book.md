@@ -1350,7 +1350,7 @@ cli.ip_addr="192.168.1.172" # (3)
       <td style="text-align:left">레이블 (label)</td>
       <td style="text-align:left">
         레이블은 명령문에 지정하는 것이 아니라 그 자체로 명령문입니다.<br>
-        \* 뒤에 [식별자](../2-basic-syntax/2-identifier.md)를 붙인 형식입니다. 단 식별자의 길이는 128자 이하여야 합니다.
+        \* 뒤에 <a href="../2-basic-syntax/2-identifier">식별자</a>를 붙인 형식입니다. 단 식별자의 길이는 128자 이하여야 합니다.
       </td>
       <td style="text-align:left">*timeout</td>
     </tr>
