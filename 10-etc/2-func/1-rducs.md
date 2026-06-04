@@ -91,5 +91,3 @@ Function to read the generated user coordinate system as a pose.
    end
 ```
 
-![](../../_assets/rducs.png)
-

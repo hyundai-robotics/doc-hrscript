@@ -1245,7 +1245,7 @@ There are three ways to define addresses:
       <td style="text-align:left">label</td>
       <td style="text-align:left">
         A label is not a syntax you attach to a statement, it is a statement in itself.<br>
-        It is in the form of \* followed by [identifier](2-identifier.md). However, the identifier must not be longer than 128 characters.
+        It is in the form of \* followed by <a href="../2-basic-syntax/2-identifier">identifier</a>. However, the identifier must not be longer than 128 characters.
       </td>
       <td style="text-align:left">*timeout</td>
     </tr>
@@ -3488,7 +3488,7 @@ or
    end
 ```
 
-![](../../_assets/mkucs.png)
+![](../_assets/mkucs.png)
 
 
 [__SOURCE](5-moving-robot/6-selucrd.md)
@@ -3755,7 +3755,7 @@ softxyz off                 # Disable the softxyz function
 ### Example 
 > Example 1) Assembly along the Z-direction while allowing displacement in X, Y, and Ry
 > * Coordinate : robot coordinate (crd="robot") <br>
-> * Position (xnr) limit : the range of X and Y direction [-50,+50](mm), the range of Ry direction [-3,+3] (deg) <br>
+> * Position (xnr) limit : the range of X and Y direction [-50,+50] (mm), the range of Ry direction [-3,+3] (deg) <br>
 > * Velocity (vel) limit : the maximum speed of X and Y direction 5(mm/sec), the maximum speed of Ry 3(deg/sec)  <br>
 > * Torque (thr) limit : the threshold of X direction 3N, that of Y direction 3N and that of Ry direction 1Nm 
 
@@ -8761,8 +8761,6 @@ Function to read the generated user coordinate system as a pose.
    end
 ```
 
-![](../../_assets/rducs.png)
-
 
 [__SOURCE](10-etc/2-func/2-segment.md)
 # 10.2.2 `segment`
@@ -9074,6 +9072,67 @@ result=sig2int(<input/output signal>,<number of bits>)
      result1=sig2int(di4,4)
      result2=sig2int(fb2.do0,1)
      result3=sig2int(fn1.di24,8)
+     end
+```
+
+
+[__SOURCE](10-etc/2-func/6-sigout.md)
+# 10.2.6 `sigout`
+
+Using the `sigout` function, You can output a specific range of the output signal by specifying it as an `int` type value.
+
+Supported from V70.02-00
+
+### Description
+- Enter the name of the output signal to use as the start.
+- Set how many bits to output.
+- Set the value to be output.
+
+### Syntax
+
+```python
+result=sigout(<output signal>,<number of bits>,<output value>)
+```
+
+### Parameters
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Parameter</th>
+      <th style="text-align:left">Description</th>
+      <th style="text-align:left">Remarks</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">output signal</td>
+      <td style="text-align:left">
+        output signal variable name (bit)
+      </td>
+      <td style="text-align:left">output signal variable</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">number of bits</td>
+      <td style="text-align:left">
+        Number of bits of the signal to be output
+      <td style="text-align:left">variable</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">output value</td>
+      <td style="text-align:left">
+        Value to output
+      <td style="text-align:left">variable</td>
+    </tr>
+  </tbody>
+</table>
+
+### Sample
+
+```python
+     var result1,result2,result3
+     result1=sigout(do4,4,7)
+     result2=sigout(fb2.do0,2,2)
+     result3=sigout(fn1.do24,8,55)
      end
 ```
 
@@ -9584,7 +9643,9 @@ It is used to read the axis index by the axis name.
 
 ### Description
 
-The axis index is obtained with 0 based value. Specify the string following "_ax." as the axis name. Axis name supports both lowercase and uppercase.
+The axis index is obtained with a reference value of 0. However, if the axis does not exist, -1 is assigned. Specify the string following "_ax." as the axis name. Axis name supports both lowercase and uppercase.
+
+Supported from V70.02-00
 
 ### Syntax
 
@@ -9601,6 +9662,90 @@ res = _ax.v # Get V-axis index
    global po
    po=cpo("joint")
    print po.j[_ax.R1]
+   ...
+   end
+```
+
+[__SOURCE](10-etc/3-sysvar/_total_ax.md)
+# `_total_ax`
+
+Reads the total number of axes in the current system.
+
+### Description
+
+It cannot be set as the left side of an assignment statement.
+
+Supported from V70.02-00
+
+### Syntax
+
+```python
+var res
+res = _total_ax
+```
+
+### Sample
+
+```python
+   ...
+   # Outputs the total number of axes in the current system.
+   print _total_ax
+   ...
+   end
+```
+
+[__SOURCE](10-etc/3-sysvar/_aux_ax.md)
+# `_aux_ax`
+
+Reads the number of auxiliary axes in the current system.
+
+### Description
+
+It cannot be set as the left side of an assignment statement.
+
+Supported from V70.02-00
+
+### Syntax
+
+```python
+var res
+res = _aux_ax
+```
+
+### Sample
+
+```python
+   ...
+   # Outputs the number of auxiliary axes in the current system.
+   print _aux_ax
+   ...
+   end
+```
+
+[__SOURCE](10-etc/3-sysvar/_mech_type.md)
+# `_mech_type`
+
+Reads the currently selected robot type.
+
+### Description
+
+It cannot be set as the left side of an assignment statement.
+
+Supported from V70.02-00
+
+### Syntax
+
+```python
+var res
+res = _mech_type
+```
+
+### Sample
+
+```python
+   ...
+   # Prints the current robot type.
+   print _mech_type
    ...
    end
 ```

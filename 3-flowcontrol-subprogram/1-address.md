@@ -25,7 +25,7 @@ There are three ways to define addresses:
       <td style="text-align:left">label</td>
       <td style="text-align:left">
         A label is not a syntax you attach to a statement, it is a statement in itself.<br>
-        It is in the form of \* followed by [identifier](2-identifier.md). However, the identifier must not be longer than 128 characters.
+        It is in the form of \* followed by <a href="../2-basic-syntax/2-identifier">identifier</a>. However, the identifier must not be longer than 128 characters.
       </td>
       <td style="text-align:left">*timeout</td>
     </tr>
