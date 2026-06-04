@@ -1704,6 +1704,10 @@ A `switch` statement evaluates a numeric expression and compares it with the res
 
 In the following example, if the resulting value of Expression `X` is equal to the resulting value of Expression `B1` or `B2`, \(1\) through \(3\) will be executed, and it will move to the point of the `end_switch` statement \(note that there is no `break` below the command statement B\). Meanwhile, if the resulting value of Expression `X` is equal to that of Expression `C`, \(2\) through \(3\) will be executed.
 
+{% hint style="warning" %}
+If the `break` statement is omitted, the statements in the following `case` will also be executed. Users familiar with the `CASE` statement in Hi5a HR-BASIC should take note of this behavior.
+{% endhint %}
+
 If the resulting value of Expression `X` is not equal to that of any `case` statement, it will be moved to the `default`, and \(4\) through \(5\) will be executed. Then, the `default` section may be omitted.
 
 ### Syntax
