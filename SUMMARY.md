@@ -1,7 +1,9 @@
 ﻿# Table of contents
 
 * [${cont_model} 제어기 기능설명서 - 로봇언어 HRScript](README.md)
-* [사전 주의사항](0-about-this-manual/precautions.md)
+* [이 설명서에 대하여](0-about-this-manual/README.md)
+  * [사전 주의사항](0-about-this-manual/precautions.md)
+  * [안전 주의 사항](0-about-this-manual/safety-notice.md)
 * [1. 개요](1-intro/README.md)
   * [1.1 HRScript의 소개](1-intro/1-hrscript.md)
 * [2. 기본 문법](2-basic-syntax/README.md)
