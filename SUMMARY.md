@@ -1,7 +1,9 @@
 ﻿# Table of contents
 
 * [${cont_model} 控制器功能手册 - 机器人语言 HRScript](README.md)
-* [注意事项](0-about-this-manual/precautions.md)
+* [关于手册](0-about-this-manual/README.md)
+  * [注意事项](0-about-this-manual/precautions.md)
+  * [安全注意事项](0-about-this-manual/safety-notice.md)
 * [1. 概述](1-intro/README.md)
   * [1.1 HRScript简介](1-intro/1-hrscript.md)
 * [2. 基本语法](2-basic-syntax/README.md)
