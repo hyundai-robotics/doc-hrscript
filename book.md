@@ -1,10 +1,22 @@
 ﻿
 [__SOURCE](README.md)
 # ${cont_model} 控制器功能手册 - 机器人语言 HRScript
+[__SOURCE](0-about-this-manual/README.md)
+# 关于手册
+
 [__SOURCE](0-about-this-manual/precautions.md)
 # 注意事项
 
 {% include file="zh/precautions.md" %}
+[__SOURCE](0-about-this-manual/safety-notice.md)
+# 安全注意事项
+
+{% include file="zh/safety-notice.md" %}
+
+{% hint style="danger" %}
+在执行用户脚本过程中，如发生逻辑错误或运行条件未满足，机器人可能出现不可预期的动作，从而导致严重人身伤害甚至死亡。
+{% endhint %}
+
 [__SOURCE](1-intro/README.md)
 # 1. 概述
 [__SOURCE](1-intro/1-hrscript.md)
