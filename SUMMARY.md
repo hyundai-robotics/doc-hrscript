@@ -2,7 +2,9 @@
 
 * [${cont_model} Controller Function Manual - Robot Language HRScript](README.md)
 
-* [Precautions](0-about-this-manual/precautions.md)
+* [About the Manual](0-about-this-manual/README.md)
+  * [Precautions](0-about-this-manual/precautions.md)
+  * [Safety Cautions](0-about-this-manual/safety-notice.md)
 
 * [1. Overview](1-intro/README.md)
   * [1.1 Introduction of HRScript](1-intro/1-hrscript.md)

@@ -2,10 +2,22 @@
 [__SOURCE](README.md)
 # ${cont_model} Controller Function Manual - Robot Language HRScript
 
+[__SOURCE](0-about-this-manual/README.md)
+# About the Manual
+
 [__SOURCE](0-about-this-manual/precautions.md)
 # Precautions
 
 {% include file="en/precautions.md" %}
+
+[__SOURCE](0-about-this-manual/safety-notice.md)
+# Safety Cautions
+
+{% include file="en/safety-notice.md" %}
+
+{% hint style="danger" %}
+During the execution of a user script, logic errors or unmet execution conditions may cause unexpected robot behavior, potentially resulting in serious injury or death.
+{% endhint %}
 
 [__SOURCE](1-intro/README.md)
 # 1. Overview
