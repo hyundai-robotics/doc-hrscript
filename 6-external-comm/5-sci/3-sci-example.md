@@ -5,7 +5,7 @@ Hyundai Robot Job File; { version: 1.6, mech_type: "", total_axis: -1, aux_axis:
      
      # 생성자로 Sci 객체 생성후 전역 변수에 대입 
      global sci2
-     sci2=sci.Sci(2)   #port no. (com2)
+     sci2=com.Sci(2)   #port no. (com2)
      
      # clear receive buffer
      var ret
