@@ -5614,7 +5614,7 @@ Hyundai Robot Job File; { version: 1.6, mech_type: "", total_axis: -1, aux_axis:
      
      # Create a Sci object using the constructor and assign it to a global variable 
      global sci2
-     sci2=sci.Sci(2)   #port no. (com2)
+     sci2=com.Sci(2)   #port no. (com2)
      
      # clear receive buffer
      var ret
@@ -5633,6 +5633,232 @@ Hyundai Robot Job File; { version: 1.6, mech_type: "", total_axis: -1, aux_axis:
      *timeout
      print "error"
      stop
+
+```
+
+
+
+[__SOURCE](6-external-comm/6-rsi/README.md)
+# 6.6 RSI module : Sensor Interface
+
+Supported from V70.02-00.
+
+"RSI" stands for "Remote Sensor Interface".
+
+The robot's position data, etc., is transmitted in real time to a device that supports RSI via the controller's Ethernet communication. <br>
+(Robot controller -> Remote sensor device) <br>
+
+Ethernet communication supports UDP, TCP Client, and TCP Server. <br>
+For information on Ethernet communication settings, please refer to the separate "[${cont_model} Controller Operation Manual - TP630](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/7-system/3-control-parameter/9-network-setting/2-service/4-enet-comm-setting?cont_model=${cont_model})". 
+
+
+To use this feature, you must create an RSI object as a global variable as follows.
+
+```python
+global rsi
+rsi=com.RSI(_enet0)  # _enet0 uses the "enet0" object in Ethernet communication settings 
+```
+
+After creating the RSI object, you can call member procedures such as on, off, and put.
+
+After executing 'on', data transmission begins.
+
+After executing off, data transmission stops. 
+
+You can change the transmitted value or add a new tag by calling put. 
+
+
+<br>
+
+### Transfer data
+Users can add tags to the transmitted data by executing HRScript statements. <br>
+Tags are structured as follows.
+- cpo_cur : These are the current values ​​for the robot's position and orientation. (x, y, z, rx, ry, rz) 
+- cpo_cmd : These are command values ​​for the robot's position and orientation. (x, y, z, rx, ry, rz) 
+- tsp : This is the time elapsed from the previous data transmission to the current data transmission.(us) <br>
+- index : It is a value that is initialized to 0 after rsi.on is executed and increases by 1 each time data is transmitted. <br>
+You can use this to check for missing communications.
+- trigger : This is a user tag created with a value of 0 after running rsi.on. <br>
+You can configure the logic to read and process from the sensor device by changing the value through the execution of HRScript statements.  
+- User tags : You can add user tags and change the values ​​of these tags by executing HRScript statements. <br>
+All user tags added after running rsi.on will be cleared.
+<br>
+<br>
+
+#### The transmitted data is as follows, depending on the document format.
+You can specify the document format as "JSON" or "XML" by executing the HRScript statement rsi.format="json" or rsi.format="xml". (Default = "JSON")
+<br>
+
+JSON Format
+```python
+{
+	"cpo_cur" : {
+		"x" : 2407.675176,
+		"y" : -38.666578,
+		"z" : 2006.844781,
+		"rx" : -158.004863,
+		"ry" : 83.273921,
+		"rz" : -159.598022
+	},
+	"cpo_cmd" : {
+		"x" : 2407.697000,
+		"y" : -59.810000,
+		"z" : 2006.820000,
+		"rx" : -158.036000,
+		"ry" : 83.271000,
+		"rz" : -159.618000
+	},
+	"tsp" : 3812,
+	"index" : 186,
+	"trigger" : 0
+}
+```
+<br>
+
+XML Format
+```python
+<Rob Type="HYUNDAI" tsp="3938">
+    <cpo_cur x="2407.6" y="-37.7" z="2006.8" rx="-157.9988" ry="83.2761" rz="-159.5930"/>
+    <cpo_cmd x="2407.6" y="-63.0" z="2006.8" rx="-158.018" ry="83.276" rz="-159.56"/>
+    <index>167</index>
+    <trigger>0</trigger>
+</Rob>
+```
+
+
+[__SOURCE](6-external-comm/6-rsi/1-rsi-creator.md)
+# 6.6.1 Constructor
+
+### Description
+
+Creates a global variable for the `RSI` object.
+
+### Syntax
+
+com.RSI(enet object) <br>
+
+Specifies the object used in the Ethernet communication settings. For example, if the name of the object used is "enet0", specify _enet0, and if it is "enet1", specify _enet1.  
+
+### Return Value
+
+Reference to created object
+
+### Example
+
+```python
+global rsi
+rsi=com.RSI(_enet0)  # _enet0 uses the "enet0" object in Ethernet communication settings 
+```
+
+
+
+
+[__SOURCE](6-external-comm/6-rsi/2-rsi-member-proc/README.md)
+# 6.6.2 Member procedure
+[__SOURCE](6-external-comm/6-rsi/2-rsi-member-proc/1-rsi-on.md)
+# on
+
+### Description
+
+Starts transmitting data to an external sensor device.
+- Initializes the value of the "index" tag to 0.
+- Clear all user tags.
+- Add the "trigger" tag with a value of 0.
+
+### Syntax
+
+&lt;RSI object&gt;.on <br>
+
+
+### Example
+
+```python
+rsi.on
+
+```
+
+
+
+
+[__SOURCE](6-external-comm/6-rsi/2-rsi-member-proc/2-rsi-off.md)
+# off
+
+### Description
+
+Stop data transmission to the external sensor device.
+
+### Syntax
+
+&lt;RSI object&gt;.off <br>
+
+
+### Example
+
+```python
+rsi.off
+
+```
+
+
+
+[__SOURCE](6-external-comm/6-rsi/2-rsi-member-proc/3-rsi-put.md)
+# put
+
+### Description
+
+You can change the value of an existing tag or add a user tag by executing the RSI put() function.
+
+
+### Syntax
+
+&lt;RSI object&gt;.put("trigger", 1) 
+
+### Return Value
+- 1: Change the value of the existing tag
+- 0: Add user tags
+
+
+### Example
+
+```python
+var ret
+ret=rsi.put("trigger", 1)  # Change the value of the trigger tag to 1
+ret=rsi.put("MyValue1", 789)  # Add the MyValue1 tag to set the integer value 789
+ret=rsi.put("MyValue2", 1.2345)  # Add the MyValue2 tag to set the floating-point value 1.2345
+ret=rsi.put("MyValue3", "hello")  # Add the MyValue3 tag to specify the string "hello"
+```
+
+
+
+
+[__SOURCE](6-external-comm/6-rsi/3-rsi-example.md)
+# 6.6.3 Sensor interface example
+
+``` python
+Hyundai Robot Job File; { version: 1.6, mech_type: "", total_axis: -1, aux_axis: -1 }
+     
+     # Create an RSI object using the constructor and assign it to a global variable 
+     global rsi
+     rsi=com.RSI(_enet0)  # Communicate with the enet0 configuration object
+     rsi.format="json" # String format "json" or "xml"
+     rsi.period=5  # data transmission cycle(ms)
+     var ret
+
+     # send start
+     ret=rsi.on
+
+     move L,spd=100mm/s,accu=1,tool=1
+     ret=rsi.put("trigger", 1)  # Change trigger tag value
+     move L,spd=100mm/s,accu=1,tool=1
+     move L,spd=100mm/s,accu=1,tool=1
+     ret=rsi.put("MyValue1", 789)  # Add MyValue1 tag
+     move L,spd=100mm/s,accu=1,tool=1
+
+     # send stop
+     rsi.off
+
+     end
+
 
 ```
 
