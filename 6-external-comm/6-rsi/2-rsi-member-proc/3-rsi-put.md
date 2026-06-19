@@ -7,13 +7,13 @@ You can change the value of an existing tag or add a option tags by executing th
 
 ### Syntax
 
-&lt;RSI object&gt;.put("cmd_po") 
-&lt;RSI object&gt;.put("trigger", 1) 
+&lt;RSI object&gt;.put("cmd_po") <br>
+&lt;RSI object&gt;.put("trigger", 1) <br>
 
 ### Return Value
 - 1: Change the value of the existing tag
 - 0: Add option tag
-
+- -1: When there is only one argument to the function, the input argument is not a system tag
 
 ### Example
 
