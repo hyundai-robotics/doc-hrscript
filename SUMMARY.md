@@ -129,7 +129,7 @@
     * [6.6.2 Member procedure](6-external-comm/6-rsi/2-rsi-member-proc/README.md)
       * [on](6-external-comm/6-rsi/2-rsi-member-proc/1-rsi-on.md)
       * [off](6-external-comm/6-rsi/2-rsi-member-proc/2-rsi-off.md)
-      * [open](6-external-comm/6-rsi/2-rsi-member-proc/3-rsi-put.md)
+      * [put](6-external-comm/6-rsi/2-rsi-member-proc/3-rsi-put.md)
     * [6.6.3 Sensor interface example](6-external-comm/6-rsi/3-rsi-example.md)    
 * [7. enet module : ethernet TCP/UDP communication](7-enet-module/README.md)
   * [7.1 peer-to-peer, client example](7-enet-module/1-exam-client/README.md)
