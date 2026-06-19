@@ -126,7 +126,7 @@
     * [6.6.2 멤버 프로시져](6-external-comm/6-rsi/2-rsi-member-proc/README.md)
       * [on](6-external-comm/6-rsi/2-rsi-member-proc/1-rsi-on.md)
       * [off](6-external-comm/6-rsi/2-rsi-member-proc/2-rsi-off.md)
-      * [open](6-external-comm/6-rsi/2-rsi-member-proc/3-rsi-put.md)
+      * [put](6-external-comm/6-rsi/2-rsi-member-proc/3-rsi-put.md)
     * [6.6.3 센서 인터페이스 예제](6-external-comm/6-rsi/3-rsi-example.md)
 * [7. enet 모듈 : 이더넷 TCP/UDP 통신](7-enet-module/README.md)
   * [7.1 peer-to-peer, client 예제](7-enet-module/1-exam-client/README.md)
