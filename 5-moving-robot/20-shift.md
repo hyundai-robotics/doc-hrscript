@@ -1,19 +1,19 @@
-﻿# 5.20 `shift`
+# 5.20 `shift`
 
-### Description
-The `shift` statement translates an already taught point in the XYZ coordinate system while maintaining the tool orientation (tool angles).
+### 描述
+`shift`语句在保持工具方向（工具角度）的情况下，转换XYZ坐标系中已教导的点。
 
-### Syntax
+### 语法
 ```python
-shift crd=<reference coordinate>,x=<X shift value>,y=<Y shift value>,z=<Z shift value>
+shift crd=<参考坐标>,x=<X位移值>,y=<Y位移值>,z=<Z位移值>
 ```
 
-### Parameters
-* crd : Reference coordinate system
-["base": base, "robot": robot, "tool": tool, "joint": joint, "u": user]
-* x, y, z : X, Y, Z shift values [0-3000, mm]
+### 参数
+* crd : 参考坐标系
+["base": 基底, "robot": 机器人, "tool": 工具, "joint": 关节, "u": 用户]
+* x, y, z : X, Y, Z位移值 [0-3000, mm]
 
-### Example
+### 示例
 ```python
      var po1=Pose(0.691,99.293,24.758,-6.528,-48.574,15.774,0.000)
 S1   move P,tg=po1,spd=10%,accu=0,tool=0

@@ -1,19 +1,17 @@
 ﻿# off
 
-### Description
+### 描述
 
-Stop data transmission to the external sensor device.
+停止与外部传感器设备的数据传输。
 
-### Syntax
+### 语法
 
 &lt;RSI object&gt;.off <br>
 
 
-### Example
+### 示例
 
 ```python
 rsi.off
 
 ```
-
-

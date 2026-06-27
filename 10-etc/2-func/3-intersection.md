@@ -1,19 +1,19 @@
 ﻿# 10.2.3 `intersection`
 
-You can use the `intersection` function to find a point that meets a straight line at the shortest distance of one point, or to find an intersection with a straight line at the shortest distance that passes.
+您可以使用 `intersection` 函数找到与直线以最短距离相交的点，或查找通过的直线与另一条直线的最短距离相交。
 
-### Description
+### 描述
 
-If you specify two points that form a straight line and another point as the parameters, you obtain a cross-pose of a straight line that connects the straight line and one point at the shortest distance.
+如果您指定两点形成一条直线和另一点作为参数，您将获得一条连接直线和一个点的交叉位置，且该位置的距离最短。
 
 ![](../../_assets/image_intersection_1.png)
 
-If you specify two points that form a straight line and two points that form another straight line as the parameters, you can find the intersection of the two straight lines at the shortest distance. The intersection point is the intersection with the first straight line you specify.
+如果您指定两点形成一条直线和两点形成另一条直线作为参数，您可以找到这两条直线的最短距离交点。交点是您指定的第一条直线的交点。
 
 ![](../../_assets/image_intersection_2.png)
 
 
-### Syntax
+### 语法
 
 ```python
 result=intersection(<straight-line ref.pose 1>,<straight-line ref.pose 2>,<position ref.pose>)
@@ -23,59 +23,59 @@ result=intersection(<straight-line ref.pose 1>,<straight-line ref.pose 2>,<posit
 result=intersection(<straight-line ref.pose 1>,<straight-line ref.pose 2>,<straight-line ref.pose 3>,<straight-line ref.pose 4>)
 ```
 
-### Return value
+### 返回值
 
-The result pose.
+结果姿态。
 
 
-### Parameters
+### 参数
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Parameter</th>
-      <th style="text-align:left">Description</th>
-      <th style="text-align:left">Remarks</th>
+      <th style="text-align:left">参数</th>
+      <th style="text-align:left">描述</th>
+      <th style="text-align:left">备注</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="text-align:left">straight-line ref.pose 1</td>
       <td style="text-align:left">
-        1st reference pose of 1st straight-line
+        第一条直线的第一个参考姿态
       </td>
-      <td style="text-align:left">pose expression</td>
+      <td style="text-align:left">姿态表达式</td>
     </tr>
     <tr>
       <td style="text-align:left">straight-line ref.pose 2</td>
       <td style="text-align:left">
-        2nd reference pose of 1st straight-line
-      <td style="text-align:left">pose expression</td>
+        第一条直线的第二个参考姿态
+      <td style="text-align:left">姿态表达式</td>
     </tr>
     <tr>
       <td style="text-align:left">position ref.pose</td>
       <td style="text-align:left">
-        Pose referenced to find a straight line and shortest distance position
+        用于查找直线和最短距离位置的姿态
       </td>
-      <td style="text-align:left">pose expression</td>
+      <td style="text-align:left">姿态表达式</td>
     </tr>
     <tr>
       <td style="text-align:left">straight-line ref.pose 3</td>
       <td style="text-align:left">
-        1st reference pose of 2nd straight-line
+        第二条直线的第一个参考姿态
       </td>
-      <td style="text-align:left">pose expression</td>
+      <td style="text-align:left">姿态表达式</td>
     </tr>
     <tr>
       <td style="text-align:left">straight-line ref.pose 4</td>
       <td style="text-align:left">
-        2st reference pose of 2nd straight-line
+        第二条直线的第二个参考姿态
       </td>
-      <td style="text-align:left">pose expression</td>
+      <td style="text-align:left">姿态表达式</td>
     </tr>
   </tbody>
 </table>
 
-### Sample
+### 示例
 
 ```python
      var po1,po2,po3,result
@@ -95,4 +95,3 @@ The result pose.
      result=intersection(po1,po2,po3,po4)
      end
 ```
-

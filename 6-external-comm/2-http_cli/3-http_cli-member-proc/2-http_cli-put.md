@@ -2,16 +2,15 @@
 
 ### Description
 
-Requests an HTTP PUT service.
+请求一个 HTTP PUT 服务。
 
-Updates the specified resource.
+更新指定的资源。
 
-The data to be transmitted must be assigned to the `body` attribute in advance.
+要传输的数据必须事先分配给 `body` 属性。
 
 ### Syntax
 
 &lt;HttpCli object&gt;.put &lt;URL string, timeout, timeout fallback address&gt;
-
 
 ### Parameters
 
@@ -27,23 +26,23 @@ The data to be transmitted must be assigned to the `body` attribute in advance.
     <tr>
       <td>URL string</td>
       <td>
-        The request URL.
+        请求的 URL。
       </td>
       <td></td>
     </tr>
     <tr>
       <td>Timeout</td>
       <td>
-        (Optional) Timeout duration. If the timeout expires, execution proceeds to the next statement or to the fallback address.<br>If not specified, the request waits indefinitely.<br>The timeout must be set between 5 ms and 15 ms (inclusive). Otherwise, a playback timeout error occurs.<br>If the value is outside this range, `-9 (InvalidTimeout)` is stored in `status`.
+        （可选）超时时间。 如果超时到期，执行将继续到下一个语句或备用地址。<br>如果未指定，请求将无限期等待。<br>超时时间必须设定在 5 ms 到 15 ms 之间（包括）。 否则，将发生播放超时错误。<br>如果值超出此范围，则 `-9 (InvalidTimeout)` 被存储在 `状态 (status)` 中。
       </td>
-      <td>msec</td>
+      <td>毫秒</td>
     </tr>
     <tr>
       <td>timeout fallback address</td>
       <td>
-        (Optional) The address to branch to when a timeout occurs.<br>If not specified, execution proceeds to the next address.
+        （可选）在发生超时时跳转的地址。<br>如果未指定，执行将继续到下一个地址。
       </td>
-      <td>Address</td>
+      <td>地址</td>
     </tr>
   </tbody>
 </table>
@@ -61,6 +60,3 @@ var url = domain + "/setting"
 cli.body = {max_torque: 500}
 cli.put(url, 10, S1)
 ```
-
-
-

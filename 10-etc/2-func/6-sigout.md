@@ -1,53 +1,53 @@
 ﻿# 10.2.6 `sigout`
 
-Using the `sigout` function, You can output a specific range of the output signal by specifying it as an `int` type value.
+使用 `sigout` 函数时，您可以通过将其指定为 `int` 类型值来输出输出信号的特定范围。
 
-Supported from V70.02-00
+支持版本： V70.02-00
 
-### Description
-- Enter the name of the output signal to use as the start.
-- Set how many bits to output.
-- Set the value to be output.
+### 描述
+- 输入要用作起始的输出信号名称。
+- 设置要输出的位数。
+- 设置要输出的值。
 
-### Syntax
+### 语法
 
 ```python
 result=sigout(<output signal>,<number of bits>,<output value>)
 ```
 
-### Parameters
+### 参数
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Parameter</th>
-      <th style="text-align:left">Description</th>
-      <th style="text-align:left">Remarks</th>
+      <th style="text-align:left">参数</th>
+      <th style="text-align:left">描述</th>
+      <th style="text-align:left">备注</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="text-align:left">output signal</td>
       <td style="text-align:left">
-        output signal variable name (bit)
+        输出信号变量名称 (bit)
       </td>
-      <td style="text-align:left">output signal variable</td>
+      <td style="text-align:left">输出信号变量</td>
     </tr>
     <tr>
       <td style="text-align:left">number of bits</td>
       <td style="text-align:left">
-        Number of bits of the signal to be output
-      <td style="text-align:left">variable</td>
+        要输出的信号的位数
+      <td style="text-align:left">变量</td>
     </tr>
     <tr>
       <td style="text-align:left">output value</td>
       <td style="text-align:left">
-        Value to output
-      <td style="text-align:left">variable</td>
+        要输出的值
+      <td style="text-align:left">变量</td>
     </tr>
   </tbody>
 </table>
 
-### Sample
+### 示例
 
 ```python
      var result1,result2,result3
@@ -56,4 +56,3 @@ result=sigout(<output signal>,<number of bits>,<output value>)
      result3=sigout(fn1.do24,8,55)
      end
 ```
-

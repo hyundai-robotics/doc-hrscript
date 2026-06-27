@@ -1,8 +1,8 @@
-﻿# `clear`
+# `初始化 (clear)`
 
 ### Description
 
-Delete all data stored in the binary buffer.
+删除存储在二进制缓冲区中的所有数据。
 
 
 ### Syntax
@@ -12,7 +12,7 @@ Delete all data stored in the binary buffer.
 
 ### Parameters
 
-None
+无
 
 
 ### Example

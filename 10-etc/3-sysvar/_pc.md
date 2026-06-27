@@ -2,13 +2,13 @@
 
 ### Description
 
-`_pc` is used to obtain current program counter information. <br>
-The program counter consists of a program number, a step number, and a function number.
+`_pc` 用于获取当前程序计数器信息。<br>
+程序计数器由程序号、步骤号和功能号组成。
 
 ### Syntax
 
 ```python
-var sno=_pc.cur_sno  # Assign the current step number
+var sno=_pc.cur_sno  # 分配当前步骤号
 ```
 
 ### Parameters
@@ -25,9 +25,9 @@ var sno=_pc.cur_sno  # Assign the current step number
   <tr>
       <td style="text-align:left">cur_sno</td>
       <td style="text-align:left">
-         Step number where the cursor is currently located
+         光标当前所在的步骤号
       </td>
-      <td style="text-align:left">variable</td>
+      <td style="text-align:left">变量</td>
     </tr>
   </tbody>
 </table>
@@ -35,7 +35,7 @@ var sno=_pc.cur_sno  # Assign the current step number
 
 
 
-### `cur_sno` sample : If the until condition is not satisfied, move to the previous step.
+### `cur_sno` sample : 如果直到条件不满足，移动到上一个步骤。
 
 ```python
    S6 move P,spd=50%,accu=3,tool=1,until di6
@@ -52,4 +52,3 @@ var sno=_pc.cur_sno  # Assign the current step number
       endif
    ...
 ```
-

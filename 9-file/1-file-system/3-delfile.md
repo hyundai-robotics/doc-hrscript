@@ -1,20 +1,19 @@
 ﻿# 9.1.3 `delfile`
 
-A `delfile` is a procedure that requests to delete a directory or file.
+A `delfile` 是一个请求删除目录或文件的过程。
 
 ### Description
 
-Deletes a directory or file in the specified path.
+在指定路径中删除目录或文件。
 
-- Can only be performed within the MAIN module, not Teach Pendant or USB memory.
-- All subdirectories in the directory are also deleted.
-- If the specified pathname does not exist, it ends with success.
-- The pathname also supports wildcard ('*', '?').
+- 只能在 MAIN 模块内执行，不能在 Teach Pendant 或 USB 内存中执行。
+- 目录中的所有子目录也会被删除。
+- 如果指定的路径不存在，操作成功结束。
+- 路径名还支持通配符 ('*', '?')。
 
-- Because large files or entire directories may be deleted, it is asynchronously performed in the background to avoid loss of tact time due to waiting during deletion. The successful completion of the deletion can be determined by reading the values of the result-variable. (That is, no errors or warnings are generated when the deletion fails.)
+- 因为可能会删除大文件或整个目录，所以它在后台异步进行，以避免在删除期间由于等待而导致的触发时间损失。可以通过读取结果变量的值来确定删除是否成功完成。 （即，当删除失败时，不会生成错误或警告。）
 
-- You cannot request another copy or deletion until one copy or deletion is complete.
-
+- 在一个复制或删除完成之前，你不能请求另一个复制或删除。
 
 ### Syntax
 
@@ -36,12 +35,12 @@ delfile <result-variable>,<pathname>
   <tr>
       <td style="text-align:left">result-variable</td>
       <td style="text-align:left">
-        result of background execution<br>
+        背景执行的结果<br>
         <ul>
-        <li>1: Successfully completed.</li>
-        <li>0: Deletion in progress.</li>
-        <li>-41: Failed to delete directory.</li>
-        <li>-42: Failed to delete file.</li>
+        <li>1: 成功完成。</li>
+        <li>0: 删除进行中。</li>
+        <li>-41: 删除目录失败。</li>
+        <li>-42: 删除文件失败。</li>
         </ul>
       </td>
       <td style="text-align:left">variable</td>
@@ -49,8 +48,8 @@ delfile <result-variable>,<pathname>
     <tr>
       <td style="text-align:left">pathname</td>
       <td style="text-align:left">
-        directory's path to delete,<br>
-        or file's pathname to delete
+        要删除的目录路径，<br>
+        或要删除的文件路径
       </td>
       <td style="text-align:left">string expression</td>
     </tr>

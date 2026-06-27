@@ -7,7 +7,7 @@
 
 ### Return value
 
-The number of bytes of binary data
+二进制数据的字节数
 
 
 ### Example

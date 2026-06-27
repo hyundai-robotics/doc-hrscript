@@ -1,8 +1,8 @@
-﻿# 3.4.4. `if`-`elseif`-`else`-`endif`
+# 3.4.4. `如果 (if)`-`elseif`-`else`-`endif`
 
 ### Description
 
-In the case of multiple conditions, the `elseif` statement can be used in the following form.
+在多个条件的情况下，可以使用以下形式的 `elseif` 语句。
 
 ### Syntax
 
@@ -27,14 +27,11 @@ endif
 ```python
 var pressure=95, limit_h=90, limit_m=80
 if pressure > limit_h
-	print "warning : pressure is too high."
+	print "警告：压力过高。"
 elseif pressure > limit_m
-	print "notification: pressure is high."
+	print "通知：压力偏高。"
 else
-	print "in normal operation."
+	print "处于正常运行状态。"
 endif
 end
 ```
-
-
-

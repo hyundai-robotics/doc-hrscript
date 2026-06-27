@@ -1,12 +1,12 @@
-﻿# `_mech_type`
+# `_mech_type`
 
-Reads the currently selected robot type.
+读取当前选择的机器人类型。
 
 ### Description
 
-It cannot be set as the left side of an assignment statement.
+它不能作为赋值语句的左侧。
 
-Supported from V70.02-00
+支持的版本为 V70.02-00
 
 ### Syntax
 
@@ -19,7 +19,7 @@ res = _mech_type
 
 ```python
    ...
-   # Prints the current robot type.
+   # 打印当前的机器人类型。
    print _mech_type
    ...
    end

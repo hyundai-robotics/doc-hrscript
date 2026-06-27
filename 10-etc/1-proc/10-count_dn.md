@@ -1,17 +1,17 @@
-﻿# 10.1.10 `count_dn` Statement
+﻿# 10.1.10 `count_dn` 语句
 
-The `count_dn` statement is a procedure that decrements the value of a specified variable by 1, and resets it to the init value when it becomes smaller than the preset value.
+`count_dn` 语句是一个过程，它将指定变量的值减少 1，当该值小于预设值时，将其重置为初始值。
 
-### Description
+### 描述
 
-This statement decreases the value of the specified variable by 1 each time it is executed.  
-If the variable value becomes less than the value specified by preset value, the variable is reset to the value specified by init value.
+该语句每次执行时将指定变量的值减少 1。  
+如果变量值小于预设值，则变量被重置为初始值指定的值。
 
-Executing  
+执行  
 ```python
 count_dn cnt, init=100, preset=0
 ```
-produces the same result as executing the following four lines:
+的结果与执行以下四行代码的结果相同：
 
 ```python
 cnt = cnt - 1
@@ -20,20 +20,20 @@ if cnt < 0
 endif
 ```
 
-### Syntax
+### 语法
 ```python
 count_dn <variable>, init=<initial value>, preset=<final value>
 ```
 
-### Parameters
-| Item     | Description                                                                        | Remarks |
-| -------- | ---------------------------------------------------------------------------------- | ------- |
-| Variable | The variable whose value will be decremented as a counter                          |         |
-| init     | The initial value to assign when the variable becomes less than the `preset` value |         |
-| preset   | The minimum value of the variable                                                  |         |
+### 参数
+| 项目     | 描述                                                                 | 备注 |
+| -------- | ---------------------------------------------------------------------- | ----- |
+| 变量     | 将作为计数器减少值的变量                                             |       |
+| init     | 当变量小于 `preset` 值时要分配的初始值                             |       |
+| preset   | 变量的最小值                                                          |       |
 
 
-### Example
+### 示例
 ```python
    global work_no
    move P,spd=30%,accu=0,tool=1

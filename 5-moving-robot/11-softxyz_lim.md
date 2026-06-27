@@ -1,15 +1,13 @@
 ﻿# 5.11 `softxyz_lim`
 
-Before using instruction `softxyz on`, user should set `softxyz_lim` parameters such as position limit(`pos`), workspace limit(`xnr`), velocity limit(`vel`) and force threshold limit(`thr`). <br>
+在使用指令 `softxyz on` 之前，用户应设置 `softxyz_lim` 参数，例如位置限制(`pos`)、工作空间限制(`xnr`)、速度限制(`vel`)和力阈值限制(`thr`). <br>
 
+---
 
---- 
+### 描述
+* softxyz_lim 参数设置   
 
-### Description 
-* softxyz_lim parameter setting   
-
-
-### Syntax 
+### 语法
 ```pythonghlt
 softxyz_lim pos,_x=<+X>,x_=<-X>,_y=<+Y>,y_=<-Y>,_z=<+Z>,z_=<-Z> 
 softxyz_lim vel,x=<X>,y=<Y>,z=<Z>,rx=<Rx>,ry=<Ry>,rz=<Rz>  
@@ -17,30 +15,26 @@ softxyz_lim xnr,x=<X>,y=<Y>,z=<Z>,rx=<Rx>,ry=<Ry>,rz=<Rz>
 softxyz_lim thr,x=<X>,y=<Y>,z=<Z>,rx=<Rx>,ry=<Ry>,rz=<Rz> 
 ```
 
-### Parameter 
-* softxyz_lim pos : Position limit based on cartesian space [mm] <br>
-* softxyz_lim vel : Maximum translation and rotation velocity limit based on cartesian space [mm/sec] or [deg/sec] 
-<br>
-* softxyz_lim xnr : Workspace (position/rotation) limit based on cartesian space [mm] or [deg] <br>
-* softxyz_lim thr : force threshold limit based on cartesian space [N] or [Nm] <br>
+### 参数
+* softxyz_lim pos : 基于笛卡尔空间的位置限制 [mm] <br>
+* softxyz_lim vel : 基于笛卡尔空间的最大平移和旋转速度限制 [mm/sec] 或 [deg/sec] <br>
+* softxyz_lim xnr : 基于笛卡尔空间的工作空间（位置/旋转）限制 [mm] 或 [deg] <br>
+* softxyz_lim thr : 基于笛卡尔空间的力阈值限制 [N] 或 [Nm] <br>
 
-
-### Example
-> * setting position limit : +X direction is 200[mm], -Y direction is 100[mm], +Z direction is 300[mm]
+### 示例
+> * 设置位置限制：+X 方向为 200[mm]，-Y 方向为 100[mm]，+Z 方向为 300[mm]
 ```python
 softxyz_lim pos, _x=200, y_=100, _z=300
 ```
-> * setting velocity limit : maximum speed of Z direction is 40[mm/sec] 
+> * 设置速度限制：Z 方向的最大速度为 40[mm/sec] 
 ```python
 softxyz_lim vel, z=40
 ```
-> * setting workspace limit : maximum position of X direction is [-200,200][mm]
+> * 设置工作空间限制：X 方向的最大位置为 [-200,200][mm]
 ```python
 softxyz_lim xnr, x=200
 ```
-> * setting torque limit : torque threshold is set to 10[N]
+> * 设置扭矩限制：扭矩阈值设置为 10[N]
 ```python
 softxyz_lim thr, y=10
 ```
-
-

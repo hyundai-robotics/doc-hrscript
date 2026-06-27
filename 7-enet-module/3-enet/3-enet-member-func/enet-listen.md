@@ -2,8 +2,8 @@
 
 ### Description
 
-As a server in Ethernet TCP communication, it prepares for a connection request from the client side. 
-Not used in UDP peer-to-peer communication.
+作为以太网 TCP 通信中的服务器，它为客户端的连接请求做准备。 
+在 UDP 点对点通信中未使用。
 
 
 ### Syntax
@@ -25,8 +25,8 @@ Not used in UDP peer-to-peer communication.
     <tr>
       <td>backlog</td>
       <td>
-        The permitted connection of the pending connection which is not acceptted.<br>
-        If not specified, wait ininfinitely.
+        未被接受的待处理连接的允许连接数。<br>
+        如果未指定，将无限期等待。
       </td>
       <td></td>
     </tr>
@@ -54,7 +54,7 @@ Not used in UDP peer-to-peer communication.
     </tr>
     <tr>
       <td>-1</td>
-      <td>error</td>
+      <td>错误</td>
       <td></td>
     </tr>	 
   </tbody>

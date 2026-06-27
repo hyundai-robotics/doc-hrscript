@@ -1,12 +1,15 @@
 ﻿{
-    "langCode": "en",
-    "series": "${cont_model} Controller",
-    "title": "Function Manual - HRScript",
-    "publisher": "HD Hyundai Robotics",
-    "tocTitle": "Table of Contents",
+    "langCode": "zh",
+    "series": "${cont_model} 控制器",
+    "title": "功能手册 - HRScript",
+    "publisher": "HD 现代机器人",
+    "tocTitle": "目录",
     "tocTitleElements": "[ \"h1\", \"h2\" ]",
-    "docId": "${cont_model:upper}HRSCRIPT_EN_001",
+    "docId": "${cont_model:upper}HRSCRIPT_ZH_001",
     "references": [
-        { "title" : "${cont_model} Controller Operation Manual - TP630", "id" : "${cont_model:upper}OPTP630_EN_001" }
+        {
+            "title": "${cont_model} 控制器操作手册 - TP630",
+            "id": "${cont_model:upper}OPTP630_ZH_001"
+        }
     ]
 }

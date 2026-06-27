@@ -1,25 +1,24 @@
-﻿# 3.4.1 Single-Line `if`
+# 3.4.1 单行 `如果 (if)`
 
-### Description
+### 描述
 
-The form of a single-line `if` statement is as follows: If &lt;Boolean expression&gt; is true, branching to &lt;address&gt; will occur. If false, moving to the next statement will occur.
+单行 `如果 (if)` 语句的形式如下：如果 &lt;布尔表达式&gt; 为真，则将发生跳转到 &lt;地址&gt;。如果为假，则将移动到下一个语句。
 
-### Syntax
+### 语法
 
 ```python
 if <bool expression> then <address>
 ```
 
-### Example
+### 示例
 
-Below is an example of the single-line if statement. If the condition that pressure is greater than the limit is true, branching to the label address "\*err will occur," making it possible to print a warning that the pressure is too high. If the condition is false, the next statement will be executed one after the other without branching, so "In normal operation " will be printed, ending the program.
+以下是单行 if 语句的示例。如果压力大于限制的条件为真，则将发生跳转到标签地址 "\*err"，从而可以打印出压力过高的警告。如果条件为假，则将一个接一个地执行下一个语句，因此将打印 "正常运行中 "，结束程序。
 
 ```python
 var pressure=95, limit=90
 if pressure > limit then *err
-print "in normal operation."
+print "normal operation."
 end
 *err
 print "warning: pressure is too high."
 ```
-

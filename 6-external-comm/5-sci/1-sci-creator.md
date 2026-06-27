@@ -1,23 +1,20 @@
-﻿# 6.5.1 Constructor
+# 6.5.1 构造函数
 
-### Description
+### 描述
 
-Creates a global variable for the `Sci` object.
+为 `Sci` 对象创建全局变量。
 
-### Syntax
+### 语法
 
 com.Sci(port number)
 
-### Return Value
+### 返回值
 
-Reference to created object
+创建的对象的引用
 
-### Example
+### 示例
 
 ```python
 global sci2
 sci2=com.Sci(2)
 ```
-
-
-

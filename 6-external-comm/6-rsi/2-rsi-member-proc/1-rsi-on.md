@@ -1,24 +1,21 @@
-﻿# on
+﻿# 开启
 
-### Description
+### 描述
 
-Starts transmitting data to an external sensor device.
-- Initializes the value of the "index" tag to 0.
-- Initializes so that "cmd_po" tag is not included in the output.
-- Clear all user tags.
-- Add the "trigger" tag with a value of 0.
+开始向外部传感器设备传输数据。
+- 将“index”标签的值初始化为0。
+- 初始化以便“cmd_po”标签不包含在输出中。
+- 清除所有用户标签。
+- 添加值为0的“trigger”标签。
 
-### Syntax
+### 语法
 
 &lt;RSI object&gt;.on <br>
 
 
-### Example
+### 示例
 
 ```python
 rsi.on
 
 ```
-
-
-

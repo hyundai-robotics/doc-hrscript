@@ -1,2 +1,1 @@
-﻿# 6. Communicating with External Devices
-
+# 6. 与外部设备通信

@@ -1,6 +1,6 @@
-﻿# `_acc_rate`
+# `_acc_rate`
 
-Get or set the rate of acceleration in the speed-profile.
+获取或设置速度轮廓中的加速度。
 
 ### Description
 
@@ -19,7 +19,7 @@ res = _acc_rate
 
 ```python
    ...
-   # Print current accel-rate, and set to 70%.
+   # 打印当前的加速度率，并设置为70%。
    print _acc_rate
    _acc_rate=70
    ...

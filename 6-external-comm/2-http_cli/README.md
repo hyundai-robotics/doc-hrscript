@@ -1,18 +1,17 @@
-﻿# 6.2 `http_cli` Module: HTTP Client
+﻿# 6.2 `http_cli` 模块：HTTP 客户端
 
-Using the general-purpose Ethernet port of the ${cont_model} controller, it is possible to access remote web services and consume HTTP services.
-To use this feature, import the `http_cli` module and create an `HttpCli` object as shown below.
+使用 ${cont_model} 控制器的通用以太网端口，可以访问远程 Web 服务并使用 HTTP 服务。  
+要使用此功能，请导入 `http_cli` 模块并创建一个 `HttpCli` 对象，如下所示。
 
 ```python
 import http_cli
 var cli = http_cli.HttpCli()
 ```
 
-After creating an `HttpCli` object, service requests can be made by calling the `get`, `put`, `post`, and `delete` member procedures.<br>
-The `HttpCli` object provides an attribute named `body`.<br>
-- When a `GET` request is made and a response is successfully received, the data returned by the remote server is stored in the `body` attribute.<br>The type of the `body` value may be a string, a number, an array, or an object.
-- When making a `PUT` request, the data to be transmitted must be assigned to the `body` attribute in advance.
-- When making a `POST` request, the data to be transmitted must also be assigned to the `body` attribute in advance, and the data returned by the remote server in the response is stored in the `body` attribute.
-- The `DELETE` service does not use the `body` attribute.
-The provided HTTP client communication operates in synchronous mode.
-
+创建 `HttpCli` 对象后，可以通过调用 `get`、`put`、`post` 和 `删除 (delete)` 成员过程来发起服务请求。<br>  
+`HttpCli` 对象提供一个名为 `body` 的属性。<br>  
+- 当发起 `GET` 请求并成功接收到响应时，远程服务器返回的数据存储在 `body` 属性中。<br> `body` 值的类型可以是字符串、数字、数组或对象。  
+- 在发起 `PUT` 请求时，待传输的数据必须提前分配给 `body` 属性。  
+- 在发起 `POST` 请求时，待传输的数据也必须提前分配给 `body` 属性，并且远程服务器在响应中返回的数据存储在 `body` 属性中。  
+- `DELETE` 服务不使用 `body` 属性。  
+提供的 HTTP 客户端通信以同步模式操作。

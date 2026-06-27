@@ -2,7 +2,7 @@
 
 ### Description
 
-Receives binary data from the Ethernet object and stores it in the [BBuf](../../4-bbuf/README.md) object.
+从以太网对象接收二进制数据并将其存储在 [BBuf](../../4-bbuf/README.md) 对象中。
 
 
 ### Syntax
@@ -15,34 +15,34 @@ Receives binary data from the Ethernet object and stores it in the [BBuf](../../
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Name</th>
-      <th style="text-align:left">Meaning</th>
-      <th style="text-align:left">Misc.</th>
+      <th style="text-align:left">名称</th>
+      <th style="text-align:left">含义</th>
+      <th style="text-align:left">杂项</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>BBuf object</td>
       <td>
-        BBuf object to store the received binary data
+        用于存储接收到的二进制数据的BBuf对象
       </td>
       <td></td>
     </tr>
     <tr>
       <td>waiting time</td>
       <td>
-        timeout. If elapsed, proceed to the next command or jump to the address on timeout.<br>
-        If not specified, wait ininfinitely.
+        超时。如果超时，则继续执行下一个命令或跳转到超时地址。<br>
+        如果未指定，则无限等待。
       </td>
-      <td>msec</td>
+      <td>毫秒</td>
     </tr>
     <tr>
       <td>address on timeout</td>
       <td>
-        address to which jump on timeout.<br>
-        If not specified, proceed to next command.
+        超时后跳转到的地址。<br>
+        如果未指定，继续执行下一个命令。
       </td>
-      <td>address</td>
+      <td>地址</td>
     </tr>
   </tbody>
 </table>
@@ -50,7 +50,7 @@ Receives binary data from the Ethernet object and stores it in the [BBuf](../../
 
 ### Return value
 
-The number of received data.
+接收到的数据数量。
 
 
 ### Example
@@ -63,7 +63,6 @@ var nitem=enet_to_sensor.recv(bbuf,5000,*TimeOut)
 end
 
 *TimeOut
-print "Time out! No response from sensor"
+print "超时！传感器无响应"
 end
 ```
-

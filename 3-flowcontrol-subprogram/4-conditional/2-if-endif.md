@@ -1,12 +1,12 @@
-﻿# 3.4.2 `if`-`endif`
+# 3.4.2 `如果 (if)`-`endif`
 
-### Description
+### 说明
 
-If the single-line `if` statement is true, only the operation of branching to a specific address will occur. If executing other operations or multiple statements is necessary, the `if`-`endif` block should be used.
+如果单行 `如果 (if)` 语句为真，则仅会执行分支到特定地址的操作。如果需要执行其他操作或多个语句，则应使用 `如果 (if)`-`endif` 块。
 
-The form is as follows: If &lt;Boolean expression&gt; is true, the multiple number of &lt;statement&gt; between `if` and `endif` will be executed in order. If &lt;Boolean expression&gt; is false, skipping to the position after `endif` will occur without the &lt;statements&gt; being executed.
+格式如下：如果 &lt;布尔表达式&gt; 为真，则 `如果 (if)` 和 `endif` 之间的多个&lt;语句&gt;将按顺序执行。如果 &lt;布尔表达式&gt; 为假，将跳过到 `endif` 后的位置，而不执行 &lt;语句&gt;。
 
-### Syntax
+### 语法
 
 ```python
 if <bool expression>
@@ -15,9 +15,9 @@ if <bool expression>
 endif
 ```
 
-### Example
+### 示例
 
-In the following example, if the pressure is greater than the limit, the following assignment and print statements will be executed. Otherwise, branching to the end will occur without the statements being executed.
+在以下示例中，如果压力大于限制，将执行以下赋值和打印语句。否则，将跳转到末尾而不执行这些语句。
 
 ```python
 var pressure=95, limit=90, exceed
@@ -28,5 +28,4 @@ endif
 end
 ```
 
-In the example program, the statements between `if` and `endif` are indented by two spaces. These statements are indented to make it easier to recognize that they are codes for the blocks nested between `if` and `endif`.
-
+在示例程序中，`如果 (if)` 和 `endif` 之间的语句缩进两个空格。这些语句的缩进使其更容易识别它们是嵌套在 `如果 (if)` 和 `endif` 之间的代码块。

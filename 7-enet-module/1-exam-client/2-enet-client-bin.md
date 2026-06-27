@@ -1,138 +1,138 @@
-﻿# 7.1.2 peer-to-peer, client Example - Transceiving binary data
+# 7.1.2 点对点，客户端示例 - 发送和接收二进制数据
 
-Binary transceiving are performed using `BBuf` (binary buffer) object.  
-(Only the transceiving parts are different, and the rest are the same as the transceiving string data.)
+二进制传输使用 `BBuf`（二进制缓冲区）对象进行。  
+（只有传输部分不同，其余部分与字符串数据的传输相同。）
 
-Sending
+发送
 
-1. Create `enet.BBuf` object.
-2. Append the desired binary data to the `BBuf` object with the `BBuf.append()` function.
-3. Send the BBuf object as a function of `ENET.send_bbuf()`
+1. 创建 `enet.BBuf` 对象。
+2. 使用 `BBuf.append()` 函数将所需的二进制数据附加到 `BBuf` 对象中。
+3. 通过 `ENET.send_bbuf()` 函数发送 BBuf 对象。
 
 
-Receiving
+接收
 
-1. Create `enet.BBuf` object.
-2. Receive binary data into BBuf objects with the `ENET.recv_bbuf()` function.
-3. Read the desired binary data from the `BBuf` object with the `BBuf.read_nums()` function.
+1. 创建 `enet.BBuf` 对象。
+2. 使用 `ENET.recv_bbuf()` 函数将二进制数据接收至 BBuf 对象中。
+3. 使用 `BBuf.read_nums()` 函数从 `BBuf` 对象中读取所需的二进制数据。
 
 
 <br>
 
-### UDP peer-to-peer
+### UDP 点对点
 ```python
-     # 1. After importing the enet module, create an ENet object with the constructor
+     # 1. 导入 enet 模块后，使用构造函数创建一个 ENet 对象
      import enet
      var cli=enet.ENet()
 
-     # 2. Set the IP address and port number
-     cli.ip_addr="192.168.1.172" # remote (opponent) IP address
-     cli.lport=51001 # local (self) port
-     cli.rport=51002 # remote (opponent) port
-     # (port no. 49152-65535(except 50000-50005) contains dynamic or private ports)
+     # 2. 设置 IP 地址和端口号
+     cli.ip_addr="192.168.1.172" # 远程（对手）IP 地址
+     cli.lport=51001 # 本地（自己）端口
+     cli.rport=51002 # 远程（对手）端口
+     # (端口号 49152-65535（除 50000-50005）包含动态或私有端口)
 
-     # 3. Open ethernet socket
+     # 3. 打开以太网套接字
      cli.open
      
-     print cli.state() # If 1, it's OK.
+     print cli.state() # 如果 1，表示正常。
 
-     # Sending --------------------------------
-     # 4-1. Create BBuf object
+     # 发送 --------------------------------
+     # 4-1. 创建 BBuf 对象
      var bbuf=enet.BBuf()
 
-     # (sample binary data)
+     # (示例二进制数据)
      var arr=[ -3, 0, 1 ]
      
-     # 4-2. Append binary data to BBuf object
+     # 4-2. 将二进制数据附加到 BBuf 对象
      bbuf.clear()
-     bbuf.append("s4", arr) # append little endian signed-4byte data
+     bbuf.append("s4", arr) # 附加小端签名的4字节数据
 
-     # 4-3. Send BBuf object
+     # 4-3. 发送 BBuf 对象
      var ret
      ret=cli.send_bbuf(bbuf)
 
-     # Receiving --------------------------------
-     # 4-1. Create BBuf object
+     # 接收 --------------------------------
+     # 4-1. 创建 BBuf 对象
      var bbuf2=enet.BBuf()
      
-     # 4-2. Receive binary data into BBuf object
-     #     (If no response for 3 seconds, jump to *TimeOut label)
+     # 4-2. 将二进制数据接收至 BBuf 对象
+     #     (如果 3 秒内没有响应，则跳转到 *TimeOut 标签)
      cli.recv_bbuf bbuf2,3000,*TimeOut
 
-     # 4-3. Read binary data from BBuf object.
-     var nums=bbuf2.read_nums("U2", 0, 3) # read 3 big-endian unsigned-2byte data
+     # 4-3. 从 BBuf 对象读取二进制数据。
+     var nums=bbuf2.read_nums("U2", 0, 3) # 读取 3 个大端无符号2字节数据
      print nums
      # --------------------------------
 
-     # 5. Close ethernet socket
+     # 5. 关闭以太网套接字
      cli.close
-     print cli.state() # If 0, it's OK.
+     print cli.state() # 如果 0，表示正常。
      delay 1.5
      end
 
      *TimeOut
-     print "time out!"
+     print "超时！"
      cli.close
      end
 ```
 
 
-### TCP client
-(Only `lport` and `connect` parts are different from peer-to-peer.)
+### TCP 客户端
+（仅 `lport` 和 `连接 (connect)` 部分与点对点不同。）
 ```python
-     # 1. After importing the enet module, create an ENet object with the constructor
+     # 1. 导入 enet 模块后，使用构造函数创建一个 ENet 对象
      import enet
      var cli=enet.ENet("tcp")
 
-     # 2. Set the IP address and port number
-     cli.ip_addr="192.168.1.172" # remote (opponent) IP address
-     cli.lport=0 # local (self) port; random
-     cli.rport=51002 # remote (opponent) port
-     # (port no. 49152-65535 contains dynamic or private ports)
+     # 2. 设置 IP 地址和端口号
+     cli.ip_addr="192.168.1.172" # 远程（对手）IP 地址
+     cli.lport=0 # 本地（自己）端口；随机
+     cli.rport=51002 # 远程（对手）端口
+     # (端口号 49152-65535 包含动态或私有端口)
 
-     # 3. Open ethernet socket
+     # 3. 打开以太网套接字
      cli.open
-     cli.connect # connect to the server.
-     print cli.state() # If 1, it's OK.
+     cli.connect # 连接到服务器。
+     print cli.state() # 如果 1，表示正常。
 
-     # Sending --------------------------------
-     # 4-1. Create BBuf object
+     # 发送 --------------------------------
+     # 4-1. 创建 BBuf 对象
      var bbuf=enet.BBuf()
 
-     # (sample binary data)
+     # (示例二进制数据)
      var arr=[ -3, 0, 1 ]
      
-     # 4-2. Append binary data to BBuf object
+     # 4-2. 将二进制数据附加到 BBuf 对象
      bbuf.clear()
-     bbuf.append("s4", arr) # append little endian signed-4byte data
+     bbuf.append("s4", arr) # 附加小端签名的4字节数据
 
-     # 4-3. Send BBuf object
+     # 4-3. 发送 BBuf 对象
      var ret
      ret=cli.send_bbuf(bbuf)
 
-     # Receiving --------------------------------
-     # 4-1. Create BBuf object
+     # 接收 --------------------------------
+     # 4-1. 创建 BBuf 对象
      var bbuf2=enet.BBuf()
      
-     # 4-2. Receive binary data into BBuf object
-     #     (If no response for 3 seconds, jump to *TimeOut label)
+     # 4-2. 将二进制数据接收至 BBuf 对象
+     #     (如果 3 秒内没有响应，则跳转到 *TimeOut 标签)
      cli.recv_bbuf bbuf2,3000,*TimeOut
 
-     # 4-3. Read binary data from BBuf object.
-     var nums=bbuf2.read_nums("U2", 0, 3) # read 3 big-endian unsigned-2byte data
+     # 4-3. 从 BBuf 对象读取二进制数据。
+     var nums=bbuf2.read_nums("U2", 0, 3) # 读取 3 个大端无符号2字节数据
      print nums
      # --------------------------------
 
-     # 5. Close ethernet socket
+     # 5. 关闭以太网套接字
      cli.close
-     print cli.state() # If 0, it's OK.
+     print cli.state() # 如果 0，表示正常。
      delay 1.5
      end
 
      *TimeOut
-     print "time out!"
+     print "超时！"
      cli.close
      end
 ```
 
-* String arguments such as "s4" and "U2" determine the binary data format such as endian type, signed/unsigned, and the number of bytes. For more information, see [7.4.2 Supported format](../4-bbuf/2-format.md).
+* 字符串参数，如 "s4" 和 "U2" 决定了二进制数据格式，如字节序类型、有符号/无符号和字节数。有关更多信息，请参阅 [7.4.2 支持的格式](../4-bbuf/2-format.md)。

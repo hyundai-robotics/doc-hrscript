@@ -1,6 +1,6 @@
-﻿# 3.8.3 Precedence
+﻿# 3.8.3 优先级
 
-When there are local variables and global variables with an identical name, the local variable will be accessed preferentially. For example, while 0005.job is executed, as shown below, the global variable x and the local variable x will exist concurrently. At this time, if you read the x value, the local variable will also be read. After 0005.job returns to 0001.job, if you read the x value, the global variable will be read because only the global variable is present.
+当存在同名的局部变量和全局变量时，将优先访问局部变量。例如，当执行 0005.job 时，如下所示，全局变量 x 和局部变量 x 将同时存在。此时，如果读取 x 值，将会读取局部变量的值。在 0005.job 返回到 0001.job 后，如果读取 x 值，将会读取全局变量，因为此时只存在全局变量。
 
 <table>
   <thead>
@@ -41,4 +41,3 @@ When there are local variables and global variables with an identical name, the 
     </tr>
   </tbody>
 </table>
-

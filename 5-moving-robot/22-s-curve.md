@@ -1,40 +1,40 @@
 ﻿# 5.22 scurve
 
-The S-curve is a motion-trajectory planning method that treats the speed changes during the acceleration and deceleration phases of robot motion as a smooth curve.
+S-曲线是一种运动轨迹规划方法，在机器人运动的加速和减速阶段，将速度变化视为平滑曲线。
 
-- **Default method**: At the start and end of acceleration the speed changes abruptly, which can cause mechanical shock (jerk).
-- **S-curve method**: Makes the speed change smoothly, minimizing equipment vibration, extending hardware lifespan, and ensuring stable path accuracy during high-speed operation.
+- **默认方法**：在加速的开始和结束时，速度变化突然，这可能会导致机械冲击（冲击力）。
+- **S-曲线方法**：使速度变化平滑，从而最小化设备振动，延长硬件寿命，并确保在高速操作期间路径的稳定准确性。
 
-### Syntax
+### 语法
 ```python
 "scurve on, cnd=<condition number>
 "scurve off
 ```
 
-### 파라미터
+### 参数
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Item</th>
-      <th style="text-align:left">Description</th>
-      <th style="text-align:left">Etc</th>
+      <th style="text-align:left">项目</th>
+      <th style="text-align:left">描述</th>
+      <th style="text-align:left">其他</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="text-align:left">on/off</td>
       <td style="text-align:left">
-        Whether the S-curve function is enabled
+        S-曲线功能是否启用
       </td>
-      <td style="text-align:left">on(enable), off(disable)</td>
+      <td style="text-align:left">on(启用), off(禁用)</td>
     </tr>
     <tr>
       <td style="text-align:left">
-        cnd (condition number)
+        cnd (条件编号)
       </td>
       <td style="text-align:left">
-        Specifies the number of the S-curve condition to use
+        指定要使用的S-曲线条件的编号
       </td>
       <td style="text-align:left">1~16</td>
     </tr>
@@ -42,15 +42,15 @@ The S-curve is a motion-trajectory planning method that treats the speed changes
 </table>
 
 
-### 사용 예
+### 使用示例
 ```python
-     scurve on,cnd=1   # Apply S-curve condition #1
+     scurve on,cnd=1   # 应用S-曲线条件#1
 S1   move P,tg=po1,spd=10%,accu=0,tool=0
-     scurve off       # Disable S-curve
+     scurve off       # 禁用S-曲线
 S2   move P,tg=po1,spd=10%,accu=0,tool=0
      end
 ```
 
 {% hint style="info" %}
-For detailed information, see the "[7.5.23 S-curve condition](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/7-system/5-application-parameter/23-scurve-condition/README?cont_model=${cont_model})" section of the ${cont_model} controller operation manual.
+有关详细信息，请参见${cont_model}控制器操作手册的"[7.5.23 S-曲线条件](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/zh-tp630/7-system/5-application-parameter/23-scurve-condition/README?cont_model=${cont_model})"部分。
 {% endhint %}

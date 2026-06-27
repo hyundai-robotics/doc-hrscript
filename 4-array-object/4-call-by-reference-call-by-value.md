@@ -1,10 +1,8 @@
-﻿# 4.4 Call-by-reference and call-by-value
+﻿# 4.4 引用调用和值调用
 
-In the description of `call` statements and `jump` statements given in Section 3.4, the concepts of formal parameters and actual parameters were explained. When an actual parameter has been transported to a sub-program, if the sub-program ends after changing the value of the parameter, will it be reflected to the main program?
+在第 3.4 节中给出的 `call` 语句和 `jump` 语句的描述中，解释了形式参数和实际参数的概念。当实际参数被传送到子程序时，如果子程序在更改参数的值后结束，这些更改会反映到主程序中吗？
 
-For example, let's assume that a sub-program `0005_pow3.job` raises a value to the third power as follows:
-
-
+例如，假设有一个子程序 `0005_pow3.job` 将一个值提升到立方，如下所示：
 
 <table>
   <thead>
@@ -49,17 +47,15 @@ For example, let's assume that a sub-program `0005_pow3.job` raises a value to t
       </td>
     </tr>
     <tr>
-      <td style="text-align:left">Result</td>
+      <td style="text-align:left">结果</td>
       <td style="text-align:left">2</td>
     </tr>
   </tbody>
 </table>
 
-Although we expected that 8 is output because 2x2x2 is 8, the result is 2. It is because, when a numeric-type actual parameter is transported to a sub-program, the value is copied as a parameter. In other words, in \(1\), because the value raised to the third power was assigned to the copied version, it did not affect the value of the original parameter, x.
+虽然我们预计输出应该是 8，因为 2x2x2 等于 8，但结果却是 2。这是因为，当一个数值类型的实际参数被传送到子程序时，值是作为参数被复制的。换句话说，在 \(1\) 中，由于立方的值被赋值给了复制版本，因此没有影响原参数 x 的值。
 
-Therefore, the teaching program should be corrected so that the resulting value is transported by a return statement.
-
-
+因此，教学程序应进行修正，以便通过返回语句传送结果值。
 
 <table>
   <thead>
@@ -107,17 +103,15 @@ Therefore, the teaching program should be corrected so that the resulting value 
       </td>
     </tr>
     <tr>
-      <td style="text-align:left">Result</td>
+      <td style="text-align:left">结果</td>
       <td style="text-align:left">8</td>
     </tr>
   </tbody>
 </table>
 
-On the other hand, in the case of arrays or objects, the reference of actual parameters, not the copied versions, will be transported. A reference refers to the position of a parameter.
+另一方面，在数组或对象的情况下，传送的是实际参数的引用，而不是复制版本。引用指的是参数的位置。
 
-In the following example, where the sub-program 0006\_pow3.job raises each element of an array to the third power, the values of the elements of the actual parameter array are changed.
-
-
+在下面的例子中，子程序 0006\_pow3.job 将数组的每个元素的立方值提升，实际参数数组的元素值被更改。
 
 <table>
   <thead>
@@ -171,20 +165,17 @@ In the following example, where the sub-program 0006\_pow3.job raises each eleme
       </td>
     </tr>
     <tr>
-      <td style="text-align:left">Result</td>
+      <td style="text-align:left">结果</td>
       <td style="text-align:left">[27, 8, 64]</td>
     </tr>
   </tbody>
 </table>
 
-When a sub-program is called, if the copied version of the value of an actual parameter is transported, it is referred to as call-by-value; and if a reference is transported, it is referred to as call-by-reference. Whether it will be call-by-value or call-by-reference is determined by the type of values as follows:
+当调用子程序时，如果传送的是实际参数值的复制版本，则称为值调用；如果传送的是引用，则称为引用调用。是否为值调用或引用调用由以下值的类型决定：
 
 |  |  |
 | :--- | :--- |
-| call-by-value | Boolean, numeric, and string types |
-| call-by-reference | Array and object types |
+| 值调用 | 布尔、数值和字符串类型 |
+| 引用调用 | 数组和对象类型 |
 
 ![](../_assets/image_3.png)
-
-
-

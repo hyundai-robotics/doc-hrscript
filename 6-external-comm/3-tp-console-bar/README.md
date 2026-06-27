@@ -1,3 +1,1 @@
-﻿# 6.3 Input/Output with Teach Pendant console bar
-
-
+# 6.3 使用教导 pendant 控制台栏的输入/输出

@@ -1,4 +1,3 @@
-﻿# 3.2 Stop or Wait Statement
+﻿# 3.2 停止或等待语句
 
-This statement can stop the execution of a program or make it wait for a certain period of time or until the conditions are satisfied.
-
+此语句可以停止程序的执行，或使其等待一定时间，直到条件满足。

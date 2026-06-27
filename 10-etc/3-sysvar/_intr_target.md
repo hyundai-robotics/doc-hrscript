@@ -1,11 +1,11 @@
 ﻿# `_intr.target`
 
-`_intr.target` system variable adjusts the robot's target position reach state.
+`_intr.target` 系统变量调整机器人的目标位置到达状态。
 
 
 ### Description
 
-In the move statement, this is used to adjust the position when the an interrupt occurs while moving and returns to the position of the previous program after the execution of the call program ends.
+在移动语句中，这用于在移动时发生中断时调整位置，并在调用程序执行结束后返回到上一个程序的位置。
 
 
 ### Syntax
@@ -27,4 +27,3 @@ _intr_target=1
 - _intr.target=1 or 0
 ```
 ![](../../_assets/intr_target_2.png)
-

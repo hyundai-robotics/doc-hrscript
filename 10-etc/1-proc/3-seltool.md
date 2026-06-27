@@ -1,47 +1,46 @@
-﻿# 10.1.3 `seltool`
+# 10.1.3 `seltool`
 
-`seltool` is a procedure to change the tool number.
+`seltool` 是一个更改工具编号的过程。
 
-### Description
+### 描述
 
-The tool is divided into a robot tool attached to the robot flange and a station tool installed separately from the robot, and `seltool` changes the tool number of each type.
+工具分为附加在机器人法兰上的机器人工具和单独安装的站点工具，`seltool` 更改每种类型的工具编号。
 
-
-### Syntax
+### 语法
 
 ```python
 seltool <tool number>,<tool type>
 ```
 
-### Parameters
+### 参数
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Parameter</th>
-      <th style="text-align:left">Description</th>
-      <th style="text-align:left">Remarks</th>
+      <th style="text-align:left">参数</th>
+      <th style="text-align:left">描述</th>
+      <th style="text-align:left">备注</th>
     </tr>
   </thead>
   <tbody>
   <tr>
       <td style="text-align:left">tool number</td>
       <td style="text-align:left">
-        tool number<br>
+        工具编号<br>
         <ul>
-        <li>robot tool: 0 ~ 31</li>
-        <li>station tool: 0 ~ 3</li>
+        <li>机器人工具: 0 ~ 31</li>
+        <li>站点工具: 0 ~ 3</li>
         </ul>
       </td>
-      <td style="text-align:left">arithmetic expression</td>
+      <td style="text-align:left">算术表达式</td>
     </tr>
     <tr>
       <td style="text-align:left">tool type</td>
       <td style="text-align:left">
-        tool type to change tool number<br>
+        要更改工具编号的工具类型<br>
         <ul>
-        <li>robot tool: robot</li>
-        <li>station tool: station</li>
+        <li>机器人工具: robot</li>
+        <li>站点工具: station</li>
         </ul>
       </td>
       <td style="text-align:left">robot/station</td>
@@ -49,7 +48,7 @@ seltool <tool number>,<tool type>
   </tbody>
 </table>
 
-### Sample
+### 示例
 
 ```python
    move P,spd=30%,accu=0,tool=1

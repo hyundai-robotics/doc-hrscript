@@ -1,4 +1,4 @@
-﻿# 2.7 Binary and Hexadecimal
+# 2.7 二进制和十六进制
 
 All the number type values previously described as examples are interpreted as decimal numbers. It can represent binary or hexadecimal values just by adding 0b or 0x prefixes, respectively, as shown in the following.
 
@@ -6,4 +6,3 @@ All the number type values previously described as examples are interpreted as d
 var binary = 0b10010011
 var hexadecimal = 0xFF4A38C0
 ```
-

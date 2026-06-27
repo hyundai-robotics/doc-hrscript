@@ -1,14 +1,14 @@
-﻿# 4.1.3 Array Constructor Function - `Array()`
+# 4.1.3 数组构造函数 - `Array()`
 
-It is difficult to create an array with hundreds of elements with the notation `[ ]` alone. Any number of arrays may be created by calling the constructor function. Each element will be initialized to 0.
+仅用`[ ]`表示法创建一个包含数百个元素的数组是困难的。通过调用构造函数可以创建任意数量的数组。每个元素将被初始化为 0。
 
 ```python
-var name = Array(900)	# creates an array of 900 elements
+var name = Array(900)	# 创建一个包含 900 个元素的数组
 ```
 
-If two or more elements are designated, a multidimensional array can be created. In the following example of a 3-dimensional array, `[4]` is the lowest dimension.
+如果指定两个或更多元素，可以创建多维数组。在以下的三维数组示例中，`[4]`是最低维度。
 
 ```python
-var name = Array(3,2,4)	# [3][2][4] numbers of 3-dimensional arrays are created
+var name = Array(3,2,4)	# 创建 [3][2][4] 个三维数组
 # [ [[0,0,0,0], [0,0,0,0]], [[0,0,0,0], [0,0,0,0]], [[0,0,0,0], [0,0,0,0]] ]
 ```

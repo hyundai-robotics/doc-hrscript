@@ -1,55 +1,54 @@
 ﻿# 10.2.4 `rand`
 
-You can generate random numbers using the `rand` function.
+您可以使用 `rand` 函数生成随机数。
 
-### Description
-Depending on the function's arguments, it generates a random real number between 0 and 1 or a random integer number within a specified range.
+### 描述
+根据函数的参数，它生成介于 0 和 1 之间的随机实数或在指定范围内的随机整数。
 
-### Syntax
+### 语法
 ```python
-# random real number between 0 and 1
+# 介于 0 和 1 之间的随机实数
 v0=rand() 
 ```
 
 ```python
-# random integer number within a specified range
+# 在指定范围内的随机整数
 v1=rand(<minimum value>,<maximum value>) 
 ```
 
-### Parameters
+### 参数
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Parameter</th>
-      <th style="text-align:left">Description</th>
-      <th style="text-align:left">Remarks</th>
+      <th style="text-align:left">参数</th>
+      <th style="text-align:left">描述</th>
+      <th style="text-align:left">备注</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="text-align:left">minimum value</td>
       <td style="text-align:left">
-        minimum random integer number to generate
+        要生成的最小随机整数
       </td>
-      <td style="text-align:left">integer constant</td>
+      <td style="text-align:left">整数常量</td>
     </tr>
     <tr>
       <td style="text-align:left">maximum value</td>
       <td style="text-align:left">
-        maximum random integer number to generate
-      <td style="text-align:left">integer constant</td>
+        要生成的最大随机整数
+      <td style="text-align:left">整数常量</td>
     </tr>
   </tbody>
 </table>
 
-### Sample
+### 示例
 
 ```python
      var v0, v1
      var min=1
      var max=100
-     v0=rand()          # generate random real number between 0 and 1
-     v1=rand(min,max)   # generate random integer number between 1 and 100
+     v0=rand()          # 生成介于 0 和 1 之间的随机实数
+     v1=rand(min,max)   # 生成介于 1 和 100 之间的随机整数
      end
 ```
-

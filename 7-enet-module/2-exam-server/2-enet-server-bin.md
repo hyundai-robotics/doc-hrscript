@@ -1,76 +1,74 @@
-﻿# 7.2.2 ethernet TCP server Example - Transceiving binary data
+# 7.2.2 ethernet TCP server 示例 - 双向传输二进制数据
 
-Binary transceiving are performed using `BBuf` (binary buffer) object.  
-(Only the transceiving parts are different, and the rest are the same as the transceiving string data.)
+二进制双向传输使用 `BBuf` (二进制缓冲区) 对象进行。  
+(只有双向传输部分不同，其余与传输字符串数据相同。)
 
-Sending
+发送
 
-1. Create `enet.BBuf` object.
-2. Append the desired binary data to the `BBuf` object with the `BBuf.append()` function.
-3. Send the BBuf object as a function of `ENET.send_bbuf()`
+1. 创建 `enet.BBuf` 对象。
+2. 使用 `BBuf.append()` 函数将所需的二进制数据附加到 `BBuf` 对象。
+3. 将 BBuf 对象发送为 `ENET.send_bbuf()` 函数的参数。
 
+接收
 
-Receiving
-
-1. Create `enet.BBuf` object.
-2. Receive binary data into BBuf objects with the `ENET.recv_bbuf()` function.
-3. Read the desired binary data from the `BBuf` object with the `BBuf.read_nums()` function.
-
+1. 创建 `enet.BBuf` 对象。
+2. 使用 `ENET.recv_bbuf()` 函数接收二进制数据到 BBuf 对象。
+3. 使用 `BBuf.read_nums()` 函数从 `BBuf` 对象中读取所需的二进制数据。
 
 ```python
-     # 1. After importing the enet module, create an ENet object with the constructor
+     # 1. 导入 enet 模块后，使用构造函数创建 ENet 对象
      import enet
      var svr=enet.ENet("tcp")
      
-     # 2. Set the IP address and port number
-     svr.ip_addr="192.168.1.172" # remote (opponent) IP address
-     svr.lport=51001 # local (self) port
-     # (port no. 49152-65535(except 50000-50005) contains dynamic or private ports)
+     # 2. 设置 IP 地址和端口号
+     svr.ip_addr="192.168.1.172" # 远程（对方）IP 地址
+     svr.lport=51001 # 本地（自身）端口
+     # (端口号 49152-65535（除了 50000-50005）包含动态或私有端口)
      
-     # 3. Open ethernet socket
+     # 3. 打开以太网套接字
      svr.open
      var ret
      ret=svr.listen()
-     ret=svr.accept() # wait for connect from client
-     print svr.state() # If 1, it's OK.
+     ret=svr.accept() # 等待客户端连接
+     print svr.state() # 如果为 1，则正常。
 
-     # Sending --------------------------------
-     # 4-1. Create BBuf object
+     # 发送 --------------------------------
+     # 4-1. 创建 BBuf 对象
      var bbuf=enet.BBuf()
 
-     # (sample binary data)
+     # (示例二进制数据)
      var arr=[ -3, 0, 1 ]
      
-     # 4-2. Append binary data to BBuf object
+     # 4-2. 将二进制数据附加到 BBuf 对象
      bbuf.clear()
-     bbuf.append("s4", arr) # append little endian signed-4byte data
+     bbuf.append("s4", arr) # 附加小端签名4字节数据
 
-     # 4-3. Send BBuf object
+     # 4-3. 发送 BBuf 对象
      ret=svr.send_bbuf(bbuf)
 
-     # Receiving --------------------------------
-     # 4-1. Create BBuf object
+     # 接收 --------------------------------
+     # 4-1. 创建 BBuf 对象
      var bbuf2=enet.BBuf()
      
-     # 4-2. Receive binary data into BBuf object
-     #     (If no response for 3 seconds, jump to *TimeOut label)
+     # 4-2. 接收二进制数据到 BBuf 对象
+     #     (如果 3 秒没有响应，跳转到 *TimeOut 标签)
      svr.recv_bbuf bbuf2,3000,*TimeOut
 
-     # 4-3. Read binary data from BBuf object.
-     var nums=bbuf2.read_nums("U2", 0, 3) # read 3 big-endian unsigned-2byte data
+     # 4-3. 从 BBuf 对象读取二进制数据。
+     var nums=bbuf2.read_nums("U2", 0, 3) # 读取 3 个大端无符号2字节数据
      print nums
      # --------------------------------
 
-     # 5. Close ethernet socket
+     # 5. 关闭以太网套接字
      svr.close
-     print svr.state() # If 0, it's OK.
+     print svr.state() # 如果为 0，则正常。
      delay 1.5
      end
 
      *TimeOut
-     print "time out!"
+     print "超时！"
      svr.close
      end
 ```
 
-* String arguments such as "s4" and "U2" determine the binary data format such as endian type, signed/unsigned, and the number of bytes. For more information, see [7.4.2 supported format](../4-bbuf/2-format.md).
+* 字符串参数如 "s4" 和 "U2" 决定二进制数据格式，如字节序类型、签名/无签名及字节数。有关更多信息，请参见 [7.4.2 支持的格式](../4-bbuf/2-format.md)。

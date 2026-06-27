@@ -1,1 +1,1 @@
-﻿# ${cont_model} Controller Function Manual - Robot Language HRScript
+# ${cont_model} 控制器功能手册 - 机器人语言 HRScript

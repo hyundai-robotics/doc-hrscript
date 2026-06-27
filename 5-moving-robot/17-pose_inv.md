@@ -3,7 +3,7 @@
 
 ### Description
 
-* `pose_inv` instruction is a function that converts to a pose variable corresponding to the inverse matrix of the pose variable.  
+* `pose_inv` 指令是一个将对应于姿态变量的逆矩阵的姿态变量转换为函数。  
 
 
 ### Syntax 
@@ -26,12 +26,12 @@ poseB = pose_inv(poseA)
  
      pose_B=pose_A+pose_shift
      
-     # pose_inv_B is inverse matrix oof pose_B
+     # pose_inv_B 是 pose_B 的逆矩阵
      pose_inv_B=pose_B
      pose_inv_B=pose_B.convcrd("base")
      pose_inv_B=pose_inv(pose_B)
 
-     # pose_C is same to pose_A
+     # pose_C 与 pose_A 相同
      pose_C=pose_trans(pose_A,pose_B)
      pose_C=pose_trans(pose_C,pose_inv_B)
 

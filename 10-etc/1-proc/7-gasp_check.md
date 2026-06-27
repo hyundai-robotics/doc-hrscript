@@ -1,4 +1,4 @@
-﻿# 10.1.7 `gasp_check`
+# 10.1.7 `gasp_check`
 
 The `gasp_check` statement estimates the pressure of the gas spring mounted on the robot and checks whether it is normal.
 
@@ -8,7 +8,7 @@ The `gasp_check` statement estimates the pressure of the gas spring mounted on t
 
 - To estimate the pressure, the axis equipped with the gas spring is reciprocated by -20 degrees from its current position.(Recommended to be performed at the H-axis 140 degree position)
 - You can monitor pressure by saving the estimated pressure as a variable.
-- User can enter normal pressure and tolerance. If the estimated pressure exceeds the range, the set error output signal turns on.
+- 用户可以输入正常压力和容差。如果估算的压力超出范围，设定的错误输出信号会开启。
 
 ### Syntax
 
@@ -38,21 +38,21 @@ gasp_check pres=<estimated pressure>,ref=<reference pressure>,tol=<tolerance>,os
     <tr>
       <td style="text-align:left">normal pressure</td>
       <td style="text-align:left">
-        Normal pressure to be the reference value for error occurrence[bar]
+        正常压力作为错误发生的参考值[bar]
       </td>
       <td style="text-align:left">variable</td>
     </tr>
     <tr>
       <td style="text-align:left">tolerance</td>
       <td style="text-align:left">
-        estimated pressure error tolerance[bar]
+        估计压力误差容差[bar]
       </td>
       <td style="text-align:left">variable</td>
     </tr>
     <tr>
       <td style="text-align:left">error output signal</td>
       <td style="text-align:left">
-        Signal output when an error occurs
+        信号输出当错误发生时
       </td>
       <td style="text-align:left">output signal variable</td>
     </tr>
@@ -79,12 +79,11 @@ gasp_check pres=<estimated pressure>,ref=<reference pressure>,tol=<tolerance>,os
 
 {% hint style="info" %}
 * Supported only on robots equipped with the gas spring
-* For accurate estimation, [Axis add weight setting](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/7-system/4-robot-parameter/7-axis-add-weight/README?cont_model=${cont_model}) and [Load estimation function](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/7-system/7-auto-calibration/3-load-estimation?cont_model=${cont_model}) must be preceded before using the function.
+* For accurate estimation, [Axis add weight setting](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/zh-tp630/7-system/4-robot-parameter/7-axis-add-weight/README?cont_model=${cont_model}) and [Load estimation function](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/zh-tp630/7-system/7-auto-calibration/3-load-estimation?cont_model=${cont_model}) must be preceded before using the function.
 * For a detailed description of the gas spring pressure check monitoring function, please refer to the link below.
-[](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/6-monitoring/4-system/2-system-diagnosis/2-gas-pressure-check?cont_model=${cont_model})
+[](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/zh-tp630/6-monitoring/4-system/2-system-diagnosis/2-gas-pressure-check?cont_model=${cont_model})
 * The estimated gas spring pressure may vary depending on the initial posture at the start of measurement.
 During the robot's initial setup, please manage the pressure values based on the measurements taken at each reference posture, and regularly measure the pressure in the same posture to compare it with the initial values.
 If a significant difference is observed in the measured values, please inspect the condition of the equipment.  
 
 {% endhint %}
-

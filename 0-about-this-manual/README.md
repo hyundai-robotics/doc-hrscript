@@ -1,1 +1,1 @@
-﻿# About the Manual
+# 关于手册

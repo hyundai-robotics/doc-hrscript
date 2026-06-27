@@ -1,8 +1,8 @@
-﻿# `read_nums`
+# `read_nums`
 
 ### Description
 
-Reads a specified number of numeric values from a specified position in the binary buffer and returns them in array format.
+从二进制缓冲区的指定位置读取指定数量的数值，并以数组格式返回。
 
 
 ### Syntax
@@ -24,22 +24,22 @@ Reads a specified number of numeric values from a specified position in the bina
     <tr>
       <td style="text-align:left">format</td>
       <td style="text-align:left">
-			binary data format<sup>*</sup><br>
-      e.g. "U4", "s2"
+			二进制数据格式<sup>*</sup><br>
+      例如 "U4", "s2"
       </td>
       <td style="text-align:left">string</td>
     </tr>
 	  <tr>
       <td style="text-align:left">offset</td>
       <td style="text-align:left">
-        position at which to read the data (0-based byte offset)
+        读取数据的位置（基于0的字节偏移量）
       </td>
       <td style="text-align:left">integer</td>
     </tr>
     <tr>
       <td style="text-align:left">n.item</td>
       <td style="text-align:left">
-        the number of data to read
+        要读取的数据数量
       </td>
       <td style="text-align:left">integer</td>
     </tr>
@@ -49,16 +49,16 @@ Reads a specified number of numeric values from a specified position in the bina
 <br>
 
 
-\* Refer to [7.4.2 Supported format](../2-format.md).
+\* 请参阅 [7.4.2 Supported format](../2-format.md).
 <br>
 <br>
 
 
 ### Return value
 
-* Array of numeric values read.
-* If the number of data in the buffer is less than the specified number, only reads as many as there are.
-* Returns an empty array if an error occurs when reading the data type.
+* 读取的数值数组。
+* 如果缓冲区中的数据数量少于指定的数量，则仅读取可用的数量。
+* 如果在读取数据类型时发生错误，则返回空数组。
 
 
 ### Example

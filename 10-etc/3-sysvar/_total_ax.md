@@ -1,12 +1,12 @@
-﻿# `_total_ax`
+# `_total_ax`
 
-Reads the total number of axes in the current system.
+读取当前系统中的轴总数。
 
 ### Description
 
-It cannot be set as the left side of an assignment statement.
+它不能作为赋值语句的左侧。
 
-Supported from V70.02-00
+支持从 V70.02-00
 
 ### Syntax
 
@@ -19,7 +19,7 @@ res = _total_ax
 
 ```python
    ...
-   # Outputs the total number of axes in the current system.
+   # 输出当前系统中的轴总数。
    print _total_ax
    ...
    end

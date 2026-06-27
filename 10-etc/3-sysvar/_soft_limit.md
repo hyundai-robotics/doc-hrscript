@@ -1,10 +1,10 @@
-﻿# `_soft_limit`
+# `_soft_limit`
 
-Reads or sets the value of the software limit.
+读取或设置软件限制的值。
 
 ### Description
 
-The units are mm for the linear axis and degrees for the rotation axis. You can set the value within the minimum to maximum range specified for the robot.
+单位是线性轴的毫米和旋转轴的度数。您可以在指定的最小值和最大值范围内设置值。
 
 ### Syntax
 
@@ -17,7 +17,7 @@ res = _soft_limit[2].min
 
 ```python
    ...
-   # Set the minimum value of the software limit of the 1st axis to -90 degrees.
+   # 将第一个轴的软件限制的最小值设置为 -90 度。
    print _soft_limit[0].min
    _soft_limit[0].min=-90
    ...

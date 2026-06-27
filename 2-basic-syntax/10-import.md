@@ -1,55 +1,55 @@
 ﻿# 2.10 `import`
 
-### Description
+### 描述
 
-Some features are not supported as hrspace's built-in features, but are also supported in the form of plug-in modules.
+一些功能并不是 hrspace 的内置功能，但也以插件模块的形式提供支持。
 
-Some modules are pre-installed as default options, while others require you to install them.  
-The module must be loaded into the controller with the `import` statement before it can be used in the robot language.
+某些模块作为默认选项预装，而其他模块则需要您安装它们。  
+该模块必须在机器人语言中通过 `import` 语句加载到控制器中，才能使用。
 
-### Syntax
+### 语法
 
 import &lt;module name&gt; [as &lt;alias&gt;]
 
-### Parameter
+### 参数
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Parameter</th>
-      <th style="text-align:left">Description</th>
-      <th style="text-align:left">Remarks</th>
+      <th style="text-align:left">参数</th>
+      <th style="text-align:left">描述</th>
+      <th style="text-align:left">备注</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="text-align:left">module name</td>
       <td style="text-align:left">
-        module's name
+        模块的名称
       </td>
       <td style="text-align:left"></td>
     </tr>
     <tr>
       <td style="text-align:left">alias</td>
       <td style="text-align:left">
-			Name to be used within the robot language program.<br>
-			If specified, it can be used instead of the module name.
+			在机器人语言程序中使用的名称。<br>
+			如果指定，可以代替模块名称使用。
       </td>
       <td style="text-align:left"></td>
     </tr>
   </tbody>
 </table>
 
-For example, in order to perform Ethernet TCP or UDP communication in the robot language, you must `import` the default option module called `enet`.
+例如，若要在机器人语言中进行以太网 TCP 或 UDP 通信，必须 `import` 名为 `enet` 的默认选项模块。
 
-After executing the `import`, a module object named `enet` is created in the global scope. As in the example below `enet.ENet()`, you can access to a member variable or call a member function of a module object, and especially by calling a `creator` from among the member functions, you can create new object.
+执行 `import` 后，在全局范围内创建一个名为 `enet` 的模块对象。如下面的示例 `enet.ENet()`，您可以访问模块对象的成员变量或调用成员函数，特别是通过调用成员函数中的 `creator`，您可以创建新对象。
 
-### Example
+### 示例
 
-In the example below,  
-(1) `enet` module object has been `import`ed.  
-(2) The `enet.ENet()` creator function was called to create a new Ethernet socket object and assigned it into a local variable named `cli`.  
-(3) Assigned a string to member variable `ip_addr` of the object `cli`.
+在下面的示例中，  
+(1) `enet` 模块对象已被 `import`。  
+(2) 调用 `enet.ENet()` 创建一个新的以太网套接字对象，并将其分配给名为 `cli` 的局部变量。  
+(3) 将一个字符串分配给对象 `cli` 的成员变量 `ip_addr`。
 
 ```python
 import enet # (1)
@@ -57,7 +57,7 @@ var cli=enet.ENet() # (2)
 cli.ip_addr="192.168.1.172" # (3)
 ```
 
-It does the same thing when you code it as below.
+以如下方式编写代码时，效果也是一样的。
 
 ```python
 import enet as enet_module # (1)
@@ -65,4 +65,4 @@ var cli=enet_module.ENet() # (2)
 cli.ip_addr="192.168.1.172" # (3)
 ```
 
-* This section only covered the rough syntax of the `import` statement. You will often see examples of the use of `import` in the later sections describing module features.
+* 本节仅涵盖了 `import` 语句的粗略语法。您将在后面的章节中看到 `import` 的使用示例，这些章节描述模块功能。

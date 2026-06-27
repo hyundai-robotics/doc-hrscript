@@ -1,2 +1,1 @@
-﻿# 7.4.2 `BBuf` member function
-
+﻿# 7.4.2 `BBuf` 成员函数

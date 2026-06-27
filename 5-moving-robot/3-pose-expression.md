@@ -1,8 +1,8 @@
-﻿# 5.3 Pose Expression
+# 5.3 姿态表达
 
-The expression in which the result value becomes a pose is called a `pose expression`. 
+结果值成为姿态的表达式称为 `姿态表达式`。
 
-All the following forms are recognized as poses.
+以下所有形式都被识别为姿态。
 
 ```python
 Pose
@@ -11,9 +11,7 @@ Pose-Shift
 Pose+Shift+Shift+...
 ```
 
-
-
-Refer to the following example of assigning the result of a pose expression to another pose variable.
+请参考以下将姿态表达式的结果分配给另一个姿态变量的示例。
 
 ```python
 var po1 = Pose(10, 90, 0, 0, -30, 0)
@@ -23,4 +21,3 @@ var sft1 = Shift(30, 0, 0, 0, -5.8, 0)
 var po4 = po1-sft1
 var po5 = po2+sft1+Shift(0, 0, 55.2, 0, -5, 0, "base")
 ```
-

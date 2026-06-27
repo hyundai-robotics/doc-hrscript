@@ -1,4 +1,3 @@
-﻿# 3.6 Loop Statements
+﻿# 3.6 循环语句
 
-Loop statements can be used when the same operation needs to be repeated multiple times.
-
+循环语句可用于需要多次重复相同操作的情况。

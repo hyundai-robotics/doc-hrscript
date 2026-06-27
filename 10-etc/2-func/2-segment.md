@@ -1,25 +1,23 @@
-﻿# 10.2.2 `segment`
+# 10.2.2 `segment`
 
-`segment` is the function that divides the distance between the start and end positions evenly.
+`segment` 是将起始位置和结束位置之间的距离均匀划分的函数。
 
+### 描述
 
-### Description
-
-Divides the distance between the start and end positions of the function factors evenly and stores the pose value considering the position and posture corresponding to the specified counter in the pose variable.
+将函数因子之间的距离均匀划分，并根据指定计数器存储与位置和姿态相关的姿态值到姿态变量中。
 ![](../../_assets/image_segment_1.png)
 
-For example, if `P3=segment(P1,P2,3,2)`, divide the distance between the `P2` target positions from the `P1` start position into 3 equal parts and store the pose value of the position and rotation of the 2nd pose in the `P3` pose variable.
+例如，如果 `P3=segment(P1,P2,3,2)`，将 `P1` 起始位置到 `P2` 目标位置之间的距离划分为 3 个相等部分，并将第 2 个姿态的位姿和旋转值存储到 `P3` 姿态变量中。
 
-When you add the via position as a paramter of the function, the distance on the arc consisting of the start position, the via point, and the target position is evenly divided and the pose value of the position and rotation is stored in the pose variable.
+当你将途经位置作为函数的参数添加时，由起始位置、途经点和目标位置组成的弧上的距离被均匀划分，位姿和旋转的姿态值被存储在姿态变量中。
 
 ![](../../_assets/image_segment_2.png)
 
-For example, if `P10=segment (P1,P2,P3,4,2)`,
-The distance on the arc consisting of the `P1` starting pose and `P2` via pose `P3` target pose is divided into 4 equal parts, and the pose value of the position and rotation of the specified 2nd pose is stored in the `P10` pose variable.
+例如，如果 `P10=segment (P1,P2,P3,4,2)`，则由 `P1` 起始姿态和 `P2` 途经姿态 `P3` 目标姿态组成的弧上的距离被划分为 4 个相等部分，指定的第 2 个姿态的位姿和旋转值被存储到 `P10` 姿态变量中。
 
 <br>
 
-### Syntax
+### 语法
 
 ```python
 result=segment(<start pose>,<end pose>,<division number>,<counter>)
@@ -29,75 +27,74 @@ result=segment(<start pose>,<end pose>,<division number>,<counter>)
 result=segment(<start pose>,<via pose>,<end pose>,<division number>,<counter>)
 ```
 
-### Return value
+### 返回值
 
-The result pose.
+结果姿态。
 
-### Parameters
+### 参数
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Parameter</th>
-      <th style="text-align:left">Description</th>
-      <th style="text-align:left">Remarks</th>
+      <th style="text-align:left">参数</th>
+      <th style="text-align:left">描述</th>
+      <th style="text-align:left">备注</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="text-align:left">start pose</td>
       <td style="text-align:left">
-        start pose
+        起始姿态
       </td>
-      <td style="text-align:left">pose expression</td>
+      <td style="text-align:left">姿态表达</td>
     </tr>
     <tr>
       <td style="text-align:left">via pose</td>
       <td style="text-align:left">
-        via pose
-      <td style="text-align:left">pose expression</td>
+        途经姿态
+      <td style="text-align:left">姿态表达</td>
     </tr>
     <tr>
       <td style="text-align:left">end pose</td>
       <td style="text-align:left">
-        end pose
+        结束姿态
       </td>
-      <td style="text-align:left">pose expression</td>
+      <td style="text-align:left">姿态表达</td>
     </tr>
     <tr>
       <td style="text-align:left">division number</td>
       <td style="text-align:left">
-        division number<br>
+        划分数量<br>
         (1 ~ 30000)
       </td>
-      <td style="text-align:left">arithmetic expression</td>
+      <td style="text-align:left">算术表达</td>
     </tr>
     <tr>
       <td style="text-align:left">counter</td>
       <td style="text-align:left">
-        counter number of the pose to store<br>
-        (0 ~ 300000, 0: start pose)
+        要存储的姿态计数器编号<br>
+        (0 ~ 300000, 0: 起始姿态)
       </td>
-      <td style="text-align:left">arithmetic expression</td>
+      <td style="text-align:left">算术表达</td>
     </tr>
   </tbody>
 </table>
 
-### Sample
+### 示例
 
 ```python
      var po1,po2,po3
-     po1=Pose(1000.000,0.000,1938.000,0.000,0.000,0.000) # start pose
-     po2=Pose(2000.000,0.000,1938.000,0.000,0.000,0.000) # end pose
+     po1=Pose(1000.000,0.000,1938.000,0.000,0.000,0.000) # 起始姿态
+     po2=Pose(2000.000,0.000,1938.000,0.000,0.000,0.000) # 结束姿态
      po3=segment(po1,po2,4,2)
      end
 ```
 
 ```python
      var po1,po2,po3,po10
-     po1=Pose(1000.000,0.000,1938.000,0.000,0.000,0.000) # start pose
-     po2=Pose(1500.000,500.000,1938.000,0.000,0.000,0.000) # via pose
-     po3=Pose(2000.000,0.000,1938.000,0.000,0.000,0.000) # end pose
+     po1=Pose(1000.000,0.000,1938.000,0.000,0.000,0.000) # 起始姿态
+     po2=Pose(1500.000,500.000,1938.000,0.000,0.000,0.000) # 途经姿态
+     po3=Pose(2000.000,0.000,1938.000,0.000,0.000,0.000) # 结束姿态
      po10=segment(po1,po2,po3,5,3)
      end
 ```
-

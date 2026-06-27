@@ -1,16 +1,14 @@
-﻿# 10.1.6 `typeof`
+# 10.1.6 `typeof`
 
-`typeof` is the procedure for getting the type of a variable or an expression. The result is returned from the `result()` function.
+`typeof` 是获取变量或表达式类型的过程。结果通过 `result()` 函数返回。
 
-
-### Syntax
+### 语法
 
 ```python
 typeof <expression>
 ```
 
-
-### Sample
+### 示例
 
 ```python
      global done=true,msg="Timeout Error"

@@ -1,9 +1,8 @@
-﻿# `_task.enable`
+# `_task.enable`
 
 ### Description
 
-A system variable to determine whether a subtask is active.
-
+一个系统变量，用于确定子任务是否处于活动状态。
 
 ### Syntax
 
@@ -12,16 +11,13 @@ var res
 res = _task[1].enable
 ```
 
-
 ### Sample
 
 ```python
    ...
-   if _task[1].enable==1  # If subtask 1 is active
-   print "Subtask 1 is active"
+   if _task[1].enable==1  # 如果子任务 1 活动
+   print "子任务 1 活动"
    endif
    ...
    end
 ```
-
-

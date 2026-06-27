@@ -1,14 +1,12 @@
-﻿# `read_num`
+# `read_num`
 
 ### Description
 
-Reads a numeric value from a specified position in the binary buffer, and returns it.
-
+从二进制缓冲区的指定位置读取数值，并返回该值。
 
 ### Syntax
 
 `{BBuf object}.read_num {format},{offset}`
-
 
 ### Parameters
 
@@ -23,15 +21,15 @@ Reads a numeric value from a specified position in the binary buffer, and return
   <tbody>
     <tr>
       <td style="text-align:left">format</td>
-      <td style="text-align:left">binary data format<sup>*</sup><br>
-      e.g. "U4", "s2"<br>
+      <td style="text-align:left">二进制数据格式<sup>*</sup><br>
+      例如 "U4", "s2"<br>
       </td>
       <td style="text-align:left">string</td>
     </tr>
 	 <tr>
       <td style="text-align:left">offset</td>
       <td style="text-align:left">
-        position at which to read the data (0-based byte offset)
+        读取数据的位置 (0-based byte offset)
       </td>
       <td style="text-align:left">integer</td>
     </tr>
@@ -40,15 +38,14 @@ Reads a numeric value from a specified position in the binary buffer, and return
 
 <br>
 
-\* Refer to [7.4.2 Supported format](../2-format.md).
+\* 请参见 [7.4.2 Supported format](../2-format.md).
 <br>
 <br>
 
 ### Return value
 
-* Numeric value read
-* If an error occurs when reading the data type, it returns 0.
-
+* 读取的数值
+* 如果在读取数据类型时发生错误，则返回 0。
 
 ### Example
 

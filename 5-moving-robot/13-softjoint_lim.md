@@ -1,32 +1,32 @@
-﻿# 5.13 `softjoint_lim`
+# 5.13 `softjoint_lim`
 
-Before using instruction `softjoint on`, user should set `softjoint_lim`  parameters such as joint number(`j`), compliance(`sft`), joint angle limit(`ang`) and torque threshold(`thr`). <br>
+在使用指令 `softjoint on` 之前，用户应设置 `softjoint_lim` 参数，例如关节编号(` (j)`)、柔性(`sft`)、关节角度限制(`ang`)和扭矩阈值(`thr`)。 <br>
 
---- 
+---
 
-### Syntax 
+### 语法 
 ```python
-softjoint_lim, j=<joint number>, sft=<softness>, ang=<joint angle limit>, thr=<torque threshold> 
+softjoint_lim, j=<关节编号>, sft=<柔性>, ang=<关节角度限制>, thr=<扭矩阈值> 
 ```
 
-### Parameter
-* j : joint number [1~6]
-* sft : larger value is more soft to move [0:off,0~100]
-* ang : joint angle limit [deg]
-* thr : torque threshold [Nm]
+### 参数
+* j : 关节编号 [1~6]
+* sft : 较大的值更容易移动 [0:off,0~100]
+* ang : 关节角度限制 [度]
+* thr : 扭矩阈值 [Nm]
 
 
-### Example 
-> Example1) setting parameters on joint number 3(J3) 
-> * Activation on J3, softness(50), joint angle limit [-30~30] (deg) and torque threshold 10(Nm)   
+### 示例 
+> 示例1) 设置关节编号 3(J3) 的参数 
+> * 在 J3 激活，柔性(50)，关节角度限制 [-30~30] (度) 和扭矩阈值 10(Nm)   
 ```python
 softjoint_lim, j=3, sft=50, ang=30, thr=10
 ```
 
-> Example2) setting parameters on joint number 2 and 3(J2, J3)
-> * Setting softness : J2-sft(30), J3-sft(80)  
-> * Setting joint angle limit : J2[-50,+50] (deg), J3[min joint angle limit, max joint angle limit] (deg) <br>
-> * Setting torque threshold : J2-thr(3)(Nm), J3-thr(5)(Nm) 
+> 示例2) 设置关节编号 2 和 3(J2, J3) 的参数
+> * 设置柔性 : J2-sft(30), J3-sft(80)  
+> * 设置关节角度限制 : J2[-50,+50] (度), J3[最小关节角度限制, 最大关节角度限制] (度) <br>
+> * 设置扭矩阈值 : J2-thr(3)(Nm), J3-thr(5)(Nm) 
 
 
 ```python
@@ -44,6 +44,6 @@ S2   move P,spd=250mm/sec,accu=0,tool=0
 --- 
 {% hint style="info" %}
 
-* For using the function of `softjoint`, parameters on `j` and `sft` on `softjoint_lim` should be set. Also, if you do not set `ang` parameter, robot moves in workspace on defined softlimit. And, default parameter value on torque threshold `thr` is 0 [Nm]. 
+* 使用 `softjoint` 功能时，应设置 ` (j)` 和 `sft` 上的参数，若不设置 `ang` 参数，机器人将在定义的软限制内移动。扭矩阈值 `thr` 的默认参数值为 0 [Nm]。 
 
 {% endhint %}

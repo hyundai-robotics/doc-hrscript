@@ -1,4 +1,4 @@
-﻿# 6.2.5 HTTP Client Usage Examples
+# 6.2.5 HTTP客户端使用示例
 
 ```python
      import http_cli
@@ -6,33 +6,32 @@
      var url, body, query, status_code
      var domain="http://192.168.1.200:8888"
 
-     # get
+     # 获取
      cli.get domain+"/device/direction"
      body = cli.body
 
-     #check the communication status
+     #检查通信状态
      if cli.status>=400 or cli.status<0
-        goto 99 		#http communication error
+        goto 99 		#http通信错误
      endif
 
-     # put
+     # 放置
      url = domain+"/device/direction"
      body.ry=90
      cli.body=body
      cli.put(url, 3000, *Timeout)
 
-     # post
+     # 发送
      cli.body={ name: "WORK #32", color: "green", state: "OK" }
      cli.post domain+"/display/update", 5000, *Timeout
 
-     # delete
+     # 删除
      cli.delete(domain+"/items")
 
      end
      
-  99 print "error status"
+  99 print "错误状态"
      
      *Timeout
-     print "timeout"
+     print "超时"
 ```
-

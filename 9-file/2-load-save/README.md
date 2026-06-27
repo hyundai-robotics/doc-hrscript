@@ -1,3 +1,3 @@
 ﻿# 9.2 Load/Save
 
-Explains the statements that load/save files into/from the memory of the ${cont_model} controller's MAIN module.
+解释将文件加载/保存到/从${cont_model}控制器的MAIN模块内存的语句。

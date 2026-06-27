@@ -2,7 +2,7 @@
 
 ### Description
 
-Makes it possible to go to a designated address.
+使能够跳转到指定地址。
 
 ### Syntax
 
@@ -22,8 +22,8 @@ goto &lt;address&gt;
     <tr>
       <td style="text-align:left">address</td>
       <td style="text-align:left">
-        Address to branch<br/>
-        An arithmetic expression is possible in the case of a line number.
+        分支地址<br/>
+        在行号的情况下，允许使用算术表达式。
       </td>
       <td style="text-align:left"></td>
     </tr>
@@ -37,6 +37,3 @@ goto 99
 goto addr
 goto *err_hdl
 ```
-
-
-

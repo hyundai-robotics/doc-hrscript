@@ -1,12 +1,12 @@
-﻿# 3.4.3 `if`-`else`-`endif` Statement
+# 3.4.3 `如果 (if)`-`else`-`endif` 语句
 
-### Description
+### 描述
 
-If the expression is false and `if` there are statements to be executed, the following form is used:
+如果表达式为假，并且 `如果 (if)` 有要执行的语句，则使用以下形式：
 
-If the expression is true, statement A will be executed. If false, statement B will be executed.
+如果表达式为真，将执行语句 A。如果为假，将执行语句 B。
 
-### Syntax
+### 语法
 
 ```python
 if <bool expression>
@@ -18,18 +18,15 @@ else
 endif
 ```
 
-### Example
+### 示例
 
 ```python
 var pressure=95, limit=90, exceed
 if pressure > limit
 	exceed = pressure - limit
-	print "warning: pressure is too high."
+	print "警告: 压力过高."
 else
-	print "in normal operation."
+	print "处于正常运行中."
 endif
 end
 ```
-
-
-

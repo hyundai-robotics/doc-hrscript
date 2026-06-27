@@ -1,23 +1,20 @@
-﻿# 6.2.1 Constructor 
+﻿# 6.2.1 构造函数 
 
-### Description
+### 描述
 
-Creates an `HttpCli` object and returns a reference to it.
+创建一个 `HttpCli` 对象并返回对它的引用。
 
-### Syntax
+### 语法
 
 
 HttpCli\(\)
 
-### Return Value
+### 返回值
 
-A reference to the newly created object.
+对新创建对象的引用。
 
-### Usage Example
+### 使用示例
 
 ```python
 var cli = http_cli.HttpCli()
 ```
-
-
-

@@ -1,25 +1,25 @@
-﻿# `_ax`
+# `_ax`
 
-It is used to read the axis index by the axis name.
+用于通过轴名称读取轴索引。
 
 ### Description
 
-The axis index is obtained with a reference value of 0. However, if the axis does not exist, -1 is assigned. Specify the string following "_ax." as the axis name. Axis name supports both lowercase and uppercase.
+轴索引是通过参考值0获得的。然而，如果轴不存在，则分配-1。指定跟随"_ax."的字符串作为轴名称。轴名称支持小写和大写字母。
 
-Supported from V70.02-00
+支持版本 V70.02-00
 
 ### Syntax
 
 ```python
 var res
-res = _ax.v # Get V-axis index
+res = _ax.v # 获取 V 轴索引
 ```
 
 ### Sample
 
 ```python
    ...
-   # Print the current position of the R1 axis.
+   # 打印 R1 轴的当前位置信息。
    global po
    po=cpo("joint")
    print po.j[_ax.R1]

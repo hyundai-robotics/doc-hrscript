@@ -1,16 +1,16 @@
 ﻿# `send`
 
-### Description
+### 描述
 
-Send a string by calling `Sci`'s `send`.
+通过调用 `Sci` 的 `send` 发送字符串。
 
-### Syntax
+### 语法
 
 &lt;Sci object&gt;.send "string" <br>
 &lt;Sci object&gt;.send string variable
 
 
-### Example
+### 示例
 
 ```python
 sci2.send "test"
@@ -18,6 +18,3 @@ or
 var msg="test"
 sci2.send msg
 ```
-
-
-

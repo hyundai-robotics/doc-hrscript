@@ -1,8 +1,8 @@
-﻿# `send_bbuf`
+# `send_bbuf`
 
 ### Description
 
-Send [BBuf](../../4-bbuf/README.md) object to ethernet object.
+发送 [BBuf](../../4-bbuf/README.md) 对象到以太网对象。
 
 
 ### Syntax
@@ -24,7 +24,7 @@ Send [BBuf](../../4-bbuf/README.md) object to ethernet object.
     <tr>
       <td style="text-align:left">BBuf object</td>
       <td style="text-align:left">
-        binary buffer object to send.
+        要发送的二进制缓冲区对象。
       </td>
       <td style="text-align:left"></td>
     </tr>
@@ -34,7 +34,7 @@ Send [BBuf](../../4-bbuf/README.md) object to ethernet object.
 
 ### Return value
 
-The number of bytes sent.
+发送的字节数。
 
 
 ### Example

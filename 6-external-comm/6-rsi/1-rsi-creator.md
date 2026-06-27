@@ -1,25 +1,22 @@
-﻿# 6.6.1 Constructor
+# 6.6.1 构造函数
 
-### Description
+### 描述
 
-Creates a global variable for the `RSI` object.
+为 `RSI` 对象创建一个全局变量。
 
-### Syntax
+### 语法
 
-com.RSI(enet object) <br>
+com.RSI(enet 对象) <br>
 
-Specifies the object used in the Ethernet communication settings. For example, if the name of the object used is "enet0", specify _enet0, and if it is "enet1", specify _enet1.  
+指定用于以太网通信设置的对象。例如，如果使用的对象名称是 "enet0"，则指定 _enet0；如果是 "enet1"，则指定 _enet1。  
 
-### Return Value
+### 返回值
 
-Reference to created object
+创建对象的引用
 
-### Example
+### 示例
 
 ```python
 global rsi
-rsi=com.RSI(_enet0)  # _enet0 uses the "enet0" object in Ethernet communication settings 
+rsi=com.RSI(_enet0)  # _enet0 在以太网通信设置中使用 "enet0" 对象 
 ```
-
-
-

@@ -1,11 +1,11 @@
-﻿# 6.2.2 Member Variables
+﻿# 6.2.2 成员变量
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Variable</th>
-      <th style="text-align:left">Data Type</th>
-      <th style="text-align:left">Description</th>
+      <th style="text-align:left">变量</th>
+      <th style="text-align:left">数据类型</th>
+      <th style="text-align:left">描述</th>
     </tr>
   </thead>
   <tbody>
@@ -13,14 +13,14 @@
       <td style="text-align:left">body</td>
       <td style="text-align:left">Any</td>
       <td style="text-align:left">
-        <p>The data to be transmitted must be assigned in advance for PUT and POST requests.<br><br>If a value other than an object is assigned to `body`, the last path segment of the URL is treated as the key during execution.<br><br>The response data from GET and POST requests is stored in `body`.<br><br>In HRScript, direct access to the member variables of `body` is not supported. To modify or use the data, assign it to another variable first.</p>
+        <p>要传输的数据必须在PUT和POST请求之前分配。<br><br>如果给`body`分配了一个对象以外的值，执行时URL的最后路径段将被视为键。<br><br>GET和POST请求的响应数据存储在`body`中。<br><br>在HRScript中，不支持直接访问`body`的成员变量。要修改或使用数据，必须先将其分配给另一个变量。</p>
       </td>
     </tr>
     <tr>
       <td style="text-align:left">query</td>
       <td style="text-align:left">object</td>
       <td style="text-align:left">
-        Used for GET services that require query parameters.<br>The data to be sent with a GET request must be assigned in advance.
+        用于需要查询参数的GET服务。<br>与GET请求一起发送的数据必须预先分配。
       </td>
     </tr>
     <tr>
@@ -28,7 +28,7 @@
       <td style="text-align:left">int</td>
       <td style="text-align:left">
         <p>
-            Returns the HTTP response code and error code. (See Section [6.2.4, HTTP Communication Codes](./4-http_cli-code.md))
+            返回HTTP响应代码和错误代码。(请参阅[6.2.4节, HTTP通信代码](./4-http_cli-code.md))
           <br/>
         </p>
       </td>
@@ -38,12 +38,11 @@
 
 <br/>
 
-Both `body` and `query` use the object data type.
+`body`和`query`都使用对象数据类型。
 
-The object type is supported in the `{ key: value }` format.
+对象类型支持`{ key: value }`格式。
 
 ```python
 cli.body = { name: "WORK #32", color: "green", state: "OK" }
 cli.query = { axis: 3 }
 ```
-

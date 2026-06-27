@@ -1,87 +1,87 @@
-﻿# `connect`
+﻿# `连接 (connect)`
 
-### Description
-
-
-As a client in Ethernet TCP communication, it tries to connect to the server.
-Not used in UDP peer-to-peer communication.
-
-### Syntax
-
-`{ENet object}.connect [{waiting time}] [, {address on timeout}]`
+### 描述
 
 
-### Parameters
+作为以太网 TCP 通信中的客户端，它尝试连接到服务器。
+在 UDP 对等通信中不使用。
+
+### 语法
+
+`{ENet object}.connect [{等待时间}] [, {超时地址}]`
+
+
+### 参数
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Name</th>
-      <th style="text-align:left">Meaning</th>
-      <th style="text-align:left">Misc.</th>
+      <th style="text-align:left">名称</th>
+      <th style="text-align:left">含义</th>
+      <th style="text-align:left">其他</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>waiting time</td>
+      <td>等待时间</td>
       <td>
-        timeout. If elapsed, proceed to the next command or jump to the address on timeout.<br>
-        If not specified, wait ininfinitely.
+        超时。如果经过，则继续下一个命令或跳转到超时地址。<br>
+        如果未指定，则无限期等待。
       </td>
-      <td>msec</td>
+      <td>毫秒</td>
     </tr>
     <tr>
-      <td>address on timeout</td>
+      <td>超时地址</td>
       <td>
-        address to which jump on timeout.<br>
-        If not specified, proceed to next command.
+        超时时跳转的地址。<br>
+        如果未指定，则继续下一个命令。
       </td>
-      <td>address</td>
+      <td>地址</td>
     </tr>
   </tbody>
 </table>
 
 
-### Return value
+### 返回值
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Value</th>
-      <th style="text-align:left">Meaning</th>
-      <th style="text-align:left">Misc.</th>
+      <th style="text-align:left">值</th>
+      <th style="text-align:left">含义</th>
+      <th style="text-align:left">其他</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>1</td>
       <td>
-        OK (completed)
+        成功（完成）
       </td>
       <td></td>
     </tr>  
     <tr>
       <td>0</td>
       <td>
-        waiting
+        等待中
       </td>
       <td></td>
     </tr>
     <tr>
       <td>-1</td>
-      <td>timeout</td>
+      <td>超时</td>
       <td></td>
     </tr>
     <tr>
       <td>-2</td>
-      <td>error</td>
+      <td>错误</td>
       <td></td>
     </tr>  
   </tbody>
 </table>
 
 
-### Example
+### 示例
 
 ```python
 var ret=enet_to_sensor.connect(5000)

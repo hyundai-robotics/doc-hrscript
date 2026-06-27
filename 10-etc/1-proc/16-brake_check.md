@@ -1,4 +1,4 @@
-﻿# 10.1.16 `brake_check`
+# 10.1.16 `brake_check`
 
 The `brake_check` statement is a procedure that applies torque to each axis motor to diagnose whether the brake is functioning correctly.
 
@@ -87,12 +87,12 @@ When you touch the [Properties] button in the brake_check command, you will ente
 ```
 
 {% hint style="warning" %}
-* Do not enter the operating area or touch the robot while the product is operating. There is a risk of injury.
+* 请勿在产品运行时进入操作区域或触碰机器人。存在受伤的风险。
 {% endhint %}
 
 {% hint style="info" %}
-* Supported only on robots equipped with the gas spring
-* For accurate estimation, [Axis add weight setting](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/7-system/4-robot-parameter/7-axis-add-weight/README?cont_model=${cont_model}) and [Load estimation function](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/7-system/7-auto-calibration/3-load-estimation?cont_model=${cont_model}) must be preceded before using the function.
-* For a detailed description of the brake check monitoring function, please refer to the link below.
-[](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/6-monitoring/4-system/2-system-diagnosis/1-brake-check?cont_model=${cont_model})
+* 仅支持配备气弹簧的机器人
+* 为了准确估算，在使用此功能之前必须先进行 [Axis add weight setting](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/zh-tp630/7-system/4-robot-parameter/7-axis-add-weight/README?cont_model=${cont_model}) 和 [Load estimation function](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/zh-tp630/7-system/7-auto-calibration/3-load-estimation?cont_model=${cont_model})。
+* 有关刹车检查监控功能的详细描述，请参阅下面的链接。
+[](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/zh-tp630/6-monitoring/4-system/2-system-diagnosis/1-brake-check?cont_model=${cont_model})
 {% endhint %}

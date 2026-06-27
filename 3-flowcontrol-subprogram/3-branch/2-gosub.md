@@ -1,12 +1,12 @@
 ﻿# 3.3.2 `gosub`~`retsub`
 
-### Description
+### 描述
 
-When the `gosub` statement is encountered, it branches to the specified address.
-When the `retsub` statement is encountered, it returns to the next position after the gosub statement.
-`gosub` can be nested into several level, and there is no limit on the number of nesting.
+当遇到 `gosub` 语句时，它会分支到指定的地址。
+当遇到 `retsub` 语句时，它会返回到 gosub 语句之后的下一个位置。
+`gosub` 可以嵌套多层，且嵌套的数量没有限制。
 
-### Syntax
+### 语法
 ```python
 gosub <address>
 ...
@@ -17,29 +17,29 @@ end
 retsub
 ```
 
-### Parameter
+### 参数
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Parameter</th>
-      <th style="text-align:left">Description</th>
-      <th style="text-align:left">Remarks</th>
+      <th style="text-align:left">参数</th>
+      <th style="text-align:left">描述</th>
+      <th style="text-align:left">备注</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="text-align:left">address</td>
       <td style="text-align:left">
-        <p>Address to branch</p>
-        <p>An arithmetic expression is possible in the case of a line number.</p>
+        <p>分支到的地址</p>
+        <p>在行号的情况下，可以使用算术表达式。</p>
       </td>
       <td style="text-align:left"></td>
     </tr>
   </tbody>
 </table>
 
-### Example
+### 示例
 
 ```python
 var x=5

@@ -1,12 +1,12 @@
-﻿# 8. alias
+# 8. 别名
 
-Alias is a name that can be used as an alternative to the notation of a variable or a property of an object.
+别名是一个可以用作变量或对象属性的替代表示法的名称。
 
-Alias is an alternative name can be used to notate a variable or object. You can replace property notations that are too long to be repeated with concise names, or replace IO variables at specific indexes with more readable names.
+别名是一个可以用来表示变量或对象的替代名称。您可以用简短的名称替换那些过长的属性表示法，或者用更易读的名称替换特定索引的 IO 变量。
 
-An alias is defined with the `alias` statement, and the syntax is almost identical to that of `var` or `global`.
+别名通过 `alias` 语句定义，语法与 `var` 或 `global` 几乎相同。
 
-The scope of an alias is the same as global. That is, after the `alias` statement is executed, it can be used in any subsequent job, and is not destroyed even if the program cycle is reset by the `end` statement of the main program or the `R0 - [ENTER]` operation.
+别名的作用域与全局范围相同。也就是说，在执行 `alias` 语句后，它可以在任何后续作业中使用，即使程序周期通过主程序的 `end` 语句或 `R0 - [ENTER]` 操作被重置，它也不会被销毁。
 
 ```python
 global myval=3, yourname="Jane"
@@ -17,23 +17,22 @@ alias grip=fb3.do4, work_no=fb1.diw2 # (1)
 alias role=profile.role # (2)
 alias tool0=project.robot.tools.t_0 # (3)
 
-# usage
+# 使用
 grip=1
 print work_no
 print role[1]
 tool0.mass=12
 ```
 
-In (1) of the above example, the output variable `fb3.do4` was defined as an alias named `grip`, and the input variable `fb1.diw2` was defined as an alias `work_no`.  
-In (2), the role array which is an property of `profile`, is defined as alias `role`.  
-In (3), the built-in object `project.robot.tools.t_0` is defined as alias `tool0`, which points to tool-data \#0.
+在上面示例的(1)中，输出变量 `fb3.do4` 被定义为名为 `grip` 的别名，而输入变量 `fb1.diw2` 被定义为别名 `work_no`。  
+在(2)中，作为 `profile` 属性的角色数组被定义为别名 `role`。  
+在(3)中，内置对象 `project.robot.tools.t_0` 被定义为别名 `tool0`，这指向工具数据 \#0。
 
-For an alias refer to an array, its element can be specified with [ ] operator, like `role[1]`.  
-For an alias refer to an object, its property can be specified with . operator, like `tool0.mass`.
+对于引用数组的别名，其元素可以用 [ ] 操作符指定，如 `role[1]`。  
+对于引用对象的别名，其属性可以用 . 操作符指定，如 `tool0.mass`。
 
-A constant cannot be defined as an alias. Define it using `global` or `var`.  
-Expression cannot be defined as alias, either. Be careful as it may cause malfunction.
-
+常量不能定义为别名。请使用 `global` 或 `var` 定义它。  
+表达式也不能定义为别名。要小心，因为这可能导致故障。
 
 ```python
 #alias pie=3.141592 # (X)

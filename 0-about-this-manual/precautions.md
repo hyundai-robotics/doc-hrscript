@@ -1,3 +1,3 @@
-﻿# Precautions
+# 注意事项
 
-{% include file="en/precautions.md" %}
+{% include file="zh/precautions.md" %}

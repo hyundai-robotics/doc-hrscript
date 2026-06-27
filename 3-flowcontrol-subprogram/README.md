@@ -1,4 +1,3 @@
-﻿# 3. Flow-Control Statements and Sub-Program
+﻿# 3. 流程控制语句和子程序
 
-The statements in the job program are executed line by line in top-to-bottom order. However, depending on certain conditions, the statements can be skipped without being executed, or certain statements can be executed repeatedly. Let us look at the control statements that can control the flow of the program in this manner. 
-
+作业程序中的语句按从上到下的顺序逐行执行。然而，根据某些条件，语句可以在不被执行的情况下被跳过，或者某些语句可以被重复执行。让我们来看看可以以这种方式控制程序流程的控制语句。

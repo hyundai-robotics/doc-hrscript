@@ -1,44 +1,44 @@
 ﻿# 10.2.5 `sig2int`
 
-Using the `sig2int` function, a specific range of input/output signals can be expressed as an `int` type value.
+使用 `sig2int` 函数，可以将特定范围的输入/输出信号表示为 `int` 类型值。
 
-### Description
-- Enter the name of the input/output signal to be expressed in `int` type.
-- Set how many bits to read from input/output signals.
+### 描述
+- 输入要表示为 `int` 类型的输入/输出信号名称。
+- 设置从输入/输出信号中读取多少位。
 
-### Syntax
+### 语法
 
 ```python
 result=sig2int(<input/output signal>,<number of bits>)
 ```
 
-### Parameters
+### 参数
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Parameter</th>
-      <th style="text-align:left">Description</th>
-      <th style="text-align:left">Remarks</th>
+      <th style="text-align:left">参数</th>
+      <th style="text-align:left">描述</th>
+      <th style="text-align:left">备注</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="text-align:left">input/output signal</td>
       <td style="text-align:left">
-        input/output signal variable name
+        输入/输出信号变量名
       </td>
-      <td style="text-align:left">input/output signal variable</td>
+      <td style="text-align:left">输入/输出信号变量</td>
     </tr>
     <tr>
       <td style="text-align:left">number of bits</td>
       <td style="text-align:left">
-        Number of bits to read from input/output signals
-      <td style="text-align:left">variable</td>
+        从输入/输出信号读取的位数
+      <td style="text-align:left">变量</td>
     </tr>
   </tbody>
 </table>
 
-### Sample
+### 示例
 
 ```python
      var result1,result2,result3
@@ -47,4 +47,3 @@ result=sig2int(<input/output signal>,<number of bits>)
      result3=sig2int(fn1.di24,8)
      end
 ```
-

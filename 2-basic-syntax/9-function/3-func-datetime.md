@@ -1,20 +1,20 @@
-﻿# 2.9.3 Date and Time Functions
+# 2.9.3 日期和时间函数
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:right">Function</th>
-      <th style="text-align:left">Description</th>
-      <th style="text-align:left">Example of usage</th>
-      <th style="text-align:left">Result</th>
+      <th style="text-align:right">函数</th>
+      <th style="text-align:left">描述</th>
+      <th style="text-align:left">用法示例</th>
+      <th style="text-align:left">结果</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="text-align:right">date( )</td>
       <td style="text-align:left">
-        <p>Returns the current date in string type</p>
-        <p>(YYYY-MM-DD format)</p>
+        <p>以字符串类型返回当前日期</p>
+        <p>(YYYY-MM-DD 格式)</p>
       </td>
       <td style="text-align:left">date( )</td>
       <td style="text-align:left">&quot;2019-04-17&quot;</td>
@@ -22,8 +22,8 @@
     <tr>
       <td style="text-align:right">time( )</td>
       <td style="text-align:left">
-        <p>Returns the current time in string type</p>
-        <p>(HH:MM:SS format)</p>
+        <p>以字符串类型返回当前时间</p>
+        <p>(HH:MM:SS 格式)</p>
       </td>
       <td style="text-align:left">time( )</td>
       <td style="text-align:left">&quot;08:48:14&quot;</td>
@@ -31,19 +31,17 @@
     <tr>
       <td style="text-align:right">time("hh:mm:ss.00")</td>
       <td style="text-align:left">
-        <p>Returns the current time with fractional seconds in string type</p>
-        <p>(HH:MM:SS.00 format)</p>
+        <p>以字符串类型返回当前时间及其小数秒</p>
+        <p>(HH:MM:SS.00 格式)</p>
       </td>
       <td style="text-align:left">time("hh:mm:ss.000")</td>
       <td style="text-align:left">&quot;08:48:14.187&quot;</td>
     </tr>
     <tr>
       <td style="text-align:right">timer( )</td>
-      <td style="text-align:left">Returns the time elapsed in seconds (sec) from when the power was turned
-        on</td>
+      <td style="text-align:left">返回从开机时起经过的时间，以秒为单位 (sec)</td>
       <td style="text-align:left">timer( )</td>
       <td style="text-align:left">2796.37</td>
     </tr>
   </tbody>
 </table>
-

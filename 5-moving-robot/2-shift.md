@@ -1,31 +1,29 @@
-﻿# 5.2 Shift
+# 5.2 Shift
 
-Shift is an object type embedded in the ${cont_model} Controller and represents the pose's change value. 
+Shift 是嵌入在 ${cont_model} 控制器中的对象类型，表示姿态的变化值。
 
-Shifts are created by calling the constructor function `Shift()`. All function parameters are position parameters. Meanwhile, `crd` and `cfg` are string types, and the rest are number types.
-
-
+Shift 通过调用构造函数 `Shift()` 创建。所有函数参数均为位置参数。同时，`crd` 和 `cfg` 为字符串类型，其余为数字类型。
 
 ```python
-var <shift variable name> = Shift(j1, j2, j3, ...)				# axis coordinate
-var <shift variable name> = Shift(x, y, z, rx, ry, rz, j7, j8,..., crd)		# base coordinate
+var <shift variable name> = Shift(j1, j2, j3, ...)				# 轴坐标
+var <shift variable name> = Shift(x, y, z, rx, ry, rz, j7, j8,..., crd)		# 基坐标
 ```
 
-Refer to the following examples of creating the shifts for 6 axes + 1 additional axis and for Cartesian + 1 additional axis.
+参考以下创建 6 轴 + 1 额外轴和笛卡尔 + 1 额外轴的 Shift 示例。
 
 ```python
-var sft1 = Shift(30, 0, 0, 0, -5.8, 0, -120)				# axis coordinate
-var sft2 = Shift(0, 0, 55.2, 0, -5, 0, -120, "base")			# base coordinate
+var sft1 = Shift(30, 0, 0, 0, -5.8, 0, -120)				# 轴坐标
+var sft2 = Shift(0, 0, 55.2, 0, -5, 0, -120, "base")			# 基坐标
 ```
 
-Alternatively, the constructor function shift may be called using a single array or string parameter. With this, files or data may be converted into shifts, acquired through remote communication, and used.
+或者，可以使用单个数组或字符串参数调用构造函数 Shift。通过此方式，可以将文件或数据转换为 Shift，通过远程通信获取并使用。
 
 ```python
 var <shift variable name> = Shift(array)
 var <shift variable name> = Shift(string)
 ```
 
-Refer to the following example.
+参考以下示例。
 
 ```python
 var arr = [30, 0, 0, 0, -5.8, 0, -120]
@@ -34,7 +32,6 @@ var sft3 = Shift(arr)
 var sft4 = Shift(str)
 ```
 
-Elements of the shift object can be accessed with the following keys.
+可以使用以下键访问 Shift 对象的元素。
 
 ![](../_assets/image_7.png)
-

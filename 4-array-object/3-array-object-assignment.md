@@ -1,6 +1,6 @@
-﻿# 4.3 Copied assignment of arrays and objects
+﻿# 4.3 数组和对象的复制赋值
 
-If the right side of an assignment statement has object variables, the entire values of the variables will be copied to the variables of the left side. When an array or an object includes sub-arrays and sub-objects in a complex manner as element values, such inclusion structures will be copied, which is called a deep copy.
+如果赋值语句的右侧包含对象变量，则右侧变量的整个值将被复制到左侧的变量。 当数组或对象以复杂的方式将子数组和子对象包含为元素值时，这种包含结构将被复制，这称为深复制。
 
 <table>
   <thead>
@@ -31,13 +31,10 @@ If the right side of an assignment statement has object variables, the entire va
       </td>
     </tr>
     <tr>
-      <td style="text-align:left">Result</td>
+      <td style="text-align:left">结果</td>
       <td style="text-align:left">[10, 20]</td>
     </tr>
   </tbody>
 </table>
 
 ![](../_assets/image.png)
-
-
-

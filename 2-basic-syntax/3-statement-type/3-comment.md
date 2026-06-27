@@ -1,11 +1,8 @@
-﻿# 2.3.3 Comment Statements
+﻿# 2.3.3 注释语句
 
-A comment statement is used to describe the contents of the job program in a way that they can be understood easily. Even if the comment statement is executed, no operation is performed. As shown below, a description is attached after the hash sign \(\#\). It can be used as a single statement or attached after another statement.
+注释语句用于以易于理解的方式描述作业程序的内容。即使执行注释语句，也不会执行任何操作。如下面所示，描述附加在井号 \(\#\) 后面。它可以作为单独的语句使用或附加在另一个语句后面。
 
 ```python
 # robot has to wait sensor2 input
 var work_w,work_h  # width and height of a workpiece
 ```
-
-
-

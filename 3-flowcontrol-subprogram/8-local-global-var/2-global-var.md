@@ -1,14 +1,12 @@
-﻿# 3.8.2 Global Variables
+# 3.8.2 全局变量
 
-### Description
+### 描述
 
-On the other hand, global variables defined as global can always be accessed from all job programs. If a global variable is once defined, it will not be cleared even when the program cycle is reset by an end statement or an R0 \[Enter\] operation of the main program.
+另一方面，定义为全局的全局变量可以始终从所有作业程序中访问。如果全局变量已经定义，即使通过结束语句或主程序的 R0 \[Enter\] 操作重置程序循环，也不会被清除。
 
-### Example
+### 示例
 
-If a global x is executed first, a variable x will be created, and the value will be initialized to the default value of 0. Then, it will increase to 1 in the next row. If the global x is executed again in the next program cycle, it will not be defined again, and the value of 1 will be retained because the x has been defined. On the other hand, global y=10 will carry out defining and assignment so that the value of variable y will be reset to 10 when it is executed in the next program cycle.
-
-
+如果首先执行全局 x，将创建一个变量 x，并将其值初始化为默认值 0。然后，它将在下一行增加到 1。如果在下一个程序循环中再次执行全局 x，则不会再次定义，而是保留值 1，因为 x 已经被定义。另一方面，全局 y=10 将进行定义和赋值，因此当在下一个程序循环中执行时，变量 y 的值将重置为 10。
 
 <table>
   <thead>
@@ -24,7 +22,7 @@ If a global x is executed first, a variable x will be created, and the value wil
         <p>global x
           <br />
         </p>
-        <p> in the case x=2
+        <p> 在 x=2 的情况下
           <br />
         </p>        
         <p>x=x+1 # 3
@@ -61,7 +59,7 @@ If a global x is executed first, a variable x will be created, and the value wil
   </tbody>
 </table>
 
-Therefore, if a global variable is to be utilized as a counter for the number of program cycles, no value should be assigned along with a definition.
+因此，如果要将全局变量用作程序循环次数的计数器，则不应在定义时赋值。
 
 <table>
   <thead>
@@ -73,10 +71,10 @@ Therefore, if a global variable is to be utilized as a counter for the number of
   <tbody>
     <tr>
       <td style="text-align:left">
-        <p>Wrong
+        <p>错误
           <br />
         </p>
-        <p>Teaching
+        <p>教学
           <br />
         </p>
       </td>
@@ -97,10 +95,10 @@ Therefore, if a global variable is to be utilized as a counter for the number of
     </tr>
     <tr>
       <td style="text-align:left">
-        <p>Correct
+        <p>正确
           <br />
         </p>
-        <p>Teaching
+        <p>教学
           <br />
         </p>
       </td>
@@ -119,4 +117,3 @@ Therefore, if a global variable is to be utilized as a counter for the number of
     </tr>
   </tbody>
 </table>
-

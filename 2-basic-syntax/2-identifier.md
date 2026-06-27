@@ -1,33 +1,33 @@
-﻿# 2.2 Identifiers
+# 2.2 标识符
 
-Names must be given to commands, variables, functions, and labels that are described. These names are collectively referred to as `identifiers.` When deciding an identifier, it must comply with the following rules for the HRScript's identifiers.
+命令、变量、函数和描述的标签必须赋予名称。这些名称统称为 `标识符`。在决定标识符时，必须遵守 HRScript 标识符的以下规则。
 
-* It must consist only of uppercase and lowercase letters, numbers, and underscores.
-* It is case-sensitive. (except for top-level array names in global variables)
-* The first character must only be either a lowercase or uppercase letter or an underscore, not a number.
-* It should not contain a space or tab.
-* Identifiers already defined in the system, such as `if` and `for` cannot be used.
-* There is no limit to the length.
+* 它只能由大写字母、小写字母、数字和下划线组成。
+* 它区分大小写。（全局变量中的顶级数组名称除外）
+* 第一个字符只能是小写字母、大写字母或下划线，而不能是数字。
+* 它不应包含空格或制表符。
+* 系统中已定义的标识符，例如 `如果 (if)` 和 `for` 不能使用。
+* 长度没有限制。
 
-The following shows correct and incorrect examples of identifiers:
+以下显示了标识符的正确和不正确示例：
 
 ```text
 myvar (O) 
 myvar2 (O)
 _myvar (O)
 MyVar (O)
-310a (X) - Started with a number
-move (X) - An identifier already defined in the system
-v300$ (X) - Used a symbol other than an underscore ($)
-my var (X) - Included a space
+310a (X) - 以数字开头
+move (X) - 已在系统中定义的标识符
+v300$ (X) - 使用了下划线以外的符号 ($)
+my var (X) - 包含了空格
 ```
 
 {% hint style="warning" %}
 
-Exceptionally, the names of top-level arrays in global variables are not case-sensitive.
-(It is because top-level global arrays are saved as .csv files, and file names are case-insensitive.)
+例外情况下，全球变量中的顶级数组名称不区分大小写。
+（这是因为顶级全局数组以 .csv 文件保存，文件名不区分大小写。）
 
-For example, the following two variables cannot be used together:
+例如，以下两个变量不能一起使用：
 
     global MyArr = Array(10)
     global myarr = Array(10)

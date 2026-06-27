@@ -1,22 +1,21 @@
-﻿# 9.1.2 `copyfile`
+# 9.1.2 `copyfile`
 
-A `copyfile` is a procedure that requests to copy a directory or file.
+A `copyfile` 是请求复制目录或文件的程序。
 
 ### Description
 
-Copies a directory or file of specified source path to the specified destination pathname.
+将指定源路径的目录或文件复制到指定的目标路径名称。
 
-- Can only be performed within the MAIN module, not Teach Pendant or USB memory.
-- If a directory of the intermediate path of the destination pathname does not exist, it creates the intermediate path.
-- If the destination directory already exists, delete it and copy the source directory.
-- Overwrite the destination file if it already exists.
-- All subdirectories in the directory are also copied.
-- The pathname also supports wildcard ('*', '?').
+- 只能在 MAIN 模块内执行，不能在 Teach Pendant 或 USB 存储器中执行。
+- 如果目标路径名称的中间路径不存在，则会创建中间路径。
+- 如果目标目录已存在，则删除它并复制源目录。
+- 如果目标文件已存在，则覆盖它。
+- 目录中的所有子目录也将被复制。
+- 目标路径名称也支持通配符 ('*', '?')。
 
-- Because large files or entire directories may be copied, it is asynchronously performed in the background to avoid loss of tact time due to waiting during copying. In other words, when the `copyfile` statement is performed, starting the copy in the background task, immediately proceed with the next statement. For example, you can request a copy and execute the move statements. The successful completion of the copy can be determined by reading the values of the result-variable. (That is, no errors or warnings are generated when the copy fails.)
+- 因为可能会复制大型文件或整个目录，因此它在后台异步执行，以避免因复制时等待而导致的节拍时间损失。换句话说，当执行 `copyfile` 语句时，启动后台任务中的复制，立刻继续执行下一个语句。例如，您可以请求复制并执行移动语句。可以通过读取结果变量的值来确定复制是否成功完成。（也就是说，当复制失败时，不会生成错误或警告。）
 
-- You cannot request another copy or deletion until one copy or deletion is complete.
-
+- 在一项复制或删除完成之前，您无法请求另一项复制或删除。
 
 ### Syntax
 
@@ -38,20 +37,20 @@ copyfile <result-variable>,<source pathname>,<destination pathname>
   <tr>
       <td style="text-align:left">result-variable</td>
       <td style="text-align:left">
-        result of background execution<br>
+        背景执行的结果<br>
         <ul>
-        <li>1: Successfully completed.</li>
-        <li>0: Copy in progress.</li>
-        <li>-1: Source pathname is invalid.</li>
-        <li>-2: Destination pathname is invalid.</li>
-        <li>-3: Failed to copy.</li>
-        <li>-6: All failed when copying wildcard.</li>
-        <li>-7: Some failed when copying wildcard.</li>
-        <li>-11: Failed to create temporary path.</li>
-        <li>-12: Failed to copy to temporary path.</li>
-        <li>-13: Failed to clear existing destination path.</li>
-        <li>-14: Destination path creation failed.</li>
-        <li>-15: Move from temporary path to destination path failed.</li>
+        <li>1: 成功完成。</li>
+        <li>0: 复制进行中。</li>
+        <li>-1: 源路径名称无效。</li>
+        <li>-2: 目标路径名称无效。</li>
+        <li>-3: 复制失败。</li>
+        <li>-6: 复制通配符时全部失败。</li>
+        <li>-7: 复制通配符时部分失败。</li>
+        <li>-11: 创建临时路径失败。</li>
+        <li>-12: 复制到临时路径失败。</li>
+        <li>-13: 清除现有目标路径失败。</li>
+        <li>-14: 目标路径创建失败。</li>
+        <li>-15: 从临时路径移动到目标路径失败。</li>
         </ul>
       </td>
       <td style="text-align:left">variable</td>
@@ -59,16 +58,16 @@ copyfile <result-variable>,<source pathname>,<destination pathname>
     <tr>
       <td style="text-align:left">source pathname</td>
       <td style="text-align:left">
-        directory's path to copy,<br>
-        or file's pathname to copy
+        要复制的目录路径,<br>
+        或要复制的文件路径名称
       </td>
       <td style="text-align:left">string expression</td>
     </tr>
     <tr>
       <td style="text-align:left">string expression</td>
       <td style="text-align:left">
-        - End with '/': Path to be copied.<br>
-        - Not end with '/': Pathname that will be created by copying.
+        - 以 '/' 结尾：要复制的路径。<br>
+        - 不以 '/' 结尾：通过复制将创建的路径名称。
       </td>
       <td style="text-align:left">string expression</td>
     </tr>
@@ -79,20 +78,19 @@ copyfile <result-variable>,<source pathname>,<destination pathname>
 
 ```python
    var res
-   copyfile res,"project/vars","work/vars_1" # vars_1/ folder is created.
+   copyfile res,"project/vars","work/vars_1" # vars_1/ 文件夹被创建。
    wait res==1,8,*timeout
-   copyfile res,"project/vars","work/vars_1/" # vars_1/vars/ folder is created.
+   copyfile res,"project/vars","work/vars_1/" # vars_1/vars/ 文件夹被创建。
    wait res==1,8,*timeout
    copyfile res,"work/clear.job","project/jobs/0005_clear.job"
    wait res==1,4,*timeout
-   copyfile res,"work/*_sub.job","project/jobs/" # wildcard
+   copyfile res,"work/*_sub.job","project/jobs/" # 通配符
    wait res==1,4,*timeout
    call 5
    end
    *timeout
-   print "copyfile failed"
+   print "copyfile 失败"
    end
 ```
 
 ![](../../_assets/copyfile.png)
-

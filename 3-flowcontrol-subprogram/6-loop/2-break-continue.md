@@ -1,13 +1,13 @@
 ﻿# 3.6.2 `break`, `continue`
 
-### Description
+### 描述
 
-The `break` and `continue` are used between `for`~`next` statements explained in this previous section.
+`break` 和 `continue` 用于前一部分中解释的 `for`~`next` 语句之间。
 
-- When run into `break` in the `for`~`next` block, the loop stops its repetition and branch to the `next` statement.
-- When run into `continue` in the `for`~`next` block, it doesn't proceed to the next statement, but does an increment/decrement of the index variable, and branch to the `for` statement.
+- 当在 `for`~`next` 块中遇到 `break` 时，循环停止其重复并转向 `next` 语句。
+- 当在 `for`~`next` 块中遇到 `continue` 时，它不会继续到下一个语句，而是对索引变量进行增量/减量，并转向 `for` 语句。
 
-### Syntax
+### 语法
 
 ```python
 for <index variable>=<initial value> to <end value> [step <increment/decrement value>]
@@ -29,9 +29,9 @@ for <index variable>=<initial value> to <end value> [step <increment/decrement v
 next
 ```
 
-### Example
+### 示例
 
-This is an example of outputting all the names in the array using the `for`~`next` statement, except for names with more than 5 characters, but stopping when an empty string is encountered.
+这是一个使用 `for`~`next` 语句输出数组中所有名称的示例，除了字符超过 5 的名称，但在遇到空字符串时停止。
 
 ```python
 var i
@@ -50,7 +50,7 @@ next
 end
 ```
 
-Result
+结果
 
 ```python
 Anna

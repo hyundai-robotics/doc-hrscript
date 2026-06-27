@@ -1,4 +1,3 @@
-﻿# 5. Moving a Robot with Robot Language
+﻿# 5. 使用机器人语言移动机器人
 
-After understanding the pose that expresses the target position of the robot, let us learn about the commands to move the robot.
-
+在理解表达机器人目标位置的姿态后，让我们学习移动机器人的指令。

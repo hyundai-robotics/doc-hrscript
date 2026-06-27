@@ -1,8 +1,8 @@
-﻿# 4.1.5 `extend_arr` Procedure for Adding All Elements of One Array to Another
+# 4.1.5 `extend_arr` 过程用于将一个数组的所有元素添加到另一个数组
 
-Supported from V60.32-00
+支持版本 V60.32-00
 
-The `extend_arr` procedure can be used to add all elements of an array to another.
+`extend_arr` 过程可用于将一个数组的所有元素添加到另一个数组。
 
 ```python
 var arr = [1, 2]
@@ -11,7 +11,7 @@ extend_arr arr, brr
 print arr   # [1, 2, 3, 4]
 ```
 
-It can be used like below.
+可以如下使用。
 
 ```python
 var arr = [1, 2]

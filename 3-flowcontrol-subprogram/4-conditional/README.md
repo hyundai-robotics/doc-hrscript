@@ -1,4 +1,3 @@
-﻿# 3.4 Conditional Statements
+﻿# 3.4 条件语句
 
-These statements allow a certain operation to be or not to be executed depending on certain conditions.
-
+这些语句允许根据某些条件执行或不执行某个操作。

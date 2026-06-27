@@ -1,19 +1,19 @@
-﻿# 7.4.1 `BBuf` creator
+﻿# 7.4.1 `BBuf` 创建者
 
-### Description
+### 描述
 
-Create binary buffer object. Returns the reference of the created object.
+创建二进制缓冲区对象。返回创建对象的引用。
 
-### Syntax
+### 语法
 
 `BBuf()`
 
 
-### Return value
+### 返回值
 
-Reference of the created object.
+创建对象的引用。
 
-### Example
+### 示例
 
 ```python
 var bbuf = BBuf()

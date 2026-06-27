@@ -1,7 +1,7 @@
-﻿# Safety Cautions
+﻿# 安全注意事项
 
-{% include file="en/safety-notice.md" %}
+{% include file="zh/safety-notice.md" %}
 
 {% hint style="danger" %}
-During the execution of a user script, logic errors or unmet execution conditions may cause unexpected robot behavior, potentially resulting in serious injury or death.
+在用户脚本执行期间，逻辑错误或未满足的执行条件可能导致机器人行为异常，从而可能导致严重伤害或死亡。
 {% endhint %}

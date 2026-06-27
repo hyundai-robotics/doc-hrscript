@@ -1,14 +1,14 @@
-﻿# `open`
+# `open`
 
-### Description
+### 描述
 
-Opens a connection for Ethernet TCP or UDP communication.
+打开以进行以太网 TCP 或 UDP 通信的连接。
 
-### Syntax
+### 语法
 
 `{ENet object}.open`
 
-### Example
+### 示例
 
 ```python
 enet_to_sensor.open

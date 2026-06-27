@@ -1,14 +1,12 @@
-﻿# recv
+# recv
 
 ### Description
 
-Call `Sci`'s `recv` to receive a string.
-
+调用 `Sci` 的 `recv` 以接收字符串。
 
 ### Syntax
 
 &lt;Sci object&gt;.recv string variable \[,{timeout}\] \[,{goto address}\]
-
 
 ### Parameters
 
@@ -24,29 +22,28 @@ Call `Sci`'s `recv` to receive a string.
     <tr>
       <td>string variable</td>
       <td>
-        A string variable that will hold the entered string when successfully received.<br>
+        成功接收到的字符串将会存储在此字符串变量中。<br>
       </td>
       <td></td>
     </tr>
     <tr>
       <td>timeout</td>
       <td>
-        When no data is received for a specified time, it branches to the goto address, and if there is no goto address, an error occurs.<br>
-        If not specified, it waits indefinitely.
+        当在指定时间内未接收到数据时，将跳转到 goto 地址，如果没有 goto 地址，则会发生错误。<br>
+        如果未指定，将无限期等待。
       </td>
       <td>msec</td>
     </tr>
     <tr>
       <td>goto address</td>
       <td>
-        Address to branch to when timeout occurs.<br>
-        If not specified, it stops with an error.
+        当发生超时时跳转的地址。<br>
+        如果未指定，将以错误停止。
       </td>
       <td>address</td>
     </tr>
   </tbody>
 </table>
-
 
 ### Example
 
@@ -60,6 +57,3 @@ Call `Sci`'s `recv` to receive a string.
    print "timeout error"
    stop
 ```
-
-
-

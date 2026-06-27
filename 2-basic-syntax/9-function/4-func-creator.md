@@ -1,14 +1,14 @@
-﻿# 2.9.4 Constructor Functions
+# 2.9.4 构造函数
 
-These functions receive an input of a parameter and then create and return an object.
+这些函数接收一个参数的输入，然后创建并返回一个对象。
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Function</th>
-      <th style="text-align:left">Description</th>
-      <th style="text-align:left">Example of usage</th>
-      <th style="text-align:left">Result</th>
+      <th style="text-align:left">函数</th>
+      <th style="text-align:left">描述</th>
+      <th style="text-align:left">用法示例</th>
+      <th style="text-align:left">结果</th>
     </tr>
   </thead>
   <tbody>
@@ -18,10 +18,10 @@ These functions receive an input of a parameter and then create and return an ob
         <p>Array(a, b, c)</p>
       </td>
       <td style="text-align:left">
-        <p>Creates and returns an array of &#x201C;n&#x201D; elements</p>
-        <p>The initial value of the element is 0.</p>
-        <p>A multidimensional array is created if two or more elements are designated.</p>
-        <p>Refer to &quot;<a href="../../4-array-object/1-array/3-array-creator">4.1.3 Array Constructor Function - Array()</a>&quot;.</p>
+        <p>创建并返回一个包含“n”个元素的数组</p>
+        <p>元素的初始值为0。</p>
+        <p>如果指定两个或更多元素，则会创建多维数组。</p>
+        <p>请参阅 &quot;<a href="../../4-array-object/1-array/3-array-creator">4.1.3 数组构造函数 - Array()</a>&quot;。</p>
       </td>
       <td style="text-align:left">
         <p>Array(900)</p>
@@ -35,23 +35,20 @@ These functions receive an input of a parameter and then create and return an ob
     <tr>
       <td style="text-align:left">Pose(element)</td>
       <td style="text-align:left">
-        <p>Creates and returns a pose object</p>
-        <p>Refer to &quot;<a href="../../5-moving-robot/1-pose.md">5.1 Pose</a>&quot;.</p>
+        <p>创建并返回一个姿态对象</p>
+        <p>请参阅 &quot;<a href="../../5-moving-robot/1-pose.md">5.1 姿态</a>&quot;。</p>
       </td>
       <td style="text-align:left"></td>
-      <td style="text-align:left">Pose object</td>
+      <td style="text-align:left">姿态对象</td>
     </tr>
     <tr>
       <td style="text-align:left">Shift(element)</td>
       <td style="text-align:left">
-        <p>Creates and returns a shift object</p>
-        <p>Refer to &quot;<a href="../../5-moving-robot/2-shift.md">5.2 Shift</a>&quot;.</p>
+        <p>创建并返回一个移动对象</p>
+        <p>请参阅 &quot;<a href="../../5-moving-robot/2-shift.md">5.2 移动</a>&quot;。</p>
       </td>
       <td style="text-align:left"></td>
-      <td style="text-align:left">Shift object</td>
+      <td style="text-align:left">移动对象</td>
     </tr>
   </tbody>
 </table>
-
-
-

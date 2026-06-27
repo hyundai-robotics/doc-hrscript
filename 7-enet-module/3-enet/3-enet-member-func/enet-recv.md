@@ -1,8 +1,8 @@
-﻿# `recv`
+# `recv`
 
 ### Description
 
-Receives string data from the Ethernet object. The received string can be get from return value or `result()` function.
+从以太网对象接收字符串数据。接收到的字符串可以通过返回值或 `result()` 函数获取。
 
 
 ### Syntax
@@ -24,16 +24,16 @@ Receives string data from the Ethernet object. The received string can be get fr
     <tr>
       <td>waiting time</td>
       <td>
-        timeout. If elapsed, proceed to the next command or jump to the address on timeout.<br>
-        If not specified, wait ininfinitely.
+        超时。如果超时，则执行下一个命令或跳转到超时的地址。<br>
+        如果未指定，则无限期等待。
       </td>
       <td>msec</td>
     </tr>
     <tr>
       <td>address on timeout</td>
       <td>
-        address to which jump on timeout.<br>
-        If not specified, proceed to next command.
+        超时后跳转的地址。<br>
+        如果未指定，则执行下一个命令。
       </td>
       <td>address</td>
     </tr>
@@ -43,7 +43,7 @@ Receives string data from the Ethernet object. The received string can be get fr
 
 ### Return value
 
-The received string.
+接收到的字符串。
 
 
 ### Example
@@ -56,6 +56,6 @@ msg=enet_to_sensor.recv(5000,*TimeOut)
 end
 
 *TimeOut
-print "Time out! No response from sensor"
+print "超时！来自传感器没有响应"
 end
 ```

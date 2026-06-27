@@ -1,14 +1,14 @@
-﻿# `close`
+# `关闭 (close)`
 
-### Description
+### 描述
 
-Closes the connection for Ethernet TCP or UDP communication.
+关闭以进行以太网 TCP 或 UDP 通信的连接。
 
-### Syntax
+### 语法
 
 `{ENet object}.close`
 
-### Example
+### 示例
 
 ```python
 enet_to_sensor.close

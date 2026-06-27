@@ -1,3 +1,3 @@
-﻿# 7.1 peer-to-peer, client example
+﻿# 7.1 对等网络，客户端示例
 
-The UDP peer-to-peer (1:1 communication), or TCP client example program is explained for string and binary transmission.
+UDP 对等网络 (1:1 通信) 或 TCP 客户端示例程序用于字符串和二进制传输的说明。

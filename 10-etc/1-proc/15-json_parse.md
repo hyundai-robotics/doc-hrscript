@@ -30,11 +30,11 @@ The result of parsing will be stored in `r.data`. An error may occur if the proc
   <tbody>
   <tr>
     <td style="text-align:left">parsing</td>
-    <td style="text-align:left">The JSON string is still being parsed. The data cannot be used yet.</td>
+    <td style="text-align:left">JSON 字符串仍在被解析中。数据尚不可用。</td>
   </tr>
   <tr>
     <td style="text-align:left">finished</td>
-    <td style="text-align:left">JSON string parsing is complete. The data can now be used.</td>
+    <td style="text-align:left">JSON 字符串解析完成。数据现在可以使用。</td>
   </tr>
   </tbody>
 </table>
@@ -45,22 +45,22 @@ The result of parsing will be stored in `r.data`. An error may occur if the proc
 ```python
     json_parse "[1, 2, 3, 4]"
     var r = result()
-    wait r.status == "finished", 10 # Wait for the process to complete, with a maximum timeout of 10 seconds.
-    var jr = r.data   # The type of r.data is array
-    print jr          # [1, 2, 3, 4] printed
+    wait r.status == "finished", 10 # 等待进程完成，最大超时为 10 秒。
+    var jr = r.data   # r.data 的类型为 array
+    print jr          # [1, 2, 3, 4] 打印
 ```
 
 ```python
     json_parse "3.141592"
     var r = result()
-    wait r.status == "finished", 10 # Wait for the process to complete, with a maximum timeout of 10 seconds.
-    var jr = r.data    # The type of r.data is double
-    print jr           # 3.141592 printed
+    wait r.status == "finished", 10 # 等待进程完成，最大超时为 10 秒。
+    var jr = r.data    # r.data 的类型为 double
+    print jr           # 3.141592 打印
 ```
 ```python
-    json_parse "{\"test\": \"value\"}" # Double quotes must be escaped inside a JSON string.
+    json_parse "{\"test\": \"value\"}" # 双引号必须在 JSON 字符串中进行转义。
     var r = result()
-    wait r.status == "finished", 10 # Wait for the process to complete, with a maximum timeout of 10 seconds.
-    var jr = r.data    # The type of r.data is JObject
-    print jr           # { _type: "JObject", _sub_file: "", _desc: "", test: "value" } printed
+    wait r.status == "finished", 10 # 等待进程完成，最大超时为 10 秒。
+    var jr = r.data    # r.data 的类型为 JObject
+    print jr           # { _type: "JObject", _sub_file: "", _desc: "", test: "value" } 打印
 ```

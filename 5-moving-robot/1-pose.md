@@ -1,70 +1,67 @@
-﻿# 5.1 Pose
+# 5.1 位姿
 
-Pose is an object type embedded in the ${cont_model} Controller and represents each axis of the robot or the Cartesian coordinates and direction of the tool tip. 
+位姿是嵌入在 ${cont_model} 控制器中的对象类型，表示机器人每个轴或工具尖端的笛卡尔坐标和方向。
 
-Poses are created by calling the constructor function `Pose()`. All function parameters are position parameters. The first string element is recognized as the `format`, and the second string element as the `config`. The remaining elements are all numeric type.
+通过调用构造函数 `Pose()` 来创建位姿。所有函数参数都是位置参数。第一个字符串元素被识别为 `format`，第二个字符串元素为 `config`。其余元素均为数值类型。
 
 ### format
-Multiple sub-elements including the coordinate system are listed, separated by semicolons (;). Each sub-element is optional and can appear in any order.
+多个子元素，包括坐标系，用分号 (;) 分隔列出。每个子元素都是可选的，可以按任何顺序出现。
 
 <table>
   <tr>
-    <th>Sub-element name</th>
-    <th>Type</th>
-    <th>Description</th>
+    <th>子元素名称</th>
+    <th>类型</th>
+    <th>描述</th>
   </tr>
   <tr>
     <td>crd</td>
-    <td>string</td>
-    <td>coordinate system.<br>If omitted, joint coordinate system is used.<br>
-See table below.</td>
+    <td>字符串</td>
+    <td>坐标系。<br>如果省略，则使用关节坐标系。<br>请参见下表。</td>
   </tr>
   <tr>
     <td>sync(p1,p2)</td>
-    <td>p1, p2 : real</td>
-    <td>sensor sync (1 or 2 position values)</td>
+    <td>p1, p2 : 实数</td>
+    <td>传感器同步 (1 或 2 个位置值)</td>
   </tr>
   <tr>
     <td>mi(mech#[, ...])</td>
-    <td>Each mech number : integer 0~7</td>
-    <td>Mechanism configuration.<br>(mi stands for mech.info.)<br>If omitted, all mechanisms are included.</td>
+    <td>每个机械数字 : 整数 0~7</td>
+    <td>机械配置。<br>(mi 代表 mech.info.)<br>如果省略，则包含所有机械。</td>
   </tr>
 </table>
 
-Examples of format;
+格式示例；
 ```python
-"base,mi(0,2)" # Base coord., mech. 0 and 2 included
-"" # Coord. omitted (joint), no sensor sync, mechinfo omitted (all mech.)
-"sync(20.5,-12.0),robot" # Sensor sync (pos.1=20.5, pos.2=-12.0), robot coord.
+"base,mi(0,2)" # 基坐标，包含机械 0 和 2
+"" # 坐标省略（关节），无传感器同步，机械信息省略（所有机械）
+"sync(20.5,-12.0),robot" # 传感器同步（pos.1=20.5, pos.2=-12.0），机器人坐标
 ```
 
 {% hint style="info" %}
-The cfg element specifies the robot configuration. For more information, refer to "[2.3.2.2 Base and Robot Recording Coordinates](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/2-operation/3-step/2-step-pose-modify/2-base-robot-crd-sys?cont_model=${cont_model})" in the ${cont_model} Robot Controller Operation Manual.
+cfg 元素指定机器人配置。有关更多信息，请参阅 ${cont_model} 控制器操作手册中的 "[2.3.2.2 基础和机器人记录坐标](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/zh-tp630/2-operation/3-step/2-step-pose-modify/2-base-robot-crd-sys?cont_model=${cont_model})"。
 {% endhint %}
 
-
-
 ```python
-var <pose variable name> = Pose(j1, j2, j3, ...)		# axis coordinate
-var <pose variable name> = Pose(x, y, z, rx, ry, rz, j7, j8,..., crd, cfg)		# base coord.
+var <pose 变量名称> = Pose(j1, j2, j3, ...)		# 轴坐标
+var <pose 变量名称> = Pose(x, y, z, rx, ry, rz, j7, j8,..., crd, cfg)		# 基坐标
 ```
 
-Refer to the following examples of creating the poses for 6 axes + 1 additional axis and for Cartesian + 1 additional axis.
+请参考以下创建 6 轴 + 1 个附加轴和笛卡尔 + 1 个附加轴的位姿示例。
 
 ```python
-var po1 = Pose(10, 90, 0, 0, -30, 0, -1240.8)				# axis coordinate
-var po2 = Pose(1850, 0, 2010.5, 0, -90, 0, -1240.8, "base", "fl;r2")	# base coord.
-var po3 = Pose(-1140.8, "mi(2)")	# joint coord., mech. 2
+var po1 = Pose(10, 90, 0, 0, -30, 0, -1240.8)				# 轴坐标
+var po2 = Pose(1850, 0, 2010.5, 0, -90, 0, -1240.8, "base", "fl;r2")	# 基坐标
+var po3 = Pose(-1140.8, "mi(2)")	# 关节坐标，机械 2
 ```
 
-Alternatively, the pose constructor function may be called using a single array or string parameter. With this, files or data may be converted into poses, acquired through remote communication, and used.
+或者，可以使用单个数组或字符串参数调用位姿构造函数。通过这种方式，可以将文件或数据转换为位姿，通过远程通信获取并使用。
 
 ```python
-var <pose variable name> = Pose(array)
-var <pose variable name> = Pose(string)
+var <pose 变量名称> = Pose(array)
+var <pose 变量名称> = Pose(string)
 ```
 
-Refer to the following example.
+请参考以下示例。
 
 ```python
 var arr = [10, 90, 0, 0, -30, 0, -1240.8]
@@ -73,7 +70,7 @@ var po3 = Pose(arr)
 var po4 = Pose(str)
 ```
 
-Elements of the pose object can be accessed with the following keys.
+位姿对象的元素可以使用以下键访问。
 
 
 
@@ -81,68 +78,68 @@ Elements of the pose object can be accessed with the following keys.
 
 <table>
   <tr>
-    <th>Key</th>
-    <th>Type</th>
-    <th>Value range</th>
-    <th>Description</th>
-    <th>Unit, Remarks</th>
+    <th>键</th>
+    <th>类型</th>
+    <th>值范围</th>
+    <th>描述</th>
+    <th>单位，备注</th>
   </tr>
     <tr>
     <td>nj</td>
-    <td>Integer</td>
+    <td>整数</td>
     <td>1~32</td>
-    <td>Axis count</td>
+    <td>轴数</td>
     <td> </td>
   </tr>
    </tr>
     <tr>
     <td>j1~j32</td>
-    <td>Real</td>
-    <td>8-byte real mumber</td>
-    <td>Axis value</td>
-    <td>mm, deg</td>
+    <td>实数</td>
+    <td>8 字节实数</td>
+    <td>轴值</td>
+    <td>毫米，度</td>
   </tr>
    </tr>
     <tr>
     <td>x, y, z</td>
-    <td>Real</td>
-    <td>8-byte real mumber</td>
-    <td>Tool position in Cartesian coordinate</td>
-    <td>mm</td>
+    <td>实数</td>
+    <td>8 字节实数</td>
+    <td>工具在笛卡尔坐标中的位置</td>
+    <td>毫米</td>
   </tr>
    </tr>
     <tr>
     <td>rx, ry, rz</td>
-    <td>Real</td>
-    <td>8-byte real mumber</td>
-    <td>Euler angle of tool orientation</td>
-    <td>deg</td>
+    <td>实数</td>
+    <td>8 字节实数</td>
+    <td>工具方向的欧拉角</td>
+    <td>度</td>
   </tr>
   <tr>
     <td rowspan="4">crd</td>
-    <td rowspan="4">String</td>
-    <td>joint</td>
-    <td>Joint coordinate (default)</td>
+    <td rowspan="4">字符串</td>
+    <td>关节</td>
+    <td>关节坐标（默认）</td>
     <td rowspan="4"></td>
   </tr>
   <tr>
-    <td>base</td>
-    <td>Base coordinate</td>
+    <td>基</td>
+    <td>基坐标</td>
   </tr>
   <tr>
-    <td>robot</td>
-    <td>Robot coordinate</td>
+    <td>机器人</td>
+    <td>机器人坐标</td>
   </tr>
   <tr>
     <td>u1 ~ u10</td>
-    <td>User coordinate</td>
+    <td>用户坐标</td>
   </tr>
   <tr>
     <td rowspan="8">cfg</td>
-    <td rowspan="8">String</td>
+    <td rowspan="8">字符串</td>
     <td>s</td>
     <td>|S|>=180</td>
-    <td rowspan="7">Possible to perform<br>combination by <br>dividing with ";"<br><br>The default is all flags turned off.</td>
+    <td rowspan="7">可以通过用“;”分隔进行组合。</td>
   </tr>
   <tr>
     <td>r1</td>
@@ -158,53 +155,49 @@ Elements of the pose object can be accessed with the following keys.
   </tr>
   <tr>
     <td>re</td>
-    <td>rear</td>
+    <td>后</td>
   </tr>
   <tr>
     <td>dn</td>
-    <td>down</td>
+    <td>下</td>
   </tr>
   <tr>
     <td>nf</td>
-    <td>non-flip</td>
+    <td>非翻转</td>
   </tr>
   <tr>
-    <td>auto</td>
-    <td>auto (automatic desision)</td>
+    <td>自动</td>
+    <td>自动（自动决策）</td>
     <td></td>
   </tr>
   <tr>
     <td>mechinfo</td>
-    <td>Integer</td>
+    <td>整数</td>
     <td>-1 ~ 255</td>
-    <td>bitfield<br>(bit0:M0, bit1:M1, .... bit7:M7)<br>-1 is all mech.</td>
-    <td>Only the bits corresponding to the included mechanisms are set to 1.</td>
+    <td>位字段<br>(bit0:M0, bit1:M1, .... bit7:M7)<br>-1表示所有机械。</td>
+    <td>仅设置与包含的机械对应的位为 1。</td>
   </tr>
   <tr>
     <td>nsync</td>
-    <td>Integer</td>
+    <td>整数</td>
     <td>0~2</td>
-    <td>The number of sensor-sync</td>
+    <td>传感器同步的数量</td>
     <td></td>
   </tr>
   <tr>
     <td>sync</td>
-    <td>String (p1, p2; integer)</td>
+    <td>字符串 (p1, p2; 整数)</td>
     <td>sync(p1,p2)</td>
-    <td>Sensor-sync values</td>
+    <td>传感器同步值</td>
     <td>sync(220.5,195.3)</td>
   </tr>
 </table>
 
+1. 对于 V60.06-06 或更早版本，`fl` 是 `non-fl`。
 
-1. For V60.06-06 or older versions, `fl` is `non-fl`.
-
-The pose element values can be accessed as shown in the following example.
+位姿元素值可以如下示例所示进行访问。
 
 ```python
 po1.j2 = po1.j2 + 5
 print po2.z, po2.cfg
 ```
-
-
-
