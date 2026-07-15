@@ -8559,7 +8559,7 @@ intr_def문은 인터럽트 조건과 감시 구간, 그리고 인터럽트 발�
 ### 기능 요약
 
 - 인터럽트 감시 구간에서만 동작합니다.
-- 인터럽트 조건식으로는 산술식을 모두 지원합니다.
+- 인터럽트 조건식으로는 산술식을 모두 지원합니다. (단, 지역변수 사용 불가)
 - 인터럽트 프로그램 수행 중 또 다른 인터럽트 처리(다중 인터럽트)도 허용합니다.
 
 
@@ -8573,7 +8573,7 @@ intr_def문은 인터럽트 조건과 감시 구간, 그리고 인터럽트 발�
 ### 문법
 
 ```python
-intr_def <on/off>,no=<인터럽트 번호>,var=<인터럽트 조건>,val=<조건 일치값>,job=<호출 프로그램>,[once]
+intr_def <on/off>,no=<인터럽트 번호>,cnd=<인터럽트 조건식>,job=<호출 프로그램>,[once]
 ```
 
 ### 파라미터
@@ -8596,7 +8596,7 @@ intr_def <on/off>,no=<인터럽트 번호>,var=<인터럽트 조건>,val=<조건
         <li>off: 정의된 인터럽트 삭제. (3번째 이후의 파라미터 무시됨)</li>
         </ul>
       </td>
-      <td style="text-align:left">문자열식</td>
+      <td style="text-align:left">문자열</td>
     </tr>
     <tr>
       <td style="text-align:left">인터럽트 번호</td>
@@ -8606,18 +8606,11 @@ intr_def <on/off>,no=<인터럽트 번호>,var=<인터럽트 조건>,val=<조건
       <td style="text-align:left">산술식(1~8)</td>
     </tr>
     <tr>
-      <td style="text-align:left">인터럽트 조건</td>
+      <td style="text-align:left">인터럽트 조건식</td>
       <td style="text-align:left">
-        인터럽트를 발생시킬 조건식을 정의<br>
+        인터럽트를 발생시킬 조건식을 지정. (지역변수 사용불가)<br>
       </td>
-      <td style="text-align:left">변수</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">조건 일치값</td>
-      <td style="text-align:left">
-        인터럽트 발생을 위한 인터럽트의 조건식의 값<br>
-      </td>
-      <td style="text-align:left">산술식</td>
+      <td style="text-align:left">문자열</td>
     </tr>
     <tr>
       <td style="text-align:left">호출 프로그램</td>
@@ -8645,7 +8638,7 @@ intr_def <on/off>,no=<인터럽트 번호>,var=<인터럽트 조건>,val=<조건
 ### 사용 예
 
 ```python
-   intr_def on,no=1,var=di5,val=1,job=24,once #인터럽트 정의
+   intr_def on,no=1,cnd="di5==1",job=24,once #인터럽트 정의
    move P,spd=30%,accu=3,tool=1
    move L,spd=30mm/s,accu=3,tool=1
    ...
