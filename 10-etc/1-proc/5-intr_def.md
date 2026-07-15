@@ -13,7 +13,7 @@ An interrupt function is a type of program call. When the robot works in an inte
 ### Brief
 
 - Operates only in interrupt watch intervals.
-- Arithmetic expressions are supported as interrupt conditional expressions.
+- Arithmetic expressions are supported as interrupt conditional expressions. (However, local variables cannot be used.)
 - Allow another interrupt handling (multiple interrupt) while performing an interrupt program.
 
 
@@ -29,7 +29,7 @@ All defined interrupts are automatically cleared if the following actions occur.
 ### Sample
 
 ```python
-intr_def <on/off>,no=<interrupt number>,var=<interrupt condition>,val=<condition matching value>,job=<call program number>,[once]
+intr_def <on/off>,no=<interrupt number>,cnd=<interrupt conditional expression>,job=<call program number>,[once]
 ```
 
 ### Parameters
@@ -62,18 +62,11 @@ intr_def <on/off>,no=<interrupt number>,var=<interrupt condition>,val=<condition
       <td style="text-align:left">arithmetic expression</td>
     </tr>
     <tr>
-      <td style="text-align:left">interrupt condition</td>
+      <td style="text-align:left">interrupt conditional expression</td>
       <td style="text-align:left">
-        The conditional expression that will cause an interrupt.
+        The conditional expression that will cause an interrupt. (Local variables cannot be used.)
       </td>
-      <td style="text-align:left">variable</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">condition matching value</td>
-      <td style="text-align:left">
-        The value of the conditional expression to generate interrupt.
-      </td>
-      <td style="text-align:left">arithmetic expression</td>
+      <td style="text-align:left">string</td>
     </tr>
     <tr>
       <td style="text-align:left">call program number</td>
@@ -101,7 +94,7 @@ intr_def <on/off>,no=<interrupt number>,var=<interrupt condition>,val=<condition
 ### Sample
 
 ```python
-   intr_def on,no=1,var=di5,val=1,job=24,once # Defines interrupt
+   intr_def on,no=1,cnd="di5==1",job=24,once # Defines interrupt
    move P,spd=30%,accu=3,tool=1
    move L,spd=30mm/s,accu=3,tool=1
    ...
