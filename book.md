@@ -9562,7 +9562,7 @@ res = _task[1].enable
 
 ### Description
 
-- Read the registered tool data (weight/center of mass/inertia) or change the tool data.
+- Read the number of the currently selected tool or the registered tool data (weight/center of mass/inertia) and change the tool data.
 - If the tool data is not registered or if the member is not valid, an error occurs and the job execution is interrupted.
 
 
@@ -9591,6 +9591,7 @@ _tool[5].izz = <arithmetic expression>
 ### Sample
 
 ```python
+   print _tool_no # Print the number of the currently selected tool.
    var sft=Shift(100,20,30,0,0,0,"tool")
    _tool3=sft
    move L,spd=30%,accu=1,tool=3
