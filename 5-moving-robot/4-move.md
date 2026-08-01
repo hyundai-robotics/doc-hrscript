@@ -1,30 +1,30 @@
 # 5.4 `移动 (move)`
 
-The `移动 (move)` statement is a procedure for moving the robot. The format is as follows.
+`移动 (move)` 语句是用于移动机器人的指令，其格式如下。
 
-### Description
+### 描述
 
 机器人的工具提示移动到位姿位置。
 
-### Syntax
+### 语法
 
-move &lt;interpolation&gt;, \[tg=&lt;pose/shift&gt;\], spd=&lt;speed&gt;, accu=&lt;accuracy&gt;
+```python
+move <插补>, [tg=<pose/shift>], spd=<速度>, accu=<精度>, tool=<工具编号> [, x=<赋值语句>] [until <条件表达式>]
+```
 
-, tool=&lt;tool number&gt; \[x=&lt;assignment statement&gt;,\] \[until &lt;conditional expression&gt;\]
-
-### Parameter
+### 参数
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Parameter</th>
-      <th style="text-align:left">Description</th>
-      <th style="text-align:left">Remarks</th>
+      <th style="text-align:left">参数</th>
+      <th style="text-align:left">描述</th>
+      <th style="text-align:left">备注</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align:left">Interpolation</td>
+      <td style="text-align:left">插补</td>
       <td style="text-align:left">
         <p>P: 轴插补;</p>
         <p>L: 线性插补;</p>
@@ -45,7 +45,7 @@ move &lt;interpolation&gt;, \[tg=&lt;pose/shift&gt;\], spd=&lt;speed&gt;, accu=&
       <td style="text-align:left">位姿表达式或签名移位表达式</td>
     </tr>
     <tr>
-      <td style="text-align:left">Speed</td>
+      <td style="text-align:left">速度</td>
       <td style="text-align:left">
         <p>工具提示的移动速度</p>
         <p>应添加单位（mm/sec, cm/min, sec, %）。</p>
@@ -53,7 +53,7 @@ move &lt;interpolation&gt;, \[tg=&lt;pose/shift&gt;\], spd=&lt;speed&gt;, accu=&
       <td style="text-align:left">算术表达式</td>
     </tr>
     <tr>
-      <td style="text-align:left">Accuracy</td>
+      <td style="text-align:left">精度</td>
       <td style="text-align:left">
         <p>算术表达式</p>
         <p>值越低，越准确。如果为0，操作将不连续地发生。</p>
@@ -61,13 +61,13 @@ move &lt;interpolation&gt;, \[tg=&lt;pose/shift&gt;\], spd=&lt;speed&gt;, accu=&
       <td style="text-align:left">0~7</td>
     </tr>
     <tr>
-      <td style="text-align:left">Tool number</td>
+      <td style="text-align:left">工具编号</td>
       <td style="text-align:left">机器人操作时使用的工具的编号</td>
       <td
       style="text-align:left">0~31</td>
     </tr>
       <tr>
-      <td style="text-align:left">Assignment statement</td>
+      <td style="text-align:left">赋值语句</td>
       <td style="text-align:left">
         <p>当移动开始时，将从左到右顺序执行要执行的赋值语句。</p>
       </td>
@@ -76,7 +76,7 @@ move &lt;interpolation&gt;, \[tg=&lt;pose/shift&gt;\], spd=&lt;speed&gt;, accu=&
       </td>
     </tr>
     <tr>
-      <td style="text-align:left">Conditional expression</td>
+      <td style="text-align:left">条件表达式</td>
       <td style="text-align:left">
         <p>一旦条件表达式为真，机器人操作将结束，指定的姿态被认为已达到。</p>
         <p>条件表达式的结果可以通过result()函数获得。</p>
@@ -94,6 +94,6 @@ move P,tg=+Shift(0,0,0,0,-10,0),spd=80%,accu=1,tool=3,x="do1=1;do2=2",until di2 
 if result() then *sensor_on
 ```
 
-If the `[Record]` button of the teach pendant is pressed, a `移动 (move)` statement in hidden pose type will be recorded as the current robot position. The hidden pose value can be checked or edited by placing the cursor on the `移动 (move)` statement and pressing the `[Property]` button. 
+如果按下示教器的 `[Record]` 按钮，则会将当前机器人的位置记录为隐藏位姿类型的 `移动 (move)` 语句。将光标放在 `移动 (move)` 语句上并按下 `[Property]` 按钮，即可查看或编辑隐藏的位姿值。
 
-When the `[Command]` button is pressed and the `[Motion]` group is opened, select the move menu. As a result, a pose-type `移动 (move)` statement is recorded.
+按下 `[Command]` 按钮并打开 `[Motion]` 组后，选择 move 菜单。此时，将记录一个位姿类型的 `移动 (move)` 语句。
