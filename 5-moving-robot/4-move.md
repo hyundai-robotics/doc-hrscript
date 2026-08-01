@@ -8,9 +8,10 @@ The robot"s tool tip moves to the pose position.
 
 ### Syntax
 
-move &lt;interpolation&gt;, \[tg=&lt;pose/shift&gt;\], spd=&lt;speed&gt;, accu=&lt;accuracy&gt;
+```python
+move <interpolation>, [tg=<pose/shift>], spd=<speed>, accu=<accuracy>, tool=<tool number> [, x=<assignment statements>] [until <conditional expression>]
+```
 
-, tool=&lt;tool number&gt; \[x=&lt;assignment statement&gt;,\] \[until &lt;conditional expression&gt;\]
 
 ### Parameter
 
@@ -69,12 +70,12 @@ move &lt;interpolation&gt;, \[tg=&lt;pose/shift&gt;\], spd=&lt;speed&gt;, accu=&
       style="text-align:left">0~31</td>
     </tr>
       <tr>
-      <td style="text-align:left">Assignment statement</td>
+      <td style="text-align:left">Assignment statements</td>
       <td style="text-align:left">
         <p>When move starts, the assignment statements to be executed are carried out sequentially from left to right.</p>
       </td>
-      <td style="text-align:left">True if not 0 False if 0
-      <p>"&lt;assignment statement1;assignment statement2;...&gt;"<\p>
+      <td style="text-align:left">
+      <p>"&lt;assignment statement1;assignment statement2;...&gt;"</p>
       </td>
     </tr>
     <tr>
