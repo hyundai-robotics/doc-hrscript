@@ -8,9 +8,9 @@ move문은 로봇을 움직이는 프로시져입니다. 형식은 아래와 같
 
 ### 문법
 
-move &lt;보간&gt;, \[tg=&lt;포즈/시프트&gt;\], spd=&lt;속도&gt;, accu=&lt;정밀도&gt;
-
-, tool=&lt;툴 번호&gt; \[x=&lt;대입문&gt;,\] \[until &lt;조건식&gt;\]
+```python
+move <보간>, [tg=<포즈/시프트>], spd=<속도>, accu=<정밀도>, tool=<툴 번호> [, x=<대입문들>] [until <조건식>]
+```
 
 ### 파라미터
 
@@ -96,13 +96,13 @@ move &lt;보간&gt;, \[tg=&lt;포즈/시프트&gt;\], spd=&lt;속도&gt;, accu=&
       <td style="text-align:left">0~31</td>
     </tr>
     <tr>
-      <td style="text-align:left">대입문</td>
+      <td style="text-align:left">대입문들</td>
       <td style="text-align:left">
-        <p>move 출발 시, 수행 할 대입문
+        <p>move 출발 시, 수행 할 대입문들의 문자열
           <br
           />
         </p>
-        <p>왼쪽부터 순차적으로 각 대입문이 수행됩니다.
+        <p>왼쪽부터 세미콜론(;)으로 분할된 각 대입문들이 수행됩니다.
           <br
           />
         </p>
