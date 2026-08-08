@@ -14,7 +14,7 @@
 <br>
 
 ### UDP peer-to-peer
-```python
+```hrscript
      # 1. enet 모듈 import 후, 생성자로 ENet 객체 생성
      import enet
      var cli=enet.ENet() # 객체 생성 시 default 는 "udp"
