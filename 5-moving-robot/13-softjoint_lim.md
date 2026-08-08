@@ -35,7 +35,7 @@ softjoint_lim, j=3, sft=50, ang=30, thr=10
 > * 문턱값(thr) 제한 설정 : 2번 축 3(Nm), 3번 축 5(Nm) 
 
 
-```python
+```hrscript
 S1   move P,spd=100mm/sec,accu=0,tool=0
      delay 2.0 # softjoint on 하기 전에 delay 설정 필수  
      softjoint_lim j=2,sft=30,ang=50,thr=3
