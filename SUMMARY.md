@@ -210,3 +210,4 @@
     * [_total_ax 변수](10-etc/3-sysvar/_total_ax.md)
     * [_aux_ax 변수](10-etc/3-sysvar/_aux_ax.md)
     * [_mech_type 변수](10-etc/3-sysvar/_mech_type.md)
+    * [_triggout.w241_enable 변수](10-etc/3-sysvar/_triggout.w241_enable.md)

@@ -1363,7 +1363,7 @@ cli.ip_addr="192.168.1.172" # (3)
       <td style="text-align:left">레이블 (label)</td>
       <td style="text-align:left">
         레이블은 명령문에 지정하는 것이 아니라 그 자체로 명령문입니다.<br>
-        \* 뒤에 <a href="../2-basic-syntax/2-identifier">식별자</a>를 붙인 형식입니다. 단 식별자의 길이는 128자 이하여야 합니다.
+        * 뒤에 <a href="../2-basic-syntax/2-identifier">식별자</a>를 붙인 형식입니다. 단 식별자의 길이는 128자 이하여야 합니다.
       </td>
       <td style="text-align:left">*timeout</td>
     </tr>
@@ -3422,9 +3422,9 @@ move문은 로봇을 움직이는 프로시져입니다. 형식은 아래와 같
 
 ### 문법
 
-move &lt;보간&gt;, \[tg=&lt;포즈/시프트&gt;\], spd=&lt;속도&gt;, accu=&lt;정밀도&gt;
-
-, tool=&lt;툴 번호&gt; \[x=&lt;대입문&gt;,\] \[until &lt;조건식&gt;\]
+```python
+move <보간>, [tg=<포즈/시프트>], spd=<속도>, accu=<정밀도>, tool=<툴 번호> [, x=<대입문들>] [until <조건식>]
+```
 
 ### 파라미터
 
@@ -3510,13 +3510,13 @@ move &lt;보간&gt;, \[tg=&lt;포즈/시프트&gt;\], spd=&lt;속도&gt;, accu=&
       <td style="text-align:left">0~31</td>
     </tr>
     <tr>
-      <td style="text-align:left">대입문</td>
+      <td style="text-align:left">대입문들</td>
       <td style="text-align:left">
-        <p>move 출발 시, 수행 할 대입문
+        <p>move 출발 시, 수행 할 대입문들의 문자열
           <br
           />
         </p>
-        <p>왼쪽부터 순차적으로 각 대입문이 수행됩니다.
+        <p>왼쪽부터 세미콜론(;)으로 분할된 각 대입문들이 수행됩니다.
           <br
           />
         </p>
@@ -4179,7 +4179,7 @@ softjoint_lim, j=3, sft=50, ang=30, thr=10
 > * 문턱값(thr) 제한 설정 : 2번 축 3(Nm), 3번 축 5(Nm) 
 
 
-```python
+```hrscript
 S1   move P,spd=100mm/sec,accu=0,tool=0
      delay 2.0 # softjoint on 하기 전에 delay 설정 필수  
      softjoint_lim j=2,sft=30,ang=50,thr=3
@@ -6196,7 +6196,7 @@ UDP peer-to-peer (1:1통신), 혹은 TCP client 예제 프로그램을 문자열
 <br>
 
 ### UDP peer-to-peer
-```python
+```hrscript
      # 1. enet 모듈 import 후, 생성자로 ENet 객체 생성
      import enet
      var cli=enet.ENet() # 객체 생성 시 default 는 "udp"
@@ -10396,4 +10396,44 @@ res = _mech_type
    print _mech_type
    ...
    end
+```
+
+[__SOURCE](10-etc/3-sysvar/_triggout.w241_enable.md)
+# _triggout.w241_enable 변수
+
+_triggout.w241_enable은 거리 기반 triggout 명령어 사용 시, 신호 출력 성공 여부 판단에 실패했을 때 발생하는 경고 메시지를 켜고 끌 수 있는 시스템 변수입니다. 
+
+### 설명
+
+0또는 1의 값을 설정 할수 있으며, default값은 1입니다.
+
+### 문법
+
+```python
+_triggout.w241_enable=0
+```
+
+### 사용 예
+
+```python
+     # 경고 출력 기능 비활성화, 제어기 부팅시 default 값은 1 
+     triggout.w241_enable=0
+     
+     print "warning mode = ",_triggout.w241_enable
+     
+     var cmd_dist=-20
+     do20=0
+     
+S1   move P,spd=30%,accu=0,tool=0  
+     delay 1
+S2   move P,spd=cmd_spd%,accu=cmd_acc,tool=0 
+     
+     #---------------------------
+     triggout do20,val=1,dist=cmd_dist,j=5
+     #---------------------------
+     
+S3   move P,spd=cmd_spd%,accu=cmd_acc,tool=0  
+S4   move P,spd=cmd_spd%,accu=cmd_acc,tool=0  
+     delay 1
+     end
 ```
