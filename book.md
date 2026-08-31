@@ -7947,7 +7947,11 @@ If you save all .csv by specifying "*", it does not delete the .csv files in the
 
 ### Description
 
-Specifies the start and end of gathering with `gather`. The gathering result file is saved as follows;
+Specifies the start and end of gathering with `gather`. 
+
+You must configure what data to collect and in what format in advance on the [Data gathering](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/11-etc/3-data-gather?cont_model=${cont_model}) screen.
+
+The gathering result file is saved as follows;
 - Storage path: MAIN/project
 - File name: 0001.GDT to 0030.GDT
 
