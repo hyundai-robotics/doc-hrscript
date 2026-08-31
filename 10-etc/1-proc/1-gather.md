@@ -4,7 +4,11 @@
 
 ### 설명
 
-`gather`를 통해 데이터를 수집 시작과 종료를 지정합니다. 수집 결과 파일은 아래와 같이 저장됩니다.
+`gather`를 통해 데이터를 수집 시작과 종료를 지정합니다.
+
+어떤 데이터를 어떤 형식으로 수집할 것인지는 [데이터 수집](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/ko-tp630/11-etc/3-data-gather?cont_model=${cont_model}) 화면에서 미리 설정해둬야 합니다.
+
+ 수집 결과 파일은 아래와 같이 저장됩니다.
 - 저장 경로: MAIN/project
 - 파일명: 0001.GDT ~ 0030.GDT
 
