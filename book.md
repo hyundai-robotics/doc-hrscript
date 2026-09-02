@@ -8304,8 +8304,10 @@ S2   move L,spd=100%,accu=0,tool=0
      delay 1.5
 S3   move L,spd=100%,accu=0,tool=0
      gather 0
+     wait gather_state()==0
      end
 ```
+
 [__SOURCE](10-etc/1-proc/2-tonl.md)
 # 10.1.2 tonl문
 

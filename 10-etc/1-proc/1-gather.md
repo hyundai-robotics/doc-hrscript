@@ -58,5 +58,6 @@ S2   move L,spd=100%,accu=0,tool=0
      delay 1.5
 S3   move L,spd=100%,accu=0,tool=0
      gather 0
+     wait gather_state()==0
      end
 ```
