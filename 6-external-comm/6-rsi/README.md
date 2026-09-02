@@ -35,14 +35,14 @@ Tags are structured as follows. <br>
 
 ##### Basic tags <br>
 
-- cur_po : These are the current values ​​for the robot's position and orientation. (x, y, z, rx, ry, rz) 
+- cur_po : These are the current values   for the robot's position and orientation. (x, y, z, rx, ry, rz) 
 - tsp : This is the time elapsed from the previous data transmission to the current data transmission.(us) <br>
 - index : It is a value that is initialized to 0 after rsi.on is executed and increases by 1 each time data is transmitted. <br>
 You can use this to check for missing communications.
 - trigger : This is a tag automatically generated with a value of 0 after running rsi.on. <br>
 You can change the value to 1 by executing rsi.put("trigger", 1) and configure logic to read and process the value from the sensor device.  
 ##### Option tags <br>
-- cpo_cmd : These are command values ​​for the robot's position and orientation. (x, y, z, rx, ry, rz)  <br>
+- cpo_cmd : These are command values   for the robot's position and orientation. (x, y, z, rx, ry, rz)  <br>
 When you execute rsi.put("cmd_po"), the "cmd_po" tag is added in the same format as the "cur_po" tag.
 - User tags : You can add user tags and change the value of these tags by executing rsi.put("tag name", value). <br>
 <br>
