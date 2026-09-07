@@ -5844,7 +5844,7 @@ Hyundai Robot Job File; { version: 1.6, mech_type: "", total_axis: -1, aux_axis:
      var ret
 
      # send start
-     ret=rsi.on
+     rsi.on
      ret=rsi.put("cmd_po")  # Include "cmd_po" tag
 
      move L,spd=100mm/s,accu=1,tool=1
