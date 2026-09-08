@@ -7945,11 +7945,16 @@ If you save all .csv by specifying "*", it does not delete the .csv files in the
 
 `gather` is the procedure that specifies the start and end of the gathering when you use the data gathering function.
 
+{% hint style="warning" %}
+* It is a diagnostic command intended for controller service technicians and developers. Do not use during normal operation.
+
+{% endhint %}
+
 ### Description
 
 Specifies the start and end of gathering with `gather`. 
 
-You must configure what data to collect and in what format in advance on the [Data gathering](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/11-etc/3-data-gather?cont_model=${cont_model}) screen.
+You must configure what data to collect and in what format in advance on the `Service - Data gathering` screen.
 
 The gathering result file is saved as follows;
 - Storage path: MAIN/project
