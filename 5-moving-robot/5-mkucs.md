@@ -15,6 +15,8 @@ A command that creates a user coordinate system with three poses or one pose.
 ```python
 <result variable> = mkucs(<user coord. system number>,<step order>,<origin pose>,<axis pose>,<plane pose>)
 or
+<result variable> = mkucs(<user coord. system number>,<origin pose>,<axis pose>,<plane pose>)
+or
 <result variable> = mkucs(<user coord. system number>,<origin pose>)
 ```
 
