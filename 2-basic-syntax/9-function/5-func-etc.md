@@ -41,6 +41,8 @@
         <p>mkucs(n,po)</p>
         <p>mkucs(n,po1,po2,po3)</p>
         <p>mkucs(n,"OXY",po1,po2,po3)</p>
+        <p>mkucs(n,"OXY",po1,po2,po3,"robot")</p>
+        <p>mkucs(n,"OXY",po1,po2,po3,"positioner-1")</p>
       </td>
       <td style="text-align:left">
         <p>Creates and registers the nth user coordinate system object</p>
