@@ -39,7 +39,9 @@
       <td style="text-align:left">
         mkucs(n,po)<br>
         mkucs(n,po1,po2,po3)<br>
-        mkucs(n,"OXY",po1,po2,po3)
+        mkucs(n,"OXY",po1,po2,po3)<br>
+        mkucs(n,"OXY",po1,po2,po3,"robot")<br>
+        mkucs(n,"OXY",po1,po2,po3,"positioner-1")
       </td>
       <td style="text-align:left">
         n번 사용자좌표계 객체를 생성하여 등록합니다.<br>
