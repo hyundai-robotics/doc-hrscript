@@ -15,7 +15,8 @@ It does not matter if there are any number of spaces or tabs before and after th
 
 Proper indentation in statements is recommended for readability. Both spaces and tabs are allowed for indentation and do not affect the operation during execution.
 
+{% hint style="warning" %}
+For versions V70.02-XX and earlier, the length of a statement cannot exceed 254 bytes, excluding the null terminator.
 
-
-
-
+For versions V70.04-00 and later, there is no length restriction on statements.
+{% endhint %}
