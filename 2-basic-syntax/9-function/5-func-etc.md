@@ -139,6 +139,12 @@
       </td>
       <td style="text-align:left">로봇의 포즈*</td>
     </tr>
+    <tr>
+      <td style="text-align:left"><a href="../../10-etc/2-func/7-auto_backup.md">auto_backup()</a></td>
+      <td style="text-align:left">제어기 데이터의 비동기 자동 백업을 요청합니다. 인수는 없습니다. <br> (V70.04-03 이상에서 지원)</td>
+      <td style="text-align:left">var backup_result=auto_backup()</td>
+      <td style="text-align:left">0 : 요청 접수(백업 완료 아님)<br>0 이외 : 요청 실패</td>
+    </tr>
 
   </tbody>
 </table>

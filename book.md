@@ -1259,6 +1259,12 @@ var str="hello, world"가 실행된 상태에서의 예
       </td>
       <td style="text-align:left">로봇의 포즈*</td>
     </tr>
+    <tr>
+      <td style="text-align:left"><a href="../../10-etc/2-func/7-auto_backup.md">auto_backup()</a></td>
+      <td style="text-align:left">제어기 데이터의 비동기 자동 백업을 요청합니다. 인수는 없습니다. <br> (V70.04-03 이상에서 지원)</td>
+      <td style="text-align:left">var backup_result=auto_backup()</td>
+      <td style="text-align:left">0 : 요청 접수(백업 완료 아님)<br>0 이외 : 요청 실패</td>
+    </tr>
 
   </tbody>
 </table>
@@ -9843,6 +9849,52 @@ result=sigout(<출력 신호명>,<비트 수>,<출력 값>)
 ```
 
 
+[__SOURCE](10-etc/2-func/7-auto_backup.md)
+# 10.2.7 auto_backup 함수
+
+### 설명
+
+제어기 데이터의 자동 백업을 요청합니다. 프로그램의 조건에 따라 분석용 데이터를 백업하는 데 사용할 수 있습니다.
+
+백업은 별도 스레드에서 비동기로 수행됩니다. 이 함수는 백업 완료를 기다리지 않고 요청 결과를 반환합니다.
+
+(V70.04-03 이상 지원)
+
+
+### 문법
+
+```python
+     var backup_result=auto_backup()
+```
+
+
+### 파라미터
+
+없음. 
+
+
+### 반환값
+
+|값|의미|
+|:--|:--|
+|0|자동 백업 요청이 접수되었습니다. 백업 완료를 의미하지 않습니다.|
+|< 0|이미 백업 또는 복원이 수행 중이어서 요청이 접수되지 않았습니다. |
+
+
+### 사용 예
+
+아래 비교문은 해당 작업 구간의 마지막 용접이 완료된 후, 다음 사이클 시작 또는 카운터 초기화 전에 실행합니다.
+
+```python
+     if (_spot_gun[1].weld_count != 34)
+         var backup_result=auto_backup()
+         if (backup_result != 0)
+             print "자동 백업 요청 실패: ",backup_result
+         endif
+     endif
+```
+
+
 [__SOURCE](10-etc/3-sysvar/README.md)
 # 10.3 시스템 변수
 
@@ -10063,6 +10115,58 @@ _tool[5].izz = <산술식>
    move L,spd=30%,accu=1,tool=3
    end
 ```
+
+
+[__SOURCE](10-etc/3-sysvar/_spot_cnd.md)
+# _spot_cnd 변수
+
+### 설명
+
+스폿 용접조건별 클리어런스 값을 읽거나 변경하는 시스템 변수입니다. <br>
+조건번호는 1부터 시작합니다.
+
+|멤버|의미|접근|
+|:--|:--|:--|
+|`fixed_tip_clearance`|고정전극 클리어런스|읽기·쓰기|
+|`moving_tip_clearance`|이동전극 클리어런스|읽기·쓰기|
+
+### 문법 및 사용 예
+
+```python
+     var clearance=_spot_cnd[1].fixed_tip_clearance
+     _spot_cnd[1].fixed_tip_clearance=clearance
+```
+
+
+[__SOURCE](10-etc/3-sysvar/_spot_gun.md)
+# _spot_gun 변수
+
+### 설명
+
+스폿 건별 마모량과 용접 완료 타점 수를 읽거나 변경하는 시스템 변수입니다. <br>
+건번호는 1부터 시작합니다.
+
+|멤버|의미|접근|
+|:--|:--|:--|
+|`fixed_tip_consump`|고정전극 마모량|읽기·쓰기|
+|`moving_tip_consump`|이동전극 마모량|읽기·쓰기|
+|`total_tip_consump`|고정전극 마모량과 이동전극 마모량의 합|읽기 전용|
+|`weld_count`|해당 건의 용접 완료 타점 수 <br> (V70.04-03 이상에서 지원)|읽기·쓰기|
+
+### 문법
+
+```python
+     var wear=_spot_gun[1].fixed_tip_consump
+     var total_wear=_spot_gun[1].total_tip_consump
+     var count=_spot_gun[1].weld_count
+     _spot_gun[1].weld_count=0
+```
+
+### weld_count의 동작
+
+- 해당 건의 용접 완료가 판정되면 1 증가합니다. 팁드레싱과 서보건 자동 설정 동작은 계산하지 않습니다.
+- 사이클 시작 시 모든 건의 카운터가 0으로 초기화됩니다.
+- 전원 재투입 시 저장된 값이 복원되며, 전원 복구만으로 초기화하지 않습니다.
 
 
 [__SOURCE](10-etc/3-sysvar/_vel_rpm_cmd.md)
