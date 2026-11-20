@@ -141,6 +141,12 @@
       </td>
       <td style="text-align:left">Pose*</td>
     </tr>
+    <tr>
+      <td style="text-align:left"><a href="../../10-etc/2-func/7-auto_backup.md">auto_backup()</a></td>
+      <td style="text-align:left">Requests an asynchronous automatic backup of controller data. No arguments are required. <br> (Supported from V70.04-03)</td>
+      <td style="text-align:left">var backup_result=auto_backup()</td>
+      <td style="text-align:left">0: Request accepted (backup not necessarily finished)<br>Nonzero: Request failed</td>
+    </tr>
 
   </tbody>
 </table>

@@ -1150,12 +1150,17 @@ These functions receive an input of a parameter and then create and return an ob
       </td>
       <td style="text-align:left">Pose*</td>
     </tr>
+    <tr>
+      <td style="text-align:left"><a href="../../10-etc/2-func/7-auto_backup.md">auto_backup()</a></td>
+      <td style="text-align:left">Requests an asynchronous automatic backup of controller data. No arguments are required. <br> (Supported from V70.04-03)</td>
+      <td style="text-align:left">var backup_result=auto_backup()</td>
+      <td style="text-align:left">0: Request accepted (backup not necessarily finished)<br>Nonzero: Request failed</td>
+    </tr>
 
   </tbody>
 </table>
 
 \* Pose is a data type that represents the posture of the robot or the position of the tool tip. Details will be described later in "[5.1 Pose](../../5-moving-robot/1-pose.md)".
-
 
 [__SOURCE](2-basic-syntax/10-import.md)
 # 2.10 `import`
@@ -9414,6 +9419,47 @@ result=sigout(<output signal>,<number of bits>,<output value>)
 ```
 
 
+[__SOURCE](10-etc/2-func/7-auto_backup.md)
+# 10.2.7 `auto_backup`
+
+### Description
+
+Requests an automatic backup of controller data. This function can be used to back up data for analysis based on conditions in the program.
+
+The backup runs asynchronously in a separate thread. This function returns the result of the request without waiting for the backup to finish.
+
+Supported from V70.04-03.
+
+### Syntax
+
+```python
+     var backup_result=auto_backup()
+```
+
+### Parameters
+
+None.
+
+### Return value
+
+|Value|Meaning|
+|:--|:--|
+|0|The automatic backup request was accepted. This does not mean that the backup has finished.|
+|< 0|The request was not accepted because a backup or restore operation is already in progress.|
+
+### Sample
+
+Execute the following comparison after the last weld in the work section has finished and before the next cycle starts or the counter is reset.
+
+```python
+     if (_spot_gun[1].weld_count != 34)
+         var backup_result=auto_backup()
+         if (backup_result != 0)
+             print "Automatic backup request failed: ",backup_result
+         endif
+     endif
+```
+
 [__SOURCE](10-etc/3-sysvar/README.md)
 # 10.3 System variables
 
@@ -9644,6 +9690,56 @@ _tool[5].izz = <arithmetic expression>
    move L,spd=30%,accu=1,tool=3
    end
 ```
+
+[__SOURCE](10-etc/3-sysvar/_spot_cnd.md)
+# `_spot_cnd`
+
+### Description
+
+A system variable for reading or changing clearance values for each spot welding condition. <br>
+Condition numbers start from 1.
+
+|Member|Meaning|Access|
+|:--|:--|:--|
+|`fixed_tip_clearance`|Fixed tip clearance|Read/write|
+|`moving_tip_clearance`|Moving tip clearance|Read/write|
+
+### Syntax and sample
+
+```python
+     var clearance=_spot_cnd[1].fixed_tip_clearance
+     _spot_cnd[1].fixed_tip_clearance=clearance
+```
+
+[__SOURCE](10-etc/3-sysvar/_spot_gun.md)
+# `_spot_gun`
+
+### Description
+
+A system variable for reading or changing tip wear amounts and the completed weld count for each spot welding gun. <br>
+Gun numbers start from 1.
+
+|Member|Meaning|Access|
+|:--|:--|:--|
+|`fixed_tip_consump`|Fixed tip wear amount|Read/write|
+|`moving_tip_consump`|Moving tip wear amount|Read/write|
+|`total_tip_consump`|Sum of the fixed tip and moving tip wear amounts|Read-only|
+|`weld_count`|Number of completed welds for the gun <br> (Supported from V70.04-03)|Read/write|
+
+### Syntax
+
+```python
+     var wear=_spot_gun[1].fixed_tip_consump
+     var total_wear=_spot_gun[1].total_tip_consump
+     var count=_spot_gun[1].weld_count
+     _spot_gun[1].weld_count=0
+```
+
+### Behavior of weld_count
+
+- Increments by 1 when welding is determined to be complete for the gun. Tip dressing and servo gun automatic setting operations are not counted.
+- The counters for all guns are reset to 0 at the start of a cycle.
+- The saved value is restored when the power is turned on again. Restoring power alone does not reset the counter.
 
 [__SOURCE](10-etc/3-sysvar/_vel_rpm_cmd.md)
 # `_vel_rpm_cmd`
