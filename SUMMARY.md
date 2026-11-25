@@ -59,6 +59,7 @@
     * [3.8.1 지역변수](3-flowcontrol-subprogram/8-local-global-var/1-local-var.md)
     * [3.8.2 전역변수](3-flowcontrol-subprogram/8-local-global-var/2-global-var.md)
     * [3.8.3 우선순위](3-flowcontrol-subprogram/8-local-global-var/3-precedence.md)
+  * [3.9. 편집에 의한 흐름제어 클리어](3-flowcontrol-subprogram/9-flowctrl-cleared.md)
 * [4. 배열과 객체](4-array-object/README.md)
   * [4.1 배열](4-array-object/1-array/README.md)
     * [4.1.1 배열](4-array-object/1-array/1-1d-array.md)
