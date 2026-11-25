@@ -61,6 +61,7 @@
     * [3.8.1 Local Variables](3-flowcontrol-subprogram/8-local-global-var/1-local-var.md)
     * [3.8.2 Global Variables](3-flowcontrol-subprogram/8-local-global-var/2-global-var.md)
     * [3.8.3 Precedence](3-flowcontrol-subprogram/8-local-global-var/3-precedence.md)
+  * [3.9. Flow Control State May Be Cleared When Editing](3-flowcontrol-subprogram/9-flowctrl-cleared.md)
 * [4. Arrays and Objects](4-array-object/README.md)
   * [4.1 Arrays](4-array-object/1-array/README.md)
     * [4.1.1 Arrays](4-array-object/1-array/1-1d-array.md)
